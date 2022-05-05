@@ -819,7 +819,7 @@ library
     , http-client
     , http-types
     , bytestring
-    , aeson >=0.6 && <1.6
+    , aeson >=0.6 && <1.6 || >= 2.0.1.0 && < 2.1
     , unordered-containers
     , vector
     , scientific

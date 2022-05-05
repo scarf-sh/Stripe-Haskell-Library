@@ -1,3 +1,4 @@
+{-# LANGUAGE CPP #-}
 {-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE OverloadedStrings #-}
@@ -27,6 +28,10 @@ module StripeAPI.Common
     ClientM,
   )
 where
+
+#if MIN_VERSION_aeson(2,0,0)
+import qualified Data.Aeson.KeyMap            as KeyMap
+#endif
 
 import qualified Control.Monad.IO.Class as MIO
 import qualified Control.Monad.Reader as MR
@@ -272,7 +277,12 @@ jsonToFormDataFlat _ Aeson.Null = []
 jsonToFormDataFlat name (Aeson.Number a) = [(name, encodeStrict a)]
 jsonToFormDataFlat name (Aeson.String a) = [(name, textToByte a)]
 jsonToFormDataFlat name (Aeson.Bool a) = [(name, encodeStrict a)]
-jsonToFormDataFlat _ (Aeson.Object object) = HMap.toList object >>= uncurry jsonToFormDataFlat
+jsonToFormDataFlat _ (Aeson.Object object) = 
+#if MIN_VERSION_aeson(2,0,0)
+  HMap.toList (KeyMap.toHashMapText object) >>= uncurry jsonToFormDataFlat
+#else
+  HMap.toList object >>= uncurry jsonToFormDataFlat
+#endif 
 jsonToFormDataFlat name (Aeson.Array vector) = Vector.toList vector >>= jsonToFormDataFlat name
 
 -- | creates form data bytestring array
@@ -307,9 +317,17 @@ jsonToFormDataPrefixed prefix (Aeson.Bool False) = [(prefix, "false")]
 jsonToFormDataPrefixed _ Aeson.Null = []
 jsonToFormDataPrefixed prefix (Aeson.String a) = [(prefix, a)]
 jsonToFormDataPrefixed "" (Aeson.Object object) =
+#if MIN_VERSION_aeson(2,0,0)
+  HMap.toList (KeyMap.toHashMapText object) >>= uncurry jsonToFormDataPrefixed
+#else
   HMap.toList object >>= uncurry jsonToFormDataPrefixed
+#endif
 jsonToFormDataPrefixed prefix (Aeson.Object object) =
+#if MIN_VERSION_aeson(2,0,0)
+  HMap.toList (KeyMap.toHashMapText object) >>= (\(x, y) -> jsonToFormDataPrefixed (prefix <> "[" <> x <> "]") y)
+#else
   HMap.toList object >>= (\(x, y) -> jsonToFormDataPrefixed (prefix <> "[" <> x <> "]") y)
+#endif
 jsonToFormDataPrefixed prefix (Aeson.Array vector) =
   Vector.toList vector >>= jsonToFormDataPrefixed (prefix <> "[]")
 
