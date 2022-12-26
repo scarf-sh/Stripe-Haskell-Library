@@ -234,7 +234,7 @@ createBaseRequest ::
   -- | The Response from the server
   HS.Request
 createBaseRequest config method path queryParams =
-  configSecurityScheme config $
+  HS.addRequestHeader "Stripe-Version" "2022-11-15" $ configSecurityScheme config $
     addUserAgent $
       HS.setRequestMethod (textToByte method) $
         HS.setRequestQueryString query $
