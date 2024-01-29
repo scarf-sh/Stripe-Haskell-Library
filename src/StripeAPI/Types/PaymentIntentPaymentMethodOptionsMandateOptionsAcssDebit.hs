@@ -100,10 +100,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptionsMan
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "combined" -> PaymentIntentPaymentMethodOptionsMandateOptionsAcssDebitPaymentSchedule'NonNullableEnumCombined
-            | val GHC.Classes.== "interval" -> PaymentIntentPaymentMethodOptionsMandateOptionsAcssDebitPaymentSchedule'NonNullableEnumInterval
-            | val GHC.Classes.== "sporadic" -> PaymentIntentPaymentMethodOptionsMandateOptionsAcssDebitPaymentSchedule'NonNullableEnumSporadic
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptionsMandateOptionsAcssDebitPaymentSchedule'NonNullableOther val
+          | val GHC.Classes.== "combined" -> PaymentIntentPaymentMethodOptionsMandateOptionsAcssDebitPaymentSchedule'NonNullableEnumCombined
+          | val GHC.Classes.== "interval" -> PaymentIntentPaymentMethodOptionsMandateOptionsAcssDebitPaymentSchedule'NonNullableEnumInterval
+          | val GHC.Classes.== "sporadic" -> PaymentIntentPaymentMethodOptionsMandateOptionsAcssDebitPaymentSchedule'NonNullableEnumSporadic
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptionsMandateOptionsAcssDebitPaymentSchedule'NonNullableOther val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_intent_payment_method_options_mandate_options_acss_debit.properties.transaction_type@ in the specification.
@@ -130,7 +130,7 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptionsMan
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "business" -> PaymentIntentPaymentMethodOptionsMandateOptionsAcssDebitTransactionType'NonNullableEnumBusiness
-            | val GHC.Classes.== "personal" -> PaymentIntentPaymentMethodOptionsMandateOptionsAcssDebitTransactionType'NonNullableEnumPersonal
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptionsMandateOptionsAcssDebitTransactionType'NonNullableOther val
+          | val GHC.Classes.== "business" -> PaymentIntentPaymentMethodOptionsMandateOptionsAcssDebitTransactionType'NonNullableEnumBusiness
+          | val GHC.Classes.== "personal" -> PaymentIntentPaymentMethodOptionsMandateOptionsAcssDebitTransactionType'NonNullableEnumPersonal
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptionsMandateOptionsAcssDebitTransactionType'NonNullableOther val
       )

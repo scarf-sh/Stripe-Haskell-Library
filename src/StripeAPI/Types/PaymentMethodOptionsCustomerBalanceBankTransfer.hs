@@ -96,12 +96,12 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentMethodOptionsCustomerBalanceB
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "iban" -> PaymentMethodOptionsCustomerBalanceBankTransferRequestedAddressTypes'EnumIban
-            | val GHC.Classes.== "sepa" -> PaymentMethodOptionsCustomerBalanceBankTransferRequestedAddressTypes'EnumSepa
-            | val GHC.Classes.== "sort_code" -> PaymentMethodOptionsCustomerBalanceBankTransferRequestedAddressTypes'EnumSortCode
-            | val GHC.Classes.== "spei" -> PaymentMethodOptionsCustomerBalanceBankTransferRequestedAddressTypes'EnumSpei
-            | val GHC.Classes.== "zengin" -> PaymentMethodOptionsCustomerBalanceBankTransferRequestedAddressTypes'EnumZengin
-            | GHC.Base.otherwise -> PaymentMethodOptionsCustomerBalanceBankTransferRequestedAddressTypes'Other val
+          | val GHC.Classes.== "iban" -> PaymentMethodOptionsCustomerBalanceBankTransferRequestedAddressTypes'EnumIban
+          | val GHC.Classes.== "sepa" -> PaymentMethodOptionsCustomerBalanceBankTransferRequestedAddressTypes'EnumSepa
+          | val GHC.Classes.== "sort_code" -> PaymentMethodOptionsCustomerBalanceBankTransferRequestedAddressTypes'EnumSortCode
+          | val GHC.Classes.== "spei" -> PaymentMethodOptionsCustomerBalanceBankTransferRequestedAddressTypes'EnumSpei
+          | val GHC.Classes.== "zengin" -> PaymentMethodOptionsCustomerBalanceBankTransferRequestedAddressTypes'EnumZengin
+          | GHC.Base.otherwise -> PaymentMethodOptionsCustomerBalanceBankTransferRequestedAddressTypes'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_method_options_customer_balance_bank_transfer.properties.type@ in the specification.
@@ -134,9 +134,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentMethodOptionsCustomerBalanceB
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "eu_bank_transfer" -> PaymentMethodOptionsCustomerBalanceBankTransferType'NonNullableEnumEuBankTransfer
-            | val GHC.Classes.== "gb_bank_transfer" -> PaymentMethodOptionsCustomerBalanceBankTransferType'NonNullableEnumGbBankTransfer
-            | val GHC.Classes.== "jp_bank_transfer" -> PaymentMethodOptionsCustomerBalanceBankTransferType'NonNullableEnumJpBankTransfer
-            | val GHC.Classes.== "mx_bank_transfer" -> PaymentMethodOptionsCustomerBalanceBankTransferType'NonNullableEnumMxBankTransfer
-            | GHC.Base.otherwise -> PaymentMethodOptionsCustomerBalanceBankTransferType'NonNullableOther val
+          | val GHC.Classes.== "eu_bank_transfer" -> PaymentMethodOptionsCustomerBalanceBankTransferType'NonNullableEnumEuBankTransfer
+          | val GHC.Classes.== "gb_bank_transfer" -> PaymentMethodOptionsCustomerBalanceBankTransferType'NonNullableEnumGbBankTransfer
+          | val GHC.Classes.== "jp_bank_transfer" -> PaymentMethodOptionsCustomerBalanceBankTransferType'NonNullableEnumJpBankTransfer
+          | val GHC.Classes.== "mx_bank_transfer" -> PaymentMethodOptionsCustomerBalanceBankTransferType'NonNullableEnumMxBankTransfer
+          | GHC.Base.otherwise -> PaymentMethodOptionsCustomerBalanceBankTransferType'NonNullableOther val
       )

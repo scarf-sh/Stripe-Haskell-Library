@@ -122,12 +122,12 @@ instance Data.Aeson.Types.FromJSON.FromJSON ShippingRateDeliveryEstimateMaximum'
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "business_day" -> ShippingRateDeliveryEstimateMaximum'NonNullableUnit'EnumBusinessDay
-            | val GHC.Classes.== "day" -> ShippingRateDeliveryEstimateMaximum'NonNullableUnit'EnumDay
-            | val GHC.Classes.== "hour" -> ShippingRateDeliveryEstimateMaximum'NonNullableUnit'EnumHour
-            | val GHC.Classes.== "month" -> ShippingRateDeliveryEstimateMaximum'NonNullableUnit'EnumMonth
-            | val GHC.Classes.== "week" -> ShippingRateDeliveryEstimateMaximum'NonNullableUnit'EnumWeek
-            | GHC.Base.otherwise -> ShippingRateDeliveryEstimateMaximum'NonNullableUnit'Other val
+          | val GHC.Classes.== "business_day" -> ShippingRateDeliveryEstimateMaximum'NonNullableUnit'EnumBusinessDay
+          | val GHC.Classes.== "day" -> ShippingRateDeliveryEstimateMaximum'NonNullableUnit'EnumDay
+          | val GHC.Classes.== "hour" -> ShippingRateDeliveryEstimateMaximum'NonNullableUnit'EnumHour
+          | val GHC.Classes.== "month" -> ShippingRateDeliveryEstimateMaximum'NonNullableUnit'EnumMonth
+          | val GHC.Classes.== "week" -> ShippingRateDeliveryEstimateMaximum'NonNullableUnit'EnumWeek
+          | GHC.Base.otherwise -> ShippingRateDeliveryEstimateMaximum'NonNullableUnit'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.shipping_rate_delivery_estimate.properties.minimum.anyOf@ in the specification.
@@ -192,10 +192,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON ShippingRateDeliveryEstimateMinimum'
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "business_day" -> ShippingRateDeliveryEstimateMinimum'NonNullableUnit'EnumBusinessDay
-            | val GHC.Classes.== "day" -> ShippingRateDeliveryEstimateMinimum'NonNullableUnit'EnumDay
-            | val GHC.Classes.== "hour" -> ShippingRateDeliveryEstimateMinimum'NonNullableUnit'EnumHour
-            | val GHC.Classes.== "month" -> ShippingRateDeliveryEstimateMinimum'NonNullableUnit'EnumMonth
-            | val GHC.Classes.== "week" -> ShippingRateDeliveryEstimateMinimum'NonNullableUnit'EnumWeek
-            | GHC.Base.otherwise -> ShippingRateDeliveryEstimateMinimum'NonNullableUnit'Other val
+          | val GHC.Classes.== "business_day" -> ShippingRateDeliveryEstimateMinimum'NonNullableUnit'EnumBusinessDay
+          | val GHC.Classes.== "day" -> ShippingRateDeliveryEstimateMinimum'NonNullableUnit'EnumDay
+          | val GHC.Classes.== "hour" -> ShippingRateDeliveryEstimateMinimum'NonNullableUnit'EnumHour
+          | val GHC.Classes.== "month" -> ShippingRateDeliveryEstimateMinimum'NonNullableUnit'EnumMonth
+          | val GHC.Classes.== "week" -> ShippingRateDeliveryEstimateMinimum'NonNullableUnit'EnumWeek
+          | GHC.Base.otherwise -> ShippingRateDeliveryEstimateMinimum'NonNullableUnit'Other val
       )

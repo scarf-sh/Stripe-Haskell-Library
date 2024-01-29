@@ -92,8 +92,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON SubscriptionsResourcePauseCollection
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "keep_as_draft" -> SubscriptionsResourcePauseCollectionBehavior'EnumKeepAsDraft
-            | val GHC.Classes.== "mark_uncollectible" -> SubscriptionsResourcePauseCollectionBehavior'EnumMarkUncollectible
-            | val GHC.Classes.== "void" -> SubscriptionsResourcePauseCollectionBehavior'EnumVoid
-            | GHC.Base.otherwise -> SubscriptionsResourcePauseCollectionBehavior'Other val
+          | val GHC.Classes.== "keep_as_draft" -> SubscriptionsResourcePauseCollectionBehavior'EnumKeepAsDraft
+          | val GHC.Classes.== "mark_uncollectible" -> SubscriptionsResourcePauseCollectionBehavior'EnumMarkUncollectible
+          | val GHC.Classes.== "void" -> SubscriptionsResourcePauseCollectionBehavior'EnumVoid
+          | GHC.Base.otherwise -> SubscriptionsResourcePauseCollectionBehavior'Other val
       )

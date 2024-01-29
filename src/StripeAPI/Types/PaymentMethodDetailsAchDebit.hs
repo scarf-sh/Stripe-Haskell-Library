@@ -115,7 +115,7 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentMethodDetailsAchDebitAccountH
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "company" -> PaymentMethodDetailsAchDebitAccountHolderType'NonNullableEnumCompany
-            | val GHC.Classes.== "individual" -> PaymentMethodDetailsAchDebitAccountHolderType'NonNullableEnumIndividual
-            | GHC.Base.otherwise -> PaymentMethodDetailsAchDebitAccountHolderType'NonNullableOther val
+          | val GHC.Classes.== "company" -> PaymentMethodDetailsAchDebitAccountHolderType'NonNullableEnumCompany
+          | val GHC.Classes.== "individual" -> PaymentMethodDetailsAchDebitAccountHolderType'NonNullableEnumIndividual
+          | GHC.Base.otherwise -> PaymentMethodDetailsAchDebitAccountHolderType'NonNullableOther val
       )

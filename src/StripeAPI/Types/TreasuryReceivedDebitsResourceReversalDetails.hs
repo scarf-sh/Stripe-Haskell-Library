@@ -92,10 +92,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON TreasuryReceivedDebitsResourceRevers
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "already_reversed" -> TreasuryReceivedDebitsResourceReversalDetailsRestrictedReason'NonNullableEnumAlreadyReversed
-            | val GHC.Classes.== "deadline_passed" -> TreasuryReceivedDebitsResourceReversalDetailsRestrictedReason'NonNullableEnumDeadlinePassed
-            | val GHC.Classes.== "network_restricted" -> TreasuryReceivedDebitsResourceReversalDetailsRestrictedReason'NonNullableEnumNetworkRestricted
-            | val GHC.Classes.== "other" -> TreasuryReceivedDebitsResourceReversalDetailsRestrictedReason'NonNullableEnumOther
-            | val GHC.Classes.== "source_flow_restricted" -> TreasuryReceivedDebitsResourceReversalDetailsRestrictedReason'NonNullableEnumSourceFlowRestricted
-            | GHC.Base.otherwise -> TreasuryReceivedDebitsResourceReversalDetailsRestrictedReason'NonNullableOther val
+          | val GHC.Classes.== "already_reversed" -> TreasuryReceivedDebitsResourceReversalDetailsRestrictedReason'NonNullableEnumAlreadyReversed
+          | val GHC.Classes.== "deadline_passed" -> TreasuryReceivedDebitsResourceReversalDetailsRestrictedReason'NonNullableEnumDeadlinePassed
+          | val GHC.Classes.== "network_restricted" -> TreasuryReceivedDebitsResourceReversalDetailsRestrictedReason'NonNullableEnumNetworkRestricted
+          | val GHC.Classes.== "other" -> TreasuryReceivedDebitsResourceReversalDetailsRestrictedReason'NonNullableEnumOther
+          | val GHC.Classes.== "source_flow_restricted" -> TreasuryReceivedDebitsResourceReversalDetailsRestrictedReason'NonNullableEnumSourceFlowRestricted
+          | GHC.Base.otherwise -> TreasuryReceivedDebitsResourceReversalDetailsRestrictedReason'NonNullableOther val
       )

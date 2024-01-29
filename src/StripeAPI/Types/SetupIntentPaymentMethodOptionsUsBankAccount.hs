@@ -87,8 +87,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON SetupIntentPaymentMethodOptionsUsBan
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> SetupIntentPaymentMethodOptionsUsBankAccountVerificationMethod'EnumAutomatic
-            | val GHC.Classes.== "instant" -> SetupIntentPaymentMethodOptionsUsBankAccountVerificationMethod'EnumInstant
-            | val GHC.Classes.== "microdeposits" -> SetupIntentPaymentMethodOptionsUsBankAccountVerificationMethod'EnumMicrodeposits
-            | GHC.Base.otherwise -> SetupIntentPaymentMethodOptionsUsBankAccountVerificationMethod'Other val
+          | val GHC.Classes.== "automatic" -> SetupIntentPaymentMethodOptionsUsBankAccountVerificationMethod'EnumAutomatic
+          | val GHC.Classes.== "instant" -> SetupIntentPaymentMethodOptionsUsBankAccountVerificationMethod'EnumInstant
+          | val GHC.Classes.== "microdeposits" -> SetupIntentPaymentMethodOptionsUsBankAccountVerificationMethod'EnumMicrodeposits
+          | GHC.Base.otherwise -> SetupIntentPaymentMethodOptionsUsBankAccountVerificationMethod'Other val
       )

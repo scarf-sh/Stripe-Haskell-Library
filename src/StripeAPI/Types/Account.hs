@@ -341,11 +341,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON AccountBusinessType'NonNullable wher
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "company" -> AccountBusinessType'NonNullableEnumCompany
-            | val GHC.Classes.== "government_entity" -> AccountBusinessType'NonNullableEnumGovernmentEntity
-            | val GHC.Classes.== "individual" -> AccountBusinessType'NonNullableEnumIndividual
-            | val GHC.Classes.== "non_profit" -> AccountBusinessType'NonNullableEnumNonProfit
-            | GHC.Base.otherwise -> AccountBusinessType'NonNullableOther val
+          | val GHC.Classes.== "company" -> AccountBusinessType'NonNullableEnumCompany
+          | val GHC.Classes.== "government_entity" -> AccountBusinessType'NonNullableEnumGovernmentEntity
+          | val GHC.Classes.== "individual" -> AccountBusinessType'NonNullableEnumIndividual
+          | val GHC.Classes.== "non_profit" -> AccountBusinessType'NonNullableEnumNonProfit
+          | GHC.Base.otherwise -> AccountBusinessType'NonNullableOther val
       )
 
 -- | Defines the object schema located at @components.schemas.account.properties.external_accounts@ in the specification.
@@ -651,9 +651,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON AccountExternalAccounts'Data'Availab
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "instant" -> AccountExternalAccounts'Data'AvailablePayoutMethods'NonNullableEnumInstant
-            | val GHC.Classes.== "standard" -> AccountExternalAccounts'Data'AvailablePayoutMethods'NonNullableEnumStandard
-            | GHC.Base.otherwise -> AccountExternalAccounts'Data'AvailablePayoutMethods'NonNullableOther val
+          | val GHC.Classes.== "instant" -> AccountExternalAccounts'Data'AvailablePayoutMethods'NonNullableEnumInstant
+          | val GHC.Classes.== "standard" -> AccountExternalAccounts'Data'AvailablePayoutMethods'NonNullableEnumStandard
+          | GHC.Base.otherwise -> AccountExternalAccounts'Data'AvailablePayoutMethods'NonNullableOther val
       )
 
 -- | Defines the oneOf schema located at @components.schemas.account.properties.external_accounts.properties.data.items.anyOf.properties.customer.anyOf@ in the specification.
@@ -696,8 +696,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON AccountExternalAccounts'Data'Object'
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "bank_account" -> AccountExternalAccounts'Data'Object'EnumBankAccount
-            | GHC.Base.otherwise -> AccountExternalAccounts'Data'Object'Other val
+          | val GHC.Classes.== "bank_account" -> AccountExternalAccounts'Data'Object'EnumBankAccount
+          | GHC.Base.otherwise -> AccountExternalAccounts'Data'Object'Other val
       )
 
 -- | Defines the oneOf schema located at @components.schemas.account.properties.external_accounts.properties.data.items.anyOf.properties.recipient.anyOf@ in the specification.
@@ -794,8 +794,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON AccountType' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "custom" -> AccountType'EnumCustom
-            | val GHC.Classes.== "express" -> AccountType'EnumExpress
-            | val GHC.Classes.== "standard" -> AccountType'EnumStandard
-            | GHC.Base.otherwise -> AccountType'Other val
+          | val GHC.Classes.== "custom" -> AccountType'EnumCustom
+          | val GHC.Classes.== "express" -> AccountType'EnumExpress
+          | val GHC.Classes.== "standard" -> AccountType'EnumStandard
+          | GHC.Base.otherwise -> AccountType'Other val
       )

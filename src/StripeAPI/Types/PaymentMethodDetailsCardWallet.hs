@@ -122,11 +122,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentMethodDetailsCardWalletType' 
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "amex_express_checkout" -> PaymentMethodDetailsCardWalletType'EnumAmexExpressCheckout
-            | val GHC.Classes.== "apple_pay" -> PaymentMethodDetailsCardWalletType'EnumApplePay
-            | val GHC.Classes.== "google_pay" -> PaymentMethodDetailsCardWalletType'EnumGooglePay
-            | val GHC.Classes.== "masterpass" -> PaymentMethodDetailsCardWalletType'EnumMasterpass
-            | val GHC.Classes.== "samsung_pay" -> PaymentMethodDetailsCardWalletType'EnumSamsungPay
-            | val GHC.Classes.== "visa_checkout" -> PaymentMethodDetailsCardWalletType'EnumVisaCheckout
-            | GHC.Base.otherwise -> PaymentMethodDetailsCardWalletType'Other val
+          | val GHC.Classes.== "amex_express_checkout" -> PaymentMethodDetailsCardWalletType'EnumAmexExpressCheckout
+          | val GHC.Classes.== "apple_pay" -> PaymentMethodDetailsCardWalletType'EnumApplePay
+          | val GHC.Classes.== "google_pay" -> PaymentMethodDetailsCardWalletType'EnumGooglePay
+          | val GHC.Classes.== "masterpass" -> PaymentMethodDetailsCardWalletType'EnumMasterpass
+          | val GHC.Classes.== "samsung_pay" -> PaymentMethodDetailsCardWalletType'EnumSamsungPay
+          | val GHC.Classes.== "visa_checkout" -> PaymentMethodDetailsCardWalletType'EnumVisaCheckout
+          | GHC.Base.otherwise -> PaymentMethodDetailsCardWalletType'Other val
       )

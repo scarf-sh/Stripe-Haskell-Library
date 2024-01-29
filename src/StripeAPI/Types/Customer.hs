@@ -346,8 +346,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON CustomerCashBalance'NonNullableObjec
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "cash_balance" -> CustomerCashBalance'NonNullableObject'EnumCashBalance
-            | GHC.Base.otherwise -> CustomerCashBalance'NonNullableObject'Other val
+          | val GHC.Classes.== "cash_balance" -> CustomerCashBalance'NonNullableObject'EnumCashBalance
+          | GHC.Base.otherwise -> CustomerCashBalance'NonNullableObject'Other val
       )
 
 -- | Defines the oneOf schema located at @components.schemas.customer.properties.default_source.anyOf@ in the specification.
@@ -495,8 +495,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON CustomerDiscount'NonNullableObject' 
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "discount" -> CustomerDiscount'NonNullableObject'EnumDiscount
-            | GHC.Base.otherwise -> CustomerDiscount'NonNullableObject'Other val
+          | val GHC.Classes.== "discount" -> CustomerDiscount'NonNullableObject'EnumDiscount
+          | GHC.Base.otherwise -> CustomerDiscount'NonNullableObject'Other val
       )
 
 -- | Defines the oneOf schema located at @components.schemas.customer.properties.discount.anyOf.properties.promotion_code.anyOf@ in the specification.
@@ -1067,9 +1067,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON CustomerSources'Data'AvailablePayout
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "instant" -> CustomerSources'Data'AvailablePayoutMethods'NonNullableEnumInstant
-            | val GHC.Classes.== "standard" -> CustomerSources'Data'AvailablePayoutMethods'NonNullableEnumStandard
-            | GHC.Base.otherwise -> CustomerSources'Data'AvailablePayoutMethods'NonNullableOther val
+          | val GHC.Classes.== "instant" -> CustomerSources'Data'AvailablePayoutMethods'NonNullableEnumInstant
+          | val GHC.Classes.== "standard" -> CustomerSources'Data'AvailablePayoutMethods'NonNullableEnumStandard
+          | GHC.Base.otherwise -> CustomerSources'Data'AvailablePayoutMethods'NonNullableOther val
       )
 
 -- | Defines the oneOf schema located at @components.schemas.customer.properties.sources.properties.data.items.anyOf.properties.customer.anyOf@ in the specification.
@@ -1112,8 +1112,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON CustomerSources'Data'Object' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "alipay_account" -> CustomerSources'Data'Object'EnumAlipayAccount
-            | GHC.Base.otherwise -> CustomerSources'Data'Object'Other val
+          | val GHC.Classes.== "alipay_account" -> CustomerSources'Data'Object'EnumAlipayAccount
+          | GHC.Base.otherwise -> CustomerSources'Data'Object'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.customer.properties.sources.properties.data.items.anyOf.properties.owner.anyOf@ in the specification.
@@ -1449,25 +1449,25 @@ instance Data.Aeson.Types.FromJSON.FromJSON CustomerSources'Data'Type' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "ach_credit_transfer" -> CustomerSources'Data'Type'EnumAchCreditTransfer
-            | val GHC.Classes.== "ach_debit" -> CustomerSources'Data'Type'EnumAchDebit
-            | val GHC.Classes.== "acss_debit" -> CustomerSources'Data'Type'EnumAcssDebit
-            | val GHC.Classes.== "alipay" -> CustomerSources'Data'Type'EnumAlipay
-            | val GHC.Classes.== "au_becs_debit" -> CustomerSources'Data'Type'EnumAuBecsDebit
-            | val GHC.Classes.== "bancontact" -> CustomerSources'Data'Type'EnumBancontact
-            | val GHC.Classes.== "card" -> CustomerSources'Data'Type'EnumCard
-            | val GHC.Classes.== "card_present" -> CustomerSources'Data'Type'EnumCardPresent
-            | val GHC.Classes.== "eps" -> CustomerSources'Data'Type'EnumEps
-            | val GHC.Classes.== "giropay" -> CustomerSources'Data'Type'EnumGiropay
-            | val GHC.Classes.== "ideal" -> CustomerSources'Data'Type'EnumIdeal
-            | val GHC.Classes.== "klarna" -> CustomerSources'Data'Type'EnumKlarna
-            | val GHC.Classes.== "multibanco" -> CustomerSources'Data'Type'EnumMultibanco
-            | val GHC.Classes.== "p24" -> CustomerSources'Data'Type'EnumP24
-            | val GHC.Classes.== "sepa_debit" -> CustomerSources'Data'Type'EnumSepaDebit
-            | val GHC.Classes.== "sofort" -> CustomerSources'Data'Type'EnumSofort
-            | val GHC.Classes.== "three_d_secure" -> CustomerSources'Data'Type'EnumThreeDSecure
-            | val GHC.Classes.== "wechat" -> CustomerSources'Data'Type'EnumWechat
-            | GHC.Base.otherwise -> CustomerSources'Data'Type'Other val
+          | val GHC.Classes.== "ach_credit_transfer" -> CustomerSources'Data'Type'EnumAchCreditTransfer
+          | val GHC.Classes.== "ach_debit" -> CustomerSources'Data'Type'EnumAchDebit
+          | val GHC.Classes.== "acss_debit" -> CustomerSources'Data'Type'EnumAcssDebit
+          | val GHC.Classes.== "alipay" -> CustomerSources'Data'Type'EnumAlipay
+          | val GHC.Classes.== "au_becs_debit" -> CustomerSources'Data'Type'EnumAuBecsDebit
+          | val GHC.Classes.== "bancontact" -> CustomerSources'Data'Type'EnumBancontact
+          | val GHC.Classes.== "card" -> CustomerSources'Data'Type'EnumCard
+          | val GHC.Classes.== "card_present" -> CustomerSources'Data'Type'EnumCardPresent
+          | val GHC.Classes.== "eps" -> CustomerSources'Data'Type'EnumEps
+          | val GHC.Classes.== "giropay" -> CustomerSources'Data'Type'EnumGiropay
+          | val GHC.Classes.== "ideal" -> CustomerSources'Data'Type'EnumIdeal
+          | val GHC.Classes.== "klarna" -> CustomerSources'Data'Type'EnumKlarna
+          | val GHC.Classes.== "multibanco" -> CustomerSources'Data'Type'EnumMultibanco
+          | val GHC.Classes.== "p24" -> CustomerSources'Data'Type'EnumP24
+          | val GHC.Classes.== "sepa_debit" -> CustomerSources'Data'Type'EnumSepaDebit
+          | val GHC.Classes.== "sofort" -> CustomerSources'Data'Type'EnumSofort
+          | val GHC.Classes.== "three_d_secure" -> CustomerSources'Data'Type'EnumThreeDSecure
+          | val GHC.Classes.== "wechat" -> CustomerSources'Data'Type'EnumWechat
+          | GHC.Base.otherwise -> CustomerSources'Data'Type'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.customer.properties.subscriptions@ in the specification.
@@ -1540,10 +1540,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON CustomerTaxExempt'NonNullable where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "exempt" -> CustomerTaxExempt'NonNullableEnumExempt
-            | val GHC.Classes.== "none" -> CustomerTaxExempt'NonNullableEnumNone
-            | val GHC.Classes.== "reverse" -> CustomerTaxExempt'NonNullableEnumReverse
-            | GHC.Base.otherwise -> CustomerTaxExempt'NonNullableOther val
+          | val GHC.Classes.== "exempt" -> CustomerTaxExempt'NonNullableEnumExempt
+          | val GHC.Classes.== "none" -> CustomerTaxExempt'NonNullableEnumNone
+          | val GHC.Classes.== "reverse" -> CustomerTaxExempt'NonNullableEnumReverse
+          | GHC.Base.otherwise -> CustomerTaxExempt'NonNullableOther val
       )
 
 -- | Defines the object schema located at @components.schemas.customer.properties.tax_ids@ in the specification.

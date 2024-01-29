@@ -48,7 +48,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>Creates a new shipping rate object.\<\/p>
 postShippingRates ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | The request body to send
   PostShippingRatesRequestBody ->
   -- | Monadic computation which returns the result of the operation
@@ -60,21 +60,21 @@ postShippingRates body =
           ( Data.Either.either PostShippingRatesResponseError GHC.Base.id
               GHC.Base.. ( \response body ->
                              if
-                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                               | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                    PostShippingRatesResponse200
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             ShippingRate
                                                       )
-                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                               | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                    PostShippingRatesResponseDefault
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             Error
                                                       )
-                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                               | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                          )
                 response_0
           )
@@ -226,12 +226,12 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostShippingRatesRequestBodyDelivery
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "business_day" -> PostShippingRatesRequestBodyDeliveryEstimate'Maximum'Unit'EnumBusinessDay
-            | val GHC.Classes.== "day" -> PostShippingRatesRequestBodyDeliveryEstimate'Maximum'Unit'EnumDay
-            | val GHC.Classes.== "hour" -> PostShippingRatesRequestBodyDeliveryEstimate'Maximum'Unit'EnumHour
-            | val GHC.Classes.== "month" -> PostShippingRatesRequestBodyDeliveryEstimate'Maximum'Unit'EnumMonth
-            | val GHC.Classes.== "week" -> PostShippingRatesRequestBodyDeliveryEstimate'Maximum'Unit'EnumWeek
-            | GHC.Base.otherwise -> PostShippingRatesRequestBodyDeliveryEstimate'Maximum'Unit'Other val
+          | val GHC.Classes.== "business_day" -> PostShippingRatesRequestBodyDeliveryEstimate'Maximum'Unit'EnumBusinessDay
+          | val GHC.Classes.== "day" -> PostShippingRatesRequestBodyDeliveryEstimate'Maximum'Unit'EnumDay
+          | val GHC.Classes.== "hour" -> PostShippingRatesRequestBodyDeliveryEstimate'Maximum'Unit'EnumHour
+          | val GHC.Classes.== "month" -> PostShippingRatesRequestBodyDeliveryEstimate'Maximum'Unit'EnumMonth
+          | val GHC.Classes.== "week" -> PostShippingRatesRequestBodyDeliveryEstimate'Maximum'Unit'EnumWeek
+          | GHC.Base.otherwise -> PostShippingRatesRequestBodyDeliveryEstimate'Maximum'Unit'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/shipping_rates.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.delivery_estimate.properties.minimum@ in the specification.
@@ -297,12 +297,12 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostShippingRatesRequestBodyDelivery
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "business_day" -> PostShippingRatesRequestBodyDeliveryEstimate'Minimum'Unit'EnumBusinessDay
-            | val GHC.Classes.== "day" -> PostShippingRatesRequestBodyDeliveryEstimate'Minimum'Unit'EnumDay
-            | val GHC.Classes.== "hour" -> PostShippingRatesRequestBodyDeliveryEstimate'Minimum'Unit'EnumHour
-            | val GHC.Classes.== "month" -> PostShippingRatesRequestBodyDeliveryEstimate'Minimum'Unit'EnumMonth
-            | val GHC.Classes.== "week" -> PostShippingRatesRequestBodyDeliveryEstimate'Minimum'Unit'EnumWeek
-            | GHC.Base.otherwise -> PostShippingRatesRequestBodyDeliveryEstimate'Minimum'Unit'Other val
+          | val GHC.Classes.== "business_day" -> PostShippingRatesRequestBodyDeliveryEstimate'Minimum'Unit'EnumBusinessDay
+          | val GHC.Classes.== "day" -> PostShippingRatesRequestBodyDeliveryEstimate'Minimum'Unit'EnumDay
+          | val GHC.Classes.== "hour" -> PostShippingRatesRequestBodyDeliveryEstimate'Minimum'Unit'EnumHour
+          | val GHC.Classes.== "month" -> PostShippingRatesRequestBodyDeliveryEstimate'Minimum'Unit'EnumMonth
+          | val GHC.Classes.== "week" -> PostShippingRatesRequestBodyDeliveryEstimate'Minimum'Unit'EnumWeek
+          | GHC.Base.otherwise -> PostShippingRatesRequestBodyDeliveryEstimate'Minimum'Unit'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/shipping_rates.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.fixed_amount@ in the specification.
@@ -366,10 +366,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostShippingRatesRequestBodyTaxBehav
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "exclusive" -> PostShippingRatesRequestBodyTaxBehavior'EnumExclusive
-            | val GHC.Classes.== "inclusive" -> PostShippingRatesRequestBodyTaxBehavior'EnumInclusive
-            | val GHC.Classes.== "unspecified" -> PostShippingRatesRequestBodyTaxBehavior'EnumUnspecified
-            | GHC.Base.otherwise -> PostShippingRatesRequestBodyTaxBehavior'Other val
+          | val GHC.Classes.== "exclusive" -> PostShippingRatesRequestBodyTaxBehavior'EnumExclusive
+          | val GHC.Classes.== "inclusive" -> PostShippingRatesRequestBodyTaxBehavior'EnumInclusive
+          | val GHC.Classes.== "unspecified" -> PostShippingRatesRequestBodyTaxBehavior'EnumUnspecified
+          | GHC.Base.otherwise -> PostShippingRatesRequestBodyTaxBehavior'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/shipping_rates.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.type@ in the specification.
@@ -393,8 +393,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostShippingRatesRequestBodyType' wh
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "fixed_amount" -> PostShippingRatesRequestBodyType'EnumFixedAmount
-            | GHC.Base.otherwise -> PostShippingRatesRequestBodyType'Other val
+          | val GHC.Classes.== "fixed_amount" -> PostShippingRatesRequestBodyType'EnumFixedAmount
+          | GHC.Base.otherwise -> PostShippingRatesRequestBodyType'Other val
       )
 
 -- | Represents a response of the operation 'postShippingRates'.

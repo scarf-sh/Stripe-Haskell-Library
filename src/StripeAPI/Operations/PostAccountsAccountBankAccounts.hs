@@ -48,7 +48,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>Create an external account for a given account.\<\/p>
 postAccountsAccountBankAccounts ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | account | Constraints: Maximum length of 5000
   Data.Text.Internal.Text ->
   -- | The request body to send
@@ -64,21 +64,21 @@ postAccountsAccountBankAccounts
             ( Data.Either.either PostAccountsAccountBankAccountsResponseError GHC.Base.id
                 GHC.Base.. ( \response body ->
                                if
-                                   | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                      PostAccountsAccountBankAccountsResponse200
                                        Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                             Data.Either.Either
                                                               GHC.Base.String
                                                               ExternalAccount
                                                         )
-                                   | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                      PostAccountsAccountBankAccountsResponseDefault
                                        Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                             Data.Either.Either
                                                               GHC.Base.String
                                                               Error
                                                         )
-                                   | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                            )
                   response_0
             )
@@ -226,9 +226,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostAccountsAccountBankAccountsReque
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "company" -> PostAccountsAccountBankAccountsRequestBodyBankAccount'OneOf1AccountHolderType'EnumCompany
-            | val GHC.Classes.== "individual" -> PostAccountsAccountBankAccountsRequestBodyBankAccount'OneOf1AccountHolderType'EnumIndividual
-            | GHC.Base.otherwise -> PostAccountsAccountBankAccountsRequestBodyBankAccount'OneOf1AccountHolderType'Other val
+          | val GHC.Classes.== "company" -> PostAccountsAccountBankAccountsRequestBodyBankAccount'OneOf1AccountHolderType'EnumCompany
+          | val GHC.Classes.== "individual" -> PostAccountsAccountBankAccountsRequestBodyBankAccount'OneOf1AccountHolderType'EnumIndividual
+          | GHC.Base.otherwise -> PostAccountsAccountBankAccountsRequestBodyBankAccount'OneOf1AccountHolderType'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/accounts\/{account}\/bank_accounts.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.bank_account.anyOf.properties.account_type@ in the specification.
@@ -259,11 +259,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostAccountsAccountBankAccountsReque
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "checking" -> PostAccountsAccountBankAccountsRequestBodyBankAccount'OneOf1AccountType'EnumChecking
-            | val GHC.Classes.== "futsu" -> PostAccountsAccountBankAccountsRequestBodyBankAccount'OneOf1AccountType'EnumFutsu
-            | val GHC.Classes.== "savings" -> PostAccountsAccountBankAccountsRequestBodyBankAccount'OneOf1AccountType'EnumSavings
-            | val GHC.Classes.== "toza" -> PostAccountsAccountBankAccountsRequestBodyBankAccount'OneOf1AccountType'EnumToza
-            | GHC.Base.otherwise -> PostAccountsAccountBankAccountsRequestBodyBankAccount'OneOf1AccountType'Other val
+          | val GHC.Classes.== "checking" -> PostAccountsAccountBankAccountsRequestBodyBankAccount'OneOf1AccountType'EnumChecking
+          | val GHC.Classes.== "futsu" -> PostAccountsAccountBankAccountsRequestBodyBankAccount'OneOf1AccountType'EnumFutsu
+          | val GHC.Classes.== "savings" -> PostAccountsAccountBankAccountsRequestBodyBankAccount'OneOf1AccountType'EnumSavings
+          | val GHC.Classes.== "toza" -> PostAccountsAccountBankAccountsRequestBodyBankAccount'OneOf1AccountType'EnumToza
+          | GHC.Base.otherwise -> PostAccountsAccountBankAccountsRequestBodyBankAccount'OneOf1AccountType'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/accounts\/{account}\/bank_accounts.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.bank_account.anyOf.properties.object@ in the specification.
@@ -285,8 +285,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostAccountsAccountBankAccountsReque
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "bank_account" -> PostAccountsAccountBankAccountsRequestBodyBankAccount'OneOf1Object'EnumBankAccount
-            | GHC.Base.otherwise -> PostAccountsAccountBankAccountsRequestBodyBankAccount'OneOf1Object'Other val
+          | val GHC.Classes.== "bank_account" -> PostAccountsAccountBankAccountsRequestBodyBankAccount'OneOf1Object'EnumBankAccount
+          | GHC.Base.otherwise -> PostAccountsAccountBankAccountsRequestBodyBankAccount'OneOf1Object'Other val
       )
 
 -- | Defines the oneOf schema located at @paths.\/v1\/accounts\/{account}\/bank_accounts.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.bank_account.anyOf@ in the specification.

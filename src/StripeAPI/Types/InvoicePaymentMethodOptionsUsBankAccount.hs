@@ -87,8 +87,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON InvoicePaymentMethodOptionsUsBankAcc
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> InvoicePaymentMethodOptionsUsBankAccountVerificationMethod'EnumAutomatic
-            | val GHC.Classes.== "instant" -> InvoicePaymentMethodOptionsUsBankAccountVerificationMethod'EnumInstant
-            | val GHC.Classes.== "microdeposits" -> InvoicePaymentMethodOptionsUsBankAccountVerificationMethod'EnumMicrodeposits
-            | GHC.Base.otherwise -> InvoicePaymentMethodOptionsUsBankAccountVerificationMethod'Other val
+          | val GHC.Classes.== "automatic" -> InvoicePaymentMethodOptionsUsBankAccountVerificationMethod'EnumAutomatic
+          | val GHC.Classes.== "instant" -> InvoicePaymentMethodOptionsUsBankAccountVerificationMethod'EnumInstant
+          | val GHC.Classes.== "microdeposits" -> InvoicePaymentMethodOptionsUsBankAccountVerificationMethod'EnumMicrodeposits
+          | GHC.Base.otherwise -> InvoicePaymentMethodOptionsUsBankAccountVerificationMethod'Other val
       )

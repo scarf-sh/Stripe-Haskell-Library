@@ -96,8 +96,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON DeletedExternalAccountDeleted' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== Data.Aeson.Types.Internal.Bool GHC.Types.True -> DeletedExternalAccountDeleted'EnumTrue
-            | GHC.Base.otherwise -> DeletedExternalAccountDeleted'Other val
+          | val GHC.Classes.== Data.Aeson.Types.Internal.Bool GHC.Types.True -> DeletedExternalAccountDeleted'EnumTrue
+          | GHC.Base.otherwise -> DeletedExternalAccountDeleted'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.deleted_external_account.anyOf.properties.object@ in the specification.
@@ -121,6 +121,6 @@ instance Data.Aeson.Types.FromJSON.FromJSON DeletedExternalAccountObject' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "bank_account" -> DeletedExternalAccountObject'EnumBankAccount
-            | GHC.Base.otherwise -> DeletedExternalAccountObject'Other val
+          | val GHC.Classes.== "bank_account" -> DeletedExternalAccountObject'EnumBankAccount
+          | GHC.Base.otherwise -> DeletedExternalAccountObject'Other val
       )

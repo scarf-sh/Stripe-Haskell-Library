@@ -121,7 +121,7 @@ instance Data.Aeson.Types.FromJSON.FromJSON IssuingDisputeMerchandiseNotAsDescri
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "merchant_rejected" -> IssuingDisputeMerchandiseNotAsDescribedEvidenceReturnStatus'NonNullableEnumMerchantRejected
-            | val GHC.Classes.== "successful" -> IssuingDisputeMerchandiseNotAsDescribedEvidenceReturnStatus'NonNullableEnumSuccessful
-            | GHC.Base.otherwise -> IssuingDisputeMerchandiseNotAsDescribedEvidenceReturnStatus'NonNullableOther val
+          | val GHC.Classes.== "merchant_rejected" -> IssuingDisputeMerchandiseNotAsDescribedEvidenceReturnStatus'NonNullableEnumMerchantRejected
+          | val GHC.Classes.== "successful" -> IssuingDisputeMerchandiseNotAsDescribedEvidenceReturnStatus'NonNullableEnumSuccessful
+          | GHC.Base.otherwise -> IssuingDisputeMerchandiseNotAsDescribedEvidenceReturnStatus'NonNullableOther val
       )

@@ -78,8 +78,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON InvoicePaymentMethodOptionsUsBankAcc
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "balances" -> InvoicePaymentMethodOptionsUsBankAccountLinkedAccountOptionsPermissions'EnumBalances
-            | val GHC.Classes.== "payment_method" -> InvoicePaymentMethodOptionsUsBankAccountLinkedAccountOptionsPermissions'EnumPaymentMethod
-            | val GHC.Classes.== "transactions" -> InvoicePaymentMethodOptionsUsBankAccountLinkedAccountOptionsPermissions'EnumTransactions
-            | GHC.Base.otherwise -> InvoicePaymentMethodOptionsUsBankAccountLinkedAccountOptionsPermissions'Other val
+          | val GHC.Classes.== "balances" -> InvoicePaymentMethodOptionsUsBankAccountLinkedAccountOptionsPermissions'EnumBalances
+          | val GHC.Classes.== "payment_method" -> InvoicePaymentMethodOptionsUsBankAccountLinkedAccountOptionsPermissions'EnumPaymentMethod
+          | val GHC.Classes.== "transactions" -> InvoicePaymentMethodOptionsUsBankAccountLinkedAccountOptionsPermissions'EnumTransactions
+          | GHC.Base.otherwise -> InvoicePaymentMethodOptionsUsBankAccountLinkedAccountOptionsPermissions'Other val
       )

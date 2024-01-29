@@ -87,8 +87,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON InvoicePaymentMethodOptionsAcssDebit
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> InvoicePaymentMethodOptionsAcssDebitVerificationMethod'EnumAutomatic
-            | val GHC.Classes.== "instant" -> InvoicePaymentMethodOptionsAcssDebitVerificationMethod'EnumInstant
-            | val GHC.Classes.== "microdeposits" -> InvoicePaymentMethodOptionsAcssDebitVerificationMethod'EnumMicrodeposits
-            | GHC.Base.otherwise -> InvoicePaymentMethodOptionsAcssDebitVerificationMethod'Other val
+          | val GHC.Classes.== "automatic" -> InvoicePaymentMethodOptionsAcssDebitVerificationMethod'EnumAutomatic
+          | val GHC.Classes.== "instant" -> InvoicePaymentMethodOptionsAcssDebitVerificationMethod'EnumInstant
+          | val GHC.Classes.== "microdeposits" -> InvoicePaymentMethodOptionsAcssDebitVerificationMethod'EnumMicrodeposits
+          | GHC.Base.otherwise -> InvoicePaymentMethodOptionsAcssDebitVerificationMethod'Other val
       )

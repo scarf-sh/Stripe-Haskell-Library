@@ -248,9 +248,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON FinancialConnections'accountAccountH
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "account" -> FinancialConnections'accountAccountHolder'NonNullableType'EnumAccount
-            | val GHC.Classes.== "customer" -> FinancialConnections'accountAccountHolder'NonNullableType'EnumCustomer
-            | GHC.Base.otherwise -> FinancialConnections'accountAccountHolder'NonNullableType'Other val
+          | val GHC.Classes.== "account" -> FinancialConnections'accountAccountHolder'NonNullableType'EnumAccount
+          | val GHC.Classes.== "customer" -> FinancialConnections'accountAccountHolder'NonNullableType'EnumCustomer
+          | GHC.Base.otherwise -> FinancialConnections'accountAccountHolder'NonNullableType'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.financial_connections.account.properties.balance.anyOf@ in the specification.
@@ -319,9 +319,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON FinancialConnections'accountBalance'
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "cash" -> FinancialConnections'accountBalance'NonNullableType'EnumCash
-            | val GHC.Classes.== "credit" -> FinancialConnections'accountBalance'NonNullableType'EnumCredit
-            | GHC.Base.otherwise -> FinancialConnections'accountBalance'NonNullableType'Other val
+          | val GHC.Classes.== "cash" -> FinancialConnections'accountBalance'NonNullableType'EnumCash
+          | val GHC.Classes.== "credit" -> FinancialConnections'accountBalance'NonNullableType'EnumCredit
+          | GHC.Base.otherwise -> FinancialConnections'accountBalance'NonNullableType'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.financial_connections.account.properties.balance_refresh.anyOf@ in the specification.
@@ -380,10 +380,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON FinancialConnections'accountBalanceR
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "failed" -> FinancialConnections'accountBalanceRefresh'NonNullableStatus'EnumFailed
-            | val GHC.Classes.== "pending" -> FinancialConnections'accountBalanceRefresh'NonNullableStatus'EnumPending
-            | val GHC.Classes.== "succeeded" -> FinancialConnections'accountBalanceRefresh'NonNullableStatus'EnumSucceeded
-            | GHC.Base.otherwise -> FinancialConnections'accountBalanceRefresh'NonNullableStatus'Other val
+          | val GHC.Classes.== "failed" -> FinancialConnections'accountBalanceRefresh'NonNullableStatus'EnumFailed
+          | val GHC.Classes.== "pending" -> FinancialConnections'accountBalanceRefresh'NonNullableStatus'EnumPending
+          | val GHC.Classes.== "succeeded" -> FinancialConnections'accountBalanceRefresh'NonNullableStatus'EnumSucceeded
+          | GHC.Base.otherwise -> FinancialConnections'accountBalanceRefresh'NonNullableStatus'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.financial_connections.account.properties.category@ in the specification.
@@ -416,11 +416,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON FinancialConnections'accountCategory
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "cash" -> FinancialConnections'accountCategory'EnumCash
-            | val GHC.Classes.== "credit" -> FinancialConnections'accountCategory'EnumCredit
-            | val GHC.Classes.== "investment" -> FinancialConnections'accountCategory'EnumInvestment
-            | val GHC.Classes.== "other" -> FinancialConnections'accountCategory'EnumOther
-            | GHC.Base.otherwise -> FinancialConnections'accountCategory'Other val
+          | val GHC.Classes.== "cash" -> FinancialConnections'accountCategory'EnumCash
+          | val GHC.Classes.== "credit" -> FinancialConnections'accountCategory'EnumCredit
+          | val GHC.Classes.== "investment" -> FinancialConnections'accountCategory'EnumInvestment
+          | val GHC.Classes.== "other" -> FinancialConnections'accountCategory'EnumOther
+          | GHC.Base.otherwise -> FinancialConnections'accountCategory'Other val
       )
 
 -- | Defines the oneOf schema located at @components.schemas.financial_connections.account.properties.ownership.anyOf@ in the specification.
@@ -496,10 +496,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON FinancialConnections'accountOwnershi
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "failed" -> FinancialConnections'accountOwnershipRefresh'NonNullableStatus'EnumFailed
-            | val GHC.Classes.== "pending" -> FinancialConnections'accountOwnershipRefresh'NonNullableStatus'EnumPending
-            | val GHC.Classes.== "succeeded" -> FinancialConnections'accountOwnershipRefresh'NonNullableStatus'EnumSucceeded
-            | GHC.Base.otherwise -> FinancialConnections'accountOwnershipRefresh'NonNullableStatus'Other val
+          | val GHC.Classes.== "failed" -> FinancialConnections'accountOwnershipRefresh'NonNullableStatus'EnumFailed
+          | val GHC.Classes.== "pending" -> FinancialConnections'accountOwnershipRefresh'NonNullableStatus'EnumPending
+          | val GHC.Classes.== "succeeded" -> FinancialConnections'accountOwnershipRefresh'NonNullableStatus'EnumSucceeded
+          | GHC.Base.otherwise -> FinancialConnections'accountOwnershipRefresh'NonNullableStatus'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.financial_connections.account.properties.permissions.items@ in the specification.
@@ -530,11 +530,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON FinancialConnections'accountPermissi
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "balances" -> FinancialConnections'accountPermissions'NonNullableEnumBalances
-            | val GHC.Classes.== "ownership" -> FinancialConnections'accountPermissions'NonNullableEnumOwnership
-            | val GHC.Classes.== "payment_method" -> FinancialConnections'accountPermissions'NonNullableEnumPaymentMethod
-            | val GHC.Classes.== "transactions" -> FinancialConnections'accountPermissions'NonNullableEnumTransactions
-            | GHC.Base.otherwise -> FinancialConnections'accountPermissions'NonNullableOther val
+          | val GHC.Classes.== "balances" -> FinancialConnections'accountPermissions'NonNullableEnumBalances
+          | val GHC.Classes.== "ownership" -> FinancialConnections'accountPermissions'NonNullableEnumOwnership
+          | val GHC.Classes.== "payment_method" -> FinancialConnections'accountPermissions'NonNullableEnumPaymentMethod
+          | val GHC.Classes.== "transactions" -> FinancialConnections'accountPermissions'NonNullableEnumTransactions
+          | GHC.Base.otherwise -> FinancialConnections'accountPermissions'NonNullableOther val
       )
 
 -- | Defines the enum schema located at @components.schemas.financial_connections.account.properties.status@ in the specification.
@@ -564,10 +564,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON FinancialConnections'accountStatus' 
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "active" -> FinancialConnections'accountStatus'EnumActive
-            | val GHC.Classes.== "disconnected" -> FinancialConnections'accountStatus'EnumDisconnected
-            | val GHC.Classes.== "inactive" -> FinancialConnections'accountStatus'EnumInactive
-            | GHC.Base.otherwise -> FinancialConnections'accountStatus'Other val
+          | val GHC.Classes.== "active" -> FinancialConnections'accountStatus'EnumActive
+          | val GHC.Classes.== "disconnected" -> FinancialConnections'accountStatus'EnumDisconnected
+          | val GHC.Classes.== "inactive" -> FinancialConnections'accountStatus'EnumInactive
+          | GHC.Base.otherwise -> FinancialConnections'accountStatus'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.financial_connections.account.properties.subcategory@ in the specification.
@@ -619,13 +619,13 @@ instance Data.Aeson.Types.FromJSON.FromJSON FinancialConnections'accountSubcateg
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "checking" -> FinancialConnections'accountSubcategory'EnumChecking
-            | val GHC.Classes.== "credit_card" -> FinancialConnections'accountSubcategory'EnumCreditCard
-            | val GHC.Classes.== "line_of_credit" -> FinancialConnections'accountSubcategory'EnumLineOfCredit
-            | val GHC.Classes.== "mortgage" -> FinancialConnections'accountSubcategory'EnumMortgage
-            | val GHC.Classes.== "other" -> FinancialConnections'accountSubcategory'EnumOther
-            | val GHC.Classes.== "savings" -> FinancialConnections'accountSubcategory'EnumSavings
-            | GHC.Base.otherwise -> FinancialConnections'accountSubcategory'Other val
+          | val GHC.Classes.== "checking" -> FinancialConnections'accountSubcategory'EnumChecking
+          | val GHC.Classes.== "credit_card" -> FinancialConnections'accountSubcategory'EnumCreditCard
+          | val GHC.Classes.== "line_of_credit" -> FinancialConnections'accountSubcategory'EnumLineOfCredit
+          | val GHC.Classes.== "mortgage" -> FinancialConnections'accountSubcategory'EnumMortgage
+          | val GHC.Classes.== "other" -> FinancialConnections'accountSubcategory'EnumOther
+          | val GHC.Classes.== "savings" -> FinancialConnections'accountSubcategory'EnumSavings
+          | GHC.Base.otherwise -> FinancialConnections'accountSubcategory'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.financial_connections.account.properties.supported_payment_method_types.items@ in the specification.
@@ -650,7 +650,7 @@ instance Data.Aeson.Types.FromJSON.FromJSON FinancialConnections'accountSupporte
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "link" -> FinancialConnections'accountSupportedPaymentMethodTypes'EnumLink
-            | val GHC.Classes.== "us_bank_account" -> FinancialConnections'accountSupportedPaymentMethodTypes'EnumUsBankAccount
-            | GHC.Base.otherwise -> FinancialConnections'accountSupportedPaymentMethodTypes'Other val
+          | val GHC.Classes.== "link" -> FinancialConnections'accountSupportedPaymentMethodTypes'EnumLink
+          | val GHC.Classes.== "us_bank_account" -> FinancialConnections'accountSupportedPaymentMethodTypes'EnumUsBankAccount
+          | GHC.Base.otherwise -> FinancialConnections'accountSupportedPaymentMethodTypes'Other val
       )

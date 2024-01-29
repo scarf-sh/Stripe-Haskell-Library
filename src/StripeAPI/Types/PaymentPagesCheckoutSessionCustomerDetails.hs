@@ -178,8 +178,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentPagesCheckoutSessionCustomerD
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "exempt" -> PaymentPagesCheckoutSessionCustomerDetailsTaxExempt'NonNullableEnumExempt
-            | val GHC.Classes.== "none" -> PaymentPagesCheckoutSessionCustomerDetailsTaxExempt'NonNullableEnumNone
-            | val GHC.Classes.== "reverse" -> PaymentPagesCheckoutSessionCustomerDetailsTaxExempt'NonNullableEnumReverse
-            | GHC.Base.otherwise -> PaymentPagesCheckoutSessionCustomerDetailsTaxExempt'NonNullableOther val
+          | val GHC.Classes.== "exempt" -> PaymentPagesCheckoutSessionCustomerDetailsTaxExempt'NonNullableEnumExempt
+          | val GHC.Classes.== "none" -> PaymentPagesCheckoutSessionCustomerDetailsTaxExempt'NonNullableEnumNone
+          | val GHC.Classes.== "reverse" -> PaymentPagesCheckoutSessionCustomerDetailsTaxExempt'NonNullableEnumReverse
+          | GHC.Base.otherwise -> PaymentPagesCheckoutSessionCustomerDetailsTaxExempt'NonNullableOther val
       )

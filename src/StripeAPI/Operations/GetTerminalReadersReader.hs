@@ -48,7 +48,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>Retrieves a \<code>Reader\<\/code> object.\<\/p>
 getTerminalReadersReader ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | Contains all available parameters of this operation (query and path parameters)
   GetTerminalReadersReaderParameters ->
   -- | Monadic computation which returns the result of the operation
@@ -60,21 +60,21 @@ getTerminalReadersReader parameters =
           ( Data.Either.either GetTerminalReadersReaderResponseError GHC.Base.id
               GHC.Base.. ( \response body ->
                              if
-                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                               | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                    GetTerminalReadersReaderResponse200
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             GetTerminalReadersReaderResponseBody200
                                                       )
-                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                               | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                    GetTerminalReadersReaderResponseDefault
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             Error
                                                       )
-                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                               | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                          )
                 response_0
           )
@@ -293,10 +293,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON GetTerminalReadersReaderResponseBody
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "failed" -> GetTerminalReadersReaderResponseBody200Action'NonNullableStatus'EnumFailed
-            | val GHC.Classes.== "in_progress" -> GetTerminalReadersReaderResponseBody200Action'NonNullableStatus'EnumInProgress
-            | val GHC.Classes.== "succeeded" -> GetTerminalReadersReaderResponseBody200Action'NonNullableStatus'EnumSucceeded
-            | GHC.Base.otherwise -> GetTerminalReadersReaderResponseBody200Action'NonNullableStatus'Other val
+          | val GHC.Classes.== "failed" -> GetTerminalReadersReaderResponseBody200Action'NonNullableStatus'EnumFailed
+          | val GHC.Classes.== "in_progress" -> GetTerminalReadersReaderResponseBody200Action'NonNullableStatus'EnumInProgress
+          | val GHC.Classes.== "succeeded" -> GetTerminalReadersReaderResponseBody200Action'NonNullableStatus'EnumSucceeded
+          | GHC.Base.otherwise -> GetTerminalReadersReaderResponseBody200Action'NonNullableStatus'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/terminal\/readers\/{reader}.GET.responses.200.content.application\/json.schema.anyOf.properties.action.anyOf.properties.type@ in the specification.
@@ -326,10 +326,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON GetTerminalReadersReaderResponseBody
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "process_payment_intent" -> GetTerminalReadersReaderResponseBody200Action'NonNullableType'EnumProcessPaymentIntent
-            | val GHC.Classes.== "process_setup_intent" -> GetTerminalReadersReaderResponseBody200Action'NonNullableType'EnumProcessSetupIntent
-            | val GHC.Classes.== "set_reader_display" -> GetTerminalReadersReaderResponseBody200Action'NonNullableType'EnumSetReaderDisplay
-            | GHC.Base.otherwise -> GetTerminalReadersReaderResponseBody200Action'NonNullableType'Other val
+          | val GHC.Classes.== "process_payment_intent" -> GetTerminalReadersReaderResponseBody200Action'NonNullableType'EnumProcessPaymentIntent
+          | val GHC.Classes.== "process_setup_intent" -> GetTerminalReadersReaderResponseBody200Action'NonNullableType'EnumProcessSetupIntent
+          | val GHC.Classes.== "set_reader_display" -> GetTerminalReadersReaderResponseBody200Action'NonNullableType'EnumSetReaderDisplay
+          | GHC.Base.otherwise -> GetTerminalReadersReaderResponseBody200Action'NonNullableType'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/terminal\/readers\/{reader}.GET.responses.200.content.application\/json.schema.anyOf.properties.deleted@ in the specification.
@@ -353,8 +353,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON GetTerminalReadersReaderResponseBody
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== Data.Aeson.Types.Internal.Bool GHC.Types.True -> GetTerminalReadersReaderResponseBody200Deleted'EnumTrue
-            | GHC.Base.otherwise -> GetTerminalReadersReaderResponseBody200Deleted'Other val
+          | val GHC.Classes.== Data.Aeson.Types.Internal.Bool GHC.Types.True -> GetTerminalReadersReaderResponseBody200Deleted'EnumTrue
+          | GHC.Base.otherwise -> GetTerminalReadersReaderResponseBody200Deleted'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/terminal\/readers\/{reader}.GET.responses.200.content.application\/json.schema.anyOf.properties.device_type@ in the specification.
@@ -393,13 +393,13 @@ instance Data.Aeson.Types.FromJSON.FromJSON GetTerminalReadersReaderResponseBody
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "bbpos_chipper2x" -> GetTerminalReadersReaderResponseBody200DeviceType'EnumBbposChipper2x
-            | val GHC.Classes.== "bbpos_wisepad3" -> GetTerminalReadersReaderResponseBody200DeviceType'EnumBbposWisepad3
-            | val GHC.Classes.== "bbpos_wisepos_e" -> GetTerminalReadersReaderResponseBody200DeviceType'EnumBbposWiseposE
-            | val GHC.Classes.== "simulated_wisepos_e" -> GetTerminalReadersReaderResponseBody200DeviceType'EnumSimulatedWiseposE
-            | val GHC.Classes.== "stripe_m2" -> GetTerminalReadersReaderResponseBody200DeviceType'EnumStripeM2
-            | val GHC.Classes.== "verifone_P400" -> GetTerminalReadersReaderResponseBody200DeviceType'EnumVerifoneP400
-            | GHC.Base.otherwise -> GetTerminalReadersReaderResponseBody200DeviceType'Other val
+          | val GHC.Classes.== "bbpos_chipper2x" -> GetTerminalReadersReaderResponseBody200DeviceType'EnumBbposChipper2x
+          | val GHC.Classes.== "bbpos_wisepad3" -> GetTerminalReadersReaderResponseBody200DeviceType'EnumBbposWisepad3
+          | val GHC.Classes.== "bbpos_wisepos_e" -> GetTerminalReadersReaderResponseBody200DeviceType'EnumBbposWiseposE
+          | val GHC.Classes.== "simulated_wisepos_e" -> GetTerminalReadersReaderResponseBody200DeviceType'EnumSimulatedWiseposE
+          | val GHC.Classes.== "stripe_m2" -> GetTerminalReadersReaderResponseBody200DeviceType'EnumStripeM2
+          | val GHC.Classes.== "verifone_P400" -> GetTerminalReadersReaderResponseBody200DeviceType'EnumVerifoneP400
+          | GHC.Base.otherwise -> GetTerminalReadersReaderResponseBody200DeviceType'Other val
       )
 
 -- | Defines the oneOf schema located at @paths.\/v1\/terminal\/readers\/{reader}.GET.responses.200.content.application\/json.schema.anyOf.properties.location.anyOf@ in the specification.
@@ -440,6 +440,6 @@ instance Data.Aeson.Types.FromJSON.FromJSON GetTerminalReadersReaderResponseBody
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "terminal.reader" -> GetTerminalReadersReaderResponseBody200Object'EnumTerminal'reader
-            | GHC.Base.otherwise -> GetTerminalReadersReaderResponseBody200Object'Other val
+          | val GHC.Classes.== "terminal.reader" -> GetTerminalReadersReaderResponseBody200Object'EnumTerminal'reader
+          | GHC.Base.otherwise -> GetTerminalReadersReaderResponseBody200Object'Other val
       )

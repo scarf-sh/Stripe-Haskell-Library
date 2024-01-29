@@ -48,7 +48,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>Updates a \<code>Reader\<\/code> object by setting the values of the parameters passed. Any parameters not provided will be left unchanged.\<\/p>
 postTerminalReadersReader ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | reader | Constraints: Maximum length of 5000
   Data.Text.Internal.Text ->
   -- | The request body to send
@@ -64,21 +64,21 @@ postTerminalReadersReader
             ( Data.Either.either PostTerminalReadersReaderResponseError GHC.Base.id
                 GHC.Base.. ( \response body ->
                                if
-                                   | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                      PostTerminalReadersReaderResponse200
                                        Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                             Data.Either.Either
                                                               GHC.Base.String
                                                               PostTerminalReadersReaderResponseBody200
                                                         )
-                                   | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                      PostTerminalReadersReaderResponseDefault
                                        Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                             Data.Either.Either
                                                               GHC.Base.String
                                                               Error
                                                         )
-                                   | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                            )
                   response_0
             )
@@ -136,8 +136,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostTerminalReadersReaderRequestBodyMeta
 instance Data.Aeson.Types.FromJSON.FromJSON PostTerminalReadersReaderRequestBodyMetadata'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostTerminalReadersReaderRequestBodyMetadata'EmptyString
-        | GHC.Base.otherwise -> case (PostTerminalReadersReaderRequestBodyMetadata'Object Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostTerminalReadersReaderRequestBodyMetadata'EmptyString
+      | GHC.Base.otherwise -> case (PostTerminalReadersReaderRequestBodyMetadata'Object Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -316,10 +316,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostTerminalReadersReaderResponseBod
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "failed" -> PostTerminalReadersReaderResponseBody200Action'NonNullableStatus'EnumFailed
-            | val GHC.Classes.== "in_progress" -> PostTerminalReadersReaderResponseBody200Action'NonNullableStatus'EnumInProgress
-            | val GHC.Classes.== "succeeded" -> PostTerminalReadersReaderResponseBody200Action'NonNullableStatus'EnumSucceeded
-            | GHC.Base.otherwise -> PostTerminalReadersReaderResponseBody200Action'NonNullableStatus'Other val
+          | val GHC.Classes.== "failed" -> PostTerminalReadersReaderResponseBody200Action'NonNullableStatus'EnumFailed
+          | val GHC.Classes.== "in_progress" -> PostTerminalReadersReaderResponseBody200Action'NonNullableStatus'EnumInProgress
+          | val GHC.Classes.== "succeeded" -> PostTerminalReadersReaderResponseBody200Action'NonNullableStatus'EnumSucceeded
+          | GHC.Base.otherwise -> PostTerminalReadersReaderResponseBody200Action'NonNullableStatus'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/terminal\/readers\/{reader}.POST.responses.200.content.application\/json.schema.anyOf.properties.action.anyOf.properties.type@ in the specification.
@@ -349,10 +349,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostTerminalReadersReaderResponseBod
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "process_payment_intent" -> PostTerminalReadersReaderResponseBody200Action'NonNullableType'EnumProcessPaymentIntent
-            | val GHC.Classes.== "process_setup_intent" -> PostTerminalReadersReaderResponseBody200Action'NonNullableType'EnumProcessSetupIntent
-            | val GHC.Classes.== "set_reader_display" -> PostTerminalReadersReaderResponseBody200Action'NonNullableType'EnumSetReaderDisplay
-            | GHC.Base.otherwise -> PostTerminalReadersReaderResponseBody200Action'NonNullableType'Other val
+          | val GHC.Classes.== "process_payment_intent" -> PostTerminalReadersReaderResponseBody200Action'NonNullableType'EnumProcessPaymentIntent
+          | val GHC.Classes.== "process_setup_intent" -> PostTerminalReadersReaderResponseBody200Action'NonNullableType'EnumProcessSetupIntent
+          | val GHC.Classes.== "set_reader_display" -> PostTerminalReadersReaderResponseBody200Action'NonNullableType'EnumSetReaderDisplay
+          | GHC.Base.otherwise -> PostTerminalReadersReaderResponseBody200Action'NonNullableType'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/terminal\/readers\/{reader}.POST.responses.200.content.application\/json.schema.anyOf.properties.deleted@ in the specification.
@@ -376,8 +376,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostTerminalReadersReaderResponseBod
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== Data.Aeson.Types.Internal.Bool GHC.Types.True -> PostTerminalReadersReaderResponseBody200Deleted'EnumTrue
-            | GHC.Base.otherwise -> PostTerminalReadersReaderResponseBody200Deleted'Other val
+          | val GHC.Classes.== Data.Aeson.Types.Internal.Bool GHC.Types.True -> PostTerminalReadersReaderResponseBody200Deleted'EnumTrue
+          | GHC.Base.otherwise -> PostTerminalReadersReaderResponseBody200Deleted'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/terminal\/readers\/{reader}.POST.responses.200.content.application\/json.schema.anyOf.properties.device_type@ in the specification.
@@ -416,13 +416,13 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostTerminalReadersReaderResponseBod
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "bbpos_chipper2x" -> PostTerminalReadersReaderResponseBody200DeviceType'EnumBbposChipper2x
-            | val GHC.Classes.== "bbpos_wisepad3" -> PostTerminalReadersReaderResponseBody200DeviceType'EnumBbposWisepad3
-            | val GHC.Classes.== "bbpos_wisepos_e" -> PostTerminalReadersReaderResponseBody200DeviceType'EnumBbposWiseposE
-            | val GHC.Classes.== "simulated_wisepos_e" -> PostTerminalReadersReaderResponseBody200DeviceType'EnumSimulatedWiseposE
-            | val GHC.Classes.== "stripe_m2" -> PostTerminalReadersReaderResponseBody200DeviceType'EnumStripeM2
-            | val GHC.Classes.== "verifone_P400" -> PostTerminalReadersReaderResponseBody200DeviceType'EnumVerifoneP400
-            | GHC.Base.otherwise -> PostTerminalReadersReaderResponseBody200DeviceType'Other val
+          | val GHC.Classes.== "bbpos_chipper2x" -> PostTerminalReadersReaderResponseBody200DeviceType'EnumBbposChipper2x
+          | val GHC.Classes.== "bbpos_wisepad3" -> PostTerminalReadersReaderResponseBody200DeviceType'EnumBbposWisepad3
+          | val GHC.Classes.== "bbpos_wisepos_e" -> PostTerminalReadersReaderResponseBody200DeviceType'EnumBbposWiseposE
+          | val GHC.Classes.== "simulated_wisepos_e" -> PostTerminalReadersReaderResponseBody200DeviceType'EnumSimulatedWiseposE
+          | val GHC.Classes.== "stripe_m2" -> PostTerminalReadersReaderResponseBody200DeviceType'EnumStripeM2
+          | val GHC.Classes.== "verifone_P400" -> PostTerminalReadersReaderResponseBody200DeviceType'EnumVerifoneP400
+          | GHC.Base.otherwise -> PostTerminalReadersReaderResponseBody200DeviceType'Other val
       )
 
 -- | Defines the oneOf schema located at @paths.\/v1\/terminal\/readers\/{reader}.POST.responses.200.content.application\/json.schema.anyOf.properties.location.anyOf@ in the specification.
@@ -463,6 +463,6 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostTerminalReadersReaderResponseBod
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "terminal.reader" -> PostTerminalReadersReaderResponseBody200Object'EnumTerminal'reader
-            | GHC.Base.otherwise -> PostTerminalReadersReaderResponseBody200Object'Other val
+          | val GHC.Classes.== "terminal.reader" -> PostTerminalReadersReaderResponseBody200Object'EnumTerminal'reader
+          | GHC.Base.otherwise -> PostTerminalReadersReaderResponseBody200Object'Other val
       )

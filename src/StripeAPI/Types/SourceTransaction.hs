@@ -197,21 +197,21 @@ instance Data.Aeson.Types.FromJSON.FromJSON SourceTransactionType' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "ach_credit_transfer" -> SourceTransactionType'EnumAchCreditTransfer
-            | val GHC.Classes.== "ach_debit" -> SourceTransactionType'EnumAchDebit
-            | val GHC.Classes.== "alipay" -> SourceTransactionType'EnumAlipay
-            | val GHC.Classes.== "bancontact" -> SourceTransactionType'EnumBancontact
-            | val GHC.Classes.== "card" -> SourceTransactionType'EnumCard
-            | val GHC.Classes.== "card_present" -> SourceTransactionType'EnumCardPresent
-            | val GHC.Classes.== "eps" -> SourceTransactionType'EnumEps
-            | val GHC.Classes.== "giropay" -> SourceTransactionType'EnumGiropay
-            | val GHC.Classes.== "ideal" -> SourceTransactionType'EnumIdeal
-            | val GHC.Classes.== "klarna" -> SourceTransactionType'EnumKlarna
-            | val GHC.Classes.== "multibanco" -> SourceTransactionType'EnumMultibanco
-            | val GHC.Classes.== "p24" -> SourceTransactionType'EnumP24
-            | val GHC.Classes.== "sepa_debit" -> SourceTransactionType'EnumSepaDebit
-            | val GHC.Classes.== "sofort" -> SourceTransactionType'EnumSofort
-            | val GHC.Classes.== "three_d_secure" -> SourceTransactionType'EnumThreeDSecure
-            | val GHC.Classes.== "wechat" -> SourceTransactionType'EnumWechat
-            | GHC.Base.otherwise -> SourceTransactionType'Other val
+          | val GHC.Classes.== "ach_credit_transfer" -> SourceTransactionType'EnumAchCreditTransfer
+          | val GHC.Classes.== "ach_debit" -> SourceTransactionType'EnumAchDebit
+          | val GHC.Classes.== "alipay" -> SourceTransactionType'EnumAlipay
+          | val GHC.Classes.== "bancontact" -> SourceTransactionType'EnumBancontact
+          | val GHC.Classes.== "card" -> SourceTransactionType'EnumCard
+          | val GHC.Classes.== "card_present" -> SourceTransactionType'EnumCardPresent
+          | val GHC.Classes.== "eps" -> SourceTransactionType'EnumEps
+          | val GHC.Classes.== "giropay" -> SourceTransactionType'EnumGiropay
+          | val GHC.Classes.== "ideal" -> SourceTransactionType'EnumIdeal
+          | val GHC.Classes.== "klarna" -> SourceTransactionType'EnumKlarna
+          | val GHC.Classes.== "multibanco" -> SourceTransactionType'EnumMultibanco
+          | val GHC.Classes.== "p24" -> SourceTransactionType'EnumP24
+          | val GHC.Classes.== "sepa_debit" -> SourceTransactionType'EnumSepaDebit
+          | val GHC.Classes.== "sofort" -> SourceTransactionType'EnumSofort
+          | val GHC.Classes.== "three_d_secure" -> SourceTransactionType'EnumThreeDSecure
+          | val GHC.Classes.== "wechat" -> SourceTransactionType'EnumWechat
+          | GHC.Base.otherwise -> SourceTransactionType'Other val
       )

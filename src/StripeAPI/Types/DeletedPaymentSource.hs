@@ -98,8 +98,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON DeletedPaymentSourceDeleted' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== Data.Aeson.Types.Internal.Bool GHC.Types.True -> DeletedPaymentSourceDeleted'EnumTrue
-            | GHC.Base.otherwise -> DeletedPaymentSourceDeleted'Other val
+          | val GHC.Classes.== Data.Aeson.Types.Internal.Bool GHC.Types.True -> DeletedPaymentSourceDeleted'EnumTrue
+          | GHC.Base.otherwise -> DeletedPaymentSourceDeleted'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.deleted_payment_source.anyOf.properties.object@ in the specification.
@@ -123,6 +123,6 @@ instance Data.Aeson.Types.FromJSON.FromJSON DeletedPaymentSourceObject' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "alipay_account" -> DeletedPaymentSourceObject'EnumAlipayAccount
-            | GHC.Base.otherwise -> DeletedPaymentSourceObject'Other val
+          | val GHC.Classes.== "alipay_account" -> DeletedPaymentSourceObject'EnumAlipayAccount
+          | GHC.Base.otherwise -> DeletedPaymentSourceObject'Other val
       )

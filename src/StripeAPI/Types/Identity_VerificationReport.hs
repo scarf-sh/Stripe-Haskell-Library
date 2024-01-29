@@ -139,7 +139,7 @@ instance Data.Aeson.Types.FromJSON.FromJSON Identity'verificationReportType' whe
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "document" -> Identity'verificationReportType'EnumDocument
-            | val GHC.Classes.== "id_number" -> Identity'verificationReportType'EnumIdNumber
-            | GHC.Base.otherwise -> Identity'verificationReportType'Other val
+          | val GHC.Classes.== "document" -> Identity'verificationReportType'EnumDocument
+          | val GHC.Classes.== "id_number" -> Identity'verificationReportType'EnumIdNumber
+          | GHC.Base.otherwise -> Identity'verificationReportType'Other val
       )

@@ -84,6 +84,6 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentMethodOptionsPaypalCaptureMet
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "manual" -> PaymentMethodOptionsPaypalCaptureMethod'EnumManual
-            | GHC.Base.otherwise -> PaymentMethodOptionsPaypalCaptureMethod'Other val
+          | val GHC.Classes.== "manual" -> PaymentMethodOptionsPaypalCaptureMethod'EnumManual
+          | GHC.Base.otherwise -> PaymentMethodOptionsPaypalCaptureMethod'Other val
       )

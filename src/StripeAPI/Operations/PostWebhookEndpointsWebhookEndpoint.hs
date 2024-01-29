@@ -48,7 +48,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>Updates the webhook endpoint. You may edit the \<code>url\<\/code>, the list of \<code>enabled_events\<\/code>, and the status of your endpoint.\<\/p>
 postWebhookEndpointsWebhookEndpoint ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | webhook_endpoint | Constraints: Maximum length of 5000
   Data.Text.Internal.Text ->
   -- | The request body to send
@@ -64,21 +64,21 @@ postWebhookEndpointsWebhookEndpoint
             ( Data.Either.either PostWebhookEndpointsWebhookEndpointResponseError GHC.Base.id
                 GHC.Base.. ( \response body ->
                                if
-                                   | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                      PostWebhookEndpointsWebhookEndpointResponse200
                                        Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                             Data.Either.Either
                                                               GHC.Base.String
                                                               WebhookEndpoint
                                                         )
-                                   | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                      PostWebhookEndpointsWebhookEndpointResponseDefault
                                        Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                             Data.Either.Either
                                                               GHC.Base.String
                                                               Error
                                                         )
-                                   | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                            )
                   response_0
             )
@@ -802,226 +802,226 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostWebhookEndpointsWebhookEndpointR
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "*" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'Enum_
-            | val GHC.Classes.== "account.application.authorized" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumAccount'application'authorized
-            | val GHC.Classes.== "account.application.deauthorized" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumAccount'application'deauthorized
-            | val GHC.Classes.== "account.external_account.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumAccount'externalAccount'created
-            | val GHC.Classes.== "account.external_account.deleted" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumAccount'externalAccount'deleted
-            | val GHC.Classes.== "account.external_account.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumAccount'externalAccount'updated
-            | val GHC.Classes.== "account.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumAccount'updated
-            | val GHC.Classes.== "application_fee.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumApplicationFee'created
-            | val GHC.Classes.== "application_fee.refund.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumApplicationFee'refund'updated
-            | val GHC.Classes.== "application_fee.refunded" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumApplicationFee'refunded
-            | val GHC.Classes.== "balance.available" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumBalance'available
-            | val GHC.Classes.== "billing_portal.configuration.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumBillingPortal'configuration'created
-            | val GHC.Classes.== "billing_portal.configuration.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumBillingPortal'configuration'updated
-            | val GHC.Classes.== "billing_portal.session.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumBillingPortal'session'created
-            | val GHC.Classes.== "capability.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCapability'updated
-            | val GHC.Classes.== "cash_balance.funds_available" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCashBalance'fundsAvailable
-            | val GHC.Classes.== "charge.captured" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCharge'captured
-            | val GHC.Classes.== "charge.dispute.closed" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCharge'dispute'closed
-            | val GHC.Classes.== "charge.dispute.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCharge'dispute'created
-            | val GHC.Classes.== "charge.dispute.funds_reinstated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCharge'dispute'fundsReinstated
-            | val GHC.Classes.== "charge.dispute.funds_withdrawn" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCharge'dispute'fundsWithdrawn
-            | val GHC.Classes.== "charge.dispute.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCharge'dispute'updated
-            | val GHC.Classes.== "charge.expired" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCharge'expired
-            | val GHC.Classes.== "charge.failed" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCharge'failed
-            | val GHC.Classes.== "charge.pending" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCharge'pending
-            | val GHC.Classes.== "charge.refund.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCharge'refund'updated
-            | val GHC.Classes.== "charge.refunded" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCharge'refunded
-            | val GHC.Classes.== "charge.succeeded" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCharge'succeeded
-            | val GHC.Classes.== "charge.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCharge'updated
-            | val GHC.Classes.== "checkout.session.async_payment_failed" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCheckout'session'asyncPaymentFailed
-            | val GHC.Classes.== "checkout.session.async_payment_succeeded" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCheckout'session'asyncPaymentSucceeded
-            | val GHC.Classes.== "checkout.session.completed" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCheckout'session'completed
-            | val GHC.Classes.== "checkout.session.expired" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCheckout'session'expired
-            | val GHC.Classes.== "coupon.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCoupon'created
-            | val GHC.Classes.== "coupon.deleted" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCoupon'deleted
-            | val GHC.Classes.== "coupon.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCoupon'updated
-            | val GHC.Classes.== "credit_note.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCreditNote'created
-            | val GHC.Classes.== "credit_note.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCreditNote'updated
-            | val GHC.Classes.== "credit_note.voided" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCreditNote'voided
-            | val GHC.Classes.== "customer.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCustomer'created
-            | val GHC.Classes.== "customer.deleted" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCustomer'deleted
-            | val GHC.Classes.== "customer.discount.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCustomer'discount'created
-            | val GHC.Classes.== "customer.discount.deleted" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCustomer'discount'deleted
-            | val GHC.Classes.== "customer.discount.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCustomer'discount'updated
-            | val GHC.Classes.== "customer.source.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCustomer'source'created
-            | val GHC.Classes.== "customer.source.deleted" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCustomer'source'deleted
-            | val GHC.Classes.== "customer.source.expiring" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCustomer'source'expiring
-            | val GHC.Classes.== "customer.source.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCustomer'source'updated
-            | val GHC.Classes.== "customer.subscription.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCustomer'subscription'created
-            | val GHC.Classes.== "customer.subscription.deleted" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCustomer'subscription'deleted
-            | val GHC.Classes.== "customer.subscription.pending_update_applied" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCustomer'subscription'pendingUpdateApplied
-            | val GHC.Classes.== "customer.subscription.pending_update_expired" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCustomer'subscription'pendingUpdateExpired
-            | val GHC.Classes.== "customer.subscription.trial_will_end" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCustomer'subscription'trialWillEnd
-            | val GHC.Classes.== "customer.subscription.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCustomer'subscription'updated
-            | val GHC.Classes.== "customer.tax_id.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCustomer'taxId'created
-            | val GHC.Classes.== "customer.tax_id.deleted" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCustomer'taxId'deleted
-            | val GHC.Classes.== "customer.tax_id.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCustomer'taxId'updated
-            | val GHC.Classes.== "customer.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCustomer'updated
-            | val GHC.Classes.== "file.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumFile'created
-            | val GHC.Classes.== "identity.verification_session.canceled" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumIdentity'verificationSession'canceled
-            | val GHC.Classes.== "identity.verification_session.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumIdentity'verificationSession'created
-            | val GHC.Classes.== "identity.verification_session.processing" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumIdentity'verificationSession'processing
-            | val GHC.Classes.== "identity.verification_session.redacted" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumIdentity'verificationSession'redacted
-            | val GHC.Classes.== "identity.verification_session.requires_input" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumIdentity'verificationSession'requiresInput
-            | val GHC.Classes.== "identity.verification_session.verified" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumIdentity'verificationSession'verified
-            | val GHC.Classes.== "invoice.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumInvoice'created
-            | val GHC.Classes.== "invoice.deleted" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumInvoice'deleted
-            | val GHC.Classes.== "invoice.finalization_failed" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumInvoice'finalizationFailed
-            | val GHC.Classes.== "invoice.finalized" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumInvoice'finalized
-            | val GHC.Classes.== "invoice.marked_uncollectible" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumInvoice'markedUncollectible
-            | val GHC.Classes.== "invoice.paid" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumInvoice'paid
-            | val GHC.Classes.== "invoice.payment_action_required" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumInvoice'paymentActionRequired
-            | val GHC.Classes.== "invoice.payment_failed" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumInvoice'paymentFailed
-            | val GHC.Classes.== "invoice.payment_succeeded" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumInvoice'paymentSucceeded
-            | val GHC.Classes.== "invoice.sent" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumInvoice'sent
-            | val GHC.Classes.== "invoice.upcoming" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumInvoice'upcoming
-            | val GHC.Classes.== "invoice.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumInvoice'updated
-            | val GHC.Classes.== "invoice.voided" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumInvoice'voided
-            | val GHC.Classes.== "invoiceitem.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumInvoiceitem'created
-            | val GHC.Classes.== "invoiceitem.deleted" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumInvoiceitem'deleted
-            | val GHC.Classes.== "invoiceitem.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumInvoiceitem'updated
-            | val GHC.Classes.== "issuing_authorization.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumIssuingAuthorization'created
-            | val GHC.Classes.== "issuing_authorization.request" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumIssuingAuthorization'request
-            | val GHC.Classes.== "issuing_authorization.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumIssuingAuthorization'updated
-            | val GHC.Classes.== "issuing_card.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumIssuingCard'created
-            | val GHC.Classes.== "issuing_card.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumIssuingCard'updated
-            | val GHC.Classes.== "issuing_cardholder.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumIssuingCardholder'created
-            | val GHC.Classes.== "issuing_cardholder.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumIssuingCardholder'updated
-            | val GHC.Classes.== "issuing_dispute.closed" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumIssuingDispute'closed
-            | val GHC.Classes.== "issuing_dispute.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumIssuingDispute'created
-            | val GHC.Classes.== "issuing_dispute.funds_reinstated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumIssuingDispute'fundsReinstated
-            | val GHC.Classes.== "issuing_dispute.submitted" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumIssuingDispute'submitted
-            | val GHC.Classes.== "issuing_dispute.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumIssuingDispute'updated
-            | val GHC.Classes.== "issuing_transaction.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumIssuingTransaction'created
-            | val GHC.Classes.== "issuing_transaction.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumIssuingTransaction'updated
-            | val GHC.Classes.== "mandate.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumMandate'updated
-            | val GHC.Classes.== "order.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumOrder'created
-            | val GHC.Classes.== "order.payment_failed" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumOrder'paymentFailed
-            | val GHC.Classes.== "order.payment_succeeded" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumOrder'paymentSucceeded
-            | val GHC.Classes.== "order.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumOrder'updated
-            | val GHC.Classes.== "order_return.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumOrderReturn'created
-            | val GHC.Classes.== "payment_intent.amount_capturable_updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumPaymentIntent'amountCapturableUpdated
-            | val GHC.Classes.== "payment_intent.canceled" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumPaymentIntent'canceled
-            | val GHC.Classes.== "payment_intent.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumPaymentIntent'created
-            | val GHC.Classes.== "payment_intent.partially_funded" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumPaymentIntent'partiallyFunded
-            | val GHC.Classes.== "payment_intent.payment_failed" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumPaymentIntent'paymentFailed
-            | val GHC.Classes.== "payment_intent.processing" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumPaymentIntent'processing
-            | val GHC.Classes.== "payment_intent.requires_action" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumPaymentIntent'requiresAction
-            | val GHC.Classes.== "payment_intent.succeeded" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumPaymentIntent'succeeded
-            | val GHC.Classes.== "payment_link.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumPaymentLink'created
-            | val GHC.Classes.== "payment_link.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumPaymentLink'updated
-            | val GHC.Classes.== "payment_method.attached" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumPaymentMethod'attached
-            | val GHC.Classes.== "payment_method.automatically_updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumPaymentMethod'automaticallyUpdated
-            | val GHC.Classes.== "payment_method.detached" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumPaymentMethod'detached
-            | val GHC.Classes.== "payment_method.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumPaymentMethod'updated
-            | val GHC.Classes.== "payout.canceled" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumPayout'canceled
-            | val GHC.Classes.== "payout.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumPayout'created
-            | val GHC.Classes.== "payout.failed" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumPayout'failed
-            | val GHC.Classes.== "payout.paid" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumPayout'paid
-            | val GHC.Classes.== "payout.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumPayout'updated
-            | val GHC.Classes.== "person.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumPerson'created
-            | val GHC.Classes.== "person.deleted" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumPerson'deleted
-            | val GHC.Classes.== "person.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumPerson'updated
-            | val GHC.Classes.== "plan.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumPlan'created
-            | val GHC.Classes.== "plan.deleted" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumPlan'deleted
-            | val GHC.Classes.== "plan.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumPlan'updated
-            | val GHC.Classes.== "price.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumPrice'created
-            | val GHC.Classes.== "price.deleted" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumPrice'deleted
-            | val GHC.Classes.== "price.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumPrice'updated
-            | val GHC.Classes.== "product.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumProduct'created
-            | val GHC.Classes.== "product.deleted" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumProduct'deleted
-            | val GHC.Classes.== "product.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumProduct'updated
-            | val GHC.Classes.== "promotion_code.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumPromotionCode'created
-            | val GHC.Classes.== "promotion_code.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumPromotionCode'updated
-            | val GHC.Classes.== "quote.accepted" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumQuote'accepted
-            | val GHC.Classes.== "quote.canceled" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumQuote'canceled
-            | val GHC.Classes.== "quote.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumQuote'created
-            | val GHC.Classes.== "quote.finalized" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumQuote'finalized
-            | val GHC.Classes.== "radar.early_fraud_warning.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumRadar'earlyFraudWarning'created
-            | val GHC.Classes.== "radar.early_fraud_warning.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumRadar'earlyFraudWarning'updated
-            | val GHC.Classes.== "recipient.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumRecipient'created
-            | val GHC.Classes.== "recipient.deleted" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumRecipient'deleted
-            | val GHC.Classes.== "recipient.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumRecipient'updated
-            | val GHC.Classes.== "reporting.report_run.failed" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumReporting'reportRun'failed
-            | val GHC.Classes.== "reporting.report_run.succeeded" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumReporting'reportRun'succeeded
-            | val GHC.Classes.== "reporting.report_type.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumReporting'reportType'updated
-            | val GHC.Classes.== "review.closed" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumReview'closed
-            | val GHC.Classes.== "review.opened" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumReview'opened
-            | val GHC.Classes.== "setup_intent.canceled" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumSetupIntent'canceled
-            | val GHC.Classes.== "setup_intent.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumSetupIntent'created
-            | val GHC.Classes.== "setup_intent.requires_action" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumSetupIntent'requiresAction
-            | val GHC.Classes.== "setup_intent.setup_failed" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumSetupIntent'setupFailed
-            | val GHC.Classes.== "setup_intent.succeeded" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumSetupIntent'succeeded
-            | val GHC.Classes.== "sigma.scheduled_query_run.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumSigma'scheduledQueryRun'created
-            | val GHC.Classes.== "sku.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumSku'created
-            | val GHC.Classes.== "sku.deleted" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumSku'deleted
-            | val GHC.Classes.== "sku.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumSku'updated
-            | val GHC.Classes.== "source.canceled" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumSource'canceled
-            | val GHC.Classes.== "source.chargeable" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumSource'chargeable
-            | val GHC.Classes.== "source.failed" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumSource'failed
-            | val GHC.Classes.== "source.mandate_notification" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumSource'mandateNotification
-            | val GHC.Classes.== "source.refund_attributes_required" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumSource'refundAttributesRequired
-            | val GHC.Classes.== "source.transaction.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumSource'transaction'created
-            | val GHC.Classes.== "source.transaction.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumSource'transaction'updated
-            | val GHC.Classes.== "subscription_schedule.aborted" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumSubscriptionSchedule'aborted
-            | val GHC.Classes.== "subscription_schedule.canceled" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumSubscriptionSchedule'canceled
-            | val GHC.Classes.== "subscription_schedule.completed" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumSubscriptionSchedule'completed
-            | val GHC.Classes.== "subscription_schedule.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumSubscriptionSchedule'created
-            | val GHC.Classes.== "subscription_schedule.expiring" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumSubscriptionSchedule'expiring
-            | val GHC.Classes.== "subscription_schedule.released" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumSubscriptionSchedule'released
-            | val GHC.Classes.== "subscription_schedule.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumSubscriptionSchedule'updated
-            | val GHC.Classes.== "tax_rate.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTaxRate'created
-            | val GHC.Classes.== "tax_rate.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTaxRate'updated
-            | val GHC.Classes.== "terminal.reader.action_failed" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTerminal'reader'actionFailed
-            | val GHC.Classes.== "terminal.reader.action_succeeded" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTerminal'reader'actionSucceeded
-            | val GHC.Classes.== "test_helpers.test_clock.advancing" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTestHelpers'testClock'advancing
-            | val GHC.Classes.== "test_helpers.test_clock.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTestHelpers'testClock'created
-            | val GHC.Classes.== "test_helpers.test_clock.deleted" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTestHelpers'testClock'deleted
-            | val GHC.Classes.== "test_helpers.test_clock.internal_failure" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTestHelpers'testClock'internalFailure
-            | val GHC.Classes.== "test_helpers.test_clock.ready" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTestHelpers'testClock'ready
-            | val GHC.Classes.== "topup.canceled" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTopup'canceled
-            | val GHC.Classes.== "topup.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTopup'created
-            | val GHC.Classes.== "topup.failed" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTopup'failed
-            | val GHC.Classes.== "topup.reversed" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTopup'reversed
-            | val GHC.Classes.== "topup.succeeded" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTopup'succeeded
-            | val GHC.Classes.== "transfer.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTransfer'created
-            | val GHC.Classes.== "transfer.failed" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTransfer'failed
-            | val GHC.Classes.== "transfer.paid" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTransfer'paid
-            | val GHC.Classes.== "transfer.reversed" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTransfer'reversed
-            | val GHC.Classes.== "transfer.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTransfer'updated
-            | val GHC.Classes.== "treasury.credit_reversal.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTreasury'creditReversal'created
-            | val GHC.Classes.== "treasury.credit_reversal.posted" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTreasury'creditReversal'posted
-            | val GHC.Classes.== "treasury.debit_reversal.completed" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTreasury'debitReversal'completed
-            | val GHC.Classes.== "treasury.debit_reversal.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTreasury'debitReversal'created
-            | val GHC.Classes.== "treasury.debit_reversal.initial_credit_granted" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTreasury'debitReversal'initialCreditGranted
-            | val GHC.Classes.== "treasury.financial_account.closed" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTreasury'financialAccount'closed
-            | val GHC.Classes.== "treasury.financial_account.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTreasury'financialAccount'created
-            | val GHC.Classes.== "treasury.financial_account.features_status_updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTreasury'financialAccount'featuresStatusUpdated
-            | val GHC.Classes.== "treasury.inbound_transfer.canceled" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTreasury'inboundTransfer'canceled
-            | val GHC.Classes.== "treasury.inbound_transfer.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTreasury'inboundTransfer'created
-            | val GHC.Classes.== "treasury.inbound_transfer.failed" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTreasury'inboundTransfer'failed
-            | val GHC.Classes.== "treasury.inbound_transfer.succeeded" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTreasury'inboundTransfer'succeeded
-            | val GHC.Classes.== "treasury.outbound_payment.canceled" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTreasury'outboundPayment'canceled
-            | val GHC.Classes.== "treasury.outbound_payment.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTreasury'outboundPayment'created
-            | val GHC.Classes.== "treasury.outbound_payment.expected_arrival_date_updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTreasury'outboundPayment'expectedArrivalDateUpdated
-            | val GHC.Classes.== "treasury.outbound_payment.failed" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTreasury'outboundPayment'failed
-            | val GHC.Classes.== "treasury.outbound_payment.posted" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTreasury'outboundPayment'posted
-            | val GHC.Classes.== "treasury.outbound_payment.returned" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTreasury'outboundPayment'returned
-            | val GHC.Classes.== "treasury.outbound_transfer.canceled" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTreasury'outboundTransfer'canceled
-            | val GHC.Classes.== "treasury.outbound_transfer.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTreasury'outboundTransfer'created
-            | val GHC.Classes.== "treasury.outbound_transfer.expected_arrival_date_updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTreasury'outboundTransfer'expectedArrivalDateUpdated
-            | val GHC.Classes.== "treasury.outbound_transfer.failed" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTreasury'outboundTransfer'failed
-            | val GHC.Classes.== "treasury.outbound_transfer.posted" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTreasury'outboundTransfer'posted
-            | val GHC.Classes.== "treasury.outbound_transfer.returned" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTreasury'outboundTransfer'returned
-            | val GHC.Classes.== "treasury.received_credit.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTreasury'receivedCredit'created
-            | val GHC.Classes.== "treasury.received_credit.failed" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTreasury'receivedCredit'failed
-            | val GHC.Classes.== "treasury.received_credit.reversed" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTreasury'receivedCredit'reversed
-            | val GHC.Classes.== "treasury.received_credit.succeeded" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTreasury'receivedCredit'succeeded
-            | val GHC.Classes.== "treasury.received_debit.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTreasury'receivedDebit'created
-            | GHC.Base.otherwise -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'Other val
+          | val GHC.Classes.== "*" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'Enum_
+          | val GHC.Classes.== "account.application.authorized" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumAccount'application'authorized
+          | val GHC.Classes.== "account.application.deauthorized" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumAccount'application'deauthorized
+          | val GHC.Classes.== "account.external_account.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumAccount'externalAccount'created
+          | val GHC.Classes.== "account.external_account.deleted" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumAccount'externalAccount'deleted
+          | val GHC.Classes.== "account.external_account.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumAccount'externalAccount'updated
+          | val GHC.Classes.== "account.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumAccount'updated
+          | val GHC.Classes.== "application_fee.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumApplicationFee'created
+          | val GHC.Classes.== "application_fee.refund.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumApplicationFee'refund'updated
+          | val GHC.Classes.== "application_fee.refunded" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumApplicationFee'refunded
+          | val GHC.Classes.== "balance.available" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumBalance'available
+          | val GHC.Classes.== "billing_portal.configuration.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumBillingPortal'configuration'created
+          | val GHC.Classes.== "billing_portal.configuration.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumBillingPortal'configuration'updated
+          | val GHC.Classes.== "billing_portal.session.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumBillingPortal'session'created
+          | val GHC.Classes.== "capability.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCapability'updated
+          | val GHC.Classes.== "cash_balance.funds_available" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCashBalance'fundsAvailable
+          | val GHC.Classes.== "charge.captured" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCharge'captured
+          | val GHC.Classes.== "charge.dispute.closed" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCharge'dispute'closed
+          | val GHC.Classes.== "charge.dispute.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCharge'dispute'created
+          | val GHC.Classes.== "charge.dispute.funds_reinstated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCharge'dispute'fundsReinstated
+          | val GHC.Classes.== "charge.dispute.funds_withdrawn" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCharge'dispute'fundsWithdrawn
+          | val GHC.Classes.== "charge.dispute.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCharge'dispute'updated
+          | val GHC.Classes.== "charge.expired" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCharge'expired
+          | val GHC.Classes.== "charge.failed" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCharge'failed
+          | val GHC.Classes.== "charge.pending" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCharge'pending
+          | val GHC.Classes.== "charge.refund.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCharge'refund'updated
+          | val GHC.Classes.== "charge.refunded" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCharge'refunded
+          | val GHC.Classes.== "charge.succeeded" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCharge'succeeded
+          | val GHC.Classes.== "charge.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCharge'updated
+          | val GHC.Classes.== "checkout.session.async_payment_failed" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCheckout'session'asyncPaymentFailed
+          | val GHC.Classes.== "checkout.session.async_payment_succeeded" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCheckout'session'asyncPaymentSucceeded
+          | val GHC.Classes.== "checkout.session.completed" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCheckout'session'completed
+          | val GHC.Classes.== "checkout.session.expired" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCheckout'session'expired
+          | val GHC.Classes.== "coupon.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCoupon'created
+          | val GHC.Classes.== "coupon.deleted" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCoupon'deleted
+          | val GHC.Classes.== "coupon.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCoupon'updated
+          | val GHC.Classes.== "credit_note.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCreditNote'created
+          | val GHC.Classes.== "credit_note.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCreditNote'updated
+          | val GHC.Classes.== "credit_note.voided" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCreditNote'voided
+          | val GHC.Classes.== "customer.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCustomer'created
+          | val GHC.Classes.== "customer.deleted" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCustomer'deleted
+          | val GHC.Classes.== "customer.discount.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCustomer'discount'created
+          | val GHC.Classes.== "customer.discount.deleted" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCustomer'discount'deleted
+          | val GHC.Classes.== "customer.discount.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCustomer'discount'updated
+          | val GHC.Classes.== "customer.source.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCustomer'source'created
+          | val GHC.Classes.== "customer.source.deleted" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCustomer'source'deleted
+          | val GHC.Classes.== "customer.source.expiring" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCustomer'source'expiring
+          | val GHC.Classes.== "customer.source.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCustomer'source'updated
+          | val GHC.Classes.== "customer.subscription.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCustomer'subscription'created
+          | val GHC.Classes.== "customer.subscription.deleted" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCustomer'subscription'deleted
+          | val GHC.Classes.== "customer.subscription.pending_update_applied" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCustomer'subscription'pendingUpdateApplied
+          | val GHC.Classes.== "customer.subscription.pending_update_expired" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCustomer'subscription'pendingUpdateExpired
+          | val GHC.Classes.== "customer.subscription.trial_will_end" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCustomer'subscription'trialWillEnd
+          | val GHC.Classes.== "customer.subscription.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCustomer'subscription'updated
+          | val GHC.Classes.== "customer.tax_id.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCustomer'taxId'created
+          | val GHC.Classes.== "customer.tax_id.deleted" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCustomer'taxId'deleted
+          | val GHC.Classes.== "customer.tax_id.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCustomer'taxId'updated
+          | val GHC.Classes.== "customer.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumCustomer'updated
+          | val GHC.Classes.== "file.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumFile'created
+          | val GHC.Classes.== "identity.verification_session.canceled" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumIdentity'verificationSession'canceled
+          | val GHC.Classes.== "identity.verification_session.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumIdentity'verificationSession'created
+          | val GHC.Classes.== "identity.verification_session.processing" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumIdentity'verificationSession'processing
+          | val GHC.Classes.== "identity.verification_session.redacted" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumIdentity'verificationSession'redacted
+          | val GHC.Classes.== "identity.verification_session.requires_input" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumIdentity'verificationSession'requiresInput
+          | val GHC.Classes.== "identity.verification_session.verified" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumIdentity'verificationSession'verified
+          | val GHC.Classes.== "invoice.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumInvoice'created
+          | val GHC.Classes.== "invoice.deleted" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumInvoice'deleted
+          | val GHC.Classes.== "invoice.finalization_failed" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumInvoice'finalizationFailed
+          | val GHC.Classes.== "invoice.finalized" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumInvoice'finalized
+          | val GHC.Classes.== "invoice.marked_uncollectible" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumInvoice'markedUncollectible
+          | val GHC.Classes.== "invoice.paid" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumInvoice'paid
+          | val GHC.Classes.== "invoice.payment_action_required" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumInvoice'paymentActionRequired
+          | val GHC.Classes.== "invoice.payment_failed" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumInvoice'paymentFailed
+          | val GHC.Classes.== "invoice.payment_succeeded" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumInvoice'paymentSucceeded
+          | val GHC.Classes.== "invoice.sent" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumInvoice'sent
+          | val GHC.Classes.== "invoice.upcoming" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumInvoice'upcoming
+          | val GHC.Classes.== "invoice.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumInvoice'updated
+          | val GHC.Classes.== "invoice.voided" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumInvoice'voided
+          | val GHC.Classes.== "invoiceitem.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumInvoiceitem'created
+          | val GHC.Classes.== "invoiceitem.deleted" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumInvoiceitem'deleted
+          | val GHC.Classes.== "invoiceitem.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumInvoiceitem'updated
+          | val GHC.Classes.== "issuing_authorization.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumIssuingAuthorization'created
+          | val GHC.Classes.== "issuing_authorization.request" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumIssuingAuthorization'request
+          | val GHC.Classes.== "issuing_authorization.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumIssuingAuthorization'updated
+          | val GHC.Classes.== "issuing_card.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumIssuingCard'created
+          | val GHC.Classes.== "issuing_card.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumIssuingCard'updated
+          | val GHC.Classes.== "issuing_cardholder.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumIssuingCardholder'created
+          | val GHC.Classes.== "issuing_cardholder.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumIssuingCardholder'updated
+          | val GHC.Classes.== "issuing_dispute.closed" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumIssuingDispute'closed
+          | val GHC.Classes.== "issuing_dispute.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumIssuingDispute'created
+          | val GHC.Classes.== "issuing_dispute.funds_reinstated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumIssuingDispute'fundsReinstated
+          | val GHC.Classes.== "issuing_dispute.submitted" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumIssuingDispute'submitted
+          | val GHC.Classes.== "issuing_dispute.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumIssuingDispute'updated
+          | val GHC.Classes.== "issuing_transaction.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumIssuingTransaction'created
+          | val GHC.Classes.== "issuing_transaction.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumIssuingTransaction'updated
+          | val GHC.Classes.== "mandate.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumMandate'updated
+          | val GHC.Classes.== "order.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumOrder'created
+          | val GHC.Classes.== "order.payment_failed" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumOrder'paymentFailed
+          | val GHC.Classes.== "order.payment_succeeded" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumOrder'paymentSucceeded
+          | val GHC.Classes.== "order.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumOrder'updated
+          | val GHC.Classes.== "order_return.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumOrderReturn'created
+          | val GHC.Classes.== "payment_intent.amount_capturable_updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumPaymentIntent'amountCapturableUpdated
+          | val GHC.Classes.== "payment_intent.canceled" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumPaymentIntent'canceled
+          | val GHC.Classes.== "payment_intent.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumPaymentIntent'created
+          | val GHC.Classes.== "payment_intent.partially_funded" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumPaymentIntent'partiallyFunded
+          | val GHC.Classes.== "payment_intent.payment_failed" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumPaymentIntent'paymentFailed
+          | val GHC.Classes.== "payment_intent.processing" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumPaymentIntent'processing
+          | val GHC.Classes.== "payment_intent.requires_action" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumPaymentIntent'requiresAction
+          | val GHC.Classes.== "payment_intent.succeeded" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumPaymentIntent'succeeded
+          | val GHC.Classes.== "payment_link.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumPaymentLink'created
+          | val GHC.Classes.== "payment_link.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumPaymentLink'updated
+          | val GHC.Classes.== "payment_method.attached" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumPaymentMethod'attached
+          | val GHC.Classes.== "payment_method.automatically_updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumPaymentMethod'automaticallyUpdated
+          | val GHC.Classes.== "payment_method.detached" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumPaymentMethod'detached
+          | val GHC.Classes.== "payment_method.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumPaymentMethod'updated
+          | val GHC.Classes.== "payout.canceled" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumPayout'canceled
+          | val GHC.Classes.== "payout.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumPayout'created
+          | val GHC.Classes.== "payout.failed" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumPayout'failed
+          | val GHC.Classes.== "payout.paid" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumPayout'paid
+          | val GHC.Classes.== "payout.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumPayout'updated
+          | val GHC.Classes.== "person.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumPerson'created
+          | val GHC.Classes.== "person.deleted" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumPerson'deleted
+          | val GHC.Classes.== "person.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumPerson'updated
+          | val GHC.Classes.== "plan.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumPlan'created
+          | val GHC.Classes.== "plan.deleted" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumPlan'deleted
+          | val GHC.Classes.== "plan.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumPlan'updated
+          | val GHC.Classes.== "price.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumPrice'created
+          | val GHC.Classes.== "price.deleted" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumPrice'deleted
+          | val GHC.Classes.== "price.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumPrice'updated
+          | val GHC.Classes.== "product.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumProduct'created
+          | val GHC.Classes.== "product.deleted" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumProduct'deleted
+          | val GHC.Classes.== "product.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumProduct'updated
+          | val GHC.Classes.== "promotion_code.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumPromotionCode'created
+          | val GHC.Classes.== "promotion_code.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumPromotionCode'updated
+          | val GHC.Classes.== "quote.accepted" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumQuote'accepted
+          | val GHC.Classes.== "quote.canceled" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumQuote'canceled
+          | val GHC.Classes.== "quote.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumQuote'created
+          | val GHC.Classes.== "quote.finalized" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumQuote'finalized
+          | val GHC.Classes.== "radar.early_fraud_warning.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumRadar'earlyFraudWarning'created
+          | val GHC.Classes.== "radar.early_fraud_warning.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumRadar'earlyFraudWarning'updated
+          | val GHC.Classes.== "recipient.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumRecipient'created
+          | val GHC.Classes.== "recipient.deleted" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumRecipient'deleted
+          | val GHC.Classes.== "recipient.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumRecipient'updated
+          | val GHC.Classes.== "reporting.report_run.failed" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumReporting'reportRun'failed
+          | val GHC.Classes.== "reporting.report_run.succeeded" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumReporting'reportRun'succeeded
+          | val GHC.Classes.== "reporting.report_type.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumReporting'reportType'updated
+          | val GHC.Classes.== "review.closed" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumReview'closed
+          | val GHC.Classes.== "review.opened" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumReview'opened
+          | val GHC.Classes.== "setup_intent.canceled" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumSetupIntent'canceled
+          | val GHC.Classes.== "setup_intent.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumSetupIntent'created
+          | val GHC.Classes.== "setup_intent.requires_action" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumSetupIntent'requiresAction
+          | val GHC.Classes.== "setup_intent.setup_failed" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumSetupIntent'setupFailed
+          | val GHC.Classes.== "setup_intent.succeeded" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumSetupIntent'succeeded
+          | val GHC.Classes.== "sigma.scheduled_query_run.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumSigma'scheduledQueryRun'created
+          | val GHC.Classes.== "sku.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumSku'created
+          | val GHC.Classes.== "sku.deleted" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumSku'deleted
+          | val GHC.Classes.== "sku.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumSku'updated
+          | val GHC.Classes.== "source.canceled" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumSource'canceled
+          | val GHC.Classes.== "source.chargeable" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumSource'chargeable
+          | val GHC.Classes.== "source.failed" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumSource'failed
+          | val GHC.Classes.== "source.mandate_notification" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumSource'mandateNotification
+          | val GHC.Classes.== "source.refund_attributes_required" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumSource'refundAttributesRequired
+          | val GHC.Classes.== "source.transaction.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumSource'transaction'created
+          | val GHC.Classes.== "source.transaction.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumSource'transaction'updated
+          | val GHC.Classes.== "subscription_schedule.aborted" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumSubscriptionSchedule'aborted
+          | val GHC.Classes.== "subscription_schedule.canceled" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumSubscriptionSchedule'canceled
+          | val GHC.Classes.== "subscription_schedule.completed" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumSubscriptionSchedule'completed
+          | val GHC.Classes.== "subscription_schedule.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumSubscriptionSchedule'created
+          | val GHC.Classes.== "subscription_schedule.expiring" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumSubscriptionSchedule'expiring
+          | val GHC.Classes.== "subscription_schedule.released" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumSubscriptionSchedule'released
+          | val GHC.Classes.== "subscription_schedule.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumSubscriptionSchedule'updated
+          | val GHC.Classes.== "tax_rate.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTaxRate'created
+          | val GHC.Classes.== "tax_rate.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTaxRate'updated
+          | val GHC.Classes.== "terminal.reader.action_failed" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTerminal'reader'actionFailed
+          | val GHC.Classes.== "terminal.reader.action_succeeded" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTerminal'reader'actionSucceeded
+          | val GHC.Classes.== "test_helpers.test_clock.advancing" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTestHelpers'testClock'advancing
+          | val GHC.Classes.== "test_helpers.test_clock.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTestHelpers'testClock'created
+          | val GHC.Classes.== "test_helpers.test_clock.deleted" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTestHelpers'testClock'deleted
+          | val GHC.Classes.== "test_helpers.test_clock.internal_failure" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTestHelpers'testClock'internalFailure
+          | val GHC.Classes.== "test_helpers.test_clock.ready" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTestHelpers'testClock'ready
+          | val GHC.Classes.== "topup.canceled" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTopup'canceled
+          | val GHC.Classes.== "topup.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTopup'created
+          | val GHC.Classes.== "topup.failed" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTopup'failed
+          | val GHC.Classes.== "topup.reversed" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTopup'reversed
+          | val GHC.Classes.== "topup.succeeded" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTopup'succeeded
+          | val GHC.Classes.== "transfer.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTransfer'created
+          | val GHC.Classes.== "transfer.failed" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTransfer'failed
+          | val GHC.Classes.== "transfer.paid" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTransfer'paid
+          | val GHC.Classes.== "transfer.reversed" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTransfer'reversed
+          | val GHC.Classes.== "transfer.updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTransfer'updated
+          | val GHC.Classes.== "treasury.credit_reversal.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTreasury'creditReversal'created
+          | val GHC.Classes.== "treasury.credit_reversal.posted" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTreasury'creditReversal'posted
+          | val GHC.Classes.== "treasury.debit_reversal.completed" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTreasury'debitReversal'completed
+          | val GHC.Classes.== "treasury.debit_reversal.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTreasury'debitReversal'created
+          | val GHC.Classes.== "treasury.debit_reversal.initial_credit_granted" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTreasury'debitReversal'initialCreditGranted
+          | val GHC.Classes.== "treasury.financial_account.closed" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTreasury'financialAccount'closed
+          | val GHC.Classes.== "treasury.financial_account.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTreasury'financialAccount'created
+          | val GHC.Classes.== "treasury.financial_account.features_status_updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTreasury'financialAccount'featuresStatusUpdated
+          | val GHC.Classes.== "treasury.inbound_transfer.canceled" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTreasury'inboundTransfer'canceled
+          | val GHC.Classes.== "treasury.inbound_transfer.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTreasury'inboundTransfer'created
+          | val GHC.Classes.== "treasury.inbound_transfer.failed" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTreasury'inboundTransfer'failed
+          | val GHC.Classes.== "treasury.inbound_transfer.succeeded" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTreasury'inboundTransfer'succeeded
+          | val GHC.Classes.== "treasury.outbound_payment.canceled" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTreasury'outboundPayment'canceled
+          | val GHC.Classes.== "treasury.outbound_payment.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTreasury'outboundPayment'created
+          | val GHC.Classes.== "treasury.outbound_payment.expected_arrival_date_updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTreasury'outboundPayment'expectedArrivalDateUpdated
+          | val GHC.Classes.== "treasury.outbound_payment.failed" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTreasury'outboundPayment'failed
+          | val GHC.Classes.== "treasury.outbound_payment.posted" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTreasury'outboundPayment'posted
+          | val GHC.Classes.== "treasury.outbound_payment.returned" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTreasury'outboundPayment'returned
+          | val GHC.Classes.== "treasury.outbound_transfer.canceled" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTreasury'outboundTransfer'canceled
+          | val GHC.Classes.== "treasury.outbound_transfer.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTreasury'outboundTransfer'created
+          | val GHC.Classes.== "treasury.outbound_transfer.expected_arrival_date_updated" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTreasury'outboundTransfer'expectedArrivalDateUpdated
+          | val GHC.Classes.== "treasury.outbound_transfer.failed" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTreasury'outboundTransfer'failed
+          | val GHC.Classes.== "treasury.outbound_transfer.posted" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTreasury'outboundTransfer'posted
+          | val GHC.Classes.== "treasury.outbound_transfer.returned" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTreasury'outboundTransfer'returned
+          | val GHC.Classes.== "treasury.received_credit.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTreasury'receivedCredit'created
+          | val GHC.Classes.== "treasury.received_credit.failed" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTreasury'receivedCredit'failed
+          | val GHC.Classes.== "treasury.received_credit.reversed" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTreasury'receivedCredit'reversed
+          | val GHC.Classes.== "treasury.received_credit.succeeded" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTreasury'receivedCredit'succeeded
+          | val GHC.Classes.== "treasury.received_debit.created" -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'EnumTreasury'receivedDebit'created
+          | GHC.Base.otherwise -> PostWebhookEndpointsWebhookEndpointRequestBodyEnabledEvents'Other val
       )
 
 -- | Defines the oneOf schema located at @paths.\/v1\/webhook_endpoints\/{webhook_endpoint}.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.metadata.anyOf@ in the specification.
@@ -1040,8 +1040,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostWebhookEndpointsWebhookEndpointReque
 instance Data.Aeson.Types.FromJSON.FromJSON PostWebhookEndpointsWebhookEndpointRequestBodyMetadata'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostWebhookEndpointsWebhookEndpointRequestBodyMetadata'EmptyString
-        | GHC.Base.otherwise -> case (PostWebhookEndpointsWebhookEndpointRequestBodyMetadata'Object Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostWebhookEndpointsWebhookEndpointRequestBodyMetadata'EmptyString
+      | GHC.Base.otherwise -> case (PostWebhookEndpointsWebhookEndpointRequestBodyMetadata'Object Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 

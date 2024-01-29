@@ -139,20 +139,20 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentMethodDetailsIdealBank'NonNul
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "abn_amro" -> PaymentMethodDetailsIdealBank'NonNullableEnumAbnAmro
-            | val GHC.Classes.== "asn_bank" -> PaymentMethodDetailsIdealBank'NonNullableEnumAsnBank
-            | val GHC.Classes.== "bunq" -> PaymentMethodDetailsIdealBank'NonNullableEnumBunq
-            | val GHC.Classes.== "handelsbanken" -> PaymentMethodDetailsIdealBank'NonNullableEnumHandelsbanken
-            | val GHC.Classes.== "ing" -> PaymentMethodDetailsIdealBank'NonNullableEnumIng
-            | val GHC.Classes.== "knab" -> PaymentMethodDetailsIdealBank'NonNullableEnumKnab
-            | val GHC.Classes.== "moneyou" -> PaymentMethodDetailsIdealBank'NonNullableEnumMoneyou
-            | val GHC.Classes.== "rabobank" -> PaymentMethodDetailsIdealBank'NonNullableEnumRabobank
-            | val GHC.Classes.== "regiobank" -> PaymentMethodDetailsIdealBank'NonNullableEnumRegiobank
-            | val GHC.Classes.== "revolut" -> PaymentMethodDetailsIdealBank'NonNullableEnumRevolut
-            | val GHC.Classes.== "sns_bank" -> PaymentMethodDetailsIdealBank'NonNullableEnumSnsBank
-            | val GHC.Classes.== "triodos_bank" -> PaymentMethodDetailsIdealBank'NonNullableEnumTriodosBank
-            | val GHC.Classes.== "van_lanschot" -> PaymentMethodDetailsIdealBank'NonNullableEnumVanLanschot
-            | GHC.Base.otherwise -> PaymentMethodDetailsIdealBank'NonNullableOther val
+          | val GHC.Classes.== "abn_amro" -> PaymentMethodDetailsIdealBank'NonNullableEnumAbnAmro
+          | val GHC.Classes.== "asn_bank" -> PaymentMethodDetailsIdealBank'NonNullableEnumAsnBank
+          | val GHC.Classes.== "bunq" -> PaymentMethodDetailsIdealBank'NonNullableEnumBunq
+          | val GHC.Classes.== "handelsbanken" -> PaymentMethodDetailsIdealBank'NonNullableEnumHandelsbanken
+          | val GHC.Classes.== "ing" -> PaymentMethodDetailsIdealBank'NonNullableEnumIng
+          | val GHC.Classes.== "knab" -> PaymentMethodDetailsIdealBank'NonNullableEnumKnab
+          | val GHC.Classes.== "moneyou" -> PaymentMethodDetailsIdealBank'NonNullableEnumMoneyou
+          | val GHC.Classes.== "rabobank" -> PaymentMethodDetailsIdealBank'NonNullableEnumRabobank
+          | val GHC.Classes.== "regiobank" -> PaymentMethodDetailsIdealBank'NonNullableEnumRegiobank
+          | val GHC.Classes.== "revolut" -> PaymentMethodDetailsIdealBank'NonNullableEnumRevolut
+          | val GHC.Classes.== "sns_bank" -> PaymentMethodDetailsIdealBank'NonNullableEnumSnsBank
+          | val GHC.Classes.== "triodos_bank" -> PaymentMethodDetailsIdealBank'NonNullableEnumTriodosBank
+          | val GHC.Classes.== "van_lanschot" -> PaymentMethodDetailsIdealBank'NonNullableEnumVanLanschot
+          | GHC.Base.otherwise -> PaymentMethodDetailsIdealBank'NonNullableOther val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_method_details_ideal.properties.bic@ in the specification.
@@ -212,20 +212,20 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentMethodDetailsIdealBic'NonNull
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "ABNANL2A" -> PaymentMethodDetailsIdealBic'NonNullableEnumABNANL2A
-            | val GHC.Classes.== "ASNBNL21" -> PaymentMethodDetailsIdealBic'NonNullableEnumASNBNL21
-            | val GHC.Classes.== "BUNQNL2A" -> PaymentMethodDetailsIdealBic'NonNullableEnumBUNQNL2A
-            | val GHC.Classes.== "FVLBNL22" -> PaymentMethodDetailsIdealBic'NonNullableEnumFVLBNL22
-            | val GHC.Classes.== "HANDNL2A" -> PaymentMethodDetailsIdealBic'NonNullableEnumHANDNL2A
-            | val GHC.Classes.== "INGBNL2A" -> PaymentMethodDetailsIdealBic'NonNullableEnumINGBNL2A
-            | val GHC.Classes.== "KNABNL2H" -> PaymentMethodDetailsIdealBic'NonNullableEnumKNABNL2H
-            | val GHC.Classes.== "MOYONL21" -> PaymentMethodDetailsIdealBic'NonNullableEnumMOYONL21
-            | val GHC.Classes.== "RABONL2U" -> PaymentMethodDetailsIdealBic'NonNullableEnumRABONL2U
-            | val GHC.Classes.== "RBRBNL21" -> PaymentMethodDetailsIdealBic'NonNullableEnumRBRBNL21
-            | val GHC.Classes.== "REVOLT21" -> PaymentMethodDetailsIdealBic'NonNullableEnumREVOLT21
-            | val GHC.Classes.== "SNSBNL2A" -> PaymentMethodDetailsIdealBic'NonNullableEnumSNSBNL2A
-            | val GHC.Classes.== "TRIONL2U" -> PaymentMethodDetailsIdealBic'NonNullableEnumTRIONL2U
-            | GHC.Base.otherwise -> PaymentMethodDetailsIdealBic'NonNullableOther val
+          | val GHC.Classes.== "ABNANL2A" -> PaymentMethodDetailsIdealBic'NonNullableEnumABNANL2A
+          | val GHC.Classes.== "ASNBNL21" -> PaymentMethodDetailsIdealBic'NonNullableEnumASNBNL21
+          | val GHC.Classes.== "BUNQNL2A" -> PaymentMethodDetailsIdealBic'NonNullableEnumBUNQNL2A
+          | val GHC.Classes.== "FVLBNL22" -> PaymentMethodDetailsIdealBic'NonNullableEnumFVLBNL22
+          | val GHC.Classes.== "HANDNL2A" -> PaymentMethodDetailsIdealBic'NonNullableEnumHANDNL2A
+          | val GHC.Classes.== "INGBNL2A" -> PaymentMethodDetailsIdealBic'NonNullableEnumINGBNL2A
+          | val GHC.Classes.== "KNABNL2H" -> PaymentMethodDetailsIdealBic'NonNullableEnumKNABNL2H
+          | val GHC.Classes.== "MOYONL21" -> PaymentMethodDetailsIdealBic'NonNullableEnumMOYONL21
+          | val GHC.Classes.== "RABONL2U" -> PaymentMethodDetailsIdealBic'NonNullableEnumRABONL2U
+          | val GHC.Classes.== "RBRBNL21" -> PaymentMethodDetailsIdealBic'NonNullableEnumRBRBNL21
+          | val GHC.Classes.== "REVOLT21" -> PaymentMethodDetailsIdealBic'NonNullableEnumREVOLT21
+          | val GHC.Classes.== "SNSBNL2A" -> PaymentMethodDetailsIdealBic'NonNullableEnumSNSBNL2A
+          | val GHC.Classes.== "TRIONL2U" -> PaymentMethodDetailsIdealBic'NonNullableEnumTRIONL2U
+          | GHC.Base.otherwise -> PaymentMethodDetailsIdealBic'NonNullableOther val
       )
 
 -- | Defines the oneOf schema located at @components.schemas.payment_method_details_ideal.properties.generated_sepa_debit.anyOf@ in the specification.

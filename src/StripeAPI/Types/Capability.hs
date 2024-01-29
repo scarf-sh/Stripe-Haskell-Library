@@ -144,10 +144,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON CapabilityStatus' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "active" -> CapabilityStatus'EnumActive
-            | val GHC.Classes.== "disabled" -> CapabilityStatus'EnumDisabled
-            | val GHC.Classes.== "inactive" -> CapabilityStatus'EnumInactive
-            | val GHC.Classes.== "pending" -> CapabilityStatus'EnumPending
-            | val GHC.Classes.== "unrequested" -> CapabilityStatus'EnumUnrequested
-            | GHC.Base.otherwise -> CapabilityStatus'Other val
+          | val GHC.Classes.== "active" -> CapabilityStatus'EnumActive
+          | val GHC.Classes.== "disabled" -> CapabilityStatus'EnumDisabled
+          | val GHC.Classes.== "inactive" -> CapabilityStatus'EnumInactive
+          | val GHC.Classes.== "pending" -> CapabilityStatus'EnumPending
+          | val GHC.Classes.== "unrequested" -> CapabilityStatus'EnumUnrequested
+          | GHC.Base.otherwise -> CapabilityStatus'Other val
       )

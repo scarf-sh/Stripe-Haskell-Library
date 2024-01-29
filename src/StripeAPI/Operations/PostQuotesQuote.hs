@@ -48,7 +48,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>A quote models prices and services for a customer.\<\/p>
 postQuotesQuote ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | quote | Constraints: Maximum length of 5000
   Data.Text.Internal.Text ->
   -- | The request body to send
@@ -64,21 +64,21 @@ postQuotesQuote
             ( Data.Either.either PostQuotesQuoteResponseError GHC.Base.id
                 GHC.Base.. ( \response body ->
                                if
-                                   | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                      PostQuotesQuoteResponse200
                                        Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                             Data.Either.Either
                                                               GHC.Base.String
                                                               Quote
                                                         )
-                                   | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                      PostQuotesQuoteResponseDefault
                                        Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                             Data.Either.Either
                                                               GHC.Base.String
                                                               Error
                                                         )
-                                   | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                            )
                   response_0
             )
@@ -193,8 +193,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostQuotesQuoteRequestBodyApplicationFee
 instance Data.Aeson.Types.FromJSON.FromJSON PostQuotesQuoteRequestBodyApplicationFeeAmount'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostQuotesQuoteRequestBodyApplicationFeeAmount'EmptyString
-        | GHC.Base.otherwise -> case (PostQuotesQuoteRequestBodyApplicationFeeAmount'Int Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostQuotesQuoteRequestBodyApplicationFeeAmount'EmptyString
+      | GHC.Base.otherwise -> case (PostQuotesQuoteRequestBodyApplicationFeeAmount'Int Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -214,8 +214,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostQuotesQuoteRequestBodyApplicationFee
 instance Data.Aeson.Types.FromJSON.FromJSON PostQuotesQuoteRequestBodyApplicationFeePercent'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostQuotesQuoteRequestBodyApplicationFeePercent'EmptyString
-        | GHC.Base.otherwise -> case (PostQuotesQuoteRequestBodyApplicationFeePercent'Double Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostQuotesQuoteRequestBodyApplicationFeePercent'EmptyString
+      | GHC.Base.otherwise -> case (PostQuotesQuoteRequestBodyApplicationFeePercent'Double Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -269,9 +269,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostQuotesQuoteRequestBodyCollection
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "charge_automatically" -> PostQuotesQuoteRequestBodyCollectionMethod'EnumChargeAutomatically
-            | val GHC.Classes.== "send_invoice" -> PostQuotesQuoteRequestBodyCollectionMethod'EnumSendInvoice
-            | GHC.Base.otherwise -> PostQuotesQuoteRequestBodyCollectionMethod'Other val
+          | val GHC.Classes.== "charge_automatically" -> PostQuotesQuoteRequestBodyCollectionMethod'EnumChargeAutomatically
+          | val GHC.Classes.== "send_invoice" -> PostQuotesQuoteRequestBodyCollectionMethod'EnumSendInvoice
+          | GHC.Base.otherwise -> PostQuotesQuoteRequestBodyCollectionMethod'Other val
       )
 
 -- | Defines the oneOf schema located at @paths.\/v1\/quotes\/{quote}.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.default_tax_rates.anyOf@ in the specification.
@@ -290,8 +290,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostQuotesQuoteRequestBodyDefaultTaxRate
 instance Data.Aeson.Types.FromJSON.FromJSON PostQuotesQuoteRequestBodyDefaultTaxRates'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostQuotesQuoteRequestBodyDefaultTaxRates'EmptyString
-        | GHC.Base.otherwise -> case (PostQuotesQuoteRequestBodyDefaultTaxRates'ListTText Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostQuotesQuoteRequestBodyDefaultTaxRates'EmptyString
+      | GHC.Base.otherwise -> case (PostQuotesQuoteRequestBodyDefaultTaxRates'ListTText Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -346,8 +346,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostQuotesQuoteRequestBodyDiscounts'Vari
 instance Data.Aeson.Types.FromJSON.FromJSON PostQuotesQuoteRequestBodyDiscounts'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostQuotesQuoteRequestBodyDiscounts'EmptyString
-        | GHC.Base.otherwise -> case (PostQuotesQuoteRequestBodyDiscounts'ListTPostQuotesQuoteRequestBodyDiscounts'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostQuotesQuoteRequestBodyDiscounts'EmptyString
+      | GHC.Base.otherwise -> case (PostQuotesQuoteRequestBodyDiscounts'ListTPostQuotesQuoteRequestBodyDiscounts'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -524,11 +524,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostQuotesQuoteRequestBodyLineItems'
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "day" -> PostQuotesQuoteRequestBodyLineItems'PriceData'Recurring'Interval'EnumDay
-            | val GHC.Classes.== "month" -> PostQuotesQuoteRequestBodyLineItems'PriceData'Recurring'Interval'EnumMonth
-            | val GHC.Classes.== "week" -> PostQuotesQuoteRequestBodyLineItems'PriceData'Recurring'Interval'EnumWeek
-            | val GHC.Classes.== "year" -> PostQuotesQuoteRequestBodyLineItems'PriceData'Recurring'Interval'EnumYear
-            | GHC.Base.otherwise -> PostQuotesQuoteRequestBodyLineItems'PriceData'Recurring'Interval'Other val
+          | val GHC.Classes.== "day" -> PostQuotesQuoteRequestBodyLineItems'PriceData'Recurring'Interval'EnumDay
+          | val GHC.Classes.== "month" -> PostQuotesQuoteRequestBodyLineItems'PriceData'Recurring'Interval'EnumMonth
+          | val GHC.Classes.== "week" -> PostQuotesQuoteRequestBodyLineItems'PriceData'Recurring'Interval'EnumWeek
+          | val GHC.Classes.== "year" -> PostQuotesQuoteRequestBodyLineItems'PriceData'Recurring'Interval'EnumYear
+          | GHC.Base.otherwise -> PostQuotesQuoteRequestBodyLineItems'PriceData'Recurring'Interval'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/quotes\/{quote}.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.line_items.items.properties.price_data.properties.tax_behavior@ in the specification.
@@ -556,10 +556,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostQuotesQuoteRequestBodyLineItems'
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "exclusive" -> PostQuotesQuoteRequestBodyLineItems'PriceData'TaxBehavior'EnumExclusive
-            | val GHC.Classes.== "inclusive" -> PostQuotesQuoteRequestBodyLineItems'PriceData'TaxBehavior'EnumInclusive
-            | val GHC.Classes.== "unspecified" -> PostQuotesQuoteRequestBodyLineItems'PriceData'TaxBehavior'EnumUnspecified
-            | GHC.Base.otherwise -> PostQuotesQuoteRequestBodyLineItems'PriceData'TaxBehavior'Other val
+          | val GHC.Classes.== "exclusive" -> PostQuotesQuoteRequestBodyLineItems'PriceData'TaxBehavior'EnumExclusive
+          | val GHC.Classes.== "inclusive" -> PostQuotesQuoteRequestBodyLineItems'PriceData'TaxBehavior'EnumInclusive
+          | val GHC.Classes.== "unspecified" -> PostQuotesQuoteRequestBodyLineItems'PriceData'TaxBehavior'EnumUnspecified
+          | GHC.Base.otherwise -> PostQuotesQuoteRequestBodyLineItems'PriceData'TaxBehavior'Other val
       )
 
 -- | Defines the oneOf schema located at @paths.\/v1\/quotes\/{quote}.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.line_items.items.properties.tax_rates.anyOf@ in the specification.
@@ -576,8 +576,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostQuotesQuoteRequestBodyLineItems'TaxR
 instance Data.Aeson.Types.FromJSON.FromJSON PostQuotesQuoteRequestBodyLineItems'TaxRates'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostQuotesQuoteRequestBodyLineItems'TaxRates'EmptyString
-        | GHC.Base.otherwise -> case (PostQuotesQuoteRequestBodyLineItems'TaxRates'ListTText Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostQuotesQuoteRequestBodyLineItems'TaxRates'EmptyString
+      | GHC.Base.otherwise -> case (PostQuotesQuoteRequestBodyLineItems'TaxRates'ListTText Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -597,8 +597,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostQuotesQuoteRequestBodyOnBehalfOf'Var
 instance Data.Aeson.Types.FromJSON.FromJSON PostQuotesQuoteRequestBodyOnBehalfOf'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostQuotesQuoteRequestBodyOnBehalfOf'EmptyString
-        | GHC.Base.otherwise -> case (PostQuotesQuoteRequestBodyOnBehalfOf'Text Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostQuotesQuoteRequestBodyOnBehalfOf'EmptyString
+      | GHC.Base.otherwise -> case (PostQuotesQuoteRequestBodyOnBehalfOf'Text Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -648,9 +648,9 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostQuotesQuoteRequestBodySubscriptionDa
 instance Data.Aeson.Types.FromJSON.FromJSON PostQuotesQuoteRequestBodySubscriptionData'EffectiveDate'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "current_period_end" -> GHC.Base.pure PostQuotesQuoteRequestBodySubscriptionData'EffectiveDate'CurrentPeriodEnd
-        | val GHC.Classes.== "" -> GHC.Base.pure PostQuotesQuoteRequestBodySubscriptionData'EffectiveDate'EmptyString
-        | GHC.Base.otherwise -> case (PostQuotesQuoteRequestBodySubscriptionData'EffectiveDate'Int Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "current_period_end" -> GHC.Base.pure PostQuotesQuoteRequestBodySubscriptionData'EffectiveDate'CurrentPeriodEnd
+      | val GHC.Classes.== "" -> GHC.Base.pure PostQuotesQuoteRequestBodySubscriptionData'EffectiveDate'EmptyString
+      | GHC.Base.otherwise -> case (PostQuotesQuoteRequestBodySubscriptionData'EffectiveDate'Int Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -668,8 +668,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostQuotesQuoteRequestBodySubscriptionDa
 instance Data.Aeson.Types.FromJSON.FromJSON PostQuotesQuoteRequestBodySubscriptionData'TrialPeriodDays'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostQuotesQuoteRequestBodySubscriptionData'TrialPeriodDays'EmptyString
-        | GHC.Base.otherwise -> case (PostQuotesQuoteRequestBodySubscriptionData'TrialPeriodDays'Int Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostQuotesQuoteRequestBodySubscriptionData'TrialPeriodDays'EmptyString
+      | GHC.Base.otherwise -> case (PostQuotesQuoteRequestBodySubscriptionData'TrialPeriodDays'Int Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -722,8 +722,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostQuotesQuoteRequestBodyTransferData'V
 instance Data.Aeson.Types.FromJSON.FromJSON PostQuotesQuoteRequestBodyTransferData'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostQuotesQuoteRequestBodyTransferData'EmptyString
-        | GHC.Base.otherwise -> case (PostQuotesQuoteRequestBodyTransferData'PostQuotesQuoteRequestBodyTransferData'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostQuotesQuoteRequestBodyTransferData'EmptyString
+      | GHC.Base.otherwise -> case (PostQuotesQuoteRequestBodyTransferData'PostQuotesQuoteRequestBodyTransferData'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 

@@ -239,11 +239,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON SubscriptionScheduleEndBehavior' whe
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "cancel" -> SubscriptionScheduleEndBehavior'EnumCancel
-            | val GHC.Classes.== "none" -> SubscriptionScheduleEndBehavior'EnumNone
-            | val GHC.Classes.== "release" -> SubscriptionScheduleEndBehavior'EnumRelease
-            | val GHC.Classes.== "renew" -> SubscriptionScheduleEndBehavior'EnumRenew
-            | GHC.Base.otherwise -> SubscriptionScheduleEndBehavior'Other val
+          | val GHC.Classes.== "cancel" -> SubscriptionScheduleEndBehavior'EnumCancel
+          | val GHC.Classes.== "none" -> SubscriptionScheduleEndBehavior'EnumNone
+          | val GHC.Classes.== "release" -> SubscriptionScheduleEndBehavior'EnumRelease
+          | val GHC.Classes.== "renew" -> SubscriptionScheduleEndBehavior'EnumRenew
+          | GHC.Base.otherwise -> SubscriptionScheduleEndBehavior'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.subscription_schedule.properties.status@ in the specification.
@@ -279,12 +279,12 @@ instance Data.Aeson.Types.FromJSON.FromJSON SubscriptionScheduleStatus' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "active" -> SubscriptionScheduleStatus'EnumActive
-            | val GHC.Classes.== "canceled" -> SubscriptionScheduleStatus'EnumCanceled
-            | val GHC.Classes.== "completed" -> SubscriptionScheduleStatus'EnumCompleted
-            | val GHC.Classes.== "not_started" -> SubscriptionScheduleStatus'EnumNotStarted
-            | val GHC.Classes.== "released" -> SubscriptionScheduleStatus'EnumReleased
-            | GHC.Base.otherwise -> SubscriptionScheduleStatus'Other val
+          | val GHC.Classes.== "active" -> SubscriptionScheduleStatus'EnumActive
+          | val GHC.Classes.== "canceled" -> SubscriptionScheduleStatus'EnumCanceled
+          | val GHC.Classes.== "completed" -> SubscriptionScheduleStatus'EnumCompleted
+          | val GHC.Classes.== "not_started" -> SubscriptionScheduleStatus'EnumNotStarted
+          | val GHC.Classes.== "released" -> SubscriptionScheduleStatus'EnumReleased
+          | GHC.Base.otherwise -> SubscriptionScheduleStatus'Other val
       )
 
 -- | Defines the oneOf schema located at @components.schemas.subscription_schedule.properties.subscription.anyOf@ in the specification.

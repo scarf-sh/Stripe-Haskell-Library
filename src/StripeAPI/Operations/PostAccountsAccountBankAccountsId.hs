@@ -50,7 +50,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>You can re-enable a disabled bank account by performing an update call without providing any arguments or changes.\<\/p>
 postAccountsAccountBankAccountsId ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | Contains all available parameters of this operation (query and path parameters)
   PostAccountsAccountBankAccountsIdParameters ->
   -- | The request body to send
@@ -66,21 +66,21 @@ postAccountsAccountBankAccountsId
             ( Data.Either.either PostAccountsAccountBankAccountsIdResponseError GHC.Base.id
                 GHC.Base.. ( \response body ->
                                if
-                                   | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                      PostAccountsAccountBankAccountsIdResponse200
                                        Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                             Data.Either.Either
                                                               GHC.Base.String
                                                               ExternalAccount
                                                         )
-                                   | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                      PostAccountsAccountBankAccountsIdResponseDefault
                                        Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                             Data.Either.Either
                                                               GHC.Base.String
                                                               Error
                                                         )
-                                   | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                            )
                   response_0
             )
@@ -265,10 +265,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostAccountsAccountBankAccountsIdReq
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "" -> PostAccountsAccountBankAccountsIdRequestBodyAccountHolderType'EnumEmptyString
-            | val GHC.Classes.== "company" -> PostAccountsAccountBankAccountsIdRequestBodyAccountHolderType'EnumCompany
-            | val GHC.Classes.== "individual" -> PostAccountsAccountBankAccountsIdRequestBodyAccountHolderType'EnumIndividual
-            | GHC.Base.otherwise -> PostAccountsAccountBankAccountsIdRequestBodyAccountHolderType'Other val
+          | val GHC.Classes.== "" -> PostAccountsAccountBankAccountsIdRequestBodyAccountHolderType'EnumEmptyString
+          | val GHC.Classes.== "company" -> PostAccountsAccountBankAccountsIdRequestBodyAccountHolderType'EnumCompany
+          | val GHC.Classes.== "individual" -> PostAccountsAccountBankAccountsIdRequestBodyAccountHolderType'EnumIndividual
+          | GHC.Base.otherwise -> PostAccountsAccountBankAccountsIdRequestBodyAccountHolderType'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/accounts\/{account}\/bank_accounts\/{id}.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.account_type@ in the specification.
@@ -301,11 +301,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostAccountsAccountBankAccountsIdReq
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "checking" -> PostAccountsAccountBankAccountsIdRequestBodyAccountType'EnumChecking
-            | val GHC.Classes.== "futsu" -> PostAccountsAccountBankAccountsIdRequestBodyAccountType'EnumFutsu
-            | val GHC.Classes.== "savings" -> PostAccountsAccountBankAccountsIdRequestBodyAccountType'EnumSavings
-            | val GHC.Classes.== "toza" -> PostAccountsAccountBankAccountsIdRequestBodyAccountType'EnumToza
-            | GHC.Base.otherwise -> PostAccountsAccountBankAccountsIdRequestBodyAccountType'Other val
+          | val GHC.Classes.== "checking" -> PostAccountsAccountBankAccountsIdRequestBodyAccountType'EnumChecking
+          | val GHC.Classes.== "futsu" -> PostAccountsAccountBankAccountsIdRequestBodyAccountType'EnumFutsu
+          | val GHC.Classes.== "savings" -> PostAccountsAccountBankAccountsIdRequestBodyAccountType'EnumSavings
+          | val GHC.Classes.== "toza" -> PostAccountsAccountBankAccountsIdRequestBodyAccountType'EnumToza
+          | GHC.Base.otherwise -> PostAccountsAccountBankAccountsIdRequestBodyAccountType'Other val
       )
 
 -- | Defines the oneOf schema located at @paths.\/v1\/accounts\/{account}\/bank_accounts\/{id}.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.metadata.anyOf@ in the specification.
@@ -324,8 +324,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostAccountsAccountBankAccountsIdRequest
 instance Data.Aeson.Types.FromJSON.FromJSON PostAccountsAccountBankAccountsIdRequestBodyMetadata'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostAccountsAccountBankAccountsIdRequestBodyMetadata'EmptyString
-        | GHC.Base.otherwise -> case (PostAccountsAccountBankAccountsIdRequestBodyMetadata'Object Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostAccountsAccountBankAccountsIdRequestBodyMetadata'EmptyString
+      | GHC.Base.otherwise -> case (PostAccountsAccountBankAccountsIdRequestBodyMetadata'Object Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 

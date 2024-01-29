@@ -102,14 +102,14 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentMethodOptionsSofortPreferredL
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "de" -> PaymentMethodOptionsSofortPreferredLanguage'NonNullableEnumDe
-            | val GHC.Classes.== "en" -> PaymentMethodOptionsSofortPreferredLanguage'NonNullableEnumEn
-            | val GHC.Classes.== "es" -> PaymentMethodOptionsSofortPreferredLanguage'NonNullableEnumEs
-            | val GHC.Classes.== "fr" -> PaymentMethodOptionsSofortPreferredLanguage'NonNullableEnumFr
-            | val GHC.Classes.== "it" -> PaymentMethodOptionsSofortPreferredLanguage'NonNullableEnumIt
-            | val GHC.Classes.== "nl" -> PaymentMethodOptionsSofortPreferredLanguage'NonNullableEnumNl
-            | val GHC.Classes.== "pl" -> PaymentMethodOptionsSofortPreferredLanguage'NonNullableEnumPl
-            | GHC.Base.otherwise -> PaymentMethodOptionsSofortPreferredLanguage'NonNullableOther val
+          | val GHC.Classes.== "de" -> PaymentMethodOptionsSofortPreferredLanguage'NonNullableEnumDe
+          | val GHC.Classes.== "en" -> PaymentMethodOptionsSofortPreferredLanguage'NonNullableEnumEn
+          | val GHC.Classes.== "es" -> PaymentMethodOptionsSofortPreferredLanguage'NonNullableEnumEs
+          | val GHC.Classes.== "fr" -> PaymentMethodOptionsSofortPreferredLanguage'NonNullableEnumFr
+          | val GHC.Classes.== "it" -> PaymentMethodOptionsSofortPreferredLanguage'NonNullableEnumIt
+          | val GHC.Classes.== "nl" -> PaymentMethodOptionsSofortPreferredLanguage'NonNullableEnumNl
+          | val GHC.Classes.== "pl" -> PaymentMethodOptionsSofortPreferredLanguage'NonNullableEnumPl
+          | GHC.Base.otherwise -> PaymentMethodOptionsSofortPreferredLanguage'NonNullableOther val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_method_options_sofort.properties.setup_future_usage@ in the specification.
@@ -140,7 +140,7 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentMethodOptionsSofortSetupFutur
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> PaymentMethodOptionsSofortSetupFutureUsage'EnumNone
-            | val GHC.Classes.== "off_session" -> PaymentMethodOptionsSofortSetupFutureUsage'EnumOffSession
-            | GHC.Base.otherwise -> PaymentMethodOptionsSofortSetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> PaymentMethodOptionsSofortSetupFutureUsage'EnumNone
+          | val GHC.Classes.== "off_session" -> PaymentMethodOptionsSofortSetupFutureUsage'EnumOffSession
+          | GHC.Base.otherwise -> PaymentMethodOptionsSofortSetupFutureUsage'Other val
       )

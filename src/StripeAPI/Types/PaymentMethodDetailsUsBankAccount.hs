@@ -111,9 +111,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentMethodDetailsUsBankAccountAcc
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "company" -> PaymentMethodDetailsUsBankAccountAccountHolderType'NonNullableEnumCompany
-            | val GHC.Classes.== "individual" -> PaymentMethodDetailsUsBankAccountAccountHolderType'NonNullableEnumIndividual
-            | GHC.Base.otherwise -> PaymentMethodDetailsUsBankAccountAccountHolderType'NonNullableOther val
+          | val GHC.Classes.== "company" -> PaymentMethodDetailsUsBankAccountAccountHolderType'NonNullableEnumCompany
+          | val GHC.Classes.== "individual" -> PaymentMethodDetailsUsBankAccountAccountHolderType'NonNullableEnumIndividual
+          | GHC.Base.otherwise -> PaymentMethodDetailsUsBankAccountAccountHolderType'NonNullableOther val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_method_details_us_bank_account.properties.account_type@ in the specification.
@@ -140,7 +140,7 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentMethodDetailsUsBankAccountAcc
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "checking" -> PaymentMethodDetailsUsBankAccountAccountType'NonNullableEnumChecking
-            | val GHC.Classes.== "savings" -> PaymentMethodDetailsUsBankAccountAccountType'NonNullableEnumSavings
-            | GHC.Base.otherwise -> PaymentMethodDetailsUsBankAccountAccountType'NonNullableOther val
+          | val GHC.Classes.== "checking" -> PaymentMethodDetailsUsBankAccountAccountType'NonNullableEnumChecking
+          | val GHC.Classes.== "savings" -> PaymentMethodDetailsUsBankAccountAccountType'NonNullableEnumSavings
+          | GHC.Base.otherwise -> PaymentMethodDetailsUsBankAccountAccountType'NonNullableOther val
       )

@@ -166,9 +166,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON SetupAttemptPaymentMethodDetailsBanc
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "de" -> SetupAttemptPaymentMethodDetailsBancontactPreferredLanguage'NonNullableEnumDe
-            | val GHC.Classes.== "en" -> SetupAttemptPaymentMethodDetailsBancontactPreferredLanguage'NonNullableEnumEn
-            | val GHC.Classes.== "fr" -> SetupAttemptPaymentMethodDetailsBancontactPreferredLanguage'NonNullableEnumFr
-            | val GHC.Classes.== "nl" -> SetupAttemptPaymentMethodDetailsBancontactPreferredLanguage'NonNullableEnumNl
-            | GHC.Base.otherwise -> SetupAttemptPaymentMethodDetailsBancontactPreferredLanguage'NonNullableOther val
+          | val GHC.Classes.== "de" -> SetupAttemptPaymentMethodDetailsBancontactPreferredLanguage'NonNullableEnumDe
+          | val GHC.Classes.== "en" -> SetupAttemptPaymentMethodDetailsBancontactPreferredLanguage'NonNullableEnumEn
+          | val GHC.Classes.== "fr" -> SetupAttemptPaymentMethodDetailsBancontactPreferredLanguage'NonNullableEnumFr
+          | val GHC.Classes.== "nl" -> SetupAttemptPaymentMethodDetailsBancontactPreferredLanguage'NonNullableEnumNl
+          | GHC.Base.otherwise -> SetupAttemptPaymentMethodDetailsBancontactPreferredLanguage'NonNullableOther val
       )

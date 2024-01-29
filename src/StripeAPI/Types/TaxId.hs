@@ -283,54 +283,54 @@ instance Data.Aeson.Types.FromJSON.FromJSON TaxIdType' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "ae_trn" -> TaxIdType'EnumAeTrn
-            | val GHC.Classes.== "au_abn" -> TaxIdType'EnumAuAbn
-            | val GHC.Classes.== "au_arn" -> TaxIdType'EnumAuArn
-            | val GHC.Classes.== "bg_uic" -> TaxIdType'EnumBgUic
-            | val GHC.Classes.== "br_cnpj" -> TaxIdType'EnumBrCnpj
-            | val GHC.Classes.== "br_cpf" -> TaxIdType'EnumBrCpf
-            | val GHC.Classes.== "ca_bn" -> TaxIdType'EnumCaBn
-            | val GHC.Classes.== "ca_gst_hst" -> TaxIdType'EnumCaGstHst
-            | val GHC.Classes.== "ca_pst_bc" -> TaxIdType'EnumCaPstBc
-            | val GHC.Classes.== "ca_pst_mb" -> TaxIdType'EnumCaPstMb
-            | val GHC.Classes.== "ca_pst_sk" -> TaxIdType'EnumCaPstSk
-            | val GHC.Classes.== "ca_qst" -> TaxIdType'EnumCaQst
-            | val GHC.Classes.== "ch_vat" -> TaxIdType'EnumChVat
-            | val GHC.Classes.== "cl_tin" -> TaxIdType'EnumClTin
-            | val GHC.Classes.== "es_cif" -> TaxIdType'EnumEsCif
-            | val GHC.Classes.== "eu_oss_vat" -> TaxIdType'EnumEuOssVat
-            | val GHC.Classes.== "eu_vat" -> TaxIdType'EnumEuVat
-            | val GHC.Classes.== "gb_vat" -> TaxIdType'EnumGbVat
-            | val GHC.Classes.== "ge_vat" -> TaxIdType'EnumGeVat
-            | val GHC.Classes.== "hk_br" -> TaxIdType'EnumHkBr
-            | val GHC.Classes.== "hu_tin" -> TaxIdType'EnumHuTin
-            | val GHC.Classes.== "id_npwp" -> TaxIdType'EnumIdNpwp
-            | val GHC.Classes.== "il_vat" -> TaxIdType'EnumIlVat
-            | val GHC.Classes.== "in_gst" -> TaxIdType'EnumInGst
-            | val GHC.Classes.== "is_vat" -> TaxIdType'EnumIsVat
-            | val GHC.Classes.== "jp_cn" -> TaxIdType'EnumJpCn
-            | val GHC.Classes.== "jp_rn" -> TaxIdType'EnumJpRn
-            | val GHC.Classes.== "kr_brn" -> TaxIdType'EnumKrBrn
-            | val GHC.Classes.== "li_uid" -> TaxIdType'EnumLiUid
-            | val GHC.Classes.== "mx_rfc" -> TaxIdType'EnumMxRfc
-            | val GHC.Classes.== "my_frp" -> TaxIdType'EnumMyFrp
-            | val GHC.Classes.== "my_itn" -> TaxIdType'EnumMyItn
-            | val GHC.Classes.== "my_sst" -> TaxIdType'EnumMySst
-            | val GHC.Classes.== "no_vat" -> TaxIdType'EnumNoVat
-            | val GHC.Classes.== "nz_gst" -> TaxIdType'EnumNzGst
-            | val GHC.Classes.== "ru_inn" -> TaxIdType'EnumRuInn
-            | val GHC.Classes.== "ru_kpp" -> TaxIdType'EnumRuKpp
-            | val GHC.Classes.== "sa_vat" -> TaxIdType'EnumSaVat
-            | val GHC.Classes.== "sg_gst" -> TaxIdType'EnumSgGst
-            | val GHC.Classes.== "sg_uen" -> TaxIdType'EnumSgUen
-            | val GHC.Classes.== "si_tin" -> TaxIdType'EnumSiTin
-            | val GHC.Classes.== "th_vat" -> TaxIdType'EnumThVat
-            | val GHC.Classes.== "tw_vat" -> TaxIdType'EnumTwVat
-            | val GHC.Classes.== "ua_vat" -> TaxIdType'EnumUaVat
-            | val GHC.Classes.== "unknown" -> TaxIdType'EnumUnknown
-            | val GHC.Classes.== "us_ein" -> TaxIdType'EnumUsEin
-            | val GHC.Classes.== "za_vat" -> TaxIdType'EnumZaVat
-            | GHC.Base.otherwise -> TaxIdType'Other val
+          | val GHC.Classes.== "ae_trn" -> TaxIdType'EnumAeTrn
+          | val GHC.Classes.== "au_abn" -> TaxIdType'EnumAuAbn
+          | val GHC.Classes.== "au_arn" -> TaxIdType'EnumAuArn
+          | val GHC.Classes.== "bg_uic" -> TaxIdType'EnumBgUic
+          | val GHC.Classes.== "br_cnpj" -> TaxIdType'EnumBrCnpj
+          | val GHC.Classes.== "br_cpf" -> TaxIdType'EnumBrCpf
+          | val GHC.Classes.== "ca_bn" -> TaxIdType'EnumCaBn
+          | val GHC.Classes.== "ca_gst_hst" -> TaxIdType'EnumCaGstHst
+          | val GHC.Classes.== "ca_pst_bc" -> TaxIdType'EnumCaPstBc
+          | val GHC.Classes.== "ca_pst_mb" -> TaxIdType'EnumCaPstMb
+          | val GHC.Classes.== "ca_pst_sk" -> TaxIdType'EnumCaPstSk
+          | val GHC.Classes.== "ca_qst" -> TaxIdType'EnumCaQst
+          | val GHC.Classes.== "ch_vat" -> TaxIdType'EnumChVat
+          | val GHC.Classes.== "cl_tin" -> TaxIdType'EnumClTin
+          | val GHC.Classes.== "es_cif" -> TaxIdType'EnumEsCif
+          | val GHC.Classes.== "eu_oss_vat" -> TaxIdType'EnumEuOssVat
+          | val GHC.Classes.== "eu_vat" -> TaxIdType'EnumEuVat
+          | val GHC.Classes.== "gb_vat" -> TaxIdType'EnumGbVat
+          | val GHC.Classes.== "ge_vat" -> TaxIdType'EnumGeVat
+          | val GHC.Classes.== "hk_br" -> TaxIdType'EnumHkBr
+          | val GHC.Classes.== "hu_tin" -> TaxIdType'EnumHuTin
+          | val GHC.Classes.== "id_npwp" -> TaxIdType'EnumIdNpwp
+          | val GHC.Classes.== "il_vat" -> TaxIdType'EnumIlVat
+          | val GHC.Classes.== "in_gst" -> TaxIdType'EnumInGst
+          | val GHC.Classes.== "is_vat" -> TaxIdType'EnumIsVat
+          | val GHC.Classes.== "jp_cn" -> TaxIdType'EnumJpCn
+          | val GHC.Classes.== "jp_rn" -> TaxIdType'EnumJpRn
+          | val GHC.Classes.== "kr_brn" -> TaxIdType'EnumKrBrn
+          | val GHC.Classes.== "li_uid" -> TaxIdType'EnumLiUid
+          | val GHC.Classes.== "mx_rfc" -> TaxIdType'EnumMxRfc
+          | val GHC.Classes.== "my_frp" -> TaxIdType'EnumMyFrp
+          | val GHC.Classes.== "my_itn" -> TaxIdType'EnumMyItn
+          | val GHC.Classes.== "my_sst" -> TaxIdType'EnumMySst
+          | val GHC.Classes.== "no_vat" -> TaxIdType'EnumNoVat
+          | val GHC.Classes.== "nz_gst" -> TaxIdType'EnumNzGst
+          | val GHC.Classes.== "ru_inn" -> TaxIdType'EnumRuInn
+          | val GHC.Classes.== "ru_kpp" -> TaxIdType'EnumRuKpp
+          | val GHC.Classes.== "sa_vat" -> TaxIdType'EnumSaVat
+          | val GHC.Classes.== "sg_gst" -> TaxIdType'EnumSgGst
+          | val GHC.Classes.== "sg_uen" -> TaxIdType'EnumSgUen
+          | val GHC.Classes.== "si_tin" -> TaxIdType'EnumSiTin
+          | val GHC.Classes.== "th_vat" -> TaxIdType'EnumThVat
+          | val GHC.Classes.== "tw_vat" -> TaxIdType'EnumTwVat
+          | val GHC.Classes.== "ua_vat" -> TaxIdType'EnumUaVat
+          | val GHC.Classes.== "unknown" -> TaxIdType'EnumUnknown
+          | val GHC.Classes.== "us_ein" -> TaxIdType'EnumUsEin
+          | val GHC.Classes.== "za_vat" -> TaxIdType'EnumZaVat
+          | GHC.Base.otherwise -> TaxIdType'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.tax_id.properties.verification.anyOf@ in the specification.
@@ -403,9 +403,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON TaxIdVerification'NonNullableStatus'
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "pending" -> TaxIdVerification'NonNullableStatus'EnumPending
-            | val GHC.Classes.== "unavailable" -> TaxIdVerification'NonNullableStatus'EnumUnavailable
-            | val GHC.Classes.== "unverified" -> TaxIdVerification'NonNullableStatus'EnumUnverified
-            | val GHC.Classes.== "verified" -> TaxIdVerification'NonNullableStatus'EnumVerified
-            | GHC.Base.otherwise -> TaxIdVerification'NonNullableStatus'Other val
+          | val GHC.Classes.== "pending" -> TaxIdVerification'NonNullableStatus'EnumPending
+          | val GHC.Classes.== "unavailable" -> TaxIdVerification'NonNullableStatus'EnumUnavailable
+          | val GHC.Classes.== "unverified" -> TaxIdVerification'NonNullableStatus'EnumUnverified
+          | val GHC.Classes.== "verified" -> TaxIdVerification'NonNullableStatus'EnumVerified
+          | GHC.Base.otherwise -> TaxIdVerification'NonNullableStatus'Other val
       )

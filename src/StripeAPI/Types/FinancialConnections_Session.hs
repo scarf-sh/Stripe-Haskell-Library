@@ -197,9 +197,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON FinancialConnections'sessionAccountH
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "account" -> FinancialConnections'sessionAccountHolder'NonNullableType'EnumAccount
-            | val GHC.Classes.== "customer" -> FinancialConnections'sessionAccountHolder'NonNullableType'EnumCustomer
-            | GHC.Base.otherwise -> FinancialConnections'sessionAccountHolder'NonNullableType'Other val
+          | val GHC.Classes.== "account" -> FinancialConnections'sessionAccountHolder'NonNullableType'EnumAccount
+          | val GHC.Classes.== "customer" -> FinancialConnections'sessionAccountHolder'NonNullableType'EnumCustomer
+          | GHC.Base.otherwise -> FinancialConnections'sessionAccountHolder'NonNullableType'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.financial_connections.session.properties.accounts@ in the specification.
@@ -274,9 +274,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON FinancialConnections'sessionPermissi
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "balances" -> FinancialConnections'sessionPermissions'EnumBalances
-            | val GHC.Classes.== "ownership" -> FinancialConnections'sessionPermissions'EnumOwnership
-            | val GHC.Classes.== "payment_method" -> FinancialConnections'sessionPermissions'EnumPaymentMethod
-            | val GHC.Classes.== "transactions" -> FinancialConnections'sessionPermissions'EnumTransactions
-            | GHC.Base.otherwise -> FinancialConnections'sessionPermissions'Other val
+          | val GHC.Classes.== "balances" -> FinancialConnections'sessionPermissions'EnumBalances
+          | val GHC.Classes.== "ownership" -> FinancialConnections'sessionPermissions'EnumOwnership
+          | val GHC.Classes.== "payment_method" -> FinancialConnections'sessionPermissions'EnumPaymentMethod
+          | val GHC.Classes.== "transactions" -> FinancialConnections'sessionPermissions'EnumTransactions
+          | GHC.Base.otherwise -> FinancialConnections'sessionPermissions'Other val
       )

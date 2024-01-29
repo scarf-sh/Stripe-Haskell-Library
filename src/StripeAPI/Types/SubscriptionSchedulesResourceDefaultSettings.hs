@@ -110,9 +110,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON SubscriptionSchedulesResourceDefault
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> SubscriptionSchedulesResourceDefaultSettingsBillingCycleAnchor'EnumAutomatic
-            | val GHC.Classes.== "phase_start" -> SubscriptionSchedulesResourceDefaultSettingsBillingCycleAnchor'EnumPhaseStart
-            | GHC.Base.otherwise -> SubscriptionSchedulesResourceDefaultSettingsBillingCycleAnchor'Other val
+          | val GHC.Classes.== "automatic" -> SubscriptionSchedulesResourceDefaultSettingsBillingCycleAnchor'EnumAutomatic
+          | val GHC.Classes.== "phase_start" -> SubscriptionSchedulesResourceDefaultSettingsBillingCycleAnchor'EnumPhaseStart
+          | GHC.Base.otherwise -> SubscriptionSchedulesResourceDefaultSettingsBillingCycleAnchor'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.subscription_schedules_resource_default_settings.properties.billing_thresholds.anyOf@ in the specification.
@@ -168,9 +168,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON SubscriptionSchedulesResourceDefault
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "charge_automatically" -> SubscriptionSchedulesResourceDefaultSettingsCollectionMethod'NonNullableEnumChargeAutomatically
-            | val GHC.Classes.== "send_invoice" -> SubscriptionSchedulesResourceDefaultSettingsCollectionMethod'NonNullableEnumSendInvoice
-            | GHC.Base.otherwise -> SubscriptionSchedulesResourceDefaultSettingsCollectionMethod'NonNullableOther val
+          | val GHC.Classes.== "charge_automatically" -> SubscriptionSchedulesResourceDefaultSettingsCollectionMethod'NonNullableEnumChargeAutomatically
+          | val GHC.Classes.== "send_invoice" -> SubscriptionSchedulesResourceDefaultSettingsCollectionMethod'NonNullableEnumSendInvoice
+          | GHC.Base.otherwise -> SubscriptionSchedulesResourceDefaultSettingsCollectionMethod'NonNullableOther val
       )
 
 -- | Defines the oneOf schema located at @components.schemas.subscription_schedules_resource_default_settings.properties.default_payment_method.anyOf@ in the specification.

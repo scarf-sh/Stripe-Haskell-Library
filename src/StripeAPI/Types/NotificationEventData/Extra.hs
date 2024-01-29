@@ -283,7 +283,7 @@ getEventData e = case eventType e of
   "transfer.updated" -> convertEventData TransferUpdatedEvent e
   t -> UnknownEvent t
 
-convertEventData :: Aeson.FromJSON a => (a -> EventData) -> Event -> EventData
+convertEventData :: (Aeson.FromJSON a) => (a -> EventData) -> Event -> EventData
 convertEventData constructor Event {..} = case Aeson.fromJSON (Aeson.Object $ notificationEventDataObject eventData) of
   Aeson.Success x -> constructor x
   Aeson.Error _ -> UnknownEvent eventType

@@ -176,10 +176,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON AccountCapabilitiesAcssDebitPayments
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "active" -> AccountCapabilitiesAcssDebitPayments'EnumActive
-            | val GHC.Classes.== "inactive" -> AccountCapabilitiesAcssDebitPayments'EnumInactive
-            | val GHC.Classes.== "pending" -> AccountCapabilitiesAcssDebitPayments'EnumPending
-            | GHC.Base.otherwise -> AccountCapabilitiesAcssDebitPayments'Other val
+          | val GHC.Classes.== "active" -> AccountCapabilitiesAcssDebitPayments'EnumActive
+          | val GHC.Classes.== "inactive" -> AccountCapabilitiesAcssDebitPayments'EnumInactive
+          | val GHC.Classes.== "pending" -> AccountCapabilitiesAcssDebitPayments'EnumPending
+          | GHC.Base.otherwise -> AccountCapabilitiesAcssDebitPayments'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.account_capabilities.properties.affirm_payments@ in the specification.
@@ -209,10 +209,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON AccountCapabilitiesAffirmPayments' w
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "active" -> AccountCapabilitiesAffirmPayments'EnumActive
-            | val GHC.Classes.== "inactive" -> AccountCapabilitiesAffirmPayments'EnumInactive
-            | val GHC.Classes.== "pending" -> AccountCapabilitiesAffirmPayments'EnumPending
-            | GHC.Base.otherwise -> AccountCapabilitiesAffirmPayments'Other val
+          | val GHC.Classes.== "active" -> AccountCapabilitiesAffirmPayments'EnumActive
+          | val GHC.Classes.== "inactive" -> AccountCapabilitiesAffirmPayments'EnumInactive
+          | val GHC.Classes.== "pending" -> AccountCapabilitiesAffirmPayments'EnumPending
+          | GHC.Base.otherwise -> AccountCapabilitiesAffirmPayments'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.account_capabilities.properties.afterpay_clearpay_payments@ in the specification.
@@ -242,10 +242,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON AccountCapabilitiesAfterpayClearpayP
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "active" -> AccountCapabilitiesAfterpayClearpayPayments'EnumActive
-            | val GHC.Classes.== "inactive" -> AccountCapabilitiesAfterpayClearpayPayments'EnumInactive
-            | val GHC.Classes.== "pending" -> AccountCapabilitiesAfterpayClearpayPayments'EnumPending
-            | GHC.Base.otherwise -> AccountCapabilitiesAfterpayClearpayPayments'Other val
+          | val GHC.Classes.== "active" -> AccountCapabilitiesAfterpayClearpayPayments'EnumActive
+          | val GHC.Classes.== "inactive" -> AccountCapabilitiesAfterpayClearpayPayments'EnumInactive
+          | val GHC.Classes.== "pending" -> AccountCapabilitiesAfterpayClearpayPayments'EnumPending
+          | GHC.Base.otherwise -> AccountCapabilitiesAfterpayClearpayPayments'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.account_capabilities.properties.au_becs_debit_payments@ in the specification.
@@ -275,10 +275,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON AccountCapabilitiesAuBecsDebitPaymen
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "active" -> AccountCapabilitiesAuBecsDebitPayments'EnumActive
-            | val GHC.Classes.== "inactive" -> AccountCapabilitiesAuBecsDebitPayments'EnumInactive
-            | val GHC.Classes.== "pending" -> AccountCapabilitiesAuBecsDebitPayments'EnumPending
-            | GHC.Base.otherwise -> AccountCapabilitiesAuBecsDebitPayments'Other val
+          | val GHC.Classes.== "active" -> AccountCapabilitiesAuBecsDebitPayments'EnumActive
+          | val GHC.Classes.== "inactive" -> AccountCapabilitiesAuBecsDebitPayments'EnumInactive
+          | val GHC.Classes.== "pending" -> AccountCapabilitiesAuBecsDebitPayments'EnumPending
+          | GHC.Base.otherwise -> AccountCapabilitiesAuBecsDebitPayments'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.account_capabilities.properties.bacs_debit_payments@ in the specification.
@@ -308,10 +308,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON AccountCapabilitiesBacsDebitPayments
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "active" -> AccountCapabilitiesBacsDebitPayments'EnumActive
-            | val GHC.Classes.== "inactive" -> AccountCapabilitiesBacsDebitPayments'EnumInactive
-            | val GHC.Classes.== "pending" -> AccountCapabilitiesBacsDebitPayments'EnumPending
-            | GHC.Base.otherwise -> AccountCapabilitiesBacsDebitPayments'Other val
+          | val GHC.Classes.== "active" -> AccountCapabilitiesBacsDebitPayments'EnumActive
+          | val GHC.Classes.== "inactive" -> AccountCapabilitiesBacsDebitPayments'EnumInactive
+          | val GHC.Classes.== "pending" -> AccountCapabilitiesBacsDebitPayments'EnumPending
+          | GHC.Base.otherwise -> AccountCapabilitiesBacsDebitPayments'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.account_capabilities.properties.bancontact_payments@ in the specification.
@@ -341,10 +341,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON AccountCapabilitiesBancontactPayment
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "active" -> AccountCapabilitiesBancontactPayments'EnumActive
-            | val GHC.Classes.== "inactive" -> AccountCapabilitiesBancontactPayments'EnumInactive
-            | val GHC.Classes.== "pending" -> AccountCapabilitiesBancontactPayments'EnumPending
-            | GHC.Base.otherwise -> AccountCapabilitiesBancontactPayments'Other val
+          | val GHC.Classes.== "active" -> AccountCapabilitiesBancontactPayments'EnumActive
+          | val GHC.Classes.== "inactive" -> AccountCapabilitiesBancontactPayments'EnumInactive
+          | val GHC.Classes.== "pending" -> AccountCapabilitiesBancontactPayments'EnumPending
+          | GHC.Base.otherwise -> AccountCapabilitiesBancontactPayments'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.account_capabilities.properties.bank_transfer_payments@ in the specification.
@@ -374,10 +374,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON AccountCapabilitiesBankTransferPayme
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "active" -> AccountCapabilitiesBankTransferPayments'EnumActive
-            | val GHC.Classes.== "inactive" -> AccountCapabilitiesBankTransferPayments'EnumInactive
-            | val GHC.Classes.== "pending" -> AccountCapabilitiesBankTransferPayments'EnumPending
-            | GHC.Base.otherwise -> AccountCapabilitiesBankTransferPayments'Other val
+          | val GHC.Classes.== "active" -> AccountCapabilitiesBankTransferPayments'EnumActive
+          | val GHC.Classes.== "inactive" -> AccountCapabilitiesBankTransferPayments'EnumInactive
+          | val GHC.Classes.== "pending" -> AccountCapabilitiesBankTransferPayments'EnumPending
+          | GHC.Base.otherwise -> AccountCapabilitiesBankTransferPayments'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.account_capabilities.properties.boleto_payments@ in the specification.
@@ -407,10 +407,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON AccountCapabilitiesBoletoPayments' w
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "active" -> AccountCapabilitiesBoletoPayments'EnumActive
-            | val GHC.Classes.== "inactive" -> AccountCapabilitiesBoletoPayments'EnumInactive
-            | val GHC.Classes.== "pending" -> AccountCapabilitiesBoletoPayments'EnumPending
-            | GHC.Base.otherwise -> AccountCapabilitiesBoletoPayments'Other val
+          | val GHC.Classes.== "active" -> AccountCapabilitiesBoletoPayments'EnumActive
+          | val GHC.Classes.== "inactive" -> AccountCapabilitiesBoletoPayments'EnumInactive
+          | val GHC.Classes.== "pending" -> AccountCapabilitiesBoletoPayments'EnumPending
+          | GHC.Base.otherwise -> AccountCapabilitiesBoletoPayments'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.account_capabilities.properties.card_issuing@ in the specification.
@@ -440,10 +440,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON AccountCapabilitiesCardIssuing' wher
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "active" -> AccountCapabilitiesCardIssuing'EnumActive
-            | val GHC.Classes.== "inactive" -> AccountCapabilitiesCardIssuing'EnumInactive
-            | val GHC.Classes.== "pending" -> AccountCapabilitiesCardIssuing'EnumPending
-            | GHC.Base.otherwise -> AccountCapabilitiesCardIssuing'Other val
+          | val GHC.Classes.== "active" -> AccountCapabilitiesCardIssuing'EnumActive
+          | val GHC.Classes.== "inactive" -> AccountCapabilitiesCardIssuing'EnumInactive
+          | val GHC.Classes.== "pending" -> AccountCapabilitiesCardIssuing'EnumPending
+          | GHC.Base.otherwise -> AccountCapabilitiesCardIssuing'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.account_capabilities.properties.card_payments@ in the specification.
@@ -473,10 +473,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON AccountCapabilitiesCardPayments' whe
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "active" -> AccountCapabilitiesCardPayments'EnumActive
-            | val GHC.Classes.== "inactive" -> AccountCapabilitiesCardPayments'EnumInactive
-            | val GHC.Classes.== "pending" -> AccountCapabilitiesCardPayments'EnumPending
-            | GHC.Base.otherwise -> AccountCapabilitiesCardPayments'Other val
+          | val GHC.Classes.== "active" -> AccountCapabilitiesCardPayments'EnumActive
+          | val GHC.Classes.== "inactive" -> AccountCapabilitiesCardPayments'EnumInactive
+          | val GHC.Classes.== "pending" -> AccountCapabilitiesCardPayments'EnumPending
+          | GHC.Base.otherwise -> AccountCapabilitiesCardPayments'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.account_capabilities.properties.cartes_bancaires_payments@ in the specification.
@@ -506,10 +506,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON AccountCapabilitiesCartesBancairesPa
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "active" -> AccountCapabilitiesCartesBancairesPayments'EnumActive
-            | val GHC.Classes.== "inactive" -> AccountCapabilitiesCartesBancairesPayments'EnumInactive
-            | val GHC.Classes.== "pending" -> AccountCapabilitiesCartesBancairesPayments'EnumPending
-            | GHC.Base.otherwise -> AccountCapabilitiesCartesBancairesPayments'Other val
+          | val GHC.Classes.== "active" -> AccountCapabilitiesCartesBancairesPayments'EnumActive
+          | val GHC.Classes.== "inactive" -> AccountCapabilitiesCartesBancairesPayments'EnumInactive
+          | val GHC.Classes.== "pending" -> AccountCapabilitiesCartesBancairesPayments'EnumPending
+          | GHC.Base.otherwise -> AccountCapabilitiesCartesBancairesPayments'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.account_capabilities.properties.eps_payments@ in the specification.
@@ -539,10 +539,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON AccountCapabilitiesEpsPayments' wher
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "active" -> AccountCapabilitiesEpsPayments'EnumActive
-            | val GHC.Classes.== "inactive" -> AccountCapabilitiesEpsPayments'EnumInactive
-            | val GHC.Classes.== "pending" -> AccountCapabilitiesEpsPayments'EnumPending
-            | GHC.Base.otherwise -> AccountCapabilitiesEpsPayments'Other val
+          | val GHC.Classes.== "active" -> AccountCapabilitiesEpsPayments'EnumActive
+          | val GHC.Classes.== "inactive" -> AccountCapabilitiesEpsPayments'EnumInactive
+          | val GHC.Classes.== "pending" -> AccountCapabilitiesEpsPayments'EnumPending
+          | GHC.Base.otherwise -> AccountCapabilitiesEpsPayments'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.account_capabilities.properties.fpx_payments@ in the specification.
@@ -572,10 +572,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON AccountCapabilitiesFpxPayments' wher
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "active" -> AccountCapabilitiesFpxPayments'EnumActive
-            | val GHC.Classes.== "inactive" -> AccountCapabilitiesFpxPayments'EnumInactive
-            | val GHC.Classes.== "pending" -> AccountCapabilitiesFpxPayments'EnumPending
-            | GHC.Base.otherwise -> AccountCapabilitiesFpxPayments'Other val
+          | val GHC.Classes.== "active" -> AccountCapabilitiesFpxPayments'EnumActive
+          | val GHC.Classes.== "inactive" -> AccountCapabilitiesFpxPayments'EnumInactive
+          | val GHC.Classes.== "pending" -> AccountCapabilitiesFpxPayments'EnumPending
+          | GHC.Base.otherwise -> AccountCapabilitiesFpxPayments'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.account_capabilities.properties.giropay_payments@ in the specification.
@@ -605,10 +605,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON AccountCapabilitiesGiropayPayments' 
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "active" -> AccountCapabilitiesGiropayPayments'EnumActive
-            | val GHC.Classes.== "inactive" -> AccountCapabilitiesGiropayPayments'EnumInactive
-            | val GHC.Classes.== "pending" -> AccountCapabilitiesGiropayPayments'EnumPending
-            | GHC.Base.otherwise -> AccountCapabilitiesGiropayPayments'Other val
+          | val GHC.Classes.== "active" -> AccountCapabilitiesGiropayPayments'EnumActive
+          | val GHC.Classes.== "inactive" -> AccountCapabilitiesGiropayPayments'EnumInactive
+          | val GHC.Classes.== "pending" -> AccountCapabilitiesGiropayPayments'EnumPending
+          | GHC.Base.otherwise -> AccountCapabilitiesGiropayPayments'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.account_capabilities.properties.grabpay_payments@ in the specification.
@@ -638,10 +638,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON AccountCapabilitiesGrabpayPayments' 
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "active" -> AccountCapabilitiesGrabpayPayments'EnumActive
-            | val GHC.Classes.== "inactive" -> AccountCapabilitiesGrabpayPayments'EnumInactive
-            | val GHC.Classes.== "pending" -> AccountCapabilitiesGrabpayPayments'EnumPending
-            | GHC.Base.otherwise -> AccountCapabilitiesGrabpayPayments'Other val
+          | val GHC.Classes.== "active" -> AccountCapabilitiesGrabpayPayments'EnumActive
+          | val GHC.Classes.== "inactive" -> AccountCapabilitiesGrabpayPayments'EnumInactive
+          | val GHC.Classes.== "pending" -> AccountCapabilitiesGrabpayPayments'EnumPending
+          | GHC.Base.otherwise -> AccountCapabilitiesGrabpayPayments'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.account_capabilities.properties.ideal_payments@ in the specification.
@@ -671,10 +671,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON AccountCapabilitiesIdealPayments' wh
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "active" -> AccountCapabilitiesIdealPayments'EnumActive
-            | val GHC.Classes.== "inactive" -> AccountCapabilitiesIdealPayments'EnumInactive
-            | val GHC.Classes.== "pending" -> AccountCapabilitiesIdealPayments'EnumPending
-            | GHC.Base.otherwise -> AccountCapabilitiesIdealPayments'Other val
+          | val GHC.Classes.== "active" -> AccountCapabilitiesIdealPayments'EnumActive
+          | val GHC.Classes.== "inactive" -> AccountCapabilitiesIdealPayments'EnumInactive
+          | val GHC.Classes.== "pending" -> AccountCapabilitiesIdealPayments'EnumPending
+          | GHC.Base.otherwise -> AccountCapabilitiesIdealPayments'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.account_capabilities.properties.jcb_payments@ in the specification.
@@ -704,10 +704,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON AccountCapabilitiesJcbPayments' wher
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "active" -> AccountCapabilitiesJcbPayments'EnumActive
-            | val GHC.Classes.== "inactive" -> AccountCapabilitiesJcbPayments'EnumInactive
-            | val GHC.Classes.== "pending" -> AccountCapabilitiesJcbPayments'EnumPending
-            | GHC.Base.otherwise -> AccountCapabilitiesJcbPayments'Other val
+          | val GHC.Classes.== "active" -> AccountCapabilitiesJcbPayments'EnumActive
+          | val GHC.Classes.== "inactive" -> AccountCapabilitiesJcbPayments'EnumInactive
+          | val GHC.Classes.== "pending" -> AccountCapabilitiesJcbPayments'EnumPending
+          | GHC.Base.otherwise -> AccountCapabilitiesJcbPayments'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.account_capabilities.properties.klarna_payments@ in the specification.
@@ -737,10 +737,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON AccountCapabilitiesKlarnaPayments' w
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "active" -> AccountCapabilitiesKlarnaPayments'EnumActive
-            | val GHC.Classes.== "inactive" -> AccountCapabilitiesKlarnaPayments'EnumInactive
-            | val GHC.Classes.== "pending" -> AccountCapabilitiesKlarnaPayments'EnumPending
-            | GHC.Base.otherwise -> AccountCapabilitiesKlarnaPayments'Other val
+          | val GHC.Classes.== "active" -> AccountCapabilitiesKlarnaPayments'EnumActive
+          | val GHC.Classes.== "inactive" -> AccountCapabilitiesKlarnaPayments'EnumInactive
+          | val GHC.Classes.== "pending" -> AccountCapabilitiesKlarnaPayments'EnumPending
+          | GHC.Base.otherwise -> AccountCapabilitiesKlarnaPayments'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.account_capabilities.properties.konbini_payments@ in the specification.
@@ -770,10 +770,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON AccountCapabilitiesKonbiniPayments' 
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "active" -> AccountCapabilitiesKonbiniPayments'EnumActive
-            | val GHC.Classes.== "inactive" -> AccountCapabilitiesKonbiniPayments'EnumInactive
-            | val GHC.Classes.== "pending" -> AccountCapabilitiesKonbiniPayments'EnumPending
-            | GHC.Base.otherwise -> AccountCapabilitiesKonbiniPayments'Other val
+          | val GHC.Classes.== "active" -> AccountCapabilitiesKonbiniPayments'EnumActive
+          | val GHC.Classes.== "inactive" -> AccountCapabilitiesKonbiniPayments'EnumInactive
+          | val GHC.Classes.== "pending" -> AccountCapabilitiesKonbiniPayments'EnumPending
+          | GHC.Base.otherwise -> AccountCapabilitiesKonbiniPayments'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.account_capabilities.properties.legacy_payments@ in the specification.
@@ -803,10 +803,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON AccountCapabilitiesLegacyPayments' w
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "active" -> AccountCapabilitiesLegacyPayments'EnumActive
-            | val GHC.Classes.== "inactive" -> AccountCapabilitiesLegacyPayments'EnumInactive
-            | val GHC.Classes.== "pending" -> AccountCapabilitiesLegacyPayments'EnumPending
-            | GHC.Base.otherwise -> AccountCapabilitiesLegacyPayments'Other val
+          | val GHC.Classes.== "active" -> AccountCapabilitiesLegacyPayments'EnumActive
+          | val GHC.Classes.== "inactive" -> AccountCapabilitiesLegacyPayments'EnumInactive
+          | val GHC.Classes.== "pending" -> AccountCapabilitiesLegacyPayments'EnumPending
+          | GHC.Base.otherwise -> AccountCapabilitiesLegacyPayments'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.account_capabilities.properties.link_payments@ in the specification.
@@ -836,10 +836,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON AccountCapabilitiesLinkPayments' whe
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "active" -> AccountCapabilitiesLinkPayments'EnumActive
-            | val GHC.Classes.== "inactive" -> AccountCapabilitiesLinkPayments'EnumInactive
-            | val GHC.Classes.== "pending" -> AccountCapabilitiesLinkPayments'EnumPending
-            | GHC.Base.otherwise -> AccountCapabilitiesLinkPayments'Other val
+          | val GHC.Classes.== "active" -> AccountCapabilitiesLinkPayments'EnumActive
+          | val GHC.Classes.== "inactive" -> AccountCapabilitiesLinkPayments'EnumInactive
+          | val GHC.Classes.== "pending" -> AccountCapabilitiesLinkPayments'EnumPending
+          | GHC.Base.otherwise -> AccountCapabilitiesLinkPayments'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.account_capabilities.properties.oxxo_payments@ in the specification.
@@ -869,10 +869,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON AccountCapabilitiesOxxoPayments' whe
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "active" -> AccountCapabilitiesOxxoPayments'EnumActive
-            | val GHC.Classes.== "inactive" -> AccountCapabilitiesOxxoPayments'EnumInactive
-            | val GHC.Classes.== "pending" -> AccountCapabilitiesOxxoPayments'EnumPending
-            | GHC.Base.otherwise -> AccountCapabilitiesOxxoPayments'Other val
+          | val GHC.Classes.== "active" -> AccountCapabilitiesOxxoPayments'EnumActive
+          | val GHC.Classes.== "inactive" -> AccountCapabilitiesOxxoPayments'EnumInactive
+          | val GHC.Classes.== "pending" -> AccountCapabilitiesOxxoPayments'EnumPending
+          | GHC.Base.otherwise -> AccountCapabilitiesOxxoPayments'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.account_capabilities.properties.p24_payments@ in the specification.
@@ -902,10 +902,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON AccountCapabilitiesP24Payments' wher
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "active" -> AccountCapabilitiesP24Payments'EnumActive
-            | val GHC.Classes.== "inactive" -> AccountCapabilitiesP24Payments'EnumInactive
-            | val GHC.Classes.== "pending" -> AccountCapabilitiesP24Payments'EnumPending
-            | GHC.Base.otherwise -> AccountCapabilitiesP24Payments'Other val
+          | val GHC.Classes.== "active" -> AccountCapabilitiesP24Payments'EnumActive
+          | val GHC.Classes.== "inactive" -> AccountCapabilitiesP24Payments'EnumInactive
+          | val GHC.Classes.== "pending" -> AccountCapabilitiesP24Payments'EnumPending
+          | GHC.Base.otherwise -> AccountCapabilitiesP24Payments'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.account_capabilities.properties.paynow_payments@ in the specification.
@@ -935,10 +935,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON AccountCapabilitiesPaynowPayments' w
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "active" -> AccountCapabilitiesPaynowPayments'EnumActive
-            | val GHC.Classes.== "inactive" -> AccountCapabilitiesPaynowPayments'EnumInactive
-            | val GHC.Classes.== "pending" -> AccountCapabilitiesPaynowPayments'EnumPending
-            | GHC.Base.otherwise -> AccountCapabilitiesPaynowPayments'Other val
+          | val GHC.Classes.== "active" -> AccountCapabilitiesPaynowPayments'EnumActive
+          | val GHC.Classes.== "inactive" -> AccountCapabilitiesPaynowPayments'EnumInactive
+          | val GHC.Classes.== "pending" -> AccountCapabilitiesPaynowPayments'EnumPending
+          | GHC.Base.otherwise -> AccountCapabilitiesPaynowPayments'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.account_capabilities.properties.promptpay_payments@ in the specification.
@@ -968,10 +968,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON AccountCapabilitiesPromptpayPayments
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "active" -> AccountCapabilitiesPromptpayPayments'EnumActive
-            | val GHC.Classes.== "inactive" -> AccountCapabilitiesPromptpayPayments'EnumInactive
-            | val GHC.Classes.== "pending" -> AccountCapabilitiesPromptpayPayments'EnumPending
-            | GHC.Base.otherwise -> AccountCapabilitiesPromptpayPayments'Other val
+          | val GHC.Classes.== "active" -> AccountCapabilitiesPromptpayPayments'EnumActive
+          | val GHC.Classes.== "inactive" -> AccountCapabilitiesPromptpayPayments'EnumInactive
+          | val GHC.Classes.== "pending" -> AccountCapabilitiesPromptpayPayments'EnumPending
+          | GHC.Base.otherwise -> AccountCapabilitiesPromptpayPayments'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.account_capabilities.properties.sepa_debit_payments@ in the specification.
@@ -1001,10 +1001,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON AccountCapabilitiesSepaDebitPayments
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "active" -> AccountCapabilitiesSepaDebitPayments'EnumActive
-            | val GHC.Classes.== "inactive" -> AccountCapabilitiesSepaDebitPayments'EnumInactive
-            | val GHC.Classes.== "pending" -> AccountCapabilitiesSepaDebitPayments'EnumPending
-            | GHC.Base.otherwise -> AccountCapabilitiesSepaDebitPayments'Other val
+          | val GHC.Classes.== "active" -> AccountCapabilitiesSepaDebitPayments'EnumActive
+          | val GHC.Classes.== "inactive" -> AccountCapabilitiesSepaDebitPayments'EnumInactive
+          | val GHC.Classes.== "pending" -> AccountCapabilitiesSepaDebitPayments'EnumPending
+          | GHC.Base.otherwise -> AccountCapabilitiesSepaDebitPayments'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.account_capabilities.properties.sofort_payments@ in the specification.
@@ -1034,10 +1034,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON AccountCapabilitiesSofortPayments' w
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "active" -> AccountCapabilitiesSofortPayments'EnumActive
-            | val GHC.Classes.== "inactive" -> AccountCapabilitiesSofortPayments'EnumInactive
-            | val GHC.Classes.== "pending" -> AccountCapabilitiesSofortPayments'EnumPending
-            | GHC.Base.otherwise -> AccountCapabilitiesSofortPayments'Other val
+          | val GHC.Classes.== "active" -> AccountCapabilitiesSofortPayments'EnumActive
+          | val GHC.Classes.== "inactive" -> AccountCapabilitiesSofortPayments'EnumInactive
+          | val GHC.Classes.== "pending" -> AccountCapabilitiesSofortPayments'EnumPending
+          | GHC.Base.otherwise -> AccountCapabilitiesSofortPayments'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.account_capabilities.properties.tax_reporting_us_1099_k@ in the specification.
@@ -1067,10 +1067,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON AccountCapabilitiesTaxReportingUs_10
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "active" -> AccountCapabilitiesTaxReportingUs_1099K'EnumActive
-            | val GHC.Classes.== "inactive" -> AccountCapabilitiesTaxReportingUs_1099K'EnumInactive
-            | val GHC.Classes.== "pending" -> AccountCapabilitiesTaxReportingUs_1099K'EnumPending
-            | GHC.Base.otherwise -> AccountCapabilitiesTaxReportingUs_1099K'Other val
+          | val GHC.Classes.== "active" -> AccountCapabilitiesTaxReportingUs_1099K'EnumActive
+          | val GHC.Classes.== "inactive" -> AccountCapabilitiesTaxReportingUs_1099K'EnumInactive
+          | val GHC.Classes.== "pending" -> AccountCapabilitiesTaxReportingUs_1099K'EnumPending
+          | GHC.Base.otherwise -> AccountCapabilitiesTaxReportingUs_1099K'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.account_capabilities.properties.tax_reporting_us_1099_misc@ in the specification.
@@ -1100,10 +1100,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON AccountCapabilitiesTaxReportingUs_10
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "active" -> AccountCapabilitiesTaxReportingUs_1099Misc'EnumActive
-            | val GHC.Classes.== "inactive" -> AccountCapabilitiesTaxReportingUs_1099Misc'EnumInactive
-            | val GHC.Classes.== "pending" -> AccountCapabilitiesTaxReportingUs_1099Misc'EnumPending
-            | GHC.Base.otherwise -> AccountCapabilitiesTaxReportingUs_1099Misc'Other val
+          | val GHC.Classes.== "active" -> AccountCapabilitiesTaxReportingUs_1099Misc'EnumActive
+          | val GHC.Classes.== "inactive" -> AccountCapabilitiesTaxReportingUs_1099Misc'EnumInactive
+          | val GHC.Classes.== "pending" -> AccountCapabilitiesTaxReportingUs_1099Misc'EnumPending
+          | GHC.Base.otherwise -> AccountCapabilitiesTaxReportingUs_1099Misc'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.account_capabilities.properties.transfers@ in the specification.
@@ -1133,10 +1133,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON AccountCapabilitiesTransfers' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "active" -> AccountCapabilitiesTransfers'EnumActive
-            | val GHC.Classes.== "inactive" -> AccountCapabilitiesTransfers'EnumInactive
-            | val GHC.Classes.== "pending" -> AccountCapabilitiesTransfers'EnumPending
-            | GHC.Base.otherwise -> AccountCapabilitiesTransfers'Other val
+          | val GHC.Classes.== "active" -> AccountCapabilitiesTransfers'EnumActive
+          | val GHC.Classes.== "inactive" -> AccountCapabilitiesTransfers'EnumInactive
+          | val GHC.Classes.== "pending" -> AccountCapabilitiesTransfers'EnumPending
+          | GHC.Base.otherwise -> AccountCapabilitiesTransfers'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.account_capabilities.properties.treasury@ in the specification.
@@ -1166,10 +1166,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON AccountCapabilitiesTreasury' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "active" -> AccountCapabilitiesTreasury'EnumActive
-            | val GHC.Classes.== "inactive" -> AccountCapabilitiesTreasury'EnumInactive
-            | val GHC.Classes.== "pending" -> AccountCapabilitiesTreasury'EnumPending
-            | GHC.Base.otherwise -> AccountCapabilitiesTreasury'Other val
+          | val GHC.Classes.== "active" -> AccountCapabilitiesTreasury'EnumActive
+          | val GHC.Classes.== "inactive" -> AccountCapabilitiesTreasury'EnumInactive
+          | val GHC.Classes.== "pending" -> AccountCapabilitiesTreasury'EnumPending
+          | GHC.Base.otherwise -> AccountCapabilitiesTreasury'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.account_capabilities.properties.us_bank_account_ach_payments@ in the specification.
@@ -1199,8 +1199,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON AccountCapabilitiesUsBankAccountAchP
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "active" -> AccountCapabilitiesUsBankAccountAchPayments'EnumActive
-            | val GHC.Classes.== "inactive" -> AccountCapabilitiesUsBankAccountAchPayments'EnumInactive
-            | val GHC.Classes.== "pending" -> AccountCapabilitiesUsBankAccountAchPayments'EnumPending
-            | GHC.Base.otherwise -> AccountCapabilitiesUsBankAccountAchPayments'Other val
+          | val GHC.Classes.== "active" -> AccountCapabilitiesUsBankAccountAchPayments'EnumActive
+          | val GHC.Classes.== "inactive" -> AccountCapabilitiesUsBankAccountAchPayments'EnumInactive
+          | val GHC.Classes.== "pending" -> AccountCapabilitiesUsBankAccountAchPayments'EnumPending
+          | GHC.Base.otherwise -> AccountCapabilitiesUsBankAccountAchPayments'Other val
       )

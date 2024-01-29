@@ -48,7 +48,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>Transitions a test mode created OutboundPayment to the \<code>returned\<\/code> status. The OutboundPayment must already be in the \<code>processing\<\/code> state.\<\/p>
 postTestHelpersTreasuryOutboundPaymentsIdReturn ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | id | Constraints: Maximum length of 5000
   Data.Text.Internal.Text ->
   -- | The request body to send
@@ -64,21 +64,21 @@ postTestHelpersTreasuryOutboundPaymentsIdReturn
             ( Data.Either.either PostTestHelpersTreasuryOutboundPaymentsIdReturnResponseError GHC.Base.id
                 GHC.Base.. ( \response body ->
                                if
-                                   | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                      PostTestHelpersTreasuryOutboundPaymentsIdReturnResponse200
                                        Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                             Data.Either.Either
                                                               GHC.Base.String
                                                               Treasury'outboundPayment
                                                         )
-                                   | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                      PostTestHelpersTreasuryOutboundPaymentsIdReturnResponseDefault
                                        Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                             Data.Either.Either
                                                               GHC.Base.String
                                                               Error
                                                         )
-                                   | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                            )
                   response_0
             )
@@ -182,17 +182,17 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostTestHelpersTreasuryOutboundPayme
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "account_closed" -> PostTestHelpersTreasuryOutboundPaymentsIdReturnRequestBodyReturnedDetails'Code'EnumAccountClosed
-            | val GHC.Classes.== "account_frozen" -> PostTestHelpersTreasuryOutboundPaymentsIdReturnRequestBodyReturnedDetails'Code'EnumAccountFrozen
-            | val GHC.Classes.== "bank_account_restricted" -> PostTestHelpersTreasuryOutboundPaymentsIdReturnRequestBodyReturnedDetails'Code'EnumBankAccountRestricted
-            | val GHC.Classes.== "bank_ownership_changed" -> PostTestHelpersTreasuryOutboundPaymentsIdReturnRequestBodyReturnedDetails'Code'EnumBankOwnershipChanged
-            | val GHC.Classes.== "declined" -> PostTestHelpersTreasuryOutboundPaymentsIdReturnRequestBodyReturnedDetails'Code'EnumDeclined
-            | val GHC.Classes.== "incorrect_account_holder_name" -> PostTestHelpersTreasuryOutboundPaymentsIdReturnRequestBodyReturnedDetails'Code'EnumIncorrectAccountHolderName
-            | val GHC.Classes.== "invalid_account_number" -> PostTestHelpersTreasuryOutboundPaymentsIdReturnRequestBodyReturnedDetails'Code'EnumInvalidAccountNumber
-            | val GHC.Classes.== "invalid_currency" -> PostTestHelpersTreasuryOutboundPaymentsIdReturnRequestBodyReturnedDetails'Code'EnumInvalidCurrency
-            | val GHC.Classes.== "no_account" -> PostTestHelpersTreasuryOutboundPaymentsIdReturnRequestBodyReturnedDetails'Code'EnumNoAccount
-            | val GHC.Classes.== "other" -> PostTestHelpersTreasuryOutboundPaymentsIdReturnRequestBodyReturnedDetails'Code'EnumOther
-            | GHC.Base.otherwise -> PostTestHelpersTreasuryOutboundPaymentsIdReturnRequestBodyReturnedDetails'Code'Other val
+          | val GHC.Classes.== "account_closed" -> PostTestHelpersTreasuryOutboundPaymentsIdReturnRequestBodyReturnedDetails'Code'EnumAccountClosed
+          | val GHC.Classes.== "account_frozen" -> PostTestHelpersTreasuryOutboundPaymentsIdReturnRequestBodyReturnedDetails'Code'EnumAccountFrozen
+          | val GHC.Classes.== "bank_account_restricted" -> PostTestHelpersTreasuryOutboundPaymentsIdReturnRequestBodyReturnedDetails'Code'EnumBankAccountRestricted
+          | val GHC.Classes.== "bank_ownership_changed" -> PostTestHelpersTreasuryOutboundPaymentsIdReturnRequestBodyReturnedDetails'Code'EnumBankOwnershipChanged
+          | val GHC.Classes.== "declined" -> PostTestHelpersTreasuryOutboundPaymentsIdReturnRequestBodyReturnedDetails'Code'EnumDeclined
+          | val GHC.Classes.== "incorrect_account_holder_name" -> PostTestHelpersTreasuryOutboundPaymentsIdReturnRequestBodyReturnedDetails'Code'EnumIncorrectAccountHolderName
+          | val GHC.Classes.== "invalid_account_number" -> PostTestHelpersTreasuryOutboundPaymentsIdReturnRequestBodyReturnedDetails'Code'EnumInvalidAccountNumber
+          | val GHC.Classes.== "invalid_currency" -> PostTestHelpersTreasuryOutboundPaymentsIdReturnRequestBodyReturnedDetails'Code'EnumInvalidCurrency
+          | val GHC.Classes.== "no_account" -> PostTestHelpersTreasuryOutboundPaymentsIdReturnRequestBodyReturnedDetails'Code'EnumNoAccount
+          | val GHC.Classes.== "other" -> PostTestHelpersTreasuryOutboundPaymentsIdReturnRequestBodyReturnedDetails'Code'EnumOther
+          | GHC.Base.otherwise -> PostTestHelpersTreasuryOutboundPaymentsIdReturnRequestBodyReturnedDetails'Code'Other val
       )
 
 -- | Represents a response of the operation 'postTestHelpersTreasuryOutboundPaymentsIdReturn'.

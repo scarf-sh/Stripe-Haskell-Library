@@ -48,7 +48,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>Deletes a \<code>ValueListItem\<\/code> object, removing it from its parent value list.\<\/p>
 deleteRadarValueListItemsItem ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | item | Constraints: Maximum length of 5000
   Data.Text.Internal.Text ->
   -- | Monadic computation which returns the result of the operation
@@ -60,21 +60,21 @@ deleteRadarValueListItemsItem item =
           ( Data.Either.either DeleteRadarValueListItemsItemResponseError GHC.Base.id
               GHC.Base.. ( \response body ->
                              if
-                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                               | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                    DeleteRadarValueListItemsItemResponse200
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             DeletedRadar'valueListItem
                                                       )
-                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                               | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                    DeleteRadarValueListItemsItemResponseDefault
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             Error
                                                       )
-                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                               | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                          )
                 response_0
           )

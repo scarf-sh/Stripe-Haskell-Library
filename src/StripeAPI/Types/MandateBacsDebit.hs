@@ -107,9 +107,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON MandateBacsDebitNetworkStatus' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "accepted" -> MandateBacsDebitNetworkStatus'EnumAccepted
-            | val GHC.Classes.== "pending" -> MandateBacsDebitNetworkStatus'EnumPending
-            | val GHC.Classes.== "refused" -> MandateBacsDebitNetworkStatus'EnumRefused
-            | val GHC.Classes.== "revoked" -> MandateBacsDebitNetworkStatus'EnumRevoked
-            | GHC.Base.otherwise -> MandateBacsDebitNetworkStatus'Other val
+          | val GHC.Classes.== "accepted" -> MandateBacsDebitNetworkStatus'EnumAccepted
+          | val GHC.Classes.== "pending" -> MandateBacsDebitNetworkStatus'EnumPending
+          | val GHC.Classes.== "refused" -> MandateBacsDebitNetworkStatus'EnumRefused
+          | val GHC.Classes.== "revoked" -> MandateBacsDebitNetworkStatus'EnumRevoked
+          | GHC.Base.otherwise -> MandateBacsDebitNetworkStatus'Other val
       )

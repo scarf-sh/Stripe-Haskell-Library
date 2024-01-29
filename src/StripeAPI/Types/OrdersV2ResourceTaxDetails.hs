@@ -92,8 +92,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON OrdersV2ResourceTaxDetailsTaxExempt'
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "exempt" -> OrdersV2ResourceTaxDetailsTaxExempt'EnumExempt
-            | val GHC.Classes.== "none" -> OrdersV2ResourceTaxDetailsTaxExempt'EnumNone
-            | val GHC.Classes.== "reverse" -> OrdersV2ResourceTaxDetailsTaxExempt'EnumReverse
-            | GHC.Base.otherwise -> OrdersV2ResourceTaxDetailsTaxExempt'Other val
+          | val GHC.Classes.== "exempt" -> OrdersV2ResourceTaxDetailsTaxExempt'EnumExempt
+          | val GHC.Classes.== "none" -> OrdersV2ResourceTaxDetailsTaxExempt'EnumNone
+          | val GHC.Classes.== "reverse" -> OrdersV2ResourceTaxDetailsTaxExempt'EnumReverse
+          | GHC.Base.otherwise -> OrdersV2ResourceTaxDetailsTaxExempt'Other val
       )

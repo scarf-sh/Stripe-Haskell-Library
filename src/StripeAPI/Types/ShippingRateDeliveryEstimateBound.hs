@@ -97,10 +97,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON ShippingRateDeliveryEstimateBoundUni
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "business_day" -> ShippingRateDeliveryEstimateBoundUnit'EnumBusinessDay
-            | val GHC.Classes.== "day" -> ShippingRateDeliveryEstimateBoundUnit'EnumDay
-            | val GHC.Classes.== "hour" -> ShippingRateDeliveryEstimateBoundUnit'EnumHour
-            | val GHC.Classes.== "month" -> ShippingRateDeliveryEstimateBoundUnit'EnumMonth
-            | val GHC.Classes.== "week" -> ShippingRateDeliveryEstimateBoundUnit'EnumWeek
-            | GHC.Base.otherwise -> ShippingRateDeliveryEstimateBoundUnit'Other val
+          | val GHC.Classes.== "business_day" -> ShippingRateDeliveryEstimateBoundUnit'EnumBusinessDay
+          | val GHC.Classes.== "day" -> ShippingRateDeliveryEstimateBoundUnit'EnumDay
+          | val GHC.Classes.== "hour" -> ShippingRateDeliveryEstimateBoundUnit'EnumHour
+          | val GHC.Classes.== "month" -> ShippingRateDeliveryEstimateBoundUnit'EnumMonth
+          | val GHC.Classes.== "week" -> ShippingRateDeliveryEstimateBoundUnit'EnumWeek
+          | GHC.Base.otherwise -> ShippingRateDeliveryEstimateBoundUnit'Other val
       )

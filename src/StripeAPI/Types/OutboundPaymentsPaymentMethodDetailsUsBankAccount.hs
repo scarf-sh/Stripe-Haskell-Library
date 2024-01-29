@@ -117,9 +117,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON OutboundPaymentsPaymentMethodDetails
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "company" -> OutboundPaymentsPaymentMethodDetailsUsBankAccountAccountHolderType'NonNullableEnumCompany
-            | val GHC.Classes.== "individual" -> OutboundPaymentsPaymentMethodDetailsUsBankAccountAccountHolderType'NonNullableEnumIndividual
-            | GHC.Base.otherwise -> OutboundPaymentsPaymentMethodDetailsUsBankAccountAccountHolderType'NonNullableOther val
+          | val GHC.Classes.== "company" -> OutboundPaymentsPaymentMethodDetailsUsBankAccountAccountHolderType'NonNullableEnumCompany
+          | val GHC.Classes.== "individual" -> OutboundPaymentsPaymentMethodDetailsUsBankAccountAccountHolderType'NonNullableEnumIndividual
+          | GHC.Base.otherwise -> OutboundPaymentsPaymentMethodDetailsUsBankAccountAccountHolderType'NonNullableOther val
       )
 
 -- | Defines the enum schema located at @components.schemas.outbound_payments_payment_method_details_us_bank_account.properties.account_type@ in the specification.
@@ -146,9 +146,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON OutboundPaymentsPaymentMethodDetails
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "checking" -> OutboundPaymentsPaymentMethodDetailsUsBankAccountAccountType'NonNullableEnumChecking
-            | val GHC.Classes.== "savings" -> OutboundPaymentsPaymentMethodDetailsUsBankAccountAccountType'NonNullableEnumSavings
-            | GHC.Base.otherwise -> OutboundPaymentsPaymentMethodDetailsUsBankAccountAccountType'NonNullableOther val
+          | val GHC.Classes.== "checking" -> OutboundPaymentsPaymentMethodDetailsUsBankAccountAccountType'NonNullableEnumChecking
+          | val GHC.Classes.== "savings" -> OutboundPaymentsPaymentMethodDetailsUsBankAccountAccountType'NonNullableEnumSavings
+          | GHC.Base.otherwise -> OutboundPaymentsPaymentMethodDetailsUsBankAccountAccountType'NonNullableOther val
       )
 
 -- | Defines the enum schema located at @components.schemas.outbound_payments_payment_method_details_us_bank_account.properties.network@ in the specification.
@@ -175,7 +175,7 @@ instance Data.Aeson.Types.FromJSON.FromJSON OutboundPaymentsPaymentMethodDetails
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "ach" -> OutboundPaymentsPaymentMethodDetailsUsBankAccountNetwork'EnumAch
-            | val GHC.Classes.== "us_domestic_wire" -> OutboundPaymentsPaymentMethodDetailsUsBankAccountNetwork'EnumUsDomesticWire
-            | GHC.Base.otherwise -> OutboundPaymentsPaymentMethodDetailsUsBankAccountNetwork'Other val
+          | val GHC.Classes.== "ach" -> OutboundPaymentsPaymentMethodDetailsUsBankAccountNetwork'EnumAch
+          | val GHC.Classes.== "us_domestic_wire" -> OutboundPaymentsPaymentMethodDetailsUsBankAccountNetwork'EnumUsDomesticWire
+          | GHC.Base.otherwise -> OutboundPaymentsPaymentMethodDetailsUsBankAccountNetwork'Other val
       )

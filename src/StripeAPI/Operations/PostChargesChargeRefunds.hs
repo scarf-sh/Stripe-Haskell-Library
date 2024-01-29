@@ -48,7 +48,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>Create a refund.\<\/p>
 postChargesChargeRefunds ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | charge | Constraints: Maximum length of 5000
   Data.Text.Internal.Text ->
   -- | The request body to send
@@ -64,21 +64,21 @@ postChargesChargeRefunds
             ( Data.Either.either PostChargesChargeRefundsResponseError GHC.Base.id
                 GHC.Base.. ( \response body ->
                                if
-                                   | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                      PostChargesChargeRefundsResponse200
                                        Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                             Data.Either.Either
                                                               GHC.Base.String
                                                               Refund
                                                         )
-                                   | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                      PostChargesChargeRefundsResponseDefault
                                        Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                             Data.Either.Either
                                                               GHC.Base.String
                                                               Error
                                                         )
-                                   | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                            )
                   response_0
             )
@@ -155,8 +155,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostChargesChargeRefundsRequestBodyMetad
 instance Data.Aeson.Types.FromJSON.FromJSON PostChargesChargeRefundsRequestBodyMetadata'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostChargesChargeRefundsRequestBodyMetadata'EmptyString
-        | GHC.Base.otherwise -> case (PostChargesChargeRefundsRequestBodyMetadata'Object Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostChargesChargeRefundsRequestBodyMetadata'EmptyString
+      | GHC.Base.otherwise -> case (PostChargesChargeRefundsRequestBodyMetadata'Object Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -185,10 +185,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostChargesChargeRefundsRequestBodyR
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "duplicate" -> PostChargesChargeRefundsRequestBodyReason'EnumDuplicate
-            | val GHC.Classes.== "fraudulent" -> PostChargesChargeRefundsRequestBodyReason'EnumFraudulent
-            | val GHC.Classes.== "requested_by_customer" -> PostChargesChargeRefundsRequestBodyReason'EnumRequestedByCustomer
-            | GHC.Base.otherwise -> PostChargesChargeRefundsRequestBodyReason'Other val
+          | val GHC.Classes.== "duplicate" -> PostChargesChargeRefundsRequestBodyReason'EnumDuplicate
+          | val GHC.Classes.== "fraudulent" -> PostChargesChargeRefundsRequestBodyReason'EnumFraudulent
+          | val GHC.Classes.== "requested_by_customer" -> PostChargesChargeRefundsRequestBodyReason'EnumRequestedByCustomer
+          | GHC.Base.otherwise -> PostChargesChargeRefundsRequestBodyReason'Other val
       )
 
 -- | Represents a response of the operation 'postChargesChargeRefunds'.

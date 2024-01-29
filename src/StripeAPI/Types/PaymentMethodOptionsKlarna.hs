@@ -91,8 +91,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentMethodOptionsKlarnaCaptureMet
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "manual" -> PaymentMethodOptionsKlarnaCaptureMethod'EnumManual
-            | GHC.Base.otherwise -> PaymentMethodOptionsKlarnaCaptureMethod'Other val
+          | val GHC.Classes.== "manual" -> PaymentMethodOptionsKlarnaCaptureMethod'EnumManual
+          | GHC.Base.otherwise -> PaymentMethodOptionsKlarnaCaptureMethod'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_method_options_klarna.properties.setup_future_usage@ in the specification.
@@ -120,6 +120,6 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentMethodOptionsKlarnaSetupFutur
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> PaymentMethodOptionsKlarnaSetupFutureUsage'EnumNone
-            | GHC.Base.otherwise -> PaymentMethodOptionsKlarnaSetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> PaymentMethodOptionsKlarnaSetupFutureUsage'EnumNone
+          | GHC.Base.otherwise -> PaymentMethodOptionsKlarnaSetupFutureUsage'Other val
       )

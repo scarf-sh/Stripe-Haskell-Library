@@ -90,8 +90,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON GelatoReportDocumentOptionsAllowedTy
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "driving_license" -> GelatoReportDocumentOptionsAllowedTypes'EnumDrivingLicense
-            | val GHC.Classes.== "id_card" -> GelatoReportDocumentOptionsAllowedTypes'EnumIdCard
-            | val GHC.Classes.== "passport" -> GelatoReportDocumentOptionsAllowedTypes'EnumPassport
-            | GHC.Base.otherwise -> GelatoReportDocumentOptionsAllowedTypes'Other val
+          | val GHC.Classes.== "driving_license" -> GelatoReportDocumentOptionsAllowedTypes'EnumDrivingLicense
+          | val GHC.Classes.== "id_card" -> GelatoReportDocumentOptionsAllowedTypes'EnumIdCard
+          | val GHC.Classes.== "passport" -> GelatoReportDocumentOptionsAllowedTypes'EnumPassport
+          | GHC.Base.otherwise -> GelatoReportDocumentOptionsAllowedTypes'Other val
       )

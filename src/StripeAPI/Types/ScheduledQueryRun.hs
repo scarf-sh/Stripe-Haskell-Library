@@ -265,8 +265,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON ScheduledQueryRunFile'NonNullableObj
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "file" -> ScheduledQueryRunFile'NonNullableObject'EnumFile
-            | GHC.Base.otherwise -> ScheduledQueryRunFile'NonNullableObject'Other val
+          | val GHC.Classes.== "file" -> ScheduledQueryRunFile'NonNullableObject'EnumFile
+          | GHC.Base.otherwise -> ScheduledQueryRunFile'NonNullableObject'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.scheduled_query_run.properties.file.anyOf.properties.purpose@ in the specification.
@@ -329,19 +329,19 @@ instance Data.Aeson.Types.FromJSON.FromJSON ScheduledQueryRunFile'NonNullablePur
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "account_requirement" -> ScheduledQueryRunFile'NonNullablePurpose'EnumAccountRequirement
-            | val GHC.Classes.== "additional_verification" -> ScheduledQueryRunFile'NonNullablePurpose'EnumAdditionalVerification
-            | val GHC.Classes.== "business_icon" -> ScheduledQueryRunFile'NonNullablePurpose'EnumBusinessIcon
-            | val GHC.Classes.== "business_logo" -> ScheduledQueryRunFile'NonNullablePurpose'EnumBusinessLogo
-            | val GHC.Classes.== "customer_signature" -> ScheduledQueryRunFile'NonNullablePurpose'EnumCustomerSignature
-            | val GHC.Classes.== "dispute_evidence" -> ScheduledQueryRunFile'NonNullablePurpose'EnumDisputeEvidence
-            | val GHC.Classes.== "document_provider_identity_document" -> ScheduledQueryRunFile'NonNullablePurpose'EnumDocumentProviderIdentityDocument
-            | val GHC.Classes.== "finance_report_run" -> ScheduledQueryRunFile'NonNullablePurpose'EnumFinanceReportRun
-            | val GHC.Classes.== "identity_document" -> ScheduledQueryRunFile'NonNullablePurpose'EnumIdentityDocument
-            | val GHC.Classes.== "identity_document_downloadable" -> ScheduledQueryRunFile'NonNullablePurpose'EnumIdentityDocumentDownloadable
-            | val GHC.Classes.== "pci_document" -> ScheduledQueryRunFile'NonNullablePurpose'EnumPciDocument
-            | val GHC.Classes.== "selfie" -> ScheduledQueryRunFile'NonNullablePurpose'EnumSelfie
-            | val GHC.Classes.== "sigma_scheduled_query" -> ScheduledQueryRunFile'NonNullablePurpose'EnumSigmaScheduledQuery
-            | val GHC.Classes.== "tax_document_user_upload" -> ScheduledQueryRunFile'NonNullablePurpose'EnumTaxDocumentUserUpload
-            | GHC.Base.otherwise -> ScheduledQueryRunFile'NonNullablePurpose'Other val
+          | val GHC.Classes.== "account_requirement" -> ScheduledQueryRunFile'NonNullablePurpose'EnumAccountRequirement
+          | val GHC.Classes.== "additional_verification" -> ScheduledQueryRunFile'NonNullablePurpose'EnumAdditionalVerification
+          | val GHC.Classes.== "business_icon" -> ScheduledQueryRunFile'NonNullablePurpose'EnumBusinessIcon
+          | val GHC.Classes.== "business_logo" -> ScheduledQueryRunFile'NonNullablePurpose'EnumBusinessLogo
+          | val GHC.Classes.== "customer_signature" -> ScheduledQueryRunFile'NonNullablePurpose'EnumCustomerSignature
+          | val GHC.Classes.== "dispute_evidence" -> ScheduledQueryRunFile'NonNullablePurpose'EnumDisputeEvidence
+          | val GHC.Classes.== "document_provider_identity_document" -> ScheduledQueryRunFile'NonNullablePurpose'EnumDocumentProviderIdentityDocument
+          | val GHC.Classes.== "finance_report_run" -> ScheduledQueryRunFile'NonNullablePurpose'EnumFinanceReportRun
+          | val GHC.Classes.== "identity_document" -> ScheduledQueryRunFile'NonNullablePurpose'EnumIdentityDocument
+          | val GHC.Classes.== "identity_document_downloadable" -> ScheduledQueryRunFile'NonNullablePurpose'EnumIdentityDocumentDownloadable
+          | val GHC.Classes.== "pci_document" -> ScheduledQueryRunFile'NonNullablePurpose'EnumPciDocument
+          | val GHC.Classes.== "selfie" -> ScheduledQueryRunFile'NonNullablePurpose'EnumSelfie
+          | val GHC.Classes.== "sigma_scheduled_query" -> ScheduledQueryRunFile'NonNullablePurpose'EnumSigmaScheduledQuery
+          | val GHC.Classes.== "tax_document_user_upload" -> ScheduledQueryRunFile'NonNullablePurpose'EnumTaxDocumentUserUpload
+          | GHC.Base.otherwise -> ScheduledQueryRunFile'NonNullablePurpose'Other val
       )

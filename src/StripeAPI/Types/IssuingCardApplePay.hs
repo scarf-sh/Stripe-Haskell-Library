@@ -89,8 +89,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON IssuingCardApplePayIneligibleReason'
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "missing_agreement" -> IssuingCardApplePayIneligibleReason'NonNullableEnumMissingAgreement
-            | val GHC.Classes.== "missing_cardholder_contact" -> IssuingCardApplePayIneligibleReason'NonNullableEnumMissingCardholderContact
-            | val GHC.Classes.== "unsupported_region" -> IssuingCardApplePayIneligibleReason'NonNullableEnumUnsupportedRegion
-            | GHC.Base.otherwise -> IssuingCardApplePayIneligibleReason'NonNullableOther val
+          | val GHC.Classes.== "missing_agreement" -> IssuingCardApplePayIneligibleReason'NonNullableEnumMissingAgreement
+          | val GHC.Classes.== "missing_cardholder_contact" -> IssuingCardApplePayIneligibleReason'NonNullableEnumMissingCardholderContact
+          | val GHC.Classes.== "unsupported_region" -> IssuingCardApplePayIneligibleReason'NonNullableEnumUnsupportedRegion
+          | GHC.Base.otherwise -> IssuingCardApplePayIneligibleReason'NonNullableOther val
       )

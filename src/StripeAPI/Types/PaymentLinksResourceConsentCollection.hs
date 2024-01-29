@@ -74,6 +74,6 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentLinksResourceConsentCollectio
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "auto" -> PaymentLinksResourceConsentCollectionPromotions'NonNullableEnumAuto
-            | GHC.Base.otherwise -> PaymentLinksResourceConsentCollectionPromotions'NonNullableOther val
+          | val GHC.Classes.== "auto" -> PaymentLinksResourceConsentCollectionPromotions'NonNullableEnumAuto
+          | GHC.Base.otherwise -> PaymentLinksResourceConsentCollectionPromotions'NonNullableOther val
       )

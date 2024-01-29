@@ -104,13 +104,13 @@ instance Data.Aeson.Types.FromJSON.FromJSON PortalSubscriptionCancellationReason
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "customer_service" -> PortalSubscriptionCancellationReasonOptions'EnumCustomerService
-            | val GHC.Classes.== "low_quality" -> PortalSubscriptionCancellationReasonOptions'EnumLowQuality
-            | val GHC.Classes.== "missing_features" -> PortalSubscriptionCancellationReasonOptions'EnumMissingFeatures
-            | val GHC.Classes.== "other" -> PortalSubscriptionCancellationReasonOptions'EnumOther
-            | val GHC.Classes.== "switched_service" -> PortalSubscriptionCancellationReasonOptions'EnumSwitchedService
-            | val GHC.Classes.== "too_complex" -> PortalSubscriptionCancellationReasonOptions'EnumTooComplex
-            | val GHC.Classes.== "too_expensive" -> PortalSubscriptionCancellationReasonOptions'EnumTooExpensive
-            | val GHC.Classes.== "unused" -> PortalSubscriptionCancellationReasonOptions'EnumUnused
-            | GHC.Base.otherwise -> PortalSubscriptionCancellationReasonOptions'Other val
+          | val GHC.Classes.== "customer_service" -> PortalSubscriptionCancellationReasonOptions'EnumCustomerService
+          | val GHC.Classes.== "low_quality" -> PortalSubscriptionCancellationReasonOptions'EnumLowQuality
+          | val GHC.Classes.== "missing_features" -> PortalSubscriptionCancellationReasonOptions'EnumMissingFeatures
+          | val GHC.Classes.== "other" -> PortalSubscriptionCancellationReasonOptions'EnumOther
+          | val GHC.Classes.== "switched_service" -> PortalSubscriptionCancellationReasonOptions'EnumSwitchedService
+          | val GHC.Classes.== "too_complex" -> PortalSubscriptionCancellationReasonOptions'EnumTooComplex
+          | val GHC.Classes.== "too_expensive" -> PortalSubscriptionCancellationReasonOptions'EnumTooExpensive
+          | val GHC.Classes.== "unused" -> PortalSubscriptionCancellationReasonOptions'EnumUnused
+          | GHC.Base.otherwise -> PortalSubscriptionCancellationReasonOptions'Other val
       )

@@ -388,27 +388,27 @@ instance Data.Aeson.Types.FromJSON.FromJSON LegalEntityCompanyStructure' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "free_zone_establishment" -> LegalEntityCompanyStructure'EnumFreeZoneEstablishment
-            | val GHC.Classes.== "free_zone_llc" -> LegalEntityCompanyStructure'EnumFreeZoneLlc
-            | val GHC.Classes.== "government_instrumentality" -> LegalEntityCompanyStructure'EnumGovernmentInstrumentality
-            | val GHC.Classes.== "governmental_unit" -> LegalEntityCompanyStructure'EnumGovernmentalUnit
-            | val GHC.Classes.== "incorporated_non_profit" -> LegalEntityCompanyStructure'EnumIncorporatedNonProfit
-            | val GHC.Classes.== "limited_liability_partnership" -> LegalEntityCompanyStructure'EnumLimitedLiabilityPartnership
-            | val GHC.Classes.== "llc" -> LegalEntityCompanyStructure'EnumLlc
-            | val GHC.Classes.== "multi_member_llc" -> LegalEntityCompanyStructure'EnumMultiMemberLlc
-            | val GHC.Classes.== "private_company" -> LegalEntityCompanyStructure'EnumPrivateCompany
-            | val GHC.Classes.== "private_corporation" -> LegalEntityCompanyStructure'EnumPrivateCorporation
-            | val GHC.Classes.== "private_partnership" -> LegalEntityCompanyStructure'EnumPrivatePartnership
-            | val GHC.Classes.== "public_company" -> LegalEntityCompanyStructure'EnumPublicCompany
-            | val GHC.Classes.== "public_corporation" -> LegalEntityCompanyStructure'EnumPublicCorporation
-            | val GHC.Classes.== "public_partnership" -> LegalEntityCompanyStructure'EnumPublicPartnership
-            | val GHC.Classes.== "single_member_llc" -> LegalEntityCompanyStructure'EnumSingleMemberLlc
-            | val GHC.Classes.== "sole_establishment" -> LegalEntityCompanyStructure'EnumSoleEstablishment
-            | val GHC.Classes.== "sole_proprietorship" -> LegalEntityCompanyStructure'EnumSoleProprietorship
-            | val GHC.Classes.== "tax_exempt_government_instrumentality" -> LegalEntityCompanyStructure'EnumTaxExemptGovernmentInstrumentality
-            | val GHC.Classes.== "unincorporated_association" -> LegalEntityCompanyStructure'EnumUnincorporatedAssociation
-            | val GHC.Classes.== "unincorporated_non_profit" -> LegalEntityCompanyStructure'EnumUnincorporatedNonProfit
-            | GHC.Base.otherwise -> LegalEntityCompanyStructure'Other val
+          | val GHC.Classes.== "free_zone_establishment" -> LegalEntityCompanyStructure'EnumFreeZoneEstablishment
+          | val GHC.Classes.== "free_zone_llc" -> LegalEntityCompanyStructure'EnumFreeZoneLlc
+          | val GHC.Classes.== "government_instrumentality" -> LegalEntityCompanyStructure'EnumGovernmentInstrumentality
+          | val GHC.Classes.== "governmental_unit" -> LegalEntityCompanyStructure'EnumGovernmentalUnit
+          | val GHC.Classes.== "incorporated_non_profit" -> LegalEntityCompanyStructure'EnumIncorporatedNonProfit
+          | val GHC.Classes.== "limited_liability_partnership" -> LegalEntityCompanyStructure'EnumLimitedLiabilityPartnership
+          | val GHC.Classes.== "llc" -> LegalEntityCompanyStructure'EnumLlc
+          | val GHC.Classes.== "multi_member_llc" -> LegalEntityCompanyStructure'EnumMultiMemberLlc
+          | val GHC.Classes.== "private_company" -> LegalEntityCompanyStructure'EnumPrivateCompany
+          | val GHC.Classes.== "private_corporation" -> LegalEntityCompanyStructure'EnumPrivateCorporation
+          | val GHC.Classes.== "private_partnership" -> LegalEntityCompanyStructure'EnumPrivatePartnership
+          | val GHC.Classes.== "public_company" -> LegalEntityCompanyStructure'EnumPublicCompany
+          | val GHC.Classes.== "public_corporation" -> LegalEntityCompanyStructure'EnumPublicCorporation
+          | val GHC.Classes.== "public_partnership" -> LegalEntityCompanyStructure'EnumPublicPartnership
+          | val GHC.Classes.== "single_member_llc" -> LegalEntityCompanyStructure'EnumSingleMemberLlc
+          | val GHC.Classes.== "sole_establishment" -> LegalEntityCompanyStructure'EnumSoleEstablishment
+          | val GHC.Classes.== "sole_proprietorship" -> LegalEntityCompanyStructure'EnumSoleProprietorship
+          | val GHC.Classes.== "tax_exempt_government_instrumentality" -> LegalEntityCompanyStructure'EnumTaxExemptGovernmentInstrumentality
+          | val GHC.Classes.== "unincorporated_association" -> LegalEntityCompanyStructure'EnumUnincorporatedAssociation
+          | val GHC.Classes.== "unincorporated_non_profit" -> LegalEntityCompanyStructure'EnumUnincorporatedNonProfit
+          | GHC.Base.otherwise -> LegalEntityCompanyStructure'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.legal_entity_company.properties.verification.anyOf@ in the specification.

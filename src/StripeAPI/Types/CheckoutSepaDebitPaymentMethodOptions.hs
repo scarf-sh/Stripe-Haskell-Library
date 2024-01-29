@@ -88,8 +88,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON CheckoutSepaDebitPaymentMethodOption
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> CheckoutSepaDebitPaymentMethodOptionsSetupFutureUsage'EnumNone
-            | val GHC.Classes.== "off_session" -> CheckoutSepaDebitPaymentMethodOptionsSetupFutureUsage'EnumOffSession
-            | val GHC.Classes.== "on_session" -> CheckoutSepaDebitPaymentMethodOptionsSetupFutureUsage'EnumOnSession
-            | GHC.Base.otherwise -> CheckoutSepaDebitPaymentMethodOptionsSetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> CheckoutSepaDebitPaymentMethodOptionsSetupFutureUsage'EnumNone
+          | val GHC.Classes.== "off_session" -> CheckoutSepaDebitPaymentMethodOptionsSetupFutureUsage'EnumOffSession
+          | val GHC.Classes.== "on_session" -> CheckoutSepaDebitPaymentMethodOptionsSetupFutureUsage'EnumOnSession
+          | GHC.Base.otherwise -> CheckoutSepaDebitPaymentMethodOptionsSetupFutureUsage'Other val
       )

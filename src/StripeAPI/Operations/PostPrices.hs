@@ -48,7 +48,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>Creates a new price for an existing product. The price can be recurring or one-time.\<\/p>
 postPrices ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | The request body to send
   PostPricesRequestBody ->
   -- | Monadic computation which returns the result of the operation
@@ -60,21 +60,21 @@ postPrices body =
           ( Data.Either.either PostPricesResponseError GHC.Base.id
               GHC.Base.. ( \response body ->
                              if
-                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                               | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                    PostPricesResponse200
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             Price
                                                       )
-                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                               | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                    PostPricesResponseDefault
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             Error
                                                       )
-                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                               | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                          )
                 response_0
           )
@@ -196,9 +196,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostPricesRequestBodyBillingScheme' 
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "per_unit" -> PostPricesRequestBodyBillingScheme'EnumPerUnit
-            | val GHC.Classes.== "tiered" -> PostPricesRequestBodyBillingScheme'EnumTiered
-            | GHC.Base.otherwise -> PostPricesRequestBodyBillingScheme'Other val
+          | val GHC.Classes.== "per_unit" -> PostPricesRequestBodyBillingScheme'EnumPerUnit
+          | val GHC.Classes.== "tiered" -> PostPricesRequestBodyBillingScheme'EnumTiered
+          | GHC.Base.otherwise -> PostPricesRequestBodyBillingScheme'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/prices.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.custom_unit_amount@ in the specification.
@@ -372,11 +372,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostPricesRequestBodyRecurring'Aggre
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "last_during_period" -> PostPricesRequestBodyRecurring'AggregateUsage'EnumLastDuringPeriod
-            | val GHC.Classes.== "last_ever" -> PostPricesRequestBodyRecurring'AggregateUsage'EnumLastEver
-            | val GHC.Classes.== "max" -> PostPricesRequestBodyRecurring'AggregateUsage'EnumMax
-            | val GHC.Classes.== "sum" -> PostPricesRequestBodyRecurring'AggregateUsage'EnumSum
-            | GHC.Base.otherwise -> PostPricesRequestBodyRecurring'AggregateUsage'Other val
+          | val GHC.Classes.== "last_during_period" -> PostPricesRequestBodyRecurring'AggregateUsage'EnumLastDuringPeriod
+          | val GHC.Classes.== "last_ever" -> PostPricesRequestBodyRecurring'AggregateUsage'EnumLastEver
+          | val GHC.Classes.== "max" -> PostPricesRequestBodyRecurring'AggregateUsage'EnumMax
+          | val GHC.Classes.== "sum" -> PostPricesRequestBodyRecurring'AggregateUsage'EnumSum
+          | GHC.Base.otherwise -> PostPricesRequestBodyRecurring'AggregateUsage'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/prices.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.recurring.properties.interval@ in the specification.
@@ -407,11 +407,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostPricesRequestBodyRecurring'Inter
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "day" -> PostPricesRequestBodyRecurring'Interval'EnumDay
-            | val GHC.Classes.== "month" -> PostPricesRequestBodyRecurring'Interval'EnumMonth
-            | val GHC.Classes.== "week" -> PostPricesRequestBodyRecurring'Interval'EnumWeek
-            | val GHC.Classes.== "year" -> PostPricesRequestBodyRecurring'Interval'EnumYear
-            | GHC.Base.otherwise -> PostPricesRequestBodyRecurring'Interval'Other val
+          | val GHC.Classes.== "day" -> PostPricesRequestBodyRecurring'Interval'EnumDay
+          | val GHC.Classes.== "month" -> PostPricesRequestBodyRecurring'Interval'EnumMonth
+          | val GHC.Classes.== "week" -> PostPricesRequestBodyRecurring'Interval'EnumWeek
+          | val GHC.Classes.== "year" -> PostPricesRequestBodyRecurring'Interval'EnumYear
+          | GHC.Base.otherwise -> PostPricesRequestBodyRecurring'Interval'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/prices.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.recurring.properties.usage_type@ in the specification.
@@ -436,9 +436,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostPricesRequestBodyRecurring'Usage
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "licensed" -> PostPricesRequestBodyRecurring'UsageType'EnumLicensed
-            | val GHC.Classes.== "metered" -> PostPricesRequestBodyRecurring'UsageType'EnumMetered
-            | GHC.Base.otherwise -> PostPricesRequestBodyRecurring'UsageType'Other val
+          | val GHC.Classes.== "licensed" -> PostPricesRequestBodyRecurring'UsageType'EnumLicensed
+          | val GHC.Classes.== "metered" -> PostPricesRequestBodyRecurring'UsageType'EnumMetered
+          | GHC.Base.otherwise -> PostPricesRequestBodyRecurring'UsageType'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/prices.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.tax_behavior@ in the specification.
@@ -468,10 +468,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostPricesRequestBodyTaxBehavior' wh
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "exclusive" -> PostPricesRequestBodyTaxBehavior'EnumExclusive
-            | val GHC.Classes.== "inclusive" -> PostPricesRequestBodyTaxBehavior'EnumInclusive
-            | val GHC.Classes.== "unspecified" -> PostPricesRequestBodyTaxBehavior'EnumUnspecified
-            | GHC.Base.otherwise -> PostPricesRequestBodyTaxBehavior'Other val
+          | val GHC.Classes.== "exclusive" -> PostPricesRequestBodyTaxBehavior'EnumExclusive
+          | val GHC.Classes.== "inclusive" -> PostPricesRequestBodyTaxBehavior'EnumInclusive
+          | val GHC.Classes.== "unspecified" -> PostPricesRequestBodyTaxBehavior'EnumUnspecified
+          | GHC.Base.otherwise -> PostPricesRequestBodyTaxBehavior'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/prices.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.tiers.items@ in the specification.
@@ -527,8 +527,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostPricesRequestBodyTiers'UpTo'Variants
 instance Data.Aeson.Types.FromJSON.FromJSON PostPricesRequestBodyTiers'UpTo'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "inf" -> GHC.Base.pure PostPricesRequestBodyTiers'UpTo'Inf
-        | GHC.Base.otherwise -> case (PostPricesRequestBodyTiers'UpTo'Int Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "inf" -> GHC.Base.pure PostPricesRequestBodyTiers'UpTo'Inf
+      | GHC.Base.otherwise -> case (PostPricesRequestBodyTiers'UpTo'Int Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -556,9 +556,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostPricesRequestBodyTiersMode' wher
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "graduated" -> PostPricesRequestBodyTiersMode'EnumGraduated
-            | val GHC.Classes.== "volume" -> PostPricesRequestBodyTiersMode'EnumVolume
-            | GHC.Base.otherwise -> PostPricesRequestBodyTiersMode'Other val
+          | val GHC.Classes.== "graduated" -> PostPricesRequestBodyTiersMode'EnumGraduated
+          | val GHC.Classes.== "volume" -> PostPricesRequestBodyTiersMode'EnumVolume
+          | GHC.Base.otherwise -> PostPricesRequestBodyTiersMode'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/prices.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.transform_quantity@ in the specification.
@@ -617,9 +617,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostPricesRequestBodyTransformQuanti
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "down" -> PostPricesRequestBodyTransformQuantity'Round'EnumDown
-            | val GHC.Classes.== "up" -> PostPricesRequestBodyTransformQuantity'Round'EnumUp
-            | GHC.Base.otherwise -> PostPricesRequestBodyTransformQuantity'Round'Other val
+          | val GHC.Classes.== "down" -> PostPricesRequestBodyTransformQuantity'Round'EnumDown
+          | val GHC.Classes.== "up" -> PostPricesRequestBodyTransformQuantity'Round'EnumUp
+          | GHC.Base.otherwise -> PostPricesRequestBodyTransformQuantity'Round'Other val
       )
 
 -- | Represents a response of the operation 'postPrices'.

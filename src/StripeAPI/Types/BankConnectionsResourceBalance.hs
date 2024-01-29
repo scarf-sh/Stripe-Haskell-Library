@@ -105,7 +105,7 @@ instance Data.Aeson.Types.FromJSON.FromJSON BankConnectionsResourceBalanceType' 
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "cash" -> BankConnectionsResourceBalanceType'EnumCash
-            | val GHC.Classes.== "credit" -> BankConnectionsResourceBalanceType'EnumCredit
-            | GHC.Base.otherwise -> BankConnectionsResourceBalanceType'Other val
+          | val GHC.Classes.== "cash" -> BankConnectionsResourceBalanceType'EnumCash
+          | val GHC.Classes.== "credit" -> BankConnectionsResourceBalanceType'EnumCredit
+          | GHC.Base.otherwise -> BankConnectionsResourceBalanceType'Other val
       )

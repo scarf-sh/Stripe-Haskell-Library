@@ -48,7 +48,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>Update a specified refund.\<\/p>
 postChargesChargeRefundsRefund ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | Contains all available parameters of this operation (query and path parameters)
   PostChargesChargeRefundsRefundParameters ->
   -- | The request body to send
@@ -64,21 +64,21 @@ postChargesChargeRefundsRefund
             ( Data.Either.either PostChargesChargeRefundsRefundResponseError GHC.Base.id
                 GHC.Base.. ( \response body ->
                                if
-                                   | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                      PostChargesChargeRefundsRefundResponse200
                                        Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                             Data.Either.Either
                                                               GHC.Base.String
                                                               Refund
                                                         )
-                                   | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                      PostChargesChargeRefundsRefundResponseDefault
                                        Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                             Data.Either.Either
                                                               GHC.Base.String
                                                               Error
                                                         )
-                                   | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                            )
                   response_0
             )
@@ -159,8 +159,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostChargesChargeRefundsRefundRequestBod
 instance Data.Aeson.Types.FromJSON.FromJSON PostChargesChargeRefundsRefundRequestBodyMetadata'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostChargesChargeRefundsRefundRequestBodyMetadata'EmptyString
-        | GHC.Base.otherwise -> case (PostChargesChargeRefundsRefundRequestBodyMetadata'Object Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostChargesChargeRefundsRefundRequestBodyMetadata'EmptyString
+      | GHC.Base.otherwise -> case (PostChargesChargeRefundsRefundRequestBodyMetadata'Object Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 

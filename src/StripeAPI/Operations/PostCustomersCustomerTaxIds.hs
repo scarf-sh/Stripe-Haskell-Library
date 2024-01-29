@@ -48,7 +48,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>Creates a new \<code>TaxID\<\/code> object for a customer.\<\/p>
 postCustomersCustomerTaxIds ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | customer | Constraints: Maximum length of 5000
   Data.Text.Internal.Text ->
   -- | The request body to send
@@ -64,21 +64,21 @@ postCustomersCustomerTaxIds
             ( Data.Either.either PostCustomersCustomerTaxIdsResponseError GHC.Base.id
                 GHC.Base.. ( \response body ->
                                if
-                                   | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                      PostCustomersCustomerTaxIdsResponse200
                                        Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                             Data.Either.Either
                                                               GHC.Base.String
                                                               TaxId
                                                         )
-                                   | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                      PostCustomersCustomerTaxIdsResponseDefault
                                        Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                             Data.Either.Either
                                                               GHC.Base.String
                                                               Error
                                                         )
-                                   | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                            )
                   response_0
             )
@@ -281,53 +281,53 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostCustomersCustomerTaxIdsRequestBo
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "ae_trn" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumAeTrn
-            | val GHC.Classes.== "au_abn" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumAuAbn
-            | val GHC.Classes.== "au_arn" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumAuArn
-            | val GHC.Classes.== "bg_uic" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumBgUic
-            | val GHC.Classes.== "br_cnpj" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumBrCnpj
-            | val GHC.Classes.== "br_cpf" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumBrCpf
-            | val GHC.Classes.== "ca_bn" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumCaBn
-            | val GHC.Classes.== "ca_gst_hst" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumCaGstHst
-            | val GHC.Classes.== "ca_pst_bc" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumCaPstBc
-            | val GHC.Classes.== "ca_pst_mb" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumCaPstMb
-            | val GHC.Classes.== "ca_pst_sk" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumCaPstSk
-            | val GHC.Classes.== "ca_qst" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumCaQst
-            | val GHC.Classes.== "ch_vat" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumChVat
-            | val GHC.Classes.== "cl_tin" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumClTin
-            | val GHC.Classes.== "es_cif" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumEsCif
-            | val GHC.Classes.== "eu_oss_vat" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumEuOssVat
-            | val GHC.Classes.== "eu_vat" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumEuVat
-            | val GHC.Classes.== "gb_vat" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumGbVat
-            | val GHC.Classes.== "ge_vat" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumGeVat
-            | val GHC.Classes.== "hk_br" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumHkBr
-            | val GHC.Classes.== "hu_tin" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumHuTin
-            | val GHC.Classes.== "id_npwp" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumIdNpwp
-            | val GHC.Classes.== "il_vat" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumIlVat
-            | val GHC.Classes.== "in_gst" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumInGst
-            | val GHC.Classes.== "is_vat" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumIsVat
-            | val GHC.Classes.== "jp_cn" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumJpCn
-            | val GHC.Classes.== "jp_rn" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumJpRn
-            | val GHC.Classes.== "kr_brn" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumKrBrn
-            | val GHC.Classes.== "li_uid" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumLiUid
-            | val GHC.Classes.== "mx_rfc" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumMxRfc
-            | val GHC.Classes.== "my_frp" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumMyFrp
-            | val GHC.Classes.== "my_itn" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumMyItn
-            | val GHC.Classes.== "my_sst" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumMySst
-            | val GHC.Classes.== "no_vat" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumNoVat
-            | val GHC.Classes.== "nz_gst" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumNzGst
-            | val GHC.Classes.== "ru_inn" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumRuInn
-            | val GHC.Classes.== "ru_kpp" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumRuKpp
-            | val GHC.Classes.== "sa_vat" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumSaVat
-            | val GHC.Classes.== "sg_gst" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumSgGst
-            | val GHC.Classes.== "sg_uen" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumSgUen
-            | val GHC.Classes.== "si_tin" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumSiTin
-            | val GHC.Classes.== "th_vat" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumThVat
-            | val GHC.Classes.== "tw_vat" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumTwVat
-            | val GHC.Classes.== "ua_vat" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumUaVat
-            | val GHC.Classes.== "us_ein" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumUsEin
-            | val GHC.Classes.== "za_vat" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumZaVat
-            | GHC.Base.otherwise -> PostCustomersCustomerTaxIdsRequestBodyType'Other val
+          | val GHC.Classes.== "ae_trn" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumAeTrn
+          | val GHC.Classes.== "au_abn" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumAuAbn
+          | val GHC.Classes.== "au_arn" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumAuArn
+          | val GHC.Classes.== "bg_uic" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumBgUic
+          | val GHC.Classes.== "br_cnpj" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumBrCnpj
+          | val GHC.Classes.== "br_cpf" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumBrCpf
+          | val GHC.Classes.== "ca_bn" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumCaBn
+          | val GHC.Classes.== "ca_gst_hst" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumCaGstHst
+          | val GHC.Classes.== "ca_pst_bc" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumCaPstBc
+          | val GHC.Classes.== "ca_pst_mb" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumCaPstMb
+          | val GHC.Classes.== "ca_pst_sk" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumCaPstSk
+          | val GHC.Classes.== "ca_qst" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumCaQst
+          | val GHC.Classes.== "ch_vat" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumChVat
+          | val GHC.Classes.== "cl_tin" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumClTin
+          | val GHC.Classes.== "es_cif" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumEsCif
+          | val GHC.Classes.== "eu_oss_vat" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumEuOssVat
+          | val GHC.Classes.== "eu_vat" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumEuVat
+          | val GHC.Classes.== "gb_vat" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumGbVat
+          | val GHC.Classes.== "ge_vat" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumGeVat
+          | val GHC.Classes.== "hk_br" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumHkBr
+          | val GHC.Classes.== "hu_tin" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumHuTin
+          | val GHC.Classes.== "id_npwp" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumIdNpwp
+          | val GHC.Classes.== "il_vat" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumIlVat
+          | val GHC.Classes.== "in_gst" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumInGst
+          | val GHC.Classes.== "is_vat" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumIsVat
+          | val GHC.Classes.== "jp_cn" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumJpCn
+          | val GHC.Classes.== "jp_rn" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumJpRn
+          | val GHC.Classes.== "kr_brn" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumKrBrn
+          | val GHC.Classes.== "li_uid" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumLiUid
+          | val GHC.Classes.== "mx_rfc" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumMxRfc
+          | val GHC.Classes.== "my_frp" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumMyFrp
+          | val GHC.Classes.== "my_itn" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumMyItn
+          | val GHC.Classes.== "my_sst" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumMySst
+          | val GHC.Classes.== "no_vat" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumNoVat
+          | val GHC.Classes.== "nz_gst" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumNzGst
+          | val GHC.Classes.== "ru_inn" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumRuInn
+          | val GHC.Classes.== "ru_kpp" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumRuKpp
+          | val GHC.Classes.== "sa_vat" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumSaVat
+          | val GHC.Classes.== "sg_gst" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumSgGst
+          | val GHC.Classes.== "sg_uen" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumSgUen
+          | val GHC.Classes.== "si_tin" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumSiTin
+          | val GHC.Classes.== "th_vat" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumThVat
+          | val GHC.Classes.== "tw_vat" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumTwVat
+          | val GHC.Classes.== "ua_vat" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumUaVat
+          | val GHC.Classes.== "us_ein" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumUsEin
+          | val GHC.Classes.== "za_vat" -> PostCustomersCustomerTaxIdsRequestBodyType'EnumZaVat
+          | GHC.Base.otherwise -> PostCustomersCustomerTaxIdsRequestBodyType'Other val
       )
 
 -- | Represents a response of the operation 'postCustomersCustomerTaxIds'.

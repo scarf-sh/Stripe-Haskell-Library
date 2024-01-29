@@ -113,17 +113,17 @@ instance Data.Aeson.Types.FromJSON.FromJSON TreasuryOutboundTransfersResourceRet
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "account_closed" -> TreasuryOutboundTransfersResourceReturnedDetailsCode'EnumAccountClosed
-            | val GHC.Classes.== "account_frozen" -> TreasuryOutboundTransfersResourceReturnedDetailsCode'EnumAccountFrozen
-            | val GHC.Classes.== "bank_account_restricted" -> TreasuryOutboundTransfersResourceReturnedDetailsCode'EnumBankAccountRestricted
-            | val GHC.Classes.== "bank_ownership_changed" -> TreasuryOutboundTransfersResourceReturnedDetailsCode'EnumBankOwnershipChanged
-            | val GHC.Classes.== "declined" -> TreasuryOutboundTransfersResourceReturnedDetailsCode'EnumDeclined
-            | val GHC.Classes.== "incorrect_account_holder_name" -> TreasuryOutboundTransfersResourceReturnedDetailsCode'EnumIncorrectAccountHolderName
-            | val GHC.Classes.== "invalid_account_number" -> TreasuryOutboundTransfersResourceReturnedDetailsCode'EnumInvalidAccountNumber
-            | val GHC.Classes.== "invalid_currency" -> TreasuryOutboundTransfersResourceReturnedDetailsCode'EnumInvalidCurrency
-            | val GHC.Classes.== "no_account" -> TreasuryOutboundTransfersResourceReturnedDetailsCode'EnumNoAccount
-            | val GHC.Classes.== "other" -> TreasuryOutboundTransfersResourceReturnedDetailsCode'EnumOther
-            | GHC.Base.otherwise -> TreasuryOutboundTransfersResourceReturnedDetailsCode'Other val
+          | val GHC.Classes.== "account_closed" -> TreasuryOutboundTransfersResourceReturnedDetailsCode'EnumAccountClosed
+          | val GHC.Classes.== "account_frozen" -> TreasuryOutboundTransfersResourceReturnedDetailsCode'EnumAccountFrozen
+          | val GHC.Classes.== "bank_account_restricted" -> TreasuryOutboundTransfersResourceReturnedDetailsCode'EnumBankAccountRestricted
+          | val GHC.Classes.== "bank_ownership_changed" -> TreasuryOutboundTransfersResourceReturnedDetailsCode'EnumBankOwnershipChanged
+          | val GHC.Classes.== "declined" -> TreasuryOutboundTransfersResourceReturnedDetailsCode'EnumDeclined
+          | val GHC.Classes.== "incorrect_account_holder_name" -> TreasuryOutboundTransfersResourceReturnedDetailsCode'EnumIncorrectAccountHolderName
+          | val GHC.Classes.== "invalid_account_number" -> TreasuryOutboundTransfersResourceReturnedDetailsCode'EnumInvalidAccountNumber
+          | val GHC.Classes.== "invalid_currency" -> TreasuryOutboundTransfersResourceReturnedDetailsCode'EnumInvalidCurrency
+          | val GHC.Classes.== "no_account" -> TreasuryOutboundTransfersResourceReturnedDetailsCode'EnumNoAccount
+          | val GHC.Classes.== "other" -> TreasuryOutboundTransfersResourceReturnedDetailsCode'EnumOther
+          | GHC.Base.otherwise -> TreasuryOutboundTransfersResourceReturnedDetailsCode'Other val
       )
 
 -- | Defines the oneOf schema located at @components.schemas.treasury_outbound_transfers_resource_returned_details.properties.transaction.anyOf@ in the specification.

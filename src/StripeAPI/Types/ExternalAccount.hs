@@ -298,9 +298,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON ExternalAccountAvailablePayoutMethod
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "instant" -> ExternalAccountAvailablePayoutMethods'NonNullableEnumInstant
-            | val GHC.Classes.== "standard" -> ExternalAccountAvailablePayoutMethods'NonNullableEnumStandard
-            | GHC.Base.otherwise -> ExternalAccountAvailablePayoutMethods'NonNullableOther val
+          | val GHC.Classes.== "instant" -> ExternalAccountAvailablePayoutMethods'NonNullableEnumInstant
+          | val GHC.Classes.== "standard" -> ExternalAccountAvailablePayoutMethods'NonNullableEnumStandard
+          | GHC.Base.otherwise -> ExternalAccountAvailablePayoutMethods'NonNullableOther val
       )
 
 -- | Defines the oneOf schema located at @components.schemas.external_account.anyOf.properties.customer.anyOf@ in the specification.
@@ -343,8 +343,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON ExternalAccountObject' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "bank_account" -> ExternalAccountObject'EnumBankAccount
-            | GHC.Base.otherwise -> ExternalAccountObject'Other val
+          | val GHC.Classes.== "bank_account" -> ExternalAccountObject'EnumBankAccount
+          | GHC.Base.otherwise -> ExternalAccountObject'Other val
       )
 
 -- | Defines the oneOf schema located at @components.schemas.external_account.anyOf.properties.recipient.anyOf@ in the specification.

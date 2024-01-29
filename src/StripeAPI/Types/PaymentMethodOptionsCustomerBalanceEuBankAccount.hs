@@ -89,10 +89,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentMethodOptionsCustomerBalanceE
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "DE" -> PaymentMethodOptionsCustomerBalanceEuBankAccountCountry'EnumDE
-            | val GHC.Classes.== "ES" -> PaymentMethodOptionsCustomerBalanceEuBankAccountCountry'EnumES
-            | val GHC.Classes.== "FR" -> PaymentMethodOptionsCustomerBalanceEuBankAccountCountry'EnumFR
-            | val GHC.Classes.== "IE" -> PaymentMethodOptionsCustomerBalanceEuBankAccountCountry'EnumIE
-            | val GHC.Classes.== "NL" -> PaymentMethodOptionsCustomerBalanceEuBankAccountCountry'EnumNL
-            | GHC.Base.otherwise -> PaymentMethodOptionsCustomerBalanceEuBankAccountCountry'Other val
+          | val GHC.Classes.== "DE" -> PaymentMethodOptionsCustomerBalanceEuBankAccountCountry'EnumDE
+          | val GHC.Classes.== "ES" -> PaymentMethodOptionsCustomerBalanceEuBankAccountCountry'EnumES
+          | val GHC.Classes.== "FR" -> PaymentMethodOptionsCustomerBalanceEuBankAccountCountry'EnumFR
+          | val GHC.Classes.== "IE" -> PaymentMethodOptionsCustomerBalanceEuBankAccountCountry'EnumIE
+          | val GHC.Classes.== "NL" -> PaymentMethodOptionsCustomerBalanceEuBankAccountCountry'EnumNL
+          | GHC.Base.otherwise -> PaymentMethodOptionsCustomerBalanceEuBankAccountCountry'Other val
       )

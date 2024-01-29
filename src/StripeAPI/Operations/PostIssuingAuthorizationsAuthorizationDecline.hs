@@ -48,7 +48,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>Declines a pending Issuing \<code>Authorization\<\/code> object. This request should be made within the timeout window of the \<a href=\"\/docs\/issuing\/controls\/real-time-authorizations\">real time authorization\<\/a> flow.\<\/p>
 postIssuingAuthorizationsAuthorizationDecline ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | authorization | Constraints: Maximum length of 5000
   Data.Text.Internal.Text ->
   -- | The request body to send
@@ -64,21 +64,21 @@ postIssuingAuthorizationsAuthorizationDecline
             ( Data.Either.either PostIssuingAuthorizationsAuthorizationDeclineResponseError GHC.Base.id
                 GHC.Base.. ( \response body ->
                                if
-                                   | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                      PostIssuingAuthorizationsAuthorizationDeclineResponse200
                                        Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                             Data.Either.Either
                                                               GHC.Base.String
                                                               Issuing'authorization
                                                         )
-                                   | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                      PostIssuingAuthorizationsAuthorizationDeclineResponseDefault
                                        Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                             Data.Either.Either
                                                               GHC.Base.String
                                                               Error
                                                         )
-                                   | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                            )
                   response_0
             )
@@ -129,8 +129,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostIssuingAuthorizationsAuthorizationDe
 instance Data.Aeson.Types.FromJSON.FromJSON PostIssuingAuthorizationsAuthorizationDeclineRequestBodyMetadata'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostIssuingAuthorizationsAuthorizationDeclineRequestBodyMetadata'EmptyString
-        | GHC.Base.otherwise -> case (PostIssuingAuthorizationsAuthorizationDeclineRequestBodyMetadata'Object Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostIssuingAuthorizationsAuthorizationDeclineRequestBodyMetadata'EmptyString
+      | GHC.Base.otherwise -> case (PostIssuingAuthorizationsAuthorizationDeclineRequestBodyMetadata'Object Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 

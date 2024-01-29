@@ -50,7 +50,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>Instead of creating a PaymentMethod directly, we recommend using the \<a href=\"\/docs\/payments\/accept-a-payment\">PaymentIntents\<\/a> API to accept a payment immediately or the \<a href=\"\/docs\/payments\/save-and-reuse\">SetupIntent\<\/a> API to collect payment method details ahead of a future payment.\<\/p>
 postPaymentMethods ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | The request body to send
   GHC.Maybe.Maybe PostPaymentMethodsRequestBody ->
   -- | Monadic computation which returns the result of the operation
@@ -62,21 +62,21 @@ postPaymentMethods body =
           ( Data.Either.either PostPaymentMethodsResponseError GHC.Base.id
               GHC.Base.. ( \response body ->
                              if
-                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                               | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                    PostPaymentMethodsResponse200
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             PaymentMethod
                                                       )
-                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                               | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                    PostPaymentMethodsResponseDefault
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             Error
                                                       )
-                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                               | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                          )
                 response_0
           )
@@ -465,8 +465,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostPaymentMethodsRequestBodyBillingDeta
 instance Data.Aeson.Types.FromJSON.FromJSON PostPaymentMethodsRequestBodyBillingDetails'Address'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostPaymentMethodsRequestBodyBillingDetails'Address'EmptyString
-        | GHC.Base.otherwise -> case (PostPaymentMethodsRequestBodyBillingDetails'Address'PostPaymentMethodsRequestBodyBillingDetails'Address'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostPaymentMethodsRequestBodyBillingDetails'Address'EmptyString
+      | GHC.Base.otherwise -> case (PostPaymentMethodsRequestBodyBillingDetails'Address'PostPaymentMethodsRequestBodyBillingDetails'Address'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -484,8 +484,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostPaymentMethodsRequestBodyBillingDeta
 instance Data.Aeson.Types.FromJSON.FromJSON PostPaymentMethodsRequestBodyBillingDetails'Email'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostPaymentMethodsRequestBodyBillingDetails'Email'EmptyString
-        | GHC.Base.otherwise -> case (PostPaymentMethodsRequestBodyBillingDetails'Email'Text Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostPaymentMethodsRequestBodyBillingDetails'Email'EmptyString
+      | GHC.Base.otherwise -> case (PostPaymentMethodsRequestBodyBillingDetails'Email'Text Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -693,34 +693,34 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostPaymentMethodsRequestBodyEps'Ban
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "arzte_und_apotheker_bank" -> PostPaymentMethodsRequestBodyEps'Bank'EnumArzteUndApothekerBank
-            | val GHC.Classes.== "austrian_anadi_bank_ag" -> PostPaymentMethodsRequestBodyEps'Bank'EnumAustrianAnadiBankAg
-            | val GHC.Classes.== "bank_austria" -> PostPaymentMethodsRequestBodyEps'Bank'EnumBankAustria
-            | val GHC.Classes.== "bankhaus_carl_spangler" -> PostPaymentMethodsRequestBodyEps'Bank'EnumBankhausCarlSpangler
-            | val GHC.Classes.== "bankhaus_schelhammer_und_schattera_ag" -> PostPaymentMethodsRequestBodyEps'Bank'EnumBankhausSchelhammerUndSchatteraAg
-            | val GHC.Classes.== "bawag_psk_ag" -> PostPaymentMethodsRequestBodyEps'Bank'EnumBawagPskAg
-            | val GHC.Classes.== "bks_bank_ag" -> PostPaymentMethodsRequestBodyEps'Bank'EnumBksBankAg
-            | val GHC.Classes.== "brull_kallmus_bank_ag" -> PostPaymentMethodsRequestBodyEps'Bank'EnumBrullKallmusBankAg
-            | val GHC.Classes.== "btv_vier_lander_bank" -> PostPaymentMethodsRequestBodyEps'Bank'EnumBtvVierLanderBank
-            | val GHC.Classes.== "capital_bank_grawe_gruppe_ag" -> PostPaymentMethodsRequestBodyEps'Bank'EnumCapitalBankGraweGruppeAg
-            | val GHC.Classes.== "dolomitenbank" -> PostPaymentMethodsRequestBodyEps'Bank'EnumDolomitenbank
-            | val GHC.Classes.== "easybank_ag" -> PostPaymentMethodsRequestBodyEps'Bank'EnumEasybankAg
-            | val GHC.Classes.== "erste_bank_und_sparkassen" -> PostPaymentMethodsRequestBodyEps'Bank'EnumErsteBankUndSparkassen
-            | val GHC.Classes.== "hypo_alpeadriabank_international_ag" -> PostPaymentMethodsRequestBodyEps'Bank'EnumHypoAlpeadriabankInternationalAg
-            | val GHC.Classes.== "hypo_bank_burgenland_aktiengesellschaft" -> PostPaymentMethodsRequestBodyEps'Bank'EnumHypoBankBurgenlandAktiengesellschaft
-            | val GHC.Classes.== "hypo_noe_lb_fur_niederosterreich_u_wien" -> PostPaymentMethodsRequestBodyEps'Bank'EnumHypoNoeLbFurNiederosterreichUWien
-            | val GHC.Classes.== "hypo_oberosterreich_salzburg_steiermark" -> PostPaymentMethodsRequestBodyEps'Bank'EnumHypoOberosterreichSalzburgSteiermark
-            | val GHC.Classes.== "hypo_tirol_bank_ag" -> PostPaymentMethodsRequestBodyEps'Bank'EnumHypoTirolBankAg
-            | val GHC.Classes.== "hypo_vorarlberg_bank_ag" -> PostPaymentMethodsRequestBodyEps'Bank'EnumHypoVorarlbergBankAg
-            | val GHC.Classes.== "marchfelder_bank" -> PostPaymentMethodsRequestBodyEps'Bank'EnumMarchfelderBank
-            | val GHC.Classes.== "oberbank_ag" -> PostPaymentMethodsRequestBodyEps'Bank'EnumOberbankAg
-            | val GHC.Classes.== "raiffeisen_bankengruppe_osterreich" -> PostPaymentMethodsRequestBodyEps'Bank'EnumRaiffeisenBankengruppeOsterreich
-            | val GHC.Classes.== "schoellerbank_ag" -> PostPaymentMethodsRequestBodyEps'Bank'EnumSchoellerbankAg
-            | val GHC.Classes.== "sparda_bank_wien" -> PostPaymentMethodsRequestBodyEps'Bank'EnumSpardaBankWien
-            | val GHC.Classes.== "volksbank_gruppe" -> PostPaymentMethodsRequestBodyEps'Bank'EnumVolksbankGruppe
-            | val GHC.Classes.== "volkskreditbank_ag" -> PostPaymentMethodsRequestBodyEps'Bank'EnumVolkskreditbankAg
-            | val GHC.Classes.== "vr_bank_braunau" -> PostPaymentMethodsRequestBodyEps'Bank'EnumVrBankBraunau
-            | GHC.Base.otherwise -> PostPaymentMethodsRequestBodyEps'Bank'Other val
+          | val GHC.Classes.== "arzte_und_apotheker_bank" -> PostPaymentMethodsRequestBodyEps'Bank'EnumArzteUndApothekerBank
+          | val GHC.Classes.== "austrian_anadi_bank_ag" -> PostPaymentMethodsRequestBodyEps'Bank'EnumAustrianAnadiBankAg
+          | val GHC.Classes.== "bank_austria" -> PostPaymentMethodsRequestBodyEps'Bank'EnumBankAustria
+          | val GHC.Classes.== "bankhaus_carl_spangler" -> PostPaymentMethodsRequestBodyEps'Bank'EnumBankhausCarlSpangler
+          | val GHC.Classes.== "bankhaus_schelhammer_und_schattera_ag" -> PostPaymentMethodsRequestBodyEps'Bank'EnumBankhausSchelhammerUndSchatteraAg
+          | val GHC.Classes.== "bawag_psk_ag" -> PostPaymentMethodsRequestBodyEps'Bank'EnumBawagPskAg
+          | val GHC.Classes.== "bks_bank_ag" -> PostPaymentMethodsRequestBodyEps'Bank'EnumBksBankAg
+          | val GHC.Classes.== "brull_kallmus_bank_ag" -> PostPaymentMethodsRequestBodyEps'Bank'EnumBrullKallmusBankAg
+          | val GHC.Classes.== "btv_vier_lander_bank" -> PostPaymentMethodsRequestBodyEps'Bank'EnumBtvVierLanderBank
+          | val GHC.Classes.== "capital_bank_grawe_gruppe_ag" -> PostPaymentMethodsRequestBodyEps'Bank'EnumCapitalBankGraweGruppeAg
+          | val GHC.Classes.== "dolomitenbank" -> PostPaymentMethodsRequestBodyEps'Bank'EnumDolomitenbank
+          | val GHC.Classes.== "easybank_ag" -> PostPaymentMethodsRequestBodyEps'Bank'EnumEasybankAg
+          | val GHC.Classes.== "erste_bank_und_sparkassen" -> PostPaymentMethodsRequestBodyEps'Bank'EnumErsteBankUndSparkassen
+          | val GHC.Classes.== "hypo_alpeadriabank_international_ag" -> PostPaymentMethodsRequestBodyEps'Bank'EnumHypoAlpeadriabankInternationalAg
+          | val GHC.Classes.== "hypo_bank_burgenland_aktiengesellschaft" -> PostPaymentMethodsRequestBodyEps'Bank'EnumHypoBankBurgenlandAktiengesellschaft
+          | val GHC.Classes.== "hypo_noe_lb_fur_niederosterreich_u_wien" -> PostPaymentMethodsRequestBodyEps'Bank'EnumHypoNoeLbFurNiederosterreichUWien
+          | val GHC.Classes.== "hypo_oberosterreich_salzburg_steiermark" -> PostPaymentMethodsRequestBodyEps'Bank'EnumHypoOberosterreichSalzburgSteiermark
+          | val GHC.Classes.== "hypo_tirol_bank_ag" -> PostPaymentMethodsRequestBodyEps'Bank'EnumHypoTirolBankAg
+          | val GHC.Classes.== "hypo_vorarlberg_bank_ag" -> PostPaymentMethodsRequestBodyEps'Bank'EnumHypoVorarlbergBankAg
+          | val GHC.Classes.== "marchfelder_bank" -> PostPaymentMethodsRequestBodyEps'Bank'EnumMarchfelderBank
+          | val GHC.Classes.== "oberbank_ag" -> PostPaymentMethodsRequestBodyEps'Bank'EnumOberbankAg
+          | val GHC.Classes.== "raiffeisen_bankengruppe_osterreich" -> PostPaymentMethodsRequestBodyEps'Bank'EnumRaiffeisenBankengruppeOsterreich
+          | val GHC.Classes.== "schoellerbank_ag" -> PostPaymentMethodsRequestBodyEps'Bank'EnumSchoellerbankAg
+          | val GHC.Classes.== "sparda_bank_wien" -> PostPaymentMethodsRequestBodyEps'Bank'EnumSpardaBankWien
+          | val GHC.Classes.== "volksbank_gruppe" -> PostPaymentMethodsRequestBodyEps'Bank'EnumVolksbankGruppe
+          | val GHC.Classes.== "volkskreditbank_ag" -> PostPaymentMethodsRequestBodyEps'Bank'EnumVolkskreditbankAg
+          | val GHC.Classes.== "vr_bank_braunau" -> PostPaymentMethodsRequestBodyEps'Bank'EnumVrBankBraunau
+          | GHC.Base.otherwise -> PostPaymentMethodsRequestBodyEps'Bank'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/payment_methods.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.fpx@ in the specification.
@@ -832,28 +832,28 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostPaymentMethodsRequestBodyFpx'Ban
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "affin_bank" -> PostPaymentMethodsRequestBodyFpx'Bank'EnumAffinBank
-            | val GHC.Classes.== "agrobank" -> PostPaymentMethodsRequestBodyFpx'Bank'EnumAgrobank
-            | val GHC.Classes.== "alliance_bank" -> PostPaymentMethodsRequestBodyFpx'Bank'EnumAllianceBank
-            | val GHC.Classes.== "ambank" -> PostPaymentMethodsRequestBodyFpx'Bank'EnumAmbank
-            | val GHC.Classes.== "bank_islam" -> PostPaymentMethodsRequestBodyFpx'Bank'EnumBankIslam
-            | val GHC.Classes.== "bank_muamalat" -> PostPaymentMethodsRequestBodyFpx'Bank'EnumBankMuamalat
-            | val GHC.Classes.== "bank_rakyat" -> PostPaymentMethodsRequestBodyFpx'Bank'EnumBankRakyat
-            | val GHC.Classes.== "bsn" -> PostPaymentMethodsRequestBodyFpx'Bank'EnumBsn
-            | val GHC.Classes.== "cimb" -> PostPaymentMethodsRequestBodyFpx'Bank'EnumCimb
-            | val GHC.Classes.== "deutsche_bank" -> PostPaymentMethodsRequestBodyFpx'Bank'EnumDeutscheBank
-            | val GHC.Classes.== "hong_leong_bank" -> PostPaymentMethodsRequestBodyFpx'Bank'EnumHongLeongBank
-            | val GHC.Classes.== "hsbc" -> PostPaymentMethodsRequestBodyFpx'Bank'EnumHsbc
-            | val GHC.Classes.== "kfh" -> PostPaymentMethodsRequestBodyFpx'Bank'EnumKfh
-            | val GHC.Classes.== "maybank2e" -> PostPaymentMethodsRequestBodyFpx'Bank'EnumMaybank2e
-            | val GHC.Classes.== "maybank2u" -> PostPaymentMethodsRequestBodyFpx'Bank'EnumMaybank2u
-            | val GHC.Classes.== "ocbc" -> PostPaymentMethodsRequestBodyFpx'Bank'EnumOcbc
-            | val GHC.Classes.== "pb_enterprise" -> PostPaymentMethodsRequestBodyFpx'Bank'EnumPbEnterprise
-            | val GHC.Classes.== "public_bank" -> PostPaymentMethodsRequestBodyFpx'Bank'EnumPublicBank
-            | val GHC.Classes.== "rhb" -> PostPaymentMethodsRequestBodyFpx'Bank'EnumRhb
-            | val GHC.Classes.== "standard_chartered" -> PostPaymentMethodsRequestBodyFpx'Bank'EnumStandardChartered
-            | val GHC.Classes.== "uob" -> PostPaymentMethodsRequestBodyFpx'Bank'EnumUob
-            | GHC.Base.otherwise -> PostPaymentMethodsRequestBodyFpx'Bank'Other val
+          | val GHC.Classes.== "affin_bank" -> PostPaymentMethodsRequestBodyFpx'Bank'EnumAffinBank
+          | val GHC.Classes.== "agrobank" -> PostPaymentMethodsRequestBodyFpx'Bank'EnumAgrobank
+          | val GHC.Classes.== "alliance_bank" -> PostPaymentMethodsRequestBodyFpx'Bank'EnumAllianceBank
+          | val GHC.Classes.== "ambank" -> PostPaymentMethodsRequestBodyFpx'Bank'EnumAmbank
+          | val GHC.Classes.== "bank_islam" -> PostPaymentMethodsRequestBodyFpx'Bank'EnumBankIslam
+          | val GHC.Classes.== "bank_muamalat" -> PostPaymentMethodsRequestBodyFpx'Bank'EnumBankMuamalat
+          | val GHC.Classes.== "bank_rakyat" -> PostPaymentMethodsRequestBodyFpx'Bank'EnumBankRakyat
+          | val GHC.Classes.== "bsn" -> PostPaymentMethodsRequestBodyFpx'Bank'EnumBsn
+          | val GHC.Classes.== "cimb" -> PostPaymentMethodsRequestBodyFpx'Bank'EnumCimb
+          | val GHC.Classes.== "deutsche_bank" -> PostPaymentMethodsRequestBodyFpx'Bank'EnumDeutscheBank
+          | val GHC.Classes.== "hong_leong_bank" -> PostPaymentMethodsRequestBodyFpx'Bank'EnumHongLeongBank
+          | val GHC.Classes.== "hsbc" -> PostPaymentMethodsRequestBodyFpx'Bank'EnumHsbc
+          | val GHC.Classes.== "kfh" -> PostPaymentMethodsRequestBodyFpx'Bank'EnumKfh
+          | val GHC.Classes.== "maybank2e" -> PostPaymentMethodsRequestBodyFpx'Bank'EnumMaybank2e
+          | val GHC.Classes.== "maybank2u" -> PostPaymentMethodsRequestBodyFpx'Bank'EnumMaybank2u
+          | val GHC.Classes.== "ocbc" -> PostPaymentMethodsRequestBodyFpx'Bank'EnumOcbc
+          | val GHC.Classes.== "pb_enterprise" -> PostPaymentMethodsRequestBodyFpx'Bank'EnumPbEnterprise
+          | val GHC.Classes.== "public_bank" -> PostPaymentMethodsRequestBodyFpx'Bank'EnumPublicBank
+          | val GHC.Classes.== "rhb" -> PostPaymentMethodsRequestBodyFpx'Bank'EnumRhb
+          | val GHC.Classes.== "standard_chartered" -> PostPaymentMethodsRequestBodyFpx'Bank'EnumStandardChartered
+          | val GHC.Classes.== "uob" -> PostPaymentMethodsRequestBodyFpx'Bank'EnumUob
+          | GHC.Base.otherwise -> PostPaymentMethodsRequestBodyFpx'Bank'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/payment_methods.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.ideal@ in the specification.
@@ -938,20 +938,20 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostPaymentMethodsRequestBodyIdeal'B
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "abn_amro" -> PostPaymentMethodsRequestBodyIdeal'Bank'EnumAbnAmro
-            | val GHC.Classes.== "asn_bank" -> PostPaymentMethodsRequestBodyIdeal'Bank'EnumAsnBank
-            | val GHC.Classes.== "bunq" -> PostPaymentMethodsRequestBodyIdeal'Bank'EnumBunq
-            | val GHC.Classes.== "handelsbanken" -> PostPaymentMethodsRequestBodyIdeal'Bank'EnumHandelsbanken
-            | val GHC.Classes.== "ing" -> PostPaymentMethodsRequestBodyIdeal'Bank'EnumIng
-            | val GHC.Classes.== "knab" -> PostPaymentMethodsRequestBodyIdeal'Bank'EnumKnab
-            | val GHC.Classes.== "moneyou" -> PostPaymentMethodsRequestBodyIdeal'Bank'EnumMoneyou
-            | val GHC.Classes.== "rabobank" -> PostPaymentMethodsRequestBodyIdeal'Bank'EnumRabobank
-            | val GHC.Classes.== "regiobank" -> PostPaymentMethodsRequestBodyIdeal'Bank'EnumRegiobank
-            | val GHC.Classes.== "revolut" -> PostPaymentMethodsRequestBodyIdeal'Bank'EnumRevolut
-            | val GHC.Classes.== "sns_bank" -> PostPaymentMethodsRequestBodyIdeal'Bank'EnumSnsBank
-            | val GHC.Classes.== "triodos_bank" -> PostPaymentMethodsRequestBodyIdeal'Bank'EnumTriodosBank
-            | val GHC.Classes.== "van_lanschot" -> PostPaymentMethodsRequestBodyIdeal'Bank'EnumVanLanschot
-            | GHC.Base.otherwise -> PostPaymentMethodsRequestBodyIdeal'Bank'Other val
+          | val GHC.Classes.== "abn_amro" -> PostPaymentMethodsRequestBodyIdeal'Bank'EnumAbnAmro
+          | val GHC.Classes.== "asn_bank" -> PostPaymentMethodsRequestBodyIdeal'Bank'EnumAsnBank
+          | val GHC.Classes.== "bunq" -> PostPaymentMethodsRequestBodyIdeal'Bank'EnumBunq
+          | val GHC.Classes.== "handelsbanken" -> PostPaymentMethodsRequestBodyIdeal'Bank'EnumHandelsbanken
+          | val GHC.Classes.== "ing" -> PostPaymentMethodsRequestBodyIdeal'Bank'EnumIng
+          | val GHC.Classes.== "knab" -> PostPaymentMethodsRequestBodyIdeal'Bank'EnumKnab
+          | val GHC.Classes.== "moneyou" -> PostPaymentMethodsRequestBodyIdeal'Bank'EnumMoneyou
+          | val GHC.Classes.== "rabobank" -> PostPaymentMethodsRequestBodyIdeal'Bank'EnumRabobank
+          | val GHC.Classes.== "regiobank" -> PostPaymentMethodsRequestBodyIdeal'Bank'EnumRegiobank
+          | val GHC.Classes.== "revolut" -> PostPaymentMethodsRequestBodyIdeal'Bank'EnumRevolut
+          | val GHC.Classes.== "sns_bank" -> PostPaymentMethodsRequestBodyIdeal'Bank'EnumSnsBank
+          | val GHC.Classes.== "triodos_bank" -> PostPaymentMethodsRequestBodyIdeal'Bank'EnumTriodosBank
+          | val GHC.Classes.== "van_lanschot" -> PostPaymentMethodsRequestBodyIdeal'Bank'EnumVanLanschot
+          | GHC.Base.otherwise -> PostPaymentMethodsRequestBodyIdeal'Bank'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/payment_methods.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.klarna@ in the specification.
@@ -1128,32 +1128,32 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostPaymentMethodsRequestBodyP24'Ban
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "alior_bank" -> PostPaymentMethodsRequestBodyP24'Bank'EnumAliorBank
-            | val GHC.Classes.== "bank_millennium" -> PostPaymentMethodsRequestBodyP24'Bank'EnumBankMillennium
-            | val GHC.Classes.== "bank_nowy_bfg_sa" -> PostPaymentMethodsRequestBodyP24'Bank'EnumBankNowyBfgSa
-            | val GHC.Classes.== "bank_pekao_sa" -> PostPaymentMethodsRequestBodyP24'Bank'EnumBankPekaoSa
-            | val GHC.Classes.== "banki_spbdzielcze" -> PostPaymentMethodsRequestBodyP24'Bank'EnumBankiSpbdzielcze
-            | val GHC.Classes.== "blik" -> PostPaymentMethodsRequestBodyP24'Bank'EnumBlik
-            | val GHC.Classes.== "bnp_paribas" -> PostPaymentMethodsRequestBodyP24'Bank'EnumBnpParibas
-            | val GHC.Classes.== "boz" -> PostPaymentMethodsRequestBodyP24'Bank'EnumBoz
-            | val GHC.Classes.== "citi_handlowy" -> PostPaymentMethodsRequestBodyP24'Bank'EnumCitiHandlowy
-            | val GHC.Classes.== "credit_agricole" -> PostPaymentMethodsRequestBodyP24'Bank'EnumCreditAgricole
-            | val GHC.Classes.== "envelobank" -> PostPaymentMethodsRequestBodyP24'Bank'EnumEnvelobank
-            | val GHC.Classes.== "etransfer_pocztowy24" -> PostPaymentMethodsRequestBodyP24'Bank'EnumEtransferPocztowy24
-            | val GHC.Classes.== "getin_bank" -> PostPaymentMethodsRequestBodyP24'Bank'EnumGetinBank
-            | val GHC.Classes.== "ideabank" -> PostPaymentMethodsRequestBodyP24'Bank'EnumIdeabank
-            | val GHC.Classes.== "ing" -> PostPaymentMethodsRequestBodyP24'Bank'EnumIng
-            | val GHC.Classes.== "inteligo" -> PostPaymentMethodsRequestBodyP24'Bank'EnumInteligo
-            | val GHC.Classes.== "mbank_mtransfer" -> PostPaymentMethodsRequestBodyP24'Bank'EnumMbankMtransfer
-            | val GHC.Classes.== "nest_przelew" -> PostPaymentMethodsRequestBodyP24'Bank'EnumNestPrzelew
-            | val GHC.Classes.== "noble_pay" -> PostPaymentMethodsRequestBodyP24'Bank'EnumNoblePay
-            | val GHC.Classes.== "pbac_z_ipko" -> PostPaymentMethodsRequestBodyP24'Bank'EnumPbacZIpko
-            | val GHC.Classes.== "plus_bank" -> PostPaymentMethodsRequestBodyP24'Bank'EnumPlusBank
-            | val GHC.Classes.== "santander_przelew24" -> PostPaymentMethodsRequestBodyP24'Bank'EnumSantanderPrzelew24
-            | val GHC.Classes.== "tmobile_usbugi_bankowe" -> PostPaymentMethodsRequestBodyP24'Bank'EnumTmobileUsbugiBankowe
-            | val GHC.Classes.== "toyota_bank" -> PostPaymentMethodsRequestBodyP24'Bank'EnumToyotaBank
-            | val GHC.Classes.== "volkswagen_bank" -> PostPaymentMethodsRequestBodyP24'Bank'EnumVolkswagenBank
-            | GHC.Base.otherwise -> PostPaymentMethodsRequestBodyP24'Bank'Other val
+          | val GHC.Classes.== "alior_bank" -> PostPaymentMethodsRequestBodyP24'Bank'EnumAliorBank
+          | val GHC.Classes.== "bank_millennium" -> PostPaymentMethodsRequestBodyP24'Bank'EnumBankMillennium
+          | val GHC.Classes.== "bank_nowy_bfg_sa" -> PostPaymentMethodsRequestBodyP24'Bank'EnumBankNowyBfgSa
+          | val GHC.Classes.== "bank_pekao_sa" -> PostPaymentMethodsRequestBodyP24'Bank'EnumBankPekaoSa
+          | val GHC.Classes.== "banki_spbdzielcze" -> PostPaymentMethodsRequestBodyP24'Bank'EnumBankiSpbdzielcze
+          | val GHC.Classes.== "blik" -> PostPaymentMethodsRequestBodyP24'Bank'EnumBlik
+          | val GHC.Classes.== "bnp_paribas" -> PostPaymentMethodsRequestBodyP24'Bank'EnumBnpParibas
+          | val GHC.Classes.== "boz" -> PostPaymentMethodsRequestBodyP24'Bank'EnumBoz
+          | val GHC.Classes.== "citi_handlowy" -> PostPaymentMethodsRequestBodyP24'Bank'EnumCitiHandlowy
+          | val GHC.Classes.== "credit_agricole" -> PostPaymentMethodsRequestBodyP24'Bank'EnumCreditAgricole
+          | val GHC.Classes.== "envelobank" -> PostPaymentMethodsRequestBodyP24'Bank'EnumEnvelobank
+          | val GHC.Classes.== "etransfer_pocztowy24" -> PostPaymentMethodsRequestBodyP24'Bank'EnumEtransferPocztowy24
+          | val GHC.Classes.== "getin_bank" -> PostPaymentMethodsRequestBodyP24'Bank'EnumGetinBank
+          | val GHC.Classes.== "ideabank" -> PostPaymentMethodsRequestBodyP24'Bank'EnumIdeabank
+          | val GHC.Classes.== "ing" -> PostPaymentMethodsRequestBodyP24'Bank'EnumIng
+          | val GHC.Classes.== "inteligo" -> PostPaymentMethodsRequestBodyP24'Bank'EnumInteligo
+          | val GHC.Classes.== "mbank_mtransfer" -> PostPaymentMethodsRequestBodyP24'Bank'EnumMbankMtransfer
+          | val GHC.Classes.== "nest_przelew" -> PostPaymentMethodsRequestBodyP24'Bank'EnumNestPrzelew
+          | val GHC.Classes.== "noble_pay" -> PostPaymentMethodsRequestBodyP24'Bank'EnumNoblePay
+          | val GHC.Classes.== "pbac_z_ipko" -> PostPaymentMethodsRequestBodyP24'Bank'EnumPbacZIpko
+          | val GHC.Classes.== "plus_bank" -> PostPaymentMethodsRequestBodyP24'Bank'EnumPlusBank
+          | val GHC.Classes.== "santander_przelew24" -> PostPaymentMethodsRequestBodyP24'Bank'EnumSantanderPrzelew24
+          | val GHC.Classes.== "tmobile_usbugi_bankowe" -> PostPaymentMethodsRequestBodyP24'Bank'EnumTmobileUsbugiBankowe
+          | val GHC.Classes.== "toyota_bank" -> PostPaymentMethodsRequestBodyP24'Bank'EnumToyotaBank
+          | val GHC.Classes.== "volkswagen_bank" -> PostPaymentMethodsRequestBodyP24'Bank'EnumVolkswagenBank
+          | GHC.Base.otherwise -> PostPaymentMethodsRequestBodyP24'Bank'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/payment_methods.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.radar_options@ in the specification.
@@ -1273,13 +1273,13 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostPaymentMethodsRequestBodySofort'
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "AT" -> PostPaymentMethodsRequestBodySofort'Country'EnumAT
-            | val GHC.Classes.== "BE" -> PostPaymentMethodsRequestBodySofort'Country'EnumBE
-            | val GHC.Classes.== "DE" -> PostPaymentMethodsRequestBodySofort'Country'EnumDE
-            | val GHC.Classes.== "ES" -> PostPaymentMethodsRequestBodySofort'Country'EnumES
-            | val GHC.Classes.== "IT" -> PostPaymentMethodsRequestBodySofort'Country'EnumIT
-            | val GHC.Classes.== "NL" -> PostPaymentMethodsRequestBodySofort'Country'EnumNL
-            | GHC.Base.otherwise -> PostPaymentMethodsRequestBodySofort'Country'Other val
+          | val GHC.Classes.== "AT" -> PostPaymentMethodsRequestBodySofort'Country'EnumAT
+          | val GHC.Classes.== "BE" -> PostPaymentMethodsRequestBodySofort'Country'EnumBE
+          | val GHC.Classes.== "DE" -> PostPaymentMethodsRequestBodySofort'Country'EnumDE
+          | val GHC.Classes.== "ES" -> PostPaymentMethodsRequestBodySofort'Country'EnumES
+          | val GHC.Classes.== "IT" -> PostPaymentMethodsRequestBodySofort'Country'EnumIT
+          | val GHC.Classes.== "NL" -> PostPaymentMethodsRequestBodySofort'Country'EnumNL
+          | GHC.Base.otherwise -> PostPaymentMethodsRequestBodySofort'Country'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/payment_methods.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.type@ in the specification.
@@ -1378,33 +1378,33 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostPaymentMethodsRequestBodyType' w
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "acss_debit" -> PostPaymentMethodsRequestBodyType'EnumAcssDebit
-            | val GHC.Classes.== "affirm" -> PostPaymentMethodsRequestBodyType'EnumAffirm
-            | val GHC.Classes.== "afterpay_clearpay" -> PostPaymentMethodsRequestBodyType'EnumAfterpayClearpay
-            | val GHC.Classes.== "alipay" -> PostPaymentMethodsRequestBodyType'EnumAlipay
-            | val GHC.Classes.== "au_becs_debit" -> PostPaymentMethodsRequestBodyType'EnumAuBecsDebit
-            | val GHC.Classes.== "bacs_debit" -> PostPaymentMethodsRequestBodyType'EnumBacsDebit
-            | val GHC.Classes.== "bancontact" -> PostPaymentMethodsRequestBodyType'EnumBancontact
-            | val GHC.Classes.== "boleto" -> PostPaymentMethodsRequestBodyType'EnumBoleto
-            | val GHC.Classes.== "card" -> PostPaymentMethodsRequestBodyType'EnumCard
-            | val GHC.Classes.== "customer_balance" -> PostPaymentMethodsRequestBodyType'EnumCustomerBalance
-            | val GHC.Classes.== "eps" -> PostPaymentMethodsRequestBodyType'EnumEps
-            | val GHC.Classes.== "fpx" -> PostPaymentMethodsRequestBodyType'EnumFpx
-            | val GHC.Classes.== "giropay" -> PostPaymentMethodsRequestBodyType'EnumGiropay
-            | val GHC.Classes.== "grabpay" -> PostPaymentMethodsRequestBodyType'EnumGrabpay
-            | val GHC.Classes.== "ideal" -> PostPaymentMethodsRequestBodyType'EnumIdeal
-            | val GHC.Classes.== "klarna" -> PostPaymentMethodsRequestBodyType'EnumKlarna
-            | val GHC.Classes.== "konbini" -> PostPaymentMethodsRequestBodyType'EnumKonbini
-            | val GHC.Classes.== "link" -> PostPaymentMethodsRequestBodyType'EnumLink
-            | val GHC.Classes.== "oxxo" -> PostPaymentMethodsRequestBodyType'EnumOxxo
-            | val GHC.Classes.== "p24" -> PostPaymentMethodsRequestBodyType'EnumP24
-            | val GHC.Classes.== "paynow" -> PostPaymentMethodsRequestBodyType'EnumPaynow
-            | val GHC.Classes.== "promptpay" -> PostPaymentMethodsRequestBodyType'EnumPromptpay
-            | val GHC.Classes.== "sepa_debit" -> PostPaymentMethodsRequestBodyType'EnumSepaDebit
-            | val GHC.Classes.== "sofort" -> PostPaymentMethodsRequestBodyType'EnumSofort
-            | val GHC.Classes.== "us_bank_account" -> PostPaymentMethodsRequestBodyType'EnumUsBankAccount
-            | val GHC.Classes.== "wechat_pay" -> PostPaymentMethodsRequestBodyType'EnumWechatPay
-            | GHC.Base.otherwise -> PostPaymentMethodsRequestBodyType'Other val
+          | val GHC.Classes.== "acss_debit" -> PostPaymentMethodsRequestBodyType'EnumAcssDebit
+          | val GHC.Classes.== "affirm" -> PostPaymentMethodsRequestBodyType'EnumAffirm
+          | val GHC.Classes.== "afterpay_clearpay" -> PostPaymentMethodsRequestBodyType'EnumAfterpayClearpay
+          | val GHC.Classes.== "alipay" -> PostPaymentMethodsRequestBodyType'EnumAlipay
+          | val GHC.Classes.== "au_becs_debit" -> PostPaymentMethodsRequestBodyType'EnumAuBecsDebit
+          | val GHC.Classes.== "bacs_debit" -> PostPaymentMethodsRequestBodyType'EnumBacsDebit
+          | val GHC.Classes.== "bancontact" -> PostPaymentMethodsRequestBodyType'EnumBancontact
+          | val GHC.Classes.== "boleto" -> PostPaymentMethodsRequestBodyType'EnumBoleto
+          | val GHC.Classes.== "card" -> PostPaymentMethodsRequestBodyType'EnumCard
+          | val GHC.Classes.== "customer_balance" -> PostPaymentMethodsRequestBodyType'EnumCustomerBalance
+          | val GHC.Classes.== "eps" -> PostPaymentMethodsRequestBodyType'EnumEps
+          | val GHC.Classes.== "fpx" -> PostPaymentMethodsRequestBodyType'EnumFpx
+          | val GHC.Classes.== "giropay" -> PostPaymentMethodsRequestBodyType'EnumGiropay
+          | val GHC.Classes.== "grabpay" -> PostPaymentMethodsRequestBodyType'EnumGrabpay
+          | val GHC.Classes.== "ideal" -> PostPaymentMethodsRequestBodyType'EnumIdeal
+          | val GHC.Classes.== "klarna" -> PostPaymentMethodsRequestBodyType'EnumKlarna
+          | val GHC.Classes.== "konbini" -> PostPaymentMethodsRequestBodyType'EnumKonbini
+          | val GHC.Classes.== "link" -> PostPaymentMethodsRequestBodyType'EnumLink
+          | val GHC.Classes.== "oxxo" -> PostPaymentMethodsRequestBodyType'EnumOxxo
+          | val GHC.Classes.== "p24" -> PostPaymentMethodsRequestBodyType'EnumP24
+          | val GHC.Classes.== "paynow" -> PostPaymentMethodsRequestBodyType'EnumPaynow
+          | val GHC.Classes.== "promptpay" -> PostPaymentMethodsRequestBodyType'EnumPromptpay
+          | val GHC.Classes.== "sepa_debit" -> PostPaymentMethodsRequestBodyType'EnumSepaDebit
+          | val GHC.Classes.== "sofort" -> PostPaymentMethodsRequestBodyType'EnumSofort
+          | val GHC.Classes.== "us_bank_account" -> PostPaymentMethodsRequestBodyType'EnumUsBankAccount
+          | val GHC.Classes.== "wechat_pay" -> PostPaymentMethodsRequestBodyType'EnumWechatPay
+          | GHC.Base.otherwise -> PostPaymentMethodsRequestBodyType'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/payment_methods.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.us_bank_account@ in the specification.
@@ -1479,9 +1479,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostPaymentMethodsRequestBodyUsBankA
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "company" -> PostPaymentMethodsRequestBodyUsBankAccount'AccountHolderType'EnumCompany
-            | val GHC.Classes.== "individual" -> PostPaymentMethodsRequestBodyUsBankAccount'AccountHolderType'EnumIndividual
-            | GHC.Base.otherwise -> PostPaymentMethodsRequestBodyUsBankAccount'AccountHolderType'Other val
+          | val GHC.Classes.== "company" -> PostPaymentMethodsRequestBodyUsBankAccount'AccountHolderType'EnumCompany
+          | val GHC.Classes.== "individual" -> PostPaymentMethodsRequestBodyUsBankAccount'AccountHolderType'EnumIndividual
+          | GHC.Base.otherwise -> PostPaymentMethodsRequestBodyUsBankAccount'AccountHolderType'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/payment_methods.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.us_bank_account.properties.account_type@ in the specification.
@@ -1506,9 +1506,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostPaymentMethodsRequestBodyUsBankA
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "checking" -> PostPaymentMethodsRequestBodyUsBankAccount'AccountType'EnumChecking
-            | val GHC.Classes.== "savings" -> PostPaymentMethodsRequestBodyUsBankAccount'AccountType'EnumSavings
-            | GHC.Base.otherwise -> PostPaymentMethodsRequestBodyUsBankAccount'AccountType'Other val
+          | val GHC.Classes.== "checking" -> PostPaymentMethodsRequestBodyUsBankAccount'AccountType'EnumChecking
+          | val GHC.Classes.== "savings" -> PostPaymentMethodsRequestBodyUsBankAccount'AccountType'EnumSavings
+          | GHC.Base.otherwise -> PostPaymentMethodsRequestBodyUsBankAccount'AccountType'Other val
       )
 
 -- | Represents a response of the operation 'postPaymentMethods'.

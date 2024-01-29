@@ -135,10 +135,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON InvoicesPaymentMethodOptionsAcssDebi
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> InvoicesPaymentMethodOptionsAcssDebit'NonNullableVerificationMethod'EnumAutomatic
-            | val GHC.Classes.== "instant" -> InvoicesPaymentMethodOptionsAcssDebit'NonNullableVerificationMethod'EnumInstant
-            | val GHC.Classes.== "microdeposits" -> InvoicesPaymentMethodOptionsAcssDebit'NonNullableVerificationMethod'EnumMicrodeposits
-            | GHC.Base.otherwise -> InvoicesPaymentMethodOptionsAcssDebit'NonNullableVerificationMethod'Other val
+          | val GHC.Classes.== "automatic" -> InvoicesPaymentMethodOptionsAcssDebit'NonNullableVerificationMethod'EnumAutomatic
+          | val GHC.Classes.== "instant" -> InvoicesPaymentMethodOptionsAcssDebit'NonNullableVerificationMethod'EnumInstant
+          | val GHC.Classes.== "microdeposits" -> InvoicesPaymentMethodOptionsAcssDebit'NonNullableVerificationMethod'EnumMicrodeposits
+          | GHC.Base.otherwise -> InvoicesPaymentMethodOptionsAcssDebit'NonNullableVerificationMethod'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.invoices_payment_method_options.properties.bancontact.anyOf@ in the specification.
@@ -194,11 +194,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON InvoicesPaymentMethodOptionsBanconta
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "de" -> InvoicesPaymentMethodOptionsBancontact'NonNullablePreferredLanguage'EnumDe
-            | val GHC.Classes.== "en" -> InvoicesPaymentMethodOptionsBancontact'NonNullablePreferredLanguage'EnumEn
-            | val GHC.Classes.== "fr" -> InvoicesPaymentMethodOptionsBancontact'NonNullablePreferredLanguage'EnumFr
-            | val GHC.Classes.== "nl" -> InvoicesPaymentMethodOptionsBancontact'NonNullablePreferredLanguage'EnumNl
-            | GHC.Base.otherwise -> InvoicesPaymentMethodOptionsBancontact'NonNullablePreferredLanguage'Other val
+          | val GHC.Classes.== "de" -> InvoicesPaymentMethodOptionsBancontact'NonNullablePreferredLanguage'EnumDe
+          | val GHC.Classes.== "en" -> InvoicesPaymentMethodOptionsBancontact'NonNullablePreferredLanguage'EnumEn
+          | val GHC.Classes.== "fr" -> InvoicesPaymentMethodOptionsBancontact'NonNullablePreferredLanguage'EnumFr
+          | val GHC.Classes.== "nl" -> InvoicesPaymentMethodOptionsBancontact'NonNullablePreferredLanguage'EnumNl
+          | GHC.Base.otherwise -> InvoicesPaymentMethodOptionsBancontact'NonNullablePreferredLanguage'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.invoices_payment_method_options.properties.card.anyOf@ in the specification.
@@ -248,9 +248,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON InvoicesPaymentMethodOptionsCard'Non
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "any" -> InvoicesPaymentMethodOptionsCard'NonNullableRequestThreeDSecure'NonNullableEnumAny
-            | val GHC.Classes.== "automatic" -> InvoicesPaymentMethodOptionsCard'NonNullableRequestThreeDSecure'NonNullableEnumAutomatic
-            | GHC.Base.otherwise -> InvoicesPaymentMethodOptionsCard'NonNullableRequestThreeDSecure'NonNullableOther val
+          | val GHC.Classes.== "any" -> InvoicesPaymentMethodOptionsCard'NonNullableRequestThreeDSecure'NonNullableEnumAny
+          | val GHC.Classes.== "automatic" -> InvoicesPaymentMethodOptionsCard'NonNullableRequestThreeDSecure'NonNullableEnumAutomatic
+          | GHC.Base.otherwise -> InvoicesPaymentMethodOptionsCard'NonNullableRequestThreeDSecure'NonNullableOther val
       )
 
 -- | Defines the object schema located at @components.schemas.invoices_payment_method_options.properties.customer_balance.anyOf@ in the specification.
@@ -303,8 +303,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON InvoicesPaymentMethodOptionsCustomer
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "bank_transfer" -> InvoicesPaymentMethodOptionsCustomerBalance'NonNullableFundingType'NonNullableEnumBankTransfer
-            | GHC.Base.otherwise -> InvoicesPaymentMethodOptionsCustomerBalance'NonNullableFundingType'NonNullableOther val
+          | val GHC.Classes.== "bank_transfer" -> InvoicesPaymentMethodOptionsCustomerBalance'NonNullableFundingType'NonNullableEnumBankTransfer
+          | GHC.Base.otherwise -> InvoicesPaymentMethodOptionsCustomerBalance'NonNullableFundingType'NonNullableOther val
       )
 
 -- | Defines the object schema located at @components.schemas.invoices_payment_method_options.properties.us_bank_account.anyOf@ in the specification.
@@ -363,8 +363,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON InvoicesPaymentMethodOptionsUsBankAc
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> InvoicesPaymentMethodOptionsUsBankAccount'NonNullableVerificationMethod'EnumAutomatic
-            | val GHC.Classes.== "instant" -> InvoicesPaymentMethodOptionsUsBankAccount'NonNullableVerificationMethod'EnumInstant
-            | val GHC.Classes.== "microdeposits" -> InvoicesPaymentMethodOptionsUsBankAccount'NonNullableVerificationMethod'EnumMicrodeposits
-            | GHC.Base.otherwise -> InvoicesPaymentMethodOptionsUsBankAccount'NonNullableVerificationMethod'Other val
+          | val GHC.Classes.== "automatic" -> InvoicesPaymentMethodOptionsUsBankAccount'NonNullableVerificationMethod'EnumAutomatic
+          | val GHC.Classes.== "instant" -> InvoicesPaymentMethodOptionsUsBankAccount'NonNullableVerificationMethod'EnumInstant
+          | val GHC.Classes.== "microdeposits" -> InvoicesPaymentMethodOptionsUsBankAccount'NonNullableVerificationMethod'EnumMicrodeposits
+          | GHC.Base.otherwise -> InvoicesPaymentMethodOptionsUsBankAccount'NonNullableVerificationMethod'Other val
       )

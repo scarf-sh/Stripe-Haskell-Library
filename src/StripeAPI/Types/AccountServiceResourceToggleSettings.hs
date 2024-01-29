@@ -99,8 +99,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON AccountServiceResourceToggleSettings
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "active" -> AccountServiceResourceToggleSettingsStatus'EnumActive
-            | val GHC.Classes.== "pending" -> AccountServiceResourceToggleSettingsStatus'EnumPending
-            | val GHC.Classes.== "restricted" -> AccountServiceResourceToggleSettingsStatus'EnumRestricted
-            | GHC.Base.otherwise -> AccountServiceResourceToggleSettingsStatus'Other val
+          | val GHC.Classes.== "active" -> AccountServiceResourceToggleSettingsStatus'EnumActive
+          | val GHC.Classes.== "pending" -> AccountServiceResourceToggleSettingsStatus'EnumPending
+          | val GHC.Classes.== "restricted" -> AccountServiceResourceToggleSettingsStatus'EnumRestricted
+          | GHC.Base.otherwise -> AccountServiceResourceToggleSettingsStatus'Other val
       )

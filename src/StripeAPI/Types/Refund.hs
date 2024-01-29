@@ -249,11 +249,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON RefundReason'NonNullable where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "duplicate" -> RefundReason'NonNullableEnumDuplicate
-            | val GHC.Classes.== "expired_uncaptured_charge" -> RefundReason'NonNullableEnumExpiredUncapturedCharge
-            | val GHC.Classes.== "fraudulent" -> RefundReason'NonNullableEnumFraudulent
-            | val GHC.Classes.== "requested_by_customer" -> RefundReason'NonNullableEnumRequestedByCustomer
-            | GHC.Base.otherwise -> RefundReason'NonNullableOther val
+          | val GHC.Classes.== "duplicate" -> RefundReason'NonNullableEnumDuplicate
+          | val GHC.Classes.== "expired_uncaptured_charge" -> RefundReason'NonNullableEnumExpiredUncapturedCharge
+          | val GHC.Classes.== "fraudulent" -> RefundReason'NonNullableEnumFraudulent
+          | val GHC.Classes.== "requested_by_customer" -> RefundReason'NonNullableEnumRequestedByCustomer
+          | GHC.Base.otherwise -> RefundReason'NonNullableOther val
       )
 
 -- | Defines the oneOf schema located at @components.schemas.refund.properties.source_transfer_reversal.anyOf@ in the specification.

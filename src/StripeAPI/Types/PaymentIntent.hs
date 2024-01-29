@@ -407,14 +407,14 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentCancellationReason'NonN
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "abandoned" -> PaymentIntentCancellationReason'NonNullableEnumAbandoned
-            | val GHC.Classes.== "automatic" -> PaymentIntentCancellationReason'NonNullableEnumAutomatic
-            | val GHC.Classes.== "duplicate" -> PaymentIntentCancellationReason'NonNullableEnumDuplicate
-            | val GHC.Classes.== "failed_invoice" -> PaymentIntentCancellationReason'NonNullableEnumFailedInvoice
-            | val GHC.Classes.== "fraudulent" -> PaymentIntentCancellationReason'NonNullableEnumFraudulent
-            | val GHC.Classes.== "requested_by_customer" -> PaymentIntentCancellationReason'NonNullableEnumRequestedByCustomer
-            | val GHC.Classes.== "void_invoice" -> PaymentIntentCancellationReason'NonNullableEnumVoidInvoice
-            | GHC.Base.otherwise -> PaymentIntentCancellationReason'NonNullableOther val
+          | val GHC.Classes.== "abandoned" -> PaymentIntentCancellationReason'NonNullableEnumAbandoned
+          | val GHC.Classes.== "automatic" -> PaymentIntentCancellationReason'NonNullableEnumAutomatic
+          | val GHC.Classes.== "duplicate" -> PaymentIntentCancellationReason'NonNullableEnumDuplicate
+          | val GHC.Classes.== "failed_invoice" -> PaymentIntentCancellationReason'NonNullableEnumFailedInvoice
+          | val GHC.Classes.== "fraudulent" -> PaymentIntentCancellationReason'NonNullableEnumFraudulent
+          | val GHC.Classes.== "requested_by_customer" -> PaymentIntentCancellationReason'NonNullableEnumRequestedByCustomer
+          | val GHC.Classes.== "void_invoice" -> PaymentIntentCancellationReason'NonNullableEnumVoidInvoice
+          | GHC.Base.otherwise -> PaymentIntentCancellationReason'NonNullableOther val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_intent.properties.capture_method@ in the specification.
@@ -441,9 +441,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentCaptureMethod' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> PaymentIntentCaptureMethod'EnumAutomatic
-            | val GHC.Classes.== "manual" -> PaymentIntentCaptureMethod'EnumManual
-            | GHC.Base.otherwise -> PaymentIntentCaptureMethod'Other val
+          | val GHC.Classes.== "automatic" -> PaymentIntentCaptureMethod'EnumAutomatic
+          | val GHC.Classes.== "manual" -> PaymentIntentCaptureMethod'EnumManual
+          | GHC.Base.otherwise -> PaymentIntentCaptureMethod'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.payment_intent.properties.charges@ in the specification.
@@ -511,9 +511,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentConfirmationMethod' whe
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> PaymentIntentConfirmationMethod'EnumAutomatic
-            | val GHC.Classes.== "manual" -> PaymentIntentConfirmationMethod'EnumManual
-            | GHC.Base.otherwise -> PaymentIntentConfirmationMethod'Other val
+          | val GHC.Classes.== "automatic" -> PaymentIntentConfirmationMethod'EnumAutomatic
+          | val GHC.Classes.== "manual" -> PaymentIntentConfirmationMethod'EnumManual
+          | GHC.Base.otherwise -> PaymentIntentConfirmationMethod'Other val
       )
 
 -- | Defines the oneOf schema located at @components.schemas.payment_intent.properties.customer.anyOf@ in the specification.
@@ -1049,9 +1049,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentLastPaymentError'NonNul
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "instant" -> PaymentIntentLastPaymentError'NonNullableSource'AvailablePayoutMethods'NonNullableEnumInstant
-            | val GHC.Classes.== "standard" -> PaymentIntentLastPaymentError'NonNullableSource'AvailablePayoutMethods'NonNullableEnumStandard
-            | GHC.Base.otherwise -> PaymentIntentLastPaymentError'NonNullableSource'AvailablePayoutMethods'NonNullableOther val
+          | val GHC.Classes.== "instant" -> PaymentIntentLastPaymentError'NonNullableSource'AvailablePayoutMethods'NonNullableEnumInstant
+          | val GHC.Classes.== "standard" -> PaymentIntentLastPaymentError'NonNullableSource'AvailablePayoutMethods'NonNullableEnumStandard
+          | GHC.Base.otherwise -> PaymentIntentLastPaymentError'NonNullableSource'AvailablePayoutMethods'NonNullableOther val
       )
 
 -- | Defines the oneOf schema located at @components.schemas.payment_intent.properties.last_payment_error.anyOf.properties.source.anyOf.properties.customer.anyOf@ in the specification.
@@ -1094,8 +1094,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentLastPaymentError'NonNul
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "bank_account" -> PaymentIntentLastPaymentError'NonNullableSource'Object'EnumBankAccount
-            | GHC.Base.otherwise -> PaymentIntentLastPaymentError'NonNullableSource'Object'Other val
+          | val GHC.Classes.== "bank_account" -> PaymentIntentLastPaymentError'NonNullableSource'Object'EnumBankAccount
+          | GHC.Base.otherwise -> PaymentIntentLastPaymentError'NonNullableSource'Object'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.payment_intent.properties.last_payment_error.anyOf.properties.source.anyOf.properties.owner.anyOf@ in the specification.
@@ -1388,25 +1388,25 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentLastPaymentError'NonNul
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "ach_credit_transfer" -> PaymentIntentLastPaymentError'NonNullableSource'Type'EnumAchCreditTransfer
-            | val GHC.Classes.== "ach_debit" -> PaymentIntentLastPaymentError'NonNullableSource'Type'EnumAchDebit
-            | val GHC.Classes.== "acss_debit" -> PaymentIntentLastPaymentError'NonNullableSource'Type'EnumAcssDebit
-            | val GHC.Classes.== "alipay" -> PaymentIntentLastPaymentError'NonNullableSource'Type'EnumAlipay
-            | val GHC.Classes.== "au_becs_debit" -> PaymentIntentLastPaymentError'NonNullableSource'Type'EnumAuBecsDebit
-            | val GHC.Classes.== "bancontact" -> PaymentIntentLastPaymentError'NonNullableSource'Type'EnumBancontact
-            | val GHC.Classes.== "card" -> PaymentIntentLastPaymentError'NonNullableSource'Type'EnumCard
-            | val GHC.Classes.== "card_present" -> PaymentIntentLastPaymentError'NonNullableSource'Type'EnumCardPresent
-            | val GHC.Classes.== "eps" -> PaymentIntentLastPaymentError'NonNullableSource'Type'EnumEps
-            | val GHC.Classes.== "giropay" -> PaymentIntentLastPaymentError'NonNullableSource'Type'EnumGiropay
-            | val GHC.Classes.== "ideal" -> PaymentIntentLastPaymentError'NonNullableSource'Type'EnumIdeal
-            | val GHC.Classes.== "klarna" -> PaymentIntentLastPaymentError'NonNullableSource'Type'EnumKlarna
-            | val GHC.Classes.== "multibanco" -> PaymentIntentLastPaymentError'NonNullableSource'Type'EnumMultibanco
-            | val GHC.Classes.== "p24" -> PaymentIntentLastPaymentError'NonNullableSource'Type'EnumP24
-            | val GHC.Classes.== "sepa_debit" -> PaymentIntentLastPaymentError'NonNullableSource'Type'EnumSepaDebit
-            | val GHC.Classes.== "sofort" -> PaymentIntentLastPaymentError'NonNullableSource'Type'EnumSofort
-            | val GHC.Classes.== "three_d_secure" -> PaymentIntentLastPaymentError'NonNullableSource'Type'EnumThreeDSecure
-            | val GHC.Classes.== "wechat" -> PaymentIntentLastPaymentError'NonNullableSource'Type'EnumWechat
-            | GHC.Base.otherwise -> PaymentIntentLastPaymentError'NonNullableSource'Type'Other val
+          | val GHC.Classes.== "ach_credit_transfer" -> PaymentIntentLastPaymentError'NonNullableSource'Type'EnumAchCreditTransfer
+          | val GHC.Classes.== "ach_debit" -> PaymentIntentLastPaymentError'NonNullableSource'Type'EnumAchDebit
+          | val GHC.Classes.== "acss_debit" -> PaymentIntentLastPaymentError'NonNullableSource'Type'EnumAcssDebit
+          | val GHC.Classes.== "alipay" -> PaymentIntentLastPaymentError'NonNullableSource'Type'EnumAlipay
+          | val GHC.Classes.== "au_becs_debit" -> PaymentIntentLastPaymentError'NonNullableSource'Type'EnumAuBecsDebit
+          | val GHC.Classes.== "bancontact" -> PaymentIntentLastPaymentError'NonNullableSource'Type'EnumBancontact
+          | val GHC.Classes.== "card" -> PaymentIntentLastPaymentError'NonNullableSource'Type'EnumCard
+          | val GHC.Classes.== "card_present" -> PaymentIntentLastPaymentError'NonNullableSource'Type'EnumCardPresent
+          | val GHC.Classes.== "eps" -> PaymentIntentLastPaymentError'NonNullableSource'Type'EnumEps
+          | val GHC.Classes.== "giropay" -> PaymentIntentLastPaymentError'NonNullableSource'Type'EnumGiropay
+          | val GHC.Classes.== "ideal" -> PaymentIntentLastPaymentError'NonNullableSource'Type'EnumIdeal
+          | val GHC.Classes.== "klarna" -> PaymentIntentLastPaymentError'NonNullableSource'Type'EnumKlarna
+          | val GHC.Classes.== "multibanco" -> PaymentIntentLastPaymentError'NonNullableSource'Type'EnumMultibanco
+          | val GHC.Classes.== "p24" -> PaymentIntentLastPaymentError'NonNullableSource'Type'EnumP24
+          | val GHC.Classes.== "sepa_debit" -> PaymentIntentLastPaymentError'NonNullableSource'Type'EnumSepaDebit
+          | val GHC.Classes.== "sofort" -> PaymentIntentLastPaymentError'NonNullableSource'Type'EnumSofort
+          | val GHC.Classes.== "three_d_secure" -> PaymentIntentLastPaymentError'NonNullableSource'Type'EnumThreeDSecure
+          | val GHC.Classes.== "wechat" -> PaymentIntentLastPaymentError'NonNullableSource'Type'EnumWechat
+          | GHC.Base.otherwise -> PaymentIntentLastPaymentError'NonNullableSource'Type'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_intent.properties.last_payment_error.anyOf.properties.type@ in the specification.
@@ -1439,11 +1439,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentLastPaymentError'NonNul
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "api_error" -> PaymentIntentLastPaymentError'NonNullableType'EnumApiError
-            | val GHC.Classes.== "card_error" -> PaymentIntentLastPaymentError'NonNullableType'EnumCardError
-            | val GHC.Classes.== "idempotency_error" -> PaymentIntentLastPaymentError'NonNullableType'EnumIdempotencyError
-            | val GHC.Classes.== "invalid_request_error" -> PaymentIntentLastPaymentError'NonNullableType'EnumInvalidRequestError
-            | GHC.Base.otherwise -> PaymentIntentLastPaymentError'NonNullableType'Other val
+          | val GHC.Classes.== "api_error" -> PaymentIntentLastPaymentError'NonNullableType'EnumApiError
+          | val GHC.Classes.== "card_error" -> PaymentIntentLastPaymentError'NonNullableType'EnumCardError
+          | val GHC.Classes.== "idempotency_error" -> PaymentIntentLastPaymentError'NonNullableType'EnumIdempotencyError
+          | val GHC.Classes.== "invalid_request_error" -> PaymentIntentLastPaymentError'NonNullableType'EnumInvalidRequestError
+          | GHC.Base.otherwise -> PaymentIntentLastPaymentError'NonNullableType'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.payment_intent.properties.next_action.anyOf@ in the specification.
@@ -1717,8 +1717,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "manual" -> PaymentIntentPaymentMethodOptions'NonNullableAcssDebit'CaptureMethod'EnumManual
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableAcssDebit'CaptureMethod'Other val
+          | val GHC.Classes.== "manual" -> PaymentIntentPaymentMethodOptions'NonNullableAcssDebit'CaptureMethod'EnumManual
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableAcssDebit'CaptureMethod'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.acss_debit.anyOf.properties.setup_future_usage@ in the specification.
@@ -1752,10 +1752,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> PaymentIntentPaymentMethodOptions'NonNullableAcssDebit'SetupFutureUsage'EnumNone
-            | val GHC.Classes.== "off_session" -> PaymentIntentPaymentMethodOptions'NonNullableAcssDebit'SetupFutureUsage'EnumOffSession
-            | val GHC.Classes.== "on_session" -> PaymentIntentPaymentMethodOptions'NonNullableAcssDebit'SetupFutureUsage'EnumOnSession
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableAcssDebit'SetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> PaymentIntentPaymentMethodOptions'NonNullableAcssDebit'SetupFutureUsage'EnumNone
+          | val GHC.Classes.== "off_session" -> PaymentIntentPaymentMethodOptions'NonNullableAcssDebit'SetupFutureUsage'EnumOffSession
+          | val GHC.Classes.== "on_session" -> PaymentIntentPaymentMethodOptions'NonNullableAcssDebit'SetupFutureUsage'EnumOnSession
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableAcssDebit'SetupFutureUsage'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.acss_debit.anyOf.properties.verification_method@ in the specification.
@@ -1785,10 +1785,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> PaymentIntentPaymentMethodOptions'NonNullableAcssDebit'VerificationMethod'EnumAutomatic
-            | val GHC.Classes.== "instant" -> PaymentIntentPaymentMethodOptions'NonNullableAcssDebit'VerificationMethod'EnumInstant
-            | val GHC.Classes.== "microdeposits" -> PaymentIntentPaymentMethodOptions'NonNullableAcssDebit'VerificationMethod'EnumMicrodeposits
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableAcssDebit'VerificationMethod'Other val
+          | val GHC.Classes.== "automatic" -> PaymentIntentPaymentMethodOptions'NonNullableAcssDebit'VerificationMethod'EnumAutomatic
+          | val GHC.Classes.== "instant" -> PaymentIntentPaymentMethodOptions'NonNullableAcssDebit'VerificationMethod'EnumInstant
+          | val GHC.Classes.== "microdeposits" -> PaymentIntentPaymentMethodOptions'NonNullableAcssDebit'VerificationMethod'EnumMicrodeposits
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableAcssDebit'VerificationMethod'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.affirm.anyOf@ in the specification.
@@ -1846,8 +1846,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "manual" -> PaymentIntentPaymentMethodOptions'NonNullableAffirm'CaptureMethod'EnumManual
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableAffirm'CaptureMethod'Other val
+          | val GHC.Classes.== "manual" -> PaymentIntentPaymentMethodOptions'NonNullableAffirm'CaptureMethod'EnumManual
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableAffirm'CaptureMethod'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.affirm.anyOf.properties.setup_future_usage@ in the specification.
@@ -1875,8 +1875,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> PaymentIntentPaymentMethodOptions'NonNullableAffirm'SetupFutureUsage'EnumNone
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableAffirm'SetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> PaymentIntentPaymentMethodOptions'NonNullableAffirm'SetupFutureUsage'EnumNone
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableAffirm'SetupFutureUsage'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.affirm.anyOf.properties.verification_method@ in the specification.
@@ -1906,10 +1906,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> PaymentIntentPaymentMethodOptions'NonNullableAffirm'VerificationMethod'EnumAutomatic
-            | val GHC.Classes.== "instant" -> PaymentIntentPaymentMethodOptions'NonNullableAffirm'VerificationMethod'EnumInstant
-            | val GHC.Classes.== "microdeposits" -> PaymentIntentPaymentMethodOptions'NonNullableAffirm'VerificationMethod'EnumMicrodeposits
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableAffirm'VerificationMethod'Other val
+          | val GHC.Classes.== "automatic" -> PaymentIntentPaymentMethodOptions'NonNullableAffirm'VerificationMethod'EnumAutomatic
+          | val GHC.Classes.== "instant" -> PaymentIntentPaymentMethodOptions'NonNullableAffirm'VerificationMethod'EnumInstant
+          | val GHC.Classes.== "microdeposits" -> PaymentIntentPaymentMethodOptions'NonNullableAffirm'VerificationMethod'EnumMicrodeposits
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableAffirm'VerificationMethod'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.afterpay_clearpay.anyOf@ in the specification.
@@ -1975,8 +1975,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "manual" -> PaymentIntentPaymentMethodOptions'NonNullableAfterpayClearpay'CaptureMethod'EnumManual
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableAfterpayClearpay'CaptureMethod'Other val
+          | val GHC.Classes.== "manual" -> PaymentIntentPaymentMethodOptions'NonNullableAfterpayClearpay'CaptureMethod'EnumManual
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableAfterpayClearpay'CaptureMethod'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.afterpay_clearpay.anyOf.properties.setup_future_usage@ in the specification.
@@ -2004,8 +2004,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> PaymentIntentPaymentMethodOptions'NonNullableAfterpayClearpay'SetupFutureUsage'EnumNone
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableAfterpayClearpay'SetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> PaymentIntentPaymentMethodOptions'NonNullableAfterpayClearpay'SetupFutureUsage'EnumNone
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableAfterpayClearpay'SetupFutureUsage'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.afterpay_clearpay.anyOf.properties.verification_method@ in the specification.
@@ -2035,10 +2035,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> PaymentIntentPaymentMethodOptions'NonNullableAfterpayClearpay'VerificationMethod'EnumAutomatic
-            | val GHC.Classes.== "instant" -> PaymentIntentPaymentMethodOptions'NonNullableAfterpayClearpay'VerificationMethod'EnumInstant
-            | val GHC.Classes.== "microdeposits" -> PaymentIntentPaymentMethodOptions'NonNullableAfterpayClearpay'VerificationMethod'EnumMicrodeposits
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableAfterpayClearpay'VerificationMethod'Other val
+          | val GHC.Classes.== "automatic" -> PaymentIntentPaymentMethodOptions'NonNullableAfterpayClearpay'VerificationMethod'EnumAutomatic
+          | val GHC.Classes.== "instant" -> PaymentIntentPaymentMethodOptions'NonNullableAfterpayClearpay'VerificationMethod'EnumInstant
+          | val GHC.Classes.== "microdeposits" -> PaymentIntentPaymentMethodOptions'NonNullableAfterpayClearpay'VerificationMethod'EnumMicrodeposits
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableAfterpayClearpay'VerificationMethod'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.alipay.anyOf@ in the specification.
@@ -2096,8 +2096,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "manual" -> PaymentIntentPaymentMethodOptions'NonNullableAlipay'CaptureMethod'EnumManual
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableAlipay'CaptureMethod'Other val
+          | val GHC.Classes.== "manual" -> PaymentIntentPaymentMethodOptions'NonNullableAlipay'CaptureMethod'EnumManual
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableAlipay'CaptureMethod'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.alipay.anyOf.properties.setup_future_usage@ in the specification.
@@ -2128,9 +2128,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> PaymentIntentPaymentMethodOptions'NonNullableAlipay'SetupFutureUsage'EnumNone
-            | val GHC.Classes.== "off_session" -> PaymentIntentPaymentMethodOptions'NonNullableAlipay'SetupFutureUsage'EnumOffSession
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableAlipay'SetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> PaymentIntentPaymentMethodOptions'NonNullableAlipay'SetupFutureUsage'EnumNone
+          | val GHC.Classes.== "off_session" -> PaymentIntentPaymentMethodOptions'NonNullableAlipay'SetupFutureUsage'EnumOffSession
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableAlipay'SetupFutureUsage'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.alipay.anyOf.properties.verification_method@ in the specification.
@@ -2160,10 +2160,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> PaymentIntentPaymentMethodOptions'NonNullableAlipay'VerificationMethod'EnumAutomatic
-            | val GHC.Classes.== "instant" -> PaymentIntentPaymentMethodOptions'NonNullableAlipay'VerificationMethod'EnumInstant
-            | val GHC.Classes.== "microdeposits" -> PaymentIntentPaymentMethodOptions'NonNullableAlipay'VerificationMethod'EnumMicrodeposits
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableAlipay'VerificationMethod'Other val
+          | val GHC.Classes.== "automatic" -> PaymentIntentPaymentMethodOptions'NonNullableAlipay'VerificationMethod'EnumAutomatic
+          | val GHC.Classes.== "instant" -> PaymentIntentPaymentMethodOptions'NonNullableAlipay'VerificationMethod'EnumInstant
+          | val GHC.Classes.== "microdeposits" -> PaymentIntentPaymentMethodOptions'NonNullableAlipay'VerificationMethod'EnumMicrodeposits
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableAlipay'VerificationMethod'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.au_becs_debit.anyOf@ in the specification.
@@ -2221,8 +2221,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "manual" -> PaymentIntentPaymentMethodOptions'NonNullableAuBecsDebit'CaptureMethod'EnumManual
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableAuBecsDebit'CaptureMethod'Other val
+          | val GHC.Classes.== "manual" -> PaymentIntentPaymentMethodOptions'NonNullableAuBecsDebit'CaptureMethod'EnumManual
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableAuBecsDebit'CaptureMethod'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.au_becs_debit.anyOf.properties.setup_future_usage@ in the specification.
@@ -2256,10 +2256,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> PaymentIntentPaymentMethodOptions'NonNullableAuBecsDebit'SetupFutureUsage'EnumNone
-            | val GHC.Classes.== "off_session" -> PaymentIntentPaymentMethodOptions'NonNullableAuBecsDebit'SetupFutureUsage'EnumOffSession
-            | val GHC.Classes.== "on_session" -> PaymentIntentPaymentMethodOptions'NonNullableAuBecsDebit'SetupFutureUsage'EnumOnSession
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableAuBecsDebit'SetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> PaymentIntentPaymentMethodOptions'NonNullableAuBecsDebit'SetupFutureUsage'EnumNone
+          | val GHC.Classes.== "off_session" -> PaymentIntentPaymentMethodOptions'NonNullableAuBecsDebit'SetupFutureUsage'EnumOffSession
+          | val GHC.Classes.== "on_session" -> PaymentIntentPaymentMethodOptions'NonNullableAuBecsDebit'SetupFutureUsage'EnumOnSession
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableAuBecsDebit'SetupFutureUsage'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.au_becs_debit.anyOf.properties.verification_method@ in the specification.
@@ -2289,10 +2289,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> PaymentIntentPaymentMethodOptions'NonNullableAuBecsDebit'VerificationMethod'EnumAutomatic
-            | val GHC.Classes.== "instant" -> PaymentIntentPaymentMethodOptions'NonNullableAuBecsDebit'VerificationMethod'EnumInstant
-            | val GHC.Classes.== "microdeposits" -> PaymentIntentPaymentMethodOptions'NonNullableAuBecsDebit'VerificationMethod'EnumMicrodeposits
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableAuBecsDebit'VerificationMethod'Other val
+          | val GHC.Classes.== "automatic" -> PaymentIntentPaymentMethodOptions'NonNullableAuBecsDebit'VerificationMethod'EnumAutomatic
+          | val GHC.Classes.== "instant" -> PaymentIntentPaymentMethodOptions'NonNullableAuBecsDebit'VerificationMethod'EnumInstant
+          | val GHC.Classes.== "microdeposits" -> PaymentIntentPaymentMethodOptions'NonNullableAuBecsDebit'VerificationMethod'EnumMicrodeposits
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableAuBecsDebit'VerificationMethod'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.bacs_debit.anyOf@ in the specification.
@@ -2350,8 +2350,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "manual" -> PaymentIntentPaymentMethodOptions'NonNullableBacsDebit'CaptureMethod'EnumManual
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableBacsDebit'CaptureMethod'Other val
+          | val GHC.Classes.== "manual" -> PaymentIntentPaymentMethodOptions'NonNullableBacsDebit'CaptureMethod'EnumManual
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableBacsDebit'CaptureMethod'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.bacs_debit.anyOf.properties.setup_future_usage@ in the specification.
@@ -2385,10 +2385,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> PaymentIntentPaymentMethodOptions'NonNullableBacsDebit'SetupFutureUsage'EnumNone
-            | val GHC.Classes.== "off_session" -> PaymentIntentPaymentMethodOptions'NonNullableBacsDebit'SetupFutureUsage'EnumOffSession
-            | val GHC.Classes.== "on_session" -> PaymentIntentPaymentMethodOptions'NonNullableBacsDebit'SetupFutureUsage'EnumOnSession
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableBacsDebit'SetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> PaymentIntentPaymentMethodOptions'NonNullableBacsDebit'SetupFutureUsage'EnumNone
+          | val GHC.Classes.== "off_session" -> PaymentIntentPaymentMethodOptions'NonNullableBacsDebit'SetupFutureUsage'EnumOffSession
+          | val GHC.Classes.== "on_session" -> PaymentIntentPaymentMethodOptions'NonNullableBacsDebit'SetupFutureUsage'EnumOnSession
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableBacsDebit'SetupFutureUsage'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.bacs_debit.anyOf.properties.verification_method@ in the specification.
@@ -2418,10 +2418,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> PaymentIntentPaymentMethodOptions'NonNullableBacsDebit'VerificationMethod'EnumAutomatic
-            | val GHC.Classes.== "instant" -> PaymentIntentPaymentMethodOptions'NonNullableBacsDebit'VerificationMethod'EnumInstant
-            | val GHC.Classes.== "microdeposits" -> PaymentIntentPaymentMethodOptions'NonNullableBacsDebit'VerificationMethod'EnumMicrodeposits
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableBacsDebit'VerificationMethod'Other val
+          | val GHC.Classes.== "automatic" -> PaymentIntentPaymentMethodOptions'NonNullableBacsDebit'VerificationMethod'EnumAutomatic
+          | val GHC.Classes.== "instant" -> PaymentIntentPaymentMethodOptions'NonNullableBacsDebit'VerificationMethod'EnumInstant
+          | val GHC.Classes.== "microdeposits" -> PaymentIntentPaymentMethodOptions'NonNullableBacsDebit'VerificationMethod'EnumMicrodeposits
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableBacsDebit'VerificationMethod'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.bancontact.anyOf@ in the specification.
@@ -2482,8 +2482,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "manual" -> PaymentIntentPaymentMethodOptions'NonNullableBancontact'CaptureMethod'EnumManual
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableBancontact'CaptureMethod'Other val
+          | val GHC.Classes.== "manual" -> PaymentIntentPaymentMethodOptions'NonNullableBancontact'CaptureMethod'EnumManual
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableBancontact'CaptureMethod'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.bancontact.anyOf.properties.preferred_language@ in the specification.
@@ -2516,11 +2516,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "de" -> PaymentIntentPaymentMethodOptions'NonNullableBancontact'PreferredLanguage'EnumDe
-            | val GHC.Classes.== "en" -> PaymentIntentPaymentMethodOptions'NonNullableBancontact'PreferredLanguage'EnumEn
-            | val GHC.Classes.== "fr" -> PaymentIntentPaymentMethodOptions'NonNullableBancontact'PreferredLanguage'EnumFr
-            | val GHC.Classes.== "nl" -> PaymentIntentPaymentMethodOptions'NonNullableBancontact'PreferredLanguage'EnumNl
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableBancontact'PreferredLanguage'Other val
+          | val GHC.Classes.== "de" -> PaymentIntentPaymentMethodOptions'NonNullableBancontact'PreferredLanguage'EnumDe
+          | val GHC.Classes.== "en" -> PaymentIntentPaymentMethodOptions'NonNullableBancontact'PreferredLanguage'EnumEn
+          | val GHC.Classes.== "fr" -> PaymentIntentPaymentMethodOptions'NonNullableBancontact'PreferredLanguage'EnumFr
+          | val GHC.Classes.== "nl" -> PaymentIntentPaymentMethodOptions'NonNullableBancontact'PreferredLanguage'EnumNl
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableBancontact'PreferredLanguage'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.bancontact.anyOf.properties.setup_future_usage@ in the specification.
@@ -2551,9 +2551,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> PaymentIntentPaymentMethodOptions'NonNullableBancontact'SetupFutureUsage'EnumNone
-            | val GHC.Classes.== "off_session" -> PaymentIntentPaymentMethodOptions'NonNullableBancontact'SetupFutureUsage'EnumOffSession
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableBancontact'SetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> PaymentIntentPaymentMethodOptions'NonNullableBancontact'SetupFutureUsage'EnumNone
+          | val GHC.Classes.== "off_session" -> PaymentIntentPaymentMethodOptions'NonNullableBancontact'SetupFutureUsage'EnumOffSession
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableBancontact'SetupFutureUsage'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.bancontact.anyOf.properties.verification_method@ in the specification.
@@ -2583,10 +2583,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> PaymentIntentPaymentMethodOptions'NonNullableBancontact'VerificationMethod'EnumAutomatic
-            | val GHC.Classes.== "instant" -> PaymentIntentPaymentMethodOptions'NonNullableBancontact'VerificationMethod'EnumInstant
-            | val GHC.Classes.== "microdeposits" -> PaymentIntentPaymentMethodOptions'NonNullableBancontact'VerificationMethod'EnumMicrodeposits
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableBancontact'VerificationMethod'Other val
+          | val GHC.Classes.== "automatic" -> PaymentIntentPaymentMethodOptions'NonNullableBancontact'VerificationMethod'EnumAutomatic
+          | val GHC.Classes.== "instant" -> PaymentIntentPaymentMethodOptions'NonNullableBancontact'VerificationMethod'EnumInstant
+          | val GHC.Classes.== "microdeposits" -> PaymentIntentPaymentMethodOptions'NonNullableBancontact'VerificationMethod'EnumMicrodeposits
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableBancontact'VerificationMethod'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.boleto.anyOf@ in the specification.
@@ -2647,8 +2647,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "manual" -> PaymentIntentPaymentMethodOptions'NonNullableBoleto'CaptureMethod'EnumManual
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableBoleto'CaptureMethod'Other val
+          | val GHC.Classes.== "manual" -> PaymentIntentPaymentMethodOptions'NonNullableBoleto'CaptureMethod'EnumManual
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableBoleto'CaptureMethod'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.boleto.anyOf.properties.setup_future_usage@ in the specification.
@@ -2682,10 +2682,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> PaymentIntentPaymentMethodOptions'NonNullableBoleto'SetupFutureUsage'EnumNone
-            | val GHC.Classes.== "off_session" -> PaymentIntentPaymentMethodOptions'NonNullableBoleto'SetupFutureUsage'EnumOffSession
-            | val GHC.Classes.== "on_session" -> PaymentIntentPaymentMethodOptions'NonNullableBoleto'SetupFutureUsage'EnumOnSession
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableBoleto'SetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> PaymentIntentPaymentMethodOptions'NonNullableBoleto'SetupFutureUsage'EnumNone
+          | val GHC.Classes.== "off_session" -> PaymentIntentPaymentMethodOptions'NonNullableBoleto'SetupFutureUsage'EnumOffSession
+          | val GHC.Classes.== "on_session" -> PaymentIntentPaymentMethodOptions'NonNullableBoleto'SetupFutureUsage'EnumOnSession
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableBoleto'SetupFutureUsage'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.boleto.anyOf.properties.verification_method@ in the specification.
@@ -2715,10 +2715,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> PaymentIntentPaymentMethodOptions'NonNullableBoleto'VerificationMethod'EnumAutomatic
-            | val GHC.Classes.== "instant" -> PaymentIntentPaymentMethodOptions'NonNullableBoleto'VerificationMethod'EnumInstant
-            | val GHC.Classes.== "microdeposits" -> PaymentIntentPaymentMethodOptions'NonNullableBoleto'VerificationMethod'EnumMicrodeposits
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableBoleto'VerificationMethod'Other val
+          | val GHC.Classes.== "automatic" -> PaymentIntentPaymentMethodOptions'NonNullableBoleto'VerificationMethod'EnumAutomatic
+          | val GHC.Classes.== "instant" -> PaymentIntentPaymentMethodOptions'NonNullableBoleto'VerificationMethod'EnumInstant
+          | val GHC.Classes.== "microdeposits" -> PaymentIntentPaymentMethodOptions'NonNullableBoleto'VerificationMethod'EnumMicrodeposits
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableBoleto'VerificationMethod'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.card.anyOf@ in the specification.
@@ -2804,8 +2804,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "manual" -> PaymentIntentPaymentMethodOptions'NonNullableCard'CaptureMethod'EnumManual
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableCard'CaptureMethod'Other val
+          | val GHC.Classes.== "manual" -> PaymentIntentPaymentMethodOptions'NonNullableCard'CaptureMethod'EnumManual
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableCard'CaptureMethod'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.card.anyOf.properties.installments.anyOf@ in the specification.
@@ -2897,8 +2897,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "month" -> PaymentIntentPaymentMethodOptions'NonNullableCard'Installments'NonNullablePlan'NonNullableInterval'NonNullableEnumMonth
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableCard'Installments'NonNullablePlan'NonNullableInterval'NonNullableOther val
+          | val GHC.Classes.== "month" -> PaymentIntentPaymentMethodOptions'NonNullableCard'Installments'NonNullablePlan'NonNullableInterval'NonNullableEnumMonth
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableCard'Installments'NonNullablePlan'NonNullableInterval'NonNullableOther val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.card.anyOf.properties.installments.anyOf.properties.plan.anyOf.properties.type@ in the specification.
@@ -2922,8 +2922,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "fixed_count" -> PaymentIntentPaymentMethodOptions'NonNullableCard'Installments'NonNullablePlan'NonNullableType'EnumFixedCount
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableCard'Installments'NonNullablePlan'NonNullableType'Other val
+          | val GHC.Classes.== "fixed_count" -> PaymentIntentPaymentMethodOptions'NonNullableCard'Installments'NonNullablePlan'NonNullableType'EnumFixedCount
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableCard'Installments'NonNullablePlan'NonNullableType'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.card.anyOf.properties.mandate_options.anyOf@ in the specification.
@@ -3008,9 +3008,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "fixed" -> PaymentIntentPaymentMethodOptions'NonNullableCard'MandateOptions'NonNullableAmountType'EnumFixed
-            | val GHC.Classes.== "maximum" -> PaymentIntentPaymentMethodOptions'NonNullableCard'MandateOptions'NonNullableAmountType'EnumMaximum
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableCard'MandateOptions'NonNullableAmountType'Other val
+          | val GHC.Classes.== "fixed" -> PaymentIntentPaymentMethodOptions'NonNullableCard'MandateOptions'NonNullableAmountType'EnumFixed
+          | val GHC.Classes.== "maximum" -> PaymentIntentPaymentMethodOptions'NonNullableCard'MandateOptions'NonNullableAmountType'EnumMaximum
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableCard'MandateOptions'NonNullableAmountType'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.card.anyOf.properties.mandate_options.anyOf.properties.interval@ in the specification.
@@ -3046,12 +3046,12 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "day" -> PaymentIntentPaymentMethodOptions'NonNullableCard'MandateOptions'NonNullableInterval'EnumDay
-            | val GHC.Classes.== "month" -> PaymentIntentPaymentMethodOptions'NonNullableCard'MandateOptions'NonNullableInterval'EnumMonth
-            | val GHC.Classes.== "sporadic" -> PaymentIntentPaymentMethodOptions'NonNullableCard'MandateOptions'NonNullableInterval'EnumSporadic
-            | val GHC.Classes.== "week" -> PaymentIntentPaymentMethodOptions'NonNullableCard'MandateOptions'NonNullableInterval'EnumWeek
-            | val GHC.Classes.== "year" -> PaymentIntentPaymentMethodOptions'NonNullableCard'MandateOptions'NonNullableInterval'EnumYear
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableCard'MandateOptions'NonNullableInterval'Other val
+          | val GHC.Classes.== "day" -> PaymentIntentPaymentMethodOptions'NonNullableCard'MandateOptions'NonNullableInterval'EnumDay
+          | val GHC.Classes.== "month" -> PaymentIntentPaymentMethodOptions'NonNullableCard'MandateOptions'NonNullableInterval'EnumMonth
+          | val GHC.Classes.== "sporadic" -> PaymentIntentPaymentMethodOptions'NonNullableCard'MandateOptions'NonNullableInterval'EnumSporadic
+          | val GHC.Classes.== "week" -> PaymentIntentPaymentMethodOptions'NonNullableCard'MandateOptions'NonNullableInterval'EnumWeek
+          | val GHC.Classes.== "year" -> PaymentIntentPaymentMethodOptions'NonNullableCard'MandateOptions'NonNullableInterval'EnumYear
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableCard'MandateOptions'NonNullableInterval'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.card.anyOf.properties.mandate_options.anyOf.properties.supported_types.items@ in the specification.
@@ -3073,8 +3073,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "india" -> PaymentIntentPaymentMethodOptions'NonNullableCard'MandateOptions'NonNullableSupportedTypes'NonNullableEnumIndia
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableCard'MandateOptions'NonNullableSupportedTypes'NonNullableOther val
+          | val GHC.Classes.== "india" -> PaymentIntentPaymentMethodOptions'NonNullableCard'MandateOptions'NonNullableSupportedTypes'NonNullableEnumIndia
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableCard'MandateOptions'NonNullableSupportedTypes'NonNullableOther val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.card.anyOf.properties.network@ in the specification.
@@ -3125,17 +3125,17 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "amex" -> PaymentIntentPaymentMethodOptions'NonNullableCard'Network'NonNullableEnumAmex
-            | val GHC.Classes.== "cartes_bancaires" -> PaymentIntentPaymentMethodOptions'NonNullableCard'Network'NonNullableEnumCartesBancaires
-            | val GHC.Classes.== "diners" -> PaymentIntentPaymentMethodOptions'NonNullableCard'Network'NonNullableEnumDiners
-            | val GHC.Classes.== "discover" -> PaymentIntentPaymentMethodOptions'NonNullableCard'Network'NonNullableEnumDiscover
-            | val GHC.Classes.== "interac" -> PaymentIntentPaymentMethodOptions'NonNullableCard'Network'NonNullableEnumInterac
-            | val GHC.Classes.== "jcb" -> PaymentIntentPaymentMethodOptions'NonNullableCard'Network'NonNullableEnumJcb
-            | val GHC.Classes.== "mastercard" -> PaymentIntentPaymentMethodOptions'NonNullableCard'Network'NonNullableEnumMastercard
-            | val GHC.Classes.== "unionpay" -> PaymentIntentPaymentMethodOptions'NonNullableCard'Network'NonNullableEnumUnionpay
-            | val GHC.Classes.== "unknown" -> PaymentIntentPaymentMethodOptions'NonNullableCard'Network'NonNullableEnumUnknown
-            | val GHC.Classes.== "visa" -> PaymentIntentPaymentMethodOptions'NonNullableCard'Network'NonNullableEnumVisa
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableCard'Network'NonNullableOther val
+          | val GHC.Classes.== "amex" -> PaymentIntentPaymentMethodOptions'NonNullableCard'Network'NonNullableEnumAmex
+          | val GHC.Classes.== "cartes_bancaires" -> PaymentIntentPaymentMethodOptions'NonNullableCard'Network'NonNullableEnumCartesBancaires
+          | val GHC.Classes.== "diners" -> PaymentIntentPaymentMethodOptions'NonNullableCard'Network'NonNullableEnumDiners
+          | val GHC.Classes.== "discover" -> PaymentIntentPaymentMethodOptions'NonNullableCard'Network'NonNullableEnumDiscover
+          | val GHC.Classes.== "interac" -> PaymentIntentPaymentMethodOptions'NonNullableCard'Network'NonNullableEnumInterac
+          | val GHC.Classes.== "jcb" -> PaymentIntentPaymentMethodOptions'NonNullableCard'Network'NonNullableEnumJcb
+          | val GHC.Classes.== "mastercard" -> PaymentIntentPaymentMethodOptions'NonNullableCard'Network'NonNullableEnumMastercard
+          | val GHC.Classes.== "unionpay" -> PaymentIntentPaymentMethodOptions'NonNullableCard'Network'NonNullableEnumUnionpay
+          | val GHC.Classes.== "unknown" -> PaymentIntentPaymentMethodOptions'NonNullableCard'Network'NonNullableEnumUnknown
+          | val GHC.Classes.== "visa" -> PaymentIntentPaymentMethodOptions'NonNullableCard'Network'NonNullableEnumVisa
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableCard'Network'NonNullableOther val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.card.anyOf.properties.request_three_d_secure@ in the specification.
@@ -3165,10 +3165,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "any" -> PaymentIntentPaymentMethodOptions'NonNullableCard'RequestThreeDSecure'NonNullableEnumAny
-            | val GHC.Classes.== "automatic" -> PaymentIntentPaymentMethodOptions'NonNullableCard'RequestThreeDSecure'NonNullableEnumAutomatic
-            | val GHC.Classes.== "challenge_only" -> PaymentIntentPaymentMethodOptions'NonNullableCard'RequestThreeDSecure'NonNullableEnumChallengeOnly
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableCard'RequestThreeDSecure'NonNullableOther val
+          | val GHC.Classes.== "any" -> PaymentIntentPaymentMethodOptions'NonNullableCard'RequestThreeDSecure'NonNullableEnumAny
+          | val GHC.Classes.== "automatic" -> PaymentIntentPaymentMethodOptions'NonNullableCard'RequestThreeDSecure'NonNullableEnumAutomatic
+          | val GHC.Classes.== "challenge_only" -> PaymentIntentPaymentMethodOptions'NonNullableCard'RequestThreeDSecure'NonNullableEnumChallengeOnly
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableCard'RequestThreeDSecure'NonNullableOther val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.card.anyOf.properties.setup_future_usage@ in the specification.
@@ -3202,10 +3202,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> PaymentIntentPaymentMethodOptions'NonNullableCard'SetupFutureUsage'EnumNone
-            | val GHC.Classes.== "off_session" -> PaymentIntentPaymentMethodOptions'NonNullableCard'SetupFutureUsage'EnumOffSession
-            | val GHC.Classes.== "on_session" -> PaymentIntentPaymentMethodOptions'NonNullableCard'SetupFutureUsage'EnumOnSession
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableCard'SetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> PaymentIntentPaymentMethodOptions'NonNullableCard'SetupFutureUsage'EnumNone
+          | val GHC.Classes.== "off_session" -> PaymentIntentPaymentMethodOptions'NonNullableCard'SetupFutureUsage'EnumOffSession
+          | val GHC.Classes.== "on_session" -> PaymentIntentPaymentMethodOptions'NonNullableCard'SetupFutureUsage'EnumOnSession
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableCard'SetupFutureUsage'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.card.anyOf.properties.verification_method@ in the specification.
@@ -3235,10 +3235,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> PaymentIntentPaymentMethodOptions'NonNullableCard'VerificationMethod'EnumAutomatic
-            | val GHC.Classes.== "instant" -> PaymentIntentPaymentMethodOptions'NonNullableCard'VerificationMethod'EnumInstant
-            | val GHC.Classes.== "microdeposits" -> PaymentIntentPaymentMethodOptions'NonNullableCard'VerificationMethod'EnumMicrodeposits
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableCard'VerificationMethod'Other val
+          | val GHC.Classes.== "automatic" -> PaymentIntentPaymentMethodOptions'NonNullableCard'VerificationMethod'EnumAutomatic
+          | val GHC.Classes.== "instant" -> PaymentIntentPaymentMethodOptions'NonNullableCard'VerificationMethod'EnumInstant
+          | val GHC.Classes.== "microdeposits" -> PaymentIntentPaymentMethodOptions'NonNullableCard'VerificationMethod'EnumMicrodeposits
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableCard'VerificationMethod'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.card_present.anyOf@ in the specification.
@@ -3302,8 +3302,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "manual" -> PaymentIntentPaymentMethodOptions'NonNullableCardPresent'CaptureMethod'EnumManual
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableCardPresent'CaptureMethod'Other val
+          | val GHC.Classes.== "manual" -> PaymentIntentPaymentMethodOptions'NonNullableCardPresent'CaptureMethod'EnumManual
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableCardPresent'CaptureMethod'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.card_present.anyOf.properties.setup_future_usage@ in the specification.
@@ -3337,10 +3337,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> PaymentIntentPaymentMethodOptions'NonNullableCardPresent'SetupFutureUsage'EnumNone
-            | val GHC.Classes.== "off_session" -> PaymentIntentPaymentMethodOptions'NonNullableCardPresent'SetupFutureUsage'EnumOffSession
-            | val GHC.Classes.== "on_session" -> PaymentIntentPaymentMethodOptions'NonNullableCardPresent'SetupFutureUsage'EnumOnSession
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableCardPresent'SetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> PaymentIntentPaymentMethodOptions'NonNullableCardPresent'SetupFutureUsage'EnumNone
+          | val GHC.Classes.== "off_session" -> PaymentIntentPaymentMethodOptions'NonNullableCardPresent'SetupFutureUsage'EnumOffSession
+          | val GHC.Classes.== "on_session" -> PaymentIntentPaymentMethodOptions'NonNullableCardPresent'SetupFutureUsage'EnumOnSession
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableCardPresent'SetupFutureUsage'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.card_present.anyOf.properties.verification_method@ in the specification.
@@ -3370,10 +3370,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> PaymentIntentPaymentMethodOptions'NonNullableCardPresent'VerificationMethod'EnumAutomatic
-            | val GHC.Classes.== "instant" -> PaymentIntentPaymentMethodOptions'NonNullableCardPresent'VerificationMethod'EnumInstant
-            | val GHC.Classes.== "microdeposits" -> PaymentIntentPaymentMethodOptions'NonNullableCardPresent'VerificationMethod'EnumMicrodeposits
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableCardPresent'VerificationMethod'Other val
+          | val GHC.Classes.== "automatic" -> PaymentIntentPaymentMethodOptions'NonNullableCardPresent'VerificationMethod'EnumAutomatic
+          | val GHC.Classes.== "instant" -> PaymentIntentPaymentMethodOptions'NonNullableCardPresent'VerificationMethod'EnumInstant
+          | val GHC.Classes.== "microdeposits" -> PaymentIntentPaymentMethodOptions'NonNullableCardPresent'VerificationMethod'EnumMicrodeposits
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableCardPresent'VerificationMethod'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.customer_balance.anyOf@ in the specification.
@@ -3437,8 +3437,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "manual" -> PaymentIntentPaymentMethodOptions'NonNullableCustomerBalance'CaptureMethod'EnumManual
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableCustomerBalance'CaptureMethod'Other val
+          | val GHC.Classes.== "manual" -> PaymentIntentPaymentMethodOptions'NonNullableCustomerBalance'CaptureMethod'EnumManual
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableCustomerBalance'CaptureMethod'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.customer_balance.anyOf.properties.funding_type@ in the specification.
@@ -3462,8 +3462,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "bank_transfer" -> PaymentIntentPaymentMethodOptions'NonNullableCustomerBalance'FundingType'NonNullableEnumBankTransfer
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableCustomerBalance'FundingType'NonNullableOther val
+          | val GHC.Classes.== "bank_transfer" -> PaymentIntentPaymentMethodOptions'NonNullableCustomerBalance'FundingType'NonNullableEnumBankTransfer
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableCustomerBalance'FundingType'NonNullableOther val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.customer_balance.anyOf.properties.setup_future_usage@ in the specification.
@@ -3491,8 +3491,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> PaymentIntentPaymentMethodOptions'NonNullableCustomerBalance'SetupFutureUsage'EnumNone
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableCustomerBalance'SetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> PaymentIntentPaymentMethodOptions'NonNullableCustomerBalance'SetupFutureUsage'EnumNone
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableCustomerBalance'SetupFutureUsage'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.customer_balance.anyOf.properties.verification_method@ in the specification.
@@ -3522,10 +3522,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> PaymentIntentPaymentMethodOptions'NonNullableCustomerBalance'VerificationMethod'EnumAutomatic
-            | val GHC.Classes.== "instant" -> PaymentIntentPaymentMethodOptions'NonNullableCustomerBalance'VerificationMethod'EnumInstant
-            | val GHC.Classes.== "microdeposits" -> PaymentIntentPaymentMethodOptions'NonNullableCustomerBalance'VerificationMethod'EnumMicrodeposits
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableCustomerBalance'VerificationMethod'Other val
+          | val GHC.Classes.== "automatic" -> PaymentIntentPaymentMethodOptions'NonNullableCustomerBalance'VerificationMethod'EnumAutomatic
+          | val GHC.Classes.== "instant" -> PaymentIntentPaymentMethodOptions'NonNullableCustomerBalance'VerificationMethod'EnumInstant
+          | val GHC.Classes.== "microdeposits" -> PaymentIntentPaymentMethodOptions'NonNullableCustomerBalance'VerificationMethod'EnumMicrodeposits
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableCustomerBalance'VerificationMethod'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.eps.anyOf@ in the specification.
@@ -3583,8 +3583,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "manual" -> PaymentIntentPaymentMethodOptions'NonNullableEps'CaptureMethod'EnumManual
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableEps'CaptureMethod'Other val
+          | val GHC.Classes.== "manual" -> PaymentIntentPaymentMethodOptions'NonNullableEps'CaptureMethod'EnumManual
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableEps'CaptureMethod'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.eps.anyOf.properties.setup_future_usage@ in the specification.
@@ -3612,8 +3612,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> PaymentIntentPaymentMethodOptions'NonNullableEps'SetupFutureUsage'EnumNone
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableEps'SetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> PaymentIntentPaymentMethodOptions'NonNullableEps'SetupFutureUsage'EnumNone
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableEps'SetupFutureUsage'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.eps.anyOf.properties.verification_method@ in the specification.
@@ -3643,10 +3643,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> PaymentIntentPaymentMethodOptions'NonNullableEps'VerificationMethod'EnumAutomatic
-            | val GHC.Classes.== "instant" -> PaymentIntentPaymentMethodOptions'NonNullableEps'VerificationMethod'EnumInstant
-            | val GHC.Classes.== "microdeposits" -> PaymentIntentPaymentMethodOptions'NonNullableEps'VerificationMethod'EnumMicrodeposits
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableEps'VerificationMethod'Other val
+          | val GHC.Classes.== "automatic" -> PaymentIntentPaymentMethodOptions'NonNullableEps'VerificationMethod'EnumAutomatic
+          | val GHC.Classes.== "instant" -> PaymentIntentPaymentMethodOptions'NonNullableEps'VerificationMethod'EnumInstant
+          | val GHC.Classes.== "microdeposits" -> PaymentIntentPaymentMethodOptions'NonNullableEps'VerificationMethod'EnumMicrodeposits
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableEps'VerificationMethod'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.fpx.anyOf@ in the specification.
@@ -3704,8 +3704,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "manual" -> PaymentIntentPaymentMethodOptions'NonNullableFpx'CaptureMethod'EnumManual
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableFpx'CaptureMethod'Other val
+          | val GHC.Classes.== "manual" -> PaymentIntentPaymentMethodOptions'NonNullableFpx'CaptureMethod'EnumManual
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableFpx'CaptureMethod'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.fpx.anyOf.properties.setup_future_usage@ in the specification.
@@ -3733,8 +3733,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> PaymentIntentPaymentMethodOptions'NonNullableFpx'SetupFutureUsage'EnumNone
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableFpx'SetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> PaymentIntentPaymentMethodOptions'NonNullableFpx'SetupFutureUsage'EnumNone
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableFpx'SetupFutureUsage'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.fpx.anyOf.properties.verification_method@ in the specification.
@@ -3764,10 +3764,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> PaymentIntentPaymentMethodOptions'NonNullableFpx'VerificationMethod'EnumAutomatic
-            | val GHC.Classes.== "instant" -> PaymentIntentPaymentMethodOptions'NonNullableFpx'VerificationMethod'EnumInstant
-            | val GHC.Classes.== "microdeposits" -> PaymentIntentPaymentMethodOptions'NonNullableFpx'VerificationMethod'EnumMicrodeposits
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableFpx'VerificationMethod'Other val
+          | val GHC.Classes.== "automatic" -> PaymentIntentPaymentMethodOptions'NonNullableFpx'VerificationMethod'EnumAutomatic
+          | val GHC.Classes.== "instant" -> PaymentIntentPaymentMethodOptions'NonNullableFpx'VerificationMethod'EnumInstant
+          | val GHC.Classes.== "microdeposits" -> PaymentIntentPaymentMethodOptions'NonNullableFpx'VerificationMethod'EnumMicrodeposits
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableFpx'VerificationMethod'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.giropay.anyOf@ in the specification.
@@ -3825,8 +3825,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "manual" -> PaymentIntentPaymentMethodOptions'NonNullableGiropay'CaptureMethod'EnumManual
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableGiropay'CaptureMethod'Other val
+          | val GHC.Classes.== "manual" -> PaymentIntentPaymentMethodOptions'NonNullableGiropay'CaptureMethod'EnumManual
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableGiropay'CaptureMethod'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.giropay.anyOf.properties.setup_future_usage@ in the specification.
@@ -3854,8 +3854,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> PaymentIntentPaymentMethodOptions'NonNullableGiropay'SetupFutureUsage'EnumNone
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableGiropay'SetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> PaymentIntentPaymentMethodOptions'NonNullableGiropay'SetupFutureUsage'EnumNone
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableGiropay'SetupFutureUsage'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.giropay.anyOf.properties.verification_method@ in the specification.
@@ -3885,10 +3885,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> PaymentIntentPaymentMethodOptions'NonNullableGiropay'VerificationMethod'EnumAutomatic
-            | val GHC.Classes.== "instant" -> PaymentIntentPaymentMethodOptions'NonNullableGiropay'VerificationMethod'EnumInstant
-            | val GHC.Classes.== "microdeposits" -> PaymentIntentPaymentMethodOptions'NonNullableGiropay'VerificationMethod'EnumMicrodeposits
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableGiropay'VerificationMethod'Other val
+          | val GHC.Classes.== "automatic" -> PaymentIntentPaymentMethodOptions'NonNullableGiropay'VerificationMethod'EnumAutomatic
+          | val GHC.Classes.== "instant" -> PaymentIntentPaymentMethodOptions'NonNullableGiropay'VerificationMethod'EnumInstant
+          | val GHC.Classes.== "microdeposits" -> PaymentIntentPaymentMethodOptions'NonNullableGiropay'VerificationMethod'EnumMicrodeposits
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableGiropay'VerificationMethod'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.grabpay.anyOf@ in the specification.
@@ -3946,8 +3946,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "manual" -> PaymentIntentPaymentMethodOptions'NonNullableGrabpay'CaptureMethod'EnumManual
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableGrabpay'CaptureMethod'Other val
+          | val GHC.Classes.== "manual" -> PaymentIntentPaymentMethodOptions'NonNullableGrabpay'CaptureMethod'EnumManual
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableGrabpay'CaptureMethod'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.grabpay.anyOf.properties.setup_future_usage@ in the specification.
@@ -3975,8 +3975,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> PaymentIntentPaymentMethodOptions'NonNullableGrabpay'SetupFutureUsage'EnumNone
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableGrabpay'SetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> PaymentIntentPaymentMethodOptions'NonNullableGrabpay'SetupFutureUsage'EnumNone
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableGrabpay'SetupFutureUsage'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.grabpay.anyOf.properties.verification_method@ in the specification.
@@ -4006,10 +4006,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> PaymentIntentPaymentMethodOptions'NonNullableGrabpay'VerificationMethod'EnumAutomatic
-            | val GHC.Classes.== "instant" -> PaymentIntentPaymentMethodOptions'NonNullableGrabpay'VerificationMethod'EnumInstant
-            | val GHC.Classes.== "microdeposits" -> PaymentIntentPaymentMethodOptions'NonNullableGrabpay'VerificationMethod'EnumMicrodeposits
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableGrabpay'VerificationMethod'Other val
+          | val GHC.Classes.== "automatic" -> PaymentIntentPaymentMethodOptions'NonNullableGrabpay'VerificationMethod'EnumAutomatic
+          | val GHC.Classes.== "instant" -> PaymentIntentPaymentMethodOptions'NonNullableGrabpay'VerificationMethod'EnumInstant
+          | val GHC.Classes.== "microdeposits" -> PaymentIntentPaymentMethodOptions'NonNullableGrabpay'VerificationMethod'EnumMicrodeposits
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableGrabpay'VerificationMethod'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.ideal.anyOf@ in the specification.
@@ -4067,8 +4067,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "manual" -> PaymentIntentPaymentMethodOptions'NonNullableIdeal'CaptureMethod'EnumManual
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableIdeal'CaptureMethod'Other val
+          | val GHC.Classes.== "manual" -> PaymentIntentPaymentMethodOptions'NonNullableIdeal'CaptureMethod'EnumManual
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableIdeal'CaptureMethod'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.ideal.anyOf.properties.setup_future_usage@ in the specification.
@@ -4099,9 +4099,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> PaymentIntentPaymentMethodOptions'NonNullableIdeal'SetupFutureUsage'EnumNone
-            | val GHC.Classes.== "off_session" -> PaymentIntentPaymentMethodOptions'NonNullableIdeal'SetupFutureUsage'EnumOffSession
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableIdeal'SetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> PaymentIntentPaymentMethodOptions'NonNullableIdeal'SetupFutureUsage'EnumNone
+          | val GHC.Classes.== "off_session" -> PaymentIntentPaymentMethodOptions'NonNullableIdeal'SetupFutureUsage'EnumOffSession
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableIdeal'SetupFutureUsage'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.ideal.anyOf.properties.verification_method@ in the specification.
@@ -4131,10 +4131,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> PaymentIntentPaymentMethodOptions'NonNullableIdeal'VerificationMethod'EnumAutomatic
-            | val GHC.Classes.== "instant" -> PaymentIntentPaymentMethodOptions'NonNullableIdeal'VerificationMethod'EnumInstant
-            | val GHC.Classes.== "microdeposits" -> PaymentIntentPaymentMethodOptions'NonNullableIdeal'VerificationMethod'EnumMicrodeposits
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableIdeal'VerificationMethod'Other val
+          | val GHC.Classes.== "automatic" -> PaymentIntentPaymentMethodOptions'NonNullableIdeal'VerificationMethod'EnumAutomatic
+          | val GHC.Classes.== "instant" -> PaymentIntentPaymentMethodOptions'NonNullableIdeal'VerificationMethod'EnumInstant
+          | val GHC.Classes.== "microdeposits" -> PaymentIntentPaymentMethodOptions'NonNullableIdeal'VerificationMethod'EnumMicrodeposits
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableIdeal'VerificationMethod'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.interac_present.anyOf@ in the specification.
@@ -4192,8 +4192,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "manual" -> PaymentIntentPaymentMethodOptions'NonNullableInteracPresent'CaptureMethod'EnumManual
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableInteracPresent'CaptureMethod'Other val
+          | val GHC.Classes.== "manual" -> PaymentIntentPaymentMethodOptions'NonNullableInteracPresent'CaptureMethod'EnumManual
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableInteracPresent'CaptureMethod'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.interac_present.anyOf.properties.setup_future_usage@ in the specification.
@@ -4227,10 +4227,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> PaymentIntentPaymentMethodOptions'NonNullableInteracPresent'SetupFutureUsage'EnumNone
-            | val GHC.Classes.== "off_session" -> PaymentIntentPaymentMethodOptions'NonNullableInteracPresent'SetupFutureUsage'EnumOffSession
-            | val GHC.Classes.== "on_session" -> PaymentIntentPaymentMethodOptions'NonNullableInteracPresent'SetupFutureUsage'EnumOnSession
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableInteracPresent'SetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> PaymentIntentPaymentMethodOptions'NonNullableInteracPresent'SetupFutureUsage'EnumNone
+          | val GHC.Classes.== "off_session" -> PaymentIntentPaymentMethodOptions'NonNullableInteracPresent'SetupFutureUsage'EnumOffSession
+          | val GHC.Classes.== "on_session" -> PaymentIntentPaymentMethodOptions'NonNullableInteracPresent'SetupFutureUsage'EnumOnSession
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableInteracPresent'SetupFutureUsage'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.interac_present.anyOf.properties.verification_method@ in the specification.
@@ -4260,10 +4260,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> PaymentIntentPaymentMethodOptions'NonNullableInteracPresent'VerificationMethod'EnumAutomatic
-            | val GHC.Classes.== "instant" -> PaymentIntentPaymentMethodOptions'NonNullableInteracPresent'VerificationMethod'EnumInstant
-            | val GHC.Classes.== "microdeposits" -> PaymentIntentPaymentMethodOptions'NonNullableInteracPresent'VerificationMethod'EnumMicrodeposits
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableInteracPresent'VerificationMethod'Other val
+          | val GHC.Classes.== "automatic" -> PaymentIntentPaymentMethodOptions'NonNullableInteracPresent'VerificationMethod'EnumAutomatic
+          | val GHC.Classes.== "instant" -> PaymentIntentPaymentMethodOptions'NonNullableInteracPresent'VerificationMethod'EnumInstant
+          | val GHC.Classes.== "microdeposits" -> PaymentIntentPaymentMethodOptions'NonNullableInteracPresent'VerificationMethod'EnumMicrodeposits
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableInteracPresent'VerificationMethod'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.klarna.anyOf@ in the specification.
@@ -4328,8 +4328,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "manual" -> PaymentIntentPaymentMethodOptions'NonNullableKlarna'CaptureMethod'EnumManual
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableKlarna'CaptureMethod'Other val
+          | val GHC.Classes.== "manual" -> PaymentIntentPaymentMethodOptions'NonNullableKlarna'CaptureMethod'EnumManual
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableKlarna'CaptureMethod'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.klarna.anyOf.properties.setup_future_usage@ in the specification.
@@ -4357,8 +4357,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> PaymentIntentPaymentMethodOptions'NonNullableKlarna'SetupFutureUsage'EnumNone
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableKlarna'SetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> PaymentIntentPaymentMethodOptions'NonNullableKlarna'SetupFutureUsage'EnumNone
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableKlarna'SetupFutureUsage'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.klarna.anyOf.properties.verification_method@ in the specification.
@@ -4388,10 +4388,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> PaymentIntentPaymentMethodOptions'NonNullableKlarna'VerificationMethod'EnumAutomatic
-            | val GHC.Classes.== "instant" -> PaymentIntentPaymentMethodOptions'NonNullableKlarna'VerificationMethod'EnumInstant
-            | val GHC.Classes.== "microdeposits" -> PaymentIntentPaymentMethodOptions'NonNullableKlarna'VerificationMethod'EnumMicrodeposits
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableKlarna'VerificationMethod'Other val
+          | val GHC.Classes.== "automatic" -> PaymentIntentPaymentMethodOptions'NonNullableKlarna'VerificationMethod'EnumAutomatic
+          | val GHC.Classes.== "instant" -> PaymentIntentPaymentMethodOptions'NonNullableKlarna'VerificationMethod'EnumInstant
+          | val GHC.Classes.== "microdeposits" -> PaymentIntentPaymentMethodOptions'NonNullableKlarna'VerificationMethod'EnumMicrodeposits
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableKlarna'VerificationMethod'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.konbini.anyOf@ in the specification.
@@ -4469,8 +4469,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "manual" -> PaymentIntentPaymentMethodOptions'NonNullableKonbini'CaptureMethod'EnumManual
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableKonbini'CaptureMethod'Other val
+          | val GHC.Classes.== "manual" -> PaymentIntentPaymentMethodOptions'NonNullableKonbini'CaptureMethod'EnumManual
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableKonbini'CaptureMethod'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.konbini.anyOf.properties.setup_future_usage@ in the specification.
@@ -4498,8 +4498,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> PaymentIntentPaymentMethodOptions'NonNullableKonbini'SetupFutureUsage'EnumNone
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableKonbini'SetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> PaymentIntentPaymentMethodOptions'NonNullableKonbini'SetupFutureUsage'EnumNone
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableKonbini'SetupFutureUsage'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.konbini.anyOf.properties.verification_method@ in the specification.
@@ -4529,10 +4529,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> PaymentIntentPaymentMethodOptions'NonNullableKonbini'VerificationMethod'EnumAutomatic
-            | val GHC.Classes.== "instant" -> PaymentIntentPaymentMethodOptions'NonNullableKonbini'VerificationMethod'EnumInstant
-            | val GHC.Classes.== "microdeposits" -> PaymentIntentPaymentMethodOptions'NonNullableKonbini'VerificationMethod'EnumMicrodeposits
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableKonbini'VerificationMethod'Other val
+          | val GHC.Classes.== "automatic" -> PaymentIntentPaymentMethodOptions'NonNullableKonbini'VerificationMethod'EnumAutomatic
+          | val GHC.Classes.== "instant" -> PaymentIntentPaymentMethodOptions'NonNullableKonbini'VerificationMethod'EnumInstant
+          | val GHC.Classes.== "microdeposits" -> PaymentIntentPaymentMethodOptions'NonNullableKonbini'VerificationMethod'EnumMicrodeposits
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableKonbini'VerificationMethod'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.link.anyOf@ in the specification.
@@ -4597,8 +4597,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "manual" -> PaymentIntentPaymentMethodOptions'NonNullableLink'CaptureMethod'EnumManual
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableLink'CaptureMethod'Other val
+          | val GHC.Classes.== "manual" -> PaymentIntentPaymentMethodOptions'NonNullableLink'CaptureMethod'EnumManual
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableLink'CaptureMethod'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.link.anyOf.properties.setup_future_usage@ in the specification.
@@ -4629,9 +4629,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> PaymentIntentPaymentMethodOptions'NonNullableLink'SetupFutureUsage'EnumNone
-            | val GHC.Classes.== "off_session" -> PaymentIntentPaymentMethodOptions'NonNullableLink'SetupFutureUsage'EnumOffSession
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableLink'SetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> PaymentIntentPaymentMethodOptions'NonNullableLink'SetupFutureUsage'EnumNone
+          | val GHC.Classes.== "off_session" -> PaymentIntentPaymentMethodOptions'NonNullableLink'SetupFutureUsage'EnumOffSession
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableLink'SetupFutureUsage'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.link.anyOf.properties.verification_method@ in the specification.
@@ -4661,10 +4661,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> PaymentIntentPaymentMethodOptions'NonNullableLink'VerificationMethod'EnumAutomatic
-            | val GHC.Classes.== "instant" -> PaymentIntentPaymentMethodOptions'NonNullableLink'VerificationMethod'EnumInstant
-            | val GHC.Classes.== "microdeposits" -> PaymentIntentPaymentMethodOptions'NonNullableLink'VerificationMethod'EnumMicrodeposits
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableLink'VerificationMethod'Other val
+          | val GHC.Classes.== "automatic" -> PaymentIntentPaymentMethodOptions'NonNullableLink'VerificationMethod'EnumAutomatic
+          | val GHC.Classes.== "instant" -> PaymentIntentPaymentMethodOptions'NonNullableLink'VerificationMethod'EnumInstant
+          | val GHC.Classes.== "microdeposits" -> PaymentIntentPaymentMethodOptions'NonNullableLink'VerificationMethod'EnumMicrodeposits
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableLink'VerificationMethod'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.oxxo.anyOf@ in the specification.
@@ -4725,8 +4725,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "manual" -> PaymentIntentPaymentMethodOptions'NonNullableOxxo'CaptureMethod'EnumManual
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableOxxo'CaptureMethod'Other val
+          | val GHC.Classes.== "manual" -> PaymentIntentPaymentMethodOptions'NonNullableOxxo'CaptureMethod'EnumManual
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableOxxo'CaptureMethod'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.oxxo.anyOf.properties.setup_future_usage@ in the specification.
@@ -4754,8 +4754,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> PaymentIntentPaymentMethodOptions'NonNullableOxxo'SetupFutureUsage'EnumNone
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableOxxo'SetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> PaymentIntentPaymentMethodOptions'NonNullableOxxo'SetupFutureUsage'EnumNone
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableOxxo'SetupFutureUsage'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.oxxo.anyOf.properties.verification_method@ in the specification.
@@ -4785,10 +4785,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> PaymentIntentPaymentMethodOptions'NonNullableOxxo'VerificationMethod'EnumAutomatic
-            | val GHC.Classes.== "instant" -> PaymentIntentPaymentMethodOptions'NonNullableOxxo'VerificationMethod'EnumInstant
-            | val GHC.Classes.== "microdeposits" -> PaymentIntentPaymentMethodOptions'NonNullableOxxo'VerificationMethod'EnumMicrodeposits
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableOxxo'VerificationMethod'Other val
+          | val GHC.Classes.== "automatic" -> PaymentIntentPaymentMethodOptions'NonNullableOxxo'VerificationMethod'EnumAutomatic
+          | val GHC.Classes.== "instant" -> PaymentIntentPaymentMethodOptions'NonNullableOxxo'VerificationMethod'EnumInstant
+          | val GHC.Classes.== "microdeposits" -> PaymentIntentPaymentMethodOptions'NonNullableOxxo'VerificationMethod'EnumMicrodeposits
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableOxxo'VerificationMethod'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.p24.anyOf@ in the specification.
@@ -4846,8 +4846,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "manual" -> PaymentIntentPaymentMethodOptions'NonNullableP24'CaptureMethod'EnumManual
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableP24'CaptureMethod'Other val
+          | val GHC.Classes.== "manual" -> PaymentIntentPaymentMethodOptions'NonNullableP24'CaptureMethod'EnumManual
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableP24'CaptureMethod'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.p24.anyOf.properties.setup_future_usage@ in the specification.
@@ -4875,8 +4875,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> PaymentIntentPaymentMethodOptions'NonNullableP24'SetupFutureUsage'EnumNone
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableP24'SetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> PaymentIntentPaymentMethodOptions'NonNullableP24'SetupFutureUsage'EnumNone
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableP24'SetupFutureUsage'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.p24.anyOf.properties.verification_method@ in the specification.
@@ -4906,10 +4906,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> PaymentIntentPaymentMethodOptions'NonNullableP24'VerificationMethod'EnumAutomatic
-            | val GHC.Classes.== "instant" -> PaymentIntentPaymentMethodOptions'NonNullableP24'VerificationMethod'EnumInstant
-            | val GHC.Classes.== "microdeposits" -> PaymentIntentPaymentMethodOptions'NonNullableP24'VerificationMethod'EnumMicrodeposits
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableP24'VerificationMethod'Other val
+          | val GHC.Classes.== "automatic" -> PaymentIntentPaymentMethodOptions'NonNullableP24'VerificationMethod'EnumAutomatic
+          | val GHC.Classes.== "instant" -> PaymentIntentPaymentMethodOptions'NonNullableP24'VerificationMethod'EnumInstant
+          | val GHC.Classes.== "microdeposits" -> PaymentIntentPaymentMethodOptions'NonNullableP24'VerificationMethod'EnumMicrodeposits
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableP24'VerificationMethod'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.paynow.anyOf@ in the specification.
@@ -4967,8 +4967,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "manual" -> PaymentIntentPaymentMethodOptions'NonNullablePaynow'CaptureMethod'EnumManual
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullablePaynow'CaptureMethod'Other val
+          | val GHC.Classes.== "manual" -> PaymentIntentPaymentMethodOptions'NonNullablePaynow'CaptureMethod'EnumManual
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullablePaynow'CaptureMethod'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.paynow.anyOf.properties.setup_future_usage@ in the specification.
@@ -4996,8 +4996,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> PaymentIntentPaymentMethodOptions'NonNullablePaynow'SetupFutureUsage'EnumNone
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullablePaynow'SetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> PaymentIntentPaymentMethodOptions'NonNullablePaynow'SetupFutureUsage'EnumNone
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullablePaynow'SetupFutureUsage'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.paynow.anyOf.properties.verification_method@ in the specification.
@@ -5027,10 +5027,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> PaymentIntentPaymentMethodOptions'NonNullablePaynow'VerificationMethod'EnumAutomatic
-            | val GHC.Classes.== "instant" -> PaymentIntentPaymentMethodOptions'NonNullablePaynow'VerificationMethod'EnumInstant
-            | val GHC.Classes.== "microdeposits" -> PaymentIntentPaymentMethodOptions'NonNullablePaynow'VerificationMethod'EnumMicrodeposits
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullablePaynow'VerificationMethod'Other val
+          | val GHC.Classes.== "automatic" -> PaymentIntentPaymentMethodOptions'NonNullablePaynow'VerificationMethod'EnumAutomatic
+          | val GHC.Classes.== "instant" -> PaymentIntentPaymentMethodOptions'NonNullablePaynow'VerificationMethod'EnumInstant
+          | val GHC.Classes.== "microdeposits" -> PaymentIntentPaymentMethodOptions'NonNullablePaynow'VerificationMethod'EnumMicrodeposits
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullablePaynow'VerificationMethod'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.promptpay.anyOf@ in the specification.
@@ -5088,8 +5088,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "manual" -> PaymentIntentPaymentMethodOptions'NonNullablePromptpay'CaptureMethod'EnumManual
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullablePromptpay'CaptureMethod'Other val
+          | val GHC.Classes.== "manual" -> PaymentIntentPaymentMethodOptions'NonNullablePromptpay'CaptureMethod'EnumManual
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullablePromptpay'CaptureMethod'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.promptpay.anyOf.properties.setup_future_usage@ in the specification.
@@ -5117,8 +5117,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> PaymentIntentPaymentMethodOptions'NonNullablePromptpay'SetupFutureUsage'EnumNone
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullablePromptpay'SetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> PaymentIntentPaymentMethodOptions'NonNullablePromptpay'SetupFutureUsage'EnumNone
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullablePromptpay'SetupFutureUsage'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.promptpay.anyOf.properties.verification_method@ in the specification.
@@ -5148,10 +5148,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> PaymentIntentPaymentMethodOptions'NonNullablePromptpay'VerificationMethod'EnumAutomatic
-            | val GHC.Classes.== "instant" -> PaymentIntentPaymentMethodOptions'NonNullablePromptpay'VerificationMethod'EnumInstant
-            | val GHC.Classes.== "microdeposits" -> PaymentIntentPaymentMethodOptions'NonNullablePromptpay'VerificationMethod'EnumMicrodeposits
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullablePromptpay'VerificationMethod'Other val
+          | val GHC.Classes.== "automatic" -> PaymentIntentPaymentMethodOptions'NonNullablePromptpay'VerificationMethod'EnumAutomatic
+          | val GHC.Classes.== "instant" -> PaymentIntentPaymentMethodOptions'NonNullablePromptpay'VerificationMethod'EnumInstant
+          | val GHC.Classes.== "microdeposits" -> PaymentIntentPaymentMethodOptions'NonNullablePromptpay'VerificationMethod'EnumMicrodeposits
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullablePromptpay'VerificationMethod'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.sepa_debit.anyOf@ in the specification.
@@ -5212,8 +5212,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "manual" -> PaymentIntentPaymentMethodOptions'NonNullableSepaDebit'CaptureMethod'EnumManual
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableSepaDebit'CaptureMethod'Other val
+          | val GHC.Classes.== "manual" -> PaymentIntentPaymentMethodOptions'NonNullableSepaDebit'CaptureMethod'EnumManual
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableSepaDebit'CaptureMethod'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.sepa_debit.anyOf.properties.setup_future_usage@ in the specification.
@@ -5247,10 +5247,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> PaymentIntentPaymentMethodOptions'NonNullableSepaDebit'SetupFutureUsage'EnumNone
-            | val GHC.Classes.== "off_session" -> PaymentIntentPaymentMethodOptions'NonNullableSepaDebit'SetupFutureUsage'EnumOffSession
-            | val GHC.Classes.== "on_session" -> PaymentIntentPaymentMethodOptions'NonNullableSepaDebit'SetupFutureUsage'EnumOnSession
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableSepaDebit'SetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> PaymentIntentPaymentMethodOptions'NonNullableSepaDebit'SetupFutureUsage'EnumNone
+          | val GHC.Classes.== "off_session" -> PaymentIntentPaymentMethodOptions'NonNullableSepaDebit'SetupFutureUsage'EnumOffSession
+          | val GHC.Classes.== "on_session" -> PaymentIntentPaymentMethodOptions'NonNullableSepaDebit'SetupFutureUsage'EnumOnSession
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableSepaDebit'SetupFutureUsage'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.sepa_debit.anyOf.properties.verification_method@ in the specification.
@@ -5280,10 +5280,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> PaymentIntentPaymentMethodOptions'NonNullableSepaDebit'VerificationMethod'EnumAutomatic
-            | val GHC.Classes.== "instant" -> PaymentIntentPaymentMethodOptions'NonNullableSepaDebit'VerificationMethod'EnumInstant
-            | val GHC.Classes.== "microdeposits" -> PaymentIntentPaymentMethodOptions'NonNullableSepaDebit'VerificationMethod'EnumMicrodeposits
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableSepaDebit'VerificationMethod'Other val
+          | val GHC.Classes.== "automatic" -> PaymentIntentPaymentMethodOptions'NonNullableSepaDebit'VerificationMethod'EnumAutomatic
+          | val GHC.Classes.== "instant" -> PaymentIntentPaymentMethodOptions'NonNullableSepaDebit'VerificationMethod'EnumInstant
+          | val GHC.Classes.== "microdeposits" -> PaymentIntentPaymentMethodOptions'NonNullableSepaDebit'VerificationMethod'EnumMicrodeposits
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableSepaDebit'VerificationMethod'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.sofort.anyOf@ in the specification.
@@ -5344,8 +5344,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "manual" -> PaymentIntentPaymentMethodOptions'NonNullableSofort'CaptureMethod'EnumManual
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableSofort'CaptureMethod'Other val
+          | val GHC.Classes.== "manual" -> PaymentIntentPaymentMethodOptions'NonNullableSofort'CaptureMethod'EnumManual
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableSofort'CaptureMethod'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.sofort.anyOf.properties.preferred_language@ in the specification.
@@ -5387,14 +5387,14 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "de" -> PaymentIntentPaymentMethodOptions'NonNullableSofort'PreferredLanguage'NonNullableEnumDe
-            | val GHC.Classes.== "en" -> PaymentIntentPaymentMethodOptions'NonNullableSofort'PreferredLanguage'NonNullableEnumEn
-            | val GHC.Classes.== "es" -> PaymentIntentPaymentMethodOptions'NonNullableSofort'PreferredLanguage'NonNullableEnumEs
-            | val GHC.Classes.== "fr" -> PaymentIntentPaymentMethodOptions'NonNullableSofort'PreferredLanguage'NonNullableEnumFr
-            | val GHC.Classes.== "it" -> PaymentIntentPaymentMethodOptions'NonNullableSofort'PreferredLanguage'NonNullableEnumIt
-            | val GHC.Classes.== "nl" -> PaymentIntentPaymentMethodOptions'NonNullableSofort'PreferredLanguage'NonNullableEnumNl
-            | val GHC.Classes.== "pl" -> PaymentIntentPaymentMethodOptions'NonNullableSofort'PreferredLanguage'NonNullableEnumPl
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableSofort'PreferredLanguage'NonNullableOther val
+          | val GHC.Classes.== "de" -> PaymentIntentPaymentMethodOptions'NonNullableSofort'PreferredLanguage'NonNullableEnumDe
+          | val GHC.Classes.== "en" -> PaymentIntentPaymentMethodOptions'NonNullableSofort'PreferredLanguage'NonNullableEnumEn
+          | val GHC.Classes.== "es" -> PaymentIntentPaymentMethodOptions'NonNullableSofort'PreferredLanguage'NonNullableEnumEs
+          | val GHC.Classes.== "fr" -> PaymentIntentPaymentMethodOptions'NonNullableSofort'PreferredLanguage'NonNullableEnumFr
+          | val GHC.Classes.== "it" -> PaymentIntentPaymentMethodOptions'NonNullableSofort'PreferredLanguage'NonNullableEnumIt
+          | val GHC.Classes.== "nl" -> PaymentIntentPaymentMethodOptions'NonNullableSofort'PreferredLanguage'NonNullableEnumNl
+          | val GHC.Classes.== "pl" -> PaymentIntentPaymentMethodOptions'NonNullableSofort'PreferredLanguage'NonNullableEnumPl
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableSofort'PreferredLanguage'NonNullableOther val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.sofort.anyOf.properties.setup_future_usage@ in the specification.
@@ -5425,9 +5425,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> PaymentIntentPaymentMethodOptions'NonNullableSofort'SetupFutureUsage'EnumNone
-            | val GHC.Classes.== "off_session" -> PaymentIntentPaymentMethodOptions'NonNullableSofort'SetupFutureUsage'EnumOffSession
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableSofort'SetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> PaymentIntentPaymentMethodOptions'NonNullableSofort'SetupFutureUsage'EnumNone
+          | val GHC.Classes.== "off_session" -> PaymentIntentPaymentMethodOptions'NonNullableSofort'SetupFutureUsage'EnumOffSession
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableSofort'SetupFutureUsage'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.sofort.anyOf.properties.verification_method@ in the specification.
@@ -5457,10 +5457,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> PaymentIntentPaymentMethodOptions'NonNullableSofort'VerificationMethod'EnumAutomatic
-            | val GHC.Classes.== "instant" -> PaymentIntentPaymentMethodOptions'NonNullableSofort'VerificationMethod'EnumInstant
-            | val GHC.Classes.== "microdeposits" -> PaymentIntentPaymentMethodOptions'NonNullableSofort'VerificationMethod'EnumMicrodeposits
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableSofort'VerificationMethod'Other val
+          | val GHC.Classes.== "automatic" -> PaymentIntentPaymentMethodOptions'NonNullableSofort'VerificationMethod'EnumAutomatic
+          | val GHC.Classes.== "instant" -> PaymentIntentPaymentMethodOptions'NonNullableSofort'VerificationMethod'EnumInstant
+          | val GHC.Classes.== "microdeposits" -> PaymentIntentPaymentMethodOptions'NonNullableSofort'VerificationMethod'EnumMicrodeposits
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableSofort'VerificationMethod'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.us_bank_account.anyOf@ in the specification.
@@ -5521,8 +5521,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "manual" -> PaymentIntentPaymentMethodOptions'NonNullableUsBankAccount'CaptureMethod'EnumManual
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableUsBankAccount'CaptureMethod'Other val
+          | val GHC.Classes.== "manual" -> PaymentIntentPaymentMethodOptions'NonNullableUsBankAccount'CaptureMethod'EnumManual
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableUsBankAccount'CaptureMethod'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.us_bank_account.anyOf.properties.setup_future_usage@ in the specification.
@@ -5556,10 +5556,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> PaymentIntentPaymentMethodOptions'NonNullableUsBankAccount'SetupFutureUsage'EnumNone
-            | val GHC.Classes.== "off_session" -> PaymentIntentPaymentMethodOptions'NonNullableUsBankAccount'SetupFutureUsage'EnumOffSession
-            | val GHC.Classes.== "on_session" -> PaymentIntentPaymentMethodOptions'NonNullableUsBankAccount'SetupFutureUsage'EnumOnSession
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableUsBankAccount'SetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> PaymentIntentPaymentMethodOptions'NonNullableUsBankAccount'SetupFutureUsage'EnumNone
+          | val GHC.Classes.== "off_session" -> PaymentIntentPaymentMethodOptions'NonNullableUsBankAccount'SetupFutureUsage'EnumOffSession
+          | val GHC.Classes.== "on_session" -> PaymentIntentPaymentMethodOptions'NonNullableUsBankAccount'SetupFutureUsage'EnumOnSession
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableUsBankAccount'SetupFutureUsage'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.us_bank_account.anyOf.properties.verification_method@ in the specification.
@@ -5589,10 +5589,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> PaymentIntentPaymentMethodOptions'NonNullableUsBankAccount'VerificationMethod'EnumAutomatic
-            | val GHC.Classes.== "instant" -> PaymentIntentPaymentMethodOptions'NonNullableUsBankAccount'VerificationMethod'EnumInstant
-            | val GHC.Classes.== "microdeposits" -> PaymentIntentPaymentMethodOptions'NonNullableUsBankAccount'VerificationMethod'EnumMicrodeposits
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableUsBankAccount'VerificationMethod'Other val
+          | val GHC.Classes.== "automatic" -> PaymentIntentPaymentMethodOptions'NonNullableUsBankAccount'VerificationMethod'EnumAutomatic
+          | val GHC.Classes.== "instant" -> PaymentIntentPaymentMethodOptions'NonNullableUsBankAccount'VerificationMethod'EnumInstant
+          | val GHC.Classes.== "microdeposits" -> PaymentIntentPaymentMethodOptions'NonNullableUsBankAccount'VerificationMethod'EnumMicrodeposits
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableUsBankAccount'VerificationMethod'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.wechat_pay.anyOf@ in the specification.
@@ -5660,8 +5660,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "manual" -> PaymentIntentPaymentMethodOptions'NonNullableWechatPay'CaptureMethod'EnumManual
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableWechatPay'CaptureMethod'Other val
+          | val GHC.Classes.== "manual" -> PaymentIntentPaymentMethodOptions'NonNullableWechatPay'CaptureMethod'EnumManual
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableWechatPay'CaptureMethod'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.wechat_pay.anyOf.properties.client@ in the specification.
@@ -5691,10 +5691,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "android" -> PaymentIntentPaymentMethodOptions'NonNullableWechatPay'Client'NonNullableEnumAndroid
-            | val GHC.Classes.== "ios" -> PaymentIntentPaymentMethodOptions'NonNullableWechatPay'Client'NonNullableEnumIos
-            | val GHC.Classes.== "web" -> PaymentIntentPaymentMethodOptions'NonNullableWechatPay'Client'NonNullableEnumWeb
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableWechatPay'Client'NonNullableOther val
+          | val GHC.Classes.== "android" -> PaymentIntentPaymentMethodOptions'NonNullableWechatPay'Client'NonNullableEnumAndroid
+          | val GHC.Classes.== "ios" -> PaymentIntentPaymentMethodOptions'NonNullableWechatPay'Client'NonNullableEnumIos
+          | val GHC.Classes.== "web" -> PaymentIntentPaymentMethodOptions'NonNullableWechatPay'Client'NonNullableEnumWeb
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableWechatPay'Client'NonNullableOther val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.wechat_pay.anyOf.properties.setup_future_usage@ in the specification.
@@ -5722,8 +5722,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> PaymentIntentPaymentMethodOptions'NonNullableWechatPay'SetupFutureUsage'EnumNone
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableWechatPay'SetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> PaymentIntentPaymentMethodOptions'NonNullableWechatPay'SetupFutureUsage'EnumNone
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableWechatPay'SetupFutureUsage'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_intent.properties.payment_method_options.anyOf.properties.wechat_pay.anyOf.properties.verification_method@ in the specification.
@@ -5753,10 +5753,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptions'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> PaymentIntentPaymentMethodOptions'NonNullableWechatPay'VerificationMethod'EnumAutomatic
-            | val GHC.Classes.== "instant" -> PaymentIntentPaymentMethodOptions'NonNullableWechatPay'VerificationMethod'EnumInstant
-            | val GHC.Classes.== "microdeposits" -> PaymentIntentPaymentMethodOptions'NonNullableWechatPay'VerificationMethod'EnumMicrodeposits
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableWechatPay'VerificationMethod'Other val
+          | val GHC.Classes.== "automatic" -> PaymentIntentPaymentMethodOptions'NonNullableWechatPay'VerificationMethod'EnumAutomatic
+          | val GHC.Classes.== "instant" -> PaymentIntentPaymentMethodOptions'NonNullableWechatPay'VerificationMethod'EnumInstant
+          | val GHC.Classes.== "microdeposits" -> PaymentIntentPaymentMethodOptions'NonNullableWechatPay'VerificationMethod'EnumMicrodeposits
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptions'NonNullableWechatPay'VerificationMethod'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.payment_intent.properties.processing.anyOf@ in the specification.
@@ -5809,8 +5809,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentProcessing'NonNullableT
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "card" -> PaymentIntentProcessing'NonNullableType'EnumCard
-            | GHC.Base.otherwise -> PaymentIntentProcessing'NonNullableType'Other val
+          | val GHC.Classes.== "card" -> PaymentIntentProcessing'NonNullableType'EnumCard
+          | GHC.Base.otherwise -> PaymentIntentProcessing'NonNullableType'Other val
       )
 
 -- | Defines the oneOf schema located at @components.schemas.payment_intent.properties.review.anyOf@ in the specification.
@@ -5858,9 +5858,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentSetupFutureUsage'NonNul
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "off_session" -> PaymentIntentSetupFutureUsage'NonNullableEnumOffSession
-            | val GHC.Classes.== "on_session" -> PaymentIntentSetupFutureUsage'NonNullableEnumOnSession
-            | GHC.Base.otherwise -> PaymentIntentSetupFutureUsage'NonNullableOther val
+          | val GHC.Classes.== "off_session" -> PaymentIntentSetupFutureUsage'NonNullableEnumOffSession
+          | val GHC.Classes.== "on_session" -> PaymentIntentSetupFutureUsage'NonNullableEnumOnSession
+          | GHC.Base.otherwise -> PaymentIntentSetupFutureUsage'NonNullableOther val
       )
 
 -- | Defines the object schema located at @components.schemas.payment_intent.properties.shipping.anyOf@ in the specification.
@@ -5956,14 +5956,14 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentStatus' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "canceled" -> PaymentIntentStatus'EnumCanceled
-            | val GHC.Classes.== "processing" -> PaymentIntentStatus'EnumProcessing
-            | val GHC.Classes.== "requires_action" -> PaymentIntentStatus'EnumRequiresAction
-            | val GHC.Classes.== "requires_capture" -> PaymentIntentStatus'EnumRequiresCapture
-            | val GHC.Classes.== "requires_confirmation" -> PaymentIntentStatus'EnumRequiresConfirmation
-            | val GHC.Classes.== "requires_payment_method" -> PaymentIntentStatus'EnumRequiresPaymentMethod
-            | val GHC.Classes.== "succeeded" -> PaymentIntentStatus'EnumSucceeded
-            | GHC.Base.otherwise -> PaymentIntentStatus'Other val
+          | val GHC.Classes.== "canceled" -> PaymentIntentStatus'EnumCanceled
+          | val GHC.Classes.== "processing" -> PaymentIntentStatus'EnumProcessing
+          | val GHC.Classes.== "requires_action" -> PaymentIntentStatus'EnumRequiresAction
+          | val GHC.Classes.== "requires_capture" -> PaymentIntentStatus'EnumRequiresCapture
+          | val GHC.Classes.== "requires_confirmation" -> PaymentIntentStatus'EnumRequiresConfirmation
+          | val GHC.Classes.== "requires_payment_method" -> PaymentIntentStatus'EnumRequiresPaymentMethod
+          | val GHC.Classes.== "succeeded" -> PaymentIntentStatus'EnumSucceeded
+          | GHC.Base.otherwise -> PaymentIntentStatus'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.payment_intent.properties.transfer_data.anyOf@ in the specification.

@@ -96,11 +96,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentMethodOptionsBancontactPrefer
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "de" -> PaymentMethodOptionsBancontactPreferredLanguage'EnumDe
-            | val GHC.Classes.== "en" -> PaymentMethodOptionsBancontactPreferredLanguage'EnumEn
-            | val GHC.Classes.== "fr" -> PaymentMethodOptionsBancontactPreferredLanguage'EnumFr
-            | val GHC.Classes.== "nl" -> PaymentMethodOptionsBancontactPreferredLanguage'EnumNl
-            | GHC.Base.otherwise -> PaymentMethodOptionsBancontactPreferredLanguage'Other val
+          | val GHC.Classes.== "de" -> PaymentMethodOptionsBancontactPreferredLanguage'EnumDe
+          | val GHC.Classes.== "en" -> PaymentMethodOptionsBancontactPreferredLanguage'EnumEn
+          | val GHC.Classes.== "fr" -> PaymentMethodOptionsBancontactPreferredLanguage'EnumFr
+          | val GHC.Classes.== "nl" -> PaymentMethodOptionsBancontactPreferredLanguage'EnumNl
+          | GHC.Base.otherwise -> PaymentMethodOptionsBancontactPreferredLanguage'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_method_options_bancontact.properties.setup_future_usage@ in the specification.
@@ -131,7 +131,7 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentMethodOptionsBancontactSetupF
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> PaymentMethodOptionsBancontactSetupFutureUsage'EnumNone
-            | val GHC.Classes.== "off_session" -> PaymentMethodOptionsBancontactSetupFutureUsage'EnumOffSession
-            | GHC.Base.otherwise -> PaymentMethodOptionsBancontactSetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> PaymentMethodOptionsBancontactSetupFutureUsage'EnumNone
+          | val GHC.Classes.== "off_session" -> PaymentMethodOptionsBancontactSetupFutureUsage'EnumOffSession
+          | GHC.Base.otherwise -> PaymentMethodOptionsBancontactSetupFutureUsage'Other val
       )

@@ -48,7 +48,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>Deletes an item from the subscription. Removing a subscription item from a subscription will not cancel the subscription.\<\/p>
 deleteSubscriptionItemsItem ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | item | Constraints: Maximum length of 5000
   Data.Text.Internal.Text ->
   -- | The request body to send
@@ -64,21 +64,21 @@ deleteSubscriptionItemsItem
             ( Data.Either.either DeleteSubscriptionItemsItemResponseError GHC.Base.id
                 GHC.Base.. ( \response body ->
                                if
-                                   | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                      DeleteSubscriptionItemsItemResponse200
                                        Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                             Data.Either.Either
                                                               GHC.Base.String
                                                               DeletedSubscriptionItem
                                                         )
-                                   | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                      DeleteSubscriptionItemsItemResponseDefault
                                        Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                             Data.Either.Either
                                                               GHC.Base.String
                                                               Error
                                                         )
-                                   | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                            )
                   response_0
             )
@@ -143,10 +143,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON DeleteSubscriptionItemsItemRequestBo
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "always_invoice" -> DeleteSubscriptionItemsItemRequestBodyProrationBehavior'EnumAlwaysInvoice
-            | val GHC.Classes.== "create_prorations" -> DeleteSubscriptionItemsItemRequestBodyProrationBehavior'EnumCreateProrations
-            | val GHC.Classes.== "none" -> DeleteSubscriptionItemsItemRequestBodyProrationBehavior'EnumNone
-            | GHC.Base.otherwise -> DeleteSubscriptionItemsItemRequestBodyProrationBehavior'Other val
+          | val GHC.Classes.== "always_invoice" -> DeleteSubscriptionItemsItemRequestBodyProrationBehavior'EnumAlwaysInvoice
+          | val GHC.Classes.== "create_prorations" -> DeleteSubscriptionItemsItemRequestBodyProrationBehavior'EnumCreateProrations
+          | val GHC.Classes.== "none" -> DeleteSubscriptionItemsItemRequestBodyProrationBehavior'EnumNone
+          | GHC.Base.otherwise -> DeleteSubscriptionItemsItemRequestBodyProrationBehavior'Other val
       )
 
 -- | Represents a response of the operation 'deleteSubscriptionItemsItem'.

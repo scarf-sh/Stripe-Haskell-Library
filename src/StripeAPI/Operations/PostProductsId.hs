@@ -48,7 +48,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>Updates the specific product by setting the values of the parameters passed. Any parameters not provided will be left unchanged.\<\/p>
 postProductsId ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | id | Constraints: Maximum length of 5000
   Data.Text.Internal.Text ->
   -- | The request body to send
@@ -64,21 +64,21 @@ postProductsId
             ( Data.Either.either PostProductsIdResponseError GHC.Base.id
                 GHC.Base.. ( \response body ->
                                if
-                                   | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                      PostProductsIdResponse200
                                        Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                             Data.Either.Either
                                                               GHC.Base.String
                                                               Product
                                                         )
-                                   | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                      PostProductsIdResponseDefault
                                        Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                             Data.Either.Either
                                                               GHC.Base.String
                                                               Error
                                                         )
-                                   | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                            )
                   response_0
             )
@@ -185,8 +185,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostProductsIdRequestBodyImages'Variants
 instance Data.Aeson.Types.FromJSON.FromJSON PostProductsIdRequestBodyImages'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostProductsIdRequestBodyImages'EmptyString
-        | GHC.Base.otherwise -> case (PostProductsIdRequestBodyImages'ListTText Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostProductsIdRequestBodyImages'EmptyString
+      | GHC.Base.otherwise -> case (PostProductsIdRequestBodyImages'ListTText Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -206,8 +206,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostProductsIdRequestBodyMetadata'Varian
 instance Data.Aeson.Types.FromJSON.FromJSON PostProductsIdRequestBodyMetadata'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostProductsIdRequestBodyMetadata'EmptyString
-        | GHC.Base.otherwise -> case (PostProductsIdRequestBodyMetadata'Object Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostProductsIdRequestBodyMetadata'EmptyString
+      | GHC.Base.otherwise -> case (PostProductsIdRequestBodyMetadata'Object Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -269,8 +269,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostProductsIdRequestBodyPackageDimensio
 instance Data.Aeson.Types.FromJSON.FromJSON PostProductsIdRequestBodyPackageDimensions'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostProductsIdRequestBodyPackageDimensions'EmptyString
-        | GHC.Base.otherwise -> case (PostProductsIdRequestBodyPackageDimensions'PostProductsIdRequestBodyPackageDimensions'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostProductsIdRequestBodyPackageDimensions'EmptyString
+      | GHC.Base.otherwise -> case (PostProductsIdRequestBodyPackageDimensions'PostProductsIdRequestBodyPackageDimensions'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -290,8 +290,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostProductsIdRequestBodyTaxCode'Variant
 instance Data.Aeson.Types.FromJSON.FromJSON PostProductsIdRequestBodyTaxCode'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostProductsIdRequestBodyTaxCode'EmptyString
-        | GHC.Base.otherwise -> case (PostProductsIdRequestBodyTaxCode'Text Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostProductsIdRequestBodyTaxCode'EmptyString
+      | GHC.Base.otherwise -> case (PostProductsIdRequestBodyTaxCode'Text Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -311,8 +311,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostProductsIdRequestBodyUrl'Variants wh
 instance Data.Aeson.Types.FromJSON.FromJSON PostProductsIdRequestBodyUrl'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostProductsIdRequestBodyUrl'EmptyString
-        | GHC.Base.otherwise -> case (PostProductsIdRequestBodyUrl'Text Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostProductsIdRequestBodyUrl'EmptyString
+      | GHC.Base.otherwise -> case (PostProductsIdRequestBodyUrl'Text Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 

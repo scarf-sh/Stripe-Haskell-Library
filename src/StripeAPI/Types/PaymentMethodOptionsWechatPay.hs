@@ -97,10 +97,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentMethodOptionsWechatPayClient'
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "android" -> PaymentMethodOptionsWechatPayClient'NonNullableEnumAndroid
-            | val GHC.Classes.== "ios" -> PaymentMethodOptionsWechatPayClient'NonNullableEnumIos
-            | val GHC.Classes.== "web" -> PaymentMethodOptionsWechatPayClient'NonNullableEnumWeb
-            | GHC.Base.otherwise -> PaymentMethodOptionsWechatPayClient'NonNullableOther val
+          | val GHC.Classes.== "android" -> PaymentMethodOptionsWechatPayClient'NonNullableEnumAndroid
+          | val GHC.Classes.== "ios" -> PaymentMethodOptionsWechatPayClient'NonNullableEnumIos
+          | val GHC.Classes.== "web" -> PaymentMethodOptionsWechatPayClient'NonNullableEnumWeb
+          | GHC.Base.otherwise -> PaymentMethodOptionsWechatPayClient'NonNullableOther val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_method_options_wechat_pay.properties.setup_future_usage@ in the specification.
@@ -128,6 +128,6 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentMethodOptionsWechatPaySetupFu
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> PaymentMethodOptionsWechatPaySetupFutureUsage'EnumNone
-            | GHC.Base.otherwise -> PaymentMethodOptionsWechatPaySetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> PaymentMethodOptionsWechatPaySetupFutureUsage'EnumNone
+          | GHC.Base.otherwise -> PaymentMethodOptionsWechatPaySetupFutureUsage'Other val
       )

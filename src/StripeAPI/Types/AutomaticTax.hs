@@ -89,8 +89,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON AutomaticTaxStatus'NonNullable where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "complete" -> AutomaticTaxStatus'NonNullableEnumComplete
-            | val GHC.Classes.== "failed" -> AutomaticTaxStatus'NonNullableEnumFailed
-            | val GHC.Classes.== "requires_location_inputs" -> AutomaticTaxStatus'NonNullableEnumRequiresLocationInputs
-            | GHC.Base.otherwise -> AutomaticTaxStatus'NonNullableOther val
+          | val GHC.Classes.== "complete" -> AutomaticTaxStatus'NonNullableEnumComplete
+          | val GHC.Classes.== "failed" -> AutomaticTaxStatus'NonNullableEnumFailed
+          | val GHC.Classes.== "requires_location_inputs" -> AutomaticTaxStatus'NonNullableEnumRequiresLocationInputs
+          | GHC.Base.otherwise -> AutomaticTaxStatus'NonNullableOther val
       )

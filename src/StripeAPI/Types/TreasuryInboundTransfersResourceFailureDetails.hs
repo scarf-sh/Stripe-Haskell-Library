@@ -113,18 +113,18 @@ instance Data.Aeson.Types.FromJSON.FromJSON TreasuryInboundTransfersResourceFail
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "account_closed" -> TreasuryInboundTransfersResourceFailureDetailsCode'EnumAccountClosed
-            | val GHC.Classes.== "account_frozen" -> TreasuryInboundTransfersResourceFailureDetailsCode'EnumAccountFrozen
-            | val GHC.Classes.== "bank_account_restricted" -> TreasuryInboundTransfersResourceFailureDetailsCode'EnumBankAccountRestricted
-            | val GHC.Classes.== "bank_ownership_changed" -> TreasuryInboundTransfersResourceFailureDetailsCode'EnumBankOwnershipChanged
-            | val GHC.Classes.== "debit_not_authorized" -> TreasuryInboundTransfersResourceFailureDetailsCode'EnumDebitNotAuthorized
-            | val GHC.Classes.== "incorrect_account_holder_address" -> TreasuryInboundTransfersResourceFailureDetailsCode'EnumIncorrectAccountHolderAddress
-            | val GHC.Classes.== "incorrect_account_holder_name" -> TreasuryInboundTransfersResourceFailureDetailsCode'EnumIncorrectAccountHolderName
-            | val GHC.Classes.== "incorrect_account_holder_tax_id" -> TreasuryInboundTransfersResourceFailureDetailsCode'EnumIncorrectAccountHolderTaxId
-            | val GHC.Classes.== "insufficient_funds" -> TreasuryInboundTransfersResourceFailureDetailsCode'EnumInsufficientFunds
-            | val GHC.Classes.== "invalid_account_number" -> TreasuryInboundTransfersResourceFailureDetailsCode'EnumInvalidAccountNumber
-            | val GHC.Classes.== "invalid_currency" -> TreasuryInboundTransfersResourceFailureDetailsCode'EnumInvalidCurrency
-            | val GHC.Classes.== "no_account" -> TreasuryInboundTransfersResourceFailureDetailsCode'EnumNoAccount
-            | val GHC.Classes.== "other" -> TreasuryInboundTransfersResourceFailureDetailsCode'EnumOther
-            | GHC.Base.otherwise -> TreasuryInboundTransfersResourceFailureDetailsCode'Other val
+          | val GHC.Classes.== "account_closed" -> TreasuryInboundTransfersResourceFailureDetailsCode'EnumAccountClosed
+          | val GHC.Classes.== "account_frozen" -> TreasuryInboundTransfersResourceFailureDetailsCode'EnumAccountFrozen
+          | val GHC.Classes.== "bank_account_restricted" -> TreasuryInboundTransfersResourceFailureDetailsCode'EnumBankAccountRestricted
+          | val GHC.Classes.== "bank_ownership_changed" -> TreasuryInboundTransfersResourceFailureDetailsCode'EnumBankOwnershipChanged
+          | val GHC.Classes.== "debit_not_authorized" -> TreasuryInboundTransfersResourceFailureDetailsCode'EnumDebitNotAuthorized
+          | val GHC.Classes.== "incorrect_account_holder_address" -> TreasuryInboundTransfersResourceFailureDetailsCode'EnumIncorrectAccountHolderAddress
+          | val GHC.Classes.== "incorrect_account_holder_name" -> TreasuryInboundTransfersResourceFailureDetailsCode'EnumIncorrectAccountHolderName
+          | val GHC.Classes.== "incorrect_account_holder_tax_id" -> TreasuryInboundTransfersResourceFailureDetailsCode'EnumIncorrectAccountHolderTaxId
+          | val GHC.Classes.== "insufficient_funds" -> TreasuryInboundTransfersResourceFailureDetailsCode'EnumInsufficientFunds
+          | val GHC.Classes.== "invalid_account_number" -> TreasuryInboundTransfersResourceFailureDetailsCode'EnumInvalidAccountNumber
+          | val GHC.Classes.== "invalid_currency" -> TreasuryInboundTransfersResourceFailureDetailsCode'EnumInvalidCurrency
+          | val GHC.Classes.== "no_account" -> TreasuryInboundTransfersResourceFailureDetailsCode'EnumNoAccount
+          | val GHC.Classes.== "other" -> TreasuryInboundTransfersResourceFailureDetailsCode'EnumOther
+          | GHC.Base.otherwise -> TreasuryInboundTransfersResourceFailureDetailsCode'Other val
       )

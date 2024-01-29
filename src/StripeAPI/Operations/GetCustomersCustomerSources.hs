@@ -48,7 +48,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>List sources for a specified customer.\<\/p>
 getCustomersCustomerSources ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | Contains all available parameters of this operation (query and path parameters)
   GetCustomersCustomerSourcesParameters ->
   -- | Monadic computation which returns the result of the operation
@@ -60,21 +60,21 @@ getCustomersCustomerSources parameters =
           ( Data.Either.either GetCustomersCustomerSourcesResponseError GHC.Base.id
               GHC.Base.. ( \response body ->
                              if
-                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                               | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                    GetCustomersCustomerSourcesResponse200
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             GetCustomersCustomerSourcesResponseBody200
                                                       )
-                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                               | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                    GetCustomersCustomerSourcesResponseDefault
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             Error
                                                       )
-                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                               | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                          )
                 response_0
           )
@@ -658,9 +658,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON GetCustomersCustomerSourcesResponseB
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "instant" -> GetCustomersCustomerSourcesResponseBody200Data'AvailablePayoutMethods'NonNullableEnumInstant
-            | val GHC.Classes.== "standard" -> GetCustomersCustomerSourcesResponseBody200Data'AvailablePayoutMethods'NonNullableEnumStandard
-            | GHC.Base.otherwise -> GetCustomersCustomerSourcesResponseBody200Data'AvailablePayoutMethods'NonNullableOther val
+          | val GHC.Classes.== "instant" -> GetCustomersCustomerSourcesResponseBody200Data'AvailablePayoutMethods'NonNullableEnumInstant
+          | val GHC.Classes.== "standard" -> GetCustomersCustomerSourcesResponseBody200Data'AvailablePayoutMethods'NonNullableEnumStandard
+          | GHC.Base.otherwise -> GetCustomersCustomerSourcesResponseBody200Data'AvailablePayoutMethods'NonNullableOther val
       )
 
 -- | Defines the oneOf schema located at @paths.\/v1\/customers\/{customer}\/sources.GET.responses.200.content.application\/json.schema.properties.data.items.anyOf.properties.customer.anyOf@ in the specification.
@@ -703,8 +703,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON GetCustomersCustomerSourcesResponseB
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "alipay_account" -> GetCustomersCustomerSourcesResponseBody200Data'Object'EnumAlipayAccount
-            | GHC.Base.otherwise -> GetCustomersCustomerSourcesResponseBody200Data'Object'Other val
+          | val GHC.Classes.== "alipay_account" -> GetCustomersCustomerSourcesResponseBody200Data'Object'EnumAlipayAccount
+          | GHC.Base.otherwise -> GetCustomersCustomerSourcesResponseBody200Data'Object'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/customers\/{customer}\/sources.GET.responses.200.content.application\/json.schema.properties.data.items.anyOf.properties.owner.anyOf@ in the specification.
@@ -1040,23 +1040,23 @@ instance Data.Aeson.Types.FromJSON.FromJSON GetCustomersCustomerSourcesResponseB
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "ach_credit_transfer" -> GetCustomersCustomerSourcesResponseBody200Data'Type'EnumAchCreditTransfer
-            | val GHC.Classes.== "ach_debit" -> GetCustomersCustomerSourcesResponseBody200Data'Type'EnumAchDebit
-            | val GHC.Classes.== "acss_debit" -> GetCustomersCustomerSourcesResponseBody200Data'Type'EnumAcssDebit
-            | val GHC.Classes.== "alipay" -> GetCustomersCustomerSourcesResponseBody200Data'Type'EnumAlipay
-            | val GHC.Classes.== "au_becs_debit" -> GetCustomersCustomerSourcesResponseBody200Data'Type'EnumAuBecsDebit
-            | val GHC.Classes.== "bancontact" -> GetCustomersCustomerSourcesResponseBody200Data'Type'EnumBancontact
-            | val GHC.Classes.== "card" -> GetCustomersCustomerSourcesResponseBody200Data'Type'EnumCard
-            | val GHC.Classes.== "card_present" -> GetCustomersCustomerSourcesResponseBody200Data'Type'EnumCardPresent
-            | val GHC.Classes.== "eps" -> GetCustomersCustomerSourcesResponseBody200Data'Type'EnumEps
-            | val GHC.Classes.== "giropay" -> GetCustomersCustomerSourcesResponseBody200Data'Type'EnumGiropay
-            | val GHC.Classes.== "ideal" -> GetCustomersCustomerSourcesResponseBody200Data'Type'EnumIdeal
-            | val GHC.Classes.== "klarna" -> GetCustomersCustomerSourcesResponseBody200Data'Type'EnumKlarna
-            | val GHC.Classes.== "multibanco" -> GetCustomersCustomerSourcesResponseBody200Data'Type'EnumMultibanco
-            | val GHC.Classes.== "p24" -> GetCustomersCustomerSourcesResponseBody200Data'Type'EnumP24
-            | val GHC.Classes.== "sepa_debit" -> GetCustomersCustomerSourcesResponseBody200Data'Type'EnumSepaDebit
-            | val GHC.Classes.== "sofort" -> GetCustomersCustomerSourcesResponseBody200Data'Type'EnumSofort
-            | val GHC.Classes.== "three_d_secure" -> GetCustomersCustomerSourcesResponseBody200Data'Type'EnumThreeDSecure
-            | val GHC.Classes.== "wechat" -> GetCustomersCustomerSourcesResponseBody200Data'Type'EnumWechat
-            | GHC.Base.otherwise -> GetCustomersCustomerSourcesResponseBody200Data'Type'Other val
+          | val GHC.Classes.== "ach_credit_transfer" -> GetCustomersCustomerSourcesResponseBody200Data'Type'EnumAchCreditTransfer
+          | val GHC.Classes.== "ach_debit" -> GetCustomersCustomerSourcesResponseBody200Data'Type'EnumAchDebit
+          | val GHC.Classes.== "acss_debit" -> GetCustomersCustomerSourcesResponseBody200Data'Type'EnumAcssDebit
+          | val GHC.Classes.== "alipay" -> GetCustomersCustomerSourcesResponseBody200Data'Type'EnumAlipay
+          | val GHC.Classes.== "au_becs_debit" -> GetCustomersCustomerSourcesResponseBody200Data'Type'EnumAuBecsDebit
+          | val GHC.Classes.== "bancontact" -> GetCustomersCustomerSourcesResponseBody200Data'Type'EnumBancontact
+          | val GHC.Classes.== "card" -> GetCustomersCustomerSourcesResponseBody200Data'Type'EnumCard
+          | val GHC.Classes.== "card_present" -> GetCustomersCustomerSourcesResponseBody200Data'Type'EnumCardPresent
+          | val GHC.Classes.== "eps" -> GetCustomersCustomerSourcesResponseBody200Data'Type'EnumEps
+          | val GHC.Classes.== "giropay" -> GetCustomersCustomerSourcesResponseBody200Data'Type'EnumGiropay
+          | val GHC.Classes.== "ideal" -> GetCustomersCustomerSourcesResponseBody200Data'Type'EnumIdeal
+          | val GHC.Classes.== "klarna" -> GetCustomersCustomerSourcesResponseBody200Data'Type'EnumKlarna
+          | val GHC.Classes.== "multibanco" -> GetCustomersCustomerSourcesResponseBody200Data'Type'EnumMultibanco
+          | val GHC.Classes.== "p24" -> GetCustomersCustomerSourcesResponseBody200Data'Type'EnumP24
+          | val GHC.Classes.== "sepa_debit" -> GetCustomersCustomerSourcesResponseBody200Data'Type'EnumSepaDebit
+          | val GHC.Classes.== "sofort" -> GetCustomersCustomerSourcesResponseBody200Data'Type'EnumSofort
+          | val GHC.Classes.== "three_d_secure" -> GetCustomersCustomerSourcesResponseBody200Data'Type'EnumThreeDSecure
+          | val GHC.Classes.== "wechat" -> GetCustomersCustomerSourcesResponseBody200Data'Type'EnumWechat
+          | GHC.Base.otherwise -> GetCustomersCustomerSourcesResponseBody200Data'Type'Other val
       )

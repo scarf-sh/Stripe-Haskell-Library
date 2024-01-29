@@ -48,7 +48,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>Update a specified source for a given customer.\<\/p>
 postCustomersCustomerCardsId ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | Contains all available parameters of this operation (query and path parameters)
   PostCustomersCustomerCardsIdParameters ->
   -- | The request body to send
@@ -64,21 +64,21 @@ postCustomersCustomerCardsId
             ( Data.Either.either PostCustomersCustomerCardsIdResponseError GHC.Base.id
                 GHC.Base.. ( \response body ->
                                if
-                                   | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                      PostCustomersCustomerCardsIdResponse200
                                        Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                             Data.Either.Either
                                                               GHC.Base.String
                                                               PostCustomersCustomerCardsIdResponseBody200
                                                         )
-                                   | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                      PostCustomersCustomerCardsIdResponseDefault
                                        Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                             Data.Either.Either
                                                               GHC.Base.String
                                                               Error
                                                         )
-                                   | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                            )
                   response_0
             )
@@ -257,9 +257,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostCustomersCustomerCardsIdRequestB
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "company" -> PostCustomersCustomerCardsIdRequestBodyAccountHolderType'EnumCompany
-            | val GHC.Classes.== "individual" -> PostCustomersCustomerCardsIdRequestBodyAccountHolderType'EnumIndividual
-            | GHC.Base.otherwise -> PostCustomersCustomerCardsIdRequestBodyAccountHolderType'Other val
+          | val GHC.Classes.== "company" -> PostCustomersCustomerCardsIdRequestBodyAccountHolderType'EnumCompany
+          | val GHC.Classes.== "individual" -> PostCustomersCustomerCardsIdRequestBodyAccountHolderType'EnumIndividual
+          | GHC.Base.otherwise -> PostCustomersCustomerCardsIdRequestBodyAccountHolderType'Other val
       )
 
 -- | Defines the oneOf schema located at @paths.\/v1\/customers\/{customer}\/cards\/{id}.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.metadata.anyOf@ in the specification.
@@ -278,8 +278,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostCustomersCustomerCardsIdRequestBodyM
 instance Data.Aeson.Types.FromJSON.FromJSON PostCustomersCustomerCardsIdRequestBodyMetadata'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostCustomersCustomerCardsIdRequestBodyMetadata'EmptyString
-        | GHC.Base.otherwise -> case (PostCustomersCustomerCardsIdRequestBodyMetadata'Object Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostCustomersCustomerCardsIdRequestBodyMetadata'EmptyString
+      | GHC.Base.otherwise -> case (PostCustomersCustomerCardsIdRequestBodyMetadata'Object Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -768,9 +768,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostCustomersCustomerCardsIdResponse
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "instant" -> PostCustomersCustomerCardsIdResponseBody200AvailablePayoutMethods'NonNullableEnumInstant
-            | val GHC.Classes.== "standard" -> PostCustomersCustomerCardsIdResponseBody200AvailablePayoutMethods'NonNullableEnumStandard
-            | GHC.Base.otherwise -> PostCustomersCustomerCardsIdResponseBody200AvailablePayoutMethods'NonNullableOther val
+          | val GHC.Classes.== "instant" -> PostCustomersCustomerCardsIdResponseBody200AvailablePayoutMethods'NonNullableEnumInstant
+          | val GHC.Classes.== "standard" -> PostCustomersCustomerCardsIdResponseBody200AvailablePayoutMethods'NonNullableEnumStandard
+          | GHC.Base.otherwise -> PostCustomersCustomerCardsIdResponseBody200AvailablePayoutMethods'NonNullableOther val
       )
 
 -- | Defines the oneOf schema located at @paths.\/v1\/customers\/{customer}\/cards\/{id}.POST.responses.200.content.application\/json.schema.anyOf.properties.customer.anyOf@ in the specification.
@@ -813,8 +813,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostCustomersCustomerCardsIdResponse
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "card" -> PostCustomersCustomerCardsIdResponseBody200Object'EnumCard
-            | GHC.Base.otherwise -> PostCustomersCustomerCardsIdResponseBody200Object'Other val
+          | val GHC.Classes.== "card" -> PostCustomersCustomerCardsIdResponseBody200Object'EnumCard
+          | GHC.Base.otherwise -> PostCustomersCustomerCardsIdResponseBody200Object'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/customers\/{customer}\/cards\/{id}.POST.responses.200.content.application\/json.schema.anyOf.properties.owner.anyOf@ in the specification.
@@ -1107,23 +1107,23 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostCustomersCustomerCardsIdResponse
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "ach_credit_transfer" -> PostCustomersCustomerCardsIdResponseBody200Type'EnumAchCreditTransfer
-            | val GHC.Classes.== "ach_debit" -> PostCustomersCustomerCardsIdResponseBody200Type'EnumAchDebit
-            | val GHC.Classes.== "acss_debit" -> PostCustomersCustomerCardsIdResponseBody200Type'EnumAcssDebit
-            | val GHC.Classes.== "alipay" -> PostCustomersCustomerCardsIdResponseBody200Type'EnumAlipay
-            | val GHC.Classes.== "au_becs_debit" -> PostCustomersCustomerCardsIdResponseBody200Type'EnumAuBecsDebit
-            | val GHC.Classes.== "bancontact" -> PostCustomersCustomerCardsIdResponseBody200Type'EnumBancontact
-            | val GHC.Classes.== "card" -> PostCustomersCustomerCardsIdResponseBody200Type'EnumCard
-            | val GHC.Classes.== "card_present" -> PostCustomersCustomerCardsIdResponseBody200Type'EnumCardPresent
-            | val GHC.Classes.== "eps" -> PostCustomersCustomerCardsIdResponseBody200Type'EnumEps
-            | val GHC.Classes.== "giropay" -> PostCustomersCustomerCardsIdResponseBody200Type'EnumGiropay
-            | val GHC.Classes.== "ideal" -> PostCustomersCustomerCardsIdResponseBody200Type'EnumIdeal
-            | val GHC.Classes.== "klarna" -> PostCustomersCustomerCardsIdResponseBody200Type'EnumKlarna
-            | val GHC.Classes.== "multibanco" -> PostCustomersCustomerCardsIdResponseBody200Type'EnumMultibanco
-            | val GHC.Classes.== "p24" -> PostCustomersCustomerCardsIdResponseBody200Type'EnumP24
-            | val GHC.Classes.== "sepa_debit" -> PostCustomersCustomerCardsIdResponseBody200Type'EnumSepaDebit
-            | val GHC.Classes.== "sofort" -> PostCustomersCustomerCardsIdResponseBody200Type'EnumSofort
-            | val GHC.Classes.== "three_d_secure" -> PostCustomersCustomerCardsIdResponseBody200Type'EnumThreeDSecure
-            | val GHC.Classes.== "wechat" -> PostCustomersCustomerCardsIdResponseBody200Type'EnumWechat
-            | GHC.Base.otherwise -> PostCustomersCustomerCardsIdResponseBody200Type'Other val
+          | val GHC.Classes.== "ach_credit_transfer" -> PostCustomersCustomerCardsIdResponseBody200Type'EnumAchCreditTransfer
+          | val GHC.Classes.== "ach_debit" -> PostCustomersCustomerCardsIdResponseBody200Type'EnumAchDebit
+          | val GHC.Classes.== "acss_debit" -> PostCustomersCustomerCardsIdResponseBody200Type'EnumAcssDebit
+          | val GHC.Classes.== "alipay" -> PostCustomersCustomerCardsIdResponseBody200Type'EnumAlipay
+          | val GHC.Classes.== "au_becs_debit" -> PostCustomersCustomerCardsIdResponseBody200Type'EnumAuBecsDebit
+          | val GHC.Classes.== "bancontact" -> PostCustomersCustomerCardsIdResponseBody200Type'EnumBancontact
+          | val GHC.Classes.== "card" -> PostCustomersCustomerCardsIdResponseBody200Type'EnumCard
+          | val GHC.Classes.== "card_present" -> PostCustomersCustomerCardsIdResponseBody200Type'EnumCardPresent
+          | val GHC.Classes.== "eps" -> PostCustomersCustomerCardsIdResponseBody200Type'EnumEps
+          | val GHC.Classes.== "giropay" -> PostCustomersCustomerCardsIdResponseBody200Type'EnumGiropay
+          | val GHC.Classes.== "ideal" -> PostCustomersCustomerCardsIdResponseBody200Type'EnumIdeal
+          | val GHC.Classes.== "klarna" -> PostCustomersCustomerCardsIdResponseBody200Type'EnumKlarna
+          | val GHC.Classes.== "multibanco" -> PostCustomersCustomerCardsIdResponseBody200Type'EnumMultibanco
+          | val GHC.Classes.== "p24" -> PostCustomersCustomerCardsIdResponseBody200Type'EnumP24
+          | val GHC.Classes.== "sepa_debit" -> PostCustomersCustomerCardsIdResponseBody200Type'EnumSepaDebit
+          | val GHC.Classes.== "sofort" -> PostCustomersCustomerCardsIdResponseBody200Type'EnumSofort
+          | val GHC.Classes.== "three_d_secure" -> PostCustomersCustomerCardsIdResponseBody200Type'EnumThreeDSecure
+          | val GHC.Classes.== "wechat" -> PostCustomersCustomerCardsIdResponseBody200Type'EnumWechat
+          | GHC.Base.otherwise -> PostCustomersCustomerCardsIdResponseBody200Type'Other val
       )

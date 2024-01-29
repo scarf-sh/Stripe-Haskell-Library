@@ -104,8 +104,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON TreasurySharedResourceInitiatingPaym
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "payments" -> TreasurySharedResourceInitiatingPaymentMethodDetailsInitiatingPaymentMethodDetailsBalance'EnumPayments
-            | GHC.Base.otherwise -> TreasurySharedResourceInitiatingPaymentMethodDetailsInitiatingPaymentMethodDetailsBalance'Other val
+          | val GHC.Classes.== "payments" -> TreasurySharedResourceInitiatingPaymentMethodDetailsInitiatingPaymentMethodDetailsBalance'EnumPayments
+          | GHC.Base.otherwise -> TreasurySharedResourceInitiatingPaymentMethodDetailsInitiatingPaymentMethodDetailsBalance'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.treasury_shared_resource_initiating_payment_method_details_initiating_payment_method_details.properties.type@ in the specification.
@@ -141,10 +141,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON TreasurySharedResourceInitiatingPaym
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "balance" -> TreasurySharedResourceInitiatingPaymentMethodDetailsInitiatingPaymentMethodDetailsType'EnumBalance
-            | val GHC.Classes.== "financial_account" -> TreasurySharedResourceInitiatingPaymentMethodDetailsInitiatingPaymentMethodDetailsType'EnumFinancialAccount
-            | val GHC.Classes.== "issuing_card" -> TreasurySharedResourceInitiatingPaymentMethodDetailsInitiatingPaymentMethodDetailsType'EnumIssuingCard
-            | val GHC.Classes.== "stripe" -> TreasurySharedResourceInitiatingPaymentMethodDetailsInitiatingPaymentMethodDetailsType'EnumStripe
-            | val GHC.Classes.== "us_bank_account" -> TreasurySharedResourceInitiatingPaymentMethodDetailsInitiatingPaymentMethodDetailsType'EnumUsBankAccount
-            | GHC.Base.otherwise -> TreasurySharedResourceInitiatingPaymentMethodDetailsInitiatingPaymentMethodDetailsType'Other val
+          | val GHC.Classes.== "balance" -> TreasurySharedResourceInitiatingPaymentMethodDetailsInitiatingPaymentMethodDetailsType'EnumBalance
+          | val GHC.Classes.== "financial_account" -> TreasurySharedResourceInitiatingPaymentMethodDetailsInitiatingPaymentMethodDetailsType'EnumFinancialAccount
+          | val GHC.Classes.== "issuing_card" -> TreasurySharedResourceInitiatingPaymentMethodDetailsInitiatingPaymentMethodDetailsType'EnumIssuingCard
+          | val GHC.Classes.== "stripe" -> TreasurySharedResourceInitiatingPaymentMethodDetailsInitiatingPaymentMethodDetailsType'EnumStripe
+          | val GHC.Classes.== "us_bank_account" -> TreasurySharedResourceInitiatingPaymentMethodDetailsInitiatingPaymentMethodDetailsType'EnumUsBankAccount
+          | GHC.Base.otherwise -> TreasurySharedResourceInitiatingPaymentMethodDetailsInitiatingPaymentMethodDetailsType'Other val
       )

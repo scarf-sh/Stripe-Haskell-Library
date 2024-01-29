@@ -150,12 +150,12 @@ instance Data.Aeson.Types.FromJSON.FromJSON Issuing'disputeStatus' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "expired" -> Issuing'disputeStatus'EnumExpired
-            | val GHC.Classes.== "lost" -> Issuing'disputeStatus'EnumLost
-            | val GHC.Classes.== "submitted" -> Issuing'disputeStatus'EnumSubmitted
-            | val GHC.Classes.== "unsubmitted" -> Issuing'disputeStatus'EnumUnsubmitted
-            | val GHC.Classes.== "won" -> Issuing'disputeStatus'EnumWon
-            | GHC.Base.otherwise -> Issuing'disputeStatus'Other val
+          | val GHC.Classes.== "expired" -> Issuing'disputeStatus'EnumExpired
+          | val GHC.Classes.== "lost" -> Issuing'disputeStatus'EnumLost
+          | val GHC.Classes.== "submitted" -> Issuing'disputeStatus'EnumSubmitted
+          | val GHC.Classes.== "unsubmitted" -> Issuing'disputeStatus'EnumUnsubmitted
+          | val GHC.Classes.== "won" -> Issuing'disputeStatus'EnumWon
+          | GHC.Base.otherwise -> Issuing'disputeStatus'Other val
       )
 
 -- | Defines the oneOf schema located at @components.schemas.issuing.dispute.properties.transaction.anyOf@ in the specification.

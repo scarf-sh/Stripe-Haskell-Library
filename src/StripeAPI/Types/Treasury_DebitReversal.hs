@@ -183,9 +183,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON Treasury'debitReversalNetwork' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "ach" -> Treasury'debitReversalNetwork'EnumAch
-            | val GHC.Classes.== "card" -> Treasury'debitReversalNetwork'EnumCard
-            | GHC.Base.otherwise -> Treasury'debitReversalNetwork'Other val
+          | val GHC.Classes.== "ach" -> Treasury'debitReversalNetwork'EnumAch
+          | val GHC.Classes.== "card" -> Treasury'debitReversalNetwork'EnumCard
+          | GHC.Base.otherwise -> Treasury'debitReversalNetwork'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.treasury.debit_reversal.properties.status@ in the specification.
@@ -215,10 +215,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON Treasury'debitReversalStatus' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "failed" -> Treasury'debitReversalStatus'EnumFailed
-            | val GHC.Classes.== "processing" -> Treasury'debitReversalStatus'EnumProcessing
-            | val GHC.Classes.== "succeeded" -> Treasury'debitReversalStatus'EnumSucceeded
-            | GHC.Base.otherwise -> Treasury'debitReversalStatus'Other val
+          | val GHC.Classes.== "failed" -> Treasury'debitReversalStatus'EnumFailed
+          | val GHC.Classes.== "processing" -> Treasury'debitReversalStatus'EnumProcessing
+          | val GHC.Classes.== "succeeded" -> Treasury'debitReversalStatus'EnumSucceeded
+          | GHC.Base.otherwise -> Treasury'debitReversalStatus'Other val
       )
 
 -- | Defines the oneOf schema located at @components.schemas.treasury.debit_reversal.properties.transaction.anyOf@ in the specification.

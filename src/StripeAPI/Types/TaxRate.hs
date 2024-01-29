@@ -177,13 +177,13 @@ instance Data.Aeson.Types.FromJSON.FromJSON TaxRateTaxType'NonNullable where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "gst" -> TaxRateTaxType'NonNullableEnumGst
-            | val GHC.Classes.== "hst" -> TaxRateTaxType'NonNullableEnumHst
-            | val GHC.Classes.== "jct" -> TaxRateTaxType'NonNullableEnumJct
-            | val GHC.Classes.== "pst" -> TaxRateTaxType'NonNullableEnumPst
-            | val GHC.Classes.== "qst" -> TaxRateTaxType'NonNullableEnumQst
-            | val GHC.Classes.== "rst" -> TaxRateTaxType'NonNullableEnumRst
-            | val GHC.Classes.== "sales_tax" -> TaxRateTaxType'NonNullableEnumSalesTax
-            | val GHC.Classes.== "vat" -> TaxRateTaxType'NonNullableEnumVat
-            | GHC.Base.otherwise -> TaxRateTaxType'NonNullableOther val
+          | val GHC.Classes.== "gst" -> TaxRateTaxType'NonNullableEnumGst
+          | val GHC.Classes.== "hst" -> TaxRateTaxType'NonNullableEnumHst
+          | val GHC.Classes.== "jct" -> TaxRateTaxType'NonNullableEnumJct
+          | val GHC.Classes.== "pst" -> TaxRateTaxType'NonNullableEnumPst
+          | val GHC.Classes.== "qst" -> TaxRateTaxType'NonNullableEnumQst
+          | val GHC.Classes.== "rst" -> TaxRateTaxType'NonNullableEnumRst
+          | val GHC.Classes.== "sales_tax" -> TaxRateTaxType'NonNullableEnumSalesTax
+          | val GHC.Classes.== "vat" -> TaxRateTaxType'NonNullableEnumVat
+          | GHC.Base.otherwise -> TaxRateTaxType'NonNullableOther val
       )

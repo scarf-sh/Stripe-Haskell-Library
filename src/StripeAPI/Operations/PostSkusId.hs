@@ -50,7 +50,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>Note that a SKU’s \<code>attributes\<\/code> are not editable. Instead, you would need to deactivate the existing SKU and create a new one with the new attribute values.\<\/p>
 postSkusId ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | id | Constraints: Maximum length of 5000
   Data.Text.Internal.Text ->
   -- | The request body to send
@@ -66,21 +66,21 @@ postSkusId
             ( Data.Either.either PostSkusIdResponseError GHC.Base.id
                 GHC.Base.. ( \response body ->
                                if
-                                   | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                      PostSkusIdResponse200
                                        Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                             Data.Either.Either
                                                               GHC.Base.String
                                                               Sku
                                                         )
-                                   | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                      PostSkusIdResponseDefault
                                        Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                             Data.Either.Either
                                                               GHC.Base.String
                                                               Error
                                                         )
-                                   | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                            )
                   response_0
             )
@@ -204,10 +204,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostSkusIdRequestBodyInventory'Type'
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "bucket" -> PostSkusIdRequestBodyInventory'Type'EnumBucket
-            | val GHC.Classes.== "finite" -> PostSkusIdRequestBodyInventory'Type'EnumFinite
-            | val GHC.Classes.== "infinite" -> PostSkusIdRequestBodyInventory'Type'EnumInfinite
-            | GHC.Base.otherwise -> PostSkusIdRequestBodyInventory'Type'Other val
+          | val GHC.Classes.== "bucket" -> PostSkusIdRequestBodyInventory'Type'EnumBucket
+          | val GHC.Classes.== "finite" -> PostSkusIdRequestBodyInventory'Type'EnumFinite
+          | val GHC.Classes.== "infinite" -> PostSkusIdRequestBodyInventory'Type'EnumInfinite
+          | GHC.Base.otherwise -> PostSkusIdRequestBodyInventory'Type'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/skus\/{id}.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.inventory.properties.value@ in the specification.
@@ -238,11 +238,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostSkusIdRequestBodyInventory'Value
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "" -> PostSkusIdRequestBodyInventory'Value'EnumEmptyString
-            | val GHC.Classes.== "in_stock" -> PostSkusIdRequestBodyInventory'Value'EnumInStock
-            | val GHC.Classes.== "limited" -> PostSkusIdRequestBodyInventory'Value'EnumLimited
-            | val GHC.Classes.== "out_of_stock" -> PostSkusIdRequestBodyInventory'Value'EnumOutOfStock
-            | GHC.Base.otherwise -> PostSkusIdRequestBodyInventory'Value'Other val
+          | val GHC.Classes.== "" -> PostSkusIdRequestBodyInventory'Value'EnumEmptyString
+          | val GHC.Classes.== "in_stock" -> PostSkusIdRequestBodyInventory'Value'EnumInStock
+          | val GHC.Classes.== "limited" -> PostSkusIdRequestBodyInventory'Value'EnumLimited
+          | val GHC.Classes.== "out_of_stock" -> PostSkusIdRequestBodyInventory'Value'EnumOutOfStock
+          | GHC.Base.otherwise -> PostSkusIdRequestBodyInventory'Value'Other val
       )
 
 -- | Defines the oneOf schema located at @paths.\/v1\/skus\/{id}.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.metadata.anyOf@ in the specification.
@@ -261,8 +261,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostSkusIdRequestBodyMetadata'Variants w
 instance Data.Aeson.Types.FromJSON.FromJSON PostSkusIdRequestBodyMetadata'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostSkusIdRequestBodyMetadata'EmptyString
-        | GHC.Base.otherwise -> case (PostSkusIdRequestBodyMetadata'Object Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostSkusIdRequestBodyMetadata'EmptyString
+      | GHC.Base.otherwise -> case (PostSkusIdRequestBodyMetadata'Object Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -324,8 +324,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostSkusIdRequestBodyPackageDimensions'V
 instance Data.Aeson.Types.FromJSON.FromJSON PostSkusIdRequestBodyPackageDimensions'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostSkusIdRequestBodyPackageDimensions'EmptyString
-        | GHC.Base.otherwise -> case (PostSkusIdRequestBodyPackageDimensions'PostSkusIdRequestBodyPackageDimensions'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostSkusIdRequestBodyPackageDimensions'EmptyString
+      | GHC.Base.otherwise -> case (PostSkusIdRequestBodyPackageDimensions'PostSkusIdRequestBodyPackageDimensions'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 

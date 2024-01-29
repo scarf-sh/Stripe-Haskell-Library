@@ -220,14 +220,14 @@ instance Data.Aeson.Types.FromJSON.FromJSON CustomerBalanceTransactionType' wher
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "adjustment" -> CustomerBalanceTransactionType'EnumAdjustment
-            | val GHC.Classes.== "applied_to_invoice" -> CustomerBalanceTransactionType'EnumAppliedToInvoice
-            | val GHC.Classes.== "credit_note" -> CustomerBalanceTransactionType'EnumCreditNote
-            | val GHC.Classes.== "initial" -> CustomerBalanceTransactionType'EnumInitial
-            | val GHC.Classes.== "invoice_too_large" -> CustomerBalanceTransactionType'EnumInvoiceTooLarge
-            | val GHC.Classes.== "invoice_too_small" -> CustomerBalanceTransactionType'EnumInvoiceTooSmall
-            | val GHC.Classes.== "migration" -> CustomerBalanceTransactionType'EnumMigration
-            | val GHC.Classes.== "unapplied_from_invoice" -> CustomerBalanceTransactionType'EnumUnappliedFromInvoice
-            | val GHC.Classes.== "unspent_receiver_credit" -> CustomerBalanceTransactionType'EnumUnspentReceiverCredit
-            | GHC.Base.otherwise -> CustomerBalanceTransactionType'Other val
+          | val GHC.Classes.== "adjustment" -> CustomerBalanceTransactionType'EnumAdjustment
+          | val GHC.Classes.== "applied_to_invoice" -> CustomerBalanceTransactionType'EnumAppliedToInvoice
+          | val GHC.Classes.== "credit_note" -> CustomerBalanceTransactionType'EnumCreditNote
+          | val GHC.Classes.== "initial" -> CustomerBalanceTransactionType'EnumInitial
+          | val GHC.Classes.== "invoice_too_large" -> CustomerBalanceTransactionType'EnumInvoiceTooLarge
+          | val GHC.Classes.== "invoice_too_small" -> CustomerBalanceTransactionType'EnumInvoiceTooSmall
+          | val GHC.Classes.== "migration" -> CustomerBalanceTransactionType'EnumMigration
+          | val GHC.Classes.== "unapplied_from_invoice" -> CustomerBalanceTransactionType'EnumUnappliedFromInvoice
+          | val GHC.Classes.== "unspent_receiver_credit" -> CustomerBalanceTransactionType'EnumUnspentReceiverCredit
+          | GHC.Base.otherwise -> CustomerBalanceTransactionType'Other val
       )

@@ -119,10 +119,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON TerminalReaderReaderResourceReaderAc
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "failed" -> TerminalReaderReaderResourceReaderActionStatus'EnumFailed
-            | val GHC.Classes.== "in_progress" -> TerminalReaderReaderResourceReaderActionStatus'EnumInProgress
-            | val GHC.Classes.== "succeeded" -> TerminalReaderReaderResourceReaderActionStatus'EnumSucceeded
-            | GHC.Base.otherwise -> TerminalReaderReaderResourceReaderActionStatus'Other val
+          | val GHC.Classes.== "failed" -> TerminalReaderReaderResourceReaderActionStatus'EnumFailed
+          | val GHC.Classes.== "in_progress" -> TerminalReaderReaderResourceReaderActionStatus'EnumInProgress
+          | val GHC.Classes.== "succeeded" -> TerminalReaderReaderResourceReaderActionStatus'EnumSucceeded
+          | GHC.Base.otherwise -> TerminalReaderReaderResourceReaderActionStatus'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.terminal_reader_reader_resource_reader_action.properties.type@ in the specification.
@@ -152,8 +152,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON TerminalReaderReaderResourceReaderAc
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "process_payment_intent" -> TerminalReaderReaderResourceReaderActionType'EnumProcessPaymentIntent
-            | val GHC.Classes.== "process_setup_intent" -> TerminalReaderReaderResourceReaderActionType'EnumProcessSetupIntent
-            | val GHC.Classes.== "set_reader_display" -> TerminalReaderReaderResourceReaderActionType'EnumSetReaderDisplay
-            | GHC.Base.otherwise -> TerminalReaderReaderResourceReaderActionType'Other val
+          | val GHC.Classes.== "process_payment_intent" -> TerminalReaderReaderResourceReaderActionType'EnumProcessPaymentIntent
+          | val GHC.Classes.== "process_setup_intent" -> TerminalReaderReaderResourceReaderActionType'EnumProcessSetupIntent
+          | val GHC.Classes.== "set_reader_display" -> TerminalReaderReaderResourceReaderActionType'EnumSetReaderDisplay
+          | GHC.Base.otherwise -> TerminalReaderReaderResourceReaderActionType'Other val
       )

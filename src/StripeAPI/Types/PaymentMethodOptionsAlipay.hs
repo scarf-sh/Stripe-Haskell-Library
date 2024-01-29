@@ -85,7 +85,7 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentMethodOptionsAlipaySetupFutur
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> PaymentMethodOptionsAlipaySetupFutureUsage'EnumNone
-            | val GHC.Classes.== "off_session" -> PaymentMethodOptionsAlipaySetupFutureUsage'EnumOffSession
-            | GHC.Base.otherwise -> PaymentMethodOptionsAlipaySetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> PaymentMethodOptionsAlipaySetupFutureUsage'EnumNone
+          | val GHC.Classes.== "off_session" -> PaymentMethodOptionsAlipaySetupFutureUsage'EnumOffSession
+          | GHC.Base.otherwise -> PaymentMethodOptionsAlipaySetupFutureUsage'Other val
       )

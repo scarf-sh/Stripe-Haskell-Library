@@ -48,7 +48,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>Returns a list of Issuing \<code>Card\<\/code> objects. The objects are sorted in descending order by creation date, with the most recently created object appearing first.\<\/p>
 getIssuingCards ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | Contains all available parameters of this operation (query and path parameters)
   GetIssuingCardsParameters ->
   -- | Monadic computation which returns the result of the operation
@@ -60,21 +60,21 @@ getIssuingCards parameters =
           ( Data.Either.either GetIssuingCardsResponseError GHC.Base.id
               GHC.Base.. ( \response body ->
                              if
-                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                               | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                    GetIssuingCardsResponse200
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             GetIssuingCardsResponseBody200
                                                       )
-                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                               | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                    GetIssuingCardsResponseDefault
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             Error
                                                       )
-                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                               | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                          )
                 response_0
           )
@@ -270,10 +270,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON GetIssuingCardsParametersQueryStatus
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "active" -> GetIssuingCardsParametersQueryStatus'EnumActive
-            | val GHC.Classes.== "canceled" -> GetIssuingCardsParametersQueryStatus'EnumCanceled
-            | val GHC.Classes.== "inactive" -> GetIssuingCardsParametersQueryStatus'EnumInactive
-            | GHC.Base.otherwise -> GetIssuingCardsParametersQueryStatus'Other val
+          | val GHC.Classes.== "active" -> GetIssuingCardsParametersQueryStatus'EnumActive
+          | val GHC.Classes.== "canceled" -> GetIssuingCardsParametersQueryStatus'EnumCanceled
+          | val GHC.Classes.== "inactive" -> GetIssuingCardsParametersQueryStatus'EnumInactive
+          | GHC.Base.otherwise -> GetIssuingCardsParametersQueryStatus'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/issuing\/cards.GET.parameters.properties.queryType@ in the specification.
@@ -302,9 +302,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON GetIssuingCardsParametersQueryType' 
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "physical" -> GetIssuingCardsParametersQueryType'EnumPhysical
-            | val GHC.Classes.== "virtual" -> GetIssuingCardsParametersQueryType'EnumVirtual
-            | GHC.Base.otherwise -> GetIssuingCardsParametersQueryType'Other val
+          | val GHC.Classes.== "physical" -> GetIssuingCardsParametersQueryType'EnumPhysical
+          | val GHC.Classes.== "virtual" -> GetIssuingCardsParametersQueryType'EnumVirtual
+          | GHC.Base.otherwise -> GetIssuingCardsParametersQueryType'Other val
       )
 
 -- | Represents a response of the operation 'getIssuingCards'.

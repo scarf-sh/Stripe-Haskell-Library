@@ -414,9 +414,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PersonPoliticalExposure' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "existing" -> PersonPoliticalExposure'EnumExisting
-            | val GHC.Classes.== "none" -> PersonPoliticalExposure'EnumNone
-            | GHC.Base.otherwise -> PersonPoliticalExposure'Other val
+          | val GHC.Classes.== "existing" -> PersonPoliticalExposure'EnumExisting
+          | val GHC.Classes.== "none" -> PersonPoliticalExposure'EnumNone
+          | GHC.Base.otherwise -> PersonPoliticalExposure'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.person.properties.requirements.anyOf@ in the specification.

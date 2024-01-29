@@ -88,8 +88,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON CheckoutKlarnaPaymentMethodOptionsSe
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> CheckoutKlarnaPaymentMethodOptionsSetupFutureUsage'EnumNone
-            | val GHC.Classes.== "off_session" -> CheckoutKlarnaPaymentMethodOptionsSetupFutureUsage'EnumOffSession
-            | val GHC.Classes.== "on_session" -> CheckoutKlarnaPaymentMethodOptionsSetupFutureUsage'EnumOnSession
-            | GHC.Base.otherwise -> CheckoutKlarnaPaymentMethodOptionsSetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> CheckoutKlarnaPaymentMethodOptionsSetupFutureUsage'EnumNone
+          | val GHC.Classes.== "off_session" -> CheckoutKlarnaPaymentMethodOptionsSetupFutureUsage'EnumOffSession
+          | val GHC.Classes.== "on_session" -> CheckoutKlarnaPaymentMethodOptionsSetupFutureUsage'EnumOnSession
+          | GHC.Base.otherwise -> CheckoutKlarnaPaymentMethodOptionsSetupFutureUsage'Other val
       )

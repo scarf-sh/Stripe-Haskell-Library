@@ -186,17 +186,17 @@ instance Data.Aeson.Types.FromJSON.FromJSON Treasury'financialAccountActiveFeatu
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "card_issuing" -> Treasury'financialAccountActiveFeatures'EnumCardIssuing
-            | val GHC.Classes.== "deposit_insurance" -> Treasury'financialAccountActiveFeatures'EnumDepositInsurance
-            | val GHC.Classes.== "financial_addresses.aba" -> Treasury'financialAccountActiveFeatures'EnumFinancialAddresses'aba
-            | val GHC.Classes.== "inbound_transfers.ach" -> Treasury'financialAccountActiveFeatures'EnumInboundTransfers'ach
-            | val GHC.Classes.== "intra_stripe_flows" -> Treasury'financialAccountActiveFeatures'EnumIntraStripeFlows
-            | val GHC.Classes.== "outbound_payments.ach" -> Treasury'financialAccountActiveFeatures'EnumOutboundPayments'ach
-            | val GHC.Classes.== "outbound_payments.us_domestic_wire" -> Treasury'financialAccountActiveFeatures'EnumOutboundPayments'usDomesticWire
-            | val GHC.Classes.== "outbound_transfers.ach" -> Treasury'financialAccountActiveFeatures'EnumOutboundTransfers'ach
-            | val GHC.Classes.== "outbound_transfers.us_domestic_wire" -> Treasury'financialAccountActiveFeatures'EnumOutboundTransfers'usDomesticWire
-            | val GHC.Classes.== "remote_deposit_capture" -> Treasury'financialAccountActiveFeatures'EnumRemoteDepositCapture
-            | GHC.Base.otherwise -> Treasury'financialAccountActiveFeatures'Other val
+          | val GHC.Classes.== "card_issuing" -> Treasury'financialAccountActiveFeatures'EnumCardIssuing
+          | val GHC.Classes.== "deposit_insurance" -> Treasury'financialAccountActiveFeatures'EnumDepositInsurance
+          | val GHC.Classes.== "financial_addresses.aba" -> Treasury'financialAccountActiveFeatures'EnumFinancialAddresses'aba
+          | val GHC.Classes.== "inbound_transfers.ach" -> Treasury'financialAccountActiveFeatures'EnumInboundTransfers'ach
+          | val GHC.Classes.== "intra_stripe_flows" -> Treasury'financialAccountActiveFeatures'EnumIntraStripeFlows
+          | val GHC.Classes.== "outbound_payments.ach" -> Treasury'financialAccountActiveFeatures'EnumOutboundPayments'ach
+          | val GHC.Classes.== "outbound_payments.us_domestic_wire" -> Treasury'financialAccountActiveFeatures'EnumOutboundPayments'usDomesticWire
+          | val GHC.Classes.== "outbound_transfers.ach" -> Treasury'financialAccountActiveFeatures'EnumOutboundTransfers'ach
+          | val GHC.Classes.== "outbound_transfers.us_domestic_wire" -> Treasury'financialAccountActiveFeatures'EnumOutboundTransfers'usDomesticWire
+          | val GHC.Classes.== "remote_deposit_capture" -> Treasury'financialAccountActiveFeatures'EnumRemoteDepositCapture
+          | GHC.Base.otherwise -> Treasury'financialAccountActiveFeatures'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.treasury.financial_account.properties.pending_features.items@ in the specification.
@@ -245,17 +245,17 @@ instance Data.Aeson.Types.FromJSON.FromJSON Treasury'financialAccountPendingFeat
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "card_issuing" -> Treasury'financialAccountPendingFeatures'EnumCardIssuing
-            | val GHC.Classes.== "deposit_insurance" -> Treasury'financialAccountPendingFeatures'EnumDepositInsurance
-            | val GHC.Classes.== "financial_addresses.aba" -> Treasury'financialAccountPendingFeatures'EnumFinancialAddresses'aba
-            | val GHC.Classes.== "inbound_transfers.ach" -> Treasury'financialAccountPendingFeatures'EnumInboundTransfers'ach
-            | val GHC.Classes.== "intra_stripe_flows" -> Treasury'financialAccountPendingFeatures'EnumIntraStripeFlows
-            | val GHC.Classes.== "outbound_payments.ach" -> Treasury'financialAccountPendingFeatures'EnumOutboundPayments'ach
-            | val GHC.Classes.== "outbound_payments.us_domestic_wire" -> Treasury'financialAccountPendingFeatures'EnumOutboundPayments'usDomesticWire
-            | val GHC.Classes.== "outbound_transfers.ach" -> Treasury'financialAccountPendingFeatures'EnumOutboundTransfers'ach
-            | val GHC.Classes.== "outbound_transfers.us_domestic_wire" -> Treasury'financialAccountPendingFeatures'EnumOutboundTransfers'usDomesticWire
-            | val GHC.Classes.== "remote_deposit_capture" -> Treasury'financialAccountPendingFeatures'EnumRemoteDepositCapture
-            | GHC.Base.otherwise -> Treasury'financialAccountPendingFeatures'Other val
+          | val GHC.Classes.== "card_issuing" -> Treasury'financialAccountPendingFeatures'EnumCardIssuing
+          | val GHC.Classes.== "deposit_insurance" -> Treasury'financialAccountPendingFeatures'EnumDepositInsurance
+          | val GHC.Classes.== "financial_addresses.aba" -> Treasury'financialAccountPendingFeatures'EnumFinancialAddresses'aba
+          | val GHC.Classes.== "inbound_transfers.ach" -> Treasury'financialAccountPendingFeatures'EnumInboundTransfers'ach
+          | val GHC.Classes.== "intra_stripe_flows" -> Treasury'financialAccountPendingFeatures'EnumIntraStripeFlows
+          | val GHC.Classes.== "outbound_payments.ach" -> Treasury'financialAccountPendingFeatures'EnumOutboundPayments'ach
+          | val GHC.Classes.== "outbound_payments.us_domestic_wire" -> Treasury'financialAccountPendingFeatures'EnumOutboundPayments'usDomesticWire
+          | val GHC.Classes.== "outbound_transfers.ach" -> Treasury'financialAccountPendingFeatures'EnumOutboundTransfers'ach
+          | val GHC.Classes.== "outbound_transfers.us_domestic_wire" -> Treasury'financialAccountPendingFeatures'EnumOutboundTransfers'usDomesticWire
+          | val GHC.Classes.== "remote_deposit_capture" -> Treasury'financialAccountPendingFeatures'EnumRemoteDepositCapture
+          | GHC.Base.otherwise -> Treasury'financialAccountPendingFeatures'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.treasury.financial_account.properties.platform_restrictions.anyOf@ in the specification.
@@ -311,9 +311,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON Treasury'financialAccountPlatformRes
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "restricted" -> Treasury'financialAccountPlatformRestrictions'NonNullableInboundFlows'NonNullableEnumRestricted
-            | val GHC.Classes.== "unrestricted" -> Treasury'financialAccountPlatformRestrictions'NonNullableInboundFlows'NonNullableEnumUnrestricted
-            | GHC.Base.otherwise -> Treasury'financialAccountPlatformRestrictions'NonNullableInboundFlows'NonNullableOther val
+          | val GHC.Classes.== "restricted" -> Treasury'financialAccountPlatformRestrictions'NonNullableInboundFlows'NonNullableEnumRestricted
+          | val GHC.Classes.== "unrestricted" -> Treasury'financialAccountPlatformRestrictions'NonNullableInboundFlows'NonNullableEnumUnrestricted
+          | GHC.Base.otherwise -> Treasury'financialAccountPlatformRestrictions'NonNullableInboundFlows'NonNullableOther val
       )
 
 -- | Defines the enum schema located at @components.schemas.treasury.financial_account.properties.platform_restrictions.anyOf.properties.outbound_flows@ in the specification.
@@ -340,9 +340,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON Treasury'financialAccountPlatformRes
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "restricted" -> Treasury'financialAccountPlatformRestrictions'NonNullableOutboundFlows'NonNullableEnumRestricted
-            | val GHC.Classes.== "unrestricted" -> Treasury'financialAccountPlatformRestrictions'NonNullableOutboundFlows'NonNullableEnumUnrestricted
-            | GHC.Base.otherwise -> Treasury'financialAccountPlatformRestrictions'NonNullableOutboundFlows'NonNullableOther val
+          | val GHC.Classes.== "restricted" -> Treasury'financialAccountPlatformRestrictions'NonNullableOutboundFlows'NonNullableEnumRestricted
+          | val GHC.Classes.== "unrestricted" -> Treasury'financialAccountPlatformRestrictions'NonNullableOutboundFlows'NonNullableEnumUnrestricted
+          | GHC.Base.otherwise -> Treasury'financialAccountPlatformRestrictions'NonNullableOutboundFlows'NonNullableOther val
       )
 
 -- | Defines the enum schema located at @components.schemas.treasury.financial_account.properties.restricted_features.items@ in the specification.
@@ -391,17 +391,17 @@ instance Data.Aeson.Types.FromJSON.FromJSON Treasury'financialAccountRestrictedF
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "card_issuing" -> Treasury'financialAccountRestrictedFeatures'EnumCardIssuing
-            | val GHC.Classes.== "deposit_insurance" -> Treasury'financialAccountRestrictedFeatures'EnumDepositInsurance
-            | val GHC.Classes.== "financial_addresses.aba" -> Treasury'financialAccountRestrictedFeatures'EnumFinancialAddresses'aba
-            | val GHC.Classes.== "inbound_transfers.ach" -> Treasury'financialAccountRestrictedFeatures'EnumInboundTransfers'ach
-            | val GHC.Classes.== "intra_stripe_flows" -> Treasury'financialAccountRestrictedFeatures'EnumIntraStripeFlows
-            | val GHC.Classes.== "outbound_payments.ach" -> Treasury'financialAccountRestrictedFeatures'EnumOutboundPayments'ach
-            | val GHC.Classes.== "outbound_payments.us_domestic_wire" -> Treasury'financialAccountRestrictedFeatures'EnumOutboundPayments'usDomesticWire
-            | val GHC.Classes.== "outbound_transfers.ach" -> Treasury'financialAccountRestrictedFeatures'EnumOutboundTransfers'ach
-            | val GHC.Classes.== "outbound_transfers.us_domestic_wire" -> Treasury'financialAccountRestrictedFeatures'EnumOutboundTransfers'usDomesticWire
-            | val GHC.Classes.== "remote_deposit_capture" -> Treasury'financialAccountRestrictedFeatures'EnumRemoteDepositCapture
-            | GHC.Base.otherwise -> Treasury'financialAccountRestrictedFeatures'Other val
+          | val GHC.Classes.== "card_issuing" -> Treasury'financialAccountRestrictedFeatures'EnumCardIssuing
+          | val GHC.Classes.== "deposit_insurance" -> Treasury'financialAccountRestrictedFeatures'EnumDepositInsurance
+          | val GHC.Classes.== "financial_addresses.aba" -> Treasury'financialAccountRestrictedFeatures'EnumFinancialAddresses'aba
+          | val GHC.Classes.== "inbound_transfers.ach" -> Treasury'financialAccountRestrictedFeatures'EnumInboundTransfers'ach
+          | val GHC.Classes.== "intra_stripe_flows" -> Treasury'financialAccountRestrictedFeatures'EnumIntraStripeFlows
+          | val GHC.Classes.== "outbound_payments.ach" -> Treasury'financialAccountRestrictedFeatures'EnumOutboundPayments'ach
+          | val GHC.Classes.== "outbound_payments.us_domestic_wire" -> Treasury'financialAccountRestrictedFeatures'EnumOutboundPayments'usDomesticWire
+          | val GHC.Classes.== "outbound_transfers.ach" -> Treasury'financialAccountRestrictedFeatures'EnumOutboundTransfers'ach
+          | val GHC.Classes.== "outbound_transfers.us_domestic_wire" -> Treasury'financialAccountRestrictedFeatures'EnumOutboundTransfers'usDomesticWire
+          | val GHC.Classes.== "remote_deposit_capture" -> Treasury'financialAccountRestrictedFeatures'EnumRemoteDepositCapture
+          | GHC.Base.otherwise -> Treasury'financialAccountRestrictedFeatures'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.treasury.financial_account.properties.status@ in the specification.
@@ -428,7 +428,7 @@ instance Data.Aeson.Types.FromJSON.FromJSON Treasury'financialAccountStatus' whe
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "closed" -> Treasury'financialAccountStatus'EnumClosed
-            | val GHC.Classes.== "open" -> Treasury'financialAccountStatus'EnumOpen
-            | GHC.Base.otherwise -> Treasury'financialAccountStatus'Other val
+          | val GHC.Classes.== "closed" -> Treasury'financialAccountStatus'EnumClosed
+          | val GHC.Classes.== "open" -> Treasury'financialAccountStatus'EnumOpen
+          | GHC.Base.otherwise -> Treasury'financialAccountStatus'Other val
       )

@@ -86,7 +86,7 @@ instance Data.Aeson.Types.FromJSON.FromJSON AccountUnificationAccountControllerT
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "account" -> AccountUnificationAccountControllerType'EnumAccount
-            | val GHC.Classes.== "application" -> AccountUnificationAccountControllerType'EnumApplication
-            | GHC.Base.otherwise -> AccountUnificationAccountControllerType'Other val
+          | val GHC.Classes.== "account" -> AccountUnificationAccountControllerType'EnumAccount
+          | val GHC.Classes.== "application" -> AccountUnificationAccountControllerType'EnumApplication
+          | GHC.Base.otherwise -> AccountUnificationAccountControllerType'Other val
       )

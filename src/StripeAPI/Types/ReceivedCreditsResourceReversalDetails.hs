@@ -92,10 +92,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON ReceivedCreditsResourceReversalDetai
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "already_reversed" -> ReceivedCreditsResourceReversalDetailsRestrictedReason'NonNullableEnumAlreadyReversed
-            | val GHC.Classes.== "deadline_passed" -> ReceivedCreditsResourceReversalDetailsRestrictedReason'NonNullableEnumDeadlinePassed
-            | val GHC.Classes.== "network_restricted" -> ReceivedCreditsResourceReversalDetailsRestrictedReason'NonNullableEnumNetworkRestricted
-            | val GHC.Classes.== "other" -> ReceivedCreditsResourceReversalDetailsRestrictedReason'NonNullableEnumOther
-            | val GHC.Classes.== "source_flow_restricted" -> ReceivedCreditsResourceReversalDetailsRestrictedReason'NonNullableEnumSourceFlowRestricted
-            | GHC.Base.otherwise -> ReceivedCreditsResourceReversalDetailsRestrictedReason'NonNullableOther val
+          | val GHC.Classes.== "already_reversed" -> ReceivedCreditsResourceReversalDetailsRestrictedReason'NonNullableEnumAlreadyReversed
+          | val GHC.Classes.== "deadline_passed" -> ReceivedCreditsResourceReversalDetailsRestrictedReason'NonNullableEnumDeadlinePassed
+          | val GHC.Classes.== "network_restricted" -> ReceivedCreditsResourceReversalDetailsRestrictedReason'NonNullableEnumNetworkRestricted
+          | val GHC.Classes.== "other" -> ReceivedCreditsResourceReversalDetailsRestrictedReason'NonNullableEnumOther
+          | val GHC.Classes.== "source_flow_restricted" -> ReceivedCreditsResourceReversalDetailsRestrictedReason'NonNullableEnumSourceFlowRestricted
+          | GHC.Base.otherwise -> ReceivedCreditsResourceReversalDetailsRestrictedReason'NonNullableOther val
       )

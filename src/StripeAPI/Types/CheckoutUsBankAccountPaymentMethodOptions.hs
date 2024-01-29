@@ -98,10 +98,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON CheckoutUsBankAccountPaymentMethodOp
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> CheckoutUsBankAccountPaymentMethodOptionsSetupFutureUsage'EnumNone
-            | val GHC.Classes.== "off_session" -> CheckoutUsBankAccountPaymentMethodOptionsSetupFutureUsage'EnumOffSession
-            | val GHC.Classes.== "on_session" -> CheckoutUsBankAccountPaymentMethodOptionsSetupFutureUsage'EnumOnSession
-            | GHC.Base.otherwise -> CheckoutUsBankAccountPaymentMethodOptionsSetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> CheckoutUsBankAccountPaymentMethodOptionsSetupFutureUsage'EnumNone
+          | val GHC.Classes.== "off_session" -> CheckoutUsBankAccountPaymentMethodOptionsSetupFutureUsage'EnumOffSession
+          | val GHC.Classes.== "on_session" -> CheckoutUsBankAccountPaymentMethodOptionsSetupFutureUsage'EnumOnSession
+          | GHC.Base.otherwise -> CheckoutUsBankAccountPaymentMethodOptionsSetupFutureUsage'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.checkout_us_bank_account_payment_method_options.properties.verification_method@ in the specification.
@@ -128,7 +128,7 @@ instance Data.Aeson.Types.FromJSON.FromJSON CheckoutUsBankAccountPaymentMethodOp
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> CheckoutUsBankAccountPaymentMethodOptionsVerificationMethod'EnumAutomatic
-            | val GHC.Classes.== "instant" -> CheckoutUsBankAccountPaymentMethodOptionsVerificationMethod'EnumInstant
-            | GHC.Base.otherwise -> CheckoutUsBankAccountPaymentMethodOptionsVerificationMethod'Other val
+          | val GHC.Classes.== "automatic" -> CheckoutUsBankAccountPaymentMethodOptionsVerificationMethod'EnumAutomatic
+          | val GHC.Classes.== "instant" -> CheckoutUsBankAccountPaymentMethodOptionsVerificationMethod'EnumInstant
+          | GHC.Base.otherwise -> CheckoutUsBankAccountPaymentMethodOptionsVerificationMethod'Other val
       )

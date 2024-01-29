@@ -132,11 +132,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON IssuingCardShippingCarrier'NonNullab
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "dhl" -> IssuingCardShippingCarrier'NonNullableEnumDhl
-            | val GHC.Classes.== "fedex" -> IssuingCardShippingCarrier'NonNullableEnumFedex
-            | val GHC.Classes.== "royal_mail" -> IssuingCardShippingCarrier'NonNullableEnumRoyalMail
-            | val GHC.Classes.== "usps" -> IssuingCardShippingCarrier'NonNullableEnumUsps
-            | GHC.Base.otherwise -> IssuingCardShippingCarrier'NonNullableOther val
+          | val GHC.Classes.== "dhl" -> IssuingCardShippingCarrier'NonNullableEnumDhl
+          | val GHC.Classes.== "fedex" -> IssuingCardShippingCarrier'NonNullableEnumFedex
+          | val GHC.Classes.== "royal_mail" -> IssuingCardShippingCarrier'NonNullableEnumRoyalMail
+          | val GHC.Classes.== "usps" -> IssuingCardShippingCarrier'NonNullableEnumUsps
+          | GHC.Base.otherwise -> IssuingCardShippingCarrier'NonNullableOther val
       )
 
 -- | Defines the enum schema located at @components.schemas.issuing_card_shipping.properties.service@ in the specification.
@@ -166,10 +166,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON IssuingCardShippingService' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "express" -> IssuingCardShippingService'EnumExpress
-            | val GHC.Classes.== "priority" -> IssuingCardShippingService'EnumPriority
-            | val GHC.Classes.== "standard" -> IssuingCardShippingService'EnumStandard
-            | GHC.Base.otherwise -> IssuingCardShippingService'Other val
+          | val GHC.Classes.== "express" -> IssuingCardShippingService'EnumExpress
+          | val GHC.Classes.== "priority" -> IssuingCardShippingService'EnumPriority
+          | val GHC.Classes.== "standard" -> IssuingCardShippingService'EnumStandard
+          | GHC.Base.otherwise -> IssuingCardShippingService'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.issuing_card_shipping.properties.status@ in the specification.
@@ -208,13 +208,13 @@ instance Data.Aeson.Types.FromJSON.FromJSON IssuingCardShippingStatus'NonNullabl
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "canceled" -> IssuingCardShippingStatus'NonNullableEnumCanceled
-            | val GHC.Classes.== "delivered" -> IssuingCardShippingStatus'NonNullableEnumDelivered
-            | val GHC.Classes.== "failure" -> IssuingCardShippingStatus'NonNullableEnumFailure
-            | val GHC.Classes.== "pending" -> IssuingCardShippingStatus'NonNullableEnumPending
-            | val GHC.Classes.== "returned" -> IssuingCardShippingStatus'NonNullableEnumReturned
-            | val GHC.Classes.== "shipped" -> IssuingCardShippingStatus'NonNullableEnumShipped
-            | GHC.Base.otherwise -> IssuingCardShippingStatus'NonNullableOther val
+          | val GHC.Classes.== "canceled" -> IssuingCardShippingStatus'NonNullableEnumCanceled
+          | val GHC.Classes.== "delivered" -> IssuingCardShippingStatus'NonNullableEnumDelivered
+          | val GHC.Classes.== "failure" -> IssuingCardShippingStatus'NonNullableEnumFailure
+          | val GHC.Classes.== "pending" -> IssuingCardShippingStatus'NonNullableEnumPending
+          | val GHC.Classes.== "returned" -> IssuingCardShippingStatus'NonNullableEnumReturned
+          | val GHC.Classes.== "shipped" -> IssuingCardShippingStatus'NonNullableEnumShipped
+          | GHC.Base.otherwise -> IssuingCardShippingStatus'NonNullableOther val
       )
 
 -- | Defines the enum schema located at @components.schemas.issuing_card_shipping.properties.type@ in the specification.
@@ -241,7 +241,7 @@ instance Data.Aeson.Types.FromJSON.FromJSON IssuingCardShippingType' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "bulk" -> IssuingCardShippingType'EnumBulk
-            | val GHC.Classes.== "individual" -> IssuingCardShippingType'EnumIndividual
-            | GHC.Base.otherwise -> IssuingCardShippingType'Other val
+          | val GHC.Classes.== "bulk" -> IssuingCardShippingType'EnumBulk
+          | val GHC.Classes.== "individual" -> IssuingCardShippingType'EnumIndividual
+          | GHC.Base.otherwise -> IssuingCardShippingType'Other val
       )

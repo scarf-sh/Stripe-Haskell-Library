@@ -84,7 +84,7 @@ instance Data.Aeson.Types.FromJSON.FromJSON AccountServiceResourceFinancialAddre
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "ach" -> AccountServiceResourceFinancialAddressSupportedNetworks'EnumAch
-            | val GHC.Classes.== "us_domestic_wire" -> AccountServiceResourceFinancialAddressSupportedNetworks'EnumUsDomesticWire
-            | GHC.Base.otherwise -> AccountServiceResourceFinancialAddressSupportedNetworks'Other val
+          | val GHC.Classes.== "ach" -> AccountServiceResourceFinancialAddressSupportedNetworks'EnumAch
+          | val GHC.Classes.== "us_domestic_wire" -> AccountServiceResourceFinancialAddressSupportedNetworks'EnumUsDomesticWire
+          | GHC.Base.otherwise -> AccountServiceResourceFinancialAddressSupportedNetworks'Other val
       )

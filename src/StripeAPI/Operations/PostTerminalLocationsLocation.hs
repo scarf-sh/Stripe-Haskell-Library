@@ -48,7 +48,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>Updates a \<code>Location\<\/code> object by setting the values of the parameters passed. Any parameters not provided will be left unchanged.\<\/p>
 postTerminalLocationsLocation ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | location | Constraints: Maximum length of 5000
   Data.Text.Internal.Text ->
   -- | The request body to send
@@ -64,21 +64,21 @@ postTerminalLocationsLocation
             ( Data.Either.either PostTerminalLocationsLocationResponseError GHC.Base.id
                 GHC.Base.. ( \response body ->
                                if
-                                   | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                      PostTerminalLocationsLocationResponse200
                                        Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                             Data.Either.Either
                                                               GHC.Base.String
                                                               PostTerminalLocationsLocationResponseBody200
                                                         )
-                                   | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                      PostTerminalLocationsLocationResponseDefault
                                        Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                             Data.Either.Either
                                                               GHC.Base.String
                                                               Error
                                                         )
-                                   | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                            )
                   response_0
             )
@@ -211,8 +211,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostTerminalLocationsLocationRequestBody
 instance Data.Aeson.Types.FromJSON.FromJSON PostTerminalLocationsLocationRequestBodyMetadata'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostTerminalLocationsLocationRequestBodyMetadata'EmptyString
-        | GHC.Base.otherwise -> case (PostTerminalLocationsLocationRequestBodyMetadata'Object Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostTerminalLocationsLocationRequestBodyMetadata'EmptyString
+      | GHC.Base.otherwise -> case (PostTerminalLocationsLocationRequestBodyMetadata'Object Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -306,8 +306,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostTerminalLocationsLocationRespons
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== Data.Aeson.Types.Internal.Bool GHC.Types.True -> PostTerminalLocationsLocationResponseBody200Deleted'EnumTrue
-            | GHC.Base.otherwise -> PostTerminalLocationsLocationResponseBody200Deleted'Other val
+          | val GHC.Classes.== Data.Aeson.Types.Internal.Bool GHC.Types.True -> PostTerminalLocationsLocationResponseBody200Deleted'EnumTrue
+          | GHC.Base.otherwise -> PostTerminalLocationsLocationResponseBody200Deleted'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/terminal\/locations\/{location}.POST.responses.200.content.application\/json.schema.anyOf.properties.object@ in the specification.
@@ -331,6 +331,6 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostTerminalLocationsLocationRespons
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "terminal.location" -> PostTerminalLocationsLocationResponseBody200Object'EnumTerminal'location
-            | GHC.Base.otherwise -> PostTerminalLocationsLocationResponseBody200Object'Other val
+          | val GHC.Classes.== "terminal.location" -> PostTerminalLocationsLocationResponseBody200Object'EnumTerminal'location
+          | GHC.Base.otherwise -> PostTerminalLocationsLocationResponseBody200Object'Other val
       )

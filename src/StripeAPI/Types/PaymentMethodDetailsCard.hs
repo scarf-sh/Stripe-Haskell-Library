@@ -260,8 +260,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentMethodDetailsCardInstallments
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "month" -> PaymentMethodDetailsCardInstallments'NonNullablePlan'NonNullableInterval'NonNullableEnumMonth
-            | GHC.Base.otherwise -> PaymentMethodDetailsCardInstallments'NonNullablePlan'NonNullableInterval'NonNullableOther val
+          | val GHC.Classes.== "month" -> PaymentMethodDetailsCardInstallments'NonNullablePlan'NonNullableInterval'NonNullableEnumMonth
+          | GHC.Base.otherwise -> PaymentMethodDetailsCardInstallments'NonNullablePlan'NonNullableInterval'NonNullableOther val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_method_details_card.properties.installments.anyOf.properties.plan.anyOf.properties.type@ in the specification.
@@ -285,8 +285,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentMethodDetailsCardInstallments
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "fixed_count" -> PaymentMethodDetailsCardInstallments'NonNullablePlan'NonNullableType'EnumFixedCount
-            | GHC.Base.otherwise -> PaymentMethodDetailsCardInstallments'NonNullablePlan'NonNullableType'Other val
+          | val GHC.Classes.== "fixed_count" -> PaymentMethodDetailsCardInstallments'NonNullablePlan'NonNullableType'EnumFixedCount
+          | GHC.Base.otherwise -> PaymentMethodDetailsCardInstallments'NonNullablePlan'NonNullableType'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.payment_method_details_card.properties.three_d_secure.anyOf@ in the specification.
@@ -351,9 +351,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentMethodDetailsCardThreeDSecure
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "challenge" -> PaymentMethodDetailsCardThreeDSecure'NonNullableAuthenticationFlow'NonNullableEnumChallenge
-            | val GHC.Classes.== "frictionless" -> PaymentMethodDetailsCardThreeDSecure'NonNullableAuthenticationFlow'NonNullableEnumFrictionless
-            | GHC.Base.otherwise -> PaymentMethodDetailsCardThreeDSecure'NonNullableAuthenticationFlow'NonNullableOther val
+          | val GHC.Classes.== "challenge" -> PaymentMethodDetailsCardThreeDSecure'NonNullableAuthenticationFlow'NonNullableEnumChallenge
+          | val GHC.Classes.== "frictionless" -> PaymentMethodDetailsCardThreeDSecure'NonNullableAuthenticationFlow'NonNullableEnumFrictionless
+          | GHC.Base.otherwise -> PaymentMethodDetailsCardThreeDSecure'NonNullableAuthenticationFlow'NonNullableOther val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_method_details_card.properties.three_d_secure.anyOf.properties.result@ in the specification.
@@ -389,12 +389,12 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentMethodDetailsCardThreeDSecure
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "attempt_acknowledged" -> PaymentMethodDetailsCardThreeDSecure'NonNullableResult'NonNullableEnumAttemptAcknowledged
-            | val GHC.Classes.== "authenticated" -> PaymentMethodDetailsCardThreeDSecure'NonNullableResult'NonNullableEnumAuthenticated
-            | val GHC.Classes.== "failed" -> PaymentMethodDetailsCardThreeDSecure'NonNullableResult'NonNullableEnumFailed
-            | val GHC.Classes.== "not_supported" -> PaymentMethodDetailsCardThreeDSecure'NonNullableResult'NonNullableEnumNotSupported
-            | val GHC.Classes.== "processing_error" -> PaymentMethodDetailsCardThreeDSecure'NonNullableResult'NonNullableEnumProcessingError
-            | GHC.Base.otherwise -> PaymentMethodDetailsCardThreeDSecure'NonNullableResult'NonNullableOther val
+          | val GHC.Classes.== "attempt_acknowledged" -> PaymentMethodDetailsCardThreeDSecure'NonNullableResult'NonNullableEnumAttemptAcknowledged
+          | val GHC.Classes.== "authenticated" -> PaymentMethodDetailsCardThreeDSecure'NonNullableResult'NonNullableEnumAuthenticated
+          | val GHC.Classes.== "failed" -> PaymentMethodDetailsCardThreeDSecure'NonNullableResult'NonNullableEnumFailed
+          | val GHC.Classes.== "not_supported" -> PaymentMethodDetailsCardThreeDSecure'NonNullableResult'NonNullableEnumNotSupported
+          | val GHC.Classes.== "processing_error" -> PaymentMethodDetailsCardThreeDSecure'NonNullableResult'NonNullableEnumProcessingError
+          | GHC.Base.otherwise -> PaymentMethodDetailsCardThreeDSecure'NonNullableResult'NonNullableOther val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_method_details_card.properties.three_d_secure.anyOf.properties.result_reason@ in the specification.
@@ -437,14 +437,14 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentMethodDetailsCardThreeDSecure
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "abandoned" -> PaymentMethodDetailsCardThreeDSecure'NonNullableResultReason'NonNullableEnumAbandoned
-            | val GHC.Classes.== "bypassed" -> PaymentMethodDetailsCardThreeDSecure'NonNullableResultReason'NonNullableEnumBypassed
-            | val GHC.Classes.== "canceled" -> PaymentMethodDetailsCardThreeDSecure'NonNullableResultReason'NonNullableEnumCanceled
-            | val GHC.Classes.== "card_not_enrolled" -> PaymentMethodDetailsCardThreeDSecure'NonNullableResultReason'NonNullableEnumCardNotEnrolled
-            | val GHC.Classes.== "network_not_supported" -> PaymentMethodDetailsCardThreeDSecure'NonNullableResultReason'NonNullableEnumNetworkNotSupported
-            | val GHC.Classes.== "protocol_error" -> PaymentMethodDetailsCardThreeDSecure'NonNullableResultReason'NonNullableEnumProtocolError
-            | val GHC.Classes.== "rejected" -> PaymentMethodDetailsCardThreeDSecure'NonNullableResultReason'NonNullableEnumRejected
-            | GHC.Base.otherwise -> PaymentMethodDetailsCardThreeDSecure'NonNullableResultReason'NonNullableOther val
+          | val GHC.Classes.== "abandoned" -> PaymentMethodDetailsCardThreeDSecure'NonNullableResultReason'NonNullableEnumAbandoned
+          | val GHC.Classes.== "bypassed" -> PaymentMethodDetailsCardThreeDSecure'NonNullableResultReason'NonNullableEnumBypassed
+          | val GHC.Classes.== "canceled" -> PaymentMethodDetailsCardThreeDSecure'NonNullableResultReason'NonNullableEnumCanceled
+          | val GHC.Classes.== "card_not_enrolled" -> PaymentMethodDetailsCardThreeDSecure'NonNullableResultReason'NonNullableEnumCardNotEnrolled
+          | val GHC.Classes.== "network_not_supported" -> PaymentMethodDetailsCardThreeDSecure'NonNullableResultReason'NonNullableEnumNetworkNotSupported
+          | val GHC.Classes.== "protocol_error" -> PaymentMethodDetailsCardThreeDSecure'NonNullableResultReason'NonNullableEnumProtocolError
+          | val GHC.Classes.== "rejected" -> PaymentMethodDetailsCardThreeDSecure'NonNullableResultReason'NonNullableEnumRejected
+          | GHC.Base.otherwise -> PaymentMethodDetailsCardThreeDSecure'NonNullableResultReason'NonNullableOther val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_method_details_card.properties.three_d_secure.anyOf.properties.version@ in the specification.
@@ -474,10 +474,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentMethodDetailsCardThreeDSecure
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "1.0.2" -> PaymentMethodDetailsCardThreeDSecure'NonNullableVersion'NonNullableEnum1'0'2
-            | val GHC.Classes.== "2.1.0" -> PaymentMethodDetailsCardThreeDSecure'NonNullableVersion'NonNullableEnum2'1'0
-            | val GHC.Classes.== "2.2.0" -> PaymentMethodDetailsCardThreeDSecure'NonNullableVersion'NonNullableEnum2'2'0
-            | GHC.Base.otherwise -> PaymentMethodDetailsCardThreeDSecure'NonNullableVersion'NonNullableOther val
+          | val GHC.Classes.== "1.0.2" -> PaymentMethodDetailsCardThreeDSecure'NonNullableVersion'NonNullableEnum1'0'2
+          | val GHC.Classes.== "2.1.0" -> PaymentMethodDetailsCardThreeDSecure'NonNullableVersion'NonNullableEnum2'1'0
+          | val GHC.Classes.== "2.2.0" -> PaymentMethodDetailsCardThreeDSecure'NonNullableVersion'NonNullableEnum2'2'0
+          | GHC.Base.otherwise -> PaymentMethodDetailsCardThreeDSecure'NonNullableVersion'NonNullableOther val
       )
 
 -- | Defines the object schema located at @components.schemas.payment_method_details_card.properties.wallet.anyOf@ in the specification.
@@ -567,11 +567,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentMethodDetailsCardWallet'NonNu
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "amex_express_checkout" -> PaymentMethodDetailsCardWallet'NonNullableType'EnumAmexExpressCheckout
-            | val GHC.Classes.== "apple_pay" -> PaymentMethodDetailsCardWallet'NonNullableType'EnumApplePay
-            | val GHC.Classes.== "google_pay" -> PaymentMethodDetailsCardWallet'NonNullableType'EnumGooglePay
-            | val GHC.Classes.== "masterpass" -> PaymentMethodDetailsCardWallet'NonNullableType'EnumMasterpass
-            | val GHC.Classes.== "samsung_pay" -> PaymentMethodDetailsCardWallet'NonNullableType'EnumSamsungPay
-            | val GHC.Classes.== "visa_checkout" -> PaymentMethodDetailsCardWallet'NonNullableType'EnumVisaCheckout
-            | GHC.Base.otherwise -> PaymentMethodDetailsCardWallet'NonNullableType'Other val
+          | val GHC.Classes.== "amex_express_checkout" -> PaymentMethodDetailsCardWallet'NonNullableType'EnumAmexExpressCheckout
+          | val GHC.Classes.== "apple_pay" -> PaymentMethodDetailsCardWallet'NonNullableType'EnumApplePay
+          | val GHC.Classes.== "google_pay" -> PaymentMethodDetailsCardWallet'NonNullableType'EnumGooglePay
+          | val GHC.Classes.== "masterpass" -> PaymentMethodDetailsCardWallet'NonNullableType'EnumMasterpass
+          | val GHC.Classes.== "samsung_pay" -> PaymentMethodDetailsCardWallet'NonNullableType'EnumSamsungPay
+          | val GHC.Classes.== "visa_checkout" -> PaymentMethodDetailsCardWallet'NonNullableType'EnumVisaCheckout
+          | GHC.Base.otherwise -> PaymentMethodDetailsCardWallet'NonNullableType'Other val
       )

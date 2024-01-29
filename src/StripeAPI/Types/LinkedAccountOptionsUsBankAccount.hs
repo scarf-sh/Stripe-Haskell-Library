@@ -91,9 +91,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON LinkedAccountOptionsUsBankAccountPer
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "balances" -> LinkedAccountOptionsUsBankAccountPermissions'EnumBalances
-            | val GHC.Classes.== "ownership" -> LinkedAccountOptionsUsBankAccountPermissions'EnumOwnership
-            | val GHC.Classes.== "payment_method" -> LinkedAccountOptionsUsBankAccountPermissions'EnumPaymentMethod
-            | val GHC.Classes.== "transactions" -> LinkedAccountOptionsUsBankAccountPermissions'EnumTransactions
-            | GHC.Base.otherwise -> LinkedAccountOptionsUsBankAccountPermissions'Other val
+          | val GHC.Classes.== "balances" -> LinkedAccountOptionsUsBankAccountPermissions'EnumBalances
+          | val GHC.Classes.== "ownership" -> LinkedAccountOptionsUsBankAccountPermissions'EnumOwnership
+          | val GHC.Classes.== "payment_method" -> LinkedAccountOptionsUsBankAccountPermissions'EnumPaymentMethod
+          | val GHC.Classes.== "transactions" -> LinkedAccountOptionsUsBankAccountPermissions'EnumTransactions
+          | GHC.Base.otherwise -> LinkedAccountOptionsUsBankAccountPermissions'Other val
       )

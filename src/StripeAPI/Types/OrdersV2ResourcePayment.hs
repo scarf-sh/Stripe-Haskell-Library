@@ -329,28 +329,28 @@ instance Data.Aeson.Types.FromJSON.FromJSON OrdersV2ResourcePaymentSettings'NonN
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "acss_debit" -> OrdersV2ResourcePaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumAcssDebit
-            | val GHC.Classes.== "afterpay_clearpay" -> OrdersV2ResourcePaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumAfterpayClearpay
-            | val GHC.Classes.== "alipay" -> OrdersV2ResourcePaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumAlipay
-            | val GHC.Classes.== "au_becs_debit" -> OrdersV2ResourcePaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumAuBecsDebit
-            | val GHC.Classes.== "bacs_debit" -> OrdersV2ResourcePaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumBacsDebit
-            | val GHC.Classes.== "bancontact" -> OrdersV2ResourcePaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumBancontact
-            | val GHC.Classes.== "card" -> OrdersV2ResourcePaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumCard
-            | val GHC.Classes.== "customer_balance" -> OrdersV2ResourcePaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumCustomerBalance
-            | val GHC.Classes.== "eps" -> OrdersV2ResourcePaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumEps
-            | val GHC.Classes.== "fpx" -> OrdersV2ResourcePaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumFpx
-            | val GHC.Classes.== "giropay" -> OrdersV2ResourcePaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumGiropay
-            | val GHC.Classes.== "grabpay" -> OrdersV2ResourcePaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumGrabpay
-            | val GHC.Classes.== "ideal" -> OrdersV2ResourcePaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumIdeal
-            | val GHC.Classes.== "klarna" -> OrdersV2ResourcePaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumKlarna
-            | val GHC.Classes.== "link" -> OrdersV2ResourcePaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumLink
-            | val GHC.Classes.== "oxxo" -> OrdersV2ResourcePaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumOxxo
-            | val GHC.Classes.== "p24" -> OrdersV2ResourcePaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumP24
-            | val GHC.Classes.== "paypal" -> OrdersV2ResourcePaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumPaypal
-            | val GHC.Classes.== "sepa_debit" -> OrdersV2ResourcePaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumSepaDebit
-            | val GHC.Classes.== "sofort" -> OrdersV2ResourcePaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumSofort
-            | val GHC.Classes.== "wechat_pay" -> OrdersV2ResourcePaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumWechatPay
-            | GHC.Base.otherwise -> OrdersV2ResourcePaymentSettings'NonNullablePaymentMethodTypes'NonNullableOther val
+          | val GHC.Classes.== "acss_debit" -> OrdersV2ResourcePaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumAcssDebit
+          | val GHC.Classes.== "afterpay_clearpay" -> OrdersV2ResourcePaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumAfterpayClearpay
+          | val GHC.Classes.== "alipay" -> OrdersV2ResourcePaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumAlipay
+          | val GHC.Classes.== "au_becs_debit" -> OrdersV2ResourcePaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumAuBecsDebit
+          | val GHC.Classes.== "bacs_debit" -> OrdersV2ResourcePaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumBacsDebit
+          | val GHC.Classes.== "bancontact" -> OrdersV2ResourcePaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumBancontact
+          | val GHC.Classes.== "card" -> OrdersV2ResourcePaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumCard
+          | val GHC.Classes.== "customer_balance" -> OrdersV2ResourcePaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumCustomerBalance
+          | val GHC.Classes.== "eps" -> OrdersV2ResourcePaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumEps
+          | val GHC.Classes.== "fpx" -> OrdersV2ResourcePaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumFpx
+          | val GHC.Classes.== "giropay" -> OrdersV2ResourcePaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumGiropay
+          | val GHC.Classes.== "grabpay" -> OrdersV2ResourcePaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumGrabpay
+          | val GHC.Classes.== "ideal" -> OrdersV2ResourcePaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumIdeal
+          | val GHC.Classes.== "klarna" -> OrdersV2ResourcePaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumKlarna
+          | val GHC.Classes.== "link" -> OrdersV2ResourcePaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumLink
+          | val GHC.Classes.== "oxxo" -> OrdersV2ResourcePaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumOxxo
+          | val GHC.Classes.== "p24" -> OrdersV2ResourcePaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumP24
+          | val GHC.Classes.== "paypal" -> OrdersV2ResourcePaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumPaypal
+          | val GHC.Classes.== "sepa_debit" -> OrdersV2ResourcePaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumSepaDebit
+          | val GHC.Classes.== "sofort" -> OrdersV2ResourcePaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumSofort
+          | val GHC.Classes.== "wechat_pay" -> OrdersV2ResourcePaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumWechatPay
+          | GHC.Base.otherwise -> OrdersV2ResourcePaymentSettings'NonNullablePaymentMethodTypes'NonNullableOther val
       )
 
 -- | Defines the object schema located at @components.schemas.orders_v2_resource_payment.properties.settings.anyOf.properties.transfer_data.anyOf@ in the specification.
@@ -441,13 +441,13 @@ instance Data.Aeson.Types.FromJSON.FromJSON OrdersV2ResourcePaymentStatus'NonNul
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "canceled" -> OrdersV2ResourcePaymentStatus'NonNullableEnumCanceled
-            | val GHC.Classes.== "complete" -> OrdersV2ResourcePaymentStatus'NonNullableEnumComplete
-            | val GHC.Classes.== "not_required" -> OrdersV2ResourcePaymentStatus'NonNullableEnumNotRequired
-            | val GHC.Classes.== "processing" -> OrdersV2ResourcePaymentStatus'NonNullableEnumProcessing
-            | val GHC.Classes.== "requires_action" -> OrdersV2ResourcePaymentStatus'NonNullableEnumRequiresAction
-            | val GHC.Classes.== "requires_capture" -> OrdersV2ResourcePaymentStatus'NonNullableEnumRequiresCapture
-            | val GHC.Classes.== "requires_confirmation" -> OrdersV2ResourcePaymentStatus'NonNullableEnumRequiresConfirmation
-            | val GHC.Classes.== "requires_payment_method" -> OrdersV2ResourcePaymentStatus'NonNullableEnumRequiresPaymentMethod
-            | GHC.Base.otherwise -> OrdersV2ResourcePaymentStatus'NonNullableOther val
+          | val GHC.Classes.== "canceled" -> OrdersV2ResourcePaymentStatus'NonNullableEnumCanceled
+          | val GHC.Classes.== "complete" -> OrdersV2ResourcePaymentStatus'NonNullableEnumComplete
+          | val GHC.Classes.== "not_required" -> OrdersV2ResourcePaymentStatus'NonNullableEnumNotRequired
+          | val GHC.Classes.== "processing" -> OrdersV2ResourcePaymentStatus'NonNullableEnumProcessing
+          | val GHC.Classes.== "requires_action" -> OrdersV2ResourcePaymentStatus'NonNullableEnumRequiresAction
+          | val GHC.Classes.== "requires_capture" -> OrdersV2ResourcePaymentStatus'NonNullableEnumRequiresCapture
+          | val GHC.Classes.== "requires_confirmation" -> OrdersV2ResourcePaymentStatus'NonNullableEnumRequiresConfirmation
+          | val GHC.Classes.== "requires_payment_method" -> OrdersV2ResourcePaymentStatus'NonNullableEnumRequiresPaymentMethod
+          | GHC.Base.otherwise -> OrdersV2ResourcePaymentStatus'NonNullableOther val
       )

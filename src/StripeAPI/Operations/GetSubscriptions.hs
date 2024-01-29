@@ -48,7 +48,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>By default, returns a list of subscriptions that have not been canceled. In order to list canceled subscriptions, specify \<code>status=canceled\<\/code>.\<\/p>
 getSubscriptions ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | Contains all available parameters of this operation (query and path parameters)
   GetSubscriptionsParameters ->
   -- | Monadic computation which returns the result of the operation
@@ -60,21 +60,21 @@ getSubscriptions parameters =
           ( Data.Either.either GetSubscriptionsResponseError GHC.Base.id
               GHC.Base.. ( \response body ->
                              if
-                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                               | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                    GetSubscriptionsResponse200
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             GetSubscriptionsResponseBody200
                                                       )
-                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                               | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                    GetSubscriptionsResponseDefault
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             Error
                                                       )
-                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                               | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                          )
                 response_0
           )
@@ -219,9 +219,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON GetSubscriptionsParametersQueryColle
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "charge_automatically" -> GetSubscriptionsParametersQueryCollectionMethod'EnumChargeAutomatically
-            | val GHC.Classes.== "send_invoice" -> GetSubscriptionsParametersQueryCollectionMethod'EnumSendInvoice
-            | GHC.Base.otherwise -> GetSubscriptionsParametersQueryCollectionMethod'Other val
+          | val GHC.Classes.== "charge_automatically" -> GetSubscriptionsParametersQueryCollectionMethod'EnumChargeAutomatically
+          | val GHC.Classes.== "send_invoice" -> GetSubscriptionsParametersQueryCollectionMethod'EnumSendInvoice
+          | GHC.Base.otherwise -> GetSubscriptionsParametersQueryCollectionMethod'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/subscriptions.GET.parameters.properties.queryCreated.anyOf@ in the specification.
@@ -421,16 +421,16 @@ instance Data.Aeson.Types.FromJSON.FromJSON GetSubscriptionsParametersQueryStatu
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "active" -> GetSubscriptionsParametersQueryStatus'EnumActive
-            | val GHC.Classes.== "all" -> GetSubscriptionsParametersQueryStatus'EnumAll
-            | val GHC.Classes.== "canceled" -> GetSubscriptionsParametersQueryStatus'EnumCanceled
-            | val GHC.Classes.== "ended" -> GetSubscriptionsParametersQueryStatus'EnumEnded
-            | val GHC.Classes.== "incomplete" -> GetSubscriptionsParametersQueryStatus'EnumIncomplete
-            | val GHC.Classes.== "incomplete_expired" -> GetSubscriptionsParametersQueryStatus'EnumIncompleteExpired
-            | val GHC.Classes.== "past_due" -> GetSubscriptionsParametersQueryStatus'EnumPastDue
-            | val GHC.Classes.== "trialing" -> GetSubscriptionsParametersQueryStatus'EnumTrialing
-            | val GHC.Classes.== "unpaid" -> GetSubscriptionsParametersQueryStatus'EnumUnpaid
-            | GHC.Base.otherwise -> GetSubscriptionsParametersQueryStatus'Other val
+          | val GHC.Classes.== "active" -> GetSubscriptionsParametersQueryStatus'EnumActive
+          | val GHC.Classes.== "all" -> GetSubscriptionsParametersQueryStatus'EnumAll
+          | val GHC.Classes.== "canceled" -> GetSubscriptionsParametersQueryStatus'EnumCanceled
+          | val GHC.Classes.== "ended" -> GetSubscriptionsParametersQueryStatus'EnumEnded
+          | val GHC.Classes.== "incomplete" -> GetSubscriptionsParametersQueryStatus'EnumIncomplete
+          | val GHC.Classes.== "incomplete_expired" -> GetSubscriptionsParametersQueryStatus'EnumIncompleteExpired
+          | val GHC.Classes.== "past_due" -> GetSubscriptionsParametersQueryStatus'EnumPastDue
+          | val GHC.Classes.== "trialing" -> GetSubscriptionsParametersQueryStatus'EnumTrialing
+          | val GHC.Classes.== "unpaid" -> GetSubscriptionsParametersQueryStatus'EnumUnpaid
+          | GHC.Base.otherwise -> GetSubscriptionsParametersQueryStatus'Other val
       )
 
 -- | Represents a response of the operation 'getSubscriptions'.

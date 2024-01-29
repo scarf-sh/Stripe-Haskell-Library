@@ -142,11 +142,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON GelatoSelfieReportError'NonNullableC
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "selfie_document_missing_photo" -> GelatoSelfieReportError'NonNullableCode'NonNullableEnumSelfieDocumentMissingPhoto
-            | val GHC.Classes.== "selfie_face_mismatch" -> GelatoSelfieReportError'NonNullableCode'NonNullableEnumSelfieFaceMismatch
-            | val GHC.Classes.== "selfie_manipulated" -> GelatoSelfieReportError'NonNullableCode'NonNullableEnumSelfieManipulated
-            | val GHC.Classes.== "selfie_unverified_other" -> GelatoSelfieReportError'NonNullableCode'NonNullableEnumSelfieUnverifiedOther
-            | GHC.Base.otherwise -> GelatoSelfieReportError'NonNullableCode'NonNullableOther val
+          | val GHC.Classes.== "selfie_document_missing_photo" -> GelatoSelfieReportError'NonNullableCode'NonNullableEnumSelfieDocumentMissingPhoto
+          | val GHC.Classes.== "selfie_face_mismatch" -> GelatoSelfieReportError'NonNullableCode'NonNullableEnumSelfieFaceMismatch
+          | val GHC.Classes.== "selfie_manipulated" -> GelatoSelfieReportError'NonNullableCode'NonNullableEnumSelfieManipulated
+          | val GHC.Classes.== "selfie_unverified_other" -> GelatoSelfieReportError'NonNullableCode'NonNullableEnumSelfieUnverifiedOther
+          | GHC.Base.otherwise -> GelatoSelfieReportError'NonNullableCode'NonNullableOther val
       )
 
 -- | Defines the enum schema located at @components.schemas.gelato_selfie_report.properties.status@ in the specification.
@@ -173,7 +173,7 @@ instance Data.Aeson.Types.FromJSON.FromJSON GelatoSelfieReportStatus' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "unverified" -> GelatoSelfieReportStatus'EnumUnverified
-            | val GHC.Classes.== "verified" -> GelatoSelfieReportStatus'EnumVerified
-            | GHC.Base.otherwise -> GelatoSelfieReportStatus'Other val
+          | val GHC.Classes.== "unverified" -> GelatoSelfieReportStatus'EnumUnverified
+          | val GHC.Classes.== "verified" -> GelatoSelfieReportStatus'EnumVerified
+          | GHC.Base.otherwise -> GelatoSelfieReportStatus'Other val
       )

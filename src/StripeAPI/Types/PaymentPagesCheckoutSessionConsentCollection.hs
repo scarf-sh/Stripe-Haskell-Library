@@ -78,6 +78,6 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentPagesCheckoutSessionConsentCo
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "auto" -> PaymentPagesCheckoutSessionConsentCollectionPromotions'NonNullableEnumAuto
-            | GHC.Base.otherwise -> PaymentPagesCheckoutSessionConsentCollectionPromotions'NonNullableOther val
+          | val GHC.Classes.== "auto" -> PaymentPagesCheckoutSessionConsentCollectionPromotions'NonNullableEnumAuto
+          | GHC.Base.otherwise -> PaymentPagesCheckoutSessionConsentCollectionPromotions'NonNullableOther val
       )

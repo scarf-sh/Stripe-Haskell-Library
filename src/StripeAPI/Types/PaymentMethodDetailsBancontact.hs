@@ -166,9 +166,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentMethodDetailsBancontactPrefer
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "de" -> PaymentMethodDetailsBancontactPreferredLanguage'NonNullableEnumDe
-            | val GHC.Classes.== "en" -> PaymentMethodDetailsBancontactPreferredLanguage'NonNullableEnumEn
-            | val GHC.Classes.== "fr" -> PaymentMethodDetailsBancontactPreferredLanguage'NonNullableEnumFr
-            | val GHC.Classes.== "nl" -> PaymentMethodDetailsBancontactPreferredLanguage'NonNullableEnumNl
-            | GHC.Base.otherwise -> PaymentMethodDetailsBancontactPreferredLanguage'NonNullableOther val
+          | val GHC.Classes.== "de" -> PaymentMethodDetailsBancontactPreferredLanguage'NonNullableEnumDe
+          | val GHC.Classes.== "en" -> PaymentMethodDetailsBancontactPreferredLanguage'NonNullableEnumEn
+          | val GHC.Classes.== "fr" -> PaymentMethodDetailsBancontactPreferredLanguage'NonNullableEnumFr
+          | val GHC.Classes.== "nl" -> PaymentMethodDetailsBancontactPreferredLanguage'NonNullableEnumNl
+          | GHC.Base.otherwise -> PaymentMethodDetailsBancontactPreferredLanguage'NonNullableOther val
       )

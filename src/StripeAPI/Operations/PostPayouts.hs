@@ -52,7 +52,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>If you are creating a manual payout on a Stripe account that uses multiple payment source types, you’ll need to specify the source type balance that the payout should draw from. The \<a href=\"\#balance_object\">balance object\<\/a> details available and pending amounts by source type.\<\/p>
 postPayouts ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | The request body to send
   PostPayoutsRequestBody ->
   -- | Monadic computation which returns the result of the operation
@@ -64,21 +64,21 @@ postPayouts body =
           ( Data.Either.either PostPayoutsResponseError GHC.Base.id
               GHC.Base.. ( \response body ->
                              if
-                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                               | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                    PostPayoutsResponse200
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             Payout
                                                       )
-                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                               | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                    PostPayoutsResponseDefault
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             Error
                                                       )
-                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                               | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                          )
                 response_0
           )
@@ -179,9 +179,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostPayoutsRequestBodyMethod' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "instant" -> PostPayoutsRequestBodyMethod'EnumInstant
-            | val GHC.Classes.== "standard" -> PostPayoutsRequestBodyMethod'EnumStandard
-            | GHC.Base.otherwise -> PostPayoutsRequestBodyMethod'Other val
+          | val GHC.Classes.== "instant" -> PostPayoutsRequestBodyMethod'EnumInstant
+          | val GHC.Classes.== "standard" -> PostPayoutsRequestBodyMethod'EnumStandard
+          | GHC.Base.otherwise -> PostPayoutsRequestBodyMethod'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/payouts.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.source_type@ in the specification.
@@ -211,10 +211,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostPayoutsRequestBodySourceType' wh
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "bank_account" -> PostPayoutsRequestBodySourceType'EnumBankAccount
-            | val GHC.Classes.== "card" -> PostPayoutsRequestBodySourceType'EnumCard
-            | val GHC.Classes.== "fpx" -> PostPayoutsRequestBodySourceType'EnumFpx
-            | GHC.Base.otherwise -> PostPayoutsRequestBodySourceType'Other val
+          | val GHC.Classes.== "bank_account" -> PostPayoutsRequestBodySourceType'EnumBankAccount
+          | val GHC.Classes.== "card" -> PostPayoutsRequestBodySourceType'EnumCard
+          | val GHC.Classes.== "fpx" -> PostPayoutsRequestBodySourceType'EnumFpx
+          | GHC.Base.otherwise -> PostPayoutsRequestBodySourceType'Other val
       )
 
 -- | Represents a response of the operation 'postPayouts'.

@@ -863,10 +863,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON ChargeStatus' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "failed" -> ChargeStatus'EnumFailed
-            | val GHC.Classes.== "pending" -> ChargeStatus'EnumPending
-            | val GHC.Classes.== "succeeded" -> ChargeStatus'EnumSucceeded
-            | GHC.Base.otherwise -> ChargeStatus'Other val
+          | val GHC.Classes.== "failed" -> ChargeStatus'EnumFailed
+          | val GHC.Classes.== "pending" -> ChargeStatus'EnumPending
+          | val GHC.Classes.== "succeeded" -> ChargeStatus'EnumSucceeded
+          | GHC.Base.otherwise -> ChargeStatus'Other val
       )
 
 -- | Defines the oneOf schema located at @components.schemas.charge.properties.transfer.anyOf@ in the specification.

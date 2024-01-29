@@ -274,10 +274,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON SetupIntentCancellationReason'NonNul
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "abandoned" -> SetupIntentCancellationReason'NonNullableEnumAbandoned
-            | val GHC.Classes.== "duplicate" -> SetupIntentCancellationReason'NonNullableEnumDuplicate
-            | val GHC.Classes.== "requested_by_customer" -> SetupIntentCancellationReason'NonNullableEnumRequestedByCustomer
-            | GHC.Base.otherwise -> SetupIntentCancellationReason'NonNullableOther val
+          | val GHC.Classes.== "abandoned" -> SetupIntentCancellationReason'NonNullableEnumAbandoned
+          | val GHC.Classes.== "duplicate" -> SetupIntentCancellationReason'NonNullableEnumDuplicate
+          | val GHC.Classes.== "requested_by_customer" -> SetupIntentCancellationReason'NonNullableEnumRequestedByCustomer
+          | GHC.Base.otherwise -> SetupIntentCancellationReason'NonNullableOther val
       )
 
 -- | Defines the oneOf schema located at @components.schemas.setup_intent.properties.customer.anyOf@ in the specification.
@@ -323,9 +323,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON SetupIntentFlowDirections'NonNullabl
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "inbound" -> SetupIntentFlowDirections'NonNullableEnumInbound
-            | val GHC.Classes.== "outbound" -> SetupIntentFlowDirections'NonNullableEnumOutbound
-            | GHC.Base.otherwise -> SetupIntentFlowDirections'NonNullableOther val
+          | val GHC.Classes.== "inbound" -> SetupIntentFlowDirections'NonNullableEnumInbound
+          | val GHC.Classes.== "outbound" -> SetupIntentFlowDirections'NonNullableEnumOutbound
+          | GHC.Base.otherwise -> SetupIntentFlowDirections'NonNullableOther val
       )
 
 -- | Defines the object schema located at @components.schemas.setup_intent.properties.last_setup_error.anyOf@ in the specification.
@@ -821,9 +821,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON SetupIntentLastSetupError'NonNullabl
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "instant" -> SetupIntentLastSetupError'NonNullableSource'AvailablePayoutMethods'NonNullableEnumInstant
-            | val GHC.Classes.== "standard" -> SetupIntentLastSetupError'NonNullableSource'AvailablePayoutMethods'NonNullableEnumStandard
-            | GHC.Base.otherwise -> SetupIntentLastSetupError'NonNullableSource'AvailablePayoutMethods'NonNullableOther val
+          | val GHC.Classes.== "instant" -> SetupIntentLastSetupError'NonNullableSource'AvailablePayoutMethods'NonNullableEnumInstant
+          | val GHC.Classes.== "standard" -> SetupIntentLastSetupError'NonNullableSource'AvailablePayoutMethods'NonNullableEnumStandard
+          | GHC.Base.otherwise -> SetupIntentLastSetupError'NonNullableSource'AvailablePayoutMethods'NonNullableOther val
       )
 
 -- | Defines the oneOf schema located at @components.schemas.setup_intent.properties.last_setup_error.anyOf.properties.source.anyOf.properties.customer.anyOf@ in the specification.
@@ -866,8 +866,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON SetupIntentLastSetupError'NonNullabl
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "bank_account" -> SetupIntentLastSetupError'NonNullableSource'Object'EnumBankAccount
-            | GHC.Base.otherwise -> SetupIntentLastSetupError'NonNullableSource'Object'Other val
+          | val GHC.Classes.== "bank_account" -> SetupIntentLastSetupError'NonNullableSource'Object'EnumBankAccount
+          | GHC.Base.otherwise -> SetupIntentLastSetupError'NonNullableSource'Object'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.setup_intent.properties.last_setup_error.anyOf.properties.source.anyOf.properties.owner.anyOf@ in the specification.
@@ -1160,25 +1160,25 @@ instance Data.Aeson.Types.FromJSON.FromJSON SetupIntentLastSetupError'NonNullabl
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "ach_credit_transfer" -> SetupIntentLastSetupError'NonNullableSource'Type'EnumAchCreditTransfer
-            | val GHC.Classes.== "ach_debit" -> SetupIntentLastSetupError'NonNullableSource'Type'EnumAchDebit
-            | val GHC.Classes.== "acss_debit" -> SetupIntentLastSetupError'NonNullableSource'Type'EnumAcssDebit
-            | val GHC.Classes.== "alipay" -> SetupIntentLastSetupError'NonNullableSource'Type'EnumAlipay
-            | val GHC.Classes.== "au_becs_debit" -> SetupIntentLastSetupError'NonNullableSource'Type'EnumAuBecsDebit
-            | val GHC.Classes.== "bancontact" -> SetupIntentLastSetupError'NonNullableSource'Type'EnumBancontact
-            | val GHC.Classes.== "card" -> SetupIntentLastSetupError'NonNullableSource'Type'EnumCard
-            | val GHC.Classes.== "card_present" -> SetupIntentLastSetupError'NonNullableSource'Type'EnumCardPresent
-            | val GHC.Classes.== "eps" -> SetupIntentLastSetupError'NonNullableSource'Type'EnumEps
-            | val GHC.Classes.== "giropay" -> SetupIntentLastSetupError'NonNullableSource'Type'EnumGiropay
-            | val GHC.Classes.== "ideal" -> SetupIntentLastSetupError'NonNullableSource'Type'EnumIdeal
-            | val GHC.Classes.== "klarna" -> SetupIntentLastSetupError'NonNullableSource'Type'EnumKlarna
-            | val GHC.Classes.== "multibanco" -> SetupIntentLastSetupError'NonNullableSource'Type'EnumMultibanco
-            | val GHC.Classes.== "p24" -> SetupIntentLastSetupError'NonNullableSource'Type'EnumP24
-            | val GHC.Classes.== "sepa_debit" -> SetupIntentLastSetupError'NonNullableSource'Type'EnumSepaDebit
-            | val GHC.Classes.== "sofort" -> SetupIntentLastSetupError'NonNullableSource'Type'EnumSofort
-            | val GHC.Classes.== "three_d_secure" -> SetupIntentLastSetupError'NonNullableSource'Type'EnumThreeDSecure
-            | val GHC.Classes.== "wechat" -> SetupIntentLastSetupError'NonNullableSource'Type'EnumWechat
-            | GHC.Base.otherwise -> SetupIntentLastSetupError'NonNullableSource'Type'Other val
+          | val GHC.Classes.== "ach_credit_transfer" -> SetupIntentLastSetupError'NonNullableSource'Type'EnumAchCreditTransfer
+          | val GHC.Classes.== "ach_debit" -> SetupIntentLastSetupError'NonNullableSource'Type'EnumAchDebit
+          | val GHC.Classes.== "acss_debit" -> SetupIntentLastSetupError'NonNullableSource'Type'EnumAcssDebit
+          | val GHC.Classes.== "alipay" -> SetupIntentLastSetupError'NonNullableSource'Type'EnumAlipay
+          | val GHC.Classes.== "au_becs_debit" -> SetupIntentLastSetupError'NonNullableSource'Type'EnumAuBecsDebit
+          | val GHC.Classes.== "bancontact" -> SetupIntentLastSetupError'NonNullableSource'Type'EnumBancontact
+          | val GHC.Classes.== "card" -> SetupIntentLastSetupError'NonNullableSource'Type'EnumCard
+          | val GHC.Classes.== "card_present" -> SetupIntentLastSetupError'NonNullableSource'Type'EnumCardPresent
+          | val GHC.Classes.== "eps" -> SetupIntentLastSetupError'NonNullableSource'Type'EnumEps
+          | val GHC.Classes.== "giropay" -> SetupIntentLastSetupError'NonNullableSource'Type'EnumGiropay
+          | val GHC.Classes.== "ideal" -> SetupIntentLastSetupError'NonNullableSource'Type'EnumIdeal
+          | val GHC.Classes.== "klarna" -> SetupIntentLastSetupError'NonNullableSource'Type'EnumKlarna
+          | val GHC.Classes.== "multibanco" -> SetupIntentLastSetupError'NonNullableSource'Type'EnumMultibanco
+          | val GHC.Classes.== "p24" -> SetupIntentLastSetupError'NonNullableSource'Type'EnumP24
+          | val GHC.Classes.== "sepa_debit" -> SetupIntentLastSetupError'NonNullableSource'Type'EnumSepaDebit
+          | val GHC.Classes.== "sofort" -> SetupIntentLastSetupError'NonNullableSource'Type'EnumSofort
+          | val GHC.Classes.== "three_d_secure" -> SetupIntentLastSetupError'NonNullableSource'Type'EnumThreeDSecure
+          | val GHC.Classes.== "wechat" -> SetupIntentLastSetupError'NonNullableSource'Type'EnumWechat
+          | GHC.Base.otherwise -> SetupIntentLastSetupError'NonNullableSource'Type'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.setup_intent.properties.last_setup_error.anyOf.properties.type@ in the specification.
@@ -1211,11 +1211,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON SetupIntentLastSetupError'NonNullabl
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "api_error" -> SetupIntentLastSetupError'NonNullableType'EnumApiError
-            | val GHC.Classes.== "card_error" -> SetupIntentLastSetupError'NonNullableType'EnumCardError
-            | val GHC.Classes.== "idempotency_error" -> SetupIntentLastSetupError'NonNullableType'EnumIdempotencyError
-            | val GHC.Classes.== "invalid_request_error" -> SetupIntentLastSetupError'NonNullableType'EnumInvalidRequestError
-            | GHC.Base.otherwise -> SetupIntentLastSetupError'NonNullableType'Other val
+          | val GHC.Classes.== "api_error" -> SetupIntentLastSetupError'NonNullableType'EnumApiError
+          | val GHC.Classes.== "card_error" -> SetupIntentLastSetupError'NonNullableType'EnumCardError
+          | val GHC.Classes.== "idempotency_error" -> SetupIntentLastSetupError'NonNullableType'EnumIdempotencyError
+          | val GHC.Classes.== "invalid_request_error" -> SetupIntentLastSetupError'NonNullableType'EnumInvalidRequestError
+          | GHC.Base.otherwise -> SetupIntentLastSetupError'NonNullableType'Other val
       )
 
 -- | Defines the oneOf schema located at @components.schemas.setup_intent.properties.latest_attempt.anyOf@ in the specification.
@@ -1417,9 +1417,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON SetupIntentPaymentMethodOptions'NonN
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "cad" -> SetupIntentPaymentMethodOptions'NonNullableAcssDebit'Currency'NonNullableEnumCad
-            | val GHC.Classes.== "usd" -> SetupIntentPaymentMethodOptions'NonNullableAcssDebit'Currency'NonNullableEnumUsd
-            | GHC.Base.otherwise -> SetupIntentPaymentMethodOptions'NonNullableAcssDebit'Currency'NonNullableOther val
+          | val GHC.Classes.== "cad" -> SetupIntentPaymentMethodOptions'NonNullableAcssDebit'Currency'NonNullableEnumCad
+          | val GHC.Classes.== "usd" -> SetupIntentPaymentMethodOptions'NonNullableAcssDebit'Currency'NonNullableEnumUsd
+          | GHC.Base.otherwise -> SetupIntentPaymentMethodOptions'NonNullableAcssDebit'Currency'NonNullableOther val
       )
 
 -- | Defines the enum schema located at @components.schemas.setup_intent.properties.payment_method_options.anyOf.properties.acss_debit.anyOf.properties.verification_method@ in the specification.
@@ -1449,10 +1449,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON SetupIntentPaymentMethodOptions'NonN
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> SetupIntentPaymentMethodOptions'NonNullableAcssDebit'VerificationMethod'EnumAutomatic
-            | val GHC.Classes.== "instant" -> SetupIntentPaymentMethodOptions'NonNullableAcssDebit'VerificationMethod'EnumInstant
-            | val GHC.Classes.== "microdeposits" -> SetupIntentPaymentMethodOptions'NonNullableAcssDebit'VerificationMethod'EnumMicrodeposits
-            | GHC.Base.otherwise -> SetupIntentPaymentMethodOptions'NonNullableAcssDebit'VerificationMethod'Other val
+          | val GHC.Classes.== "automatic" -> SetupIntentPaymentMethodOptions'NonNullableAcssDebit'VerificationMethod'EnumAutomatic
+          | val GHC.Classes.== "instant" -> SetupIntentPaymentMethodOptions'NonNullableAcssDebit'VerificationMethod'EnumInstant
+          | val GHC.Classes.== "microdeposits" -> SetupIntentPaymentMethodOptions'NonNullableAcssDebit'VerificationMethod'EnumMicrodeposits
+          | GHC.Base.otherwise -> SetupIntentPaymentMethodOptions'NonNullableAcssDebit'VerificationMethod'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.setup_intent.properties.payment_method_options.anyOf.properties.link.anyOf@ in the specification.
@@ -1513,10 +1513,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON SetupIntentPaymentMethodOptions'NonN
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> SetupIntentPaymentMethodOptions'NonNullableLink'VerificationMethod'EnumAutomatic
-            | val GHC.Classes.== "instant" -> SetupIntentPaymentMethodOptions'NonNullableLink'VerificationMethod'EnumInstant
-            | val GHC.Classes.== "microdeposits" -> SetupIntentPaymentMethodOptions'NonNullableLink'VerificationMethod'EnumMicrodeposits
-            | GHC.Base.otherwise -> SetupIntentPaymentMethodOptions'NonNullableLink'VerificationMethod'Other val
+          | val GHC.Classes.== "automatic" -> SetupIntentPaymentMethodOptions'NonNullableLink'VerificationMethod'EnumAutomatic
+          | val GHC.Classes.== "instant" -> SetupIntentPaymentMethodOptions'NonNullableLink'VerificationMethod'EnumInstant
+          | val GHC.Classes.== "microdeposits" -> SetupIntentPaymentMethodOptions'NonNullableLink'VerificationMethod'EnumMicrodeposits
+          | GHC.Base.otherwise -> SetupIntentPaymentMethodOptions'NonNullableLink'VerificationMethod'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.setup_intent.properties.payment_method_options.anyOf.properties.sepa_debit.anyOf@ in the specification.
@@ -1573,10 +1573,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON SetupIntentPaymentMethodOptions'NonN
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> SetupIntentPaymentMethodOptions'NonNullableSepaDebit'VerificationMethod'EnumAutomatic
-            | val GHC.Classes.== "instant" -> SetupIntentPaymentMethodOptions'NonNullableSepaDebit'VerificationMethod'EnumInstant
-            | val GHC.Classes.== "microdeposits" -> SetupIntentPaymentMethodOptions'NonNullableSepaDebit'VerificationMethod'EnumMicrodeposits
-            | GHC.Base.otherwise -> SetupIntentPaymentMethodOptions'NonNullableSepaDebit'VerificationMethod'Other val
+          | val GHC.Classes.== "automatic" -> SetupIntentPaymentMethodOptions'NonNullableSepaDebit'VerificationMethod'EnumAutomatic
+          | val GHC.Classes.== "instant" -> SetupIntentPaymentMethodOptions'NonNullableSepaDebit'VerificationMethod'EnumInstant
+          | val GHC.Classes.== "microdeposits" -> SetupIntentPaymentMethodOptions'NonNullableSepaDebit'VerificationMethod'EnumMicrodeposits
+          | GHC.Base.otherwise -> SetupIntentPaymentMethodOptions'NonNullableSepaDebit'VerificationMethod'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.setup_intent.properties.payment_method_options.anyOf.properties.us_bank_account.anyOf@ in the specification.
@@ -1633,10 +1633,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON SetupIntentPaymentMethodOptions'NonN
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> SetupIntentPaymentMethodOptions'NonNullableUsBankAccount'VerificationMethod'EnumAutomatic
-            | val GHC.Classes.== "instant" -> SetupIntentPaymentMethodOptions'NonNullableUsBankAccount'VerificationMethod'EnumInstant
-            | val GHC.Classes.== "microdeposits" -> SetupIntentPaymentMethodOptions'NonNullableUsBankAccount'VerificationMethod'EnumMicrodeposits
-            | GHC.Base.otherwise -> SetupIntentPaymentMethodOptions'NonNullableUsBankAccount'VerificationMethod'Other val
+          | val GHC.Classes.== "automatic" -> SetupIntentPaymentMethodOptions'NonNullableUsBankAccount'VerificationMethod'EnumAutomatic
+          | val GHC.Classes.== "instant" -> SetupIntentPaymentMethodOptions'NonNullableUsBankAccount'VerificationMethod'EnumInstant
+          | val GHC.Classes.== "microdeposits" -> SetupIntentPaymentMethodOptions'NonNullableUsBankAccount'VerificationMethod'EnumMicrodeposits
+          | GHC.Base.otherwise -> SetupIntentPaymentMethodOptions'NonNullableUsBankAccount'VerificationMethod'Other val
       )
 
 -- | Defines the oneOf schema located at @components.schemas.setup_intent.properties.single_use_mandate.anyOf@ in the specification.
@@ -1692,11 +1692,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON SetupIntentStatus' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "canceled" -> SetupIntentStatus'EnumCanceled
-            | val GHC.Classes.== "processing" -> SetupIntentStatus'EnumProcessing
-            | val GHC.Classes.== "requires_action" -> SetupIntentStatus'EnumRequiresAction
-            | val GHC.Classes.== "requires_confirmation" -> SetupIntentStatus'EnumRequiresConfirmation
-            | val GHC.Classes.== "requires_payment_method" -> SetupIntentStatus'EnumRequiresPaymentMethod
-            | val GHC.Classes.== "succeeded" -> SetupIntentStatus'EnumSucceeded
-            | GHC.Base.otherwise -> SetupIntentStatus'Other val
+          | val GHC.Classes.== "canceled" -> SetupIntentStatus'EnumCanceled
+          | val GHC.Classes.== "processing" -> SetupIntentStatus'EnumProcessing
+          | val GHC.Classes.== "requires_action" -> SetupIntentStatus'EnumRequiresAction
+          | val GHC.Classes.== "requires_confirmation" -> SetupIntentStatus'EnumRequiresConfirmation
+          | val GHC.Classes.== "requires_payment_method" -> SetupIntentStatus'EnumRequiresPaymentMethod
+          | val GHC.Classes.== "succeeded" -> SetupIntentStatus'EnumSucceeded
+          | GHC.Base.otherwise -> SetupIntentStatus'Other val
       )

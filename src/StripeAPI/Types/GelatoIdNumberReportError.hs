@@ -90,8 +90,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON GelatoIdNumberReportErrorCode'NonNul
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "id_number_insufficient_document_data" -> GelatoIdNumberReportErrorCode'NonNullableEnumIdNumberInsufficientDocumentData
-            | val GHC.Classes.== "id_number_mismatch" -> GelatoIdNumberReportErrorCode'NonNullableEnumIdNumberMismatch
-            | val GHC.Classes.== "id_number_unverified_other" -> GelatoIdNumberReportErrorCode'NonNullableEnumIdNumberUnverifiedOther
-            | GHC.Base.otherwise -> GelatoIdNumberReportErrorCode'NonNullableOther val
+          | val GHC.Classes.== "id_number_insufficient_document_data" -> GelatoIdNumberReportErrorCode'NonNullableEnumIdNumberInsufficientDocumentData
+          | val GHC.Classes.== "id_number_mismatch" -> GelatoIdNumberReportErrorCode'NonNullableEnumIdNumberMismatch
+          | val GHC.Classes.== "id_number_unverified_other" -> GelatoIdNumberReportErrorCode'NonNullableEnumIdNumberUnverifiedOther
+          | GHC.Base.otherwise -> GelatoIdNumberReportErrorCode'NonNullableOther val
       )

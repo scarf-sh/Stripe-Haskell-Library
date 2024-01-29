@@ -98,9 +98,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON CheckoutAcssDebitMandateOptionsDefau
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "invoice" -> CheckoutAcssDebitMandateOptionsDefaultFor'EnumInvoice
-            | val GHC.Classes.== "subscription" -> CheckoutAcssDebitMandateOptionsDefaultFor'EnumSubscription
-            | GHC.Base.otherwise -> CheckoutAcssDebitMandateOptionsDefaultFor'Other val
+          | val GHC.Classes.== "invoice" -> CheckoutAcssDebitMandateOptionsDefaultFor'EnumInvoice
+          | val GHC.Classes.== "subscription" -> CheckoutAcssDebitMandateOptionsDefaultFor'EnumSubscription
+          | GHC.Base.otherwise -> CheckoutAcssDebitMandateOptionsDefaultFor'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.checkout_acss_debit_mandate_options.properties.payment_schedule@ in the specification.
@@ -130,10 +130,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON CheckoutAcssDebitMandateOptionsPayme
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "combined" -> CheckoutAcssDebitMandateOptionsPaymentSchedule'NonNullableEnumCombined
-            | val GHC.Classes.== "interval" -> CheckoutAcssDebitMandateOptionsPaymentSchedule'NonNullableEnumInterval
-            | val GHC.Classes.== "sporadic" -> CheckoutAcssDebitMandateOptionsPaymentSchedule'NonNullableEnumSporadic
-            | GHC.Base.otherwise -> CheckoutAcssDebitMandateOptionsPaymentSchedule'NonNullableOther val
+          | val GHC.Classes.== "combined" -> CheckoutAcssDebitMandateOptionsPaymentSchedule'NonNullableEnumCombined
+          | val GHC.Classes.== "interval" -> CheckoutAcssDebitMandateOptionsPaymentSchedule'NonNullableEnumInterval
+          | val GHC.Classes.== "sporadic" -> CheckoutAcssDebitMandateOptionsPaymentSchedule'NonNullableEnumSporadic
+          | GHC.Base.otherwise -> CheckoutAcssDebitMandateOptionsPaymentSchedule'NonNullableOther val
       )
 
 -- | Defines the enum schema located at @components.schemas.checkout_acss_debit_mandate_options.properties.transaction_type@ in the specification.
@@ -160,7 +160,7 @@ instance Data.Aeson.Types.FromJSON.FromJSON CheckoutAcssDebitMandateOptionsTrans
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "business" -> CheckoutAcssDebitMandateOptionsTransactionType'NonNullableEnumBusiness
-            | val GHC.Classes.== "personal" -> CheckoutAcssDebitMandateOptionsTransactionType'NonNullableEnumPersonal
-            | GHC.Base.otherwise -> CheckoutAcssDebitMandateOptionsTransactionType'NonNullableOther val
+          | val GHC.Classes.== "business" -> CheckoutAcssDebitMandateOptionsTransactionType'NonNullableEnumBusiness
+          | val GHC.Classes.== "personal" -> CheckoutAcssDebitMandateOptionsTransactionType'NonNullableEnumPersonal
+          | GHC.Base.otherwise -> CheckoutAcssDebitMandateOptionsTransactionType'NonNullableOther val
       )

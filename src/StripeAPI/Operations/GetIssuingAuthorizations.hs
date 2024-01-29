@@ -48,7 +48,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>Returns a list of Issuing \<code>Authorization\<\/code> objects. The objects are sorted in descending order by creation date, with the most recently created object appearing first.\<\/p>
 getIssuingAuthorizations ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | Contains all available parameters of this operation (query and path parameters)
   GetIssuingAuthorizationsParameters ->
   -- | Monadic computation which returns the result of the operation
@@ -60,21 +60,21 @@ getIssuingAuthorizations parameters =
           ( Data.Either.either GetIssuingAuthorizationsResponseError GHC.Base.id
               GHC.Base.. ( \response body ->
                              if
-                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                               | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                    GetIssuingAuthorizationsResponse200
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             GetIssuingAuthorizationsResponseBody200
                                                       )
-                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                               | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                    GetIssuingAuthorizationsResponseDefault
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             Error
                                                       )
-                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                               | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                          )
                 response_0
           )
@@ -252,10 +252,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON GetIssuingAuthorizationsParametersQu
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "closed" -> GetIssuingAuthorizationsParametersQueryStatus'EnumClosed
-            | val GHC.Classes.== "pending" -> GetIssuingAuthorizationsParametersQueryStatus'EnumPending
-            | val GHC.Classes.== "reversed" -> GetIssuingAuthorizationsParametersQueryStatus'EnumReversed
-            | GHC.Base.otherwise -> GetIssuingAuthorizationsParametersQueryStatus'Other val
+          | val GHC.Classes.== "closed" -> GetIssuingAuthorizationsParametersQueryStatus'EnumClosed
+          | val GHC.Classes.== "pending" -> GetIssuingAuthorizationsParametersQueryStatus'EnumPending
+          | val GHC.Classes.== "reversed" -> GetIssuingAuthorizationsParametersQueryStatus'EnumReversed
+          | GHC.Base.otherwise -> GetIssuingAuthorizationsParametersQueryStatus'Other val
       )
 
 -- | Represents a response of the operation 'getIssuingAuthorizations'.

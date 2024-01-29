@@ -92,9 +92,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON ThreeDSecureDetailsAuthenticationFlo
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "challenge" -> ThreeDSecureDetailsAuthenticationFlow'NonNullableEnumChallenge
-            | val GHC.Classes.== "frictionless" -> ThreeDSecureDetailsAuthenticationFlow'NonNullableEnumFrictionless
-            | GHC.Base.otherwise -> ThreeDSecureDetailsAuthenticationFlow'NonNullableOther val
+          | val GHC.Classes.== "challenge" -> ThreeDSecureDetailsAuthenticationFlow'NonNullableEnumChallenge
+          | val GHC.Classes.== "frictionless" -> ThreeDSecureDetailsAuthenticationFlow'NonNullableEnumFrictionless
+          | GHC.Base.otherwise -> ThreeDSecureDetailsAuthenticationFlow'NonNullableOther val
       )
 
 -- | Defines the enum schema located at @components.schemas.three_d_secure_details.properties.result@ in the specification.
@@ -130,12 +130,12 @@ instance Data.Aeson.Types.FromJSON.FromJSON ThreeDSecureDetailsResult'NonNullabl
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "attempt_acknowledged" -> ThreeDSecureDetailsResult'NonNullableEnumAttemptAcknowledged
-            | val GHC.Classes.== "authenticated" -> ThreeDSecureDetailsResult'NonNullableEnumAuthenticated
-            | val GHC.Classes.== "failed" -> ThreeDSecureDetailsResult'NonNullableEnumFailed
-            | val GHC.Classes.== "not_supported" -> ThreeDSecureDetailsResult'NonNullableEnumNotSupported
-            | val GHC.Classes.== "processing_error" -> ThreeDSecureDetailsResult'NonNullableEnumProcessingError
-            | GHC.Base.otherwise -> ThreeDSecureDetailsResult'NonNullableOther val
+          | val GHC.Classes.== "attempt_acknowledged" -> ThreeDSecureDetailsResult'NonNullableEnumAttemptAcknowledged
+          | val GHC.Classes.== "authenticated" -> ThreeDSecureDetailsResult'NonNullableEnumAuthenticated
+          | val GHC.Classes.== "failed" -> ThreeDSecureDetailsResult'NonNullableEnumFailed
+          | val GHC.Classes.== "not_supported" -> ThreeDSecureDetailsResult'NonNullableEnumNotSupported
+          | val GHC.Classes.== "processing_error" -> ThreeDSecureDetailsResult'NonNullableEnumProcessingError
+          | GHC.Base.otherwise -> ThreeDSecureDetailsResult'NonNullableOther val
       )
 
 -- | Defines the enum schema located at @components.schemas.three_d_secure_details.properties.result_reason@ in the specification.
@@ -178,14 +178,14 @@ instance Data.Aeson.Types.FromJSON.FromJSON ThreeDSecureDetailsResultReason'NonN
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "abandoned" -> ThreeDSecureDetailsResultReason'NonNullableEnumAbandoned
-            | val GHC.Classes.== "bypassed" -> ThreeDSecureDetailsResultReason'NonNullableEnumBypassed
-            | val GHC.Classes.== "canceled" -> ThreeDSecureDetailsResultReason'NonNullableEnumCanceled
-            | val GHC.Classes.== "card_not_enrolled" -> ThreeDSecureDetailsResultReason'NonNullableEnumCardNotEnrolled
-            | val GHC.Classes.== "network_not_supported" -> ThreeDSecureDetailsResultReason'NonNullableEnumNetworkNotSupported
-            | val GHC.Classes.== "protocol_error" -> ThreeDSecureDetailsResultReason'NonNullableEnumProtocolError
-            | val GHC.Classes.== "rejected" -> ThreeDSecureDetailsResultReason'NonNullableEnumRejected
-            | GHC.Base.otherwise -> ThreeDSecureDetailsResultReason'NonNullableOther val
+          | val GHC.Classes.== "abandoned" -> ThreeDSecureDetailsResultReason'NonNullableEnumAbandoned
+          | val GHC.Classes.== "bypassed" -> ThreeDSecureDetailsResultReason'NonNullableEnumBypassed
+          | val GHC.Classes.== "canceled" -> ThreeDSecureDetailsResultReason'NonNullableEnumCanceled
+          | val GHC.Classes.== "card_not_enrolled" -> ThreeDSecureDetailsResultReason'NonNullableEnumCardNotEnrolled
+          | val GHC.Classes.== "network_not_supported" -> ThreeDSecureDetailsResultReason'NonNullableEnumNetworkNotSupported
+          | val GHC.Classes.== "protocol_error" -> ThreeDSecureDetailsResultReason'NonNullableEnumProtocolError
+          | val GHC.Classes.== "rejected" -> ThreeDSecureDetailsResultReason'NonNullableEnumRejected
+          | GHC.Base.otherwise -> ThreeDSecureDetailsResultReason'NonNullableOther val
       )
 
 -- | Defines the enum schema located at @components.schemas.three_d_secure_details.properties.version@ in the specification.
@@ -215,8 +215,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON ThreeDSecureDetailsVersion'NonNullab
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "1.0.2" -> ThreeDSecureDetailsVersion'NonNullableEnum1'0'2
-            | val GHC.Classes.== "2.1.0" -> ThreeDSecureDetailsVersion'NonNullableEnum2'1'0
-            | val GHC.Classes.== "2.2.0" -> ThreeDSecureDetailsVersion'NonNullableEnum2'2'0
-            | GHC.Base.otherwise -> ThreeDSecureDetailsVersion'NonNullableOther val
+          | val GHC.Classes.== "1.0.2" -> ThreeDSecureDetailsVersion'NonNullableEnum1'0'2
+          | val GHC.Classes.== "2.1.0" -> ThreeDSecureDetailsVersion'NonNullableEnum2'1'0
+          | val GHC.Classes.== "2.2.0" -> ThreeDSecureDetailsVersion'NonNullableEnum2'2'0
+          | GHC.Base.otherwise -> ThreeDSecureDetailsVersion'NonNullableOther val
       )

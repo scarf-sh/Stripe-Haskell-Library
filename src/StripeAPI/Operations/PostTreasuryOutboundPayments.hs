@@ -48,7 +48,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>Creates an OutboundPayment.\<\/p>
 postTreasuryOutboundPayments ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | The request body to send
   PostTreasuryOutboundPaymentsRequestBody ->
   -- | Monadic computation which returns the result of the operation
@@ -60,21 +60,21 @@ postTreasuryOutboundPayments body =
           ( Data.Either.either PostTreasuryOutboundPaymentsResponseError GHC.Base.id
               GHC.Base.. ( \response body ->
                              if
-                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                               | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                    PostTreasuryOutboundPaymentsResponse200
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             Treasury'outboundPayment
                                                       )
-                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                               | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                    PostTreasuryOutboundPaymentsResponseDefault
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             Error
                                                       )
-                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                               | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                          )
                 response_0
           )
@@ -321,8 +321,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostTreasuryOutboundPaymentsRequestBodyD
 instance Data.Aeson.Types.FromJSON.FromJSON PostTreasuryOutboundPaymentsRequestBodyDestinationPaymentMethodData'BillingDetails'Address'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostTreasuryOutboundPaymentsRequestBodyDestinationPaymentMethodData'BillingDetails'Address'EmptyString
-        | GHC.Base.otherwise -> case (PostTreasuryOutboundPaymentsRequestBodyDestinationPaymentMethodData'BillingDetails'Address'PostTreasuryOutboundPaymentsRequestBodyDestinationPaymentMethodData'BillingDetails'Address'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostTreasuryOutboundPaymentsRequestBodyDestinationPaymentMethodData'BillingDetails'Address'EmptyString
+      | GHC.Base.otherwise -> case (PostTreasuryOutboundPaymentsRequestBodyDestinationPaymentMethodData'BillingDetails'Address'PostTreasuryOutboundPaymentsRequestBodyDestinationPaymentMethodData'BillingDetails'Address'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -340,8 +340,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostTreasuryOutboundPaymentsRequestBodyD
 instance Data.Aeson.Types.FromJSON.FromJSON PostTreasuryOutboundPaymentsRequestBodyDestinationPaymentMethodData'BillingDetails'Email'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostTreasuryOutboundPaymentsRequestBodyDestinationPaymentMethodData'BillingDetails'Email'EmptyString
-        | GHC.Base.otherwise -> case (PostTreasuryOutboundPaymentsRequestBodyDestinationPaymentMethodData'BillingDetails'Email'Text Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostTreasuryOutboundPaymentsRequestBodyDestinationPaymentMethodData'BillingDetails'Email'EmptyString
+      | GHC.Base.otherwise -> case (PostTreasuryOutboundPaymentsRequestBodyDestinationPaymentMethodData'BillingDetails'Email'Text Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -367,9 +367,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostTreasuryOutboundPaymentsRequestB
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "financial_account" -> PostTreasuryOutboundPaymentsRequestBodyDestinationPaymentMethodData'Type'EnumFinancialAccount
-            | val GHC.Classes.== "us_bank_account" -> PostTreasuryOutboundPaymentsRequestBodyDestinationPaymentMethodData'Type'EnumUsBankAccount
-            | GHC.Base.otherwise -> PostTreasuryOutboundPaymentsRequestBodyDestinationPaymentMethodData'Type'Other val
+          | val GHC.Classes.== "financial_account" -> PostTreasuryOutboundPaymentsRequestBodyDestinationPaymentMethodData'Type'EnumFinancialAccount
+          | val GHC.Classes.== "us_bank_account" -> PostTreasuryOutboundPaymentsRequestBodyDestinationPaymentMethodData'Type'EnumUsBankAccount
+          | GHC.Base.otherwise -> PostTreasuryOutboundPaymentsRequestBodyDestinationPaymentMethodData'Type'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/treasury\/outbound_payments.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.destination_payment_method_data.properties.us_bank_account@ in the specification.
@@ -442,9 +442,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostTreasuryOutboundPaymentsRequestB
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "company" -> PostTreasuryOutboundPaymentsRequestBodyDestinationPaymentMethodData'UsBankAccount'AccountHolderType'EnumCompany
-            | val GHC.Classes.== "individual" -> PostTreasuryOutboundPaymentsRequestBodyDestinationPaymentMethodData'UsBankAccount'AccountHolderType'EnumIndividual
-            | GHC.Base.otherwise -> PostTreasuryOutboundPaymentsRequestBodyDestinationPaymentMethodData'UsBankAccount'AccountHolderType'Other val
+          | val GHC.Classes.== "company" -> PostTreasuryOutboundPaymentsRequestBodyDestinationPaymentMethodData'UsBankAccount'AccountHolderType'EnumCompany
+          | val GHC.Classes.== "individual" -> PostTreasuryOutboundPaymentsRequestBodyDestinationPaymentMethodData'UsBankAccount'AccountHolderType'EnumIndividual
+          | GHC.Base.otherwise -> PostTreasuryOutboundPaymentsRequestBodyDestinationPaymentMethodData'UsBankAccount'AccountHolderType'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/treasury\/outbound_payments.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.destination_payment_method_data.properties.us_bank_account.properties.account_type@ in the specification.
@@ -469,9 +469,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostTreasuryOutboundPaymentsRequestB
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "checking" -> PostTreasuryOutboundPaymentsRequestBodyDestinationPaymentMethodData'UsBankAccount'AccountType'EnumChecking
-            | val GHC.Classes.== "savings" -> PostTreasuryOutboundPaymentsRequestBodyDestinationPaymentMethodData'UsBankAccount'AccountType'EnumSavings
-            | GHC.Base.otherwise -> PostTreasuryOutboundPaymentsRequestBodyDestinationPaymentMethodData'UsBankAccount'AccountType'Other val
+          | val GHC.Classes.== "checking" -> PostTreasuryOutboundPaymentsRequestBodyDestinationPaymentMethodData'UsBankAccount'AccountType'EnumChecking
+          | val GHC.Classes.== "savings" -> PostTreasuryOutboundPaymentsRequestBodyDestinationPaymentMethodData'UsBankAccount'AccountType'EnumSavings
+          | GHC.Base.otherwise -> PostTreasuryOutboundPaymentsRequestBodyDestinationPaymentMethodData'UsBankAccount'AccountType'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/treasury\/outbound_payments.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.destination_payment_method_options@ in the specification.
@@ -540,9 +540,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostTreasuryOutboundPaymentsRequestB
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "ach" -> PostTreasuryOutboundPaymentsRequestBodyDestinationPaymentMethodOptions'UsBankAccount'OneOf1Network'EnumAch
-            | val GHC.Classes.== "us_domestic_wire" -> PostTreasuryOutboundPaymentsRequestBodyDestinationPaymentMethodOptions'UsBankAccount'OneOf1Network'EnumUsDomesticWire
-            | GHC.Base.otherwise -> PostTreasuryOutboundPaymentsRequestBodyDestinationPaymentMethodOptions'UsBankAccount'OneOf1Network'Other val
+          | val GHC.Classes.== "ach" -> PostTreasuryOutboundPaymentsRequestBodyDestinationPaymentMethodOptions'UsBankAccount'OneOf1Network'EnumAch
+          | val GHC.Classes.== "us_domestic_wire" -> PostTreasuryOutboundPaymentsRequestBodyDestinationPaymentMethodOptions'UsBankAccount'OneOf1Network'EnumUsDomesticWire
+          | GHC.Base.otherwise -> PostTreasuryOutboundPaymentsRequestBodyDestinationPaymentMethodOptions'UsBankAccount'OneOf1Network'Other val
       )
 
 -- | Defines the oneOf schema located at @paths.\/v1\/treasury\/outbound_payments.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.destination_payment_method_options.properties.us_bank_account.anyOf@ in the specification.
@@ -559,8 +559,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostTreasuryOutboundPaymentsRequestBodyD
 instance Data.Aeson.Types.FromJSON.FromJSON PostTreasuryOutboundPaymentsRequestBodyDestinationPaymentMethodOptions'UsBankAccount'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostTreasuryOutboundPaymentsRequestBodyDestinationPaymentMethodOptions'UsBankAccount'EmptyString
-        | GHC.Base.otherwise -> case (PostTreasuryOutboundPaymentsRequestBodyDestinationPaymentMethodOptions'UsBankAccount'PostTreasuryOutboundPaymentsRequestBodyDestinationPaymentMethodOptions'UsBankAccount'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostTreasuryOutboundPaymentsRequestBodyDestinationPaymentMethodOptions'UsBankAccount'EmptyString
+      | GHC.Base.otherwise -> case (PostTreasuryOutboundPaymentsRequestBodyDestinationPaymentMethodOptions'UsBankAccount'PostTreasuryOutboundPaymentsRequestBodyDestinationPaymentMethodOptions'UsBankAccount'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 

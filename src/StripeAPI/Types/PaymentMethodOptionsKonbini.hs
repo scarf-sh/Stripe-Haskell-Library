@@ -105,6 +105,6 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentMethodOptionsKonbiniSetupFutu
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> PaymentMethodOptionsKonbiniSetupFutureUsage'EnumNone
-            | GHC.Base.otherwise -> PaymentMethodOptionsKonbiniSetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> PaymentMethodOptionsKonbiniSetupFutureUsage'EnumNone
+          | GHC.Base.otherwise -> PaymentMethodOptionsKonbiniSetupFutureUsage'Other val
       )

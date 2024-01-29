@@ -83,9 +83,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentMethodDetailsKonbiniStoreChai
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "familymart" -> PaymentMethodDetailsKonbiniStoreChain'NonNullableEnumFamilymart
-            | val GHC.Classes.== "lawson" -> PaymentMethodDetailsKonbiniStoreChain'NonNullableEnumLawson
-            | val GHC.Classes.== "ministop" -> PaymentMethodDetailsKonbiniStoreChain'NonNullableEnumMinistop
-            | val GHC.Classes.== "seicomart" -> PaymentMethodDetailsKonbiniStoreChain'NonNullableEnumSeicomart
-            | GHC.Base.otherwise -> PaymentMethodDetailsKonbiniStoreChain'NonNullableOther val
+          | val GHC.Classes.== "familymart" -> PaymentMethodDetailsKonbiniStoreChain'NonNullableEnumFamilymart
+          | val GHC.Classes.== "lawson" -> PaymentMethodDetailsKonbiniStoreChain'NonNullableEnumLawson
+          | val GHC.Classes.== "ministop" -> PaymentMethodDetailsKonbiniStoreChain'NonNullableEnumMinistop
+          | val GHC.Classes.== "seicomart" -> PaymentMethodDetailsKonbiniStoreChain'NonNullableEnumSeicomart
+          | GHC.Base.otherwise -> PaymentMethodDetailsKonbiniStoreChain'NonNullableOther val
       )

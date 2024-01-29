@@ -92,9 +92,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON OrdersV2ResourceCardPaymentMethodOpt
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> OrdersV2ResourceCardPaymentMethodOptionsCaptureMethod'EnumAutomatic
-            | val GHC.Classes.== "manual" -> OrdersV2ResourceCardPaymentMethodOptionsCaptureMethod'EnumManual
-            | GHC.Base.otherwise -> OrdersV2ResourceCardPaymentMethodOptionsCaptureMethod'Other val
+          | val GHC.Classes.== "automatic" -> OrdersV2ResourceCardPaymentMethodOptionsCaptureMethod'EnumAutomatic
+          | val GHC.Classes.== "manual" -> OrdersV2ResourceCardPaymentMethodOptionsCaptureMethod'EnumManual
+          | GHC.Base.otherwise -> OrdersV2ResourceCardPaymentMethodOptionsCaptureMethod'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.orders_v2_resource_card_payment_method_options.properties.setup_future_usage@ in the specification.
@@ -130,8 +130,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON OrdersV2ResourceCardPaymentMethodOpt
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> OrdersV2ResourceCardPaymentMethodOptionsSetupFutureUsage'EnumNone
-            | val GHC.Classes.== "off_session" -> OrdersV2ResourceCardPaymentMethodOptionsSetupFutureUsage'EnumOffSession
-            | val GHC.Classes.== "on_session" -> OrdersV2ResourceCardPaymentMethodOptionsSetupFutureUsage'EnumOnSession
-            | GHC.Base.otherwise -> OrdersV2ResourceCardPaymentMethodOptionsSetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> OrdersV2ResourceCardPaymentMethodOptionsSetupFutureUsage'EnumNone
+          | val GHC.Classes.== "off_session" -> OrdersV2ResourceCardPaymentMethodOptionsSetupFutureUsage'EnumOffSession
+          | val GHC.Classes.== "on_session" -> OrdersV2ResourceCardPaymentMethodOptionsSetupFutureUsage'EnumOnSession
+          | GHC.Base.otherwise -> OrdersV2ResourceCardPaymentMethodOptionsSetupFutureUsage'Other val
       )

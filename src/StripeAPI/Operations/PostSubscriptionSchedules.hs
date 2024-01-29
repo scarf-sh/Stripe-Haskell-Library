@@ -48,7 +48,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>Creates a new subscription schedule object. Each customer can have up to 500 active or scheduled subscriptions.\<\/p>
 postSubscriptionSchedules ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | The request body to send
   GHC.Maybe.Maybe PostSubscriptionSchedulesRequestBody ->
   -- | Monadic computation which returns the result of the operation
@@ -60,21 +60,21 @@ postSubscriptionSchedules body =
           ( Data.Either.either PostSubscriptionSchedulesResponseError GHC.Base.id
               GHC.Base.. ( \response body ->
                              if
-                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                               | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                    PostSubscriptionSchedulesResponse200
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             SubscriptionSchedule
                                                       )
-                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                               | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                    PostSubscriptionSchedulesResponseDefault
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             Error
                                                       )
-                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                               | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                          )
                 response_0
           )
@@ -232,9 +232,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostSubscriptionSchedulesRequestBody
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> PostSubscriptionSchedulesRequestBodyDefaultSettings'BillingCycleAnchor'EnumAutomatic
-            | val GHC.Classes.== "phase_start" -> PostSubscriptionSchedulesRequestBodyDefaultSettings'BillingCycleAnchor'EnumPhaseStart
-            | GHC.Base.otherwise -> PostSubscriptionSchedulesRequestBodyDefaultSettings'BillingCycleAnchor'Other val
+          | val GHC.Classes.== "automatic" -> PostSubscriptionSchedulesRequestBodyDefaultSettings'BillingCycleAnchor'EnumAutomatic
+          | val GHC.Classes.== "phase_start" -> PostSubscriptionSchedulesRequestBodyDefaultSettings'BillingCycleAnchor'EnumPhaseStart
+          | GHC.Base.otherwise -> PostSubscriptionSchedulesRequestBodyDefaultSettings'BillingCycleAnchor'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/subscription_schedules.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.default_settings.properties.billing_thresholds.anyOf@ in the specification.
@@ -278,8 +278,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostSubscriptionSchedulesRequestBodyDefa
 instance Data.Aeson.Types.FromJSON.FromJSON PostSubscriptionSchedulesRequestBodyDefaultSettings'BillingThresholds'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostSubscriptionSchedulesRequestBodyDefaultSettings'BillingThresholds'EmptyString
-        | GHC.Base.otherwise -> case (PostSubscriptionSchedulesRequestBodyDefaultSettings'BillingThresholds'PostSubscriptionSchedulesRequestBodyDefaultSettings'BillingThresholds'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostSubscriptionSchedulesRequestBodyDefaultSettings'BillingThresholds'EmptyString
+      | GHC.Base.otherwise -> case (PostSubscriptionSchedulesRequestBodyDefaultSettings'BillingThresholds'PostSubscriptionSchedulesRequestBodyDefaultSettings'BillingThresholds'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -305,9 +305,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostSubscriptionSchedulesRequestBody
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "charge_automatically" -> PostSubscriptionSchedulesRequestBodyDefaultSettings'CollectionMethod'EnumChargeAutomatically
-            | val GHC.Classes.== "send_invoice" -> PostSubscriptionSchedulesRequestBodyDefaultSettings'CollectionMethod'EnumSendInvoice
-            | GHC.Base.otherwise -> PostSubscriptionSchedulesRequestBodyDefaultSettings'CollectionMethod'Other val
+          | val GHC.Classes.== "charge_automatically" -> PostSubscriptionSchedulesRequestBodyDefaultSettings'CollectionMethod'EnumChargeAutomatically
+          | val GHC.Classes.== "send_invoice" -> PostSubscriptionSchedulesRequestBodyDefaultSettings'CollectionMethod'EnumSendInvoice
+          | GHC.Base.otherwise -> PostSubscriptionSchedulesRequestBodyDefaultSettings'CollectionMethod'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/subscription_schedules.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.default_settings.properties.invoice_settings@ in the specification.
@@ -375,8 +375,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostSubscriptionSchedulesRequestBodyDefa
 instance Data.Aeson.Types.FromJSON.FromJSON PostSubscriptionSchedulesRequestBodyDefaultSettings'TransferData'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostSubscriptionSchedulesRequestBodyDefaultSettings'TransferData'EmptyString
-        | GHC.Base.otherwise -> case (PostSubscriptionSchedulesRequestBodyDefaultSettings'TransferData'PostSubscriptionSchedulesRequestBodyDefaultSettings'TransferData'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostSubscriptionSchedulesRequestBodyDefaultSettings'TransferData'EmptyString
+      | GHC.Base.otherwise -> case (PostSubscriptionSchedulesRequestBodyDefaultSettings'TransferData'PostSubscriptionSchedulesRequestBodyDefaultSettings'TransferData'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -410,11 +410,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostSubscriptionSchedulesRequestBody
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "cancel" -> PostSubscriptionSchedulesRequestBodyEndBehavior'EnumCancel
-            | val GHC.Classes.== "none" -> PostSubscriptionSchedulesRequestBodyEndBehavior'EnumNone
-            | val GHC.Classes.== "release" -> PostSubscriptionSchedulesRequestBodyEndBehavior'EnumRelease
-            | val GHC.Classes.== "renew" -> PostSubscriptionSchedulesRequestBodyEndBehavior'EnumRenew
-            | GHC.Base.otherwise -> PostSubscriptionSchedulesRequestBodyEndBehavior'Other val
+          | val GHC.Classes.== "cancel" -> PostSubscriptionSchedulesRequestBodyEndBehavior'EnumCancel
+          | val GHC.Classes.== "none" -> PostSubscriptionSchedulesRequestBodyEndBehavior'EnumNone
+          | val GHC.Classes.== "release" -> PostSubscriptionSchedulesRequestBodyEndBehavior'EnumRelease
+          | val GHC.Classes.== "renew" -> PostSubscriptionSchedulesRequestBodyEndBehavior'EnumRenew
+          | GHC.Base.otherwise -> PostSubscriptionSchedulesRequestBodyEndBehavior'Other val
       )
 
 -- | Defines the oneOf schema located at @paths.\/v1\/subscription_schedules.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.metadata.anyOf@ in the specification.
@@ -433,8 +433,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostSubscriptionSchedulesRequestBodyMeta
 instance Data.Aeson.Types.FromJSON.FromJSON PostSubscriptionSchedulesRequestBodyMetadata'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostSubscriptionSchedulesRequestBodyMetadata'EmptyString
-        | GHC.Base.otherwise -> case (PostSubscriptionSchedulesRequestBodyMetadata'Object Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostSubscriptionSchedulesRequestBodyMetadata'EmptyString
+      | GHC.Base.otherwise -> case (PostSubscriptionSchedulesRequestBodyMetadata'Object Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -631,10 +631,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostSubscriptionSchedulesRequestBody
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "exclusive" -> PostSubscriptionSchedulesRequestBodyPhases'AddInvoiceItems'PriceData'TaxBehavior'EnumExclusive
-            | val GHC.Classes.== "inclusive" -> PostSubscriptionSchedulesRequestBodyPhases'AddInvoiceItems'PriceData'TaxBehavior'EnumInclusive
-            | val GHC.Classes.== "unspecified" -> PostSubscriptionSchedulesRequestBodyPhases'AddInvoiceItems'PriceData'TaxBehavior'EnumUnspecified
-            | GHC.Base.otherwise -> PostSubscriptionSchedulesRequestBodyPhases'AddInvoiceItems'PriceData'TaxBehavior'Other val
+          | val GHC.Classes.== "exclusive" -> PostSubscriptionSchedulesRequestBodyPhases'AddInvoiceItems'PriceData'TaxBehavior'EnumExclusive
+          | val GHC.Classes.== "inclusive" -> PostSubscriptionSchedulesRequestBodyPhases'AddInvoiceItems'PriceData'TaxBehavior'EnumInclusive
+          | val GHC.Classes.== "unspecified" -> PostSubscriptionSchedulesRequestBodyPhases'AddInvoiceItems'PriceData'TaxBehavior'EnumUnspecified
+          | GHC.Base.otherwise -> PostSubscriptionSchedulesRequestBodyPhases'AddInvoiceItems'PriceData'TaxBehavior'Other val
       )
 
 -- | Defines the oneOf schema located at @paths.\/v1\/subscription_schedules.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.phases.items.properties.add_invoice_items.items.properties.tax_rates.anyOf@ in the specification.
@@ -651,8 +651,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostSubscriptionSchedulesRequestBodyPhas
 instance Data.Aeson.Types.FromJSON.FromJSON PostSubscriptionSchedulesRequestBodyPhases'AddInvoiceItems'TaxRates'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostSubscriptionSchedulesRequestBodyPhases'AddInvoiceItems'TaxRates'EmptyString
-        | GHC.Base.otherwise -> case (PostSubscriptionSchedulesRequestBodyPhases'AddInvoiceItems'TaxRates'ListTText Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostSubscriptionSchedulesRequestBodyPhases'AddInvoiceItems'TaxRates'EmptyString
+      | GHC.Base.otherwise -> case (PostSubscriptionSchedulesRequestBodyPhases'AddInvoiceItems'TaxRates'ListTText Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -702,9 +702,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostSubscriptionSchedulesRequestBody
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> PostSubscriptionSchedulesRequestBodyPhases'BillingCycleAnchor'EnumAutomatic
-            | val GHC.Classes.== "phase_start" -> PostSubscriptionSchedulesRequestBodyPhases'BillingCycleAnchor'EnumPhaseStart
-            | GHC.Base.otherwise -> PostSubscriptionSchedulesRequestBodyPhases'BillingCycleAnchor'Other val
+          | val GHC.Classes.== "automatic" -> PostSubscriptionSchedulesRequestBodyPhases'BillingCycleAnchor'EnumAutomatic
+          | val GHC.Classes.== "phase_start" -> PostSubscriptionSchedulesRequestBodyPhases'BillingCycleAnchor'EnumPhaseStart
+          | GHC.Base.otherwise -> PostSubscriptionSchedulesRequestBodyPhases'BillingCycleAnchor'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/subscription_schedules.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.phases.items.properties.billing_thresholds.anyOf@ in the specification.
@@ -748,8 +748,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostSubscriptionSchedulesRequestBodyPhas
 instance Data.Aeson.Types.FromJSON.FromJSON PostSubscriptionSchedulesRequestBodyPhases'BillingThresholds'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostSubscriptionSchedulesRequestBodyPhases'BillingThresholds'EmptyString
-        | GHC.Base.otherwise -> case (PostSubscriptionSchedulesRequestBodyPhases'BillingThresholds'PostSubscriptionSchedulesRequestBodyPhases'BillingThresholds'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostSubscriptionSchedulesRequestBodyPhases'BillingThresholds'EmptyString
+      | GHC.Base.otherwise -> case (PostSubscriptionSchedulesRequestBodyPhases'BillingThresholds'PostSubscriptionSchedulesRequestBodyPhases'BillingThresholds'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -775,9 +775,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostSubscriptionSchedulesRequestBody
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "charge_automatically" -> PostSubscriptionSchedulesRequestBodyPhases'CollectionMethod'EnumChargeAutomatically
-            | val GHC.Classes.== "send_invoice" -> PostSubscriptionSchedulesRequestBodyPhases'CollectionMethod'EnumSendInvoice
-            | GHC.Base.otherwise -> PostSubscriptionSchedulesRequestBodyPhases'CollectionMethod'Other val
+          | val GHC.Classes.== "charge_automatically" -> PostSubscriptionSchedulesRequestBodyPhases'CollectionMethod'EnumChargeAutomatically
+          | val GHC.Classes.== "send_invoice" -> PostSubscriptionSchedulesRequestBodyPhases'CollectionMethod'EnumSendInvoice
+          | GHC.Base.otherwise -> PostSubscriptionSchedulesRequestBodyPhases'CollectionMethod'Other val
       )
 
 -- | Defines the oneOf schema located at @paths.\/v1\/subscription_schedules.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.phases.items.properties.default_tax_rates.anyOf@ in the specification.
@@ -794,8 +794,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostSubscriptionSchedulesRequestBodyPhas
 instance Data.Aeson.Types.FromJSON.FromJSON PostSubscriptionSchedulesRequestBodyPhases'DefaultTaxRates'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostSubscriptionSchedulesRequestBodyPhases'DefaultTaxRates'EmptyString
-        | GHC.Base.otherwise -> case (PostSubscriptionSchedulesRequestBodyPhases'DefaultTaxRates'ListTText Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostSubscriptionSchedulesRequestBodyPhases'DefaultTaxRates'EmptyString
+      | GHC.Base.otherwise -> case (PostSubscriptionSchedulesRequestBodyPhases'DefaultTaxRates'ListTText Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -898,8 +898,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostSubscriptionSchedulesRequestBodyPhas
 instance Data.Aeson.Types.FromJSON.FromJSON PostSubscriptionSchedulesRequestBodyPhases'Items'BillingThresholds'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostSubscriptionSchedulesRequestBodyPhases'Items'BillingThresholds'EmptyString
-        | GHC.Base.otherwise -> case (PostSubscriptionSchedulesRequestBodyPhases'Items'BillingThresholds'PostSubscriptionSchedulesRequestBodyPhases'Items'BillingThresholds'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostSubscriptionSchedulesRequestBodyPhases'Items'BillingThresholds'EmptyString
+      | GHC.Base.otherwise -> case (PostSubscriptionSchedulesRequestBodyPhases'Items'BillingThresholds'PostSubscriptionSchedulesRequestBodyPhases'Items'BillingThresholds'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -1011,11 +1011,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostSubscriptionSchedulesRequestBody
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "day" -> PostSubscriptionSchedulesRequestBodyPhases'Items'PriceData'Recurring'Interval'EnumDay
-            | val GHC.Classes.== "month" -> PostSubscriptionSchedulesRequestBodyPhases'Items'PriceData'Recurring'Interval'EnumMonth
-            | val GHC.Classes.== "week" -> PostSubscriptionSchedulesRequestBodyPhases'Items'PriceData'Recurring'Interval'EnumWeek
-            | val GHC.Classes.== "year" -> PostSubscriptionSchedulesRequestBodyPhases'Items'PriceData'Recurring'Interval'EnumYear
-            | GHC.Base.otherwise -> PostSubscriptionSchedulesRequestBodyPhases'Items'PriceData'Recurring'Interval'Other val
+          | val GHC.Classes.== "day" -> PostSubscriptionSchedulesRequestBodyPhases'Items'PriceData'Recurring'Interval'EnumDay
+          | val GHC.Classes.== "month" -> PostSubscriptionSchedulesRequestBodyPhases'Items'PriceData'Recurring'Interval'EnumMonth
+          | val GHC.Classes.== "week" -> PostSubscriptionSchedulesRequestBodyPhases'Items'PriceData'Recurring'Interval'EnumWeek
+          | val GHC.Classes.== "year" -> PostSubscriptionSchedulesRequestBodyPhases'Items'PriceData'Recurring'Interval'EnumYear
+          | GHC.Base.otherwise -> PostSubscriptionSchedulesRequestBodyPhases'Items'PriceData'Recurring'Interval'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/subscription_schedules.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.phases.items.properties.items.items.properties.price_data.properties.tax_behavior@ in the specification.
@@ -1043,10 +1043,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostSubscriptionSchedulesRequestBody
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "exclusive" -> PostSubscriptionSchedulesRequestBodyPhases'Items'PriceData'TaxBehavior'EnumExclusive
-            | val GHC.Classes.== "inclusive" -> PostSubscriptionSchedulesRequestBodyPhases'Items'PriceData'TaxBehavior'EnumInclusive
-            | val GHC.Classes.== "unspecified" -> PostSubscriptionSchedulesRequestBodyPhases'Items'PriceData'TaxBehavior'EnumUnspecified
-            | GHC.Base.otherwise -> PostSubscriptionSchedulesRequestBodyPhases'Items'PriceData'TaxBehavior'Other val
+          | val GHC.Classes.== "exclusive" -> PostSubscriptionSchedulesRequestBodyPhases'Items'PriceData'TaxBehavior'EnumExclusive
+          | val GHC.Classes.== "inclusive" -> PostSubscriptionSchedulesRequestBodyPhases'Items'PriceData'TaxBehavior'EnumInclusive
+          | val GHC.Classes.== "unspecified" -> PostSubscriptionSchedulesRequestBodyPhases'Items'PriceData'TaxBehavior'EnumUnspecified
+          | GHC.Base.otherwise -> PostSubscriptionSchedulesRequestBodyPhases'Items'PriceData'TaxBehavior'Other val
       )
 
 -- | Defines the oneOf schema located at @paths.\/v1\/subscription_schedules.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.phases.items.properties.items.items.properties.tax_rates.anyOf@ in the specification.
@@ -1063,8 +1063,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostSubscriptionSchedulesRequestBodyPhas
 instance Data.Aeson.Types.FromJSON.FromJSON PostSubscriptionSchedulesRequestBodyPhases'Items'TaxRates'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostSubscriptionSchedulesRequestBodyPhases'Items'TaxRates'EmptyString
-        | GHC.Base.otherwise -> case (PostSubscriptionSchedulesRequestBodyPhases'Items'TaxRates'ListTText Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostSubscriptionSchedulesRequestBodyPhases'Items'TaxRates'EmptyString
+      | GHC.Base.otherwise -> case (PostSubscriptionSchedulesRequestBodyPhases'Items'TaxRates'ListTText Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -1093,10 +1093,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostSubscriptionSchedulesRequestBody
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "always_invoice" -> PostSubscriptionSchedulesRequestBodyPhases'ProrationBehavior'EnumAlwaysInvoice
-            | val GHC.Classes.== "create_prorations" -> PostSubscriptionSchedulesRequestBodyPhases'ProrationBehavior'EnumCreateProrations
-            | val GHC.Classes.== "none" -> PostSubscriptionSchedulesRequestBodyPhases'ProrationBehavior'EnumNone
-            | GHC.Base.otherwise -> PostSubscriptionSchedulesRequestBodyPhases'ProrationBehavior'Other val
+          | val GHC.Classes.== "always_invoice" -> PostSubscriptionSchedulesRequestBodyPhases'ProrationBehavior'EnumAlwaysInvoice
+          | val GHC.Classes.== "create_prorations" -> PostSubscriptionSchedulesRequestBodyPhases'ProrationBehavior'EnumCreateProrations
+          | val GHC.Classes.== "none" -> PostSubscriptionSchedulesRequestBodyPhases'ProrationBehavior'EnumNone
+          | GHC.Base.otherwise -> PostSubscriptionSchedulesRequestBodyPhases'ProrationBehavior'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/subscription_schedules.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.phases.items.properties.transfer_data@ in the specification.
@@ -1145,8 +1145,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostSubscriptionSchedulesRequestBodyStar
 instance Data.Aeson.Types.FromJSON.FromJSON PostSubscriptionSchedulesRequestBodyStartDate'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "now" -> GHC.Base.pure PostSubscriptionSchedulesRequestBodyStartDate'Now
-        | GHC.Base.otherwise -> case (PostSubscriptionSchedulesRequestBodyStartDate'Int Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "now" -> GHC.Base.pure PostSubscriptionSchedulesRequestBodyStartDate'Now
+      | GHC.Base.otherwise -> case (PostSubscriptionSchedulesRequestBodyStartDate'Int Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 

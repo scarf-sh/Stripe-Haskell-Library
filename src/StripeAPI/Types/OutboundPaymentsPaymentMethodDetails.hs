@@ -97,7 +97,7 @@ instance Data.Aeson.Types.FromJSON.FromJSON OutboundPaymentsPaymentMethodDetails
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "financial_account" -> OutboundPaymentsPaymentMethodDetailsType'EnumFinancialAccount
-            | val GHC.Classes.== "us_bank_account" -> OutboundPaymentsPaymentMethodDetailsType'EnumUsBankAccount
-            | GHC.Base.otherwise -> OutboundPaymentsPaymentMethodDetailsType'Other val
+          | val GHC.Classes.== "financial_account" -> OutboundPaymentsPaymentMethodDetailsType'EnumFinancialAccount
+          | val GHC.Classes.== "us_bank_account" -> OutboundPaymentsPaymentMethodDetailsType'EnumUsBankAccount
+          | GHC.Base.otherwise -> OutboundPaymentsPaymentMethodDetailsType'Other val
       )

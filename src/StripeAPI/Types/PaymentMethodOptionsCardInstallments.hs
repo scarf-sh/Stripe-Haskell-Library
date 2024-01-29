@@ -121,8 +121,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentMethodOptionsCardInstallments
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "month" -> PaymentMethodOptionsCardInstallmentsPlan'NonNullableInterval'NonNullableEnumMonth
-            | GHC.Base.otherwise -> PaymentMethodOptionsCardInstallmentsPlan'NonNullableInterval'NonNullableOther val
+          | val GHC.Classes.== "month" -> PaymentMethodOptionsCardInstallmentsPlan'NonNullableInterval'NonNullableEnumMonth
+          | GHC.Base.otherwise -> PaymentMethodOptionsCardInstallmentsPlan'NonNullableInterval'NonNullableOther val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_method_options_card_installments.properties.plan.anyOf.properties.type@ in the specification.
@@ -146,6 +146,6 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentMethodOptionsCardInstallments
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "fixed_count" -> PaymentMethodOptionsCardInstallmentsPlan'NonNullableType'EnumFixedCount
-            | GHC.Base.otherwise -> PaymentMethodOptionsCardInstallmentsPlan'NonNullableType'Other val
+          | val GHC.Classes.== "fixed_count" -> PaymentMethodOptionsCardInstallmentsPlan'NonNullableType'EnumFixedCount
+          | GHC.Base.otherwise -> PaymentMethodOptionsCardInstallmentsPlan'NonNullableType'Other val
       )

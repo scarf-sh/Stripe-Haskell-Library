@@ -48,7 +48,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>To launch the Financial Connections authorization flow, create a \<code>Session\<\/code>. The session’s \<code>client_secret\<\/code> can be used to launch the flow using Stripe.js.\<\/p>
 postFinancialConnectionsSessions ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | The request body to send
   PostFinancialConnectionsSessionsRequestBody ->
   -- | Monadic computation which returns the result of the operation
@@ -60,21 +60,21 @@ postFinancialConnectionsSessions body =
           ( Data.Either.either PostFinancialConnectionsSessionsResponseError GHC.Base.id
               GHC.Base.. ( \response body ->
                              if
-                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                               | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                    PostFinancialConnectionsSessionsResponse200
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             FinancialConnections'session
                                                       )
-                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                               | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                    PostFinancialConnectionsSessionsResponseDefault
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             Error
                                                       )
-                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                               | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                          )
                 response_0
           )
@@ -194,9 +194,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostFinancialConnectionsSessionsRequ
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "account" -> PostFinancialConnectionsSessionsRequestBodyAccountHolder'Type'EnumAccount
-            | val GHC.Classes.== "customer" -> PostFinancialConnectionsSessionsRequestBodyAccountHolder'Type'EnumCustomer
-            | GHC.Base.otherwise -> PostFinancialConnectionsSessionsRequestBodyAccountHolder'Type'Other val
+          | val GHC.Classes.== "account" -> PostFinancialConnectionsSessionsRequestBodyAccountHolder'Type'EnumAccount
+          | val GHC.Classes.== "customer" -> PostFinancialConnectionsSessionsRequestBodyAccountHolder'Type'EnumCustomer
+          | GHC.Base.otherwise -> PostFinancialConnectionsSessionsRequestBodyAccountHolder'Type'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/financial_connections\/sessions.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.filters@ in the specification.
@@ -253,11 +253,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostFinancialConnectionsSessionsRequ
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "balances" -> PostFinancialConnectionsSessionsRequestBodyPermissions'EnumBalances
-            | val GHC.Classes.== "ownership" -> PostFinancialConnectionsSessionsRequestBodyPermissions'EnumOwnership
-            | val GHC.Classes.== "payment_method" -> PostFinancialConnectionsSessionsRequestBodyPermissions'EnumPaymentMethod
-            | val GHC.Classes.== "transactions" -> PostFinancialConnectionsSessionsRequestBodyPermissions'EnumTransactions
-            | GHC.Base.otherwise -> PostFinancialConnectionsSessionsRequestBodyPermissions'Other val
+          | val GHC.Classes.== "balances" -> PostFinancialConnectionsSessionsRequestBodyPermissions'EnumBalances
+          | val GHC.Classes.== "ownership" -> PostFinancialConnectionsSessionsRequestBodyPermissions'EnumOwnership
+          | val GHC.Classes.== "payment_method" -> PostFinancialConnectionsSessionsRequestBodyPermissions'EnumPaymentMethod
+          | val GHC.Classes.== "transactions" -> PostFinancialConnectionsSessionsRequestBodyPermissions'EnumTransactions
+          | GHC.Base.otherwise -> PostFinancialConnectionsSessionsRequestBodyPermissions'Other val
       )
 
 -- | Represents a response of the operation 'postFinancialConnectionsSessions'.

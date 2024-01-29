@@ -169,9 +169,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON ReceivedCreditsResourceTreasuryLinke
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "credit_reversal" -> ReceivedCreditsResourceTreasuryLinkedFlowsSourceFlowDetails'NonNullableType'EnumCreditReversal
-            | val GHC.Classes.== "other" -> ReceivedCreditsResourceTreasuryLinkedFlowsSourceFlowDetails'NonNullableType'EnumOther
-            | val GHC.Classes.== "outbound_payment" -> ReceivedCreditsResourceTreasuryLinkedFlowsSourceFlowDetails'NonNullableType'EnumOutboundPayment
-            | val GHC.Classes.== "payout" -> ReceivedCreditsResourceTreasuryLinkedFlowsSourceFlowDetails'NonNullableType'EnumPayout
-            | GHC.Base.otherwise -> ReceivedCreditsResourceTreasuryLinkedFlowsSourceFlowDetails'NonNullableType'Other val
+          | val GHC.Classes.== "credit_reversal" -> ReceivedCreditsResourceTreasuryLinkedFlowsSourceFlowDetails'NonNullableType'EnumCreditReversal
+          | val GHC.Classes.== "other" -> ReceivedCreditsResourceTreasuryLinkedFlowsSourceFlowDetails'NonNullableType'EnumOther
+          | val GHC.Classes.== "outbound_payment" -> ReceivedCreditsResourceTreasuryLinkedFlowsSourceFlowDetails'NonNullableType'EnumOutboundPayment
+          | val GHC.Classes.== "payout" -> ReceivedCreditsResourceTreasuryLinkedFlowsSourceFlowDetails'NonNullableType'EnumPayout
+          | GHC.Base.otherwise -> ReceivedCreditsResourceTreasuryLinkedFlowsSourceFlowDetails'NonNullableType'Other val
       )

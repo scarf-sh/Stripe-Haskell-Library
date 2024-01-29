@@ -211,10 +211,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON Terminal'readerAction'NonNullableSta
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "failed" -> Terminal'readerAction'NonNullableStatus'EnumFailed
-            | val GHC.Classes.== "in_progress" -> Terminal'readerAction'NonNullableStatus'EnumInProgress
-            | val GHC.Classes.== "succeeded" -> Terminal'readerAction'NonNullableStatus'EnumSucceeded
-            | GHC.Base.otherwise -> Terminal'readerAction'NonNullableStatus'Other val
+          | val GHC.Classes.== "failed" -> Terminal'readerAction'NonNullableStatus'EnumFailed
+          | val GHC.Classes.== "in_progress" -> Terminal'readerAction'NonNullableStatus'EnumInProgress
+          | val GHC.Classes.== "succeeded" -> Terminal'readerAction'NonNullableStatus'EnumSucceeded
+          | GHC.Base.otherwise -> Terminal'readerAction'NonNullableStatus'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.terminal.reader.properties.action.anyOf.properties.type@ in the specification.
@@ -244,10 +244,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON Terminal'readerAction'NonNullableTyp
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "process_payment_intent" -> Terminal'readerAction'NonNullableType'EnumProcessPaymentIntent
-            | val GHC.Classes.== "process_setup_intent" -> Terminal'readerAction'NonNullableType'EnumProcessSetupIntent
-            | val GHC.Classes.== "set_reader_display" -> Terminal'readerAction'NonNullableType'EnumSetReaderDisplay
-            | GHC.Base.otherwise -> Terminal'readerAction'NonNullableType'Other val
+          | val GHC.Classes.== "process_payment_intent" -> Terminal'readerAction'NonNullableType'EnumProcessPaymentIntent
+          | val GHC.Classes.== "process_setup_intent" -> Terminal'readerAction'NonNullableType'EnumProcessSetupIntent
+          | val GHC.Classes.== "set_reader_display" -> Terminal'readerAction'NonNullableType'EnumSetReaderDisplay
+          | GHC.Base.otherwise -> Terminal'readerAction'NonNullableType'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.terminal.reader.properties.device_type@ in the specification.
@@ -286,13 +286,13 @@ instance Data.Aeson.Types.FromJSON.FromJSON Terminal'readerDeviceType' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "bbpos_chipper2x" -> Terminal'readerDeviceType'EnumBbposChipper2x
-            | val GHC.Classes.== "bbpos_wisepad3" -> Terminal'readerDeviceType'EnumBbposWisepad3
-            | val GHC.Classes.== "bbpos_wisepos_e" -> Terminal'readerDeviceType'EnumBbposWiseposE
-            | val GHC.Classes.== "simulated_wisepos_e" -> Terminal'readerDeviceType'EnumSimulatedWiseposE
-            | val GHC.Classes.== "stripe_m2" -> Terminal'readerDeviceType'EnumStripeM2
-            | val GHC.Classes.== "verifone_P400" -> Terminal'readerDeviceType'EnumVerifoneP400
-            | GHC.Base.otherwise -> Terminal'readerDeviceType'Other val
+          | val GHC.Classes.== "bbpos_chipper2x" -> Terminal'readerDeviceType'EnumBbposChipper2x
+          | val GHC.Classes.== "bbpos_wisepad3" -> Terminal'readerDeviceType'EnumBbposWisepad3
+          | val GHC.Classes.== "bbpos_wisepos_e" -> Terminal'readerDeviceType'EnumBbposWiseposE
+          | val GHC.Classes.== "simulated_wisepos_e" -> Terminal'readerDeviceType'EnumSimulatedWiseposE
+          | val GHC.Classes.== "stripe_m2" -> Terminal'readerDeviceType'EnumStripeM2
+          | val GHC.Classes.== "verifone_P400" -> Terminal'readerDeviceType'EnumVerifoneP400
+          | GHC.Base.otherwise -> Terminal'readerDeviceType'Other val
       )
 
 -- | Defines the oneOf schema located at @components.schemas.terminal.reader.properties.location.anyOf@ in the specification.

@@ -99,9 +99,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PortalSubscriptionCancelMode' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "at_period_end" -> PortalSubscriptionCancelMode'EnumAtPeriodEnd
-            | val GHC.Classes.== "immediately" -> PortalSubscriptionCancelMode'EnumImmediately
-            | GHC.Base.otherwise -> PortalSubscriptionCancelMode'Other val
+          | val GHC.Classes.== "at_period_end" -> PortalSubscriptionCancelMode'EnumAtPeriodEnd
+          | val GHC.Classes.== "immediately" -> PortalSubscriptionCancelMode'EnumImmediately
+          | GHC.Base.otherwise -> PortalSubscriptionCancelMode'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.portal_subscription_cancel.properties.proration_behavior@ in the specification.
@@ -131,8 +131,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PortalSubscriptionCancelProrationBeh
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "always_invoice" -> PortalSubscriptionCancelProrationBehavior'EnumAlwaysInvoice
-            | val GHC.Classes.== "create_prorations" -> PortalSubscriptionCancelProrationBehavior'EnumCreateProrations
-            | val GHC.Classes.== "none" -> PortalSubscriptionCancelProrationBehavior'EnumNone
-            | GHC.Base.otherwise -> PortalSubscriptionCancelProrationBehavior'Other val
+          | val GHC.Classes.== "always_invoice" -> PortalSubscriptionCancelProrationBehavior'EnumAlwaysInvoice
+          | val GHC.Classes.== "create_prorations" -> PortalSubscriptionCancelProrationBehavior'EnumCreateProrations
+          | val GHC.Classes.== "none" -> PortalSubscriptionCancelProrationBehavior'EnumNone
+          | GHC.Base.otherwise -> PortalSubscriptionCancelProrationBehavior'Other val
       )

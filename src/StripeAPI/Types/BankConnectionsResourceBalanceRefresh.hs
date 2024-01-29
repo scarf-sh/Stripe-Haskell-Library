@@ -91,8 +91,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON BankConnectionsResourceBalanceRefres
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "failed" -> BankConnectionsResourceBalanceRefreshStatus'EnumFailed
-            | val GHC.Classes.== "pending" -> BankConnectionsResourceBalanceRefreshStatus'EnumPending
-            | val GHC.Classes.== "succeeded" -> BankConnectionsResourceBalanceRefreshStatus'EnumSucceeded
-            | GHC.Base.otherwise -> BankConnectionsResourceBalanceRefreshStatus'Other val
+          | val GHC.Classes.== "failed" -> BankConnectionsResourceBalanceRefreshStatus'EnumFailed
+          | val GHC.Classes.== "pending" -> BankConnectionsResourceBalanceRefreshStatus'EnumPending
+          | val GHC.Classes.== "succeeded" -> BankConnectionsResourceBalanceRefreshStatus'EnumSucceeded
+          | GHC.Base.otherwise -> BankConnectionsResourceBalanceRefreshStatus'Other val
       )

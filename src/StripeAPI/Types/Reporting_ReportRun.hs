@@ -268,8 +268,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON Reporting'reportRunResult'NonNullabl
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "file" -> Reporting'reportRunResult'NonNullableObject'EnumFile
-            | GHC.Base.otherwise -> Reporting'reportRunResult'NonNullableObject'Other val
+          | val GHC.Classes.== "file" -> Reporting'reportRunResult'NonNullableObject'EnumFile
+          | GHC.Base.otherwise -> Reporting'reportRunResult'NonNullableObject'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.reporting.report_run.properties.result.anyOf.properties.purpose@ in the specification.
@@ -332,19 +332,19 @@ instance Data.Aeson.Types.FromJSON.FromJSON Reporting'reportRunResult'NonNullabl
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "account_requirement" -> Reporting'reportRunResult'NonNullablePurpose'EnumAccountRequirement
-            | val GHC.Classes.== "additional_verification" -> Reporting'reportRunResult'NonNullablePurpose'EnumAdditionalVerification
-            | val GHC.Classes.== "business_icon" -> Reporting'reportRunResult'NonNullablePurpose'EnumBusinessIcon
-            | val GHC.Classes.== "business_logo" -> Reporting'reportRunResult'NonNullablePurpose'EnumBusinessLogo
-            | val GHC.Classes.== "customer_signature" -> Reporting'reportRunResult'NonNullablePurpose'EnumCustomerSignature
-            | val GHC.Classes.== "dispute_evidence" -> Reporting'reportRunResult'NonNullablePurpose'EnumDisputeEvidence
-            | val GHC.Classes.== "document_provider_identity_document" -> Reporting'reportRunResult'NonNullablePurpose'EnumDocumentProviderIdentityDocument
-            | val GHC.Classes.== "finance_report_run" -> Reporting'reportRunResult'NonNullablePurpose'EnumFinanceReportRun
-            | val GHC.Classes.== "identity_document" -> Reporting'reportRunResult'NonNullablePurpose'EnumIdentityDocument
-            | val GHC.Classes.== "identity_document_downloadable" -> Reporting'reportRunResult'NonNullablePurpose'EnumIdentityDocumentDownloadable
-            | val GHC.Classes.== "pci_document" -> Reporting'reportRunResult'NonNullablePurpose'EnumPciDocument
-            | val GHC.Classes.== "selfie" -> Reporting'reportRunResult'NonNullablePurpose'EnumSelfie
-            | val GHC.Classes.== "sigma_scheduled_query" -> Reporting'reportRunResult'NonNullablePurpose'EnumSigmaScheduledQuery
-            | val GHC.Classes.== "tax_document_user_upload" -> Reporting'reportRunResult'NonNullablePurpose'EnumTaxDocumentUserUpload
-            | GHC.Base.otherwise -> Reporting'reportRunResult'NonNullablePurpose'Other val
+          | val GHC.Classes.== "account_requirement" -> Reporting'reportRunResult'NonNullablePurpose'EnumAccountRequirement
+          | val GHC.Classes.== "additional_verification" -> Reporting'reportRunResult'NonNullablePurpose'EnumAdditionalVerification
+          | val GHC.Classes.== "business_icon" -> Reporting'reportRunResult'NonNullablePurpose'EnumBusinessIcon
+          | val GHC.Classes.== "business_logo" -> Reporting'reportRunResult'NonNullablePurpose'EnumBusinessLogo
+          | val GHC.Classes.== "customer_signature" -> Reporting'reportRunResult'NonNullablePurpose'EnumCustomerSignature
+          | val GHC.Classes.== "dispute_evidence" -> Reporting'reportRunResult'NonNullablePurpose'EnumDisputeEvidence
+          | val GHC.Classes.== "document_provider_identity_document" -> Reporting'reportRunResult'NonNullablePurpose'EnumDocumentProviderIdentityDocument
+          | val GHC.Classes.== "finance_report_run" -> Reporting'reportRunResult'NonNullablePurpose'EnumFinanceReportRun
+          | val GHC.Classes.== "identity_document" -> Reporting'reportRunResult'NonNullablePurpose'EnumIdentityDocument
+          | val GHC.Classes.== "identity_document_downloadable" -> Reporting'reportRunResult'NonNullablePurpose'EnumIdentityDocumentDownloadable
+          | val GHC.Classes.== "pci_document" -> Reporting'reportRunResult'NonNullablePurpose'EnumPciDocument
+          | val GHC.Classes.== "selfie" -> Reporting'reportRunResult'NonNullablePurpose'EnumSelfie
+          | val GHC.Classes.== "sigma_scheduled_query" -> Reporting'reportRunResult'NonNullablePurpose'EnumSigmaScheduledQuery
+          | val GHC.Classes.== "tax_document_user_upload" -> Reporting'reportRunResult'NonNullablePurpose'EnumTaxDocumentUserUpload
+          | GHC.Base.otherwise -> Reporting'reportRunResult'NonNullablePurpose'Other val
       )

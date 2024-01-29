@@ -136,10 +136,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON SubscriptionsResourcePaymentMethodOp
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> SubscriptionsResourcePaymentMethodOptionsAcssDebit'NonNullableVerificationMethod'EnumAutomatic
-            | val GHC.Classes.== "instant" -> SubscriptionsResourcePaymentMethodOptionsAcssDebit'NonNullableVerificationMethod'EnumInstant
-            | val GHC.Classes.== "microdeposits" -> SubscriptionsResourcePaymentMethodOptionsAcssDebit'NonNullableVerificationMethod'EnumMicrodeposits
-            | GHC.Base.otherwise -> SubscriptionsResourcePaymentMethodOptionsAcssDebit'NonNullableVerificationMethod'Other val
+          | val GHC.Classes.== "automatic" -> SubscriptionsResourcePaymentMethodOptionsAcssDebit'NonNullableVerificationMethod'EnumAutomatic
+          | val GHC.Classes.== "instant" -> SubscriptionsResourcePaymentMethodOptionsAcssDebit'NonNullableVerificationMethod'EnumInstant
+          | val GHC.Classes.== "microdeposits" -> SubscriptionsResourcePaymentMethodOptionsAcssDebit'NonNullableVerificationMethod'EnumMicrodeposits
+          | GHC.Base.otherwise -> SubscriptionsResourcePaymentMethodOptionsAcssDebit'NonNullableVerificationMethod'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.subscriptions_resource_payment_method_options.properties.bancontact.anyOf@ in the specification.
@@ -195,11 +195,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON SubscriptionsResourcePaymentMethodOp
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "de" -> SubscriptionsResourcePaymentMethodOptionsBancontact'NonNullablePreferredLanguage'EnumDe
-            | val GHC.Classes.== "en" -> SubscriptionsResourcePaymentMethodOptionsBancontact'NonNullablePreferredLanguage'EnumEn
-            | val GHC.Classes.== "fr" -> SubscriptionsResourcePaymentMethodOptionsBancontact'NonNullablePreferredLanguage'EnumFr
-            | val GHC.Classes.== "nl" -> SubscriptionsResourcePaymentMethodOptionsBancontact'NonNullablePreferredLanguage'EnumNl
-            | GHC.Base.otherwise -> SubscriptionsResourcePaymentMethodOptionsBancontact'NonNullablePreferredLanguage'Other val
+          | val GHC.Classes.== "de" -> SubscriptionsResourcePaymentMethodOptionsBancontact'NonNullablePreferredLanguage'EnumDe
+          | val GHC.Classes.== "en" -> SubscriptionsResourcePaymentMethodOptionsBancontact'NonNullablePreferredLanguage'EnumEn
+          | val GHC.Classes.== "fr" -> SubscriptionsResourcePaymentMethodOptionsBancontact'NonNullablePreferredLanguage'EnumFr
+          | val GHC.Classes.== "nl" -> SubscriptionsResourcePaymentMethodOptionsBancontact'NonNullablePreferredLanguage'EnumNl
+          | GHC.Base.otherwise -> SubscriptionsResourcePaymentMethodOptionsBancontact'NonNullablePreferredLanguage'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.subscriptions_resource_payment_method_options.properties.card.anyOf@ in the specification.
@@ -255,9 +255,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON SubscriptionsResourcePaymentMethodOp
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "any" -> SubscriptionsResourcePaymentMethodOptionsCard'NonNullableRequestThreeDSecure'NonNullableEnumAny
-            | val GHC.Classes.== "automatic" -> SubscriptionsResourcePaymentMethodOptionsCard'NonNullableRequestThreeDSecure'NonNullableEnumAutomatic
-            | GHC.Base.otherwise -> SubscriptionsResourcePaymentMethodOptionsCard'NonNullableRequestThreeDSecure'NonNullableOther val
+          | val GHC.Classes.== "any" -> SubscriptionsResourcePaymentMethodOptionsCard'NonNullableRequestThreeDSecure'NonNullableEnumAny
+          | val GHC.Classes.== "automatic" -> SubscriptionsResourcePaymentMethodOptionsCard'NonNullableRequestThreeDSecure'NonNullableEnumAutomatic
+          | GHC.Base.otherwise -> SubscriptionsResourcePaymentMethodOptionsCard'NonNullableRequestThreeDSecure'NonNullableOther val
       )
 
 -- | Defines the object schema located at @components.schemas.subscriptions_resource_payment_method_options.properties.customer_balance.anyOf@ in the specification.
@@ -310,8 +310,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON SubscriptionsResourcePaymentMethodOp
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "bank_transfer" -> SubscriptionsResourcePaymentMethodOptionsCustomerBalance'NonNullableFundingType'NonNullableEnumBankTransfer
-            | GHC.Base.otherwise -> SubscriptionsResourcePaymentMethodOptionsCustomerBalance'NonNullableFundingType'NonNullableOther val
+          | val GHC.Classes.== "bank_transfer" -> SubscriptionsResourcePaymentMethodOptionsCustomerBalance'NonNullableFundingType'NonNullableEnumBankTransfer
+          | GHC.Base.otherwise -> SubscriptionsResourcePaymentMethodOptionsCustomerBalance'NonNullableFundingType'NonNullableOther val
       )
 
 -- | Defines the object schema located at @components.schemas.subscriptions_resource_payment_method_options.properties.us_bank_account.anyOf@ in the specification.
@@ -370,8 +370,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON SubscriptionsResourcePaymentMethodOp
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> SubscriptionsResourcePaymentMethodOptionsUsBankAccount'NonNullableVerificationMethod'EnumAutomatic
-            | val GHC.Classes.== "instant" -> SubscriptionsResourcePaymentMethodOptionsUsBankAccount'NonNullableVerificationMethod'EnumInstant
-            | val GHC.Classes.== "microdeposits" -> SubscriptionsResourcePaymentMethodOptionsUsBankAccount'NonNullableVerificationMethod'EnumMicrodeposits
-            | GHC.Base.otherwise -> SubscriptionsResourcePaymentMethodOptionsUsBankAccount'NonNullableVerificationMethod'Other val
+          | val GHC.Classes.== "automatic" -> SubscriptionsResourcePaymentMethodOptionsUsBankAccount'NonNullableVerificationMethod'EnumAutomatic
+          | val GHC.Classes.== "instant" -> SubscriptionsResourcePaymentMethodOptionsUsBankAccount'NonNullableVerificationMethod'EnumInstant
+          | val GHC.Classes.== "microdeposits" -> SubscriptionsResourcePaymentMethodOptionsUsBankAccount'NonNullableVerificationMethod'EnumMicrodeposits
+          | GHC.Base.otherwise -> SubscriptionsResourcePaymentMethodOptionsUsBankAccount'NonNullableVerificationMethod'Other val
       )

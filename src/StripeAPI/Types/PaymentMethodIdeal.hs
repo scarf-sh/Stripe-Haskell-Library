@@ -116,20 +116,20 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentMethodIdealBank'NonNullable w
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "abn_amro" -> PaymentMethodIdealBank'NonNullableEnumAbnAmro
-            | val GHC.Classes.== "asn_bank" -> PaymentMethodIdealBank'NonNullableEnumAsnBank
-            | val GHC.Classes.== "bunq" -> PaymentMethodIdealBank'NonNullableEnumBunq
-            | val GHC.Classes.== "handelsbanken" -> PaymentMethodIdealBank'NonNullableEnumHandelsbanken
-            | val GHC.Classes.== "ing" -> PaymentMethodIdealBank'NonNullableEnumIng
-            | val GHC.Classes.== "knab" -> PaymentMethodIdealBank'NonNullableEnumKnab
-            | val GHC.Classes.== "moneyou" -> PaymentMethodIdealBank'NonNullableEnumMoneyou
-            | val GHC.Classes.== "rabobank" -> PaymentMethodIdealBank'NonNullableEnumRabobank
-            | val GHC.Classes.== "regiobank" -> PaymentMethodIdealBank'NonNullableEnumRegiobank
-            | val GHC.Classes.== "revolut" -> PaymentMethodIdealBank'NonNullableEnumRevolut
-            | val GHC.Classes.== "sns_bank" -> PaymentMethodIdealBank'NonNullableEnumSnsBank
-            | val GHC.Classes.== "triodos_bank" -> PaymentMethodIdealBank'NonNullableEnumTriodosBank
-            | val GHC.Classes.== "van_lanschot" -> PaymentMethodIdealBank'NonNullableEnumVanLanschot
-            | GHC.Base.otherwise -> PaymentMethodIdealBank'NonNullableOther val
+          | val GHC.Classes.== "abn_amro" -> PaymentMethodIdealBank'NonNullableEnumAbnAmro
+          | val GHC.Classes.== "asn_bank" -> PaymentMethodIdealBank'NonNullableEnumAsnBank
+          | val GHC.Classes.== "bunq" -> PaymentMethodIdealBank'NonNullableEnumBunq
+          | val GHC.Classes.== "handelsbanken" -> PaymentMethodIdealBank'NonNullableEnumHandelsbanken
+          | val GHC.Classes.== "ing" -> PaymentMethodIdealBank'NonNullableEnumIng
+          | val GHC.Classes.== "knab" -> PaymentMethodIdealBank'NonNullableEnumKnab
+          | val GHC.Classes.== "moneyou" -> PaymentMethodIdealBank'NonNullableEnumMoneyou
+          | val GHC.Classes.== "rabobank" -> PaymentMethodIdealBank'NonNullableEnumRabobank
+          | val GHC.Classes.== "regiobank" -> PaymentMethodIdealBank'NonNullableEnumRegiobank
+          | val GHC.Classes.== "revolut" -> PaymentMethodIdealBank'NonNullableEnumRevolut
+          | val GHC.Classes.== "sns_bank" -> PaymentMethodIdealBank'NonNullableEnumSnsBank
+          | val GHC.Classes.== "triodos_bank" -> PaymentMethodIdealBank'NonNullableEnumTriodosBank
+          | val GHC.Classes.== "van_lanschot" -> PaymentMethodIdealBank'NonNullableEnumVanLanschot
+          | GHC.Base.otherwise -> PaymentMethodIdealBank'NonNullableOther val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_method_ideal.properties.bic@ in the specification.
@@ -189,18 +189,18 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentMethodIdealBic'NonNullable wh
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "ABNANL2A" -> PaymentMethodIdealBic'NonNullableEnumABNANL2A
-            | val GHC.Classes.== "ASNBNL21" -> PaymentMethodIdealBic'NonNullableEnumASNBNL21
-            | val GHC.Classes.== "BUNQNL2A" -> PaymentMethodIdealBic'NonNullableEnumBUNQNL2A
-            | val GHC.Classes.== "FVLBNL22" -> PaymentMethodIdealBic'NonNullableEnumFVLBNL22
-            | val GHC.Classes.== "HANDNL2A" -> PaymentMethodIdealBic'NonNullableEnumHANDNL2A
-            | val GHC.Classes.== "INGBNL2A" -> PaymentMethodIdealBic'NonNullableEnumINGBNL2A
-            | val GHC.Classes.== "KNABNL2H" -> PaymentMethodIdealBic'NonNullableEnumKNABNL2H
-            | val GHC.Classes.== "MOYONL21" -> PaymentMethodIdealBic'NonNullableEnumMOYONL21
-            | val GHC.Classes.== "RABONL2U" -> PaymentMethodIdealBic'NonNullableEnumRABONL2U
-            | val GHC.Classes.== "RBRBNL21" -> PaymentMethodIdealBic'NonNullableEnumRBRBNL21
-            | val GHC.Classes.== "REVOLT21" -> PaymentMethodIdealBic'NonNullableEnumREVOLT21
-            | val GHC.Classes.== "SNSBNL2A" -> PaymentMethodIdealBic'NonNullableEnumSNSBNL2A
-            | val GHC.Classes.== "TRIONL2U" -> PaymentMethodIdealBic'NonNullableEnumTRIONL2U
-            | GHC.Base.otherwise -> PaymentMethodIdealBic'NonNullableOther val
+          | val GHC.Classes.== "ABNANL2A" -> PaymentMethodIdealBic'NonNullableEnumABNANL2A
+          | val GHC.Classes.== "ASNBNL21" -> PaymentMethodIdealBic'NonNullableEnumASNBNL21
+          | val GHC.Classes.== "BUNQNL2A" -> PaymentMethodIdealBic'NonNullableEnumBUNQNL2A
+          | val GHC.Classes.== "FVLBNL22" -> PaymentMethodIdealBic'NonNullableEnumFVLBNL22
+          | val GHC.Classes.== "HANDNL2A" -> PaymentMethodIdealBic'NonNullableEnumHANDNL2A
+          | val GHC.Classes.== "INGBNL2A" -> PaymentMethodIdealBic'NonNullableEnumINGBNL2A
+          | val GHC.Classes.== "KNABNL2H" -> PaymentMethodIdealBic'NonNullableEnumKNABNL2H
+          | val GHC.Classes.== "MOYONL21" -> PaymentMethodIdealBic'NonNullableEnumMOYONL21
+          | val GHC.Classes.== "RABONL2U" -> PaymentMethodIdealBic'NonNullableEnumRABONL2U
+          | val GHC.Classes.== "RBRBNL21" -> PaymentMethodIdealBic'NonNullableEnumRBRBNL21
+          | val GHC.Classes.== "REVOLT21" -> PaymentMethodIdealBic'NonNullableEnumREVOLT21
+          | val GHC.Classes.== "SNSBNL2A" -> PaymentMethodIdealBic'NonNullableEnumSNSBNL2A
+          | val GHC.Classes.== "TRIONL2U" -> PaymentMethodIdealBic'NonNullableEnumTRIONL2U
+          | GHC.Base.otherwise -> PaymentMethodIdealBic'NonNullableOther val
       )

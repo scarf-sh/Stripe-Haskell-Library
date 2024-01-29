@@ -48,7 +48,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>Creates a new source object.\<\/p>
 postSources ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | The request body to send
   GHC.Maybe.Maybe PostSourcesRequestBody ->
   -- | Monadic computation which returns the result of the operation
@@ -60,21 +60,21 @@ postSources body =
           ( Data.Either.either PostSourcesResponseError GHC.Base.id
               GHC.Base.. ( \response body ->
                              if
-                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                               | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                    PostSourcesResponse200
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             Source
                                                       )
-                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                               | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                    PostSourcesResponseDefault
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             Error
                                                       )
-                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                               | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                          )
                 response_0
           )
@@ -209,11 +209,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostSourcesRequestBodyFlow' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "code_verification" -> PostSourcesRequestBodyFlow'EnumCodeVerification
-            | val GHC.Classes.== "none" -> PostSourcesRequestBodyFlow'EnumNone
-            | val GHC.Classes.== "receiver" -> PostSourcesRequestBodyFlow'EnumReceiver
-            | val GHC.Classes.== "redirect" -> PostSourcesRequestBodyFlow'EnumRedirect
-            | GHC.Base.otherwise -> PostSourcesRequestBodyFlow'Other val
+          | val GHC.Classes.== "code_verification" -> PostSourcesRequestBodyFlow'EnumCodeVerification
+          | val GHC.Classes.== "none" -> PostSourcesRequestBodyFlow'EnumNone
+          | val GHC.Classes.== "receiver" -> PostSourcesRequestBodyFlow'EnumReceiver
+          | val GHC.Classes.== "redirect" -> PostSourcesRequestBodyFlow'EnumRedirect
+          | GHC.Base.otherwise -> PostSourcesRequestBodyFlow'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/sources.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.mandate@ in the specification.
@@ -405,11 +405,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostSourcesRequestBodyMandate'Accept
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "accepted" -> PostSourcesRequestBodyMandate'Acceptance'Status'EnumAccepted
-            | val GHC.Classes.== "pending" -> PostSourcesRequestBodyMandate'Acceptance'Status'EnumPending
-            | val GHC.Classes.== "refused" -> PostSourcesRequestBodyMandate'Acceptance'Status'EnumRefused
-            | val GHC.Classes.== "revoked" -> PostSourcesRequestBodyMandate'Acceptance'Status'EnumRevoked
-            | GHC.Base.otherwise -> PostSourcesRequestBodyMandate'Acceptance'Status'Other val
+          | val GHC.Classes.== "accepted" -> PostSourcesRequestBodyMandate'Acceptance'Status'EnumAccepted
+          | val GHC.Classes.== "pending" -> PostSourcesRequestBodyMandate'Acceptance'Status'EnumPending
+          | val GHC.Classes.== "refused" -> PostSourcesRequestBodyMandate'Acceptance'Status'EnumRefused
+          | val GHC.Classes.== "revoked" -> PostSourcesRequestBodyMandate'Acceptance'Status'EnumRevoked
+          | GHC.Base.otherwise -> PostSourcesRequestBodyMandate'Acceptance'Status'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/sources.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.mandate.properties.acceptance.properties.type@ in the specification.
@@ -434,9 +434,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostSourcesRequestBodyMandate'Accept
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "offline" -> PostSourcesRequestBodyMandate'Acceptance'Type'EnumOffline
-            | val GHC.Classes.== "online" -> PostSourcesRequestBodyMandate'Acceptance'Type'EnumOnline
-            | GHC.Base.otherwise -> PostSourcesRequestBodyMandate'Acceptance'Type'Other val
+          | val GHC.Classes.== "offline" -> PostSourcesRequestBodyMandate'Acceptance'Type'EnumOffline
+          | val GHC.Classes.== "online" -> PostSourcesRequestBodyMandate'Acceptance'Type'EnumOnline
+          | GHC.Base.otherwise -> PostSourcesRequestBodyMandate'Acceptance'Type'Other val
       )
 
 -- | Defines the oneOf schema located at @paths.\/v1\/sources.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.mandate.properties.amount.anyOf@ in the specification.
@@ -453,8 +453,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostSourcesRequestBodyMandate'Amount'Var
 instance Data.Aeson.Types.FromJSON.FromJSON PostSourcesRequestBodyMandate'Amount'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostSourcesRequestBodyMandate'Amount'EmptyString
-        | GHC.Base.otherwise -> case (PostSourcesRequestBodyMandate'Amount'Int Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostSourcesRequestBodyMandate'Amount'EmptyString
+      | GHC.Base.otherwise -> case (PostSourcesRequestBodyMandate'Amount'Int Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -483,10 +483,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostSourcesRequestBodyMandate'Interv
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "one_time" -> PostSourcesRequestBodyMandate'Interval'EnumOneTime
-            | val GHC.Classes.== "scheduled" -> PostSourcesRequestBodyMandate'Interval'EnumScheduled
-            | val GHC.Classes.== "variable" -> PostSourcesRequestBodyMandate'Interval'EnumVariable
-            | GHC.Base.otherwise -> PostSourcesRequestBodyMandate'Interval'Other val
+          | val GHC.Classes.== "one_time" -> PostSourcesRequestBodyMandate'Interval'EnumOneTime
+          | val GHC.Classes.== "scheduled" -> PostSourcesRequestBodyMandate'Interval'EnumScheduled
+          | val GHC.Classes.== "variable" -> PostSourcesRequestBodyMandate'Interval'EnumVariable
+          | GHC.Base.otherwise -> PostSourcesRequestBodyMandate'Interval'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/sources.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.mandate.properties.notification_method@ in the specification.
@@ -520,12 +520,12 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostSourcesRequestBodyMandate'Notifi
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "deprecated_none" -> PostSourcesRequestBodyMandate'NotificationMethod'EnumDeprecatedNone
-            | val GHC.Classes.== "email" -> PostSourcesRequestBodyMandate'NotificationMethod'EnumEmail
-            | val GHC.Classes.== "manual" -> PostSourcesRequestBodyMandate'NotificationMethod'EnumManual
-            | val GHC.Classes.== "none" -> PostSourcesRequestBodyMandate'NotificationMethod'EnumNone
-            | val GHC.Classes.== "stripe_email" -> PostSourcesRequestBodyMandate'NotificationMethod'EnumStripeEmail
-            | GHC.Base.otherwise -> PostSourcesRequestBodyMandate'NotificationMethod'Other val
+          | val GHC.Classes.== "deprecated_none" -> PostSourcesRequestBodyMandate'NotificationMethod'EnumDeprecatedNone
+          | val GHC.Classes.== "email" -> PostSourcesRequestBodyMandate'NotificationMethod'EnumEmail
+          | val GHC.Classes.== "manual" -> PostSourcesRequestBodyMandate'NotificationMethod'EnumManual
+          | val GHC.Classes.== "none" -> PostSourcesRequestBodyMandate'NotificationMethod'EnumNone
+          | val GHC.Classes.== "stripe_email" -> PostSourcesRequestBodyMandate'NotificationMethod'EnumStripeEmail
+          | GHC.Base.otherwise -> PostSourcesRequestBodyMandate'NotificationMethod'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/sources.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.owner@ in the specification.
@@ -686,10 +686,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostSourcesRequestBodyReceiver'Refun
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "email" -> PostSourcesRequestBodyReceiver'RefundAttributesMethod'EnumEmail
-            | val GHC.Classes.== "manual" -> PostSourcesRequestBodyReceiver'RefundAttributesMethod'EnumManual
-            | val GHC.Classes.== "none" -> PostSourcesRequestBodyReceiver'RefundAttributesMethod'EnumNone
-            | GHC.Base.otherwise -> PostSourcesRequestBodyReceiver'RefundAttributesMethod'Other val
+          | val GHC.Classes.== "email" -> PostSourcesRequestBodyReceiver'RefundAttributesMethod'EnumEmail
+          | val GHC.Classes.== "manual" -> PostSourcesRequestBodyReceiver'RefundAttributesMethod'EnumManual
+          | val GHC.Classes.== "none" -> PostSourcesRequestBodyReceiver'RefundAttributesMethod'EnumNone
+          | GHC.Base.otherwise -> PostSourcesRequestBodyReceiver'RefundAttributesMethod'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/sources.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.redirect@ in the specification.
@@ -826,11 +826,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostSourcesRequestBodySourceOrder'It
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "discount" -> PostSourcesRequestBodySourceOrder'Items'Type'EnumDiscount
-            | val GHC.Classes.== "shipping" -> PostSourcesRequestBodySourceOrder'Items'Type'EnumShipping
-            | val GHC.Classes.== "sku" -> PostSourcesRequestBodySourceOrder'Items'Type'EnumSku
-            | val GHC.Classes.== "tax" -> PostSourcesRequestBodySourceOrder'Items'Type'EnumTax
-            | GHC.Base.otherwise -> PostSourcesRequestBodySourceOrder'Items'Type'Other val
+          | val GHC.Classes.== "discount" -> PostSourcesRequestBodySourceOrder'Items'Type'EnumDiscount
+          | val GHC.Classes.== "shipping" -> PostSourcesRequestBodySourceOrder'Items'Type'EnumShipping
+          | val GHC.Classes.== "sku" -> PostSourcesRequestBodySourceOrder'Items'Type'EnumSku
+          | val GHC.Classes.== "tax" -> PostSourcesRequestBodySourceOrder'Items'Type'EnumTax
+          | GHC.Base.otherwise -> PostSourcesRequestBodySourceOrder'Items'Type'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/sources.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.source_order.properties.shipping@ in the specification.
@@ -976,9 +976,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostSourcesRequestBodyUsage' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "reusable" -> PostSourcesRequestBodyUsage'EnumReusable
-            | val GHC.Classes.== "single_use" -> PostSourcesRequestBodyUsage'EnumSingleUse
-            | GHC.Base.otherwise -> PostSourcesRequestBodyUsage'Other val
+          | val GHC.Classes.== "reusable" -> PostSourcesRequestBodyUsage'EnumReusable
+          | val GHC.Classes.== "single_use" -> PostSourcesRequestBodyUsage'EnumSingleUse
+          | GHC.Base.otherwise -> PostSourcesRequestBodyUsage'Other val
       )
 
 -- | Represents a response of the operation 'postSources'.

@@ -162,11 +162,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON Treasury'receivedDebitFailureCode'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "account_closed" -> Treasury'receivedDebitFailureCode'NonNullableEnumAccountClosed
-            | val GHC.Classes.== "account_frozen" -> Treasury'receivedDebitFailureCode'NonNullableEnumAccountFrozen
-            | val GHC.Classes.== "insufficient_funds" -> Treasury'receivedDebitFailureCode'NonNullableEnumInsufficientFunds
-            | val GHC.Classes.== "other" -> Treasury'receivedDebitFailureCode'NonNullableEnumOther
-            | GHC.Base.otherwise -> Treasury'receivedDebitFailureCode'NonNullableOther val
+          | val GHC.Classes.== "account_closed" -> Treasury'receivedDebitFailureCode'NonNullableEnumAccountClosed
+          | val GHC.Classes.== "account_frozen" -> Treasury'receivedDebitFailureCode'NonNullableEnumAccountFrozen
+          | val GHC.Classes.== "insufficient_funds" -> Treasury'receivedDebitFailureCode'NonNullableEnumInsufficientFunds
+          | val GHC.Classes.== "other" -> Treasury'receivedDebitFailureCode'NonNullableEnumOther
+          | GHC.Base.otherwise -> Treasury'receivedDebitFailureCode'NonNullableOther val
       )
 
 -- | Defines the enum schema located at @components.schemas.treasury.received_debit.properties.network@ in the specification.
@@ -196,10 +196,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON Treasury'receivedDebitNetwork' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "ach" -> Treasury'receivedDebitNetwork'EnumAch
-            | val GHC.Classes.== "card" -> Treasury'receivedDebitNetwork'EnumCard
-            | val GHC.Classes.== "stripe" -> Treasury'receivedDebitNetwork'EnumStripe
-            | GHC.Base.otherwise -> Treasury'receivedDebitNetwork'Other val
+          | val GHC.Classes.== "ach" -> Treasury'receivedDebitNetwork'EnumAch
+          | val GHC.Classes.== "card" -> Treasury'receivedDebitNetwork'EnumCard
+          | val GHC.Classes.== "stripe" -> Treasury'receivedDebitNetwork'EnumStripe
+          | GHC.Base.otherwise -> Treasury'receivedDebitNetwork'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.treasury.received_debit.properties.reversal_details.anyOf@ in the specification.
@@ -264,12 +264,12 @@ instance Data.Aeson.Types.FromJSON.FromJSON Treasury'receivedDebitReversalDetail
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "already_reversed" -> Treasury'receivedDebitReversalDetails'NonNullableRestrictedReason'NonNullableEnumAlreadyReversed
-            | val GHC.Classes.== "deadline_passed" -> Treasury'receivedDebitReversalDetails'NonNullableRestrictedReason'NonNullableEnumDeadlinePassed
-            | val GHC.Classes.== "network_restricted" -> Treasury'receivedDebitReversalDetails'NonNullableRestrictedReason'NonNullableEnumNetworkRestricted
-            | val GHC.Classes.== "other" -> Treasury'receivedDebitReversalDetails'NonNullableRestrictedReason'NonNullableEnumOther
-            | val GHC.Classes.== "source_flow_restricted" -> Treasury'receivedDebitReversalDetails'NonNullableRestrictedReason'NonNullableEnumSourceFlowRestricted
-            | GHC.Base.otherwise -> Treasury'receivedDebitReversalDetails'NonNullableRestrictedReason'NonNullableOther val
+          | val GHC.Classes.== "already_reversed" -> Treasury'receivedDebitReversalDetails'NonNullableRestrictedReason'NonNullableEnumAlreadyReversed
+          | val GHC.Classes.== "deadline_passed" -> Treasury'receivedDebitReversalDetails'NonNullableRestrictedReason'NonNullableEnumDeadlinePassed
+          | val GHC.Classes.== "network_restricted" -> Treasury'receivedDebitReversalDetails'NonNullableRestrictedReason'NonNullableEnumNetworkRestricted
+          | val GHC.Classes.== "other" -> Treasury'receivedDebitReversalDetails'NonNullableRestrictedReason'NonNullableEnumOther
+          | val GHC.Classes.== "source_flow_restricted" -> Treasury'receivedDebitReversalDetails'NonNullableRestrictedReason'NonNullableEnumSourceFlowRestricted
+          | GHC.Base.otherwise -> Treasury'receivedDebitReversalDetails'NonNullableRestrictedReason'NonNullableOther val
       )
 
 -- | Defines the enum schema located at @components.schemas.treasury.received_debit.properties.status@ in the specification.
@@ -296,9 +296,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON Treasury'receivedDebitStatus' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "failed" -> Treasury'receivedDebitStatus'EnumFailed
-            | val GHC.Classes.== "succeeded" -> Treasury'receivedDebitStatus'EnumSucceeded
-            | GHC.Base.otherwise -> Treasury'receivedDebitStatus'Other val
+          | val GHC.Classes.== "failed" -> Treasury'receivedDebitStatus'EnumFailed
+          | val GHC.Classes.== "succeeded" -> Treasury'receivedDebitStatus'EnumSucceeded
+          | GHC.Base.otherwise -> Treasury'receivedDebitStatus'Other val
       )
 
 -- | Defines the oneOf schema located at @components.schemas.treasury.received_debit.properties.transaction.anyOf@ in the specification.

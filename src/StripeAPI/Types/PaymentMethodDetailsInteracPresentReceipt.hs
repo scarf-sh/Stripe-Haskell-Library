@@ -139,8 +139,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentMethodDetailsInteracPresentRe
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "checking" -> PaymentMethodDetailsInteracPresentReceiptAccountType'EnumChecking
-            | val GHC.Classes.== "savings" -> PaymentMethodDetailsInteracPresentReceiptAccountType'EnumSavings
-            | val GHC.Classes.== "unknown" -> PaymentMethodDetailsInteracPresentReceiptAccountType'EnumUnknown
-            | GHC.Base.otherwise -> PaymentMethodDetailsInteracPresentReceiptAccountType'Other val
+          | val GHC.Classes.== "checking" -> PaymentMethodDetailsInteracPresentReceiptAccountType'EnumChecking
+          | val GHC.Classes.== "savings" -> PaymentMethodDetailsInteracPresentReceiptAccountType'EnumSavings
+          | val GHC.Classes.== "unknown" -> PaymentMethodDetailsInteracPresentReceiptAccountType'EnumUnknown
+          | GHC.Base.otherwise -> PaymentMethodDetailsInteracPresentReceiptAccountType'Other val
       )

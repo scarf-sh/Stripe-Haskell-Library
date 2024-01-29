@@ -48,7 +48,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>Returns a list of ReceivedCredits.\<\/p>
 getTreasuryReceivedCredits ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | Contains all available parameters of this operation (query and path parameters)
   GetTreasuryReceivedCreditsParameters ->
   -- | Monadic computation which returns the result of the operation
@@ -60,21 +60,21 @@ getTreasuryReceivedCredits parameters =
           ( Data.Either.either GetTreasuryReceivedCreditsResponseError GHC.Base.id
               GHC.Base.. ( \response body ->
                              if
-                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                               | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                    GetTreasuryReceivedCreditsResponse200
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             GetTreasuryReceivedCreditsResponseBody200
                                                       )
-                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                               | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                    GetTreasuryReceivedCreditsResponseDefault
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             Error
                                                       )
-                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                               | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                          )
                 response_0
           )
@@ -216,11 +216,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON GetTreasuryReceivedCreditsParameters
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "credit_reversal" -> GetTreasuryReceivedCreditsParametersQueryLinkedFlows'SourceFlowType'EnumCreditReversal
-            | val GHC.Classes.== "other" -> GetTreasuryReceivedCreditsParametersQueryLinkedFlows'SourceFlowType'EnumOther
-            | val GHC.Classes.== "outbound_payment" -> GetTreasuryReceivedCreditsParametersQueryLinkedFlows'SourceFlowType'EnumOutboundPayment
-            | val GHC.Classes.== "payout" -> GetTreasuryReceivedCreditsParametersQueryLinkedFlows'SourceFlowType'EnumPayout
-            | GHC.Base.otherwise -> GetTreasuryReceivedCreditsParametersQueryLinkedFlows'SourceFlowType'Other val
+          | val GHC.Classes.== "credit_reversal" -> GetTreasuryReceivedCreditsParametersQueryLinkedFlows'SourceFlowType'EnumCreditReversal
+          | val GHC.Classes.== "other" -> GetTreasuryReceivedCreditsParametersQueryLinkedFlows'SourceFlowType'EnumOther
+          | val GHC.Classes.== "outbound_payment" -> GetTreasuryReceivedCreditsParametersQueryLinkedFlows'SourceFlowType'EnumOutboundPayment
+          | val GHC.Classes.== "payout" -> GetTreasuryReceivedCreditsParametersQueryLinkedFlows'SourceFlowType'EnumPayout
+          | GHC.Base.otherwise -> GetTreasuryReceivedCreditsParametersQueryLinkedFlows'SourceFlowType'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/treasury\/received_credits.GET.parameters.properties.queryStatus@ in the specification.
@@ -249,9 +249,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON GetTreasuryReceivedCreditsParameters
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "failed" -> GetTreasuryReceivedCreditsParametersQueryStatus'EnumFailed
-            | val GHC.Classes.== "succeeded" -> GetTreasuryReceivedCreditsParametersQueryStatus'EnumSucceeded
-            | GHC.Base.otherwise -> GetTreasuryReceivedCreditsParametersQueryStatus'Other val
+          | val GHC.Classes.== "failed" -> GetTreasuryReceivedCreditsParametersQueryStatus'EnumFailed
+          | val GHC.Classes.== "succeeded" -> GetTreasuryReceivedCreditsParametersQueryStatus'EnumSucceeded
+          | GHC.Base.otherwise -> GetTreasuryReceivedCreditsParametersQueryStatus'Other val
       )
 
 -- | Represents a response of the operation 'getTreasuryReceivedCredits'.

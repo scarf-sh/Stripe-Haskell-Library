@@ -48,7 +48,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>Retrieves the details of an existing recipient. You need only supply the unique recipient identifier that was returned upon recipient creation.\<\/p>
 getRecipientsId ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | Contains all available parameters of this operation (query and path parameters)
   GetRecipientsIdParameters ->
   -- | Monadic computation which returns the result of the operation
@@ -60,21 +60,21 @@ getRecipientsId parameters =
           ( Data.Either.either GetRecipientsIdResponseError GHC.Base.id
               GHC.Base.. ( \response body ->
                              if
-                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                               | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                    GetRecipientsIdResponse200
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             GetRecipientsIdResponseBody200
                                                       )
-                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                               | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                    GetRecipientsIdResponseDefault
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             Error
                                                       )
-                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                               | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                          )
                 response_0
           )
@@ -371,9 +371,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON GetRecipientsIdResponseBody200Active
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "instant" -> GetRecipientsIdResponseBody200ActiveAccount'NonNullableAvailablePayoutMethods'NonNullableEnumInstant
-            | val GHC.Classes.== "standard" -> GetRecipientsIdResponseBody200ActiveAccount'NonNullableAvailablePayoutMethods'NonNullableEnumStandard
-            | GHC.Base.otherwise -> GetRecipientsIdResponseBody200ActiveAccount'NonNullableAvailablePayoutMethods'NonNullableOther val
+          | val GHC.Classes.== "instant" -> GetRecipientsIdResponseBody200ActiveAccount'NonNullableAvailablePayoutMethods'NonNullableEnumInstant
+          | val GHC.Classes.== "standard" -> GetRecipientsIdResponseBody200ActiveAccount'NonNullableAvailablePayoutMethods'NonNullableEnumStandard
+          | GHC.Base.otherwise -> GetRecipientsIdResponseBody200ActiveAccount'NonNullableAvailablePayoutMethods'NonNullableOther val
       )
 
 -- | Defines the oneOf schema located at @paths.\/v1\/recipients\/{id}.GET.responses.200.content.application\/json.schema.anyOf.properties.active_account.anyOf.properties.customer.anyOf@ in the specification.
@@ -416,8 +416,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON GetRecipientsIdResponseBody200Active
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "bank_account" -> GetRecipientsIdResponseBody200ActiveAccount'NonNullableObject'EnumBankAccount
-            | GHC.Base.otherwise -> GetRecipientsIdResponseBody200ActiveAccount'NonNullableObject'Other val
+          | val GHC.Classes.== "bank_account" -> GetRecipientsIdResponseBody200ActiveAccount'NonNullableObject'EnumBankAccount
+          | GHC.Base.otherwise -> GetRecipientsIdResponseBody200ActiveAccount'NonNullableObject'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/recipients\/{id}.GET.responses.200.content.application\/json.schema.anyOf.properties.cards@ in the specification.
@@ -499,8 +499,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON GetRecipientsIdResponseBody200Delete
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== Data.Aeson.Types.Internal.Bool GHC.Types.True -> GetRecipientsIdResponseBody200Deleted'EnumTrue
-            | GHC.Base.otherwise -> GetRecipientsIdResponseBody200Deleted'Other val
+          | val GHC.Classes.== Data.Aeson.Types.Internal.Bool GHC.Types.True -> GetRecipientsIdResponseBody200Deleted'EnumTrue
+          | GHC.Base.otherwise -> GetRecipientsIdResponseBody200Deleted'Other val
       )
 
 -- | Defines the oneOf schema located at @paths.\/v1\/recipients\/{id}.GET.responses.200.content.application\/json.schema.anyOf.properties.migrated_to.anyOf@ in the specification.
@@ -541,8 +541,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON GetRecipientsIdResponseBody200Object
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "recipient" -> GetRecipientsIdResponseBody200Object'EnumRecipient
-            | GHC.Base.otherwise -> GetRecipientsIdResponseBody200Object'Other val
+          | val GHC.Classes.== "recipient" -> GetRecipientsIdResponseBody200Object'EnumRecipient
+          | GHC.Base.otherwise -> GetRecipientsIdResponseBody200Object'Other val
       )
 
 -- | Defines the oneOf schema located at @paths.\/v1\/recipients\/{id}.GET.responses.200.content.application\/json.schema.anyOf.properties.rolled_back_from.anyOf@ in the specification.

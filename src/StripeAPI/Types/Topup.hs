@@ -206,10 +206,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON TopupStatus' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "canceled" -> TopupStatus'EnumCanceled
-            | val GHC.Classes.== "failed" -> TopupStatus'EnumFailed
-            | val GHC.Classes.== "pending" -> TopupStatus'EnumPending
-            | val GHC.Classes.== "reversed" -> TopupStatus'EnumReversed
-            | val GHC.Classes.== "succeeded" -> TopupStatus'EnumSucceeded
-            | GHC.Base.otherwise -> TopupStatus'Other val
+          | val GHC.Classes.== "canceled" -> TopupStatus'EnumCanceled
+          | val GHC.Classes.== "failed" -> TopupStatus'EnumFailed
+          | val GHC.Classes.== "pending" -> TopupStatus'EnumPending
+          | val GHC.Classes.== "reversed" -> TopupStatus'EnumReversed
+          | val GHC.Classes.== "succeeded" -> TopupStatus'EnumSucceeded
+          | GHC.Base.otherwise -> TopupStatus'Other val
       )

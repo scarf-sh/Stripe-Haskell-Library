@@ -48,7 +48,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>Transitions a test mode created OutboundTransfer to the \<code>returned\<\/code> status. The OutboundTransfer must already be in the \<code>processing\<\/code> state.\<\/p>
 postTestHelpersTreasuryOutboundTransfersOutboundTransferReturn ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | outbound_transfer | Constraints: Maximum length of 5000
   Data.Text.Internal.Text ->
   -- | The request body to send
@@ -64,21 +64,21 @@ postTestHelpersTreasuryOutboundTransfersOutboundTransferReturn
             ( Data.Either.either PostTestHelpersTreasuryOutboundTransfersOutboundTransferReturnResponseError GHC.Base.id
                 GHC.Base.. ( \response body ->
                                if
-                                   | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                      PostTestHelpersTreasuryOutboundTransfersOutboundTransferReturnResponse200
                                        Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                             Data.Either.Either
                                                               GHC.Base.String
                                                               Treasury'outboundTransfer
                                                         )
-                                   | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                      PostTestHelpersTreasuryOutboundTransfersOutboundTransferReturnResponseDefault
                                        Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                             Data.Either.Either
                                                               GHC.Base.String
                                                               Error
                                                         )
-                                   | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                            )
                   response_0
             )
@@ -182,17 +182,17 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostTestHelpersTreasuryOutboundTrans
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "account_closed" -> PostTestHelpersTreasuryOutboundTransfersOutboundTransferReturnRequestBodyReturnedDetails'Code'EnumAccountClosed
-            | val GHC.Classes.== "account_frozen" -> PostTestHelpersTreasuryOutboundTransfersOutboundTransferReturnRequestBodyReturnedDetails'Code'EnumAccountFrozen
-            | val GHC.Classes.== "bank_account_restricted" -> PostTestHelpersTreasuryOutboundTransfersOutboundTransferReturnRequestBodyReturnedDetails'Code'EnumBankAccountRestricted
-            | val GHC.Classes.== "bank_ownership_changed" -> PostTestHelpersTreasuryOutboundTransfersOutboundTransferReturnRequestBodyReturnedDetails'Code'EnumBankOwnershipChanged
-            | val GHC.Classes.== "declined" -> PostTestHelpersTreasuryOutboundTransfersOutboundTransferReturnRequestBodyReturnedDetails'Code'EnumDeclined
-            | val GHC.Classes.== "incorrect_account_holder_name" -> PostTestHelpersTreasuryOutboundTransfersOutboundTransferReturnRequestBodyReturnedDetails'Code'EnumIncorrectAccountHolderName
-            | val GHC.Classes.== "invalid_account_number" -> PostTestHelpersTreasuryOutboundTransfersOutboundTransferReturnRequestBodyReturnedDetails'Code'EnumInvalidAccountNumber
-            | val GHC.Classes.== "invalid_currency" -> PostTestHelpersTreasuryOutboundTransfersOutboundTransferReturnRequestBodyReturnedDetails'Code'EnumInvalidCurrency
-            | val GHC.Classes.== "no_account" -> PostTestHelpersTreasuryOutboundTransfersOutboundTransferReturnRequestBodyReturnedDetails'Code'EnumNoAccount
-            | val GHC.Classes.== "other" -> PostTestHelpersTreasuryOutboundTransfersOutboundTransferReturnRequestBodyReturnedDetails'Code'EnumOther
-            | GHC.Base.otherwise -> PostTestHelpersTreasuryOutboundTransfersOutboundTransferReturnRequestBodyReturnedDetails'Code'Other val
+          | val GHC.Classes.== "account_closed" -> PostTestHelpersTreasuryOutboundTransfersOutboundTransferReturnRequestBodyReturnedDetails'Code'EnumAccountClosed
+          | val GHC.Classes.== "account_frozen" -> PostTestHelpersTreasuryOutboundTransfersOutboundTransferReturnRequestBodyReturnedDetails'Code'EnumAccountFrozen
+          | val GHC.Classes.== "bank_account_restricted" -> PostTestHelpersTreasuryOutboundTransfersOutboundTransferReturnRequestBodyReturnedDetails'Code'EnumBankAccountRestricted
+          | val GHC.Classes.== "bank_ownership_changed" -> PostTestHelpersTreasuryOutboundTransfersOutboundTransferReturnRequestBodyReturnedDetails'Code'EnumBankOwnershipChanged
+          | val GHC.Classes.== "declined" -> PostTestHelpersTreasuryOutboundTransfersOutboundTransferReturnRequestBodyReturnedDetails'Code'EnumDeclined
+          | val GHC.Classes.== "incorrect_account_holder_name" -> PostTestHelpersTreasuryOutboundTransfersOutboundTransferReturnRequestBodyReturnedDetails'Code'EnumIncorrectAccountHolderName
+          | val GHC.Classes.== "invalid_account_number" -> PostTestHelpersTreasuryOutboundTransfersOutboundTransferReturnRequestBodyReturnedDetails'Code'EnumInvalidAccountNumber
+          | val GHC.Classes.== "invalid_currency" -> PostTestHelpersTreasuryOutboundTransfersOutboundTransferReturnRequestBodyReturnedDetails'Code'EnumInvalidCurrency
+          | val GHC.Classes.== "no_account" -> PostTestHelpersTreasuryOutboundTransfersOutboundTransferReturnRequestBodyReturnedDetails'Code'EnumNoAccount
+          | val GHC.Classes.== "other" -> PostTestHelpersTreasuryOutboundTransfersOutboundTransferReturnRequestBodyReturnedDetails'Code'EnumOther
+          | GHC.Base.otherwise -> PostTestHelpersTreasuryOutboundTransfersOutboundTransferReturnRequestBodyReturnedDetails'Code'Other val
       )
 
 -- | Represents a response of the operation 'postTestHelpersTreasuryOutboundTransfersOutboundTransferReturn'.

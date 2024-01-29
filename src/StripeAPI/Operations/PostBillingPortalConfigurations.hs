@@ -48,7 +48,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>Creates a configuration that describes the functionality and behavior of a PortalSession\<\/p>
 postBillingPortalConfigurations ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | The request body to send
   PostBillingPortalConfigurationsRequestBody ->
   -- | Monadic computation which returns the result of the operation
@@ -60,21 +60,21 @@ postBillingPortalConfigurations body =
           ( Data.Either.either PostBillingPortalConfigurationsResponseError GHC.Base.id
               GHC.Base.. ( \response body ->
                              if
-                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                               | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                    PostBillingPortalConfigurationsResponse200
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             BillingPortal'configuration
                                                       )
-                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                               | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                    PostBillingPortalConfigurationsResponseDefault
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             Error
                                                       )
-                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                               | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                          )
                 response_0
           )
@@ -175,8 +175,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostBillingPortalConfigurationsRequestBo
 instance Data.Aeson.Types.FromJSON.FromJSON PostBillingPortalConfigurationsRequestBodyDefaultReturnUrl'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostBillingPortalConfigurationsRequestBodyDefaultReturnUrl'EmptyString
-        | GHC.Base.otherwise -> case (PostBillingPortalConfigurationsRequestBodyDefaultReturnUrl'Text Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostBillingPortalConfigurationsRequestBodyDefaultReturnUrl'EmptyString
+      | GHC.Base.otherwise -> case (PostBillingPortalConfigurationsRequestBodyDefaultReturnUrl'Text Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -282,12 +282,12 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostBillingPortalConfigurationsReque
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "address" -> PostBillingPortalConfigurationsRequestBodyFeatures'CustomerUpdate'AllowedUpdates'OneOf1EnumAddress
-            | val GHC.Classes.== "email" -> PostBillingPortalConfigurationsRequestBodyFeatures'CustomerUpdate'AllowedUpdates'OneOf1EnumEmail
-            | val GHC.Classes.== "phone" -> PostBillingPortalConfigurationsRequestBodyFeatures'CustomerUpdate'AllowedUpdates'OneOf1EnumPhone
-            | val GHC.Classes.== "shipping" -> PostBillingPortalConfigurationsRequestBodyFeatures'CustomerUpdate'AllowedUpdates'OneOf1EnumShipping
-            | val GHC.Classes.== "tax_id" -> PostBillingPortalConfigurationsRequestBodyFeatures'CustomerUpdate'AllowedUpdates'OneOf1EnumTaxId
-            | GHC.Base.otherwise -> PostBillingPortalConfigurationsRequestBodyFeatures'CustomerUpdate'AllowedUpdates'OneOf1Other val
+          | val GHC.Classes.== "address" -> PostBillingPortalConfigurationsRequestBodyFeatures'CustomerUpdate'AllowedUpdates'OneOf1EnumAddress
+          | val GHC.Classes.== "email" -> PostBillingPortalConfigurationsRequestBodyFeatures'CustomerUpdate'AllowedUpdates'OneOf1EnumEmail
+          | val GHC.Classes.== "phone" -> PostBillingPortalConfigurationsRequestBodyFeatures'CustomerUpdate'AllowedUpdates'OneOf1EnumPhone
+          | val GHC.Classes.== "shipping" -> PostBillingPortalConfigurationsRequestBodyFeatures'CustomerUpdate'AllowedUpdates'OneOf1EnumShipping
+          | val GHC.Classes.== "tax_id" -> PostBillingPortalConfigurationsRequestBodyFeatures'CustomerUpdate'AllowedUpdates'OneOf1EnumTaxId
+          | GHC.Base.otherwise -> PostBillingPortalConfigurationsRequestBodyFeatures'CustomerUpdate'AllowedUpdates'OneOf1Other val
       )
 
 -- | Defines the oneOf schema located at @paths.\/v1\/billing_portal\/configurations.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.features.properties.customer_update.properties.allowed_updates.anyOf@ in the specification.
@@ -304,8 +304,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostBillingPortalConfigurationsRequestBo
 instance Data.Aeson.Types.FromJSON.FromJSON PostBillingPortalConfigurationsRequestBodyFeatures'CustomerUpdate'AllowedUpdates'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostBillingPortalConfigurationsRequestBodyFeatures'CustomerUpdate'AllowedUpdates'EmptyString
-        | GHC.Base.otherwise -> case (PostBillingPortalConfigurationsRequestBodyFeatures'CustomerUpdate'AllowedUpdates'ListTPostBillingPortalConfigurationsRequestBodyFeatures'CustomerUpdate'AllowedUpdates'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostBillingPortalConfigurationsRequestBodyFeatures'CustomerUpdate'AllowedUpdates'EmptyString
+      | GHC.Base.otherwise -> case (PostBillingPortalConfigurationsRequestBodyFeatures'CustomerUpdate'AllowedUpdates'ListTPostBillingPortalConfigurationsRequestBodyFeatures'CustomerUpdate'AllowedUpdates'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -465,15 +465,15 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostBillingPortalConfigurationsReque
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "customer_service" -> PostBillingPortalConfigurationsRequestBodyFeatures'SubscriptionCancel'CancellationReason'Options'OneOf1EnumCustomerService
-            | val GHC.Classes.== "low_quality" -> PostBillingPortalConfigurationsRequestBodyFeatures'SubscriptionCancel'CancellationReason'Options'OneOf1EnumLowQuality
-            | val GHC.Classes.== "missing_features" -> PostBillingPortalConfigurationsRequestBodyFeatures'SubscriptionCancel'CancellationReason'Options'OneOf1EnumMissingFeatures
-            | val GHC.Classes.== "other" -> PostBillingPortalConfigurationsRequestBodyFeatures'SubscriptionCancel'CancellationReason'Options'OneOf1EnumOther
-            | val GHC.Classes.== "switched_service" -> PostBillingPortalConfigurationsRequestBodyFeatures'SubscriptionCancel'CancellationReason'Options'OneOf1EnumSwitchedService
-            | val GHC.Classes.== "too_complex" -> PostBillingPortalConfigurationsRequestBodyFeatures'SubscriptionCancel'CancellationReason'Options'OneOf1EnumTooComplex
-            | val GHC.Classes.== "too_expensive" -> PostBillingPortalConfigurationsRequestBodyFeatures'SubscriptionCancel'CancellationReason'Options'OneOf1EnumTooExpensive
-            | val GHC.Classes.== "unused" -> PostBillingPortalConfigurationsRequestBodyFeatures'SubscriptionCancel'CancellationReason'Options'OneOf1EnumUnused
-            | GHC.Base.otherwise -> PostBillingPortalConfigurationsRequestBodyFeatures'SubscriptionCancel'CancellationReason'Options'OneOf1Other val
+          | val GHC.Classes.== "customer_service" -> PostBillingPortalConfigurationsRequestBodyFeatures'SubscriptionCancel'CancellationReason'Options'OneOf1EnumCustomerService
+          | val GHC.Classes.== "low_quality" -> PostBillingPortalConfigurationsRequestBodyFeatures'SubscriptionCancel'CancellationReason'Options'OneOf1EnumLowQuality
+          | val GHC.Classes.== "missing_features" -> PostBillingPortalConfigurationsRequestBodyFeatures'SubscriptionCancel'CancellationReason'Options'OneOf1EnumMissingFeatures
+          | val GHC.Classes.== "other" -> PostBillingPortalConfigurationsRequestBodyFeatures'SubscriptionCancel'CancellationReason'Options'OneOf1EnumOther
+          | val GHC.Classes.== "switched_service" -> PostBillingPortalConfigurationsRequestBodyFeatures'SubscriptionCancel'CancellationReason'Options'OneOf1EnumSwitchedService
+          | val GHC.Classes.== "too_complex" -> PostBillingPortalConfigurationsRequestBodyFeatures'SubscriptionCancel'CancellationReason'Options'OneOf1EnumTooComplex
+          | val GHC.Classes.== "too_expensive" -> PostBillingPortalConfigurationsRequestBodyFeatures'SubscriptionCancel'CancellationReason'Options'OneOf1EnumTooExpensive
+          | val GHC.Classes.== "unused" -> PostBillingPortalConfigurationsRequestBodyFeatures'SubscriptionCancel'CancellationReason'Options'OneOf1EnumUnused
+          | GHC.Base.otherwise -> PostBillingPortalConfigurationsRequestBodyFeatures'SubscriptionCancel'CancellationReason'Options'OneOf1Other val
       )
 
 -- | Defines the oneOf schema located at @paths.\/v1\/billing_portal\/configurations.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.features.properties.subscription_cancel.properties.cancellation_reason.properties.options.anyOf@ in the specification.
@@ -490,8 +490,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostBillingPortalConfigurationsRequestBo
 instance Data.Aeson.Types.FromJSON.FromJSON PostBillingPortalConfigurationsRequestBodyFeatures'SubscriptionCancel'CancellationReason'Options'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostBillingPortalConfigurationsRequestBodyFeatures'SubscriptionCancel'CancellationReason'Options'EmptyString
-        | GHC.Base.otherwise -> case (PostBillingPortalConfigurationsRequestBodyFeatures'SubscriptionCancel'CancellationReason'Options'ListTPostBillingPortalConfigurationsRequestBodyFeatures'SubscriptionCancel'CancellationReason'Options'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostBillingPortalConfigurationsRequestBodyFeatures'SubscriptionCancel'CancellationReason'Options'EmptyString
+      | GHC.Base.otherwise -> case (PostBillingPortalConfigurationsRequestBodyFeatures'SubscriptionCancel'CancellationReason'Options'ListTPostBillingPortalConfigurationsRequestBodyFeatures'SubscriptionCancel'CancellationReason'Options'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -517,9 +517,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostBillingPortalConfigurationsReque
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "at_period_end" -> PostBillingPortalConfigurationsRequestBodyFeatures'SubscriptionCancel'Mode'EnumAtPeriodEnd
-            | val GHC.Classes.== "immediately" -> PostBillingPortalConfigurationsRequestBodyFeatures'SubscriptionCancel'Mode'EnumImmediately
-            | GHC.Base.otherwise -> PostBillingPortalConfigurationsRequestBodyFeatures'SubscriptionCancel'Mode'Other val
+          | val GHC.Classes.== "at_period_end" -> PostBillingPortalConfigurationsRequestBodyFeatures'SubscriptionCancel'Mode'EnumAtPeriodEnd
+          | val GHC.Classes.== "immediately" -> PostBillingPortalConfigurationsRequestBodyFeatures'SubscriptionCancel'Mode'EnumImmediately
+          | GHC.Base.otherwise -> PostBillingPortalConfigurationsRequestBodyFeatures'SubscriptionCancel'Mode'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/billing_portal\/configurations.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.features.properties.subscription_cancel.properties.proration_behavior@ in the specification.
@@ -547,10 +547,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostBillingPortalConfigurationsReque
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "always_invoice" -> PostBillingPortalConfigurationsRequestBodyFeatures'SubscriptionCancel'ProrationBehavior'EnumAlwaysInvoice
-            | val GHC.Classes.== "create_prorations" -> PostBillingPortalConfigurationsRequestBodyFeatures'SubscriptionCancel'ProrationBehavior'EnumCreateProrations
-            | val GHC.Classes.== "none" -> PostBillingPortalConfigurationsRequestBodyFeatures'SubscriptionCancel'ProrationBehavior'EnumNone
-            | GHC.Base.otherwise -> PostBillingPortalConfigurationsRequestBodyFeatures'SubscriptionCancel'ProrationBehavior'Other val
+          | val GHC.Classes.== "always_invoice" -> PostBillingPortalConfigurationsRequestBodyFeatures'SubscriptionCancel'ProrationBehavior'EnumAlwaysInvoice
+          | val GHC.Classes.== "create_prorations" -> PostBillingPortalConfigurationsRequestBodyFeatures'SubscriptionCancel'ProrationBehavior'EnumCreateProrations
+          | val GHC.Classes.== "none" -> PostBillingPortalConfigurationsRequestBodyFeatures'SubscriptionCancel'ProrationBehavior'EnumNone
+          | GHC.Base.otherwise -> PostBillingPortalConfigurationsRequestBodyFeatures'SubscriptionCancel'ProrationBehavior'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/billing_portal\/configurations.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.features.properties.subscription_pause@ in the specification.
@@ -639,10 +639,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostBillingPortalConfigurationsReque
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "price" -> PostBillingPortalConfigurationsRequestBodyFeatures'SubscriptionUpdate'DefaultAllowedUpdates'OneOf1EnumPrice
-            | val GHC.Classes.== "promotion_code" -> PostBillingPortalConfigurationsRequestBodyFeatures'SubscriptionUpdate'DefaultAllowedUpdates'OneOf1EnumPromotionCode
-            | val GHC.Classes.== "quantity" -> PostBillingPortalConfigurationsRequestBodyFeatures'SubscriptionUpdate'DefaultAllowedUpdates'OneOf1EnumQuantity
-            | GHC.Base.otherwise -> PostBillingPortalConfigurationsRequestBodyFeatures'SubscriptionUpdate'DefaultAllowedUpdates'OneOf1Other val
+          | val GHC.Classes.== "price" -> PostBillingPortalConfigurationsRequestBodyFeatures'SubscriptionUpdate'DefaultAllowedUpdates'OneOf1EnumPrice
+          | val GHC.Classes.== "promotion_code" -> PostBillingPortalConfigurationsRequestBodyFeatures'SubscriptionUpdate'DefaultAllowedUpdates'OneOf1EnumPromotionCode
+          | val GHC.Classes.== "quantity" -> PostBillingPortalConfigurationsRequestBodyFeatures'SubscriptionUpdate'DefaultAllowedUpdates'OneOf1EnumQuantity
+          | GHC.Base.otherwise -> PostBillingPortalConfigurationsRequestBodyFeatures'SubscriptionUpdate'DefaultAllowedUpdates'OneOf1Other val
       )
 
 -- | Defines the oneOf schema located at @paths.\/v1\/billing_portal\/configurations.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.features.properties.subscription_update.properties.default_allowed_updates.anyOf@ in the specification.
@@ -659,8 +659,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostBillingPortalConfigurationsRequestBo
 instance Data.Aeson.Types.FromJSON.FromJSON PostBillingPortalConfigurationsRequestBodyFeatures'SubscriptionUpdate'DefaultAllowedUpdates'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostBillingPortalConfigurationsRequestBodyFeatures'SubscriptionUpdate'DefaultAllowedUpdates'EmptyString
-        | GHC.Base.otherwise -> case (PostBillingPortalConfigurationsRequestBodyFeatures'SubscriptionUpdate'DefaultAllowedUpdates'ListTPostBillingPortalConfigurationsRequestBodyFeatures'SubscriptionUpdate'DefaultAllowedUpdates'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostBillingPortalConfigurationsRequestBodyFeatures'SubscriptionUpdate'DefaultAllowedUpdates'EmptyString
+      | GHC.Base.otherwise -> case (PostBillingPortalConfigurationsRequestBodyFeatures'SubscriptionUpdate'DefaultAllowedUpdates'ListTPostBillingPortalConfigurationsRequestBodyFeatures'SubscriptionUpdate'DefaultAllowedUpdates'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -714,8 +714,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostBillingPortalConfigurationsRequestBo
 instance Data.Aeson.Types.FromJSON.FromJSON PostBillingPortalConfigurationsRequestBodyFeatures'SubscriptionUpdate'Products'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostBillingPortalConfigurationsRequestBodyFeatures'SubscriptionUpdate'Products'EmptyString
-        | GHC.Base.otherwise -> case (PostBillingPortalConfigurationsRequestBodyFeatures'SubscriptionUpdate'Products'ListTPostBillingPortalConfigurationsRequestBodyFeatures'SubscriptionUpdate'Products'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostBillingPortalConfigurationsRequestBodyFeatures'SubscriptionUpdate'Products'EmptyString
+      | GHC.Base.otherwise -> case (PostBillingPortalConfigurationsRequestBodyFeatures'SubscriptionUpdate'Products'ListTPostBillingPortalConfigurationsRequestBodyFeatures'SubscriptionUpdate'Products'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -744,10 +744,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostBillingPortalConfigurationsReque
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "always_invoice" -> PostBillingPortalConfigurationsRequestBodyFeatures'SubscriptionUpdate'ProrationBehavior'EnumAlwaysInvoice
-            | val GHC.Classes.== "create_prorations" -> PostBillingPortalConfigurationsRequestBodyFeatures'SubscriptionUpdate'ProrationBehavior'EnumCreateProrations
-            | val GHC.Classes.== "none" -> PostBillingPortalConfigurationsRequestBodyFeatures'SubscriptionUpdate'ProrationBehavior'EnumNone
-            | GHC.Base.otherwise -> PostBillingPortalConfigurationsRequestBodyFeatures'SubscriptionUpdate'ProrationBehavior'Other val
+          | val GHC.Classes.== "always_invoice" -> PostBillingPortalConfigurationsRequestBodyFeatures'SubscriptionUpdate'ProrationBehavior'EnumAlwaysInvoice
+          | val GHC.Classes.== "create_prorations" -> PostBillingPortalConfigurationsRequestBodyFeatures'SubscriptionUpdate'ProrationBehavior'EnumCreateProrations
+          | val GHC.Classes.== "none" -> PostBillingPortalConfigurationsRequestBodyFeatures'SubscriptionUpdate'ProrationBehavior'EnumNone
+          | GHC.Base.otherwise -> PostBillingPortalConfigurationsRequestBodyFeatures'SubscriptionUpdate'ProrationBehavior'Other val
       )
 
 -- | Represents a response of the operation 'postBillingPortalConfigurations'.

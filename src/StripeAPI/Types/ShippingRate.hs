@@ -201,12 +201,12 @@ instance Data.Aeson.Types.FromJSON.FromJSON ShippingRateDeliveryEstimate'NonNull
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "business_day" -> ShippingRateDeliveryEstimate'NonNullableMaximum'NonNullableUnit'EnumBusinessDay
-            | val GHC.Classes.== "day" -> ShippingRateDeliveryEstimate'NonNullableMaximum'NonNullableUnit'EnumDay
-            | val GHC.Classes.== "hour" -> ShippingRateDeliveryEstimate'NonNullableMaximum'NonNullableUnit'EnumHour
-            | val GHC.Classes.== "month" -> ShippingRateDeliveryEstimate'NonNullableMaximum'NonNullableUnit'EnumMonth
-            | val GHC.Classes.== "week" -> ShippingRateDeliveryEstimate'NonNullableMaximum'NonNullableUnit'EnumWeek
-            | GHC.Base.otherwise -> ShippingRateDeliveryEstimate'NonNullableMaximum'NonNullableUnit'Other val
+          | val GHC.Classes.== "business_day" -> ShippingRateDeliveryEstimate'NonNullableMaximum'NonNullableUnit'EnumBusinessDay
+          | val GHC.Classes.== "day" -> ShippingRateDeliveryEstimate'NonNullableMaximum'NonNullableUnit'EnumDay
+          | val GHC.Classes.== "hour" -> ShippingRateDeliveryEstimate'NonNullableMaximum'NonNullableUnit'EnumHour
+          | val GHC.Classes.== "month" -> ShippingRateDeliveryEstimate'NonNullableMaximum'NonNullableUnit'EnumMonth
+          | val GHC.Classes.== "week" -> ShippingRateDeliveryEstimate'NonNullableMaximum'NonNullableUnit'EnumWeek
+          | GHC.Base.otherwise -> ShippingRateDeliveryEstimate'NonNullableMaximum'NonNullableUnit'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.shipping_rate.properties.delivery_estimate.anyOf.properties.minimum.anyOf@ in the specification.
@@ -271,12 +271,12 @@ instance Data.Aeson.Types.FromJSON.FromJSON ShippingRateDeliveryEstimate'NonNull
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "business_day" -> ShippingRateDeliveryEstimate'NonNullableMinimum'NonNullableUnit'EnumBusinessDay
-            | val GHC.Classes.== "day" -> ShippingRateDeliveryEstimate'NonNullableMinimum'NonNullableUnit'EnumDay
-            | val GHC.Classes.== "hour" -> ShippingRateDeliveryEstimate'NonNullableMinimum'NonNullableUnit'EnumHour
-            | val GHC.Classes.== "month" -> ShippingRateDeliveryEstimate'NonNullableMinimum'NonNullableUnit'EnumMonth
-            | val GHC.Classes.== "week" -> ShippingRateDeliveryEstimate'NonNullableMinimum'NonNullableUnit'EnumWeek
-            | GHC.Base.otherwise -> ShippingRateDeliveryEstimate'NonNullableMinimum'NonNullableUnit'Other val
+          | val GHC.Classes.== "business_day" -> ShippingRateDeliveryEstimate'NonNullableMinimum'NonNullableUnit'EnumBusinessDay
+          | val GHC.Classes.== "day" -> ShippingRateDeliveryEstimate'NonNullableMinimum'NonNullableUnit'EnumDay
+          | val GHC.Classes.== "hour" -> ShippingRateDeliveryEstimate'NonNullableMinimum'NonNullableUnit'EnumHour
+          | val GHC.Classes.== "month" -> ShippingRateDeliveryEstimate'NonNullableMinimum'NonNullableUnit'EnumMonth
+          | val GHC.Classes.== "week" -> ShippingRateDeliveryEstimate'NonNullableMinimum'NonNullableUnit'EnumWeek
+          | GHC.Base.otherwise -> ShippingRateDeliveryEstimate'NonNullableMinimum'NonNullableUnit'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.shipping_rate.properties.tax_behavior@ in the specification.
@@ -306,10 +306,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON ShippingRateTaxBehavior'NonNullable 
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "exclusive" -> ShippingRateTaxBehavior'NonNullableEnumExclusive
-            | val GHC.Classes.== "inclusive" -> ShippingRateTaxBehavior'NonNullableEnumInclusive
-            | val GHC.Classes.== "unspecified" -> ShippingRateTaxBehavior'NonNullableEnumUnspecified
-            | GHC.Base.otherwise -> ShippingRateTaxBehavior'NonNullableOther val
+          | val GHC.Classes.== "exclusive" -> ShippingRateTaxBehavior'NonNullableEnumExclusive
+          | val GHC.Classes.== "inclusive" -> ShippingRateTaxBehavior'NonNullableEnumInclusive
+          | val GHC.Classes.== "unspecified" -> ShippingRateTaxBehavior'NonNullableEnumUnspecified
+          | GHC.Base.otherwise -> ShippingRateTaxBehavior'NonNullableOther val
       )
 
 -- | Defines the oneOf schema located at @components.schemas.shipping_rate.properties.tax_code.anyOf@ in the specification.

@@ -93,7 +93,7 @@ instance Data.Aeson.Types.FromJSON.FromJSON CustomerAcceptanceType' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "offline" -> CustomerAcceptanceType'EnumOffline
-            | val GHC.Classes.== "online" -> CustomerAcceptanceType'EnumOnline
-            | GHC.Base.otherwise -> CustomerAcceptanceType'Other val
+          | val GHC.Classes.== "offline" -> CustomerAcceptanceType'EnumOffline
+          | val GHC.Classes.== "online" -> CustomerAcceptanceType'EnumOnline
+          | GHC.Base.otherwise -> CustomerAcceptanceType'Other val
       )

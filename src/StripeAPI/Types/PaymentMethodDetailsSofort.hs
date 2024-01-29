@@ -182,12 +182,12 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentMethodDetailsSofortPreferredL
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "de" -> PaymentMethodDetailsSofortPreferredLanguage'NonNullableEnumDe
-            | val GHC.Classes.== "en" -> PaymentMethodDetailsSofortPreferredLanguage'NonNullableEnumEn
-            | val GHC.Classes.== "es" -> PaymentMethodDetailsSofortPreferredLanguage'NonNullableEnumEs
-            | val GHC.Classes.== "fr" -> PaymentMethodDetailsSofortPreferredLanguage'NonNullableEnumFr
-            | val GHC.Classes.== "it" -> PaymentMethodDetailsSofortPreferredLanguage'NonNullableEnumIt
-            | val GHC.Classes.== "nl" -> PaymentMethodDetailsSofortPreferredLanguage'NonNullableEnumNl
-            | val GHC.Classes.== "pl" -> PaymentMethodDetailsSofortPreferredLanguage'NonNullableEnumPl
-            | GHC.Base.otherwise -> PaymentMethodDetailsSofortPreferredLanguage'NonNullableOther val
+          | val GHC.Classes.== "de" -> PaymentMethodDetailsSofortPreferredLanguage'NonNullableEnumDe
+          | val GHC.Classes.== "en" -> PaymentMethodDetailsSofortPreferredLanguage'NonNullableEnumEn
+          | val GHC.Classes.== "es" -> PaymentMethodDetailsSofortPreferredLanguage'NonNullableEnumEs
+          | val GHC.Classes.== "fr" -> PaymentMethodDetailsSofortPreferredLanguage'NonNullableEnumFr
+          | val GHC.Classes.== "it" -> PaymentMethodDetailsSofortPreferredLanguage'NonNullableEnumIt
+          | val GHC.Classes.== "nl" -> PaymentMethodDetailsSofortPreferredLanguage'NonNullableEnumNl
+          | val GHC.Classes.== "pl" -> PaymentMethodDetailsSofortPreferredLanguage'NonNullableEnumPl
+          | GHC.Base.otherwise -> PaymentMethodDetailsSofortPreferredLanguage'NonNullableOther val
       )

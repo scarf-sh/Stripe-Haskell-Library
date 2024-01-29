@@ -110,9 +110,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON QuotesResourceRecurringInterval' whe
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "day" -> QuotesResourceRecurringInterval'EnumDay
-            | val GHC.Classes.== "month" -> QuotesResourceRecurringInterval'EnumMonth
-            | val GHC.Classes.== "week" -> QuotesResourceRecurringInterval'EnumWeek
-            | val GHC.Classes.== "year" -> QuotesResourceRecurringInterval'EnumYear
-            | GHC.Base.otherwise -> QuotesResourceRecurringInterval'Other val
+          | val GHC.Classes.== "day" -> QuotesResourceRecurringInterval'EnumDay
+          | val GHC.Classes.== "month" -> QuotesResourceRecurringInterval'EnumMonth
+          | val GHC.Classes.== "week" -> QuotesResourceRecurringInterval'EnumWeek
+          | val GHC.Classes.== "year" -> QuotesResourceRecurringInterval'EnumYear
+          | GHC.Base.otherwise -> QuotesResourceRecurringInterval'Other val
       )

@@ -48,7 +48,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>You can list all invoices, or list the invoices for a specific customer. The invoices are returned sorted by creation date, with the most recently created invoices appearing first.\<\/p>
 getInvoices ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | Contains all available parameters of this operation (query and path parameters)
   GetInvoicesParameters ->
   -- | Monadic computation which returns the result of the operation
@@ -60,21 +60,21 @@ getInvoices parameters =
           ( Data.Either.either GetInvoicesResponseError GHC.Base.id
               GHC.Base.. ( \response body ->
                              if
-                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                               | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                    GetInvoicesResponse200
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             GetInvoicesResponseBody200
                                                       )
-                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                               | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                    GetInvoicesResponseDefault
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             Error
                                                       )
-                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                               | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                          )
                 response_0
           )
@@ -209,9 +209,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON GetInvoicesParametersQueryCollection
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "charge_automatically" -> GetInvoicesParametersQueryCollectionMethod'EnumChargeAutomatically
-            | val GHC.Classes.== "send_invoice" -> GetInvoicesParametersQueryCollectionMethod'EnumSendInvoice
-            | GHC.Base.otherwise -> GetInvoicesParametersQueryCollectionMethod'Other val
+          | val GHC.Classes.== "charge_automatically" -> GetInvoicesParametersQueryCollectionMethod'EnumChargeAutomatically
+          | val GHC.Classes.== "send_invoice" -> GetInvoicesParametersQueryCollectionMethod'EnumSendInvoice
+          | GHC.Base.otherwise -> GetInvoicesParametersQueryCollectionMethod'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/invoices.GET.parameters.properties.queryCreated.anyOf@ in the specification.
@@ -349,12 +349,12 @@ instance Data.Aeson.Types.FromJSON.FromJSON GetInvoicesParametersQueryStatus' wh
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "draft" -> GetInvoicesParametersQueryStatus'EnumDraft
-            | val GHC.Classes.== "open" -> GetInvoicesParametersQueryStatus'EnumOpen
-            | val GHC.Classes.== "paid" -> GetInvoicesParametersQueryStatus'EnumPaid
-            | val GHC.Classes.== "uncollectible" -> GetInvoicesParametersQueryStatus'EnumUncollectible
-            | val GHC.Classes.== "void" -> GetInvoicesParametersQueryStatus'EnumVoid
-            | GHC.Base.otherwise -> GetInvoicesParametersQueryStatus'Other val
+          | val GHC.Classes.== "draft" -> GetInvoicesParametersQueryStatus'EnumDraft
+          | val GHC.Classes.== "open" -> GetInvoicesParametersQueryStatus'EnumOpen
+          | val GHC.Classes.== "paid" -> GetInvoicesParametersQueryStatus'EnumPaid
+          | val GHC.Classes.== "uncollectible" -> GetInvoicesParametersQueryStatus'EnumUncollectible
+          | val GHC.Classes.== "void" -> GetInvoicesParametersQueryStatus'EnumVoid
+          | GHC.Base.otherwise -> GetInvoicesParametersQueryStatus'Other val
       )
 
 -- | Represents a response of the operation 'getInvoices'.
