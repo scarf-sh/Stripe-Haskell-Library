@@ -15,8 +15,10 @@ module StripeAPI.Common
     doBodyCallWithConfigurationM,
     runWithConfiguration,
     textToByte,
+    byteToText,
     stringifyModel,
     anonymousSecurityScheme,
+    jsonObjectToList,
     Configuration (..),
     SecurityScheme,
     MonadHTTP (..),
@@ -37,13 +39,14 @@ import qualified Control.Monad.Trans.Class as MT
 import qualified Data.Aeson as Aeson
 import qualified Data.Aeson.Encoding as Encoding
 import qualified Data.Bifunctor as BF
-import qualified Data.ByteString.Char8 as B8
-import qualified Data.ByteString.Lazy.Char8 as LB8
+import qualified Data.ByteString as BS
+import qualified Data.ByteString.Lazy as LBS
 import qualified Data.Maybe as Maybe
 import qualified Data.Scientific as Scientific
 import Data.Text (Text)
 import qualified Data.Text as T
 import qualified Data.Text.Encoding as TE
+import Data.Text.Encoding.Error (lenientDecode)
 import qualified Data.Time.LocalTime as Time
 import qualified Data.Vector as Vector
 import qualified Network.HTTP.Client as HC
@@ -59,17 +62,17 @@ import qualified Data.HashMap.Strict as HMap
 
 -- | Abstracts the usage of 'Network.HTTP.Simple.httpBS' away,
 --  so that it can be used for testing
-class (Monad m) => MonadHTTP m where
-  httpBS :: HS.Request -> m (HS.Response B8.ByteString)
+class Monad m => MonadHTTP m where
+  httpBS :: HS.Request -> m (HS.Response BS.ByteString)
 
 -- | This instance is the default instance used for production code
 instance MonadHTTP IO where
   httpBS = HS.httpBS
 
-instance (MonadHTTP m) => MonadHTTP (MR.ReaderT r m) where
+instance MonadHTTP m => MonadHTTP (MR.ReaderT r m) where
   httpBS = MT.lift . httpBS
 
-instance (MonadHTTP m) => MonadHTTP (ClientT m) where
+instance MonadHTTP m => MonadHTTP (ClientT m) where
   httpBS = MT.lift . httpBS
 
 -- | The monad in which the operations can be run.
@@ -82,7 +85,7 @@ newtype ClientT m a = ClientT (MR.ReaderT Configuration m a)
 instance MT.MonadTrans ClientT where
   lift = ClientT . MT.lift
 
-instance (MIO.MonadIO m) => MIO.MonadIO (ClientT m) where
+instance MIO.MonadIO m => MIO.MonadIO (ClientT m) where
   liftIO = ClientT . MIO.liftIO
 
 -- | Utility type which uses 'IO' as underlying monad
@@ -151,7 +154,7 @@ anonymousSecurityScheme = id
 --
 --   It makes a concrete Call to a Server without a body
 doCallWithConfiguration ::
-  (MonadHTTP m) =>
+  MonadHTTP m =>
   -- | Configuration options like base URL and security scheme
   Configuration ->
   -- | HTTP method (GET, POST, etc.)
@@ -161,18 +164,18 @@ doCallWithConfiguration ::
   -- | Query parameters
   [QueryParameter] ->
   -- | The raw response from the server
-  m (HS.Response B8.ByteString)
+  m (HS.Response BS.ByteString)
 doCallWithConfiguration config method path queryParams =
   httpBS $ createBaseRequest config method path queryParams
 
 -- | Same as 'doCallWithConfiguration' but run in a 'MR.ReaderT' environment which contains the configuration.
 -- This is useful if multiple calls have to be executed with the same configuration.
 doCallWithConfigurationM ::
-  (MonadHTTP m) =>
+  MonadHTTP m =>
   Text ->
   Text ->
   [QueryParameter] ->
-  ClientT m (HS.Response B8.ByteString)
+  ClientT m (HS.Response BS.ByteString)
 doCallWithConfigurationM method path queryParams = do
   config <- MR.ask
   MT.lift $ doCallWithConfiguration config method path queryParams
@@ -195,7 +198,7 @@ doBodyCallWithConfiguration ::
   -- | JSON or form data deepobjects
   RequestBodyEncoding ->
   -- | The raw response from the server
-  m (HS.Response B8.ByteString)
+  m (HS.Response BS.ByteString)
 doBodyCallWithConfiguration config method path queryParams Nothing _ = doCallWithConfiguration config method path queryParams
 doBodyCallWithConfiguration config method path queryParams (Just body) RequestBodyEncodingJSON =
   httpBS $ HS.setRequestMethod (textToByte method) $ HS.setRequestBodyJSON body baseRequest
@@ -216,7 +219,7 @@ doBodyCallWithConfigurationM ::
   [QueryParameter] ->
   Maybe body ->
   RequestBodyEncoding ->
-  ClientT m (HS.Response B8.ByteString)
+  ClientT m (HS.Response BS.ByteString)
 doBodyCallWithConfigurationM method path queryParams body encoding = do
   config <- MR.ask
   MT.lift $ doBodyCallWithConfiguration config method path queryParams body encoding
@@ -239,13 +242,13 @@ createBaseRequest config method path queryParams =
       HS.setRequestMethod (textToByte method) $
         HS.setRequestQueryString query $
           HS.setRequestPath
-            (B8.pack (T.unpack $ byteToText basePathModifier <> path))
+            (textToByte $ basePathModifier <> path)
             baseRequest
   where
     baseRequest = parseURL $ configBaseURL config
-    basePath = HC.path baseRequest
+    basePath = byteToText $ HC.path baseRequest
     basePathModifier =
-      if basePath == B8.pack "/" && T.isPrefixOf "/" path
+      if basePath == "/" && T.isPrefixOf "/" path
         then ""
         else basePath
     -- filters all maybe
@@ -256,19 +259,19 @@ createBaseRequest config method path queryParams =
         then HS.addRequestHeader HT.hUserAgent $ textToByte userAgent
         else id
 
-serializeQueryParams :: [QueryParameter] -> [(B8.ByteString, B8.ByteString)]
+serializeQueryParams :: [QueryParameter] -> [(BS.ByteString, BS.ByteString)]
 serializeQueryParams = (>>= serializeQueryParam)
 
-serializeQueryParam :: QueryParameter -> [(B8.ByteString, B8.ByteString)]
+serializeQueryParam :: QueryParameter -> [(BS.ByteString, BS.ByteString)]
 serializeQueryParam QueryParameter {..} =
-  let concatValues :: B8.ByteString -> [(Maybe Text, B8.ByteString)] -> [(Text, B8.ByteString)]
+  let concatValues :: BS.ByteString -> [(Maybe Text, BS.ByteString)] -> [(Text, BS.ByteString)]
       concatValues joinWith =
         if queryParamExplode
           then fmap (BF.first $ Maybe.fromMaybe queryParamName)
           else
             pure
               . (queryParamName,)
-              . B8.intercalate joinWith
+              . BS.intercalate joinWith
               . fmap
                 ( \case
                     (Nothing, value) -> value
@@ -286,10 +289,10 @@ serializeQueryParam QueryParameter {..} =
           )
             $ jsonToFormDataFlat Nothing value
 
-encodeStrict :: (Aeson.ToJSON a) => a -> B8.ByteString
-encodeStrict = LB8.toStrict . Aeson.encode
+encodeStrict :: Aeson.ToJSON a => a -> BS.ByteString
+encodeStrict = LBS.toStrict . Aeson.encode
 
-jsonToFormDataFlat :: Maybe Text -> Aeson.Value -> [(Maybe Text, B8.ByteString)]
+jsonToFormDataFlat :: Maybe Text -> Aeson.Value -> [(Maybe Text, BS.ByteString)]
 jsonToFormDataFlat _ Aeson.Null = []
 jsonToFormDataFlat name (Aeson.Number a) = [(name, encodeStrict a)]
 jsonToFormDataFlat name (Aeson.String a) = [(name, textToByte a)]
@@ -298,17 +301,17 @@ jsonToFormDataFlat _ (Aeson.Object object) = jsonObjectToList object >>= uncurry
 jsonToFormDataFlat name (Aeson.Array vector) = Vector.toList vector >>= jsonToFormDataFlat name
 
 -- | creates form data bytestring array
-createFormData :: (Aeson.ToJSON a) => a -> [(B8.ByteString, B8.ByteString)]
+createFormData :: (Aeson.ToJSON a) => a -> [(BS.ByteString, BS.ByteString)]
 createFormData body =
   let formData = jsonToFormData $ Aeson.toJSON body
    in fmap (BF.bimap textToByte textToByte) formData
 
--- | Convert a 'B8.ByteString' to 'Text'
-byteToText :: B8.ByteString -> Text
-byteToText = TE.decodeUtf8
+-- | Convert a 'BS.ByteString' to 'Text'
+byteToText :: BS.ByteString -> Text
+byteToText = TE.decodeUtf8With lenientDecode
 
--- | Convert 'Text' a to 'B8.ByteString'
-textToByte :: Text -> B8.ByteString
+-- | Convert 'Text' a to 'BS.ByteString'
+textToByte :: Text -> BS.ByteString
 textToByte = TE.encodeUtf8
 
 parseURL :: Text -> HS.Request
@@ -338,7 +341,7 @@ jsonToFormDataPrefixed prefix (Aeson.Array vector) =
 -- | This type class makes the code generation for URL parameters easier as it allows to stringify a value
 --
 -- The 'Show' class is not sufficient as strings should not be stringified with quotes.
-class (Show a) => StringifyModel a where
+class Show a => StringifyModel a where
   -- | Stringifies a showable value
   --
   -- >>> stringifyModel "Test"
@@ -346,26 +349,26 @@ class (Show a) => StringifyModel a where
   --
   -- >>> stringifyModel 123
   -- "123"
-  stringifyModel :: a -> String
+  stringifyModel :: a -> Text
 
 instance StringifyModel String where
   -- stringifyModel :: String -> String
-  stringifyModel = id
+  stringifyModel = T.pack
 
 instance StringifyModel Text where
   -- stringifyModel :: Text -> String
-  stringifyModel = T.unpack
+  stringifyModel = id
 
-instance {-# OVERLAPS #-} (Show a) => StringifyModel a where
+instance {-# OVERLAPS #-} Show a => StringifyModel a where
   -- stringifyModel :: Show a => a -> String
-  stringifyModel = show
+  stringifyModel = T.pack . show
 
--- | Wraps a 'B8.ByteString' to implement 'Aeson.ToJSON' and 'Aeson.FromJSON'
-newtype JsonByteString = JsonByteString B8.ByteString
+-- | Wraps a 'BS.ByteString' to implement 'Aeson.ToJSON' and 'Aeson.FromJSON'
+newtype JsonByteString = JsonByteString BS.ByteString
   deriving (Show, Eq, Ord)
 
 instance Aeson.ToJSON JsonByteString where
-  toJSON (JsonByteString s) = Aeson.toJSON $ B8.unpack s
+  toJSON (JsonByteString s) = Aeson.toJSON $ byteToText s
 
 instance Aeson.FromJSON JsonByteString where
   parseJSON (Aeson.String s) = pure $ JsonByteString $ textToByte s
@@ -390,14 +393,14 @@ instance Aeson.FromJSON JsonDateTime where
 data Nullable a = NonNull a | Null
   deriving (Show, Eq)
 
-instance (Aeson.ToJSON a) => Aeson.ToJSON (Nullable a) where
+instance Aeson.ToJSON a => Aeson.ToJSON (Nullable a) where
   toJSON Null = Aeson.Null
   toJSON (NonNull x) = Aeson.toJSON x
 
   toEncoding Null = Encoding.null_
   toEncoding (NonNull x) = Aeson.toEncoding x
 
-instance (Aeson.FromJSON a) => Aeson.FromJSON (Nullable a) where
+instance Aeson.FromJSON a => Aeson.FromJSON (Nullable a) where
   parseJSON Aeson.Null = pure Null
   parseJSON x = NonNull <$> Aeson.parseJSON x
 

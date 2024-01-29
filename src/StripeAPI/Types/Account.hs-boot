@@ -12,6 +12,11 @@ instance Show AccountBusinessProfile'NonNullable
 instance Eq AccountBusinessProfile'NonNullable
 instance FromJSON AccountBusinessProfile'NonNullable
 instance ToJSON AccountBusinessProfile'NonNullable
+data AccountBusinessProfile'NonNullableAnnualRevenue'NonNullable
+instance Show AccountBusinessProfile'NonNullableAnnualRevenue'NonNullable
+instance Eq AccountBusinessProfile'NonNullableAnnualRevenue'NonNullable
+instance FromJSON AccountBusinessProfile'NonNullableAnnualRevenue'NonNullable
+instance ToJSON AccountBusinessProfile'NonNullableAnnualRevenue'NonNullable
 data AccountBusinessProfile'NonNullableSupportAddress'NonNullable
 instance Show AccountBusinessProfile'NonNullableSupportAddress'NonNullable
 instance Eq AccountBusinessProfile'NonNullableSupportAddress'NonNullable
@@ -47,16 +52,21 @@ instance Show AccountExternalAccounts'Data'Customer'NonNullableVariants
 instance Eq AccountExternalAccounts'Data'Customer'NonNullableVariants
 instance FromJSON AccountExternalAccounts'Data'Customer'NonNullableVariants
 instance ToJSON AccountExternalAccounts'Data'Customer'NonNullableVariants
+data AccountExternalAccounts'Data'FutureRequirements'NonNullable
+instance Show AccountExternalAccounts'Data'FutureRequirements'NonNullable
+instance Eq AccountExternalAccounts'Data'FutureRequirements'NonNullable
+instance FromJSON AccountExternalAccounts'Data'FutureRequirements'NonNullable
+instance ToJSON AccountExternalAccounts'Data'FutureRequirements'NonNullable
 data AccountExternalAccounts'Data'Object'
 instance Show AccountExternalAccounts'Data'Object'
 instance Eq AccountExternalAccounts'Data'Object'
 instance FromJSON AccountExternalAccounts'Data'Object'
 instance ToJSON AccountExternalAccounts'Data'Object'
-data AccountExternalAccounts'Data'Recipient'NonNullableVariants
-instance Show AccountExternalAccounts'Data'Recipient'NonNullableVariants
-instance Eq AccountExternalAccounts'Data'Recipient'NonNullableVariants
-instance FromJSON AccountExternalAccounts'Data'Recipient'NonNullableVariants
-instance ToJSON AccountExternalAccounts'Data'Recipient'NonNullableVariants
+data AccountExternalAccounts'Data'Requirements'NonNullable
+instance Show AccountExternalAccounts'Data'Requirements'NonNullable
+instance Eq AccountExternalAccounts'Data'Requirements'NonNullable
+instance FromJSON AccountExternalAccounts'Data'Requirements'NonNullable
+instance ToJSON AccountExternalAccounts'Data'Requirements'NonNullable
 data AccountSettings'NonNullable
 instance Show AccountSettings'NonNullable
 instance Eq AccountSettings'NonNullable
