@@ -102,8 +102,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON AccountServiceResourceTreasuryStatus
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "account_rejected" -> AccountServiceResourceTreasuryStatusDetailsClosed'NonNullableReasons'EnumAccountRejected
-            | val GHC.Classes.== "closed_by_platform" -> AccountServiceResourceTreasuryStatusDetailsClosed'NonNullableReasons'EnumClosedByPlatform
-            | val GHC.Classes.== "other" -> AccountServiceResourceTreasuryStatusDetailsClosed'NonNullableReasons'EnumOther
-            | GHC.Base.otherwise -> AccountServiceResourceTreasuryStatusDetailsClosed'NonNullableReasons'Other val
+          | val GHC.Classes.== "account_rejected" -> AccountServiceResourceTreasuryStatusDetailsClosed'NonNullableReasons'EnumAccountRejected
+          | val GHC.Classes.== "closed_by_platform" -> AccountServiceResourceTreasuryStatusDetailsClosed'NonNullableReasons'EnumClosedByPlatform
+          | val GHC.Classes.== "other" -> AccountServiceResourceTreasuryStatusDetailsClosed'NonNullableReasons'EnumOther
+          | GHC.Base.otherwise -> AccountServiceResourceTreasuryStatusDetailsClosed'NonNullableReasons'Other val
       )

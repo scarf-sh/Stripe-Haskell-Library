@@ -48,7 +48,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>Updates an existing subscription on a customer to match the specified parameters. When changing plans or quantities, we will optionally prorate the price we charge next month to make up for any price changes. To preview how the proration will be calculated, use the \<a href=\"\#upcoming_invoice\">upcoming invoice\<\/a> endpoint.\<\/p>
 postSubscriptionsSubscriptionExposedId ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | subscription_exposed_id | Constraints: Maximum length of 5000
   Data.Text.Internal.Text ->
   -- | The request body to send
@@ -64,21 +64,21 @@ postSubscriptionsSubscriptionExposedId
             ( Data.Either.either PostSubscriptionsSubscriptionExposedIdResponseError GHC.Base.id
                 GHC.Base.. ( \response body ->
                                if
-                                   | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                      PostSubscriptionsSubscriptionExposedIdResponse200
                                        Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                             Data.Either.Either
                                                               GHC.Base.String
                                                               Subscription
                                                         )
-                                   | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                      PostSubscriptionsSubscriptionExposedIdResponseDefault
                                        Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                             Data.Either.Either
                                                               GHC.Base.String
                                                               Error
                                                         )
-                                   | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                            )
                   response_0
             )
@@ -328,10 +328,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostSubscriptionsSubscriptionExposed
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "exclusive" -> PostSubscriptionsSubscriptionExposedIdRequestBodyAddInvoiceItems'PriceData'TaxBehavior'EnumExclusive
-            | val GHC.Classes.== "inclusive" -> PostSubscriptionsSubscriptionExposedIdRequestBodyAddInvoiceItems'PriceData'TaxBehavior'EnumInclusive
-            | val GHC.Classes.== "unspecified" -> PostSubscriptionsSubscriptionExposedIdRequestBodyAddInvoiceItems'PriceData'TaxBehavior'EnumUnspecified
-            | GHC.Base.otherwise -> PostSubscriptionsSubscriptionExposedIdRequestBodyAddInvoiceItems'PriceData'TaxBehavior'Other val
+          | val GHC.Classes.== "exclusive" -> PostSubscriptionsSubscriptionExposedIdRequestBodyAddInvoiceItems'PriceData'TaxBehavior'EnumExclusive
+          | val GHC.Classes.== "inclusive" -> PostSubscriptionsSubscriptionExposedIdRequestBodyAddInvoiceItems'PriceData'TaxBehavior'EnumInclusive
+          | val GHC.Classes.== "unspecified" -> PostSubscriptionsSubscriptionExposedIdRequestBodyAddInvoiceItems'PriceData'TaxBehavior'EnumUnspecified
+          | GHC.Base.otherwise -> PostSubscriptionsSubscriptionExposedIdRequestBodyAddInvoiceItems'PriceData'TaxBehavior'Other val
       )
 
 -- | Defines the oneOf schema located at @paths.\/v1\/subscriptions\/{subscription_exposed_id}.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.add_invoice_items.items.properties.tax_rates.anyOf@ in the specification.
@@ -348,8 +348,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostSubscriptionsSubscriptionExposedIdRe
 instance Data.Aeson.Types.FromJSON.FromJSON PostSubscriptionsSubscriptionExposedIdRequestBodyAddInvoiceItems'TaxRates'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostSubscriptionsSubscriptionExposedIdRequestBodyAddInvoiceItems'TaxRates'EmptyString
-        | GHC.Base.otherwise -> case (PostSubscriptionsSubscriptionExposedIdRequestBodyAddInvoiceItems'TaxRates'ListTText Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostSubscriptionsSubscriptionExposedIdRequestBodyAddInvoiceItems'TaxRates'EmptyString
+      | GHC.Base.otherwise -> case (PostSubscriptionsSubscriptionExposedIdRequestBodyAddInvoiceItems'TaxRates'ListTText Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -403,9 +403,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostSubscriptionsSubscriptionExposed
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "now" -> PostSubscriptionsSubscriptionExposedIdRequestBodyBillingCycleAnchor'EnumNow
-            | val GHC.Classes.== "unchanged" -> PostSubscriptionsSubscriptionExposedIdRequestBodyBillingCycleAnchor'EnumUnchanged
-            | GHC.Base.otherwise -> PostSubscriptionsSubscriptionExposedIdRequestBodyBillingCycleAnchor'Other val
+          | val GHC.Classes.== "now" -> PostSubscriptionsSubscriptionExposedIdRequestBodyBillingCycleAnchor'EnumNow
+          | val GHC.Classes.== "unchanged" -> PostSubscriptionsSubscriptionExposedIdRequestBodyBillingCycleAnchor'EnumUnchanged
+          | GHC.Base.otherwise -> PostSubscriptionsSubscriptionExposedIdRequestBodyBillingCycleAnchor'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/subscriptions\/{subscription_exposed_id}.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.billing_thresholds.anyOf@ in the specification.
@@ -451,8 +451,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostSubscriptionsSubscriptionExposedIdRe
 instance Data.Aeson.Types.FromJSON.FromJSON PostSubscriptionsSubscriptionExposedIdRequestBodyBillingThresholds'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostSubscriptionsSubscriptionExposedIdRequestBodyBillingThresholds'EmptyString
-        | GHC.Base.otherwise -> case (PostSubscriptionsSubscriptionExposedIdRequestBodyBillingThresholds'PostSubscriptionsSubscriptionExposedIdRequestBodyBillingThresholds'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostSubscriptionsSubscriptionExposedIdRequestBodyBillingThresholds'EmptyString
+      | GHC.Base.otherwise -> case (PostSubscriptionsSubscriptionExposedIdRequestBodyBillingThresholds'PostSubscriptionsSubscriptionExposedIdRequestBodyBillingThresholds'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -472,8 +472,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostSubscriptionsSubscriptionExposedIdRe
 instance Data.Aeson.Types.FromJSON.FromJSON PostSubscriptionsSubscriptionExposedIdRequestBodyCancelAt'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostSubscriptionsSubscriptionExposedIdRequestBodyCancelAt'EmptyString
-        | GHC.Base.otherwise -> case (PostSubscriptionsSubscriptionExposedIdRequestBodyCancelAt'Int Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostSubscriptionsSubscriptionExposedIdRequestBodyCancelAt'EmptyString
+      | GHC.Base.otherwise -> case (PostSubscriptionsSubscriptionExposedIdRequestBodyCancelAt'Int Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -501,9 +501,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostSubscriptionsSubscriptionExposed
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "charge_automatically" -> PostSubscriptionsSubscriptionExposedIdRequestBodyCollectionMethod'EnumChargeAutomatically
-            | val GHC.Classes.== "send_invoice" -> PostSubscriptionsSubscriptionExposedIdRequestBodyCollectionMethod'EnumSendInvoice
-            | GHC.Base.otherwise -> PostSubscriptionsSubscriptionExposedIdRequestBodyCollectionMethod'Other val
+          | val GHC.Classes.== "charge_automatically" -> PostSubscriptionsSubscriptionExposedIdRequestBodyCollectionMethod'EnumChargeAutomatically
+          | val GHC.Classes.== "send_invoice" -> PostSubscriptionsSubscriptionExposedIdRequestBodyCollectionMethod'EnumSendInvoice
+          | GHC.Base.otherwise -> PostSubscriptionsSubscriptionExposedIdRequestBodyCollectionMethod'Other val
       )
 
 -- | Defines the oneOf schema located at @paths.\/v1\/subscriptions\/{subscription_exposed_id}.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.default_tax_rates.anyOf@ in the specification.
@@ -522,8 +522,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostSubscriptionsSubscriptionExposedIdRe
 instance Data.Aeson.Types.FromJSON.FromJSON PostSubscriptionsSubscriptionExposedIdRequestBodyDefaultTaxRates'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostSubscriptionsSubscriptionExposedIdRequestBodyDefaultTaxRates'EmptyString
-        | GHC.Base.otherwise -> case (PostSubscriptionsSubscriptionExposedIdRequestBodyDefaultTaxRates'ListTText Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostSubscriptionsSubscriptionExposedIdRequestBodyDefaultTaxRates'EmptyString
+      | GHC.Base.otherwise -> case (PostSubscriptionsSubscriptionExposedIdRequestBodyDefaultTaxRates'ListTText Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -621,8 +621,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostSubscriptionsSubscriptionExposedIdRe
 instance Data.Aeson.Types.FromJSON.FromJSON PostSubscriptionsSubscriptionExposedIdRequestBodyItems'BillingThresholds'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostSubscriptionsSubscriptionExposedIdRequestBodyItems'BillingThresholds'EmptyString
-        | GHC.Base.otherwise -> case (PostSubscriptionsSubscriptionExposedIdRequestBodyItems'BillingThresholds'PostSubscriptionsSubscriptionExposedIdRequestBodyItems'BillingThresholds'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostSubscriptionsSubscriptionExposedIdRequestBodyItems'BillingThresholds'EmptyString
+      | GHC.Base.otherwise -> case (PostSubscriptionsSubscriptionExposedIdRequestBodyItems'BillingThresholds'PostSubscriptionsSubscriptionExposedIdRequestBodyItems'BillingThresholds'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -640,8 +640,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostSubscriptionsSubscriptionExposedIdRe
 instance Data.Aeson.Types.FromJSON.FromJSON PostSubscriptionsSubscriptionExposedIdRequestBodyItems'Metadata'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostSubscriptionsSubscriptionExposedIdRequestBodyItems'Metadata'EmptyString
-        | GHC.Base.otherwise -> case (PostSubscriptionsSubscriptionExposedIdRequestBodyItems'Metadata'Object Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostSubscriptionsSubscriptionExposedIdRequestBodyItems'Metadata'EmptyString
+      | GHC.Base.otherwise -> case (PostSubscriptionsSubscriptionExposedIdRequestBodyItems'Metadata'Object Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -753,11 +753,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostSubscriptionsSubscriptionExposed
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "day" -> PostSubscriptionsSubscriptionExposedIdRequestBodyItems'PriceData'Recurring'Interval'EnumDay
-            | val GHC.Classes.== "month" -> PostSubscriptionsSubscriptionExposedIdRequestBodyItems'PriceData'Recurring'Interval'EnumMonth
-            | val GHC.Classes.== "week" -> PostSubscriptionsSubscriptionExposedIdRequestBodyItems'PriceData'Recurring'Interval'EnumWeek
-            | val GHC.Classes.== "year" -> PostSubscriptionsSubscriptionExposedIdRequestBodyItems'PriceData'Recurring'Interval'EnumYear
-            | GHC.Base.otherwise -> PostSubscriptionsSubscriptionExposedIdRequestBodyItems'PriceData'Recurring'Interval'Other val
+          | val GHC.Classes.== "day" -> PostSubscriptionsSubscriptionExposedIdRequestBodyItems'PriceData'Recurring'Interval'EnumDay
+          | val GHC.Classes.== "month" -> PostSubscriptionsSubscriptionExposedIdRequestBodyItems'PriceData'Recurring'Interval'EnumMonth
+          | val GHC.Classes.== "week" -> PostSubscriptionsSubscriptionExposedIdRequestBodyItems'PriceData'Recurring'Interval'EnumWeek
+          | val GHC.Classes.== "year" -> PostSubscriptionsSubscriptionExposedIdRequestBodyItems'PriceData'Recurring'Interval'EnumYear
+          | GHC.Base.otherwise -> PostSubscriptionsSubscriptionExposedIdRequestBodyItems'PriceData'Recurring'Interval'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/subscriptions\/{subscription_exposed_id}.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.items.items.properties.price_data.properties.tax_behavior@ in the specification.
@@ -785,10 +785,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostSubscriptionsSubscriptionExposed
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "exclusive" -> PostSubscriptionsSubscriptionExposedIdRequestBodyItems'PriceData'TaxBehavior'EnumExclusive
-            | val GHC.Classes.== "inclusive" -> PostSubscriptionsSubscriptionExposedIdRequestBodyItems'PriceData'TaxBehavior'EnumInclusive
-            | val GHC.Classes.== "unspecified" -> PostSubscriptionsSubscriptionExposedIdRequestBodyItems'PriceData'TaxBehavior'EnumUnspecified
-            | GHC.Base.otherwise -> PostSubscriptionsSubscriptionExposedIdRequestBodyItems'PriceData'TaxBehavior'Other val
+          | val GHC.Classes.== "exclusive" -> PostSubscriptionsSubscriptionExposedIdRequestBodyItems'PriceData'TaxBehavior'EnumExclusive
+          | val GHC.Classes.== "inclusive" -> PostSubscriptionsSubscriptionExposedIdRequestBodyItems'PriceData'TaxBehavior'EnumInclusive
+          | val GHC.Classes.== "unspecified" -> PostSubscriptionsSubscriptionExposedIdRequestBodyItems'PriceData'TaxBehavior'EnumUnspecified
+          | GHC.Base.otherwise -> PostSubscriptionsSubscriptionExposedIdRequestBodyItems'PriceData'TaxBehavior'Other val
       )
 
 -- | Defines the oneOf schema located at @paths.\/v1\/subscriptions\/{subscription_exposed_id}.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.items.items.properties.tax_rates.anyOf@ in the specification.
@@ -805,8 +805,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostSubscriptionsSubscriptionExposedIdRe
 instance Data.Aeson.Types.FromJSON.FromJSON PostSubscriptionsSubscriptionExposedIdRequestBodyItems'TaxRates'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostSubscriptionsSubscriptionExposedIdRequestBodyItems'TaxRates'EmptyString
-        | GHC.Base.otherwise -> case (PostSubscriptionsSubscriptionExposedIdRequestBodyItems'TaxRates'ListTText Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostSubscriptionsSubscriptionExposedIdRequestBodyItems'TaxRates'EmptyString
+      | GHC.Base.otherwise -> case (PostSubscriptionsSubscriptionExposedIdRequestBodyItems'TaxRates'ListTText Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -826,8 +826,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostSubscriptionsSubscriptionExposedIdRe
 instance Data.Aeson.Types.FromJSON.FromJSON PostSubscriptionsSubscriptionExposedIdRequestBodyMetadata'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostSubscriptionsSubscriptionExposedIdRequestBodyMetadata'EmptyString
-        | GHC.Base.otherwise -> case (PostSubscriptionsSubscriptionExposedIdRequestBodyMetadata'Object Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostSubscriptionsSubscriptionExposedIdRequestBodyMetadata'EmptyString
+      | GHC.Base.otherwise -> case (PostSubscriptionsSubscriptionExposedIdRequestBodyMetadata'Object Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -886,10 +886,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostSubscriptionsSubscriptionExposed
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "keep_as_draft" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPauseCollection'OneOf1Behavior'EnumKeepAsDraft
-            | val GHC.Classes.== "mark_uncollectible" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPauseCollection'OneOf1Behavior'EnumMarkUncollectible
-            | val GHC.Classes.== "void" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPauseCollection'OneOf1Behavior'EnumVoid
-            | GHC.Base.otherwise -> PostSubscriptionsSubscriptionExposedIdRequestBodyPauseCollection'OneOf1Behavior'Other val
+          | val GHC.Classes.== "keep_as_draft" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPauseCollection'OneOf1Behavior'EnumKeepAsDraft
+          | val GHC.Classes.== "mark_uncollectible" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPauseCollection'OneOf1Behavior'EnumMarkUncollectible
+          | val GHC.Classes.== "void" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPauseCollection'OneOf1Behavior'EnumVoid
+          | GHC.Base.otherwise -> PostSubscriptionsSubscriptionExposedIdRequestBodyPauseCollection'OneOf1Behavior'Other val
       )
 
 -- | Defines the oneOf schema located at @paths.\/v1\/subscriptions\/{subscription_exposed_id}.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.pause_collection.anyOf@ in the specification.
@@ -908,8 +908,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostSubscriptionsSubscriptionExposedIdRe
 instance Data.Aeson.Types.FromJSON.FromJSON PostSubscriptionsSubscriptionExposedIdRequestBodyPauseCollection'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostSubscriptionsSubscriptionExposedIdRequestBodyPauseCollection'EmptyString
-        | GHC.Base.otherwise -> case (PostSubscriptionsSubscriptionExposedIdRequestBodyPauseCollection'PostSubscriptionsSubscriptionExposedIdRequestBodyPauseCollection'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostSubscriptionsSubscriptionExposedIdRequestBodyPauseCollection'EmptyString
+      | GHC.Base.otherwise -> case (PostSubscriptionsSubscriptionExposedIdRequestBodyPauseCollection'PostSubscriptionsSubscriptionExposedIdRequestBodyPauseCollection'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -949,11 +949,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostSubscriptionsSubscriptionExposed
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "allow_incomplete" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentBehavior'EnumAllowIncomplete
-            | val GHC.Classes.== "default_incomplete" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentBehavior'EnumDefaultIncomplete
-            | val GHC.Classes.== "error_if_incomplete" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentBehavior'EnumErrorIfIncomplete
-            | val GHC.Classes.== "pending_if_incomplete" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentBehavior'EnumPendingIfIncomplete
-            | GHC.Base.otherwise -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentBehavior'Other val
+          | val GHC.Classes.== "allow_incomplete" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentBehavior'EnumAllowIncomplete
+          | val GHC.Classes.== "default_incomplete" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentBehavior'EnumDefaultIncomplete
+          | val GHC.Classes.== "error_if_incomplete" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentBehavior'EnumErrorIfIncomplete
+          | val GHC.Classes.== "pending_if_incomplete" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentBehavior'EnumPendingIfIncomplete
+          | GHC.Base.otherwise -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentBehavior'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/subscriptions\/{subscription_exposed_id}.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment_settings@ in the specification.
@@ -1097,9 +1097,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostSubscriptionsSubscriptionExposed
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "business" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'AcssDebit'OneOf1MandateOptions'TransactionType'EnumBusiness
-            | val GHC.Classes.== "personal" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'AcssDebit'OneOf1MandateOptions'TransactionType'EnumPersonal
-            | GHC.Base.otherwise -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'AcssDebit'OneOf1MandateOptions'TransactionType'Other val
+          | val GHC.Classes.== "business" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'AcssDebit'OneOf1MandateOptions'TransactionType'EnumBusiness
+          | val GHC.Classes.== "personal" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'AcssDebit'OneOf1MandateOptions'TransactionType'EnumPersonal
+          | GHC.Base.otherwise -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'AcssDebit'OneOf1MandateOptions'TransactionType'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/subscriptions\/{subscription_exposed_id}.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment_settings.properties.payment_method_options.properties.acss_debit.anyOf.properties.verification_method@ in the specification.
@@ -1127,10 +1127,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostSubscriptionsSubscriptionExposed
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'AcssDebit'OneOf1VerificationMethod'EnumAutomatic
-            | val GHC.Classes.== "instant" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'AcssDebit'OneOf1VerificationMethod'EnumInstant
-            | val GHC.Classes.== "microdeposits" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'AcssDebit'OneOf1VerificationMethod'EnumMicrodeposits
-            | GHC.Base.otherwise -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'AcssDebit'OneOf1VerificationMethod'Other val
+          | val GHC.Classes.== "automatic" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'AcssDebit'OneOf1VerificationMethod'EnumAutomatic
+          | val GHC.Classes.== "instant" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'AcssDebit'OneOf1VerificationMethod'EnumInstant
+          | val GHC.Classes.== "microdeposits" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'AcssDebit'OneOf1VerificationMethod'EnumMicrodeposits
+          | GHC.Base.otherwise -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'AcssDebit'OneOf1VerificationMethod'Other val
       )
 
 -- | Defines the oneOf schema located at @paths.\/v1\/subscriptions\/{subscription_exposed_id}.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment_settings.properties.payment_method_options.properties.acss_debit.anyOf@ in the specification.
@@ -1147,8 +1147,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostSubscriptionsSubscriptionExposedIdRe
 instance Data.Aeson.Types.FromJSON.FromJSON PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'AcssDebit'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'AcssDebit'EmptyString
-        | GHC.Base.otherwise -> case (PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'AcssDebit'PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'AcssDebit'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'AcssDebit'EmptyString
+      | GHC.Base.otherwise -> case (PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'AcssDebit'PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'AcssDebit'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -1201,11 +1201,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostSubscriptionsSubscriptionExposed
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "de" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'Bancontact'OneOf1PreferredLanguage'EnumDe
-            | val GHC.Classes.== "en" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'Bancontact'OneOf1PreferredLanguage'EnumEn
-            | val GHC.Classes.== "fr" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'Bancontact'OneOf1PreferredLanguage'EnumFr
-            | val GHC.Classes.== "nl" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'Bancontact'OneOf1PreferredLanguage'EnumNl
-            | GHC.Base.otherwise -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'Bancontact'OneOf1PreferredLanguage'Other val
+          | val GHC.Classes.== "de" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'Bancontact'OneOf1PreferredLanguage'EnumDe
+          | val GHC.Classes.== "en" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'Bancontact'OneOf1PreferredLanguage'EnumEn
+          | val GHC.Classes.== "fr" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'Bancontact'OneOf1PreferredLanguage'EnumFr
+          | val GHC.Classes.== "nl" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'Bancontact'OneOf1PreferredLanguage'EnumNl
+          | GHC.Base.otherwise -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'Bancontact'OneOf1PreferredLanguage'Other val
       )
 
 -- | Defines the oneOf schema located at @paths.\/v1\/subscriptions\/{subscription_exposed_id}.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment_settings.properties.payment_method_options.properties.bancontact.anyOf@ in the specification.
@@ -1222,8 +1222,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostSubscriptionsSubscriptionExposedIdRe
 instance Data.Aeson.Types.FromJSON.FromJSON PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'Bancontact'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'Bancontact'EmptyString
-        | GHC.Base.otherwise -> case (PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'Bancontact'PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'Bancontact'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'Bancontact'EmptyString
+      | GHC.Base.otherwise -> case (PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'Bancontact'PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'Bancontact'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -1310,9 +1310,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostSubscriptionsSubscriptionExposed
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "fixed" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'Card'OneOf1MandateOptions'AmountType'EnumFixed
-            | val GHC.Classes.== "maximum" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'Card'OneOf1MandateOptions'AmountType'EnumMaximum
-            | GHC.Base.otherwise -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'Card'OneOf1MandateOptions'AmountType'Other val
+          | val GHC.Classes.== "fixed" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'Card'OneOf1MandateOptions'AmountType'EnumFixed
+          | val GHC.Classes.== "maximum" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'Card'OneOf1MandateOptions'AmountType'EnumMaximum
+          | GHC.Base.otherwise -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'Card'OneOf1MandateOptions'AmountType'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/subscriptions\/{subscription_exposed_id}.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment_settings.properties.payment_method_options.properties.card.anyOf.properties.request_three_d_secure@ in the specification.
@@ -1337,9 +1337,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostSubscriptionsSubscriptionExposed
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "any" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'Card'OneOf1RequestThreeDSecure'EnumAny
-            | val GHC.Classes.== "automatic" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'Card'OneOf1RequestThreeDSecure'EnumAutomatic
-            | GHC.Base.otherwise -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'Card'OneOf1RequestThreeDSecure'Other val
+          | val GHC.Classes.== "any" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'Card'OneOf1RequestThreeDSecure'EnumAny
+          | val GHC.Classes.== "automatic" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'Card'OneOf1RequestThreeDSecure'EnumAutomatic
+          | GHC.Base.otherwise -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'Card'OneOf1RequestThreeDSecure'Other val
       )
 
 -- | Defines the oneOf schema located at @paths.\/v1\/subscriptions\/{subscription_exposed_id}.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment_settings.properties.payment_method_options.properties.card.anyOf@ in the specification.
@@ -1356,8 +1356,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostSubscriptionsSubscriptionExposedIdRe
 instance Data.Aeson.Types.FromJSON.FromJSON PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'Card'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'Card'EmptyString
-        | GHC.Base.otherwise -> case (PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'Card'PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'Card'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'Card'EmptyString
+      | GHC.Base.otherwise -> case (PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'Card'PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'Card'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -1457,8 +1457,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostSubscriptionsSubscriptionExposedIdRe
 instance Data.Aeson.Types.FromJSON.FromJSON PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'CustomerBalance'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'CustomerBalance'EmptyString
-        | GHC.Base.otherwise -> case (PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'CustomerBalance'PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'CustomerBalance'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'CustomerBalance'EmptyString
+      | GHC.Base.otherwise -> case (PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'CustomerBalance'PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'CustomerBalance'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -1476,8 +1476,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostSubscriptionsSubscriptionExposedIdRe
 instance Data.Aeson.Types.FromJSON.FromJSON PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'Konbini'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'Konbini'EmptyString
-        | GHC.Base.otherwise -> case (PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'Konbini'Object Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'Konbini'EmptyString
+      | GHC.Base.otherwise -> case (PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'Konbini'Object Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -1557,11 +1557,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostSubscriptionsSubscriptionExposed
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "balances" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'UsBankAccount'OneOf1FinancialConnections'Permissions'EnumBalances
-            | val GHC.Classes.== "ownership" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'UsBankAccount'OneOf1FinancialConnections'Permissions'EnumOwnership
-            | val GHC.Classes.== "payment_method" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'UsBankAccount'OneOf1FinancialConnections'Permissions'EnumPaymentMethod
-            | val GHC.Classes.== "transactions" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'UsBankAccount'OneOf1FinancialConnections'Permissions'EnumTransactions
-            | GHC.Base.otherwise -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'UsBankAccount'OneOf1FinancialConnections'Permissions'Other val
+          | val GHC.Classes.== "balances" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'UsBankAccount'OneOf1FinancialConnections'Permissions'EnumBalances
+          | val GHC.Classes.== "ownership" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'UsBankAccount'OneOf1FinancialConnections'Permissions'EnumOwnership
+          | val GHC.Classes.== "payment_method" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'UsBankAccount'OneOf1FinancialConnections'Permissions'EnumPaymentMethod
+          | val GHC.Classes.== "transactions" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'UsBankAccount'OneOf1FinancialConnections'Permissions'EnumTransactions
+          | GHC.Base.otherwise -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'UsBankAccount'OneOf1FinancialConnections'Permissions'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/subscriptions\/{subscription_exposed_id}.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment_settings.properties.payment_method_options.properties.us_bank_account.anyOf.properties.verification_method@ in the specification.
@@ -1589,10 +1589,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostSubscriptionsSubscriptionExposed
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'UsBankAccount'OneOf1VerificationMethod'EnumAutomatic
-            | val GHC.Classes.== "instant" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'UsBankAccount'OneOf1VerificationMethod'EnumInstant
-            | val GHC.Classes.== "microdeposits" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'UsBankAccount'OneOf1VerificationMethod'EnumMicrodeposits
-            | GHC.Base.otherwise -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'UsBankAccount'OneOf1VerificationMethod'Other val
+          | val GHC.Classes.== "automatic" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'UsBankAccount'OneOf1VerificationMethod'EnumAutomatic
+          | val GHC.Classes.== "instant" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'UsBankAccount'OneOf1VerificationMethod'EnumInstant
+          | val GHC.Classes.== "microdeposits" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'UsBankAccount'OneOf1VerificationMethod'EnumMicrodeposits
+          | GHC.Base.otherwise -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'UsBankAccount'OneOf1VerificationMethod'Other val
       )
 
 -- | Defines the oneOf schema located at @paths.\/v1\/subscriptions\/{subscription_exposed_id}.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment_settings.properties.payment_method_options.properties.us_bank_account.anyOf@ in the specification.
@@ -1609,8 +1609,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostSubscriptionsSubscriptionExposedIdRe
 instance Data.Aeson.Types.FromJSON.FromJSON PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'UsBankAccount'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'UsBankAccount'EmptyString
-        | GHC.Base.otherwise -> case (PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'UsBankAccount'PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'UsBankAccount'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'UsBankAccount'EmptyString
+      | GHC.Base.otherwise -> case (PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'UsBankAccount'PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodOptions'UsBankAccount'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -1693,28 +1693,28 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostSubscriptionsSubscriptionExposed
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "ach_credit_transfer" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumAchCreditTransfer
-            | val GHC.Classes.== "ach_debit" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumAchDebit
-            | val GHC.Classes.== "acss_debit" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumAcssDebit
-            | val GHC.Classes.== "au_becs_debit" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumAuBecsDebit
-            | val GHC.Classes.== "bacs_debit" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumBacsDebit
-            | val GHC.Classes.== "bancontact" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumBancontact
-            | val GHC.Classes.== "boleto" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumBoleto
-            | val GHC.Classes.== "card" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumCard
-            | val GHC.Classes.== "customer_balance" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumCustomerBalance
-            | val GHC.Classes.== "fpx" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumFpx
-            | val GHC.Classes.== "giropay" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumGiropay
-            | val GHC.Classes.== "grabpay" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumGrabpay
-            | val GHC.Classes.== "ideal" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumIdeal
-            | val GHC.Classes.== "konbini" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumKonbini
-            | val GHC.Classes.== "link" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumLink
-            | val GHC.Classes.== "paynow" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumPaynow
-            | val GHC.Classes.== "promptpay" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumPromptpay
-            | val GHC.Classes.== "sepa_debit" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumSepaDebit
-            | val GHC.Classes.== "sofort" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumSofort
-            | val GHC.Classes.== "us_bank_account" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumUsBankAccount
-            | val GHC.Classes.== "wechat_pay" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumWechatPay
-            | GHC.Base.otherwise -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1Other val
+          | val GHC.Classes.== "ach_credit_transfer" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumAchCreditTransfer
+          | val GHC.Classes.== "ach_debit" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumAchDebit
+          | val GHC.Classes.== "acss_debit" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumAcssDebit
+          | val GHC.Classes.== "au_becs_debit" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumAuBecsDebit
+          | val GHC.Classes.== "bacs_debit" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumBacsDebit
+          | val GHC.Classes.== "bancontact" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumBancontact
+          | val GHC.Classes.== "boleto" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumBoleto
+          | val GHC.Classes.== "card" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumCard
+          | val GHC.Classes.== "customer_balance" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumCustomerBalance
+          | val GHC.Classes.== "fpx" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumFpx
+          | val GHC.Classes.== "giropay" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumGiropay
+          | val GHC.Classes.== "grabpay" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumGrabpay
+          | val GHC.Classes.== "ideal" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumIdeal
+          | val GHC.Classes.== "konbini" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumKonbini
+          | val GHC.Classes.== "link" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumLink
+          | val GHC.Classes.== "paynow" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumPaynow
+          | val GHC.Classes.== "promptpay" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumPromptpay
+          | val GHC.Classes.== "sepa_debit" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumSepaDebit
+          | val GHC.Classes.== "sofort" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumSofort
+          | val GHC.Classes.== "us_bank_account" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumUsBankAccount
+          | val GHC.Classes.== "wechat_pay" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumWechatPay
+          | GHC.Base.otherwise -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1Other val
       )
 
 -- | Defines the oneOf schema located at @paths.\/v1\/subscriptions\/{subscription_exposed_id}.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment_settings.properties.payment_method_types.anyOf@ in the specification.
@@ -1731,8 +1731,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostSubscriptionsSubscriptionExposedIdRe
 instance Data.Aeson.Types.FromJSON.FromJSON PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodTypes'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodTypes'EmptyString
-        | GHC.Base.otherwise -> case (PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodTypes'ListTPostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodTypes'EmptyString
+      | GHC.Base.otherwise -> case (PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodTypes'ListTPostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -1758,9 +1758,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostSubscriptionsSubscriptionExposed
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "off" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'SaveDefaultPaymentMethod'EnumOff
-            | val GHC.Classes.== "on_subscription" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'SaveDefaultPaymentMethod'EnumOnSubscription
-            | GHC.Base.otherwise -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'SaveDefaultPaymentMethod'Other val
+          | val GHC.Classes.== "off" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'SaveDefaultPaymentMethod'EnumOff
+          | val GHC.Classes.== "on_subscription" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'SaveDefaultPaymentMethod'EnumOnSubscription
+          | GHC.Base.otherwise -> PostSubscriptionsSubscriptionExposedIdRequestBodyPaymentSettings'SaveDefaultPaymentMethod'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/subscriptions\/{subscription_exposed_id}.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.pending_invoice_item_interval.anyOf@ in the specification.
@@ -1821,11 +1821,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostSubscriptionsSubscriptionExposed
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "day" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPendingInvoiceItemInterval'OneOf1Interval'EnumDay
-            | val GHC.Classes.== "month" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPendingInvoiceItemInterval'OneOf1Interval'EnumMonth
-            | val GHC.Classes.== "week" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPendingInvoiceItemInterval'OneOf1Interval'EnumWeek
-            | val GHC.Classes.== "year" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPendingInvoiceItemInterval'OneOf1Interval'EnumYear
-            | GHC.Base.otherwise -> PostSubscriptionsSubscriptionExposedIdRequestBodyPendingInvoiceItemInterval'OneOf1Interval'Other val
+          | val GHC.Classes.== "day" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPendingInvoiceItemInterval'OneOf1Interval'EnumDay
+          | val GHC.Classes.== "month" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPendingInvoiceItemInterval'OneOf1Interval'EnumMonth
+          | val GHC.Classes.== "week" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPendingInvoiceItemInterval'OneOf1Interval'EnumWeek
+          | val GHC.Classes.== "year" -> PostSubscriptionsSubscriptionExposedIdRequestBodyPendingInvoiceItemInterval'OneOf1Interval'EnumYear
+          | GHC.Base.otherwise -> PostSubscriptionsSubscriptionExposedIdRequestBodyPendingInvoiceItemInterval'OneOf1Interval'Other val
       )
 
 -- | Defines the oneOf schema located at @paths.\/v1\/subscriptions\/{subscription_exposed_id}.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.pending_invoice_item_interval.anyOf@ in the specification.
@@ -1844,8 +1844,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostSubscriptionsSubscriptionExposedIdRe
 instance Data.Aeson.Types.FromJSON.FromJSON PostSubscriptionsSubscriptionExposedIdRequestBodyPendingInvoiceItemInterval'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostSubscriptionsSubscriptionExposedIdRequestBodyPendingInvoiceItemInterval'EmptyString
-        | GHC.Base.otherwise -> case (PostSubscriptionsSubscriptionExposedIdRequestBodyPendingInvoiceItemInterval'PostSubscriptionsSubscriptionExposedIdRequestBodyPendingInvoiceItemInterval'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostSubscriptionsSubscriptionExposedIdRequestBodyPendingInvoiceItemInterval'EmptyString
+      | GHC.Base.otherwise -> case (PostSubscriptionsSubscriptionExposedIdRequestBodyPendingInvoiceItemInterval'PostSubscriptionsSubscriptionExposedIdRequestBodyPendingInvoiceItemInterval'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -1876,10 +1876,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostSubscriptionsSubscriptionExposed
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "always_invoice" -> PostSubscriptionsSubscriptionExposedIdRequestBodyProrationBehavior'EnumAlwaysInvoice
-            | val GHC.Classes.== "create_prorations" -> PostSubscriptionsSubscriptionExposedIdRequestBodyProrationBehavior'EnumCreateProrations
-            | val GHC.Classes.== "none" -> PostSubscriptionsSubscriptionExposedIdRequestBodyProrationBehavior'EnumNone
-            | GHC.Base.otherwise -> PostSubscriptionsSubscriptionExposedIdRequestBodyProrationBehavior'Other val
+          | val GHC.Classes.== "always_invoice" -> PostSubscriptionsSubscriptionExposedIdRequestBodyProrationBehavior'EnumAlwaysInvoice
+          | val GHC.Classes.== "create_prorations" -> PostSubscriptionsSubscriptionExposedIdRequestBodyProrationBehavior'EnumCreateProrations
+          | val GHC.Classes.== "none" -> PostSubscriptionsSubscriptionExposedIdRequestBodyProrationBehavior'EnumNone
+          | GHC.Base.otherwise -> PostSubscriptionsSubscriptionExposedIdRequestBodyProrationBehavior'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/subscriptions\/{subscription_exposed_id}.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.transfer_data.anyOf@ in the specification.
@@ -1928,8 +1928,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostSubscriptionsSubscriptionExposedIdRe
 instance Data.Aeson.Types.FromJSON.FromJSON PostSubscriptionsSubscriptionExposedIdRequestBodyTransferData'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostSubscriptionsSubscriptionExposedIdRequestBodyTransferData'EmptyString
-        | GHC.Base.otherwise -> case (PostSubscriptionsSubscriptionExposedIdRequestBodyTransferData'PostSubscriptionsSubscriptionExposedIdRequestBodyTransferData'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostSubscriptionsSubscriptionExposedIdRequestBodyTransferData'EmptyString
+      | GHC.Base.otherwise -> case (PostSubscriptionsSubscriptionExposedIdRequestBodyTransferData'PostSubscriptionsSubscriptionExposedIdRequestBodyTransferData'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -1949,8 +1949,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostSubscriptionsSubscriptionExposedIdRe
 instance Data.Aeson.Types.FromJSON.FromJSON PostSubscriptionsSubscriptionExposedIdRequestBodyTrialEnd'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "now" -> GHC.Base.pure PostSubscriptionsSubscriptionExposedIdRequestBodyTrialEnd'Now
-        | GHC.Base.otherwise -> case (PostSubscriptionsSubscriptionExposedIdRequestBodyTrialEnd'Int Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "now" -> GHC.Base.pure PostSubscriptionsSubscriptionExposedIdRequestBodyTrialEnd'Now
+      | GHC.Base.otherwise -> case (PostSubscriptionsSubscriptionExposedIdRequestBodyTrialEnd'Int Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 

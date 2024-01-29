@@ -94,9 +94,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON SubscriptionPendingInvoiceItemInterv
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "day" -> SubscriptionPendingInvoiceItemIntervalInterval'EnumDay
-            | val GHC.Classes.== "month" -> SubscriptionPendingInvoiceItemIntervalInterval'EnumMonth
-            | val GHC.Classes.== "week" -> SubscriptionPendingInvoiceItemIntervalInterval'EnumWeek
-            | val GHC.Classes.== "year" -> SubscriptionPendingInvoiceItemIntervalInterval'EnumYear
-            | GHC.Base.otherwise -> SubscriptionPendingInvoiceItemIntervalInterval'Other val
+          | val GHC.Classes.== "day" -> SubscriptionPendingInvoiceItemIntervalInterval'EnumDay
+          | val GHC.Classes.== "month" -> SubscriptionPendingInvoiceItemIntervalInterval'EnumMonth
+          | val GHC.Classes.== "week" -> SubscriptionPendingInvoiceItemIntervalInterval'EnumWeek
+          | val GHC.Classes.== "year" -> SubscriptionPendingInvoiceItemIntervalInterval'EnumYear
+          | GHC.Base.otherwise -> SubscriptionPendingInvoiceItemIntervalInterval'Other val
       )

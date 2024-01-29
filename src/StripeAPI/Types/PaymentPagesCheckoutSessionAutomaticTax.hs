@@ -89,8 +89,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentPagesCheckoutSessionAutomatic
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "complete" -> PaymentPagesCheckoutSessionAutomaticTaxStatus'NonNullableEnumComplete
-            | val GHC.Classes.== "failed" -> PaymentPagesCheckoutSessionAutomaticTaxStatus'NonNullableEnumFailed
-            | val GHC.Classes.== "requires_location_inputs" -> PaymentPagesCheckoutSessionAutomaticTaxStatus'NonNullableEnumRequiresLocationInputs
-            | GHC.Base.otherwise -> PaymentPagesCheckoutSessionAutomaticTaxStatus'NonNullableOther val
+          | val GHC.Classes.== "complete" -> PaymentPagesCheckoutSessionAutomaticTaxStatus'NonNullableEnumComplete
+          | val GHC.Classes.== "failed" -> PaymentPagesCheckoutSessionAutomaticTaxStatus'NonNullableEnumFailed
+          | val GHC.Classes.== "requires_location_inputs" -> PaymentPagesCheckoutSessionAutomaticTaxStatus'NonNullableEnumRequiresLocationInputs
+          | GHC.Base.otherwise -> PaymentPagesCheckoutSessionAutomaticTaxStatus'NonNullableOther val
       )

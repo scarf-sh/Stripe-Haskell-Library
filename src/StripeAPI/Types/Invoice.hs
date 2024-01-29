@@ -549,16 +549,16 @@ instance Data.Aeson.Types.FromJSON.FromJSON InvoiceBillingReason'NonNullable whe
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic_pending_invoice_item_invoice" -> InvoiceBillingReason'NonNullableEnumAutomaticPendingInvoiceItemInvoice
-            | val GHC.Classes.== "manual" -> InvoiceBillingReason'NonNullableEnumManual
-            | val GHC.Classes.== "quote_accept" -> InvoiceBillingReason'NonNullableEnumQuoteAccept
-            | val GHC.Classes.== "subscription" -> InvoiceBillingReason'NonNullableEnumSubscription
-            | val GHC.Classes.== "subscription_create" -> InvoiceBillingReason'NonNullableEnumSubscriptionCreate
-            | val GHC.Classes.== "subscription_cycle" -> InvoiceBillingReason'NonNullableEnumSubscriptionCycle
-            | val GHC.Classes.== "subscription_threshold" -> InvoiceBillingReason'NonNullableEnumSubscriptionThreshold
-            | val GHC.Classes.== "subscription_update" -> InvoiceBillingReason'NonNullableEnumSubscriptionUpdate
-            | val GHC.Classes.== "upcoming" -> InvoiceBillingReason'NonNullableEnumUpcoming
-            | GHC.Base.otherwise -> InvoiceBillingReason'NonNullableOther val
+          | val GHC.Classes.== "automatic_pending_invoice_item_invoice" -> InvoiceBillingReason'NonNullableEnumAutomaticPendingInvoiceItemInvoice
+          | val GHC.Classes.== "manual" -> InvoiceBillingReason'NonNullableEnumManual
+          | val GHC.Classes.== "quote_accept" -> InvoiceBillingReason'NonNullableEnumQuoteAccept
+          | val GHC.Classes.== "subscription" -> InvoiceBillingReason'NonNullableEnumSubscription
+          | val GHC.Classes.== "subscription_create" -> InvoiceBillingReason'NonNullableEnumSubscriptionCreate
+          | val GHC.Classes.== "subscription_cycle" -> InvoiceBillingReason'NonNullableEnumSubscriptionCycle
+          | val GHC.Classes.== "subscription_threshold" -> InvoiceBillingReason'NonNullableEnumSubscriptionThreshold
+          | val GHC.Classes.== "subscription_update" -> InvoiceBillingReason'NonNullableEnumSubscriptionUpdate
+          | val GHC.Classes.== "upcoming" -> InvoiceBillingReason'NonNullableEnumUpcoming
+          | GHC.Base.otherwise -> InvoiceBillingReason'NonNullableOther val
       )
 
 -- | Defines the oneOf schema located at @components.schemas.invoice.properties.charge.anyOf@ in the specification.
@@ -602,9 +602,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON InvoiceCollectionMethod' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "charge_automatically" -> InvoiceCollectionMethod'EnumChargeAutomatically
-            | val GHC.Classes.== "send_invoice" -> InvoiceCollectionMethod'EnumSendInvoice
-            | GHC.Base.otherwise -> InvoiceCollectionMethod'Other val
+          | val GHC.Classes.== "charge_automatically" -> InvoiceCollectionMethod'EnumChargeAutomatically
+          | val GHC.Classes.== "send_invoice" -> InvoiceCollectionMethod'EnumSendInvoice
+          | GHC.Base.otherwise -> InvoiceCollectionMethod'Other val
       )
 
 -- | Defines the oneOf schema located at @components.schemas.invoice.properties.customer.anyOf@ in the specification.
@@ -772,10 +772,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON InvoiceCustomerTaxExempt'NonNullable
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "exempt" -> InvoiceCustomerTaxExempt'NonNullableEnumExempt
-            | val GHC.Classes.== "none" -> InvoiceCustomerTaxExempt'NonNullableEnumNone
-            | val GHC.Classes.== "reverse" -> InvoiceCustomerTaxExempt'NonNullableEnumReverse
-            | GHC.Base.otherwise -> InvoiceCustomerTaxExempt'NonNullableOther val
+          | val GHC.Classes.== "exempt" -> InvoiceCustomerTaxExempt'NonNullableEnumExempt
+          | val GHC.Classes.== "none" -> InvoiceCustomerTaxExempt'NonNullableEnumNone
+          | val GHC.Classes.== "reverse" -> InvoiceCustomerTaxExempt'NonNullableEnumReverse
+          | GHC.Base.otherwise -> InvoiceCustomerTaxExempt'NonNullableOther val
       )
 
 -- | Defines the oneOf schema located at @components.schemas.invoice.properties.default_payment_method.anyOf@ in the specification.
@@ -938,8 +938,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON InvoiceDiscount'NonNullableObject' w
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "discount" -> InvoiceDiscount'NonNullableObject'EnumDiscount
-            | GHC.Base.otherwise -> InvoiceDiscount'NonNullableObject'Other val
+          | val GHC.Classes.== "discount" -> InvoiceDiscount'NonNullableObject'EnumDiscount
+          | GHC.Base.otherwise -> InvoiceDiscount'NonNullableObject'Other val
       )
 
 -- | Defines the oneOf schema located at @components.schemas.invoice.properties.discount.anyOf.properties.promotion_code.anyOf@ in the specification.
@@ -1469,9 +1469,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON InvoiceLastFinalizationError'NonNull
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "instant" -> InvoiceLastFinalizationError'NonNullableSource'AvailablePayoutMethods'NonNullableEnumInstant
-            | val GHC.Classes.== "standard" -> InvoiceLastFinalizationError'NonNullableSource'AvailablePayoutMethods'NonNullableEnumStandard
-            | GHC.Base.otherwise -> InvoiceLastFinalizationError'NonNullableSource'AvailablePayoutMethods'NonNullableOther val
+          | val GHC.Classes.== "instant" -> InvoiceLastFinalizationError'NonNullableSource'AvailablePayoutMethods'NonNullableEnumInstant
+          | val GHC.Classes.== "standard" -> InvoiceLastFinalizationError'NonNullableSource'AvailablePayoutMethods'NonNullableEnumStandard
+          | GHC.Base.otherwise -> InvoiceLastFinalizationError'NonNullableSource'AvailablePayoutMethods'NonNullableOther val
       )
 
 -- | Defines the oneOf schema located at @components.schemas.invoice.properties.last_finalization_error.anyOf.properties.source.anyOf.properties.customer.anyOf@ in the specification.
@@ -1514,8 +1514,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON InvoiceLastFinalizationError'NonNull
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "bank_account" -> InvoiceLastFinalizationError'NonNullableSource'Object'EnumBankAccount
-            | GHC.Base.otherwise -> InvoiceLastFinalizationError'NonNullableSource'Object'Other val
+          | val GHC.Classes.== "bank_account" -> InvoiceLastFinalizationError'NonNullableSource'Object'EnumBankAccount
+          | GHC.Base.otherwise -> InvoiceLastFinalizationError'NonNullableSource'Object'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.invoice.properties.last_finalization_error.anyOf.properties.source.anyOf.properties.owner.anyOf@ in the specification.
@@ -1808,25 +1808,25 @@ instance Data.Aeson.Types.FromJSON.FromJSON InvoiceLastFinalizationError'NonNull
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "ach_credit_transfer" -> InvoiceLastFinalizationError'NonNullableSource'Type'EnumAchCreditTransfer
-            | val GHC.Classes.== "ach_debit" -> InvoiceLastFinalizationError'NonNullableSource'Type'EnumAchDebit
-            | val GHC.Classes.== "acss_debit" -> InvoiceLastFinalizationError'NonNullableSource'Type'EnumAcssDebit
-            | val GHC.Classes.== "alipay" -> InvoiceLastFinalizationError'NonNullableSource'Type'EnumAlipay
-            | val GHC.Classes.== "au_becs_debit" -> InvoiceLastFinalizationError'NonNullableSource'Type'EnumAuBecsDebit
-            | val GHC.Classes.== "bancontact" -> InvoiceLastFinalizationError'NonNullableSource'Type'EnumBancontact
-            | val GHC.Classes.== "card" -> InvoiceLastFinalizationError'NonNullableSource'Type'EnumCard
-            | val GHC.Classes.== "card_present" -> InvoiceLastFinalizationError'NonNullableSource'Type'EnumCardPresent
-            | val GHC.Classes.== "eps" -> InvoiceLastFinalizationError'NonNullableSource'Type'EnumEps
-            | val GHC.Classes.== "giropay" -> InvoiceLastFinalizationError'NonNullableSource'Type'EnumGiropay
-            | val GHC.Classes.== "ideal" -> InvoiceLastFinalizationError'NonNullableSource'Type'EnumIdeal
-            | val GHC.Classes.== "klarna" -> InvoiceLastFinalizationError'NonNullableSource'Type'EnumKlarna
-            | val GHC.Classes.== "multibanco" -> InvoiceLastFinalizationError'NonNullableSource'Type'EnumMultibanco
-            | val GHC.Classes.== "p24" -> InvoiceLastFinalizationError'NonNullableSource'Type'EnumP24
-            | val GHC.Classes.== "sepa_debit" -> InvoiceLastFinalizationError'NonNullableSource'Type'EnumSepaDebit
-            | val GHC.Classes.== "sofort" -> InvoiceLastFinalizationError'NonNullableSource'Type'EnumSofort
-            | val GHC.Classes.== "three_d_secure" -> InvoiceLastFinalizationError'NonNullableSource'Type'EnumThreeDSecure
-            | val GHC.Classes.== "wechat" -> InvoiceLastFinalizationError'NonNullableSource'Type'EnumWechat
-            | GHC.Base.otherwise -> InvoiceLastFinalizationError'NonNullableSource'Type'Other val
+          | val GHC.Classes.== "ach_credit_transfer" -> InvoiceLastFinalizationError'NonNullableSource'Type'EnumAchCreditTransfer
+          | val GHC.Classes.== "ach_debit" -> InvoiceLastFinalizationError'NonNullableSource'Type'EnumAchDebit
+          | val GHC.Classes.== "acss_debit" -> InvoiceLastFinalizationError'NonNullableSource'Type'EnumAcssDebit
+          | val GHC.Classes.== "alipay" -> InvoiceLastFinalizationError'NonNullableSource'Type'EnumAlipay
+          | val GHC.Classes.== "au_becs_debit" -> InvoiceLastFinalizationError'NonNullableSource'Type'EnumAuBecsDebit
+          | val GHC.Classes.== "bancontact" -> InvoiceLastFinalizationError'NonNullableSource'Type'EnumBancontact
+          | val GHC.Classes.== "card" -> InvoiceLastFinalizationError'NonNullableSource'Type'EnumCard
+          | val GHC.Classes.== "card_present" -> InvoiceLastFinalizationError'NonNullableSource'Type'EnumCardPresent
+          | val GHC.Classes.== "eps" -> InvoiceLastFinalizationError'NonNullableSource'Type'EnumEps
+          | val GHC.Classes.== "giropay" -> InvoiceLastFinalizationError'NonNullableSource'Type'EnumGiropay
+          | val GHC.Classes.== "ideal" -> InvoiceLastFinalizationError'NonNullableSource'Type'EnumIdeal
+          | val GHC.Classes.== "klarna" -> InvoiceLastFinalizationError'NonNullableSource'Type'EnumKlarna
+          | val GHC.Classes.== "multibanco" -> InvoiceLastFinalizationError'NonNullableSource'Type'EnumMultibanco
+          | val GHC.Classes.== "p24" -> InvoiceLastFinalizationError'NonNullableSource'Type'EnumP24
+          | val GHC.Classes.== "sepa_debit" -> InvoiceLastFinalizationError'NonNullableSource'Type'EnumSepaDebit
+          | val GHC.Classes.== "sofort" -> InvoiceLastFinalizationError'NonNullableSource'Type'EnumSofort
+          | val GHC.Classes.== "three_d_secure" -> InvoiceLastFinalizationError'NonNullableSource'Type'EnumThreeDSecure
+          | val GHC.Classes.== "wechat" -> InvoiceLastFinalizationError'NonNullableSource'Type'EnumWechat
+          | GHC.Base.otherwise -> InvoiceLastFinalizationError'NonNullableSource'Type'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.invoice.properties.last_finalization_error.anyOf.properties.type@ in the specification.
@@ -1859,11 +1859,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON InvoiceLastFinalizationError'NonNull
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "api_error" -> InvoiceLastFinalizationError'NonNullableType'EnumApiError
-            | val GHC.Classes.== "card_error" -> InvoiceLastFinalizationError'NonNullableType'EnumCardError
-            | val GHC.Classes.== "idempotency_error" -> InvoiceLastFinalizationError'NonNullableType'EnumIdempotencyError
-            | val GHC.Classes.== "invalid_request_error" -> InvoiceLastFinalizationError'NonNullableType'EnumInvalidRequestError
-            | GHC.Base.otherwise -> InvoiceLastFinalizationError'NonNullableType'Other val
+          | val GHC.Classes.== "api_error" -> InvoiceLastFinalizationError'NonNullableType'EnumApiError
+          | val GHC.Classes.== "card_error" -> InvoiceLastFinalizationError'NonNullableType'EnumCardError
+          | val GHC.Classes.== "idempotency_error" -> InvoiceLastFinalizationError'NonNullableType'EnumIdempotencyError
+          | val GHC.Classes.== "invalid_request_error" -> InvoiceLastFinalizationError'NonNullableType'EnumInvalidRequestError
+          | GHC.Base.otherwise -> InvoiceLastFinalizationError'NonNullableType'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.invoice.properties.lines@ in the specification.
@@ -2023,13 +2023,13 @@ instance Data.Aeson.Types.FromJSON.FromJSON InvoiceStatus'NonNullable where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "deleted" -> InvoiceStatus'NonNullableEnumDeleted
-            | val GHC.Classes.== "draft" -> InvoiceStatus'NonNullableEnumDraft
-            | val GHC.Classes.== "open" -> InvoiceStatus'NonNullableEnumOpen
-            | val GHC.Classes.== "paid" -> InvoiceStatus'NonNullableEnumPaid
-            | val GHC.Classes.== "uncollectible" -> InvoiceStatus'NonNullableEnumUncollectible
-            | val GHC.Classes.== "void" -> InvoiceStatus'NonNullableEnumVoid
-            | GHC.Base.otherwise -> InvoiceStatus'NonNullableOther val
+          | val GHC.Classes.== "deleted" -> InvoiceStatus'NonNullableEnumDeleted
+          | val GHC.Classes.== "draft" -> InvoiceStatus'NonNullableEnumDraft
+          | val GHC.Classes.== "open" -> InvoiceStatus'NonNullableEnumOpen
+          | val GHC.Classes.== "paid" -> InvoiceStatus'NonNullableEnumPaid
+          | val GHC.Classes.== "uncollectible" -> InvoiceStatus'NonNullableEnumUncollectible
+          | val GHC.Classes.== "void" -> InvoiceStatus'NonNullableEnumVoid
+          | GHC.Base.otherwise -> InvoiceStatus'NonNullableOther val
       )
 
 -- | Defines the oneOf schema located at @components.schemas.invoice.properties.subscription.anyOf@ in the specification.

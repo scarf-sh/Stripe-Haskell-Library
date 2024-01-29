@@ -48,7 +48,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>Creates a new \<code>open\<\/code> order object.\<\/p>
 postOrders ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | The request body to send
   PostOrdersRequestBody ->
   -- | Monadic computation which returns the result of the operation
@@ -60,21 +60,21 @@ postOrders body =
           ( Data.Either.either PostOrdersResponseError GHC.Base.id
               GHC.Base.. ( \response body ->
                              if
-                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                               | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                    PostOrdersResponse200
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             Order
                                                       )
-                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                               | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                    PostOrdersResponseDefault
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             Error
                                                       )
-                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                               | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                          )
                 response_0
           )
@@ -304,8 +304,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostOrdersRequestBodyBillingDetails'Vari
 instance Data.Aeson.Types.FromJSON.FromJSON PostOrdersRequestBodyBillingDetails'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostOrdersRequestBodyBillingDetails'EmptyString
-        | GHC.Base.otherwise -> case (PostOrdersRequestBodyBillingDetails'PostOrdersRequestBodyBillingDetails'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostOrdersRequestBodyBillingDetails'EmptyString
+      | GHC.Base.otherwise -> case (PostOrdersRequestBodyBillingDetails'PostOrdersRequestBodyBillingDetails'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -367,8 +367,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostOrdersRequestBodyDiscounts'Variants 
 instance Data.Aeson.Types.FromJSON.FromJSON PostOrdersRequestBodyDiscounts'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostOrdersRequestBodyDiscounts'EmptyString
-        | GHC.Base.otherwise -> case (PostOrdersRequestBodyDiscounts'ListTPostOrdersRequestBodyDiscounts'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostOrdersRequestBodyDiscounts'EmptyString
+      | GHC.Base.otherwise -> case (PostOrdersRequestBodyDiscounts'ListTPostOrdersRequestBodyDiscounts'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -475,8 +475,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostOrdersRequestBodyLineItems'Discounts
 instance Data.Aeson.Types.FromJSON.FromJSON PostOrdersRequestBodyLineItems'Discounts'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostOrdersRequestBodyLineItems'Discounts'EmptyString
-        | GHC.Base.otherwise -> case (PostOrdersRequestBodyLineItems'Discounts'ListTPostOrdersRequestBodyLineItems'Discounts'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostOrdersRequestBodyLineItems'Discounts'EmptyString
+      | GHC.Base.otherwise -> case (PostOrdersRequestBodyLineItems'Discounts'ListTPostOrdersRequestBodyLineItems'Discounts'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -545,10 +545,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostOrdersRequestBodyLineItems'Price
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "exclusive" -> PostOrdersRequestBodyLineItems'PriceData'TaxBehavior'EnumExclusive
-            | val GHC.Classes.== "inclusive" -> PostOrdersRequestBodyLineItems'PriceData'TaxBehavior'EnumInclusive
-            | val GHC.Classes.== "unspecified" -> PostOrdersRequestBodyLineItems'PriceData'TaxBehavior'EnumUnspecified
-            | GHC.Base.otherwise -> PostOrdersRequestBodyLineItems'PriceData'TaxBehavior'Other val
+          | val GHC.Classes.== "exclusive" -> PostOrdersRequestBodyLineItems'PriceData'TaxBehavior'EnumExclusive
+          | val GHC.Classes.== "inclusive" -> PostOrdersRequestBodyLineItems'PriceData'TaxBehavior'EnumInclusive
+          | val GHC.Classes.== "unspecified" -> PostOrdersRequestBodyLineItems'PriceData'TaxBehavior'EnumUnspecified
+          | GHC.Base.otherwise -> PostOrdersRequestBodyLineItems'PriceData'TaxBehavior'Other val
       )
 
 -- | Defines the oneOf schema located at @paths.\/v1\/orders.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.line_items.items.properties.tax_rates.anyOf@ in the specification.
@@ -565,8 +565,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostOrdersRequestBodyLineItems'TaxRates'
 instance Data.Aeson.Types.FromJSON.FromJSON PostOrdersRequestBodyLineItems'TaxRates'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostOrdersRequestBodyLineItems'TaxRates'EmptyString
-        | GHC.Base.otherwise -> case (PostOrdersRequestBodyLineItems'TaxRates'ListTText Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostOrdersRequestBodyLineItems'TaxRates'EmptyString
+      | GHC.Base.otherwise -> case (PostOrdersRequestBodyLineItems'TaxRates'ListTText Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -790,8 +790,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostOrdersRequestBodyPayment'Settings'Pa
 instance Data.Aeson.Types.FromJSON.FromJSON PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'AcssDebit'MandateOptions'CustomMandateUrl'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'AcssDebit'MandateOptions'CustomMandateUrl'EmptyString
-        | GHC.Base.otherwise -> case (PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'AcssDebit'MandateOptions'CustomMandateUrl'Text Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'AcssDebit'MandateOptions'CustomMandateUrl'EmptyString
+      | GHC.Base.otherwise -> case (PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'AcssDebit'MandateOptions'CustomMandateUrl'Text Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -820,10 +820,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostOrdersRequestBodyPayment'Setting
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "combined" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'AcssDebit'MandateOptions'PaymentSchedule'EnumCombined
-            | val GHC.Classes.== "interval" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'AcssDebit'MandateOptions'PaymentSchedule'EnumInterval
-            | val GHC.Classes.== "sporadic" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'AcssDebit'MandateOptions'PaymentSchedule'EnumSporadic
-            | GHC.Base.otherwise -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'AcssDebit'MandateOptions'PaymentSchedule'Other val
+          | val GHC.Classes.== "combined" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'AcssDebit'MandateOptions'PaymentSchedule'EnumCombined
+          | val GHC.Classes.== "interval" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'AcssDebit'MandateOptions'PaymentSchedule'EnumInterval
+          | val GHC.Classes.== "sporadic" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'AcssDebit'MandateOptions'PaymentSchedule'EnumSporadic
+          | GHC.Base.otherwise -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'AcssDebit'MandateOptions'PaymentSchedule'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/orders.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment.properties.settings.properties.payment_method_options.properties.acss_debit.properties.mandate_options.properties.transaction_type@ in the specification.
@@ -848,9 +848,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostOrdersRequestBodyPayment'Setting
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "business" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'AcssDebit'MandateOptions'TransactionType'EnumBusiness
-            | val GHC.Classes.== "personal" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'AcssDebit'MandateOptions'TransactionType'EnumPersonal
-            | GHC.Base.otherwise -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'AcssDebit'MandateOptions'TransactionType'Other val
+          | val GHC.Classes.== "business" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'AcssDebit'MandateOptions'TransactionType'EnumBusiness
+          | val GHC.Classes.== "personal" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'AcssDebit'MandateOptions'TransactionType'EnumPersonal
+          | GHC.Base.otherwise -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'AcssDebit'MandateOptions'TransactionType'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/orders.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment.properties.settings.properties.payment_method_options.properties.acss_debit.properties.setup_future_usage@ in the specification.
@@ -881,11 +881,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostOrdersRequestBodyPayment'Setting
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'AcssDebit'SetupFutureUsage'EnumEmptyString
-            | val GHC.Classes.== "none" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'AcssDebit'SetupFutureUsage'EnumNone
-            | val GHC.Classes.== "off_session" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'AcssDebit'SetupFutureUsage'EnumOffSession
-            | val GHC.Classes.== "on_session" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'AcssDebit'SetupFutureUsage'EnumOnSession
-            | GHC.Base.otherwise -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'AcssDebit'SetupFutureUsage'Other val
+          | val GHC.Classes.== "" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'AcssDebit'SetupFutureUsage'EnumEmptyString
+          | val GHC.Classes.== "none" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'AcssDebit'SetupFutureUsage'EnumNone
+          | val GHC.Classes.== "off_session" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'AcssDebit'SetupFutureUsage'EnumOffSession
+          | val GHC.Classes.== "on_session" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'AcssDebit'SetupFutureUsage'EnumOnSession
+          | GHC.Base.otherwise -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'AcssDebit'SetupFutureUsage'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/orders.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment.properties.settings.properties.payment_method_options.properties.acss_debit.properties.verification_method@ in the specification.
@@ -913,10 +913,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostOrdersRequestBodyPayment'Setting
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'AcssDebit'VerificationMethod'EnumAutomatic
-            | val GHC.Classes.== "instant" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'AcssDebit'VerificationMethod'EnumInstant
-            | val GHC.Classes.== "microdeposits" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'AcssDebit'VerificationMethod'EnumMicrodeposits
-            | GHC.Base.otherwise -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'AcssDebit'VerificationMethod'Other val
+          | val GHC.Classes.== "automatic" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'AcssDebit'VerificationMethod'EnumAutomatic
+          | val GHC.Classes.== "instant" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'AcssDebit'VerificationMethod'EnumInstant
+          | val GHC.Classes.== "microdeposits" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'AcssDebit'VerificationMethod'EnumMicrodeposits
+          | GHC.Base.otherwise -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'AcssDebit'VerificationMethod'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/orders.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment.properties.settings.properties.payment_method_options.properties.afterpay_clearpay@ in the specification.
@@ -975,9 +975,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostOrdersRequestBodyPayment'Setting
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'AfterpayClearpay'CaptureMethod'EnumAutomatic
-            | val GHC.Classes.== "manual" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'AfterpayClearpay'CaptureMethod'EnumManual
-            | GHC.Base.otherwise -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'AfterpayClearpay'CaptureMethod'Other val
+          | val GHC.Classes.== "automatic" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'AfterpayClearpay'CaptureMethod'EnumAutomatic
+          | val GHC.Classes.== "manual" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'AfterpayClearpay'CaptureMethod'EnumManual
+          | GHC.Base.otherwise -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'AfterpayClearpay'CaptureMethod'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/orders.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment.properties.settings.properties.payment_method_options.properties.afterpay_clearpay.properties.setup_future_usage@ in the specification.
@@ -999,8 +999,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostOrdersRequestBodyPayment'Setting
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'AfterpayClearpay'SetupFutureUsage'EnumNone
-            | GHC.Base.otherwise -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'AfterpayClearpay'SetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'AfterpayClearpay'SetupFutureUsage'EnumNone
+          | GHC.Base.otherwise -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'AfterpayClearpay'SetupFutureUsage'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/orders.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment.properties.settings.properties.payment_method_options.properties.alipay@ in the specification.
@@ -1049,10 +1049,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostOrdersRequestBodyPayment'Setting
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Alipay'SetupFutureUsage'EnumEmptyString
-            | val GHC.Classes.== "none" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Alipay'SetupFutureUsage'EnumNone
-            | val GHC.Classes.== "off_session" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Alipay'SetupFutureUsage'EnumOffSession
-            | GHC.Base.otherwise -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Alipay'SetupFutureUsage'Other val
+          | val GHC.Classes.== "" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Alipay'SetupFutureUsage'EnumEmptyString
+          | val GHC.Classes.== "none" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Alipay'SetupFutureUsage'EnumNone
+          | val GHC.Classes.== "off_session" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Alipay'SetupFutureUsage'EnumOffSession
+          | GHC.Base.otherwise -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Alipay'SetupFutureUsage'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/orders.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment.properties.settings.properties.payment_method_options.properties.bancontact@ in the specification.
@@ -1110,11 +1110,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostOrdersRequestBodyPayment'Setting
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "de" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Bancontact'PreferredLanguage'EnumDe
-            | val GHC.Classes.== "en" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Bancontact'PreferredLanguage'EnumEn
-            | val GHC.Classes.== "fr" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Bancontact'PreferredLanguage'EnumFr
-            | val GHC.Classes.== "nl" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Bancontact'PreferredLanguage'EnumNl
-            | GHC.Base.otherwise -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Bancontact'PreferredLanguage'Other val
+          | val GHC.Classes.== "de" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Bancontact'PreferredLanguage'EnumDe
+          | val GHC.Classes.== "en" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Bancontact'PreferredLanguage'EnumEn
+          | val GHC.Classes.== "fr" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Bancontact'PreferredLanguage'EnumFr
+          | val GHC.Classes.== "nl" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Bancontact'PreferredLanguage'EnumNl
+          | GHC.Base.otherwise -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Bancontact'PreferredLanguage'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/orders.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment.properties.settings.properties.payment_method_options.properties.bancontact.properties.setup_future_usage@ in the specification.
@@ -1142,10 +1142,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostOrdersRequestBodyPayment'Setting
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Bancontact'SetupFutureUsage'EnumEmptyString
-            | val GHC.Classes.== "none" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Bancontact'SetupFutureUsage'EnumNone
-            | val GHC.Classes.== "off_session" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Bancontact'SetupFutureUsage'EnumOffSession
-            | GHC.Base.otherwise -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Bancontact'SetupFutureUsage'Other val
+          | val GHC.Classes.== "" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Bancontact'SetupFutureUsage'EnumEmptyString
+          | val GHC.Classes.== "none" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Bancontact'SetupFutureUsage'EnumNone
+          | val GHC.Classes.== "off_session" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Bancontact'SetupFutureUsage'EnumOffSession
+          | GHC.Base.otherwise -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Bancontact'SetupFutureUsage'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/orders.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment.properties.settings.properties.payment_method_options.properties.card@ in the specification.
@@ -1197,9 +1197,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostOrdersRequestBodyPayment'Setting
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Card'CaptureMethod'EnumAutomatic
-            | val GHC.Classes.== "manual" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Card'CaptureMethod'EnumManual
-            | GHC.Base.otherwise -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Card'CaptureMethod'Other val
+          | val GHC.Classes.== "automatic" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Card'CaptureMethod'EnumAutomatic
+          | val GHC.Classes.== "manual" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Card'CaptureMethod'EnumManual
+          | GHC.Base.otherwise -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Card'CaptureMethod'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/orders.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment.properties.settings.properties.payment_method_options.properties.card.properties.setup_future_usage@ in the specification.
@@ -1227,10 +1227,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostOrdersRequestBodyPayment'Setting
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Card'SetupFutureUsage'EnumNone
-            | val GHC.Classes.== "off_session" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Card'SetupFutureUsage'EnumOffSession
-            | val GHC.Classes.== "on_session" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Card'SetupFutureUsage'EnumOnSession
-            | GHC.Base.otherwise -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Card'SetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Card'SetupFutureUsage'EnumNone
+          | val GHC.Classes.== "off_session" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Card'SetupFutureUsage'EnumOffSession
+          | val GHC.Classes.== "on_session" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Card'SetupFutureUsage'EnumOnSession
+          | GHC.Base.otherwise -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Card'SetupFutureUsage'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/orders.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment.properties.settings.properties.payment_method_options.properties.customer_balance@ in the specification.
@@ -1355,12 +1355,12 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostOrdersRequestBodyPayment'Setting
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "iban" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'CustomerBalance'BankTransfer'RequestedAddressTypes'EnumIban
-            | val GHC.Classes.== "sepa" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'CustomerBalance'BankTransfer'RequestedAddressTypes'EnumSepa
-            | val GHC.Classes.== "sort_code" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'CustomerBalance'BankTransfer'RequestedAddressTypes'EnumSortCode
-            | val GHC.Classes.== "spei" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'CustomerBalance'BankTransfer'RequestedAddressTypes'EnumSpei
-            | val GHC.Classes.== "zengin" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'CustomerBalance'BankTransfer'RequestedAddressTypes'EnumZengin
-            | GHC.Base.otherwise -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'CustomerBalance'BankTransfer'RequestedAddressTypes'Other val
+          | val GHC.Classes.== "iban" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'CustomerBalance'BankTransfer'RequestedAddressTypes'EnumIban
+          | val GHC.Classes.== "sepa" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'CustomerBalance'BankTransfer'RequestedAddressTypes'EnumSepa
+          | val GHC.Classes.== "sort_code" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'CustomerBalance'BankTransfer'RequestedAddressTypes'EnumSortCode
+          | val GHC.Classes.== "spei" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'CustomerBalance'BankTransfer'RequestedAddressTypes'EnumSpei
+          | val GHC.Classes.== "zengin" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'CustomerBalance'BankTransfer'RequestedAddressTypes'EnumZengin
+          | GHC.Base.otherwise -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'CustomerBalance'BankTransfer'RequestedAddressTypes'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/orders.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment.properties.settings.properties.payment_method_options.properties.customer_balance.properties.bank_transfer.properties.type@ in the specification.
@@ -1391,11 +1391,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostOrdersRequestBodyPayment'Setting
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "eu_bank_transfer" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'CustomerBalance'BankTransfer'Type'EnumEuBankTransfer
-            | val GHC.Classes.== "gb_bank_transfer" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'CustomerBalance'BankTransfer'Type'EnumGbBankTransfer
-            | val GHC.Classes.== "jp_bank_transfer" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'CustomerBalance'BankTransfer'Type'EnumJpBankTransfer
-            | val GHC.Classes.== "mx_bank_transfer" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'CustomerBalance'BankTransfer'Type'EnumMxBankTransfer
-            | GHC.Base.otherwise -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'CustomerBalance'BankTransfer'Type'Other val
+          | val GHC.Classes.== "eu_bank_transfer" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'CustomerBalance'BankTransfer'Type'EnumEuBankTransfer
+          | val GHC.Classes.== "gb_bank_transfer" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'CustomerBalance'BankTransfer'Type'EnumGbBankTransfer
+          | val GHC.Classes.== "jp_bank_transfer" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'CustomerBalance'BankTransfer'Type'EnumJpBankTransfer
+          | val GHC.Classes.== "mx_bank_transfer" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'CustomerBalance'BankTransfer'Type'EnumMxBankTransfer
+          | GHC.Base.otherwise -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'CustomerBalance'BankTransfer'Type'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/orders.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment.properties.settings.properties.payment_method_options.properties.customer_balance.properties.funding_type@ in the specification.
@@ -1417,8 +1417,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostOrdersRequestBodyPayment'Setting
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "bank_transfer" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'CustomerBalance'FundingType'EnumBankTransfer
-            | GHC.Base.otherwise -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'CustomerBalance'FundingType'Other val
+          | val GHC.Classes.== "bank_transfer" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'CustomerBalance'FundingType'EnumBankTransfer
+          | GHC.Base.otherwise -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'CustomerBalance'FundingType'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/orders.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment.properties.settings.properties.payment_method_options.properties.customer_balance.properties.setup_future_usage@ in the specification.
@@ -1440,8 +1440,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostOrdersRequestBodyPayment'Setting
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'CustomerBalance'SetupFutureUsage'EnumNone
-            | GHC.Base.otherwise -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'CustomerBalance'SetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'CustomerBalance'SetupFutureUsage'EnumNone
+          | GHC.Base.otherwise -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'CustomerBalance'SetupFutureUsage'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/orders.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment.properties.settings.properties.payment_method_options.properties.ideal@ in the specification.
@@ -1490,10 +1490,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostOrdersRequestBodyPayment'Setting
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Ideal'SetupFutureUsage'EnumEmptyString
-            | val GHC.Classes.== "none" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Ideal'SetupFutureUsage'EnumNone
-            | val GHC.Classes.== "off_session" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Ideal'SetupFutureUsage'EnumOffSession
-            | GHC.Base.otherwise -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Ideal'SetupFutureUsage'Other val
+          | val GHC.Classes.== "" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Ideal'SetupFutureUsage'EnumEmptyString
+          | val GHC.Classes.== "none" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Ideal'SetupFutureUsage'EnumNone
+          | val GHC.Classes.== "off_session" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Ideal'SetupFutureUsage'EnumOffSession
+          | GHC.Base.otherwise -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Ideal'SetupFutureUsage'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/orders.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment.properties.settings.properties.payment_method_options.properties.klarna@ in the specification.
@@ -1548,9 +1548,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostOrdersRequestBodyPayment'Setting
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Klarna'CaptureMethod'EnumEmptyString
-            | val GHC.Classes.== "manual" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Klarna'CaptureMethod'EnumManual
-            | GHC.Base.otherwise -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Klarna'CaptureMethod'Other val
+          | val GHC.Classes.== "" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Klarna'CaptureMethod'EnumEmptyString
+          | val GHC.Classes.== "manual" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Klarna'CaptureMethod'EnumManual
+          | GHC.Base.otherwise -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Klarna'CaptureMethod'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/orders.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment.properties.settings.properties.payment_method_options.properties.klarna.properties.preferred_locale@ in the specification.
@@ -1659,37 +1659,37 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostOrdersRequestBodyPayment'Setting
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "da-DK" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Klarna'PreferredLocale'EnumDaDK
-            | val GHC.Classes.== "de-AT" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Klarna'PreferredLocale'EnumDeAT
-            | val GHC.Classes.== "de-DE" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Klarna'PreferredLocale'EnumDeDE
-            | val GHC.Classes.== "en-AT" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Klarna'PreferredLocale'EnumEnAT
-            | val GHC.Classes.== "en-AU" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Klarna'PreferredLocale'EnumEnAU
-            | val GHC.Classes.== "en-BE" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Klarna'PreferredLocale'EnumEnBE
-            | val GHC.Classes.== "en-DE" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Klarna'PreferredLocale'EnumEnDE
-            | val GHC.Classes.== "en-DK" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Klarna'PreferredLocale'EnumEnDK
-            | val GHC.Classes.== "en-ES" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Klarna'PreferredLocale'EnumEnES
-            | val GHC.Classes.== "en-FI" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Klarna'PreferredLocale'EnumEnFI
-            | val GHC.Classes.== "en-FR" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Klarna'PreferredLocale'EnumEnFR
-            | val GHC.Classes.== "en-GB" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Klarna'PreferredLocale'EnumEnGB
-            | val GHC.Classes.== "en-IE" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Klarna'PreferredLocale'EnumEnIE
-            | val GHC.Classes.== "en-IT" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Klarna'PreferredLocale'EnumEnIT
-            | val GHC.Classes.== "en-NL" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Klarna'PreferredLocale'EnumEnNL
-            | val GHC.Classes.== "en-NO" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Klarna'PreferredLocale'EnumEnNO
-            | val GHC.Classes.== "en-NZ" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Klarna'PreferredLocale'EnumEnNZ
-            | val GHC.Classes.== "en-SE" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Klarna'PreferredLocale'EnumEnSE
-            | val GHC.Classes.== "en-US" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Klarna'PreferredLocale'EnumEnUS
-            | val GHC.Classes.== "es-ES" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Klarna'PreferredLocale'EnumEsES
-            | val GHC.Classes.== "es-US" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Klarna'PreferredLocale'EnumEsUS
-            | val GHC.Classes.== "fi-FI" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Klarna'PreferredLocale'EnumFiFI
-            | val GHC.Classes.== "fr-BE" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Klarna'PreferredLocale'EnumFrBE
-            | val GHC.Classes.== "fr-FR" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Klarna'PreferredLocale'EnumFrFR
-            | val GHC.Classes.== "it-IT" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Klarna'PreferredLocale'EnumItIT
-            | val GHC.Classes.== "nb-NO" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Klarna'PreferredLocale'EnumNbNO
-            | val GHC.Classes.== "nl-BE" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Klarna'PreferredLocale'EnumNlBE
-            | val GHC.Classes.== "nl-NL" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Klarna'PreferredLocale'EnumNlNL
-            | val GHC.Classes.== "sv-FI" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Klarna'PreferredLocale'EnumSvFI
-            | val GHC.Classes.== "sv-SE" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Klarna'PreferredLocale'EnumSvSE
-            | GHC.Base.otherwise -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Klarna'PreferredLocale'Other val
+          | val GHC.Classes.== "da-DK" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Klarna'PreferredLocale'EnumDaDK
+          | val GHC.Classes.== "de-AT" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Klarna'PreferredLocale'EnumDeAT
+          | val GHC.Classes.== "de-DE" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Klarna'PreferredLocale'EnumDeDE
+          | val GHC.Classes.== "en-AT" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Klarna'PreferredLocale'EnumEnAT
+          | val GHC.Classes.== "en-AU" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Klarna'PreferredLocale'EnumEnAU
+          | val GHC.Classes.== "en-BE" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Klarna'PreferredLocale'EnumEnBE
+          | val GHC.Classes.== "en-DE" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Klarna'PreferredLocale'EnumEnDE
+          | val GHC.Classes.== "en-DK" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Klarna'PreferredLocale'EnumEnDK
+          | val GHC.Classes.== "en-ES" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Klarna'PreferredLocale'EnumEnES
+          | val GHC.Classes.== "en-FI" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Klarna'PreferredLocale'EnumEnFI
+          | val GHC.Classes.== "en-FR" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Klarna'PreferredLocale'EnumEnFR
+          | val GHC.Classes.== "en-GB" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Klarna'PreferredLocale'EnumEnGB
+          | val GHC.Classes.== "en-IE" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Klarna'PreferredLocale'EnumEnIE
+          | val GHC.Classes.== "en-IT" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Klarna'PreferredLocale'EnumEnIT
+          | val GHC.Classes.== "en-NL" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Klarna'PreferredLocale'EnumEnNL
+          | val GHC.Classes.== "en-NO" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Klarna'PreferredLocale'EnumEnNO
+          | val GHC.Classes.== "en-NZ" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Klarna'PreferredLocale'EnumEnNZ
+          | val GHC.Classes.== "en-SE" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Klarna'PreferredLocale'EnumEnSE
+          | val GHC.Classes.== "en-US" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Klarna'PreferredLocale'EnumEnUS
+          | val GHC.Classes.== "es-ES" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Klarna'PreferredLocale'EnumEsES
+          | val GHC.Classes.== "es-US" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Klarna'PreferredLocale'EnumEsUS
+          | val GHC.Classes.== "fi-FI" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Klarna'PreferredLocale'EnumFiFI
+          | val GHC.Classes.== "fr-BE" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Klarna'PreferredLocale'EnumFrBE
+          | val GHC.Classes.== "fr-FR" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Klarna'PreferredLocale'EnumFrFR
+          | val GHC.Classes.== "it-IT" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Klarna'PreferredLocale'EnumItIT
+          | val GHC.Classes.== "nb-NO" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Klarna'PreferredLocale'EnumNbNO
+          | val GHC.Classes.== "nl-BE" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Klarna'PreferredLocale'EnumNlBE
+          | val GHC.Classes.== "nl-NL" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Klarna'PreferredLocale'EnumNlNL
+          | val GHC.Classes.== "sv-FI" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Klarna'PreferredLocale'EnumSvFI
+          | val GHC.Classes.== "sv-SE" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Klarna'PreferredLocale'EnumSvSE
+          | GHC.Base.otherwise -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Klarna'PreferredLocale'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/orders.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment.properties.settings.properties.payment_method_options.properties.klarna.properties.setup_future_usage@ in the specification.
@@ -1711,8 +1711,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostOrdersRequestBodyPayment'Setting
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Klarna'SetupFutureUsage'EnumNone
-            | GHC.Base.otherwise -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Klarna'SetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Klarna'SetupFutureUsage'EnumNone
+          | GHC.Base.otherwise -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Klarna'SetupFutureUsage'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/orders.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment.properties.settings.properties.payment_method_options.properties.link@ in the specification.
@@ -1771,9 +1771,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostOrdersRequestBodyPayment'Setting
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Link'CaptureMethod'EnumEmptyString
-            | val GHC.Classes.== "manual" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Link'CaptureMethod'EnumManual
-            | GHC.Base.otherwise -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Link'CaptureMethod'Other val
+          | val GHC.Classes.== "" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Link'CaptureMethod'EnumEmptyString
+          | val GHC.Classes.== "manual" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Link'CaptureMethod'EnumManual
+          | GHC.Base.otherwise -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Link'CaptureMethod'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/orders.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment.properties.settings.properties.payment_method_options.properties.link.properties.setup_future_usage@ in the specification.
@@ -1801,10 +1801,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostOrdersRequestBodyPayment'Setting
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Link'SetupFutureUsage'EnumEmptyString
-            | val GHC.Classes.== "none" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Link'SetupFutureUsage'EnumNone
-            | val GHC.Classes.== "off_session" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Link'SetupFutureUsage'EnumOffSession
-            | GHC.Base.otherwise -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Link'SetupFutureUsage'Other val
+          | val GHC.Classes.== "" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Link'SetupFutureUsage'EnumEmptyString
+          | val GHC.Classes.== "none" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Link'SetupFutureUsage'EnumNone
+          | val GHC.Classes.== "off_session" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Link'SetupFutureUsage'EnumOffSession
+          | GHC.Base.otherwise -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Link'SetupFutureUsage'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/orders.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment.properties.settings.properties.payment_method_options.properties.oxxo@ in the specification.
@@ -1853,8 +1853,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostOrdersRequestBodyPayment'Setting
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Oxxo'SetupFutureUsage'EnumNone
-            | GHC.Base.otherwise -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Oxxo'SetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Oxxo'SetupFutureUsage'EnumNone
+          | GHC.Base.otherwise -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Oxxo'SetupFutureUsage'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/orders.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment.properties.settings.properties.payment_method_options.properties.p24@ in the specification.
@@ -1903,8 +1903,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostOrdersRequestBodyPayment'Setting
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'P24'SetupFutureUsage'EnumNone
-            | GHC.Base.otherwise -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'P24'SetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'P24'SetupFutureUsage'EnumNone
+          | GHC.Base.otherwise -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'P24'SetupFutureUsage'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/orders.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment.properties.settings.properties.payment_method_options.properties.sepa_debit@ in the specification.
@@ -1962,11 +1962,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostOrdersRequestBodyPayment'Setting
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'SepaDebit'SetupFutureUsage'EnumEmptyString
-            | val GHC.Classes.== "none" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'SepaDebit'SetupFutureUsage'EnumNone
-            | val GHC.Classes.== "off_session" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'SepaDebit'SetupFutureUsage'EnumOffSession
-            | val GHC.Classes.== "on_session" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'SepaDebit'SetupFutureUsage'EnumOnSession
-            | GHC.Base.otherwise -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'SepaDebit'SetupFutureUsage'Other val
+          | val GHC.Classes.== "" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'SepaDebit'SetupFutureUsage'EnumEmptyString
+          | val GHC.Classes.== "none" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'SepaDebit'SetupFutureUsage'EnumNone
+          | val GHC.Classes.== "off_session" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'SepaDebit'SetupFutureUsage'EnumOffSession
+          | val GHC.Classes.== "on_session" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'SepaDebit'SetupFutureUsage'EnumOnSession
+          | GHC.Base.otherwise -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'SepaDebit'SetupFutureUsage'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/orders.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment.properties.settings.properties.payment_method_options.properties.sofort@ in the specification.
@@ -2036,15 +2036,15 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostOrdersRequestBodyPayment'Setting
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Sofort'PreferredLanguage'EnumEmptyString
-            | val GHC.Classes.== "de" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Sofort'PreferredLanguage'EnumDe
-            | val GHC.Classes.== "en" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Sofort'PreferredLanguage'EnumEn
-            | val GHC.Classes.== "es" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Sofort'PreferredLanguage'EnumEs
-            | val GHC.Classes.== "fr" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Sofort'PreferredLanguage'EnumFr
-            | val GHC.Classes.== "it" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Sofort'PreferredLanguage'EnumIt
-            | val GHC.Classes.== "nl" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Sofort'PreferredLanguage'EnumNl
-            | val GHC.Classes.== "pl" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Sofort'PreferredLanguage'EnumPl
-            | GHC.Base.otherwise -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Sofort'PreferredLanguage'Other val
+          | val GHC.Classes.== "" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Sofort'PreferredLanguage'EnumEmptyString
+          | val GHC.Classes.== "de" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Sofort'PreferredLanguage'EnumDe
+          | val GHC.Classes.== "en" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Sofort'PreferredLanguage'EnumEn
+          | val GHC.Classes.== "es" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Sofort'PreferredLanguage'EnumEs
+          | val GHC.Classes.== "fr" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Sofort'PreferredLanguage'EnumFr
+          | val GHC.Classes.== "it" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Sofort'PreferredLanguage'EnumIt
+          | val GHC.Classes.== "nl" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Sofort'PreferredLanguage'EnumNl
+          | val GHC.Classes.== "pl" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Sofort'PreferredLanguage'EnumPl
+          | GHC.Base.otherwise -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Sofort'PreferredLanguage'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/orders.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment.properties.settings.properties.payment_method_options.properties.sofort.properties.setup_future_usage@ in the specification.
@@ -2072,10 +2072,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostOrdersRequestBodyPayment'Setting
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Sofort'SetupFutureUsage'EnumEmptyString
-            | val GHC.Classes.== "none" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Sofort'SetupFutureUsage'EnumNone
-            | val GHC.Classes.== "off_session" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Sofort'SetupFutureUsage'EnumOffSession
-            | GHC.Base.otherwise -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Sofort'SetupFutureUsage'Other val
+          | val GHC.Classes.== "" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Sofort'SetupFutureUsage'EnumEmptyString
+          | val GHC.Classes.== "none" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Sofort'SetupFutureUsage'EnumNone
+          | val GHC.Classes.== "off_session" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Sofort'SetupFutureUsage'EnumOffSession
+          | GHC.Base.otherwise -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'Sofort'SetupFutureUsage'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/orders.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment.properties.settings.properties.payment_method_options.properties.wechat_pay@ in the specification.
@@ -2140,10 +2140,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostOrdersRequestBodyPayment'Setting
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "android" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'WechatPay'Client'EnumAndroid
-            | val GHC.Classes.== "ios" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'WechatPay'Client'EnumIos
-            | val GHC.Classes.== "web" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'WechatPay'Client'EnumWeb
-            | GHC.Base.otherwise -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'WechatPay'Client'Other val
+          | val GHC.Classes.== "android" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'WechatPay'Client'EnumAndroid
+          | val GHC.Classes.== "ios" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'WechatPay'Client'EnumIos
+          | val GHC.Classes.== "web" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'WechatPay'Client'EnumWeb
+          | GHC.Base.otherwise -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'WechatPay'Client'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/orders.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment.properties.settings.properties.payment_method_options.properties.wechat_pay.properties.setup_future_usage@ in the specification.
@@ -2165,8 +2165,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostOrdersRequestBodyPayment'Setting
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'WechatPay'SetupFutureUsage'EnumNone
-            | GHC.Base.otherwise -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'WechatPay'SetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'WechatPay'SetupFutureUsage'EnumNone
+          | GHC.Base.otherwise -> PostOrdersRequestBodyPayment'Settings'PaymentMethodOptions'WechatPay'SetupFutureUsage'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/orders.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment.properties.settings.properties.payment_method_types.items@ in the specification.
@@ -2248,28 +2248,28 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostOrdersRequestBodyPayment'Setting
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "acss_debit" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodTypes'EnumAcssDebit
-            | val GHC.Classes.== "afterpay_clearpay" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodTypes'EnumAfterpayClearpay
-            | val GHC.Classes.== "alipay" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodTypes'EnumAlipay
-            | val GHC.Classes.== "au_becs_debit" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodTypes'EnumAuBecsDebit
-            | val GHC.Classes.== "bacs_debit" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodTypes'EnumBacsDebit
-            | val GHC.Classes.== "bancontact" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodTypes'EnumBancontact
-            | val GHC.Classes.== "card" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodTypes'EnumCard
-            | val GHC.Classes.== "customer_balance" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodTypes'EnumCustomerBalance
-            | val GHC.Classes.== "eps" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodTypes'EnumEps
-            | val GHC.Classes.== "fpx" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodTypes'EnumFpx
-            | val GHC.Classes.== "giropay" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodTypes'EnumGiropay
-            | val GHC.Classes.== "grabpay" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodTypes'EnumGrabpay
-            | val GHC.Classes.== "ideal" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodTypes'EnumIdeal
-            | val GHC.Classes.== "klarna" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodTypes'EnumKlarna
-            | val GHC.Classes.== "link" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodTypes'EnumLink
-            | val GHC.Classes.== "oxxo" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodTypes'EnumOxxo
-            | val GHC.Classes.== "p24" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodTypes'EnumP24
-            | val GHC.Classes.== "paypal" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodTypes'EnumPaypal
-            | val GHC.Classes.== "sepa_debit" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodTypes'EnumSepaDebit
-            | val GHC.Classes.== "sofort" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodTypes'EnumSofort
-            | val GHC.Classes.== "wechat_pay" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodTypes'EnumWechatPay
-            | GHC.Base.otherwise -> PostOrdersRequestBodyPayment'Settings'PaymentMethodTypes'Other val
+          | val GHC.Classes.== "acss_debit" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodTypes'EnumAcssDebit
+          | val GHC.Classes.== "afterpay_clearpay" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodTypes'EnumAfterpayClearpay
+          | val GHC.Classes.== "alipay" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodTypes'EnumAlipay
+          | val GHC.Classes.== "au_becs_debit" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodTypes'EnumAuBecsDebit
+          | val GHC.Classes.== "bacs_debit" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodTypes'EnumBacsDebit
+          | val GHC.Classes.== "bancontact" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodTypes'EnumBancontact
+          | val GHC.Classes.== "card" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodTypes'EnumCard
+          | val GHC.Classes.== "customer_balance" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodTypes'EnumCustomerBalance
+          | val GHC.Classes.== "eps" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodTypes'EnumEps
+          | val GHC.Classes.== "fpx" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodTypes'EnumFpx
+          | val GHC.Classes.== "giropay" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodTypes'EnumGiropay
+          | val GHC.Classes.== "grabpay" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodTypes'EnumGrabpay
+          | val GHC.Classes.== "ideal" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodTypes'EnumIdeal
+          | val GHC.Classes.== "klarna" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodTypes'EnumKlarna
+          | val GHC.Classes.== "link" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodTypes'EnumLink
+          | val GHC.Classes.== "oxxo" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodTypes'EnumOxxo
+          | val GHC.Classes.== "p24" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodTypes'EnumP24
+          | val GHC.Classes.== "paypal" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodTypes'EnumPaypal
+          | val GHC.Classes.== "sepa_debit" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodTypes'EnumSepaDebit
+          | val GHC.Classes.== "sofort" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodTypes'EnumSofort
+          | val GHC.Classes.== "wechat_pay" -> PostOrdersRequestBodyPayment'Settings'PaymentMethodTypes'EnumWechatPay
+          | GHC.Base.otherwise -> PostOrdersRequestBodyPayment'Settings'PaymentMethodTypes'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/orders.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment.properties.settings.properties.transfer_data@ in the specification.
@@ -2472,12 +2472,12 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostOrdersRequestBodyShippingCost'On
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "business_day" -> PostOrdersRequestBodyShippingCost'OneOf1ShippingRateData'DeliveryEstimate'Maximum'Unit'EnumBusinessDay
-            | val GHC.Classes.== "day" -> PostOrdersRequestBodyShippingCost'OneOf1ShippingRateData'DeliveryEstimate'Maximum'Unit'EnumDay
-            | val GHC.Classes.== "hour" -> PostOrdersRequestBodyShippingCost'OneOf1ShippingRateData'DeliveryEstimate'Maximum'Unit'EnumHour
-            | val GHC.Classes.== "month" -> PostOrdersRequestBodyShippingCost'OneOf1ShippingRateData'DeliveryEstimate'Maximum'Unit'EnumMonth
-            | val GHC.Classes.== "week" -> PostOrdersRequestBodyShippingCost'OneOf1ShippingRateData'DeliveryEstimate'Maximum'Unit'EnumWeek
-            | GHC.Base.otherwise -> PostOrdersRequestBodyShippingCost'OneOf1ShippingRateData'DeliveryEstimate'Maximum'Unit'Other val
+          | val GHC.Classes.== "business_day" -> PostOrdersRequestBodyShippingCost'OneOf1ShippingRateData'DeliveryEstimate'Maximum'Unit'EnumBusinessDay
+          | val GHC.Classes.== "day" -> PostOrdersRequestBodyShippingCost'OneOf1ShippingRateData'DeliveryEstimate'Maximum'Unit'EnumDay
+          | val GHC.Classes.== "hour" -> PostOrdersRequestBodyShippingCost'OneOf1ShippingRateData'DeliveryEstimate'Maximum'Unit'EnumHour
+          | val GHC.Classes.== "month" -> PostOrdersRequestBodyShippingCost'OneOf1ShippingRateData'DeliveryEstimate'Maximum'Unit'EnumMonth
+          | val GHC.Classes.== "week" -> PostOrdersRequestBodyShippingCost'OneOf1ShippingRateData'DeliveryEstimate'Maximum'Unit'EnumWeek
+          | GHC.Base.otherwise -> PostOrdersRequestBodyShippingCost'OneOf1ShippingRateData'DeliveryEstimate'Maximum'Unit'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/orders.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.shipping_cost.anyOf.properties.shipping_rate_data.properties.delivery_estimate.properties.minimum@ in the specification.
@@ -2543,12 +2543,12 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostOrdersRequestBodyShippingCost'On
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "business_day" -> PostOrdersRequestBodyShippingCost'OneOf1ShippingRateData'DeliveryEstimate'Minimum'Unit'EnumBusinessDay
-            | val GHC.Classes.== "day" -> PostOrdersRequestBodyShippingCost'OneOf1ShippingRateData'DeliveryEstimate'Minimum'Unit'EnumDay
-            | val GHC.Classes.== "hour" -> PostOrdersRequestBodyShippingCost'OneOf1ShippingRateData'DeliveryEstimate'Minimum'Unit'EnumHour
-            | val GHC.Classes.== "month" -> PostOrdersRequestBodyShippingCost'OneOf1ShippingRateData'DeliveryEstimate'Minimum'Unit'EnumMonth
-            | val GHC.Classes.== "week" -> PostOrdersRequestBodyShippingCost'OneOf1ShippingRateData'DeliveryEstimate'Minimum'Unit'EnumWeek
-            | GHC.Base.otherwise -> PostOrdersRequestBodyShippingCost'OneOf1ShippingRateData'DeliveryEstimate'Minimum'Unit'Other val
+          | val GHC.Classes.== "business_day" -> PostOrdersRequestBodyShippingCost'OneOf1ShippingRateData'DeliveryEstimate'Minimum'Unit'EnumBusinessDay
+          | val GHC.Classes.== "day" -> PostOrdersRequestBodyShippingCost'OneOf1ShippingRateData'DeliveryEstimate'Minimum'Unit'EnumDay
+          | val GHC.Classes.== "hour" -> PostOrdersRequestBodyShippingCost'OneOf1ShippingRateData'DeliveryEstimate'Minimum'Unit'EnumHour
+          | val GHC.Classes.== "month" -> PostOrdersRequestBodyShippingCost'OneOf1ShippingRateData'DeliveryEstimate'Minimum'Unit'EnumMonth
+          | val GHC.Classes.== "week" -> PostOrdersRequestBodyShippingCost'OneOf1ShippingRateData'DeliveryEstimate'Minimum'Unit'EnumWeek
+          | GHC.Base.otherwise -> PostOrdersRequestBodyShippingCost'OneOf1ShippingRateData'DeliveryEstimate'Minimum'Unit'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/orders.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.shipping_cost.anyOf.properties.shipping_rate_data.properties.fixed_amount@ in the specification.
@@ -2608,10 +2608,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostOrdersRequestBodyShippingCost'On
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "exclusive" -> PostOrdersRequestBodyShippingCost'OneOf1ShippingRateData'TaxBehavior'EnumExclusive
-            | val GHC.Classes.== "inclusive" -> PostOrdersRequestBodyShippingCost'OneOf1ShippingRateData'TaxBehavior'EnumInclusive
-            | val GHC.Classes.== "unspecified" -> PostOrdersRequestBodyShippingCost'OneOf1ShippingRateData'TaxBehavior'EnumUnspecified
-            | GHC.Base.otherwise -> PostOrdersRequestBodyShippingCost'OneOf1ShippingRateData'TaxBehavior'Other val
+          | val GHC.Classes.== "exclusive" -> PostOrdersRequestBodyShippingCost'OneOf1ShippingRateData'TaxBehavior'EnumExclusive
+          | val GHC.Classes.== "inclusive" -> PostOrdersRequestBodyShippingCost'OneOf1ShippingRateData'TaxBehavior'EnumInclusive
+          | val GHC.Classes.== "unspecified" -> PostOrdersRequestBodyShippingCost'OneOf1ShippingRateData'TaxBehavior'EnumUnspecified
+          | GHC.Base.otherwise -> PostOrdersRequestBodyShippingCost'OneOf1ShippingRateData'TaxBehavior'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/orders.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.shipping_cost.anyOf.properties.shipping_rate_data.properties.type@ in the specification.
@@ -2633,8 +2633,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostOrdersRequestBodyShippingCost'On
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "fixed_amount" -> PostOrdersRequestBodyShippingCost'OneOf1ShippingRateData'Type'EnumFixedAmount
-            | GHC.Base.otherwise -> PostOrdersRequestBodyShippingCost'OneOf1ShippingRateData'Type'Other val
+          | val GHC.Classes.== "fixed_amount" -> PostOrdersRequestBodyShippingCost'OneOf1ShippingRateData'Type'EnumFixedAmount
+          | GHC.Base.otherwise -> PostOrdersRequestBodyShippingCost'OneOf1ShippingRateData'Type'Other val
       )
 
 -- | Defines the oneOf schema located at @paths.\/v1\/orders.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.shipping_cost.anyOf@ in the specification.
@@ -2653,8 +2653,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostOrdersRequestBodyShippingCost'Varian
 instance Data.Aeson.Types.FromJSON.FromJSON PostOrdersRequestBodyShippingCost'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostOrdersRequestBodyShippingCost'EmptyString
-        | GHC.Base.otherwise -> case (PostOrdersRequestBodyShippingCost'PostOrdersRequestBodyShippingCost'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostOrdersRequestBodyShippingCost'EmptyString
+      | GHC.Base.otherwise -> case (PostOrdersRequestBodyShippingCost'PostOrdersRequestBodyShippingCost'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -2780,8 +2780,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostOrdersRequestBodyShippingDetails'Var
 instance Data.Aeson.Types.FromJSON.FromJSON PostOrdersRequestBodyShippingDetails'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostOrdersRequestBodyShippingDetails'EmptyString
-        | GHC.Base.otherwise -> case (PostOrdersRequestBodyShippingDetails'PostOrdersRequestBodyShippingDetails'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostOrdersRequestBodyShippingDetails'EmptyString
+      | GHC.Base.otherwise -> case (PostOrdersRequestBodyShippingDetails'PostOrdersRequestBodyShippingDetails'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -2842,11 +2842,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostOrdersRequestBodyTaxDetails'TaxE
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "" -> PostOrdersRequestBodyTaxDetails'TaxExempt'EnumEmptyString
-            | val GHC.Classes.== "exempt" -> PostOrdersRequestBodyTaxDetails'TaxExempt'EnumExempt
-            | val GHC.Classes.== "none" -> PostOrdersRequestBodyTaxDetails'TaxExempt'EnumNone
-            | val GHC.Classes.== "reverse" -> PostOrdersRequestBodyTaxDetails'TaxExempt'EnumReverse
-            | GHC.Base.otherwise -> PostOrdersRequestBodyTaxDetails'TaxExempt'Other val
+          | val GHC.Classes.== "" -> PostOrdersRequestBodyTaxDetails'TaxExempt'EnumEmptyString
+          | val GHC.Classes.== "exempt" -> PostOrdersRequestBodyTaxDetails'TaxExempt'EnumExempt
+          | val GHC.Classes.== "none" -> PostOrdersRequestBodyTaxDetails'TaxExempt'EnumNone
+          | val GHC.Classes.== "reverse" -> PostOrdersRequestBodyTaxDetails'TaxExempt'EnumReverse
+          | GHC.Base.otherwise -> PostOrdersRequestBodyTaxDetails'TaxExempt'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/orders.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.tax_details.properties.tax_ids.items@ in the specification.
@@ -3039,53 +3039,53 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostOrdersRequestBodyTaxDetails'TaxI
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "ae_trn" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumAeTrn
-            | val GHC.Classes.== "au_abn" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumAuAbn
-            | val GHC.Classes.== "au_arn" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumAuArn
-            | val GHC.Classes.== "bg_uic" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumBgUic
-            | val GHC.Classes.== "br_cnpj" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumBrCnpj
-            | val GHC.Classes.== "br_cpf" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumBrCpf
-            | val GHC.Classes.== "ca_bn" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumCaBn
-            | val GHC.Classes.== "ca_gst_hst" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumCaGstHst
-            | val GHC.Classes.== "ca_pst_bc" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumCaPstBc
-            | val GHC.Classes.== "ca_pst_mb" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumCaPstMb
-            | val GHC.Classes.== "ca_pst_sk" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumCaPstSk
-            | val GHC.Classes.== "ca_qst" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumCaQst
-            | val GHC.Classes.== "ch_vat" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumChVat
-            | val GHC.Classes.== "cl_tin" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumClTin
-            | val GHC.Classes.== "es_cif" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumEsCif
-            | val GHC.Classes.== "eu_oss_vat" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumEuOssVat
-            | val GHC.Classes.== "eu_vat" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumEuVat
-            | val GHC.Classes.== "gb_vat" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumGbVat
-            | val GHC.Classes.== "ge_vat" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumGeVat
-            | val GHC.Classes.== "hk_br" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumHkBr
-            | val GHC.Classes.== "hu_tin" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumHuTin
-            | val GHC.Classes.== "id_npwp" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumIdNpwp
-            | val GHC.Classes.== "il_vat" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumIlVat
-            | val GHC.Classes.== "in_gst" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumInGst
-            | val GHC.Classes.== "is_vat" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumIsVat
-            | val GHC.Classes.== "jp_cn" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumJpCn
-            | val GHC.Classes.== "jp_rn" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumJpRn
-            | val GHC.Classes.== "kr_brn" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumKrBrn
-            | val GHC.Classes.== "li_uid" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumLiUid
-            | val GHC.Classes.== "mx_rfc" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumMxRfc
-            | val GHC.Classes.== "my_frp" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumMyFrp
-            | val GHC.Classes.== "my_itn" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumMyItn
-            | val GHC.Classes.== "my_sst" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumMySst
-            | val GHC.Classes.== "no_vat" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumNoVat
-            | val GHC.Classes.== "nz_gst" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumNzGst
-            | val GHC.Classes.== "ru_inn" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumRuInn
-            | val GHC.Classes.== "ru_kpp" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumRuKpp
-            | val GHC.Classes.== "sa_vat" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumSaVat
-            | val GHC.Classes.== "sg_gst" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumSgGst
-            | val GHC.Classes.== "sg_uen" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumSgUen
-            | val GHC.Classes.== "si_tin" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumSiTin
-            | val GHC.Classes.== "th_vat" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumThVat
-            | val GHC.Classes.== "tw_vat" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumTwVat
-            | val GHC.Classes.== "ua_vat" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumUaVat
-            | val GHC.Classes.== "us_ein" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumUsEin
-            | val GHC.Classes.== "za_vat" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumZaVat
-            | GHC.Base.otherwise -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'Other val
+          | val GHC.Classes.== "ae_trn" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumAeTrn
+          | val GHC.Classes.== "au_abn" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumAuAbn
+          | val GHC.Classes.== "au_arn" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumAuArn
+          | val GHC.Classes.== "bg_uic" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumBgUic
+          | val GHC.Classes.== "br_cnpj" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumBrCnpj
+          | val GHC.Classes.== "br_cpf" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumBrCpf
+          | val GHC.Classes.== "ca_bn" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumCaBn
+          | val GHC.Classes.== "ca_gst_hst" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumCaGstHst
+          | val GHC.Classes.== "ca_pst_bc" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumCaPstBc
+          | val GHC.Classes.== "ca_pst_mb" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumCaPstMb
+          | val GHC.Classes.== "ca_pst_sk" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumCaPstSk
+          | val GHC.Classes.== "ca_qst" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumCaQst
+          | val GHC.Classes.== "ch_vat" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumChVat
+          | val GHC.Classes.== "cl_tin" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumClTin
+          | val GHC.Classes.== "es_cif" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumEsCif
+          | val GHC.Classes.== "eu_oss_vat" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumEuOssVat
+          | val GHC.Classes.== "eu_vat" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumEuVat
+          | val GHC.Classes.== "gb_vat" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumGbVat
+          | val GHC.Classes.== "ge_vat" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumGeVat
+          | val GHC.Classes.== "hk_br" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumHkBr
+          | val GHC.Classes.== "hu_tin" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumHuTin
+          | val GHC.Classes.== "id_npwp" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumIdNpwp
+          | val GHC.Classes.== "il_vat" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumIlVat
+          | val GHC.Classes.== "in_gst" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumInGst
+          | val GHC.Classes.== "is_vat" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumIsVat
+          | val GHC.Classes.== "jp_cn" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumJpCn
+          | val GHC.Classes.== "jp_rn" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumJpRn
+          | val GHC.Classes.== "kr_brn" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumKrBrn
+          | val GHC.Classes.== "li_uid" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumLiUid
+          | val GHC.Classes.== "mx_rfc" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumMxRfc
+          | val GHC.Classes.== "my_frp" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumMyFrp
+          | val GHC.Classes.== "my_itn" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumMyItn
+          | val GHC.Classes.== "my_sst" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumMySst
+          | val GHC.Classes.== "no_vat" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumNoVat
+          | val GHC.Classes.== "nz_gst" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumNzGst
+          | val GHC.Classes.== "ru_inn" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumRuInn
+          | val GHC.Classes.== "ru_kpp" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumRuKpp
+          | val GHC.Classes.== "sa_vat" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumSaVat
+          | val GHC.Classes.== "sg_gst" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumSgGst
+          | val GHC.Classes.== "sg_uen" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumSgUen
+          | val GHC.Classes.== "si_tin" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumSiTin
+          | val GHC.Classes.== "th_vat" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumThVat
+          | val GHC.Classes.== "tw_vat" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumTwVat
+          | val GHC.Classes.== "ua_vat" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumUaVat
+          | val GHC.Classes.== "us_ein" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumUsEin
+          | val GHC.Classes.== "za_vat" -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'EnumZaVat
+          | GHC.Base.otherwise -> PostOrdersRequestBodyTaxDetails'TaxIds'Type'Other val
       )
 
 -- | Represents a response of the operation 'postOrders'.

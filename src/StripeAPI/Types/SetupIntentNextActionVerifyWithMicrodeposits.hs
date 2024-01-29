@@ -95,7 +95,7 @@ instance Data.Aeson.Types.FromJSON.FromJSON SetupIntentNextActionVerifyWithMicro
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "amounts" -> SetupIntentNextActionVerifyWithMicrodepositsMicrodepositType'NonNullableEnumAmounts
-            | val GHC.Classes.== "descriptor_code" -> SetupIntentNextActionVerifyWithMicrodepositsMicrodepositType'NonNullableEnumDescriptorCode
-            | GHC.Base.otherwise -> SetupIntentNextActionVerifyWithMicrodepositsMicrodepositType'NonNullableOther val
+          | val GHC.Classes.== "amounts" -> SetupIntentNextActionVerifyWithMicrodepositsMicrodepositType'NonNullableEnumAmounts
+          | val GHC.Classes.== "descriptor_code" -> SetupIntentNextActionVerifyWithMicrodepositsMicrodepositType'NonNullableEnumDescriptorCode
+          | GHC.Base.otherwise -> SetupIntentNextActionVerifyWithMicrodepositsMicrodepositType'NonNullableOther val
       )

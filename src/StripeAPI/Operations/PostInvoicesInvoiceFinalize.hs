@@ -48,7 +48,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>Stripe automatically finalizes drafts before sending and attempting payment on invoices. However, if you’d like to finalize a draft invoice manually, you can do so using this method.\<\/p>
 postInvoicesInvoiceFinalize ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | invoice | Constraints: Maximum length of 5000
   Data.Text.Internal.Text ->
   -- | The request body to send
@@ -64,21 +64,21 @@ postInvoicesInvoiceFinalize
             ( Data.Either.either PostInvoicesInvoiceFinalizeResponseError GHC.Base.id
                 GHC.Base.. ( \response body ->
                                if
-                                   | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                      PostInvoicesInvoiceFinalizeResponse200
                                        Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                             Data.Either.Either
                                                               GHC.Base.String
                                                               Invoice
                                                         )
-                                   | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                      PostInvoicesInvoiceFinalizeResponseDefault
                                        Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                             Data.Either.Either
                                                               GHC.Base.String
                                                               Error
                                                         )
-                                   | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                            )
                   response_0
             )

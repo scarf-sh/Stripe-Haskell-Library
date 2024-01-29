@@ -98,10 +98,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PortalSubscriptionUpdateDefaultAllow
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "price" -> PortalSubscriptionUpdateDefaultAllowedUpdates'EnumPrice
-            | val GHC.Classes.== "promotion_code" -> PortalSubscriptionUpdateDefaultAllowedUpdates'EnumPromotionCode
-            | val GHC.Classes.== "quantity" -> PortalSubscriptionUpdateDefaultAllowedUpdates'EnumQuantity
-            | GHC.Base.otherwise -> PortalSubscriptionUpdateDefaultAllowedUpdates'Other val
+          | val GHC.Classes.== "price" -> PortalSubscriptionUpdateDefaultAllowedUpdates'EnumPrice
+          | val GHC.Classes.== "promotion_code" -> PortalSubscriptionUpdateDefaultAllowedUpdates'EnumPromotionCode
+          | val GHC.Classes.== "quantity" -> PortalSubscriptionUpdateDefaultAllowedUpdates'EnumQuantity
+          | GHC.Base.otherwise -> PortalSubscriptionUpdateDefaultAllowedUpdates'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.portal_subscription_update.properties.proration_behavior@ in the specification.
@@ -131,8 +131,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PortalSubscriptionUpdateProrationBeh
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "always_invoice" -> PortalSubscriptionUpdateProrationBehavior'EnumAlwaysInvoice
-            | val GHC.Classes.== "create_prorations" -> PortalSubscriptionUpdateProrationBehavior'EnumCreateProrations
-            | val GHC.Classes.== "none" -> PortalSubscriptionUpdateProrationBehavior'EnumNone
-            | GHC.Base.otherwise -> PortalSubscriptionUpdateProrationBehavior'Other val
+          | val GHC.Classes.== "always_invoice" -> PortalSubscriptionUpdateProrationBehavior'EnumAlwaysInvoice
+          | val GHC.Classes.== "create_prorations" -> PortalSubscriptionUpdateProrationBehavior'EnumCreateProrations
+          | val GHC.Classes.== "none" -> PortalSubscriptionUpdateProrationBehavior'EnumNone
+          | GHC.Base.otherwise -> PortalSubscriptionUpdateProrationBehavior'Other val
       )

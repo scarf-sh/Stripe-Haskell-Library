@@ -137,9 +137,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON IssuingDisputeCanceledEvidenceProduc
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "merchandise" -> IssuingDisputeCanceledEvidenceProductType'NonNullableEnumMerchandise
-            | val GHC.Classes.== "service" -> IssuingDisputeCanceledEvidenceProductType'NonNullableEnumService
-            | GHC.Base.otherwise -> IssuingDisputeCanceledEvidenceProductType'NonNullableOther val
+          | val GHC.Classes.== "merchandise" -> IssuingDisputeCanceledEvidenceProductType'NonNullableEnumMerchandise
+          | val GHC.Classes.== "service" -> IssuingDisputeCanceledEvidenceProductType'NonNullableEnumService
+          | GHC.Base.otherwise -> IssuingDisputeCanceledEvidenceProductType'NonNullableOther val
       )
 
 -- | Defines the enum schema located at @components.schemas.issuing_dispute_canceled_evidence.properties.return_status@ in the specification.
@@ -166,7 +166,7 @@ instance Data.Aeson.Types.FromJSON.FromJSON IssuingDisputeCanceledEvidenceReturn
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "merchant_rejected" -> IssuingDisputeCanceledEvidenceReturnStatus'NonNullableEnumMerchantRejected
-            | val GHC.Classes.== "successful" -> IssuingDisputeCanceledEvidenceReturnStatus'NonNullableEnumSuccessful
-            | GHC.Base.otherwise -> IssuingDisputeCanceledEvidenceReturnStatus'NonNullableOther val
+          | val GHC.Classes.== "merchant_rejected" -> IssuingDisputeCanceledEvidenceReturnStatus'NonNullableEnumMerchantRejected
+          | val GHC.Classes.== "successful" -> IssuingDisputeCanceledEvidenceReturnStatus'NonNullableEnumSuccessful
+          | GHC.Base.otherwise -> IssuingDisputeCanceledEvidenceReturnStatus'NonNullableOther val
       )

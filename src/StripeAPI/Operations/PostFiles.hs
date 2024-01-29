@@ -50,7 +50,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>All of Stripe’s officially supported Client libraries should have support for sending \<code>multipart\/form-data\<\/code>.\<\/p>
 postFiles ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | Monadic computation which returns the result of the operation
   StripeAPI.Common.ClientT m (Network.HTTP.Client.Types.Response PostFilesResponse)
 postFiles =
@@ -60,21 +60,21 @@ postFiles =
           ( Data.Either.either PostFilesResponseError GHC.Base.id
               GHC.Base.. ( \response body ->
                              if
-                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                               | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                    PostFilesResponse200
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             File
                                                       )
-                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                               | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                    PostFilesResponseDefault
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             Error
                                                       )
-                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                               | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                          )
                 response_0
           )

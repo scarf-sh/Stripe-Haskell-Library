@@ -48,7 +48,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>Updates the amount or description of an invoice item on an upcoming invoice. Updating an invoice item is only possible before the invoice it’s attached to is closed.\<\/p>
 postInvoiceitemsInvoiceitem ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | invoiceitem | Constraints: Maximum length of 5000
   Data.Text.Internal.Text ->
   -- | The request body to send
@@ -64,21 +64,21 @@ postInvoiceitemsInvoiceitem
             ( Data.Either.either PostInvoiceitemsInvoiceitemResponseError GHC.Base.id
                 GHC.Base.. ( \response body ->
                                if
-                                   | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                      PostInvoiceitemsInvoiceitemResponse200
                                        Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                             Data.Either.Either
                                                               GHC.Base.String
                                                               Invoiceitem
                                                         )
-                                   | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                      PostInvoiceitemsInvoiceitemResponseDefault
                                        Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                             Data.Either.Either
                                                               GHC.Base.String
                                                               Error
                                                         )
-                                   | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                            )
                   response_0
             )
@@ -205,8 +205,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostInvoiceitemsInvoiceitemRequestBodyDi
 instance Data.Aeson.Types.FromJSON.FromJSON PostInvoiceitemsInvoiceitemRequestBodyDiscounts'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostInvoiceitemsInvoiceitemRequestBodyDiscounts'EmptyString
-        | GHC.Base.otherwise -> case (PostInvoiceitemsInvoiceitemRequestBodyDiscounts'ListTPostInvoiceitemsInvoiceitemRequestBodyDiscounts'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostInvoiceitemsInvoiceitemRequestBodyDiscounts'EmptyString
+      | GHC.Base.otherwise -> case (PostInvoiceitemsInvoiceitemRequestBodyDiscounts'ListTPostInvoiceitemsInvoiceitemRequestBodyDiscounts'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -226,8 +226,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostInvoiceitemsInvoiceitemRequestBodyMe
 instance Data.Aeson.Types.FromJSON.FromJSON PostInvoiceitemsInvoiceitemRequestBodyMetadata'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostInvoiceitemsInvoiceitemRequestBodyMetadata'EmptyString
-        | GHC.Base.otherwise -> case (PostInvoiceitemsInvoiceitemRequestBodyMetadata'Object Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostInvoiceitemsInvoiceitemRequestBodyMetadata'EmptyString
+      | GHC.Base.otherwise -> case (PostInvoiceitemsInvoiceitemRequestBodyMetadata'Object Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -337,10 +337,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostInvoiceitemsInvoiceitemRequestBo
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "exclusive" -> PostInvoiceitemsInvoiceitemRequestBodyPriceData'TaxBehavior'EnumExclusive
-            | val GHC.Classes.== "inclusive" -> PostInvoiceitemsInvoiceitemRequestBodyPriceData'TaxBehavior'EnumInclusive
-            | val GHC.Classes.== "unspecified" -> PostInvoiceitemsInvoiceitemRequestBodyPriceData'TaxBehavior'EnumUnspecified
-            | GHC.Base.otherwise -> PostInvoiceitemsInvoiceitemRequestBodyPriceData'TaxBehavior'Other val
+          | val GHC.Classes.== "exclusive" -> PostInvoiceitemsInvoiceitemRequestBodyPriceData'TaxBehavior'EnumExclusive
+          | val GHC.Classes.== "inclusive" -> PostInvoiceitemsInvoiceitemRequestBodyPriceData'TaxBehavior'EnumInclusive
+          | val GHC.Classes.== "unspecified" -> PostInvoiceitemsInvoiceitemRequestBodyPriceData'TaxBehavior'EnumUnspecified
+          | GHC.Base.otherwise -> PostInvoiceitemsInvoiceitemRequestBodyPriceData'TaxBehavior'Other val
       )
 
 -- | Defines the oneOf schema located at @paths.\/v1\/invoiceitems\/{invoiceitem}.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.tax_rates.anyOf@ in the specification.
@@ -359,8 +359,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostInvoiceitemsInvoiceitemRequestBodyTa
 instance Data.Aeson.Types.FromJSON.FromJSON PostInvoiceitemsInvoiceitemRequestBodyTaxRates'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostInvoiceitemsInvoiceitemRequestBodyTaxRates'EmptyString
-        | GHC.Base.otherwise -> case (PostInvoiceitemsInvoiceitemRequestBodyTaxRates'ListTText Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostInvoiceitemsInvoiceitemRequestBodyTaxRates'EmptyString
+      | GHC.Base.otherwise -> case (PostInvoiceitemsInvoiceitemRequestBodyTaxRates'ListTText Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 

@@ -48,7 +48,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>Creates a Session object.\<\/p>
 postCheckoutSessions ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | The request body to send
   PostCheckoutSessionsRequestBody ->
   -- | Monadic computation which returns the result of the operation
@@ -60,21 +60,21 @@ postCheckoutSessions body =
           ( Data.Either.either PostCheckoutSessionsResponseError GHC.Base.id
               GHC.Base.. ( \response body ->
                              if
-                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                               | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                    PostCheckoutSessionsResponse200
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             Checkout'session
                                                       )
-                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                               | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                    PostCheckoutSessionsResponseDefault
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             Error
                                                       )
-                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                               | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                          )
                 response_0
           )
@@ -360,9 +360,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostCheckoutSessionsRequestBodyBilli
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "auto" -> PostCheckoutSessionsRequestBodyBillingAddressCollection'EnumAuto
-            | val GHC.Classes.== "required" -> PostCheckoutSessionsRequestBodyBillingAddressCollection'EnumRequired
-            | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyBillingAddressCollection'Other val
+          | val GHC.Classes.== "auto" -> PostCheckoutSessionsRequestBodyBillingAddressCollection'EnumAuto
+          | val GHC.Classes.== "required" -> PostCheckoutSessionsRequestBodyBillingAddressCollection'EnumRequired
+          | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyBillingAddressCollection'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/checkout\/sessions.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.consent_collection@ in the specification.
@@ -407,8 +407,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostCheckoutSessionsRequestBodyConse
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "auto" -> PostCheckoutSessionsRequestBodyConsentCollection'Promotions'EnumAuto
-            | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyConsentCollection'Promotions'Other val
+          | val GHC.Classes.== "auto" -> PostCheckoutSessionsRequestBodyConsentCollection'Promotions'EnumAuto
+          | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyConsentCollection'Promotions'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/checkout\/sessions.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.customer_creation@ in the specification.
@@ -443,9 +443,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostCheckoutSessionsRequestBodyCusto
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "always" -> PostCheckoutSessionsRequestBodyCustomerCreation'EnumAlways
-            | val GHC.Classes.== "if_required" -> PostCheckoutSessionsRequestBodyCustomerCreation'EnumIfRequired
-            | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyCustomerCreation'Other val
+          | val GHC.Classes.== "always" -> PostCheckoutSessionsRequestBodyCustomerCreation'EnumAlways
+          | val GHC.Classes.== "if_required" -> PostCheckoutSessionsRequestBodyCustomerCreation'EnumIfRequired
+          | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyCustomerCreation'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/checkout\/sessions.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.customer_update@ in the specification.
@@ -502,9 +502,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostCheckoutSessionsRequestBodyCusto
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "auto" -> PostCheckoutSessionsRequestBodyCustomerUpdate'Address'EnumAuto
-            | val GHC.Classes.== "never" -> PostCheckoutSessionsRequestBodyCustomerUpdate'Address'EnumNever
-            | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyCustomerUpdate'Address'Other val
+          | val GHC.Classes.== "auto" -> PostCheckoutSessionsRequestBodyCustomerUpdate'Address'EnumAuto
+          | val GHC.Classes.== "never" -> PostCheckoutSessionsRequestBodyCustomerUpdate'Address'EnumNever
+          | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyCustomerUpdate'Address'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/checkout\/sessions.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.customer_update.properties.name@ in the specification.
@@ -529,9 +529,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostCheckoutSessionsRequestBodyCusto
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "auto" -> PostCheckoutSessionsRequestBodyCustomerUpdate'Name'EnumAuto
-            | val GHC.Classes.== "never" -> PostCheckoutSessionsRequestBodyCustomerUpdate'Name'EnumNever
-            | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyCustomerUpdate'Name'Other val
+          | val GHC.Classes.== "auto" -> PostCheckoutSessionsRequestBodyCustomerUpdate'Name'EnumAuto
+          | val GHC.Classes.== "never" -> PostCheckoutSessionsRequestBodyCustomerUpdate'Name'EnumNever
+          | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyCustomerUpdate'Name'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/checkout\/sessions.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.customer_update.properties.shipping@ in the specification.
@@ -556,9 +556,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostCheckoutSessionsRequestBodyCusto
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "auto" -> PostCheckoutSessionsRequestBodyCustomerUpdate'Shipping'EnumAuto
-            | val GHC.Classes.== "never" -> PostCheckoutSessionsRequestBodyCustomerUpdate'Shipping'EnumNever
-            | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyCustomerUpdate'Shipping'Other val
+          | val GHC.Classes.== "auto" -> PostCheckoutSessionsRequestBodyCustomerUpdate'Shipping'EnumAuto
+          | val GHC.Classes.== "never" -> PostCheckoutSessionsRequestBodyCustomerUpdate'Shipping'EnumNever
+          | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyCustomerUpdate'Shipping'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/checkout\/sessions.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.discounts.items@ in the specification.
@@ -830,11 +830,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostCheckoutSessionsRequestBodyLineI
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "day" -> PostCheckoutSessionsRequestBodyLineItems'PriceData'Recurring'Interval'EnumDay
-            | val GHC.Classes.== "month" -> PostCheckoutSessionsRequestBodyLineItems'PriceData'Recurring'Interval'EnumMonth
-            | val GHC.Classes.== "week" -> PostCheckoutSessionsRequestBodyLineItems'PriceData'Recurring'Interval'EnumWeek
-            | val GHC.Classes.== "year" -> PostCheckoutSessionsRequestBodyLineItems'PriceData'Recurring'Interval'EnumYear
-            | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyLineItems'PriceData'Recurring'Interval'Other val
+          | val GHC.Classes.== "day" -> PostCheckoutSessionsRequestBodyLineItems'PriceData'Recurring'Interval'EnumDay
+          | val GHC.Classes.== "month" -> PostCheckoutSessionsRequestBodyLineItems'PriceData'Recurring'Interval'EnumMonth
+          | val GHC.Classes.== "week" -> PostCheckoutSessionsRequestBodyLineItems'PriceData'Recurring'Interval'EnumWeek
+          | val GHC.Classes.== "year" -> PostCheckoutSessionsRequestBodyLineItems'PriceData'Recurring'Interval'EnumYear
+          | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyLineItems'PriceData'Recurring'Interval'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/checkout\/sessions.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.line_items.items.properties.price_data.properties.tax_behavior@ in the specification.
@@ -862,10 +862,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostCheckoutSessionsRequestBodyLineI
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "exclusive" -> PostCheckoutSessionsRequestBodyLineItems'PriceData'TaxBehavior'EnumExclusive
-            | val GHC.Classes.== "inclusive" -> PostCheckoutSessionsRequestBodyLineItems'PriceData'TaxBehavior'EnumInclusive
-            | val GHC.Classes.== "unspecified" -> PostCheckoutSessionsRequestBodyLineItems'PriceData'TaxBehavior'EnumUnspecified
-            | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyLineItems'PriceData'TaxBehavior'Other val
+          | val GHC.Classes.== "exclusive" -> PostCheckoutSessionsRequestBodyLineItems'PriceData'TaxBehavior'EnumExclusive
+          | val GHC.Classes.== "inclusive" -> PostCheckoutSessionsRequestBodyLineItems'PriceData'TaxBehavior'EnumInclusive
+          | val GHC.Classes.== "unspecified" -> PostCheckoutSessionsRequestBodyLineItems'PriceData'TaxBehavior'EnumUnspecified
+          | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyLineItems'PriceData'TaxBehavior'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/checkout\/sessions.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.locale@ in the specification.
@@ -1009,48 +1009,48 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostCheckoutSessionsRequestBodyLocal
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "auto" -> PostCheckoutSessionsRequestBodyLocale'EnumAuto
-            | val GHC.Classes.== "bg" -> PostCheckoutSessionsRequestBodyLocale'EnumBg
-            | val GHC.Classes.== "cs" -> PostCheckoutSessionsRequestBodyLocale'EnumCs
-            | val GHC.Classes.== "da" -> PostCheckoutSessionsRequestBodyLocale'EnumDa
-            | val GHC.Classes.== "de" -> PostCheckoutSessionsRequestBodyLocale'EnumDe
-            | val GHC.Classes.== "el" -> PostCheckoutSessionsRequestBodyLocale'EnumEl
-            | val GHC.Classes.== "en" -> PostCheckoutSessionsRequestBodyLocale'EnumEn
-            | val GHC.Classes.== "en-GB" -> PostCheckoutSessionsRequestBodyLocale'EnumEnGB
-            | val GHC.Classes.== "es" -> PostCheckoutSessionsRequestBodyLocale'EnumEs
-            | val GHC.Classes.== "es-419" -> PostCheckoutSessionsRequestBodyLocale'EnumEs_419
-            | val GHC.Classes.== "et" -> PostCheckoutSessionsRequestBodyLocale'EnumEt
-            | val GHC.Classes.== "fi" -> PostCheckoutSessionsRequestBodyLocale'EnumFi
-            | val GHC.Classes.== "fil" -> PostCheckoutSessionsRequestBodyLocale'EnumFil
-            | val GHC.Classes.== "fr" -> PostCheckoutSessionsRequestBodyLocale'EnumFr
-            | val GHC.Classes.== "fr-CA" -> PostCheckoutSessionsRequestBodyLocale'EnumFrCA
-            | val GHC.Classes.== "hr" -> PostCheckoutSessionsRequestBodyLocale'EnumHr
-            | val GHC.Classes.== "hu" -> PostCheckoutSessionsRequestBodyLocale'EnumHu
-            | val GHC.Classes.== "id" -> PostCheckoutSessionsRequestBodyLocale'EnumId
-            | val GHC.Classes.== "it" -> PostCheckoutSessionsRequestBodyLocale'EnumIt
-            | val GHC.Classes.== "ja" -> PostCheckoutSessionsRequestBodyLocale'EnumJa
-            | val GHC.Classes.== "ko" -> PostCheckoutSessionsRequestBodyLocale'EnumKo
-            | val GHC.Classes.== "lt" -> PostCheckoutSessionsRequestBodyLocale'EnumLt
-            | val GHC.Classes.== "lv" -> PostCheckoutSessionsRequestBodyLocale'EnumLv
-            | val GHC.Classes.== "ms" -> PostCheckoutSessionsRequestBodyLocale'EnumMs
-            | val GHC.Classes.== "mt" -> PostCheckoutSessionsRequestBodyLocale'EnumMt
-            | val GHC.Classes.== "nb" -> PostCheckoutSessionsRequestBodyLocale'EnumNb
-            | val GHC.Classes.== "nl" -> PostCheckoutSessionsRequestBodyLocale'EnumNl
-            | val GHC.Classes.== "pl" -> PostCheckoutSessionsRequestBodyLocale'EnumPl
-            | val GHC.Classes.== "pt" -> PostCheckoutSessionsRequestBodyLocale'EnumPt
-            | val GHC.Classes.== "pt-BR" -> PostCheckoutSessionsRequestBodyLocale'EnumPtBR
-            | val GHC.Classes.== "ro" -> PostCheckoutSessionsRequestBodyLocale'EnumRo
-            | val GHC.Classes.== "ru" -> PostCheckoutSessionsRequestBodyLocale'EnumRu
-            | val GHC.Classes.== "sk" -> PostCheckoutSessionsRequestBodyLocale'EnumSk
-            | val GHC.Classes.== "sl" -> PostCheckoutSessionsRequestBodyLocale'EnumSl
-            | val GHC.Classes.== "sv" -> PostCheckoutSessionsRequestBodyLocale'EnumSv
-            | val GHC.Classes.== "th" -> PostCheckoutSessionsRequestBodyLocale'EnumTh
-            | val GHC.Classes.== "tr" -> PostCheckoutSessionsRequestBodyLocale'EnumTr
-            | val GHC.Classes.== "vi" -> PostCheckoutSessionsRequestBodyLocale'EnumVi
-            | val GHC.Classes.== "zh" -> PostCheckoutSessionsRequestBodyLocale'EnumZh
-            | val GHC.Classes.== "zh-HK" -> PostCheckoutSessionsRequestBodyLocale'EnumZhHK
-            | val GHC.Classes.== "zh-TW" -> PostCheckoutSessionsRequestBodyLocale'EnumZhTW
-            | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyLocale'Other val
+          | val GHC.Classes.== "auto" -> PostCheckoutSessionsRequestBodyLocale'EnumAuto
+          | val GHC.Classes.== "bg" -> PostCheckoutSessionsRequestBodyLocale'EnumBg
+          | val GHC.Classes.== "cs" -> PostCheckoutSessionsRequestBodyLocale'EnumCs
+          | val GHC.Classes.== "da" -> PostCheckoutSessionsRequestBodyLocale'EnumDa
+          | val GHC.Classes.== "de" -> PostCheckoutSessionsRequestBodyLocale'EnumDe
+          | val GHC.Classes.== "el" -> PostCheckoutSessionsRequestBodyLocale'EnumEl
+          | val GHC.Classes.== "en" -> PostCheckoutSessionsRequestBodyLocale'EnumEn
+          | val GHC.Classes.== "en-GB" -> PostCheckoutSessionsRequestBodyLocale'EnumEnGB
+          | val GHC.Classes.== "es" -> PostCheckoutSessionsRequestBodyLocale'EnumEs
+          | val GHC.Classes.== "es-419" -> PostCheckoutSessionsRequestBodyLocale'EnumEs_419
+          | val GHC.Classes.== "et" -> PostCheckoutSessionsRequestBodyLocale'EnumEt
+          | val GHC.Classes.== "fi" -> PostCheckoutSessionsRequestBodyLocale'EnumFi
+          | val GHC.Classes.== "fil" -> PostCheckoutSessionsRequestBodyLocale'EnumFil
+          | val GHC.Classes.== "fr" -> PostCheckoutSessionsRequestBodyLocale'EnumFr
+          | val GHC.Classes.== "fr-CA" -> PostCheckoutSessionsRequestBodyLocale'EnumFrCA
+          | val GHC.Classes.== "hr" -> PostCheckoutSessionsRequestBodyLocale'EnumHr
+          | val GHC.Classes.== "hu" -> PostCheckoutSessionsRequestBodyLocale'EnumHu
+          | val GHC.Classes.== "id" -> PostCheckoutSessionsRequestBodyLocale'EnumId
+          | val GHC.Classes.== "it" -> PostCheckoutSessionsRequestBodyLocale'EnumIt
+          | val GHC.Classes.== "ja" -> PostCheckoutSessionsRequestBodyLocale'EnumJa
+          | val GHC.Classes.== "ko" -> PostCheckoutSessionsRequestBodyLocale'EnumKo
+          | val GHC.Classes.== "lt" -> PostCheckoutSessionsRequestBodyLocale'EnumLt
+          | val GHC.Classes.== "lv" -> PostCheckoutSessionsRequestBodyLocale'EnumLv
+          | val GHC.Classes.== "ms" -> PostCheckoutSessionsRequestBodyLocale'EnumMs
+          | val GHC.Classes.== "mt" -> PostCheckoutSessionsRequestBodyLocale'EnumMt
+          | val GHC.Classes.== "nb" -> PostCheckoutSessionsRequestBodyLocale'EnumNb
+          | val GHC.Classes.== "nl" -> PostCheckoutSessionsRequestBodyLocale'EnumNl
+          | val GHC.Classes.== "pl" -> PostCheckoutSessionsRequestBodyLocale'EnumPl
+          | val GHC.Classes.== "pt" -> PostCheckoutSessionsRequestBodyLocale'EnumPt
+          | val GHC.Classes.== "pt-BR" -> PostCheckoutSessionsRequestBodyLocale'EnumPtBR
+          | val GHC.Classes.== "ro" -> PostCheckoutSessionsRequestBodyLocale'EnumRo
+          | val GHC.Classes.== "ru" -> PostCheckoutSessionsRequestBodyLocale'EnumRu
+          | val GHC.Classes.== "sk" -> PostCheckoutSessionsRequestBodyLocale'EnumSk
+          | val GHC.Classes.== "sl" -> PostCheckoutSessionsRequestBodyLocale'EnumSl
+          | val GHC.Classes.== "sv" -> PostCheckoutSessionsRequestBodyLocale'EnumSv
+          | val GHC.Classes.== "th" -> PostCheckoutSessionsRequestBodyLocale'EnumTh
+          | val GHC.Classes.== "tr" -> PostCheckoutSessionsRequestBodyLocale'EnumTr
+          | val GHC.Classes.== "vi" -> PostCheckoutSessionsRequestBodyLocale'EnumVi
+          | val GHC.Classes.== "zh" -> PostCheckoutSessionsRequestBodyLocale'EnumZh
+          | val GHC.Classes.== "zh-HK" -> PostCheckoutSessionsRequestBodyLocale'EnumZhHK
+          | val GHC.Classes.== "zh-TW" -> PostCheckoutSessionsRequestBodyLocale'EnumZhTW
+          | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyLocale'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/checkout\/sessions.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.mode@ in the specification.
@@ -1080,10 +1080,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostCheckoutSessionsRequestBodyMode'
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "payment" -> PostCheckoutSessionsRequestBodyMode'EnumPayment
-            | val GHC.Classes.== "setup" -> PostCheckoutSessionsRequestBodyMode'EnumSetup
-            | val GHC.Classes.== "subscription" -> PostCheckoutSessionsRequestBodyMode'EnumSubscription
-            | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyMode'Other val
+          | val GHC.Classes.== "payment" -> PostCheckoutSessionsRequestBodyMode'EnumPayment
+          | val GHC.Classes.== "setup" -> PostCheckoutSessionsRequestBodyMode'EnumSetup
+          | val GHC.Classes.== "subscription" -> PostCheckoutSessionsRequestBodyMode'EnumSubscription
+          | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyMode'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/checkout\/sessions.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment_intent_data@ in the specification.
@@ -1179,9 +1179,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostCheckoutSessionsRequestBodyPayme
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> PostCheckoutSessionsRequestBodyPaymentIntentData'CaptureMethod'EnumAutomatic
-            | val GHC.Classes.== "manual" -> PostCheckoutSessionsRequestBodyPaymentIntentData'CaptureMethod'EnumManual
-            | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyPaymentIntentData'CaptureMethod'Other val
+          | val GHC.Classes.== "automatic" -> PostCheckoutSessionsRequestBodyPaymentIntentData'CaptureMethod'EnumAutomatic
+          | val GHC.Classes.== "manual" -> PostCheckoutSessionsRequestBodyPaymentIntentData'CaptureMethod'EnumManual
+          | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyPaymentIntentData'CaptureMethod'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/checkout\/sessions.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment_intent_data.properties.setup_future_usage@ in the specification.
@@ -1206,9 +1206,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostCheckoutSessionsRequestBodyPayme
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "off_session" -> PostCheckoutSessionsRequestBodyPaymentIntentData'SetupFutureUsage'EnumOffSession
-            | val GHC.Classes.== "on_session" -> PostCheckoutSessionsRequestBodyPaymentIntentData'SetupFutureUsage'EnumOnSession
-            | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyPaymentIntentData'SetupFutureUsage'Other val
+          | val GHC.Classes.== "off_session" -> PostCheckoutSessionsRequestBodyPaymentIntentData'SetupFutureUsage'EnumOffSession
+          | val GHC.Classes.== "on_session" -> PostCheckoutSessionsRequestBodyPaymentIntentData'SetupFutureUsage'EnumOnSession
+          | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyPaymentIntentData'SetupFutureUsage'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/checkout\/sessions.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment_intent_data.properties.shipping@ in the specification.
@@ -1511,9 +1511,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostCheckoutSessionsRequestBodyPayme
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "cad" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'AcssDebit'Currency'EnumCad
-            | val GHC.Classes.== "usd" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'AcssDebit'Currency'EnumUsd
-            | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'AcssDebit'Currency'Other val
+          | val GHC.Classes.== "cad" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'AcssDebit'Currency'EnumCad
+          | val GHC.Classes.== "usd" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'AcssDebit'Currency'EnumUsd
+          | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'AcssDebit'Currency'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/checkout\/sessions.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment_method_options.properties.acss_debit.properties.mandate_options@ in the specification.
@@ -1570,8 +1570,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostCheckoutSessionsRequestBodyPaymentMe
 instance Data.Aeson.Types.FromJSON.FromJSON PostCheckoutSessionsRequestBodyPaymentMethodOptions'AcssDebit'MandateOptions'CustomMandateUrl'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostCheckoutSessionsRequestBodyPaymentMethodOptions'AcssDebit'MandateOptions'CustomMandateUrl'EmptyString
-        | GHC.Base.otherwise -> case (PostCheckoutSessionsRequestBodyPaymentMethodOptions'AcssDebit'MandateOptions'CustomMandateUrl'Text Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostCheckoutSessionsRequestBodyPaymentMethodOptions'AcssDebit'MandateOptions'CustomMandateUrl'EmptyString
+      | GHC.Base.otherwise -> case (PostCheckoutSessionsRequestBodyPaymentMethodOptions'AcssDebit'MandateOptions'CustomMandateUrl'Text Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -1597,9 +1597,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostCheckoutSessionsRequestBodyPayme
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "invoice" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'AcssDebit'MandateOptions'DefaultFor'EnumInvoice
-            | val GHC.Classes.== "subscription" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'AcssDebit'MandateOptions'DefaultFor'EnumSubscription
-            | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'AcssDebit'MandateOptions'DefaultFor'Other val
+          | val GHC.Classes.== "invoice" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'AcssDebit'MandateOptions'DefaultFor'EnumInvoice
+          | val GHC.Classes.== "subscription" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'AcssDebit'MandateOptions'DefaultFor'EnumSubscription
+          | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'AcssDebit'MandateOptions'DefaultFor'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/checkout\/sessions.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment_method_options.properties.acss_debit.properties.mandate_options.properties.payment_schedule@ in the specification.
@@ -1627,10 +1627,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostCheckoutSessionsRequestBodyPayme
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "combined" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'AcssDebit'MandateOptions'PaymentSchedule'EnumCombined
-            | val GHC.Classes.== "interval" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'AcssDebit'MandateOptions'PaymentSchedule'EnumInterval
-            | val GHC.Classes.== "sporadic" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'AcssDebit'MandateOptions'PaymentSchedule'EnumSporadic
-            | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'AcssDebit'MandateOptions'PaymentSchedule'Other val
+          | val GHC.Classes.== "combined" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'AcssDebit'MandateOptions'PaymentSchedule'EnumCombined
+          | val GHC.Classes.== "interval" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'AcssDebit'MandateOptions'PaymentSchedule'EnumInterval
+          | val GHC.Classes.== "sporadic" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'AcssDebit'MandateOptions'PaymentSchedule'EnumSporadic
+          | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'AcssDebit'MandateOptions'PaymentSchedule'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/checkout\/sessions.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment_method_options.properties.acss_debit.properties.mandate_options.properties.transaction_type@ in the specification.
@@ -1655,9 +1655,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostCheckoutSessionsRequestBodyPayme
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "business" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'AcssDebit'MandateOptions'TransactionType'EnumBusiness
-            | val GHC.Classes.== "personal" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'AcssDebit'MandateOptions'TransactionType'EnumPersonal
-            | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'AcssDebit'MandateOptions'TransactionType'Other val
+          | val GHC.Classes.== "business" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'AcssDebit'MandateOptions'TransactionType'EnumBusiness
+          | val GHC.Classes.== "personal" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'AcssDebit'MandateOptions'TransactionType'EnumPersonal
+          | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'AcssDebit'MandateOptions'TransactionType'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/checkout\/sessions.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment_method_options.properties.acss_debit.properties.setup_future_usage@ in the specification.
@@ -1685,10 +1685,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostCheckoutSessionsRequestBodyPayme
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'AcssDebit'SetupFutureUsage'EnumNone
-            | val GHC.Classes.== "off_session" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'AcssDebit'SetupFutureUsage'EnumOffSession
-            | val GHC.Classes.== "on_session" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'AcssDebit'SetupFutureUsage'EnumOnSession
-            | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'AcssDebit'SetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'AcssDebit'SetupFutureUsage'EnumNone
+          | val GHC.Classes.== "off_session" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'AcssDebit'SetupFutureUsage'EnumOffSession
+          | val GHC.Classes.== "on_session" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'AcssDebit'SetupFutureUsage'EnumOnSession
+          | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'AcssDebit'SetupFutureUsage'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/checkout\/sessions.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment_method_options.properties.acss_debit.properties.verification_method@ in the specification.
@@ -1716,10 +1716,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostCheckoutSessionsRequestBodyPayme
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'AcssDebit'VerificationMethod'EnumAutomatic
-            | val GHC.Classes.== "instant" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'AcssDebit'VerificationMethod'EnumInstant
-            | val GHC.Classes.== "microdeposits" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'AcssDebit'VerificationMethod'EnumMicrodeposits
-            | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'AcssDebit'VerificationMethod'Other val
+          | val GHC.Classes.== "automatic" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'AcssDebit'VerificationMethod'EnumAutomatic
+          | val GHC.Classes.== "instant" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'AcssDebit'VerificationMethod'EnumInstant
+          | val GHC.Classes.== "microdeposits" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'AcssDebit'VerificationMethod'EnumMicrodeposits
+          | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'AcssDebit'VerificationMethod'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/checkout\/sessions.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment_method_options.properties.affirm@ in the specification.
@@ -1762,8 +1762,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostCheckoutSessionsRequestBodyPayme
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'Affirm'SetupFutureUsage'EnumNone
-            | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'Affirm'SetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'Affirm'SetupFutureUsage'EnumNone
+          | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'Affirm'SetupFutureUsage'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/checkout\/sessions.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment_method_options.properties.afterpay_clearpay@ in the specification.
@@ -1806,8 +1806,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostCheckoutSessionsRequestBodyPayme
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'AfterpayClearpay'SetupFutureUsage'EnumNone
-            | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'AfterpayClearpay'SetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'AfterpayClearpay'SetupFutureUsage'EnumNone
+          | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'AfterpayClearpay'SetupFutureUsage'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/checkout\/sessions.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment_method_options.properties.alipay@ in the specification.
@@ -1850,8 +1850,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostCheckoutSessionsRequestBodyPayme
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'Alipay'SetupFutureUsage'EnumNone
-            | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'Alipay'SetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'Alipay'SetupFutureUsage'EnumNone
+          | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'Alipay'SetupFutureUsage'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/checkout\/sessions.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment_method_options.properties.au_becs_debit@ in the specification.
@@ -1894,8 +1894,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostCheckoutSessionsRequestBodyPayme
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'AuBecsDebit'SetupFutureUsage'EnumNone
-            | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'AuBecsDebit'SetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'AuBecsDebit'SetupFutureUsage'EnumNone
+          | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'AuBecsDebit'SetupFutureUsage'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/checkout\/sessions.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment_method_options.properties.bacs_debit@ in the specification.
@@ -1944,10 +1944,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostCheckoutSessionsRequestBodyPayme
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'BacsDebit'SetupFutureUsage'EnumNone
-            | val GHC.Classes.== "off_session" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'BacsDebit'SetupFutureUsage'EnumOffSession
-            | val GHC.Classes.== "on_session" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'BacsDebit'SetupFutureUsage'EnumOnSession
-            | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'BacsDebit'SetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'BacsDebit'SetupFutureUsage'EnumNone
+          | val GHC.Classes.== "off_session" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'BacsDebit'SetupFutureUsage'EnumOffSession
+          | val GHC.Classes.== "on_session" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'BacsDebit'SetupFutureUsage'EnumOnSession
+          | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'BacsDebit'SetupFutureUsage'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/checkout\/sessions.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment_method_options.properties.bancontact@ in the specification.
@@ -1990,8 +1990,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostCheckoutSessionsRequestBodyPayme
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'Bancontact'SetupFutureUsage'EnumNone
-            | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'Bancontact'SetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'Bancontact'SetupFutureUsage'EnumNone
+          | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'Bancontact'SetupFutureUsage'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/checkout\/sessions.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment_method_options.properties.boleto@ in the specification.
@@ -2046,10 +2046,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostCheckoutSessionsRequestBodyPayme
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'Boleto'SetupFutureUsage'EnumNone
-            | val GHC.Classes.== "off_session" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'Boleto'SetupFutureUsage'EnumOffSession
-            | val GHC.Classes.== "on_session" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'Boleto'SetupFutureUsage'EnumOnSession
-            | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'Boleto'SetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'Boleto'SetupFutureUsage'EnumNone
+          | val GHC.Classes.== "off_session" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'Boleto'SetupFutureUsage'EnumOffSession
+          | val GHC.Classes.== "on_session" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'Boleto'SetupFutureUsage'EnumOnSession
+          | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'Boleto'SetupFutureUsage'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/checkout\/sessions.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment_method_options.properties.card@ in the specification.
@@ -2112,9 +2112,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostCheckoutSessionsRequestBodyPayme
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "off_session" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'Card'SetupFutureUsage'EnumOffSession
-            | val GHC.Classes.== "on_session" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'Card'SetupFutureUsage'EnumOnSession
-            | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'Card'SetupFutureUsage'Other val
+          | val GHC.Classes.== "off_session" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'Card'SetupFutureUsage'EnumOffSession
+          | val GHC.Classes.== "on_session" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'Card'SetupFutureUsage'EnumOnSession
+          | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'Card'SetupFutureUsage'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/checkout\/sessions.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment_method_options.properties.eps@ in the specification.
@@ -2157,8 +2157,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostCheckoutSessionsRequestBodyPayme
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'Eps'SetupFutureUsage'EnumNone
-            | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'Eps'SetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'Eps'SetupFutureUsage'EnumNone
+          | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'Eps'SetupFutureUsage'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/checkout\/sessions.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment_method_options.properties.fpx@ in the specification.
@@ -2201,8 +2201,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostCheckoutSessionsRequestBodyPayme
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'Fpx'SetupFutureUsage'EnumNone
-            | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'Fpx'SetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'Fpx'SetupFutureUsage'EnumNone
+          | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'Fpx'SetupFutureUsage'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/checkout\/sessions.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment_method_options.properties.giropay@ in the specification.
@@ -2245,8 +2245,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostCheckoutSessionsRequestBodyPayme
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'Giropay'SetupFutureUsage'EnumNone
-            | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'Giropay'SetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'Giropay'SetupFutureUsage'EnumNone
+          | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'Giropay'SetupFutureUsage'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/checkout\/sessions.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment_method_options.properties.grabpay@ in the specification.
@@ -2289,8 +2289,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostCheckoutSessionsRequestBodyPayme
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'Grabpay'SetupFutureUsage'EnumNone
-            | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'Grabpay'SetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'Grabpay'SetupFutureUsage'EnumNone
+          | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'Grabpay'SetupFutureUsage'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/checkout\/sessions.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment_method_options.properties.ideal@ in the specification.
@@ -2333,8 +2333,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostCheckoutSessionsRequestBodyPayme
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'Ideal'SetupFutureUsage'EnumNone
-            | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'Ideal'SetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'Ideal'SetupFutureUsage'EnumNone
+          | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'Ideal'SetupFutureUsage'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/checkout\/sessions.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment_method_options.properties.klarna@ in the specification.
@@ -2377,8 +2377,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostCheckoutSessionsRequestBodyPayme
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'Klarna'SetupFutureUsage'EnumNone
-            | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'Klarna'SetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'Klarna'SetupFutureUsage'EnumNone
+          | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'Klarna'SetupFutureUsage'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/checkout\/sessions.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment_method_options.properties.konbini@ in the specification.
@@ -2427,8 +2427,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostCheckoutSessionsRequestBodyPayme
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'Konbini'SetupFutureUsage'EnumNone
-            | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'Konbini'SetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'Konbini'SetupFutureUsage'EnumNone
+          | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'Konbini'SetupFutureUsage'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/checkout\/sessions.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment_method_options.properties.oxxo@ in the specification.
@@ -2477,8 +2477,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostCheckoutSessionsRequestBodyPayme
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'Oxxo'SetupFutureUsage'EnumNone
-            | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'Oxxo'SetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'Oxxo'SetupFutureUsage'EnumNone
+          | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'Oxxo'SetupFutureUsage'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/checkout\/sessions.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment_method_options.properties.p24@ in the specification.
@@ -2527,8 +2527,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostCheckoutSessionsRequestBodyPayme
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'P24'SetupFutureUsage'EnumNone
-            | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'P24'SetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'P24'SetupFutureUsage'EnumNone
+          | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'P24'SetupFutureUsage'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/checkout\/sessions.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment_method_options.properties.paynow@ in the specification.
@@ -2577,8 +2577,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostCheckoutSessionsRequestBodyPayme
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'Paynow'SetupFutureUsage'EnumNone
-            | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'Paynow'SetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'Paynow'SetupFutureUsage'EnumNone
+          | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'Paynow'SetupFutureUsage'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/checkout\/sessions.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment_method_options.properties.sepa_debit@ in the specification.
@@ -2627,10 +2627,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostCheckoutSessionsRequestBodyPayme
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'SepaDebit'SetupFutureUsage'EnumNone
-            | val GHC.Classes.== "off_session" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'SepaDebit'SetupFutureUsage'EnumOffSession
-            | val GHC.Classes.== "on_session" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'SepaDebit'SetupFutureUsage'EnumOnSession
-            | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'SepaDebit'SetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'SepaDebit'SetupFutureUsage'EnumNone
+          | val GHC.Classes.== "off_session" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'SepaDebit'SetupFutureUsage'EnumOffSession
+          | val GHC.Classes.== "on_session" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'SepaDebit'SetupFutureUsage'EnumOnSession
+          | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'SepaDebit'SetupFutureUsage'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/checkout\/sessions.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment_method_options.properties.sofort@ in the specification.
@@ -2673,8 +2673,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostCheckoutSessionsRequestBodyPayme
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'Sofort'SetupFutureUsage'EnumNone
-            | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'Sofort'SetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'Sofort'SetupFutureUsage'EnumNone
+          | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'Sofort'SetupFutureUsage'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/checkout\/sessions.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment_method_options.properties.us_bank_account@ in the specification.
@@ -2756,11 +2756,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostCheckoutSessionsRequestBodyPayme
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "balances" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'UsBankAccount'FinancialConnections'Permissions'EnumBalances
-            | val GHC.Classes.== "ownership" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'UsBankAccount'FinancialConnections'Permissions'EnumOwnership
-            | val GHC.Classes.== "payment_method" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'UsBankAccount'FinancialConnections'Permissions'EnumPaymentMethod
-            | val GHC.Classes.== "transactions" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'UsBankAccount'FinancialConnections'Permissions'EnumTransactions
-            | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'UsBankAccount'FinancialConnections'Permissions'Other val
+          | val GHC.Classes.== "balances" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'UsBankAccount'FinancialConnections'Permissions'EnumBalances
+          | val GHC.Classes.== "ownership" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'UsBankAccount'FinancialConnections'Permissions'EnumOwnership
+          | val GHC.Classes.== "payment_method" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'UsBankAccount'FinancialConnections'Permissions'EnumPaymentMethod
+          | val GHC.Classes.== "transactions" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'UsBankAccount'FinancialConnections'Permissions'EnumTransactions
+          | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'UsBankAccount'FinancialConnections'Permissions'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/checkout\/sessions.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment_method_options.properties.us_bank_account.properties.setup_future_usage@ in the specification.
@@ -2788,10 +2788,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostCheckoutSessionsRequestBodyPayme
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'UsBankAccount'SetupFutureUsage'EnumNone
-            | val GHC.Classes.== "off_session" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'UsBankAccount'SetupFutureUsage'EnumOffSession
-            | val GHC.Classes.== "on_session" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'UsBankAccount'SetupFutureUsage'EnumOnSession
-            | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'UsBankAccount'SetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'UsBankAccount'SetupFutureUsage'EnumNone
+          | val GHC.Classes.== "off_session" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'UsBankAccount'SetupFutureUsage'EnumOffSession
+          | val GHC.Classes.== "on_session" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'UsBankAccount'SetupFutureUsage'EnumOnSession
+          | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'UsBankAccount'SetupFutureUsage'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/checkout\/sessions.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment_method_options.properties.us_bank_account.properties.verification_method@ in the specification.
@@ -2816,9 +2816,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostCheckoutSessionsRequestBodyPayme
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'UsBankAccount'VerificationMethod'EnumAutomatic
-            | val GHC.Classes.== "instant" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'UsBankAccount'VerificationMethod'EnumInstant
-            | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'UsBankAccount'VerificationMethod'Other val
+          | val GHC.Classes.== "automatic" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'UsBankAccount'VerificationMethod'EnumAutomatic
+          | val GHC.Classes.== "instant" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'UsBankAccount'VerificationMethod'EnumInstant
+          | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'UsBankAccount'VerificationMethod'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/checkout\/sessions.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment_method_options.properties.wechat_pay@ in the specification.
@@ -2883,10 +2883,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostCheckoutSessionsRequestBodyPayme
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "android" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'WechatPay'Client'EnumAndroid
-            | val GHC.Classes.== "ios" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'WechatPay'Client'EnumIos
-            | val GHC.Classes.== "web" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'WechatPay'Client'EnumWeb
-            | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'WechatPay'Client'Other val
+          | val GHC.Classes.== "android" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'WechatPay'Client'EnumAndroid
+          | val GHC.Classes.== "ios" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'WechatPay'Client'EnumIos
+          | val GHC.Classes.== "web" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'WechatPay'Client'EnumWeb
+          | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'WechatPay'Client'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/checkout\/sessions.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment_method_options.properties.wechat_pay.properties.setup_future_usage@ in the specification.
@@ -2908,8 +2908,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostCheckoutSessionsRequestBodyPayme
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'WechatPay'SetupFutureUsage'EnumNone
-            | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'WechatPay'SetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'WechatPay'SetupFutureUsage'EnumNone
+          | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyPaymentMethodOptions'WechatPay'SetupFutureUsage'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/checkout\/sessions.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment_method_types.items@ in the specification.
@@ -3000,31 +3000,31 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostCheckoutSessionsRequestBodyPayme
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "acss_debit" -> PostCheckoutSessionsRequestBodyPaymentMethodTypes'EnumAcssDebit
-            | val GHC.Classes.== "affirm" -> PostCheckoutSessionsRequestBodyPaymentMethodTypes'EnumAffirm
-            | val GHC.Classes.== "afterpay_clearpay" -> PostCheckoutSessionsRequestBodyPaymentMethodTypes'EnumAfterpayClearpay
-            | val GHC.Classes.== "alipay" -> PostCheckoutSessionsRequestBodyPaymentMethodTypes'EnumAlipay
-            | val GHC.Classes.== "au_becs_debit" -> PostCheckoutSessionsRequestBodyPaymentMethodTypes'EnumAuBecsDebit
-            | val GHC.Classes.== "bacs_debit" -> PostCheckoutSessionsRequestBodyPaymentMethodTypes'EnumBacsDebit
-            | val GHC.Classes.== "bancontact" -> PostCheckoutSessionsRequestBodyPaymentMethodTypes'EnumBancontact
-            | val GHC.Classes.== "boleto" -> PostCheckoutSessionsRequestBodyPaymentMethodTypes'EnumBoleto
-            | val GHC.Classes.== "card" -> PostCheckoutSessionsRequestBodyPaymentMethodTypes'EnumCard
-            | val GHC.Classes.== "eps" -> PostCheckoutSessionsRequestBodyPaymentMethodTypes'EnumEps
-            | val GHC.Classes.== "fpx" -> PostCheckoutSessionsRequestBodyPaymentMethodTypes'EnumFpx
-            | val GHC.Classes.== "giropay" -> PostCheckoutSessionsRequestBodyPaymentMethodTypes'EnumGiropay
-            | val GHC.Classes.== "grabpay" -> PostCheckoutSessionsRequestBodyPaymentMethodTypes'EnumGrabpay
-            | val GHC.Classes.== "ideal" -> PostCheckoutSessionsRequestBodyPaymentMethodTypes'EnumIdeal
-            | val GHC.Classes.== "klarna" -> PostCheckoutSessionsRequestBodyPaymentMethodTypes'EnumKlarna
-            | val GHC.Classes.== "konbini" -> PostCheckoutSessionsRequestBodyPaymentMethodTypes'EnumKonbini
-            | val GHC.Classes.== "oxxo" -> PostCheckoutSessionsRequestBodyPaymentMethodTypes'EnumOxxo
-            | val GHC.Classes.== "p24" -> PostCheckoutSessionsRequestBodyPaymentMethodTypes'EnumP24
-            | val GHC.Classes.== "paynow" -> PostCheckoutSessionsRequestBodyPaymentMethodTypes'EnumPaynow
-            | val GHC.Classes.== "promptpay" -> PostCheckoutSessionsRequestBodyPaymentMethodTypes'EnumPromptpay
-            | val GHC.Classes.== "sepa_debit" -> PostCheckoutSessionsRequestBodyPaymentMethodTypes'EnumSepaDebit
-            | val GHC.Classes.== "sofort" -> PostCheckoutSessionsRequestBodyPaymentMethodTypes'EnumSofort
-            | val GHC.Classes.== "us_bank_account" -> PostCheckoutSessionsRequestBodyPaymentMethodTypes'EnumUsBankAccount
-            | val GHC.Classes.== "wechat_pay" -> PostCheckoutSessionsRequestBodyPaymentMethodTypes'EnumWechatPay
-            | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyPaymentMethodTypes'Other val
+          | val GHC.Classes.== "acss_debit" -> PostCheckoutSessionsRequestBodyPaymentMethodTypes'EnumAcssDebit
+          | val GHC.Classes.== "affirm" -> PostCheckoutSessionsRequestBodyPaymentMethodTypes'EnumAffirm
+          | val GHC.Classes.== "afterpay_clearpay" -> PostCheckoutSessionsRequestBodyPaymentMethodTypes'EnumAfterpayClearpay
+          | val GHC.Classes.== "alipay" -> PostCheckoutSessionsRequestBodyPaymentMethodTypes'EnumAlipay
+          | val GHC.Classes.== "au_becs_debit" -> PostCheckoutSessionsRequestBodyPaymentMethodTypes'EnumAuBecsDebit
+          | val GHC.Classes.== "bacs_debit" -> PostCheckoutSessionsRequestBodyPaymentMethodTypes'EnumBacsDebit
+          | val GHC.Classes.== "bancontact" -> PostCheckoutSessionsRequestBodyPaymentMethodTypes'EnumBancontact
+          | val GHC.Classes.== "boleto" -> PostCheckoutSessionsRequestBodyPaymentMethodTypes'EnumBoleto
+          | val GHC.Classes.== "card" -> PostCheckoutSessionsRequestBodyPaymentMethodTypes'EnumCard
+          | val GHC.Classes.== "eps" -> PostCheckoutSessionsRequestBodyPaymentMethodTypes'EnumEps
+          | val GHC.Classes.== "fpx" -> PostCheckoutSessionsRequestBodyPaymentMethodTypes'EnumFpx
+          | val GHC.Classes.== "giropay" -> PostCheckoutSessionsRequestBodyPaymentMethodTypes'EnumGiropay
+          | val GHC.Classes.== "grabpay" -> PostCheckoutSessionsRequestBodyPaymentMethodTypes'EnumGrabpay
+          | val GHC.Classes.== "ideal" -> PostCheckoutSessionsRequestBodyPaymentMethodTypes'EnumIdeal
+          | val GHC.Classes.== "klarna" -> PostCheckoutSessionsRequestBodyPaymentMethodTypes'EnumKlarna
+          | val GHC.Classes.== "konbini" -> PostCheckoutSessionsRequestBodyPaymentMethodTypes'EnumKonbini
+          | val GHC.Classes.== "oxxo" -> PostCheckoutSessionsRequestBodyPaymentMethodTypes'EnumOxxo
+          | val GHC.Classes.== "p24" -> PostCheckoutSessionsRequestBodyPaymentMethodTypes'EnumP24
+          | val GHC.Classes.== "paynow" -> PostCheckoutSessionsRequestBodyPaymentMethodTypes'EnumPaynow
+          | val GHC.Classes.== "promptpay" -> PostCheckoutSessionsRequestBodyPaymentMethodTypes'EnumPromptpay
+          | val GHC.Classes.== "sepa_debit" -> PostCheckoutSessionsRequestBodyPaymentMethodTypes'EnumSepaDebit
+          | val GHC.Classes.== "sofort" -> PostCheckoutSessionsRequestBodyPaymentMethodTypes'EnumSofort
+          | val GHC.Classes.== "us_bank_account" -> PostCheckoutSessionsRequestBodyPaymentMethodTypes'EnumUsBankAccount
+          | val GHC.Classes.== "wechat_pay" -> PostCheckoutSessionsRequestBodyPaymentMethodTypes'EnumWechatPay
+          | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyPaymentMethodTypes'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/checkout\/sessions.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.phone_number_collection@ in the specification.
@@ -3845,244 +3845,244 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostCheckoutSessionsRequestBodyShipp
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "AC" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumAC
-            | val GHC.Classes.== "AD" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumAD
-            | val GHC.Classes.== "AE" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumAE
-            | val GHC.Classes.== "AF" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumAF
-            | val GHC.Classes.== "AG" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumAG
-            | val GHC.Classes.== "AI" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumAI
-            | val GHC.Classes.== "AL" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumAL
-            | val GHC.Classes.== "AM" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumAM
-            | val GHC.Classes.== "AO" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumAO
-            | val GHC.Classes.== "AQ" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumAQ
-            | val GHC.Classes.== "AR" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumAR
-            | val GHC.Classes.== "AT" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumAT
-            | val GHC.Classes.== "AU" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumAU
-            | val GHC.Classes.== "AW" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumAW
-            | val GHC.Classes.== "AX" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumAX
-            | val GHC.Classes.== "AZ" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumAZ
-            | val GHC.Classes.== "BA" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumBA
-            | val GHC.Classes.== "BB" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumBB
-            | val GHC.Classes.== "BD" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumBD
-            | val GHC.Classes.== "BE" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumBE
-            | val GHC.Classes.== "BF" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumBF
-            | val GHC.Classes.== "BG" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumBG
-            | val GHC.Classes.== "BH" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumBH
-            | val GHC.Classes.== "BI" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumBI
-            | val GHC.Classes.== "BJ" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumBJ
-            | val GHC.Classes.== "BL" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumBL
-            | val GHC.Classes.== "BM" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumBM
-            | val GHC.Classes.== "BN" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumBN
-            | val GHC.Classes.== "BO" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumBO
-            | val GHC.Classes.== "BQ" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumBQ
-            | val GHC.Classes.== "BR" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumBR
-            | val GHC.Classes.== "BS" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumBS
-            | val GHC.Classes.== "BT" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumBT
-            | val GHC.Classes.== "BV" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumBV
-            | val GHC.Classes.== "BW" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumBW
-            | val GHC.Classes.== "BY" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumBY
-            | val GHC.Classes.== "BZ" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumBZ
-            | val GHC.Classes.== "CA" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumCA
-            | val GHC.Classes.== "CD" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumCD
-            | val GHC.Classes.== "CF" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumCF
-            | val GHC.Classes.== "CG" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumCG
-            | val GHC.Classes.== "CH" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumCH
-            | val GHC.Classes.== "CI" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumCI
-            | val GHC.Classes.== "CK" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumCK
-            | val GHC.Classes.== "CL" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumCL
-            | val GHC.Classes.== "CM" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumCM
-            | val GHC.Classes.== "CN" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumCN
-            | val GHC.Classes.== "CO" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumCO
-            | val GHC.Classes.== "CR" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumCR
-            | val GHC.Classes.== "CV" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumCV
-            | val GHC.Classes.== "CW" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumCW
-            | val GHC.Classes.== "CY" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumCY
-            | val GHC.Classes.== "CZ" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumCZ
-            | val GHC.Classes.== "DE" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumDE
-            | val GHC.Classes.== "DJ" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumDJ
-            | val GHC.Classes.== "DK" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumDK
-            | val GHC.Classes.== "DM" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumDM
-            | val GHC.Classes.== "DO" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumDO
-            | val GHC.Classes.== "DZ" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumDZ
-            | val GHC.Classes.== "EC" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumEC
-            | val GHC.Classes.== "EE" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumEE
-            | val GHC.Classes.== "EG" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumEG
-            | val GHC.Classes.== "EH" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumEH
-            | val GHC.Classes.== "ER" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumER
-            | val GHC.Classes.== "ES" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumES
-            | val GHC.Classes.== "ET" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumET
-            | val GHC.Classes.== "FI" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumFI
-            | val GHC.Classes.== "FJ" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumFJ
-            | val GHC.Classes.== "FK" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumFK
-            | val GHC.Classes.== "FO" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumFO
-            | val GHC.Classes.== "FR" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumFR
-            | val GHC.Classes.== "GA" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumGA
-            | val GHC.Classes.== "GB" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumGB
-            | val GHC.Classes.== "GD" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumGD
-            | val GHC.Classes.== "GE" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumGE
-            | val GHC.Classes.== "GF" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumGF
-            | val GHC.Classes.== "GG" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumGG
-            | val GHC.Classes.== "GH" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumGH
-            | val GHC.Classes.== "GI" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumGI
-            | val GHC.Classes.== "GL" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumGL
-            | val GHC.Classes.== "GM" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumGM
-            | val GHC.Classes.== "GN" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumGN
-            | val GHC.Classes.== "GP" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumGP
-            | val GHC.Classes.== "GQ" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumGQ
-            | val GHC.Classes.== "GR" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumGR
-            | val GHC.Classes.== "GS" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumGS
-            | val GHC.Classes.== "GT" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumGT
-            | val GHC.Classes.== "GU" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumGU
-            | val GHC.Classes.== "GW" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumGW
-            | val GHC.Classes.== "GY" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumGY
-            | val GHC.Classes.== "HK" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumHK
-            | val GHC.Classes.== "HN" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumHN
-            | val GHC.Classes.== "HR" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumHR
-            | val GHC.Classes.== "HT" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumHT
-            | val GHC.Classes.== "HU" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumHU
-            | val GHC.Classes.== "ID" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumID
-            | val GHC.Classes.== "IE" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumIE
-            | val GHC.Classes.== "IL" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumIL
-            | val GHC.Classes.== "IM" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumIM
-            | val GHC.Classes.== "IN" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumIN
-            | val GHC.Classes.== "IO" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumIO
-            | val GHC.Classes.== "IQ" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumIQ
-            | val GHC.Classes.== "IS" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumIS
-            | val GHC.Classes.== "IT" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumIT
-            | val GHC.Classes.== "JE" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumJE
-            | val GHC.Classes.== "JM" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumJM
-            | val GHC.Classes.== "JO" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumJO
-            | val GHC.Classes.== "JP" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumJP
-            | val GHC.Classes.== "KE" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumKE
-            | val GHC.Classes.== "KG" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumKG
-            | val GHC.Classes.== "KH" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumKH
-            | val GHC.Classes.== "KI" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumKI
-            | val GHC.Classes.== "KM" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumKM
-            | val GHC.Classes.== "KN" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumKN
-            | val GHC.Classes.== "KR" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumKR
-            | val GHC.Classes.== "KW" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumKW
-            | val GHC.Classes.== "KY" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumKY
-            | val GHC.Classes.== "KZ" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumKZ
-            | val GHC.Classes.== "LA" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumLA
-            | val GHC.Classes.== "LB" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumLB
-            | val GHC.Classes.== "LC" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumLC
-            | val GHC.Classes.== "LI" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumLI
-            | val GHC.Classes.== "LK" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumLK
-            | val GHC.Classes.== "LR" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumLR
-            | val GHC.Classes.== "LS" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumLS
-            | val GHC.Classes.== "LT" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumLT
-            | val GHC.Classes.== "LU" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumLU
-            | val GHC.Classes.== "LV" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumLV
-            | val GHC.Classes.== "LY" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumLY
-            | val GHC.Classes.== "MA" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumMA
-            | val GHC.Classes.== "MC" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumMC
-            | val GHC.Classes.== "MD" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumMD
-            | val GHC.Classes.== "ME" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumME
-            | val GHC.Classes.== "MF" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumMF
-            | val GHC.Classes.== "MG" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumMG
-            | val GHC.Classes.== "MK" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumMK
-            | val GHC.Classes.== "ML" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumML
-            | val GHC.Classes.== "MM" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumMM
-            | val GHC.Classes.== "MN" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumMN
-            | val GHC.Classes.== "MO" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumMO
-            | val GHC.Classes.== "MQ" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumMQ
-            | val GHC.Classes.== "MR" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumMR
-            | val GHC.Classes.== "MS" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumMS
-            | val GHC.Classes.== "MT" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumMT
-            | val GHC.Classes.== "MU" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumMU
-            | val GHC.Classes.== "MV" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumMV
-            | val GHC.Classes.== "MW" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumMW
-            | val GHC.Classes.== "MX" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumMX
-            | val GHC.Classes.== "MY" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumMY
-            | val GHC.Classes.== "MZ" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumMZ
-            | val GHC.Classes.== "NA" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumNA
-            | val GHC.Classes.== "NC" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumNC
-            | val GHC.Classes.== "NE" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumNE
-            | val GHC.Classes.== "NG" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumNG
-            | val GHC.Classes.== "NI" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumNI
-            | val GHC.Classes.== "NL" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumNL
-            | val GHC.Classes.== "NO" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumNO
-            | val GHC.Classes.== "NP" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumNP
-            | val GHC.Classes.== "NR" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumNR
-            | val GHC.Classes.== "NU" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumNU
-            | val GHC.Classes.== "NZ" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumNZ
-            | val GHC.Classes.== "OM" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumOM
-            | val GHC.Classes.== "PA" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumPA
-            | val GHC.Classes.== "PE" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumPE
-            | val GHC.Classes.== "PF" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumPF
-            | val GHC.Classes.== "PG" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumPG
-            | val GHC.Classes.== "PH" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumPH
-            | val GHC.Classes.== "PK" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumPK
-            | val GHC.Classes.== "PL" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumPL
-            | val GHC.Classes.== "PM" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumPM
-            | val GHC.Classes.== "PN" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumPN
-            | val GHC.Classes.== "PR" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumPR
-            | val GHC.Classes.== "PS" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumPS
-            | val GHC.Classes.== "PT" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumPT
-            | val GHC.Classes.== "PY" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumPY
-            | val GHC.Classes.== "QA" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumQA
-            | val GHC.Classes.== "RE" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumRE
-            | val GHC.Classes.== "RO" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumRO
-            | val GHC.Classes.== "RS" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumRS
-            | val GHC.Classes.== "RU" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumRU
-            | val GHC.Classes.== "RW" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumRW
-            | val GHC.Classes.== "SA" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumSA
-            | val GHC.Classes.== "SB" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumSB
-            | val GHC.Classes.== "SC" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumSC
-            | val GHC.Classes.== "SE" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumSE
-            | val GHC.Classes.== "SG" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumSG
-            | val GHC.Classes.== "SH" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumSH
-            | val GHC.Classes.== "SI" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumSI
-            | val GHC.Classes.== "SJ" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumSJ
-            | val GHC.Classes.== "SK" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumSK
-            | val GHC.Classes.== "SL" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumSL
-            | val GHC.Classes.== "SM" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumSM
-            | val GHC.Classes.== "SN" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumSN
-            | val GHC.Classes.== "SO" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumSO
-            | val GHC.Classes.== "SR" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumSR
-            | val GHC.Classes.== "SS" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumSS
-            | val GHC.Classes.== "ST" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumST
-            | val GHC.Classes.== "SV" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumSV
-            | val GHC.Classes.== "SX" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumSX
-            | val GHC.Classes.== "SZ" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumSZ
-            | val GHC.Classes.== "TA" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumTA
-            | val GHC.Classes.== "TC" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumTC
-            | val GHC.Classes.== "TD" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumTD
-            | val GHC.Classes.== "TF" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumTF
-            | val GHC.Classes.== "TG" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumTG
-            | val GHC.Classes.== "TH" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumTH
-            | val GHC.Classes.== "TJ" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumTJ
-            | val GHC.Classes.== "TK" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumTK
-            | val GHC.Classes.== "TL" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumTL
-            | val GHC.Classes.== "TM" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumTM
-            | val GHC.Classes.== "TN" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumTN
-            | val GHC.Classes.== "TO" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumTO
-            | val GHC.Classes.== "TR" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumTR
-            | val GHC.Classes.== "TT" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumTT
-            | val GHC.Classes.== "TV" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumTV
-            | val GHC.Classes.== "TW" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumTW
-            | val GHC.Classes.== "TZ" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumTZ
-            | val GHC.Classes.== "UA" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumUA
-            | val GHC.Classes.== "UG" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumUG
-            | val GHC.Classes.== "US" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumUS
-            | val GHC.Classes.== "UY" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumUY
-            | val GHC.Classes.== "UZ" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumUZ
-            | val GHC.Classes.== "VA" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumVA
-            | val GHC.Classes.== "VC" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumVC
-            | val GHC.Classes.== "VE" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumVE
-            | val GHC.Classes.== "VG" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumVG
-            | val GHC.Classes.== "VN" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumVN
-            | val GHC.Classes.== "VU" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumVU
-            | val GHC.Classes.== "WF" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumWF
-            | val GHC.Classes.== "WS" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumWS
-            | val GHC.Classes.== "XK" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumXK
-            | val GHC.Classes.== "YE" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumYE
-            | val GHC.Classes.== "YT" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumYT
-            | val GHC.Classes.== "ZA" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumZA
-            | val GHC.Classes.== "ZM" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumZM
-            | val GHC.Classes.== "ZW" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumZW
-            | val GHC.Classes.== "ZZ" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumZZ
-            | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'Other val
+          | val GHC.Classes.== "AC" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumAC
+          | val GHC.Classes.== "AD" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumAD
+          | val GHC.Classes.== "AE" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumAE
+          | val GHC.Classes.== "AF" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumAF
+          | val GHC.Classes.== "AG" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumAG
+          | val GHC.Classes.== "AI" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumAI
+          | val GHC.Classes.== "AL" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumAL
+          | val GHC.Classes.== "AM" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumAM
+          | val GHC.Classes.== "AO" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumAO
+          | val GHC.Classes.== "AQ" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumAQ
+          | val GHC.Classes.== "AR" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumAR
+          | val GHC.Classes.== "AT" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumAT
+          | val GHC.Classes.== "AU" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumAU
+          | val GHC.Classes.== "AW" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumAW
+          | val GHC.Classes.== "AX" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumAX
+          | val GHC.Classes.== "AZ" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumAZ
+          | val GHC.Classes.== "BA" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumBA
+          | val GHC.Classes.== "BB" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumBB
+          | val GHC.Classes.== "BD" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumBD
+          | val GHC.Classes.== "BE" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumBE
+          | val GHC.Classes.== "BF" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumBF
+          | val GHC.Classes.== "BG" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumBG
+          | val GHC.Classes.== "BH" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumBH
+          | val GHC.Classes.== "BI" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumBI
+          | val GHC.Classes.== "BJ" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumBJ
+          | val GHC.Classes.== "BL" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumBL
+          | val GHC.Classes.== "BM" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumBM
+          | val GHC.Classes.== "BN" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumBN
+          | val GHC.Classes.== "BO" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumBO
+          | val GHC.Classes.== "BQ" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumBQ
+          | val GHC.Classes.== "BR" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumBR
+          | val GHC.Classes.== "BS" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumBS
+          | val GHC.Classes.== "BT" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumBT
+          | val GHC.Classes.== "BV" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumBV
+          | val GHC.Classes.== "BW" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumBW
+          | val GHC.Classes.== "BY" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumBY
+          | val GHC.Classes.== "BZ" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumBZ
+          | val GHC.Classes.== "CA" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumCA
+          | val GHC.Classes.== "CD" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumCD
+          | val GHC.Classes.== "CF" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumCF
+          | val GHC.Classes.== "CG" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumCG
+          | val GHC.Classes.== "CH" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumCH
+          | val GHC.Classes.== "CI" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumCI
+          | val GHC.Classes.== "CK" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumCK
+          | val GHC.Classes.== "CL" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumCL
+          | val GHC.Classes.== "CM" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumCM
+          | val GHC.Classes.== "CN" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumCN
+          | val GHC.Classes.== "CO" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumCO
+          | val GHC.Classes.== "CR" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumCR
+          | val GHC.Classes.== "CV" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumCV
+          | val GHC.Classes.== "CW" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumCW
+          | val GHC.Classes.== "CY" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumCY
+          | val GHC.Classes.== "CZ" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumCZ
+          | val GHC.Classes.== "DE" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumDE
+          | val GHC.Classes.== "DJ" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumDJ
+          | val GHC.Classes.== "DK" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumDK
+          | val GHC.Classes.== "DM" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumDM
+          | val GHC.Classes.== "DO" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumDO
+          | val GHC.Classes.== "DZ" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumDZ
+          | val GHC.Classes.== "EC" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumEC
+          | val GHC.Classes.== "EE" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumEE
+          | val GHC.Classes.== "EG" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumEG
+          | val GHC.Classes.== "EH" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumEH
+          | val GHC.Classes.== "ER" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumER
+          | val GHC.Classes.== "ES" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumES
+          | val GHC.Classes.== "ET" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumET
+          | val GHC.Classes.== "FI" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumFI
+          | val GHC.Classes.== "FJ" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumFJ
+          | val GHC.Classes.== "FK" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumFK
+          | val GHC.Classes.== "FO" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumFO
+          | val GHC.Classes.== "FR" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumFR
+          | val GHC.Classes.== "GA" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumGA
+          | val GHC.Classes.== "GB" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumGB
+          | val GHC.Classes.== "GD" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumGD
+          | val GHC.Classes.== "GE" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumGE
+          | val GHC.Classes.== "GF" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumGF
+          | val GHC.Classes.== "GG" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumGG
+          | val GHC.Classes.== "GH" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumGH
+          | val GHC.Classes.== "GI" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumGI
+          | val GHC.Classes.== "GL" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumGL
+          | val GHC.Classes.== "GM" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumGM
+          | val GHC.Classes.== "GN" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumGN
+          | val GHC.Classes.== "GP" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumGP
+          | val GHC.Classes.== "GQ" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumGQ
+          | val GHC.Classes.== "GR" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumGR
+          | val GHC.Classes.== "GS" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumGS
+          | val GHC.Classes.== "GT" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumGT
+          | val GHC.Classes.== "GU" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumGU
+          | val GHC.Classes.== "GW" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumGW
+          | val GHC.Classes.== "GY" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumGY
+          | val GHC.Classes.== "HK" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumHK
+          | val GHC.Classes.== "HN" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumHN
+          | val GHC.Classes.== "HR" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumHR
+          | val GHC.Classes.== "HT" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumHT
+          | val GHC.Classes.== "HU" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumHU
+          | val GHC.Classes.== "ID" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumID
+          | val GHC.Classes.== "IE" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumIE
+          | val GHC.Classes.== "IL" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumIL
+          | val GHC.Classes.== "IM" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumIM
+          | val GHC.Classes.== "IN" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumIN
+          | val GHC.Classes.== "IO" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumIO
+          | val GHC.Classes.== "IQ" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumIQ
+          | val GHC.Classes.== "IS" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumIS
+          | val GHC.Classes.== "IT" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumIT
+          | val GHC.Classes.== "JE" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumJE
+          | val GHC.Classes.== "JM" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumJM
+          | val GHC.Classes.== "JO" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumJO
+          | val GHC.Classes.== "JP" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumJP
+          | val GHC.Classes.== "KE" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumKE
+          | val GHC.Classes.== "KG" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumKG
+          | val GHC.Classes.== "KH" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumKH
+          | val GHC.Classes.== "KI" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumKI
+          | val GHC.Classes.== "KM" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumKM
+          | val GHC.Classes.== "KN" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumKN
+          | val GHC.Classes.== "KR" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumKR
+          | val GHC.Classes.== "KW" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumKW
+          | val GHC.Classes.== "KY" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumKY
+          | val GHC.Classes.== "KZ" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumKZ
+          | val GHC.Classes.== "LA" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumLA
+          | val GHC.Classes.== "LB" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumLB
+          | val GHC.Classes.== "LC" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumLC
+          | val GHC.Classes.== "LI" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumLI
+          | val GHC.Classes.== "LK" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumLK
+          | val GHC.Classes.== "LR" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumLR
+          | val GHC.Classes.== "LS" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumLS
+          | val GHC.Classes.== "LT" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumLT
+          | val GHC.Classes.== "LU" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumLU
+          | val GHC.Classes.== "LV" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumLV
+          | val GHC.Classes.== "LY" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumLY
+          | val GHC.Classes.== "MA" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumMA
+          | val GHC.Classes.== "MC" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumMC
+          | val GHC.Classes.== "MD" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumMD
+          | val GHC.Classes.== "ME" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumME
+          | val GHC.Classes.== "MF" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumMF
+          | val GHC.Classes.== "MG" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumMG
+          | val GHC.Classes.== "MK" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumMK
+          | val GHC.Classes.== "ML" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumML
+          | val GHC.Classes.== "MM" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumMM
+          | val GHC.Classes.== "MN" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumMN
+          | val GHC.Classes.== "MO" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumMO
+          | val GHC.Classes.== "MQ" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumMQ
+          | val GHC.Classes.== "MR" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumMR
+          | val GHC.Classes.== "MS" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumMS
+          | val GHC.Classes.== "MT" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumMT
+          | val GHC.Classes.== "MU" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumMU
+          | val GHC.Classes.== "MV" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumMV
+          | val GHC.Classes.== "MW" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumMW
+          | val GHC.Classes.== "MX" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumMX
+          | val GHC.Classes.== "MY" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumMY
+          | val GHC.Classes.== "MZ" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumMZ
+          | val GHC.Classes.== "NA" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumNA
+          | val GHC.Classes.== "NC" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumNC
+          | val GHC.Classes.== "NE" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumNE
+          | val GHC.Classes.== "NG" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumNG
+          | val GHC.Classes.== "NI" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumNI
+          | val GHC.Classes.== "NL" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumNL
+          | val GHC.Classes.== "NO" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumNO
+          | val GHC.Classes.== "NP" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumNP
+          | val GHC.Classes.== "NR" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumNR
+          | val GHC.Classes.== "NU" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumNU
+          | val GHC.Classes.== "NZ" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumNZ
+          | val GHC.Classes.== "OM" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumOM
+          | val GHC.Classes.== "PA" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumPA
+          | val GHC.Classes.== "PE" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumPE
+          | val GHC.Classes.== "PF" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumPF
+          | val GHC.Classes.== "PG" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumPG
+          | val GHC.Classes.== "PH" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumPH
+          | val GHC.Classes.== "PK" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumPK
+          | val GHC.Classes.== "PL" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumPL
+          | val GHC.Classes.== "PM" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumPM
+          | val GHC.Classes.== "PN" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumPN
+          | val GHC.Classes.== "PR" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumPR
+          | val GHC.Classes.== "PS" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumPS
+          | val GHC.Classes.== "PT" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumPT
+          | val GHC.Classes.== "PY" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumPY
+          | val GHC.Classes.== "QA" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumQA
+          | val GHC.Classes.== "RE" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumRE
+          | val GHC.Classes.== "RO" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumRO
+          | val GHC.Classes.== "RS" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumRS
+          | val GHC.Classes.== "RU" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumRU
+          | val GHC.Classes.== "RW" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumRW
+          | val GHC.Classes.== "SA" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumSA
+          | val GHC.Classes.== "SB" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumSB
+          | val GHC.Classes.== "SC" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumSC
+          | val GHC.Classes.== "SE" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumSE
+          | val GHC.Classes.== "SG" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumSG
+          | val GHC.Classes.== "SH" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumSH
+          | val GHC.Classes.== "SI" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumSI
+          | val GHC.Classes.== "SJ" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumSJ
+          | val GHC.Classes.== "SK" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumSK
+          | val GHC.Classes.== "SL" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumSL
+          | val GHC.Classes.== "SM" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumSM
+          | val GHC.Classes.== "SN" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumSN
+          | val GHC.Classes.== "SO" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumSO
+          | val GHC.Classes.== "SR" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumSR
+          | val GHC.Classes.== "SS" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumSS
+          | val GHC.Classes.== "ST" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumST
+          | val GHC.Classes.== "SV" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumSV
+          | val GHC.Classes.== "SX" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumSX
+          | val GHC.Classes.== "SZ" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumSZ
+          | val GHC.Classes.== "TA" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumTA
+          | val GHC.Classes.== "TC" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumTC
+          | val GHC.Classes.== "TD" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumTD
+          | val GHC.Classes.== "TF" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumTF
+          | val GHC.Classes.== "TG" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumTG
+          | val GHC.Classes.== "TH" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumTH
+          | val GHC.Classes.== "TJ" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumTJ
+          | val GHC.Classes.== "TK" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumTK
+          | val GHC.Classes.== "TL" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumTL
+          | val GHC.Classes.== "TM" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumTM
+          | val GHC.Classes.== "TN" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumTN
+          | val GHC.Classes.== "TO" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumTO
+          | val GHC.Classes.== "TR" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumTR
+          | val GHC.Classes.== "TT" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumTT
+          | val GHC.Classes.== "TV" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumTV
+          | val GHC.Classes.== "TW" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumTW
+          | val GHC.Classes.== "TZ" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumTZ
+          | val GHC.Classes.== "UA" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumUA
+          | val GHC.Classes.== "UG" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumUG
+          | val GHC.Classes.== "US" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumUS
+          | val GHC.Classes.== "UY" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumUY
+          | val GHC.Classes.== "UZ" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumUZ
+          | val GHC.Classes.== "VA" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumVA
+          | val GHC.Classes.== "VC" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumVC
+          | val GHC.Classes.== "VE" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumVE
+          | val GHC.Classes.== "VG" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumVG
+          | val GHC.Classes.== "VN" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumVN
+          | val GHC.Classes.== "VU" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumVU
+          | val GHC.Classes.== "WF" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumWF
+          | val GHC.Classes.== "WS" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumWS
+          | val GHC.Classes.== "XK" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumXK
+          | val GHC.Classes.== "YE" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumYE
+          | val GHC.Classes.== "YT" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumYT
+          | val GHC.Classes.== "ZA" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumZA
+          | val GHC.Classes.== "ZM" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumZM
+          | val GHC.Classes.== "ZW" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumZW
+          | val GHC.Classes.== "ZZ" -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'EnumZZ
+          | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyShippingAddressCollection'AllowedCountries'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/checkout\/sessions.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.shipping_options.items@ in the specification.
@@ -4255,12 +4255,12 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostCheckoutSessionsRequestBodyShipp
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "business_day" -> PostCheckoutSessionsRequestBodyShippingOptions'ShippingRateData'DeliveryEstimate'Maximum'Unit'EnumBusinessDay
-            | val GHC.Classes.== "day" -> PostCheckoutSessionsRequestBodyShippingOptions'ShippingRateData'DeliveryEstimate'Maximum'Unit'EnumDay
-            | val GHC.Classes.== "hour" -> PostCheckoutSessionsRequestBodyShippingOptions'ShippingRateData'DeliveryEstimate'Maximum'Unit'EnumHour
-            | val GHC.Classes.== "month" -> PostCheckoutSessionsRequestBodyShippingOptions'ShippingRateData'DeliveryEstimate'Maximum'Unit'EnumMonth
-            | val GHC.Classes.== "week" -> PostCheckoutSessionsRequestBodyShippingOptions'ShippingRateData'DeliveryEstimate'Maximum'Unit'EnumWeek
-            | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyShippingOptions'ShippingRateData'DeliveryEstimate'Maximum'Unit'Other val
+          | val GHC.Classes.== "business_day" -> PostCheckoutSessionsRequestBodyShippingOptions'ShippingRateData'DeliveryEstimate'Maximum'Unit'EnumBusinessDay
+          | val GHC.Classes.== "day" -> PostCheckoutSessionsRequestBodyShippingOptions'ShippingRateData'DeliveryEstimate'Maximum'Unit'EnumDay
+          | val GHC.Classes.== "hour" -> PostCheckoutSessionsRequestBodyShippingOptions'ShippingRateData'DeliveryEstimate'Maximum'Unit'EnumHour
+          | val GHC.Classes.== "month" -> PostCheckoutSessionsRequestBodyShippingOptions'ShippingRateData'DeliveryEstimate'Maximum'Unit'EnumMonth
+          | val GHC.Classes.== "week" -> PostCheckoutSessionsRequestBodyShippingOptions'ShippingRateData'DeliveryEstimate'Maximum'Unit'EnumWeek
+          | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyShippingOptions'ShippingRateData'DeliveryEstimate'Maximum'Unit'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/checkout\/sessions.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.shipping_options.items.properties.shipping_rate_data.properties.delivery_estimate.properties.minimum@ in the specification.
@@ -4326,12 +4326,12 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostCheckoutSessionsRequestBodyShipp
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "business_day" -> PostCheckoutSessionsRequestBodyShippingOptions'ShippingRateData'DeliveryEstimate'Minimum'Unit'EnumBusinessDay
-            | val GHC.Classes.== "day" -> PostCheckoutSessionsRequestBodyShippingOptions'ShippingRateData'DeliveryEstimate'Minimum'Unit'EnumDay
-            | val GHC.Classes.== "hour" -> PostCheckoutSessionsRequestBodyShippingOptions'ShippingRateData'DeliveryEstimate'Minimum'Unit'EnumHour
-            | val GHC.Classes.== "month" -> PostCheckoutSessionsRequestBodyShippingOptions'ShippingRateData'DeliveryEstimate'Minimum'Unit'EnumMonth
-            | val GHC.Classes.== "week" -> PostCheckoutSessionsRequestBodyShippingOptions'ShippingRateData'DeliveryEstimate'Minimum'Unit'EnumWeek
-            | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyShippingOptions'ShippingRateData'DeliveryEstimate'Minimum'Unit'Other val
+          | val GHC.Classes.== "business_day" -> PostCheckoutSessionsRequestBodyShippingOptions'ShippingRateData'DeliveryEstimate'Minimum'Unit'EnumBusinessDay
+          | val GHC.Classes.== "day" -> PostCheckoutSessionsRequestBodyShippingOptions'ShippingRateData'DeliveryEstimate'Minimum'Unit'EnumDay
+          | val GHC.Classes.== "hour" -> PostCheckoutSessionsRequestBodyShippingOptions'ShippingRateData'DeliveryEstimate'Minimum'Unit'EnumHour
+          | val GHC.Classes.== "month" -> PostCheckoutSessionsRequestBodyShippingOptions'ShippingRateData'DeliveryEstimate'Minimum'Unit'EnumMonth
+          | val GHC.Classes.== "week" -> PostCheckoutSessionsRequestBodyShippingOptions'ShippingRateData'DeliveryEstimate'Minimum'Unit'EnumWeek
+          | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyShippingOptions'ShippingRateData'DeliveryEstimate'Minimum'Unit'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/checkout\/sessions.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.shipping_options.items.properties.shipping_rate_data.properties.fixed_amount@ in the specification.
@@ -4391,10 +4391,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostCheckoutSessionsRequestBodyShipp
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "exclusive" -> PostCheckoutSessionsRequestBodyShippingOptions'ShippingRateData'TaxBehavior'EnumExclusive
-            | val GHC.Classes.== "inclusive" -> PostCheckoutSessionsRequestBodyShippingOptions'ShippingRateData'TaxBehavior'EnumInclusive
-            | val GHC.Classes.== "unspecified" -> PostCheckoutSessionsRequestBodyShippingOptions'ShippingRateData'TaxBehavior'EnumUnspecified
-            | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyShippingOptions'ShippingRateData'TaxBehavior'Other val
+          | val GHC.Classes.== "exclusive" -> PostCheckoutSessionsRequestBodyShippingOptions'ShippingRateData'TaxBehavior'EnumExclusive
+          | val GHC.Classes.== "inclusive" -> PostCheckoutSessionsRequestBodyShippingOptions'ShippingRateData'TaxBehavior'EnumInclusive
+          | val GHC.Classes.== "unspecified" -> PostCheckoutSessionsRequestBodyShippingOptions'ShippingRateData'TaxBehavior'EnumUnspecified
+          | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyShippingOptions'ShippingRateData'TaxBehavior'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/checkout\/sessions.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.shipping_options.items.properties.shipping_rate_data.properties.type@ in the specification.
@@ -4416,8 +4416,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostCheckoutSessionsRequestBodyShipp
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "fixed_amount" -> PostCheckoutSessionsRequestBodyShippingOptions'ShippingRateData'Type'EnumFixedAmount
-            | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyShippingOptions'ShippingRateData'Type'Other val
+          | val GHC.Classes.== "fixed_amount" -> PostCheckoutSessionsRequestBodyShippingOptions'ShippingRateData'Type'EnumFixedAmount
+          | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodyShippingOptions'ShippingRateData'Type'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/checkout\/sessions.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.submit_type@ in the specification.
@@ -4453,11 +4453,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostCheckoutSessionsRequestBodySubmi
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "auto" -> PostCheckoutSessionsRequestBodySubmitType'EnumAuto
-            | val GHC.Classes.== "book" -> PostCheckoutSessionsRequestBodySubmitType'EnumBook
-            | val GHC.Classes.== "donate" -> PostCheckoutSessionsRequestBodySubmitType'EnumDonate
-            | val GHC.Classes.== "pay" -> PostCheckoutSessionsRequestBodySubmitType'EnumPay
-            | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodySubmitType'Other val
+          | val GHC.Classes.== "auto" -> PostCheckoutSessionsRequestBodySubmitType'EnumAuto
+          | val GHC.Classes.== "book" -> PostCheckoutSessionsRequestBodySubmitType'EnumBook
+          | val GHC.Classes.== "donate" -> PostCheckoutSessionsRequestBodySubmitType'EnumDonate
+          | val GHC.Classes.== "pay" -> PostCheckoutSessionsRequestBodySubmitType'EnumPay
+          | GHC.Base.otherwise -> PostCheckoutSessionsRequestBodySubmitType'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/checkout\/sessions.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.subscription_data@ in the specification.

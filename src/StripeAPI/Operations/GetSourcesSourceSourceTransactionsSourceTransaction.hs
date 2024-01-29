@@ -48,7 +48,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>Retrieve an existing source transaction object. Supply the unique source ID from a source creation request and the source transaction ID and Stripe will return the corresponding up-to-date source object information.\<\/p>
 getSourcesSourceSourceTransactionsSourceTransaction ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | Contains all available parameters of this operation (query and path parameters)
   GetSourcesSourceSourceTransactionsSourceTransactionParameters ->
   -- | Monadic computation which returns the result of the operation
@@ -60,21 +60,21 @@ getSourcesSourceSourceTransactionsSourceTransaction parameters =
           ( Data.Either.either GetSourcesSourceSourceTransactionsSourceTransactionResponseError GHC.Base.id
               GHC.Base.. ( \response body ->
                              if
-                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                               | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                    GetSourcesSourceSourceTransactionsSourceTransactionResponse200
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             SourceTransaction
                                                       )
-                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                               | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                    GetSourcesSourceSourceTransactionsSourceTransactionResponseDefault
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             Error
                                                       )
-                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                               | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                          )
                 response_0
           )

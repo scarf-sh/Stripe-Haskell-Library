@@ -204,9 +204,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON BankAccountAvailablePayoutMethods'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "instant" -> BankAccountAvailablePayoutMethods'NonNullableEnumInstant
-            | val GHC.Classes.== "standard" -> BankAccountAvailablePayoutMethods'NonNullableEnumStandard
-            | GHC.Base.otherwise -> BankAccountAvailablePayoutMethods'NonNullableOther val
+          | val GHC.Classes.== "instant" -> BankAccountAvailablePayoutMethods'NonNullableEnumInstant
+          | val GHC.Classes.== "standard" -> BankAccountAvailablePayoutMethods'NonNullableEnumStandard
+          | GHC.Base.otherwise -> BankAccountAvailablePayoutMethods'NonNullableOther val
       )
 
 -- | Defines the oneOf schema located at @components.schemas.bank_account.properties.customer.anyOf@ in the specification.

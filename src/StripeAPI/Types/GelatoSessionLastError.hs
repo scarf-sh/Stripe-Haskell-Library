@@ -128,20 +128,20 @@ instance Data.Aeson.Types.FromJSON.FromJSON GelatoSessionLastErrorCode'NonNullab
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "abandoned" -> GelatoSessionLastErrorCode'NonNullableEnumAbandoned
-            | val GHC.Classes.== "consent_declined" -> GelatoSessionLastErrorCode'NonNullableEnumConsentDeclined
-            | val GHC.Classes.== "country_not_supported" -> GelatoSessionLastErrorCode'NonNullableEnumCountryNotSupported
-            | val GHC.Classes.== "device_not_supported" -> GelatoSessionLastErrorCode'NonNullableEnumDeviceNotSupported
-            | val GHC.Classes.== "document_expired" -> GelatoSessionLastErrorCode'NonNullableEnumDocumentExpired
-            | val GHC.Classes.== "document_type_not_supported" -> GelatoSessionLastErrorCode'NonNullableEnumDocumentTypeNotSupported
-            | val GHC.Classes.== "document_unverified_other" -> GelatoSessionLastErrorCode'NonNullableEnumDocumentUnverifiedOther
-            | val GHC.Classes.== "id_number_insufficient_document_data" -> GelatoSessionLastErrorCode'NonNullableEnumIdNumberInsufficientDocumentData
-            | val GHC.Classes.== "id_number_mismatch" -> GelatoSessionLastErrorCode'NonNullableEnumIdNumberMismatch
-            | val GHC.Classes.== "id_number_unverified_other" -> GelatoSessionLastErrorCode'NonNullableEnumIdNumberUnverifiedOther
-            | val GHC.Classes.== "selfie_document_missing_photo" -> GelatoSessionLastErrorCode'NonNullableEnumSelfieDocumentMissingPhoto
-            | val GHC.Classes.== "selfie_face_mismatch" -> GelatoSessionLastErrorCode'NonNullableEnumSelfieFaceMismatch
-            | val GHC.Classes.== "selfie_manipulated" -> GelatoSessionLastErrorCode'NonNullableEnumSelfieManipulated
-            | val GHC.Classes.== "selfie_unverified_other" -> GelatoSessionLastErrorCode'NonNullableEnumSelfieUnverifiedOther
-            | val GHC.Classes.== "under_supported_age" -> GelatoSessionLastErrorCode'NonNullableEnumUnderSupportedAge
-            | GHC.Base.otherwise -> GelatoSessionLastErrorCode'NonNullableOther val
+          | val GHC.Classes.== "abandoned" -> GelatoSessionLastErrorCode'NonNullableEnumAbandoned
+          | val GHC.Classes.== "consent_declined" -> GelatoSessionLastErrorCode'NonNullableEnumConsentDeclined
+          | val GHC.Classes.== "country_not_supported" -> GelatoSessionLastErrorCode'NonNullableEnumCountryNotSupported
+          | val GHC.Classes.== "device_not_supported" -> GelatoSessionLastErrorCode'NonNullableEnumDeviceNotSupported
+          | val GHC.Classes.== "document_expired" -> GelatoSessionLastErrorCode'NonNullableEnumDocumentExpired
+          | val GHC.Classes.== "document_type_not_supported" -> GelatoSessionLastErrorCode'NonNullableEnumDocumentTypeNotSupported
+          | val GHC.Classes.== "document_unverified_other" -> GelatoSessionLastErrorCode'NonNullableEnumDocumentUnverifiedOther
+          | val GHC.Classes.== "id_number_insufficient_document_data" -> GelatoSessionLastErrorCode'NonNullableEnumIdNumberInsufficientDocumentData
+          | val GHC.Classes.== "id_number_mismatch" -> GelatoSessionLastErrorCode'NonNullableEnumIdNumberMismatch
+          | val GHC.Classes.== "id_number_unverified_other" -> GelatoSessionLastErrorCode'NonNullableEnumIdNumberUnverifiedOther
+          | val GHC.Classes.== "selfie_document_missing_photo" -> GelatoSessionLastErrorCode'NonNullableEnumSelfieDocumentMissingPhoto
+          | val GHC.Classes.== "selfie_face_mismatch" -> GelatoSessionLastErrorCode'NonNullableEnumSelfieFaceMismatch
+          | val GHC.Classes.== "selfie_manipulated" -> GelatoSessionLastErrorCode'NonNullableEnumSelfieManipulated
+          | val GHC.Classes.== "selfie_unverified_other" -> GelatoSessionLastErrorCode'NonNullableEnumSelfieUnverifiedOther
+          | val GHC.Classes.== "under_supported_age" -> GelatoSessionLastErrorCode'NonNullableEnumUnderSupportedAge
+          | GHC.Base.otherwise -> GelatoSessionLastErrorCode'NonNullableOther val
       )

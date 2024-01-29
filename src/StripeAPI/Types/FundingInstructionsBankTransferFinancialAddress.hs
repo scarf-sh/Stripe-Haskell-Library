@@ -111,12 +111,12 @@ instance Data.Aeson.Types.FromJSON.FromJSON FundingInstructionsBankTransferFinan
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "bacs" -> FundingInstructionsBankTransferFinancialAddressSupportedNetworks'EnumBacs
-            | val GHC.Classes.== "fps" -> FundingInstructionsBankTransferFinancialAddressSupportedNetworks'EnumFps
-            | val GHC.Classes.== "sepa" -> FundingInstructionsBankTransferFinancialAddressSupportedNetworks'EnumSepa
-            | val GHC.Classes.== "spei" -> FundingInstructionsBankTransferFinancialAddressSupportedNetworks'EnumSpei
-            | val GHC.Classes.== "zengin" -> FundingInstructionsBankTransferFinancialAddressSupportedNetworks'EnumZengin
-            | GHC.Base.otherwise -> FundingInstructionsBankTransferFinancialAddressSupportedNetworks'Other val
+          | val GHC.Classes.== "bacs" -> FundingInstructionsBankTransferFinancialAddressSupportedNetworks'EnumBacs
+          | val GHC.Classes.== "fps" -> FundingInstructionsBankTransferFinancialAddressSupportedNetworks'EnumFps
+          | val GHC.Classes.== "sepa" -> FundingInstructionsBankTransferFinancialAddressSupportedNetworks'EnumSepa
+          | val GHC.Classes.== "spei" -> FundingInstructionsBankTransferFinancialAddressSupportedNetworks'EnumSpei
+          | val GHC.Classes.== "zengin" -> FundingInstructionsBankTransferFinancialAddressSupportedNetworks'EnumZengin
+          | GHC.Base.otherwise -> FundingInstructionsBankTransferFinancialAddressSupportedNetworks'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.funding_instructions_bank_transfer_financial_address.properties.type@ in the specification.
@@ -149,9 +149,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON FundingInstructionsBankTransferFinan
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "iban" -> FundingInstructionsBankTransferFinancialAddressType'EnumIban
-            | val GHC.Classes.== "sort_code" -> FundingInstructionsBankTransferFinancialAddressType'EnumSortCode
-            | val GHC.Classes.== "spei" -> FundingInstructionsBankTransferFinancialAddressType'EnumSpei
-            | val GHC.Classes.== "zengin" -> FundingInstructionsBankTransferFinancialAddressType'EnumZengin
-            | GHC.Base.otherwise -> FundingInstructionsBankTransferFinancialAddressType'Other val
+          | val GHC.Classes.== "iban" -> FundingInstructionsBankTransferFinancialAddressType'EnumIban
+          | val GHC.Classes.== "sort_code" -> FundingInstructionsBankTransferFinancialAddressType'EnumSortCode
+          | val GHC.Classes.== "spei" -> FundingInstructionsBankTransferFinancialAddressType'EnumSpei
+          | val GHC.Classes.== "zengin" -> FundingInstructionsBankTransferFinancialAddressType'EnumZengin
+          | GHC.Base.otherwise -> FundingInstructionsBankTransferFinancialAddressType'Other val
       )

@@ -111,9 +111,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON InboundTransfersPaymentMethodDetails
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "company" -> InboundTransfersPaymentMethodDetailsUsBankAccountAccountHolderType'NonNullableEnumCompany
-            | val GHC.Classes.== "individual" -> InboundTransfersPaymentMethodDetailsUsBankAccountAccountHolderType'NonNullableEnumIndividual
-            | GHC.Base.otherwise -> InboundTransfersPaymentMethodDetailsUsBankAccountAccountHolderType'NonNullableOther val
+          | val GHC.Classes.== "company" -> InboundTransfersPaymentMethodDetailsUsBankAccountAccountHolderType'NonNullableEnumCompany
+          | val GHC.Classes.== "individual" -> InboundTransfersPaymentMethodDetailsUsBankAccountAccountHolderType'NonNullableEnumIndividual
+          | GHC.Base.otherwise -> InboundTransfersPaymentMethodDetailsUsBankAccountAccountHolderType'NonNullableOther val
       )
 
 -- | Defines the enum schema located at @components.schemas.inbound_transfers_payment_method_details_us_bank_account.properties.account_type@ in the specification.
@@ -140,7 +140,7 @@ instance Data.Aeson.Types.FromJSON.FromJSON InboundTransfersPaymentMethodDetails
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "checking" -> InboundTransfersPaymentMethodDetailsUsBankAccountAccountType'NonNullableEnumChecking
-            | val GHC.Classes.== "savings" -> InboundTransfersPaymentMethodDetailsUsBankAccountAccountType'NonNullableEnumSavings
-            | GHC.Base.otherwise -> InboundTransfersPaymentMethodDetailsUsBankAccountAccountType'NonNullableOther val
+          | val GHC.Classes.== "checking" -> InboundTransfersPaymentMethodDetailsUsBankAccountAccountType'NonNullableEnumChecking
+          | val GHC.Classes.== "savings" -> InboundTransfersPaymentMethodDetailsUsBankAccountAccountType'NonNullableEnumSavings
+          | GHC.Base.otherwise -> InboundTransfersPaymentMethodDetailsUsBankAccountAccountType'NonNullableOther val
       )

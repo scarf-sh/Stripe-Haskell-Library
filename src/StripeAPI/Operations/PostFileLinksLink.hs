@@ -48,7 +48,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>Updates an existing file link object. Expired links can no longer be updated.\<\/p>
 postFileLinksLink ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | link
   Data.Text.Internal.Text ->
   -- | The request body to send
@@ -64,21 +64,21 @@ postFileLinksLink
             ( Data.Either.either PostFileLinksLinkResponseError GHC.Base.id
                 GHC.Base.. ( \response body ->
                                if
-                                   | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                      PostFileLinksLinkResponse200
                                        Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                             Data.Either.Either
                                                               GHC.Base.String
                                                               FileLink
                                                         )
-                                   | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                      PostFileLinksLinkResponseDefault
                                        Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                             Data.Either.Either
                                                               GHC.Base.String
                                                               Error
                                                         )
-                                   | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                            )
                   response_0
             )
@@ -135,9 +135,9 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostFileLinksLinkRequestBodyExpiresAt'Va
 instance Data.Aeson.Types.FromJSON.FromJSON PostFileLinksLinkRequestBodyExpiresAt'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "now" -> GHC.Base.pure PostFileLinksLinkRequestBodyExpiresAt'Now
-        | val GHC.Classes.== "" -> GHC.Base.pure PostFileLinksLinkRequestBodyExpiresAt'EmptyString
-        | GHC.Base.otherwise -> case (PostFileLinksLinkRequestBodyExpiresAt'Int Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "now" -> GHC.Base.pure PostFileLinksLinkRequestBodyExpiresAt'Now
+      | val GHC.Classes.== "" -> GHC.Base.pure PostFileLinksLinkRequestBodyExpiresAt'EmptyString
+      | GHC.Base.otherwise -> case (PostFileLinksLinkRequestBodyExpiresAt'Int Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -157,8 +157,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostFileLinksLinkRequestBodyMetadata'Var
 instance Data.Aeson.Types.FromJSON.FromJSON PostFileLinksLinkRequestBodyMetadata'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostFileLinksLinkRequestBodyMetadata'EmptyString
-        | GHC.Base.otherwise -> case (PostFileLinksLinkRequestBodyMetadata'Object Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostFileLinksLinkRequestBodyMetadata'EmptyString
+      | GHC.Base.otherwise -> case (PostFileLinksLinkRequestBodyMetadata'Object Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 

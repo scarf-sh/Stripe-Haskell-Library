@@ -592,9 +592,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentSourceAvailablePayoutMethods'
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "instant" -> PaymentSourceAvailablePayoutMethods'NonNullableEnumInstant
-            | val GHC.Classes.== "standard" -> PaymentSourceAvailablePayoutMethods'NonNullableEnumStandard
-            | GHC.Base.otherwise -> PaymentSourceAvailablePayoutMethods'NonNullableOther val
+          | val GHC.Classes.== "instant" -> PaymentSourceAvailablePayoutMethods'NonNullableEnumInstant
+          | val GHC.Classes.== "standard" -> PaymentSourceAvailablePayoutMethods'NonNullableEnumStandard
+          | GHC.Base.otherwise -> PaymentSourceAvailablePayoutMethods'NonNullableOther val
       )
 
 -- | Defines the object schema located at @components.schemas.payment_source.anyOf.properties.business_profile.anyOf@ in the specification.
@@ -767,11 +767,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentSourceBusinessType'NonNullabl
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "company" -> PaymentSourceBusinessType'NonNullableEnumCompany
-            | val GHC.Classes.== "government_entity" -> PaymentSourceBusinessType'NonNullableEnumGovernmentEntity
-            | val GHC.Classes.== "individual" -> PaymentSourceBusinessType'NonNullableEnumIndividual
-            | val GHC.Classes.== "non_profit" -> PaymentSourceBusinessType'NonNullableEnumNonProfit
-            | GHC.Base.otherwise -> PaymentSourceBusinessType'NonNullableOther val
+          | val GHC.Classes.== "company" -> PaymentSourceBusinessType'NonNullableEnumCompany
+          | val GHC.Classes.== "government_entity" -> PaymentSourceBusinessType'NonNullableEnumGovernmentEntity
+          | val GHC.Classes.== "individual" -> PaymentSourceBusinessType'NonNullableEnumIndividual
+          | val GHC.Classes.== "non_profit" -> PaymentSourceBusinessType'NonNullableEnumNonProfit
+          | GHC.Base.otherwise -> PaymentSourceBusinessType'NonNullableOther val
       )
 
 -- | Defines the oneOf schema located at @components.schemas.payment_source.anyOf.properties.customer.anyOf@ in the specification.
@@ -1096,9 +1096,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentSourceExternalAccounts'Data'A
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "instant" -> PaymentSourceExternalAccounts'Data'AvailablePayoutMethods'NonNullableEnumInstant
-            | val GHC.Classes.== "standard" -> PaymentSourceExternalAccounts'Data'AvailablePayoutMethods'NonNullableEnumStandard
-            | GHC.Base.otherwise -> PaymentSourceExternalAccounts'Data'AvailablePayoutMethods'NonNullableOther val
+          | val GHC.Classes.== "instant" -> PaymentSourceExternalAccounts'Data'AvailablePayoutMethods'NonNullableEnumInstant
+          | val GHC.Classes.== "standard" -> PaymentSourceExternalAccounts'Data'AvailablePayoutMethods'NonNullableEnumStandard
+          | GHC.Base.otherwise -> PaymentSourceExternalAccounts'Data'AvailablePayoutMethods'NonNullableOther val
       )
 
 -- | Defines the oneOf schema located at @components.schemas.payment_source.anyOf.properties.external_accounts.properties.data.items.anyOf.properties.customer.anyOf@ in the specification.
@@ -1141,8 +1141,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentSourceExternalAccounts'Data'O
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "bank_account" -> PaymentSourceExternalAccounts'Data'Object'EnumBankAccount
-            | GHC.Base.otherwise -> PaymentSourceExternalAccounts'Data'Object'Other val
+          | val GHC.Classes.== "bank_account" -> PaymentSourceExternalAccounts'Data'Object'EnumBankAccount
+          | GHC.Base.otherwise -> PaymentSourceExternalAccounts'Data'Object'Other val
       )
 
 -- | Defines the oneOf schema located at @components.schemas.payment_source.anyOf.properties.external_accounts.properties.data.items.anyOf.properties.recipient.anyOf@ in the specification.
@@ -1183,8 +1183,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentSourceObject' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "account" -> PaymentSourceObject'EnumAccount
-            | GHC.Base.otherwise -> PaymentSourceObject'Other val
+          | val GHC.Classes.== "account" -> PaymentSourceObject'EnumAccount
+          | GHC.Base.otherwise -> PaymentSourceObject'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.payment_source.anyOf.properties.owner.anyOf@ in the specification.
@@ -1525,8 +1525,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentSourceType' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "custom" -> PaymentSourceType'EnumCustom
-            | val GHC.Classes.== "express" -> PaymentSourceType'EnumExpress
-            | val GHC.Classes.== "standard" -> PaymentSourceType'EnumStandard
-            | GHC.Base.otherwise -> PaymentSourceType'Other val
+          | val GHC.Classes.== "custom" -> PaymentSourceType'EnumCustom
+          | val GHC.Classes.== "express" -> PaymentSourceType'EnumExpress
+          | val GHC.Classes.== "standard" -> PaymentSourceType'EnumStandard
+          | GHC.Base.otherwise -> PaymentSourceType'Other val
       )

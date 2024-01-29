@@ -48,7 +48,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>Transitions a test mode created InboundTransfer to the \<code>failed\<\/code> status. The InboundTransfer must already be in the \<code>processing\<\/code> state.\<\/p>
 postTestHelpersTreasuryInboundTransfersIdFail ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | id | Constraints: Maximum length of 5000
   Data.Text.Internal.Text ->
   -- | The request body to send
@@ -64,21 +64,21 @@ postTestHelpersTreasuryInboundTransfersIdFail
             ( Data.Either.either PostTestHelpersTreasuryInboundTransfersIdFailResponseError GHC.Base.id
                 GHC.Base.. ( \response body ->
                                if
-                                   | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                      PostTestHelpersTreasuryInboundTransfersIdFailResponse200
                                        Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                             Data.Either.Either
                                                               GHC.Base.String
                                                               Treasury'inboundTransfer
                                                         )
-                                   | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                      PostTestHelpersTreasuryInboundTransfersIdFailResponseDefault
                                        Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                             Data.Either.Either
                                                               GHC.Base.String
                                                               Error
                                                         )
-                                   | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                            )
                   response_0
             )
@@ -191,20 +191,20 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostTestHelpersTreasuryInboundTransf
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "account_closed" -> PostTestHelpersTreasuryInboundTransfersIdFailRequestBodyFailureDetails'Code'EnumAccountClosed
-            | val GHC.Classes.== "account_frozen" -> PostTestHelpersTreasuryInboundTransfersIdFailRequestBodyFailureDetails'Code'EnumAccountFrozen
-            | val GHC.Classes.== "bank_account_restricted" -> PostTestHelpersTreasuryInboundTransfersIdFailRequestBodyFailureDetails'Code'EnumBankAccountRestricted
-            | val GHC.Classes.== "bank_ownership_changed" -> PostTestHelpersTreasuryInboundTransfersIdFailRequestBodyFailureDetails'Code'EnumBankOwnershipChanged
-            | val GHC.Classes.== "debit_not_authorized" -> PostTestHelpersTreasuryInboundTransfersIdFailRequestBodyFailureDetails'Code'EnumDebitNotAuthorized
-            | val GHC.Classes.== "incorrect_account_holder_address" -> PostTestHelpersTreasuryInboundTransfersIdFailRequestBodyFailureDetails'Code'EnumIncorrectAccountHolderAddress
-            | val GHC.Classes.== "incorrect_account_holder_name" -> PostTestHelpersTreasuryInboundTransfersIdFailRequestBodyFailureDetails'Code'EnumIncorrectAccountHolderName
-            | val GHC.Classes.== "incorrect_account_holder_tax_id" -> PostTestHelpersTreasuryInboundTransfersIdFailRequestBodyFailureDetails'Code'EnumIncorrectAccountHolderTaxId
-            | val GHC.Classes.== "insufficient_funds" -> PostTestHelpersTreasuryInboundTransfersIdFailRequestBodyFailureDetails'Code'EnumInsufficientFunds
-            | val GHC.Classes.== "invalid_account_number" -> PostTestHelpersTreasuryInboundTransfersIdFailRequestBodyFailureDetails'Code'EnumInvalidAccountNumber
-            | val GHC.Classes.== "invalid_currency" -> PostTestHelpersTreasuryInboundTransfersIdFailRequestBodyFailureDetails'Code'EnumInvalidCurrency
-            | val GHC.Classes.== "no_account" -> PostTestHelpersTreasuryInboundTransfersIdFailRequestBodyFailureDetails'Code'EnumNoAccount
-            | val GHC.Classes.== "other" -> PostTestHelpersTreasuryInboundTransfersIdFailRequestBodyFailureDetails'Code'EnumOther
-            | GHC.Base.otherwise -> PostTestHelpersTreasuryInboundTransfersIdFailRequestBodyFailureDetails'Code'Other val
+          | val GHC.Classes.== "account_closed" -> PostTestHelpersTreasuryInboundTransfersIdFailRequestBodyFailureDetails'Code'EnumAccountClosed
+          | val GHC.Classes.== "account_frozen" -> PostTestHelpersTreasuryInboundTransfersIdFailRequestBodyFailureDetails'Code'EnumAccountFrozen
+          | val GHC.Classes.== "bank_account_restricted" -> PostTestHelpersTreasuryInboundTransfersIdFailRequestBodyFailureDetails'Code'EnumBankAccountRestricted
+          | val GHC.Classes.== "bank_ownership_changed" -> PostTestHelpersTreasuryInboundTransfersIdFailRequestBodyFailureDetails'Code'EnumBankOwnershipChanged
+          | val GHC.Classes.== "debit_not_authorized" -> PostTestHelpersTreasuryInboundTransfersIdFailRequestBodyFailureDetails'Code'EnumDebitNotAuthorized
+          | val GHC.Classes.== "incorrect_account_holder_address" -> PostTestHelpersTreasuryInboundTransfersIdFailRequestBodyFailureDetails'Code'EnumIncorrectAccountHolderAddress
+          | val GHC.Classes.== "incorrect_account_holder_name" -> PostTestHelpersTreasuryInboundTransfersIdFailRequestBodyFailureDetails'Code'EnumIncorrectAccountHolderName
+          | val GHC.Classes.== "incorrect_account_holder_tax_id" -> PostTestHelpersTreasuryInboundTransfersIdFailRequestBodyFailureDetails'Code'EnumIncorrectAccountHolderTaxId
+          | val GHC.Classes.== "insufficient_funds" -> PostTestHelpersTreasuryInboundTransfersIdFailRequestBodyFailureDetails'Code'EnumInsufficientFunds
+          | val GHC.Classes.== "invalid_account_number" -> PostTestHelpersTreasuryInboundTransfersIdFailRequestBodyFailureDetails'Code'EnumInvalidAccountNumber
+          | val GHC.Classes.== "invalid_currency" -> PostTestHelpersTreasuryInboundTransfersIdFailRequestBodyFailureDetails'Code'EnumInvalidCurrency
+          | val GHC.Classes.== "no_account" -> PostTestHelpersTreasuryInboundTransfersIdFailRequestBodyFailureDetails'Code'EnumNoAccount
+          | val GHC.Classes.== "other" -> PostTestHelpersTreasuryInboundTransfersIdFailRequestBodyFailureDetails'Code'EnumOther
+          | GHC.Base.otherwise -> PostTestHelpersTreasuryInboundTransfersIdFailRequestBodyFailureDetails'Code'Other val
       )
 
 -- | Represents a response of the operation 'postTestHelpersTreasuryInboundTransfersIdFail'.

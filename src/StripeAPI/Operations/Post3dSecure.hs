@@ -48,7 +48,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>Initiate 3D Secure authentication.\<\/p>
 post3dSecure ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | The request body to send
   Post3dSecureRequestBody ->
   -- | Monadic computation which returns the result of the operation
@@ -60,21 +60,21 @@ post3dSecure body =
           ( Data.Either.either Post3dSecureResponseError GHC.Base.id
               GHC.Base.. ( \response body ->
                              if
-                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                               | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                    Post3dSecureResponse200
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             ThreeDSecure
                                                       )
-                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                               | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                    Post3dSecureResponseDefault
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             Error
                                                       )
-                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                               | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                          )
                 response_0
           )

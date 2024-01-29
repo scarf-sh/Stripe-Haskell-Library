@@ -112,16 +112,16 @@ instance Data.Aeson.Types.FromJSON.FromJSON AccountServiceResourceStatusDetailsC
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "activating" -> AccountServiceResourceStatusDetailsCode'EnumActivating
-            | val GHC.Classes.== "capability_not_requested" -> AccountServiceResourceStatusDetailsCode'EnumCapabilityNotRequested
-            | val GHC.Classes.== "financial_account_closed" -> AccountServiceResourceStatusDetailsCode'EnumFinancialAccountClosed
-            | val GHC.Classes.== "rejected_other" -> AccountServiceResourceStatusDetailsCode'EnumRejectedOther
-            | val GHC.Classes.== "rejected_unsupported_business" -> AccountServiceResourceStatusDetailsCode'EnumRejectedUnsupportedBusiness
-            | val GHC.Classes.== "requirements_past_due" -> AccountServiceResourceStatusDetailsCode'EnumRequirementsPastDue
-            | val GHC.Classes.== "requirements_pending_verification" -> AccountServiceResourceStatusDetailsCode'EnumRequirementsPendingVerification
-            | val GHC.Classes.== "restricted_by_platform" -> AccountServiceResourceStatusDetailsCode'EnumRestrictedByPlatform
-            | val GHC.Classes.== "restricted_other" -> AccountServiceResourceStatusDetailsCode'EnumRestrictedOther
-            | GHC.Base.otherwise -> AccountServiceResourceStatusDetailsCode'Other val
+          | val GHC.Classes.== "activating" -> AccountServiceResourceStatusDetailsCode'EnumActivating
+          | val GHC.Classes.== "capability_not_requested" -> AccountServiceResourceStatusDetailsCode'EnumCapabilityNotRequested
+          | val GHC.Classes.== "financial_account_closed" -> AccountServiceResourceStatusDetailsCode'EnumFinancialAccountClosed
+          | val GHC.Classes.== "rejected_other" -> AccountServiceResourceStatusDetailsCode'EnumRejectedOther
+          | val GHC.Classes.== "rejected_unsupported_business" -> AccountServiceResourceStatusDetailsCode'EnumRejectedUnsupportedBusiness
+          | val GHC.Classes.== "requirements_past_due" -> AccountServiceResourceStatusDetailsCode'EnumRequirementsPastDue
+          | val GHC.Classes.== "requirements_pending_verification" -> AccountServiceResourceStatusDetailsCode'EnumRequirementsPendingVerification
+          | val GHC.Classes.== "restricted_by_platform" -> AccountServiceResourceStatusDetailsCode'EnumRestrictedByPlatform
+          | val GHC.Classes.== "restricted_other" -> AccountServiceResourceStatusDetailsCode'EnumRestrictedOther
+          | GHC.Base.otherwise -> AccountServiceResourceStatusDetailsCode'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.account_service_resource_status_details.properties.resolution@ in the specification.
@@ -151,10 +151,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON AccountServiceResourceStatusDetailsR
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "contact_stripe" -> AccountServiceResourceStatusDetailsResolution'NonNullableEnumContactStripe
-            | val GHC.Classes.== "provide_information" -> AccountServiceResourceStatusDetailsResolution'NonNullableEnumProvideInformation
-            | val GHC.Classes.== "remove_restriction" -> AccountServiceResourceStatusDetailsResolution'NonNullableEnumRemoveRestriction
-            | GHC.Base.otherwise -> AccountServiceResourceStatusDetailsResolution'NonNullableOther val
+          | val GHC.Classes.== "contact_stripe" -> AccountServiceResourceStatusDetailsResolution'NonNullableEnumContactStripe
+          | val GHC.Classes.== "provide_information" -> AccountServiceResourceStatusDetailsResolution'NonNullableEnumProvideInformation
+          | val GHC.Classes.== "remove_restriction" -> AccountServiceResourceStatusDetailsResolution'NonNullableEnumRemoveRestriction
+          | GHC.Base.otherwise -> AccountServiceResourceStatusDetailsResolution'NonNullableOther val
       )
 
 -- | Defines the enum schema located at @components.schemas.account_service_resource_status_details.properties.restriction@ in the specification.
@@ -181,7 +181,7 @@ instance Data.Aeson.Types.FromJSON.FromJSON AccountServiceResourceStatusDetailsR
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "inbound_flows" -> AccountServiceResourceStatusDetailsRestriction'EnumInboundFlows
-            | val GHC.Classes.== "outbound_flows" -> AccountServiceResourceStatusDetailsRestriction'EnumOutboundFlows
-            | GHC.Base.otherwise -> AccountServiceResourceStatusDetailsRestriction'Other val
+          | val GHC.Classes.== "inbound_flows" -> AccountServiceResourceStatusDetailsRestriction'EnumInboundFlows
+          | val GHC.Classes.== "outbound_flows" -> AccountServiceResourceStatusDetailsRestriction'EnumOutboundFlows
+          | GHC.Base.otherwise -> AccountServiceResourceStatusDetailsRestriction'Other val
       )

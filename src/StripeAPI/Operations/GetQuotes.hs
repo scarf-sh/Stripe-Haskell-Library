@@ -48,7 +48,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>Returns a list of your quotes.\<\/p>
 getQuotes ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | Contains all available parameters of this operation (query and path parameters)
   GetQuotesParameters ->
   -- | Monadic computation which returns the result of the operation
@@ -60,21 +60,21 @@ getQuotes parameters =
           ( Data.Either.either GetQuotesResponseError GHC.Base.id
               GHC.Base.. ( \response body ->
                              if
-                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                               | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                    GetQuotesResponse200
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             GetQuotesResponseBody200
                                                       )
-                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                               | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                    GetQuotesResponseDefault
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             Error
                                                       )
-                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                               | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                          )
                 response_0
           )
@@ -197,11 +197,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON GetQuotesParametersQueryStatus' wher
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "accepted" -> GetQuotesParametersQueryStatus'EnumAccepted
-            | val GHC.Classes.== "canceled" -> GetQuotesParametersQueryStatus'EnumCanceled
-            | val GHC.Classes.== "draft" -> GetQuotesParametersQueryStatus'EnumDraft
-            | val GHC.Classes.== "open" -> GetQuotesParametersQueryStatus'EnumOpen
-            | GHC.Base.otherwise -> GetQuotesParametersQueryStatus'Other val
+          | val GHC.Classes.== "accepted" -> GetQuotesParametersQueryStatus'EnumAccepted
+          | val GHC.Classes.== "canceled" -> GetQuotesParametersQueryStatus'EnumCanceled
+          | val GHC.Classes.== "draft" -> GetQuotesParametersQueryStatus'EnumDraft
+          | val GHC.Classes.== "open" -> GetQuotesParametersQueryStatus'EnumOpen
+          | GHC.Base.otherwise -> GetQuotesParametersQueryStatus'Other val
       )
 
 -- | Represents a response of the operation 'getQuotes'.

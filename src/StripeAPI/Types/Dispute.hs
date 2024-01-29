@@ -219,13 +219,13 @@ instance Data.Aeson.Types.FromJSON.FromJSON DisputeStatus' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "charge_refunded" -> DisputeStatus'EnumChargeRefunded
-            | val GHC.Classes.== "lost" -> DisputeStatus'EnumLost
-            | val GHC.Classes.== "needs_response" -> DisputeStatus'EnumNeedsResponse
-            | val GHC.Classes.== "under_review" -> DisputeStatus'EnumUnderReview
-            | val GHC.Classes.== "warning_closed" -> DisputeStatus'EnumWarningClosed
-            | val GHC.Classes.== "warning_needs_response" -> DisputeStatus'EnumWarningNeedsResponse
-            | val GHC.Classes.== "warning_under_review" -> DisputeStatus'EnumWarningUnderReview
-            | val GHC.Classes.== "won" -> DisputeStatus'EnumWon
-            | GHC.Base.otherwise -> DisputeStatus'Other val
+          | val GHC.Classes.== "charge_refunded" -> DisputeStatus'EnumChargeRefunded
+          | val GHC.Classes.== "lost" -> DisputeStatus'EnumLost
+          | val GHC.Classes.== "needs_response" -> DisputeStatus'EnumNeedsResponse
+          | val GHC.Classes.== "under_review" -> DisputeStatus'EnumUnderReview
+          | val GHC.Classes.== "warning_closed" -> DisputeStatus'EnumWarningClosed
+          | val GHC.Classes.== "warning_needs_response" -> DisputeStatus'EnumWarningNeedsResponse
+          | val GHC.Classes.== "warning_under_review" -> DisputeStatus'EnumWarningUnderReview
+          | val GHC.Classes.== "won" -> DisputeStatus'EnumWon
+          | GHC.Base.otherwise -> DisputeStatus'Other val
       )

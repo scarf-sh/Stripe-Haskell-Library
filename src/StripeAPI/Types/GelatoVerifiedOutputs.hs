@@ -209,8 +209,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON GelatoVerifiedOutputsIdNumberType'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "br_cpf" -> GelatoVerifiedOutputsIdNumberType'NonNullableEnumBrCpf
-            | val GHC.Classes.== "sg_nric" -> GelatoVerifiedOutputsIdNumberType'NonNullableEnumSgNric
-            | val GHC.Classes.== "us_ssn" -> GelatoVerifiedOutputsIdNumberType'NonNullableEnumUsSsn
-            | GHC.Base.otherwise -> GelatoVerifiedOutputsIdNumberType'NonNullableOther val
+          | val GHC.Classes.== "br_cpf" -> GelatoVerifiedOutputsIdNumberType'NonNullableEnumBrCpf
+          | val GHC.Classes.== "sg_nric" -> GelatoVerifiedOutputsIdNumberType'NonNullableEnumSgNric
+          | val GHC.Classes.== "us_ssn" -> GelatoVerifiedOutputsIdNumberType'NonNullableEnumUsSsn
+          | GHC.Base.otherwise -> GelatoVerifiedOutputsIdNumberType'NonNullableOther val
       )

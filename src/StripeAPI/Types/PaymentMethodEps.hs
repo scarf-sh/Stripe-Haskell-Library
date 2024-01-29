@@ -152,32 +152,32 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentMethodEpsBank'NonNullable whe
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "arzte_und_apotheker_bank" -> PaymentMethodEpsBank'NonNullableEnumArzteUndApothekerBank
-            | val GHC.Classes.== "austrian_anadi_bank_ag" -> PaymentMethodEpsBank'NonNullableEnumAustrianAnadiBankAg
-            | val GHC.Classes.== "bank_austria" -> PaymentMethodEpsBank'NonNullableEnumBankAustria
-            | val GHC.Classes.== "bankhaus_carl_spangler" -> PaymentMethodEpsBank'NonNullableEnumBankhausCarlSpangler
-            | val GHC.Classes.== "bankhaus_schelhammer_und_schattera_ag" -> PaymentMethodEpsBank'NonNullableEnumBankhausSchelhammerUndSchatteraAg
-            | val GHC.Classes.== "bawag_psk_ag" -> PaymentMethodEpsBank'NonNullableEnumBawagPskAg
-            | val GHC.Classes.== "bks_bank_ag" -> PaymentMethodEpsBank'NonNullableEnumBksBankAg
-            | val GHC.Classes.== "brull_kallmus_bank_ag" -> PaymentMethodEpsBank'NonNullableEnumBrullKallmusBankAg
-            | val GHC.Classes.== "btv_vier_lander_bank" -> PaymentMethodEpsBank'NonNullableEnumBtvVierLanderBank
-            | val GHC.Classes.== "capital_bank_grawe_gruppe_ag" -> PaymentMethodEpsBank'NonNullableEnumCapitalBankGraweGruppeAg
-            | val GHC.Classes.== "dolomitenbank" -> PaymentMethodEpsBank'NonNullableEnumDolomitenbank
-            | val GHC.Classes.== "easybank_ag" -> PaymentMethodEpsBank'NonNullableEnumEasybankAg
-            | val GHC.Classes.== "erste_bank_und_sparkassen" -> PaymentMethodEpsBank'NonNullableEnumErsteBankUndSparkassen
-            | val GHC.Classes.== "hypo_alpeadriabank_international_ag" -> PaymentMethodEpsBank'NonNullableEnumHypoAlpeadriabankInternationalAg
-            | val GHC.Classes.== "hypo_bank_burgenland_aktiengesellschaft" -> PaymentMethodEpsBank'NonNullableEnumHypoBankBurgenlandAktiengesellschaft
-            | val GHC.Classes.== "hypo_noe_lb_fur_niederosterreich_u_wien" -> PaymentMethodEpsBank'NonNullableEnumHypoNoeLbFurNiederosterreichUWien
-            | val GHC.Classes.== "hypo_oberosterreich_salzburg_steiermark" -> PaymentMethodEpsBank'NonNullableEnumHypoOberosterreichSalzburgSteiermark
-            | val GHC.Classes.== "hypo_tirol_bank_ag" -> PaymentMethodEpsBank'NonNullableEnumHypoTirolBankAg
-            | val GHC.Classes.== "hypo_vorarlberg_bank_ag" -> PaymentMethodEpsBank'NonNullableEnumHypoVorarlbergBankAg
-            | val GHC.Classes.== "marchfelder_bank" -> PaymentMethodEpsBank'NonNullableEnumMarchfelderBank
-            | val GHC.Classes.== "oberbank_ag" -> PaymentMethodEpsBank'NonNullableEnumOberbankAg
-            | val GHC.Classes.== "raiffeisen_bankengruppe_osterreich" -> PaymentMethodEpsBank'NonNullableEnumRaiffeisenBankengruppeOsterreich
-            | val GHC.Classes.== "schoellerbank_ag" -> PaymentMethodEpsBank'NonNullableEnumSchoellerbankAg
-            | val GHC.Classes.== "sparda_bank_wien" -> PaymentMethodEpsBank'NonNullableEnumSpardaBankWien
-            | val GHC.Classes.== "volksbank_gruppe" -> PaymentMethodEpsBank'NonNullableEnumVolksbankGruppe
-            | val GHC.Classes.== "volkskreditbank_ag" -> PaymentMethodEpsBank'NonNullableEnumVolkskreditbankAg
-            | val GHC.Classes.== "vr_bank_braunau" -> PaymentMethodEpsBank'NonNullableEnumVrBankBraunau
-            | GHC.Base.otherwise -> PaymentMethodEpsBank'NonNullableOther val
+          | val GHC.Classes.== "arzte_und_apotheker_bank" -> PaymentMethodEpsBank'NonNullableEnumArzteUndApothekerBank
+          | val GHC.Classes.== "austrian_anadi_bank_ag" -> PaymentMethodEpsBank'NonNullableEnumAustrianAnadiBankAg
+          | val GHC.Classes.== "bank_austria" -> PaymentMethodEpsBank'NonNullableEnumBankAustria
+          | val GHC.Classes.== "bankhaus_carl_spangler" -> PaymentMethodEpsBank'NonNullableEnumBankhausCarlSpangler
+          | val GHC.Classes.== "bankhaus_schelhammer_und_schattera_ag" -> PaymentMethodEpsBank'NonNullableEnumBankhausSchelhammerUndSchatteraAg
+          | val GHC.Classes.== "bawag_psk_ag" -> PaymentMethodEpsBank'NonNullableEnumBawagPskAg
+          | val GHC.Classes.== "bks_bank_ag" -> PaymentMethodEpsBank'NonNullableEnumBksBankAg
+          | val GHC.Classes.== "brull_kallmus_bank_ag" -> PaymentMethodEpsBank'NonNullableEnumBrullKallmusBankAg
+          | val GHC.Classes.== "btv_vier_lander_bank" -> PaymentMethodEpsBank'NonNullableEnumBtvVierLanderBank
+          | val GHC.Classes.== "capital_bank_grawe_gruppe_ag" -> PaymentMethodEpsBank'NonNullableEnumCapitalBankGraweGruppeAg
+          | val GHC.Classes.== "dolomitenbank" -> PaymentMethodEpsBank'NonNullableEnumDolomitenbank
+          | val GHC.Classes.== "easybank_ag" -> PaymentMethodEpsBank'NonNullableEnumEasybankAg
+          | val GHC.Classes.== "erste_bank_und_sparkassen" -> PaymentMethodEpsBank'NonNullableEnumErsteBankUndSparkassen
+          | val GHC.Classes.== "hypo_alpeadriabank_international_ag" -> PaymentMethodEpsBank'NonNullableEnumHypoAlpeadriabankInternationalAg
+          | val GHC.Classes.== "hypo_bank_burgenland_aktiengesellschaft" -> PaymentMethodEpsBank'NonNullableEnumHypoBankBurgenlandAktiengesellschaft
+          | val GHC.Classes.== "hypo_noe_lb_fur_niederosterreich_u_wien" -> PaymentMethodEpsBank'NonNullableEnumHypoNoeLbFurNiederosterreichUWien
+          | val GHC.Classes.== "hypo_oberosterreich_salzburg_steiermark" -> PaymentMethodEpsBank'NonNullableEnumHypoOberosterreichSalzburgSteiermark
+          | val GHC.Classes.== "hypo_tirol_bank_ag" -> PaymentMethodEpsBank'NonNullableEnumHypoTirolBankAg
+          | val GHC.Classes.== "hypo_vorarlberg_bank_ag" -> PaymentMethodEpsBank'NonNullableEnumHypoVorarlbergBankAg
+          | val GHC.Classes.== "marchfelder_bank" -> PaymentMethodEpsBank'NonNullableEnumMarchfelderBank
+          | val GHC.Classes.== "oberbank_ag" -> PaymentMethodEpsBank'NonNullableEnumOberbankAg
+          | val GHC.Classes.== "raiffeisen_bankengruppe_osterreich" -> PaymentMethodEpsBank'NonNullableEnumRaiffeisenBankengruppeOsterreich
+          | val GHC.Classes.== "schoellerbank_ag" -> PaymentMethodEpsBank'NonNullableEnumSchoellerbankAg
+          | val GHC.Classes.== "sparda_bank_wien" -> PaymentMethodEpsBank'NonNullableEnumSpardaBankWien
+          | val GHC.Classes.== "volksbank_gruppe" -> PaymentMethodEpsBank'NonNullableEnumVolksbankGruppe
+          | val GHC.Classes.== "volkskreditbank_ag" -> PaymentMethodEpsBank'NonNullableEnumVolkskreditbankAg
+          | val GHC.Classes.== "vr_bank_braunau" -> PaymentMethodEpsBank'NonNullableEnumVrBankBraunau
+          | GHC.Base.otherwise -> PaymentMethodEpsBank'NonNullableOther val
       )

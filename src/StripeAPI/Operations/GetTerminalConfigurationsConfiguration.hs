@@ -48,7 +48,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>Retrieves a \<code>Configuration\<\/code> object.\<\/p>
 getTerminalConfigurationsConfiguration ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | Contains all available parameters of this operation (query and path parameters)
   GetTerminalConfigurationsConfigurationParameters ->
   -- | Monadic computation which returns the result of the operation
@@ -60,21 +60,21 @@ getTerminalConfigurationsConfiguration parameters =
           ( Data.Either.either GetTerminalConfigurationsConfigurationResponseError GHC.Base.id
               GHC.Base.. ( \response body ->
                              if
-                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                               | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                    GetTerminalConfigurationsConfigurationResponse200
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             GetTerminalConfigurationsConfigurationResponseBody200
                                                       )
-                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                               | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                    GetTerminalConfigurationsConfigurationResponseDefault
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             Error
                                                       )
-                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                               | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                          )
                 response_0
           )
@@ -200,8 +200,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON GetTerminalConfigurationsConfigurati
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== Data.Aeson.Types.Internal.Bool GHC.Types.True -> GetTerminalConfigurationsConfigurationResponseBody200Deleted'EnumTrue
-            | GHC.Base.otherwise -> GetTerminalConfigurationsConfigurationResponseBody200Deleted'Other val
+          | val GHC.Classes.== Data.Aeson.Types.Internal.Bool GHC.Types.True -> GetTerminalConfigurationsConfigurationResponseBody200Deleted'EnumTrue
+          | GHC.Base.otherwise -> GetTerminalConfigurationsConfigurationResponseBody200Deleted'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/terminal\/configurations\/{configuration}.GET.responses.200.content.application\/json.schema.anyOf.properties.object@ in the specification.
@@ -225,6 +225,6 @@ instance Data.Aeson.Types.FromJSON.FromJSON GetTerminalConfigurationsConfigurati
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "terminal.configuration" -> GetTerminalConfigurationsConfigurationResponseBody200Object'EnumTerminal'configuration
-            | GHC.Base.otherwise -> GetTerminalConfigurationsConfigurationResponseBody200Object'Other val
+          | val GHC.Classes.== "terminal.configuration" -> GetTerminalConfigurationsConfigurationResponseBody200Object'EnumTerminal'configuration
+          | GHC.Base.otherwise -> GetTerminalConfigurationsConfigurationResponseBody200Object'Other val
       )

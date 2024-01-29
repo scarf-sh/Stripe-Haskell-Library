@@ -126,12 +126,12 @@ instance Data.Aeson.Types.FromJSON.FromJSON IssuingDisputeEvidenceReason' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "canceled" -> IssuingDisputeEvidenceReason'EnumCanceled
-            | val GHC.Classes.== "duplicate" -> IssuingDisputeEvidenceReason'EnumDuplicate
-            | val GHC.Classes.== "fraudulent" -> IssuingDisputeEvidenceReason'EnumFraudulent
-            | val GHC.Classes.== "merchandise_not_as_described" -> IssuingDisputeEvidenceReason'EnumMerchandiseNotAsDescribed
-            | val GHC.Classes.== "not_received" -> IssuingDisputeEvidenceReason'EnumNotReceived
-            | val GHC.Classes.== "other" -> IssuingDisputeEvidenceReason'EnumOther
-            | val GHC.Classes.== "service_not_as_described" -> IssuingDisputeEvidenceReason'EnumServiceNotAsDescribed
-            | GHC.Base.otherwise -> IssuingDisputeEvidenceReason'Other val
+          | val GHC.Classes.== "canceled" -> IssuingDisputeEvidenceReason'EnumCanceled
+          | val GHC.Classes.== "duplicate" -> IssuingDisputeEvidenceReason'EnumDuplicate
+          | val GHC.Classes.== "fraudulent" -> IssuingDisputeEvidenceReason'EnumFraudulent
+          | val GHC.Classes.== "merchandise_not_as_described" -> IssuingDisputeEvidenceReason'EnumMerchandiseNotAsDescribed
+          | val GHC.Classes.== "not_received" -> IssuingDisputeEvidenceReason'EnumNotReceived
+          | val GHC.Classes.== "other" -> IssuingDisputeEvidenceReason'EnumOther
+          | val GHC.Classes.== "service_not_as_described" -> IssuingDisputeEvidenceReason'EnumServiceNotAsDescribed
+          | GHC.Base.otherwise -> IssuingDisputeEvidenceReason'Other val
       )

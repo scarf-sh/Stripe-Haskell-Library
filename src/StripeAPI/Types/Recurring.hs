@@ -102,11 +102,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON RecurringAggregateUsage'NonNullable 
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "last_during_period" -> RecurringAggregateUsage'NonNullableEnumLastDuringPeriod
-            | val GHC.Classes.== "last_ever" -> RecurringAggregateUsage'NonNullableEnumLastEver
-            | val GHC.Classes.== "max" -> RecurringAggregateUsage'NonNullableEnumMax
-            | val GHC.Classes.== "sum" -> RecurringAggregateUsage'NonNullableEnumSum
-            | GHC.Base.otherwise -> RecurringAggregateUsage'NonNullableOther val
+          | val GHC.Classes.== "last_during_period" -> RecurringAggregateUsage'NonNullableEnumLastDuringPeriod
+          | val GHC.Classes.== "last_ever" -> RecurringAggregateUsage'NonNullableEnumLastEver
+          | val GHC.Classes.== "max" -> RecurringAggregateUsage'NonNullableEnumMax
+          | val GHC.Classes.== "sum" -> RecurringAggregateUsage'NonNullableEnumSum
+          | GHC.Base.otherwise -> RecurringAggregateUsage'NonNullableOther val
       )
 
 -- | Defines the enum schema located at @components.schemas.recurring.properties.interval@ in the specification.
@@ -139,11 +139,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON RecurringInterval' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "day" -> RecurringInterval'EnumDay
-            | val GHC.Classes.== "month" -> RecurringInterval'EnumMonth
-            | val GHC.Classes.== "week" -> RecurringInterval'EnumWeek
-            | val GHC.Classes.== "year" -> RecurringInterval'EnumYear
-            | GHC.Base.otherwise -> RecurringInterval'Other val
+          | val GHC.Classes.== "day" -> RecurringInterval'EnumDay
+          | val GHC.Classes.== "month" -> RecurringInterval'EnumMonth
+          | val GHC.Classes.== "week" -> RecurringInterval'EnumWeek
+          | val GHC.Classes.== "year" -> RecurringInterval'EnumYear
+          | GHC.Base.otherwise -> RecurringInterval'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.recurring.properties.usage_type@ in the specification.
@@ -170,7 +170,7 @@ instance Data.Aeson.Types.FromJSON.FromJSON RecurringUsageType' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "licensed" -> RecurringUsageType'EnumLicensed
-            | val GHC.Classes.== "metered" -> RecurringUsageType'EnumMetered
-            | GHC.Base.otherwise -> RecurringUsageType'Other val
+          | val GHC.Classes.== "licensed" -> RecurringUsageType'EnumLicensed
+          | val GHC.Classes.== "metered" -> RecurringUsageType'EnumMetered
+          | GHC.Base.otherwise -> RecurringUsageType'Other val
       )

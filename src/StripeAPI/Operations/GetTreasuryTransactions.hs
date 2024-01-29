@@ -48,7 +48,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>Retrieves a list of Transaction objects.\<\/p>
 getTreasuryTransactions ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | Contains all available parameters of this operation (query and path parameters)
   GetTreasuryTransactionsParameters ->
   -- | Monadic computation which returns the result of the operation
@@ -60,21 +60,21 @@ getTreasuryTransactions parameters =
           ( Data.Either.either GetTreasuryTransactionsResponseError GHC.Base.id
               GHC.Base.. ( \response body ->
                              if
-                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                               | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                    GetTreasuryTransactionsResponse200
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             GetTreasuryTransactionsResponseBody200
                                                       )
-                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                               | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                    GetTreasuryTransactionsResponseDefault
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             Error
                                                       )
-                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                               | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                          )
                 response_0
           )
@@ -246,9 +246,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON GetTreasuryTransactionsParametersQue
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "created" -> GetTreasuryTransactionsParametersQueryOrderBy'EnumCreated
-            | val GHC.Classes.== "posted_at" -> GetTreasuryTransactionsParametersQueryOrderBy'EnumPostedAt
-            | GHC.Base.otherwise -> GetTreasuryTransactionsParametersQueryOrderBy'Other val
+          | val GHC.Classes.== "created" -> GetTreasuryTransactionsParametersQueryOrderBy'EnumCreated
+          | val GHC.Classes.== "posted_at" -> GetTreasuryTransactionsParametersQueryOrderBy'EnumPostedAt
+          | GHC.Base.otherwise -> GetTreasuryTransactionsParametersQueryOrderBy'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/treasury\/transactions.GET.parameters.properties.queryStatus@ in the specification.
@@ -280,10 +280,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON GetTreasuryTransactionsParametersQue
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "open" -> GetTreasuryTransactionsParametersQueryStatus'EnumOpen
-            | val GHC.Classes.== "posted" -> GetTreasuryTransactionsParametersQueryStatus'EnumPosted
-            | val GHC.Classes.== "void" -> GetTreasuryTransactionsParametersQueryStatus'EnumVoid
-            | GHC.Base.otherwise -> GetTreasuryTransactionsParametersQueryStatus'Other val
+          | val GHC.Classes.== "open" -> GetTreasuryTransactionsParametersQueryStatus'EnumOpen
+          | val GHC.Classes.== "posted" -> GetTreasuryTransactionsParametersQueryStatus'EnumPosted
+          | val GHC.Classes.== "void" -> GetTreasuryTransactionsParametersQueryStatus'EnumVoid
+          | GHC.Base.otherwise -> GetTreasuryTransactionsParametersQueryStatus'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/treasury\/transactions.GET.parameters.properties.queryStatus_transitions@ in the specification.

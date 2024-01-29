@@ -48,7 +48,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>Submitting an Order transitions the status to \<code>processing\<\/code> and creates a PaymentIntent object so the order can be paid. If the Order has an \<code>amount_total\<\/code> of 0, no PaymentIntent object will be created. Once the order is submitted, its contents cannot be changed, unless the \<a href=\"\#reopen_order\">reopen\<\/a> method is called.\<\/p>
 postOrdersIdSubmit ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | id | Constraints: Maximum length of 5000
   Data.Text.Internal.Text ->
   -- | The request body to send
@@ -64,21 +64,21 @@ postOrdersIdSubmit
             ( Data.Either.either PostOrdersIdSubmitResponseError GHC.Base.id
                 GHC.Base.. ( \response body ->
                                if
-                                   | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                      PostOrdersIdSubmitResponse200
                                        Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                             Data.Either.Either
                                                               GHC.Base.String
                                                               Order
                                                         )
-                                   | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                      PostOrdersIdSubmitResponseDefault
                                        Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                             Data.Either.Either
                                                               GHC.Base.String
                                                               Error
                                                         )
-                                   | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                            )
                   response_0
             )

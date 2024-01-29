@@ -48,7 +48,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>Use this endpoint to simulate a test mode ReceivedCredit initiated by a third party. In live mode, you can’t directly create ReceivedCredits initiated by third parties.\<\/p>
 postTestHelpersTreasuryReceivedCredits ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | The request body to send
   PostTestHelpersTreasuryReceivedCreditsRequestBody ->
   -- | Monadic computation which returns the result of the operation
@@ -60,21 +60,21 @@ postTestHelpersTreasuryReceivedCredits body =
           ( Data.Either.either PostTestHelpersTreasuryReceivedCreditsResponseError GHC.Base.id
               GHC.Base.. ( \response body ->
                              if
-                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                               | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                    PostTestHelpersTreasuryReceivedCreditsResponse200
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             Treasury'receivedCredit
                                                       )
-                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                               | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                    PostTestHelpersTreasuryReceivedCreditsResponseDefault
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             Error
                                                       )
-                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                               | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                          )
                 response_0
           )
@@ -226,9 +226,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostTestHelpersTreasuryReceivedCredi
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "ach" -> PostTestHelpersTreasuryReceivedCreditsRequestBodyNetwork'EnumAch
-            | val GHC.Classes.== "us_domestic_wire" -> PostTestHelpersTreasuryReceivedCreditsRequestBodyNetwork'EnumUsDomesticWire
-            | GHC.Base.otherwise -> PostTestHelpersTreasuryReceivedCreditsRequestBodyNetwork'Other val
+          | val GHC.Classes.== "ach" -> PostTestHelpersTreasuryReceivedCreditsRequestBodyNetwork'EnumAch
+          | val GHC.Classes.== "us_domestic_wire" -> PostTestHelpersTreasuryReceivedCreditsRequestBodyNetwork'EnumUsDomesticWire
+          | GHC.Base.otherwise -> PostTestHelpersTreasuryReceivedCreditsRequestBodyNetwork'Other val
       )
 
 -- | Represents a response of the operation 'postTestHelpersTreasuryReceivedCredits'.

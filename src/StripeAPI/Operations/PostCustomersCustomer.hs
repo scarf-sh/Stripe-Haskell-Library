@@ -50,7 +50,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>This request accepts mostly the same arguments as the customer creation call.\<\/p>
 postCustomersCustomer ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | customer | Constraints: Maximum length of 5000
   Data.Text.Internal.Text ->
   -- | The request body to send
@@ -66,21 +66,21 @@ postCustomersCustomer
             ( Data.Either.either PostCustomersCustomerResponseError GHC.Base.id
                 GHC.Base.. ( \response body ->
                                if
-                                   | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                      PostCustomersCustomerResponse200
                                        Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                             Data.Either.Either
                                                               GHC.Base.String
                                                               Customer
                                                         )
-                                   | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                      PostCustomersCustomerResponseDefault
                                        Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                             Data.Either.Either
                                                               GHC.Base.String
                                                               Error
                                                         )
-                                   | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                            )
                   response_0
             )
@@ -318,8 +318,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostCustomersCustomerRequestBodyAddress'
 instance Data.Aeson.Types.FromJSON.FromJSON PostCustomersCustomerRequestBodyAddress'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostCustomersCustomerRequestBodyAddress'EmptyString
-        | GHC.Base.otherwise -> case (PostCustomersCustomerRequestBodyAddress'PostCustomersCustomerRequestBodyAddress'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostCustomersCustomerRequestBodyAddress'EmptyString
+      | GHC.Base.otherwise -> case (PostCustomersCustomerRequestBodyAddress'PostCustomersCustomerRequestBodyAddress'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -416,9 +416,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostCustomersCustomerRequestBodyBank
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "company" -> PostCustomersCustomerRequestBodyBankAccount'OneOf1AccountHolderType'EnumCompany
-            | val GHC.Classes.== "individual" -> PostCustomersCustomerRequestBodyBankAccount'OneOf1AccountHolderType'EnumIndividual
-            | GHC.Base.otherwise -> PostCustomersCustomerRequestBodyBankAccount'OneOf1AccountHolderType'Other val
+          | val GHC.Classes.== "company" -> PostCustomersCustomerRequestBodyBankAccount'OneOf1AccountHolderType'EnumCompany
+          | val GHC.Classes.== "individual" -> PostCustomersCustomerRequestBodyBankAccount'OneOf1AccountHolderType'EnumIndividual
+          | GHC.Base.otherwise -> PostCustomersCustomerRequestBodyBankAccount'OneOf1AccountHolderType'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/customers\/{customer}.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.bank_account.anyOf.properties.object@ in the specification.
@@ -440,8 +440,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostCustomersCustomerRequestBodyBank
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "bank_account" -> PostCustomersCustomerRequestBodyBankAccount'OneOf1Object'EnumBankAccount
-            | GHC.Base.otherwise -> PostCustomersCustomerRequestBodyBankAccount'OneOf1Object'Other val
+          | val GHC.Classes.== "bank_account" -> PostCustomersCustomerRequestBodyBankAccount'OneOf1Object'EnumBankAccount
+          | GHC.Base.otherwise -> PostCustomersCustomerRequestBodyBankAccount'OneOf1Object'Other val
       )
 
 -- | Defines the oneOf schema located at @paths.\/v1\/customers\/{customer}.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.bank_account.anyOf@ in the specification.
@@ -587,8 +587,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostCustomersCustomerRequestBodyCard
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "card" -> PostCustomersCustomerRequestBodyCard'OneOf1Object'EnumCard
-            | GHC.Base.otherwise -> PostCustomersCustomerRequestBodyCard'OneOf1Object'Other val
+          | val GHC.Classes.== "card" -> PostCustomersCustomerRequestBodyCard'OneOf1Object'EnumCard
+          | GHC.Base.otherwise -> PostCustomersCustomerRequestBodyCard'OneOf1Object'Other val
       )
 
 -- | Defines the oneOf schema located at @paths.\/v1\/customers\/{customer}.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.card.anyOf@ in the specification.
@@ -674,9 +674,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostCustomersCustomerRequestBodyCash
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> PostCustomersCustomerRequestBodyCashBalance'Settings'ReconciliationMode'EnumAutomatic
-            | val GHC.Classes.== "manual" -> PostCustomersCustomerRequestBodyCashBalance'Settings'ReconciliationMode'EnumManual
-            | GHC.Base.otherwise -> PostCustomersCustomerRequestBodyCashBalance'Settings'ReconciliationMode'Other val
+          | val GHC.Classes.== "automatic" -> PostCustomersCustomerRequestBodyCashBalance'Settings'ReconciliationMode'EnumAutomatic
+          | val GHC.Classes.== "manual" -> PostCustomersCustomerRequestBodyCashBalance'Settings'ReconciliationMode'EnumManual
+          | GHC.Base.otherwise -> PostCustomersCustomerRequestBodyCashBalance'Settings'ReconciliationMode'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/customers\/{customer}.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.invoice_settings@ in the specification.
@@ -776,8 +776,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostCustomersCustomerRequestBodyInvoiceS
 instance Data.Aeson.Types.FromJSON.FromJSON PostCustomersCustomerRequestBodyInvoiceSettings'CustomFields'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostCustomersCustomerRequestBodyInvoiceSettings'CustomFields'EmptyString
-        | GHC.Base.otherwise -> case (PostCustomersCustomerRequestBodyInvoiceSettings'CustomFields'ListTPostCustomersCustomerRequestBodyInvoiceSettings'CustomFields'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostCustomersCustomerRequestBodyInvoiceSettings'CustomFields'EmptyString
+      | GHC.Base.otherwise -> case (PostCustomersCustomerRequestBodyInvoiceSettings'CustomFields'ListTPostCustomersCustomerRequestBodyInvoiceSettings'CustomFields'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -827,10 +827,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostCustomersCustomerRequestBodyInvo
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "" -> PostCustomersCustomerRequestBodyInvoiceSettings'RenderingOptions'OneOf1AmountTaxDisplay'EnumEmptyString
-            | val GHC.Classes.== "exclude_tax" -> PostCustomersCustomerRequestBodyInvoiceSettings'RenderingOptions'OneOf1AmountTaxDisplay'EnumExcludeTax
-            | val GHC.Classes.== "include_inclusive_tax" -> PostCustomersCustomerRequestBodyInvoiceSettings'RenderingOptions'OneOf1AmountTaxDisplay'EnumIncludeInclusiveTax
-            | GHC.Base.otherwise -> PostCustomersCustomerRequestBodyInvoiceSettings'RenderingOptions'OneOf1AmountTaxDisplay'Other val
+          | val GHC.Classes.== "" -> PostCustomersCustomerRequestBodyInvoiceSettings'RenderingOptions'OneOf1AmountTaxDisplay'EnumEmptyString
+          | val GHC.Classes.== "exclude_tax" -> PostCustomersCustomerRequestBodyInvoiceSettings'RenderingOptions'OneOf1AmountTaxDisplay'EnumExcludeTax
+          | val GHC.Classes.== "include_inclusive_tax" -> PostCustomersCustomerRequestBodyInvoiceSettings'RenderingOptions'OneOf1AmountTaxDisplay'EnumIncludeInclusiveTax
+          | GHC.Base.otherwise -> PostCustomersCustomerRequestBodyInvoiceSettings'RenderingOptions'OneOf1AmountTaxDisplay'Other val
       )
 
 -- | Defines the oneOf schema located at @paths.\/v1\/customers\/{customer}.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.invoice_settings.properties.rendering_options.anyOf@ in the specification.
@@ -847,8 +847,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostCustomersCustomerRequestBodyInvoiceS
 instance Data.Aeson.Types.FromJSON.FromJSON PostCustomersCustomerRequestBodyInvoiceSettings'RenderingOptions'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostCustomersCustomerRequestBodyInvoiceSettings'RenderingOptions'EmptyString
-        | GHC.Base.otherwise -> case (PostCustomersCustomerRequestBodyInvoiceSettings'RenderingOptions'PostCustomersCustomerRequestBodyInvoiceSettings'RenderingOptions'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostCustomersCustomerRequestBodyInvoiceSettings'RenderingOptions'EmptyString
+      | GHC.Base.otherwise -> case (PostCustomersCustomerRequestBodyInvoiceSettings'RenderingOptions'PostCustomersCustomerRequestBodyInvoiceSettings'RenderingOptions'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -868,8 +868,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostCustomersCustomerRequestBodyMetadata
 instance Data.Aeson.Types.FromJSON.FromJSON PostCustomersCustomerRequestBodyMetadata'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostCustomersCustomerRequestBodyMetadata'EmptyString
-        | GHC.Base.otherwise -> case (PostCustomersCustomerRequestBodyMetadata'Object Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostCustomersCustomerRequestBodyMetadata'EmptyString
+      | GHC.Base.otherwise -> case (PostCustomersCustomerRequestBodyMetadata'Object Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -995,8 +995,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostCustomersCustomerRequestBodyShipping
 instance Data.Aeson.Types.FromJSON.FromJSON PostCustomersCustomerRequestBodyShipping'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostCustomersCustomerRequestBodyShipping'EmptyString
-        | GHC.Base.otherwise -> case (PostCustomersCustomerRequestBodyShipping'PostCustomersCustomerRequestBodyShipping'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostCustomersCustomerRequestBodyShipping'EmptyString
+      | GHC.Base.otherwise -> case (PostCustomersCustomerRequestBodyShipping'PostCustomersCustomerRequestBodyShipping'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -1037,8 +1037,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostCustomersCustomerRequestBodyTax'IpAd
 instance Data.Aeson.Types.FromJSON.FromJSON PostCustomersCustomerRequestBodyTax'IpAddress'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostCustomersCustomerRequestBodyTax'IpAddress'EmptyString
-        | GHC.Base.otherwise -> case (PostCustomersCustomerRequestBodyTax'IpAddress'Text Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostCustomersCustomerRequestBodyTax'IpAddress'EmptyString
+      | GHC.Base.otherwise -> case (PostCustomersCustomerRequestBodyTax'IpAddress'Text Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -1072,11 +1072,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostCustomersCustomerRequestBodyTaxE
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "" -> PostCustomersCustomerRequestBodyTaxExempt'EnumEmptyString
-            | val GHC.Classes.== "exempt" -> PostCustomersCustomerRequestBodyTaxExempt'EnumExempt
-            | val GHC.Classes.== "none" -> PostCustomersCustomerRequestBodyTaxExempt'EnumNone
-            | val GHC.Classes.== "reverse" -> PostCustomersCustomerRequestBodyTaxExempt'EnumReverse
-            | GHC.Base.otherwise -> PostCustomersCustomerRequestBodyTaxExempt'Other val
+          | val GHC.Classes.== "" -> PostCustomersCustomerRequestBodyTaxExempt'EnumEmptyString
+          | val GHC.Classes.== "exempt" -> PostCustomersCustomerRequestBodyTaxExempt'EnumExempt
+          | val GHC.Classes.== "none" -> PostCustomersCustomerRequestBodyTaxExempt'EnumNone
+          | val GHC.Classes.== "reverse" -> PostCustomersCustomerRequestBodyTaxExempt'EnumReverse
+          | GHC.Base.otherwise -> PostCustomersCustomerRequestBodyTaxExempt'Other val
       )
 
 -- | Defines the oneOf schema located at @paths.\/v1\/customers\/{customer}.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.trial_end.anyOf@ in the specification.
@@ -1095,8 +1095,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostCustomersCustomerRequestBodyTrialEnd
 instance Data.Aeson.Types.FromJSON.FromJSON PostCustomersCustomerRequestBodyTrialEnd'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "now" -> GHC.Base.pure PostCustomersCustomerRequestBodyTrialEnd'Now
-        | GHC.Base.otherwise -> case (PostCustomersCustomerRequestBodyTrialEnd'Int Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "now" -> GHC.Base.pure PostCustomersCustomerRequestBodyTrialEnd'Now
+      | GHC.Base.otherwise -> case (PostCustomersCustomerRequestBodyTrialEnd'Int Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 

@@ -82,6 +82,6 @@ instance Data.Aeson.Types.FromJSON.FromJSON CheckoutBancontactPaymentMethodOptio
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> CheckoutBancontactPaymentMethodOptionsSetupFutureUsage'EnumNone
-            | GHC.Base.otherwise -> CheckoutBancontactPaymentMethodOptionsSetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> CheckoutBancontactPaymentMethodOptionsSetupFutureUsage'EnumNone
+          | GHC.Base.otherwise -> CheckoutBancontactPaymentMethodOptionsSetupFutureUsage'Other val
       )

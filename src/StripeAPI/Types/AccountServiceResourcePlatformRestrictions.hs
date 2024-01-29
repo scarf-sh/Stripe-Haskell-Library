@@ -85,9 +85,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON AccountServiceResourcePlatformRestri
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "restricted" -> AccountServiceResourcePlatformRestrictionsInboundFlows'NonNullableEnumRestricted
-            | val GHC.Classes.== "unrestricted" -> AccountServiceResourcePlatformRestrictionsInboundFlows'NonNullableEnumUnrestricted
-            | GHC.Base.otherwise -> AccountServiceResourcePlatformRestrictionsInboundFlows'NonNullableOther val
+          | val GHC.Classes.== "restricted" -> AccountServiceResourcePlatformRestrictionsInboundFlows'NonNullableEnumRestricted
+          | val GHC.Classes.== "unrestricted" -> AccountServiceResourcePlatformRestrictionsInboundFlows'NonNullableEnumUnrestricted
+          | GHC.Base.otherwise -> AccountServiceResourcePlatformRestrictionsInboundFlows'NonNullableOther val
       )
 
 -- | Defines the enum schema located at @components.schemas.account_service_resource_platform_restrictions.properties.outbound_flows@ in the specification.
@@ -114,7 +114,7 @@ instance Data.Aeson.Types.FromJSON.FromJSON AccountServiceResourcePlatformRestri
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "restricted" -> AccountServiceResourcePlatformRestrictionsOutboundFlows'NonNullableEnumRestricted
-            | val GHC.Classes.== "unrestricted" -> AccountServiceResourcePlatformRestrictionsOutboundFlows'NonNullableEnumUnrestricted
-            | GHC.Base.otherwise -> AccountServiceResourcePlatformRestrictionsOutboundFlows'NonNullableOther val
+          | val GHC.Classes.== "restricted" -> AccountServiceResourcePlatformRestrictionsOutboundFlows'NonNullableEnumRestricted
+          | val GHC.Classes.== "unrestricted" -> AccountServiceResourcePlatformRestrictionsOutboundFlows'NonNullableEnumUnrestricted
+          | GHC.Base.otherwise -> AccountServiceResourcePlatformRestrictionsOutboundFlows'NonNullableOther val
       )

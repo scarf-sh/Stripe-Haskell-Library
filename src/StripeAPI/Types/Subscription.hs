@@ -325,9 +325,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON SubscriptionCollectionMethod' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "charge_automatically" -> SubscriptionCollectionMethod'EnumChargeAutomatically
-            | val GHC.Classes.== "send_invoice" -> SubscriptionCollectionMethod'EnumSendInvoice
-            | GHC.Base.otherwise -> SubscriptionCollectionMethod'Other val
+          | val GHC.Classes.== "charge_automatically" -> SubscriptionCollectionMethod'EnumChargeAutomatically
+          | val GHC.Classes.== "send_invoice" -> SubscriptionCollectionMethod'EnumSendInvoice
+          | GHC.Base.otherwise -> SubscriptionCollectionMethod'Other val
       )
 
 -- | Defines the oneOf schema located at @components.schemas.subscription.properties.customer.anyOf@ in the specification.
@@ -509,8 +509,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON SubscriptionDiscount'NonNullableObje
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "discount" -> SubscriptionDiscount'NonNullableObject'EnumDiscount
-            | GHC.Base.otherwise -> SubscriptionDiscount'NonNullableObject'Other val
+          | val GHC.Classes.== "discount" -> SubscriptionDiscount'NonNullableObject'EnumDiscount
+          | GHC.Base.otherwise -> SubscriptionDiscount'NonNullableObject'Other val
       )
 
 -- | Defines the oneOf schema located at @components.schemas.subscription.properties.discount.anyOf.properties.promotion_code.anyOf@ in the specification.
@@ -646,10 +646,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON SubscriptionPauseCollection'NonNulla
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "keep_as_draft" -> SubscriptionPauseCollection'NonNullableBehavior'EnumKeepAsDraft
-            | val GHC.Classes.== "mark_uncollectible" -> SubscriptionPauseCollection'NonNullableBehavior'EnumMarkUncollectible
-            | val GHC.Classes.== "void" -> SubscriptionPauseCollection'NonNullableBehavior'EnumVoid
-            | GHC.Base.otherwise -> SubscriptionPauseCollection'NonNullableBehavior'Other val
+          | val GHC.Classes.== "keep_as_draft" -> SubscriptionPauseCollection'NonNullableBehavior'EnumKeepAsDraft
+          | val GHC.Classes.== "mark_uncollectible" -> SubscriptionPauseCollection'NonNullableBehavior'EnumMarkUncollectible
+          | val GHC.Classes.== "void" -> SubscriptionPauseCollection'NonNullableBehavior'EnumVoid
+          | GHC.Base.otherwise -> SubscriptionPauseCollection'NonNullableBehavior'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.subscription.properties.payment_settings.anyOf@ in the specification.
@@ -781,10 +781,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON SubscriptionPaymentSettings'NonNulla
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> SubscriptionPaymentSettings'NonNullablePaymentMethodOptions'NonNullableAcssDebit'NonNullableVerificationMethod'EnumAutomatic
-            | val GHC.Classes.== "instant" -> SubscriptionPaymentSettings'NonNullablePaymentMethodOptions'NonNullableAcssDebit'NonNullableVerificationMethod'EnumInstant
-            | val GHC.Classes.== "microdeposits" -> SubscriptionPaymentSettings'NonNullablePaymentMethodOptions'NonNullableAcssDebit'NonNullableVerificationMethod'EnumMicrodeposits
-            | GHC.Base.otherwise -> SubscriptionPaymentSettings'NonNullablePaymentMethodOptions'NonNullableAcssDebit'NonNullableVerificationMethod'Other val
+          | val GHC.Classes.== "automatic" -> SubscriptionPaymentSettings'NonNullablePaymentMethodOptions'NonNullableAcssDebit'NonNullableVerificationMethod'EnumAutomatic
+          | val GHC.Classes.== "instant" -> SubscriptionPaymentSettings'NonNullablePaymentMethodOptions'NonNullableAcssDebit'NonNullableVerificationMethod'EnumInstant
+          | val GHC.Classes.== "microdeposits" -> SubscriptionPaymentSettings'NonNullablePaymentMethodOptions'NonNullableAcssDebit'NonNullableVerificationMethod'EnumMicrodeposits
+          | GHC.Base.otherwise -> SubscriptionPaymentSettings'NonNullablePaymentMethodOptions'NonNullableAcssDebit'NonNullableVerificationMethod'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.subscription.properties.payment_settings.anyOf.properties.payment_method_options.anyOf.properties.bancontact.anyOf@ in the specification.
@@ -840,11 +840,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON SubscriptionPaymentSettings'NonNulla
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "de" -> SubscriptionPaymentSettings'NonNullablePaymentMethodOptions'NonNullableBancontact'NonNullablePreferredLanguage'EnumDe
-            | val GHC.Classes.== "en" -> SubscriptionPaymentSettings'NonNullablePaymentMethodOptions'NonNullableBancontact'NonNullablePreferredLanguage'EnumEn
-            | val GHC.Classes.== "fr" -> SubscriptionPaymentSettings'NonNullablePaymentMethodOptions'NonNullableBancontact'NonNullablePreferredLanguage'EnumFr
-            | val GHC.Classes.== "nl" -> SubscriptionPaymentSettings'NonNullablePaymentMethodOptions'NonNullableBancontact'NonNullablePreferredLanguage'EnumNl
-            | GHC.Base.otherwise -> SubscriptionPaymentSettings'NonNullablePaymentMethodOptions'NonNullableBancontact'NonNullablePreferredLanguage'Other val
+          | val GHC.Classes.== "de" -> SubscriptionPaymentSettings'NonNullablePaymentMethodOptions'NonNullableBancontact'NonNullablePreferredLanguage'EnumDe
+          | val GHC.Classes.== "en" -> SubscriptionPaymentSettings'NonNullablePaymentMethodOptions'NonNullableBancontact'NonNullablePreferredLanguage'EnumEn
+          | val GHC.Classes.== "fr" -> SubscriptionPaymentSettings'NonNullablePaymentMethodOptions'NonNullableBancontact'NonNullablePreferredLanguage'EnumFr
+          | val GHC.Classes.== "nl" -> SubscriptionPaymentSettings'NonNullablePaymentMethodOptions'NonNullableBancontact'NonNullablePreferredLanguage'EnumNl
+          | GHC.Base.otherwise -> SubscriptionPaymentSettings'NonNullablePaymentMethodOptions'NonNullableBancontact'NonNullablePreferredLanguage'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.subscription.properties.payment_settings.anyOf.properties.payment_method_options.anyOf.properties.card.anyOf@ in the specification.
@@ -900,9 +900,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON SubscriptionPaymentSettings'NonNulla
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "any" -> SubscriptionPaymentSettings'NonNullablePaymentMethodOptions'NonNullableCard'NonNullableRequestThreeDSecure'NonNullableEnumAny
-            | val GHC.Classes.== "automatic" -> SubscriptionPaymentSettings'NonNullablePaymentMethodOptions'NonNullableCard'NonNullableRequestThreeDSecure'NonNullableEnumAutomatic
-            | GHC.Base.otherwise -> SubscriptionPaymentSettings'NonNullablePaymentMethodOptions'NonNullableCard'NonNullableRequestThreeDSecure'NonNullableOther val
+          | val GHC.Classes.== "any" -> SubscriptionPaymentSettings'NonNullablePaymentMethodOptions'NonNullableCard'NonNullableRequestThreeDSecure'NonNullableEnumAny
+          | val GHC.Classes.== "automatic" -> SubscriptionPaymentSettings'NonNullablePaymentMethodOptions'NonNullableCard'NonNullableRequestThreeDSecure'NonNullableEnumAutomatic
+          | GHC.Base.otherwise -> SubscriptionPaymentSettings'NonNullablePaymentMethodOptions'NonNullableCard'NonNullableRequestThreeDSecure'NonNullableOther val
       )
 
 -- | Defines the object schema located at @components.schemas.subscription.properties.payment_settings.anyOf.properties.payment_method_options.anyOf.properties.customer_balance.anyOf@ in the specification.
@@ -955,8 +955,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON SubscriptionPaymentSettings'NonNulla
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "bank_transfer" -> SubscriptionPaymentSettings'NonNullablePaymentMethodOptions'NonNullableCustomerBalance'NonNullableFundingType'NonNullableEnumBankTransfer
-            | GHC.Base.otherwise -> SubscriptionPaymentSettings'NonNullablePaymentMethodOptions'NonNullableCustomerBalance'NonNullableFundingType'NonNullableOther val
+          | val GHC.Classes.== "bank_transfer" -> SubscriptionPaymentSettings'NonNullablePaymentMethodOptions'NonNullableCustomerBalance'NonNullableFundingType'NonNullableEnumBankTransfer
+          | GHC.Base.otherwise -> SubscriptionPaymentSettings'NonNullablePaymentMethodOptions'NonNullableCustomerBalance'NonNullableFundingType'NonNullableOther val
       )
 
 -- | Defines the object schema located at @components.schemas.subscription.properties.payment_settings.anyOf.properties.payment_method_options.anyOf.properties.us_bank_account.anyOf@ in the specification.
@@ -1015,10 +1015,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON SubscriptionPaymentSettings'NonNulla
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> SubscriptionPaymentSettings'NonNullablePaymentMethodOptions'NonNullableUsBankAccount'NonNullableVerificationMethod'EnumAutomatic
-            | val GHC.Classes.== "instant" -> SubscriptionPaymentSettings'NonNullablePaymentMethodOptions'NonNullableUsBankAccount'NonNullableVerificationMethod'EnumInstant
-            | val GHC.Classes.== "microdeposits" -> SubscriptionPaymentSettings'NonNullablePaymentMethodOptions'NonNullableUsBankAccount'NonNullableVerificationMethod'EnumMicrodeposits
-            | GHC.Base.otherwise -> SubscriptionPaymentSettings'NonNullablePaymentMethodOptions'NonNullableUsBankAccount'NonNullableVerificationMethod'Other val
+          | val GHC.Classes.== "automatic" -> SubscriptionPaymentSettings'NonNullablePaymentMethodOptions'NonNullableUsBankAccount'NonNullableVerificationMethod'EnumAutomatic
+          | val GHC.Classes.== "instant" -> SubscriptionPaymentSettings'NonNullablePaymentMethodOptions'NonNullableUsBankAccount'NonNullableVerificationMethod'EnumInstant
+          | val GHC.Classes.== "microdeposits" -> SubscriptionPaymentSettings'NonNullablePaymentMethodOptions'NonNullableUsBankAccount'NonNullableVerificationMethod'EnumMicrodeposits
+          | GHC.Base.otherwise -> SubscriptionPaymentSettings'NonNullablePaymentMethodOptions'NonNullableUsBankAccount'NonNullableVerificationMethod'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.subscription.properties.payment_settings.anyOf.properties.payment_method_types.items@ in the specification.
@@ -1100,28 +1100,28 @@ instance Data.Aeson.Types.FromJSON.FromJSON SubscriptionPaymentSettings'NonNulla
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "ach_credit_transfer" -> SubscriptionPaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumAchCreditTransfer
-            | val GHC.Classes.== "ach_debit" -> SubscriptionPaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumAchDebit
-            | val GHC.Classes.== "acss_debit" -> SubscriptionPaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumAcssDebit
-            | val GHC.Classes.== "au_becs_debit" -> SubscriptionPaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumAuBecsDebit
-            | val GHC.Classes.== "bacs_debit" -> SubscriptionPaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumBacsDebit
-            | val GHC.Classes.== "bancontact" -> SubscriptionPaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumBancontact
-            | val GHC.Classes.== "boleto" -> SubscriptionPaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumBoleto
-            | val GHC.Classes.== "card" -> SubscriptionPaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumCard
-            | val GHC.Classes.== "customer_balance" -> SubscriptionPaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumCustomerBalance
-            | val GHC.Classes.== "fpx" -> SubscriptionPaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumFpx
-            | val GHC.Classes.== "giropay" -> SubscriptionPaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumGiropay
-            | val GHC.Classes.== "grabpay" -> SubscriptionPaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumGrabpay
-            | val GHC.Classes.== "ideal" -> SubscriptionPaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumIdeal
-            | val GHC.Classes.== "konbini" -> SubscriptionPaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumKonbini
-            | val GHC.Classes.== "link" -> SubscriptionPaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumLink
-            | val GHC.Classes.== "paynow" -> SubscriptionPaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumPaynow
-            | val GHC.Classes.== "promptpay" -> SubscriptionPaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumPromptpay
-            | val GHC.Classes.== "sepa_debit" -> SubscriptionPaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumSepaDebit
-            | val GHC.Classes.== "sofort" -> SubscriptionPaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumSofort
-            | val GHC.Classes.== "us_bank_account" -> SubscriptionPaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumUsBankAccount
-            | val GHC.Classes.== "wechat_pay" -> SubscriptionPaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumWechatPay
-            | GHC.Base.otherwise -> SubscriptionPaymentSettings'NonNullablePaymentMethodTypes'NonNullableOther val
+          | val GHC.Classes.== "ach_credit_transfer" -> SubscriptionPaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumAchCreditTransfer
+          | val GHC.Classes.== "ach_debit" -> SubscriptionPaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumAchDebit
+          | val GHC.Classes.== "acss_debit" -> SubscriptionPaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumAcssDebit
+          | val GHC.Classes.== "au_becs_debit" -> SubscriptionPaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumAuBecsDebit
+          | val GHC.Classes.== "bacs_debit" -> SubscriptionPaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumBacsDebit
+          | val GHC.Classes.== "bancontact" -> SubscriptionPaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumBancontact
+          | val GHC.Classes.== "boleto" -> SubscriptionPaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumBoleto
+          | val GHC.Classes.== "card" -> SubscriptionPaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumCard
+          | val GHC.Classes.== "customer_balance" -> SubscriptionPaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumCustomerBalance
+          | val GHC.Classes.== "fpx" -> SubscriptionPaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumFpx
+          | val GHC.Classes.== "giropay" -> SubscriptionPaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumGiropay
+          | val GHC.Classes.== "grabpay" -> SubscriptionPaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumGrabpay
+          | val GHC.Classes.== "ideal" -> SubscriptionPaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumIdeal
+          | val GHC.Classes.== "konbini" -> SubscriptionPaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumKonbini
+          | val GHC.Classes.== "link" -> SubscriptionPaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumLink
+          | val GHC.Classes.== "paynow" -> SubscriptionPaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumPaynow
+          | val GHC.Classes.== "promptpay" -> SubscriptionPaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumPromptpay
+          | val GHC.Classes.== "sepa_debit" -> SubscriptionPaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumSepaDebit
+          | val GHC.Classes.== "sofort" -> SubscriptionPaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumSofort
+          | val GHC.Classes.== "us_bank_account" -> SubscriptionPaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumUsBankAccount
+          | val GHC.Classes.== "wechat_pay" -> SubscriptionPaymentSettings'NonNullablePaymentMethodTypes'NonNullableEnumWechatPay
+          | GHC.Base.otherwise -> SubscriptionPaymentSettings'NonNullablePaymentMethodTypes'NonNullableOther val
       )
 
 -- | Defines the enum schema located at @components.schemas.subscription.properties.payment_settings.anyOf.properties.save_default_payment_method@ in the specification.
@@ -1148,9 +1148,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON SubscriptionPaymentSettings'NonNulla
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "off" -> SubscriptionPaymentSettings'NonNullableSaveDefaultPaymentMethod'NonNullableEnumOff
-            | val GHC.Classes.== "on_subscription" -> SubscriptionPaymentSettings'NonNullableSaveDefaultPaymentMethod'NonNullableEnumOnSubscription
-            | GHC.Base.otherwise -> SubscriptionPaymentSettings'NonNullableSaveDefaultPaymentMethod'NonNullableOther val
+          | val GHC.Classes.== "off" -> SubscriptionPaymentSettings'NonNullableSaveDefaultPaymentMethod'NonNullableEnumOff
+          | val GHC.Classes.== "on_subscription" -> SubscriptionPaymentSettings'NonNullableSaveDefaultPaymentMethod'NonNullableEnumOnSubscription
+          | GHC.Base.otherwise -> SubscriptionPaymentSettings'NonNullableSaveDefaultPaymentMethod'NonNullableOther val
       )
 
 -- | Defines the object schema located at @components.schemas.subscription.properties.pending_invoice_item_interval.anyOf@ in the specification.
@@ -1212,11 +1212,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON SubscriptionPendingInvoiceItemInterv
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "day" -> SubscriptionPendingInvoiceItemInterval'NonNullableInterval'EnumDay
-            | val GHC.Classes.== "month" -> SubscriptionPendingInvoiceItemInterval'NonNullableInterval'EnumMonth
-            | val GHC.Classes.== "week" -> SubscriptionPendingInvoiceItemInterval'NonNullableInterval'EnumWeek
-            | val GHC.Classes.== "year" -> SubscriptionPendingInvoiceItemInterval'NonNullableInterval'EnumYear
-            | GHC.Base.otherwise -> SubscriptionPendingInvoiceItemInterval'NonNullableInterval'Other val
+          | val GHC.Classes.== "day" -> SubscriptionPendingInvoiceItemInterval'NonNullableInterval'EnumDay
+          | val GHC.Classes.== "month" -> SubscriptionPendingInvoiceItemInterval'NonNullableInterval'EnumMonth
+          | val GHC.Classes.== "week" -> SubscriptionPendingInvoiceItemInterval'NonNullableInterval'EnumWeek
+          | val GHC.Classes.== "year" -> SubscriptionPendingInvoiceItemInterval'NonNullableInterval'EnumYear
+          | GHC.Base.otherwise -> SubscriptionPendingInvoiceItemInterval'NonNullableInterval'Other val
       )
 
 -- | Defines the oneOf schema located at @components.schemas.subscription.properties.pending_setup_intent.anyOf@ in the specification.
@@ -1338,14 +1338,14 @@ instance Data.Aeson.Types.FromJSON.FromJSON SubscriptionStatus' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "active" -> SubscriptionStatus'EnumActive
-            | val GHC.Classes.== "canceled" -> SubscriptionStatus'EnumCanceled
-            | val GHC.Classes.== "incomplete" -> SubscriptionStatus'EnumIncomplete
-            | val GHC.Classes.== "incomplete_expired" -> SubscriptionStatus'EnumIncompleteExpired
-            | val GHC.Classes.== "past_due" -> SubscriptionStatus'EnumPastDue
-            | val GHC.Classes.== "trialing" -> SubscriptionStatus'EnumTrialing
-            | val GHC.Classes.== "unpaid" -> SubscriptionStatus'EnumUnpaid
-            | GHC.Base.otherwise -> SubscriptionStatus'Other val
+          | val GHC.Classes.== "active" -> SubscriptionStatus'EnumActive
+          | val GHC.Classes.== "canceled" -> SubscriptionStatus'EnumCanceled
+          | val GHC.Classes.== "incomplete" -> SubscriptionStatus'EnumIncomplete
+          | val GHC.Classes.== "incomplete_expired" -> SubscriptionStatus'EnumIncompleteExpired
+          | val GHC.Classes.== "past_due" -> SubscriptionStatus'EnumPastDue
+          | val GHC.Classes.== "trialing" -> SubscriptionStatus'EnumTrialing
+          | val GHC.Classes.== "unpaid" -> SubscriptionStatus'EnumUnpaid
+          | GHC.Base.otherwise -> SubscriptionStatus'Other val
       )
 
 -- | Defines the oneOf schema located at @components.schemas.subscription.properties.test_clock.anyOf@ in the specification.

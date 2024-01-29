@@ -80,7 +80,7 @@ instance Data.Aeson.Types.FromJSON.FromJSON CustomerBalanceCustomerBalanceSettin
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> CustomerBalanceCustomerBalanceSettingsReconciliationMode'EnumAutomatic
-            | val GHC.Classes.== "manual" -> CustomerBalanceCustomerBalanceSettingsReconciliationMode'EnumManual
-            | GHC.Base.otherwise -> CustomerBalanceCustomerBalanceSettingsReconciliationMode'Other val
+          | val GHC.Classes.== "automatic" -> CustomerBalanceCustomerBalanceSettingsReconciliationMode'EnumAutomatic
+          | val GHC.Classes.== "manual" -> CustomerBalanceCustomerBalanceSettingsReconciliationMode'EnumManual
+          | GHC.Base.otherwise -> CustomerBalanceCustomerBalanceSettingsReconciliationMode'Other val
       )

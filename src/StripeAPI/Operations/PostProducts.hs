@@ -48,7 +48,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>Creates a new product object.\<\/p>
 postProducts ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | The request body to send
   PostProductsRequestBody ->
   -- | Monadic computation which returns the result of the operation
@@ -60,21 +60,21 @@ postProducts body =
           ( Data.Either.either PostProductsResponseError GHC.Base.id
               GHC.Base.. ( \response body ->
                              if
-                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                               | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                    PostProductsResponse200
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             Product
                                                       )
-                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                               | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                    PostProductsResponseDefault
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             Error
                                                       )
-                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                               | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                          )
                 response_0
           )
@@ -274,11 +274,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostProductsRequestBodyDefaultPriceD
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "day" -> PostProductsRequestBodyDefaultPriceData'Recurring'Interval'EnumDay
-            | val GHC.Classes.== "month" -> PostProductsRequestBodyDefaultPriceData'Recurring'Interval'EnumMonth
-            | val GHC.Classes.== "week" -> PostProductsRequestBodyDefaultPriceData'Recurring'Interval'EnumWeek
-            | val GHC.Classes.== "year" -> PostProductsRequestBodyDefaultPriceData'Recurring'Interval'EnumYear
-            | GHC.Base.otherwise -> PostProductsRequestBodyDefaultPriceData'Recurring'Interval'Other val
+          | val GHC.Classes.== "day" -> PostProductsRequestBodyDefaultPriceData'Recurring'Interval'EnumDay
+          | val GHC.Classes.== "month" -> PostProductsRequestBodyDefaultPriceData'Recurring'Interval'EnumMonth
+          | val GHC.Classes.== "week" -> PostProductsRequestBodyDefaultPriceData'Recurring'Interval'EnumWeek
+          | val GHC.Classes.== "year" -> PostProductsRequestBodyDefaultPriceData'Recurring'Interval'EnumYear
+          | GHC.Base.otherwise -> PostProductsRequestBodyDefaultPriceData'Recurring'Interval'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/products.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.default_price_data.properties.tax_behavior@ in the specification.
@@ -306,10 +306,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostProductsRequestBodyDefaultPriceD
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "exclusive" -> PostProductsRequestBodyDefaultPriceData'TaxBehavior'EnumExclusive
-            | val GHC.Classes.== "inclusive" -> PostProductsRequestBodyDefaultPriceData'TaxBehavior'EnumInclusive
-            | val GHC.Classes.== "unspecified" -> PostProductsRequestBodyDefaultPriceData'TaxBehavior'EnumUnspecified
-            | GHC.Base.otherwise -> PostProductsRequestBodyDefaultPriceData'TaxBehavior'Other val
+          | val GHC.Classes.== "exclusive" -> PostProductsRequestBodyDefaultPriceData'TaxBehavior'EnumExclusive
+          | val GHC.Classes.== "inclusive" -> PostProductsRequestBodyDefaultPriceData'TaxBehavior'EnumInclusive
+          | val GHC.Classes.== "unspecified" -> PostProductsRequestBodyDefaultPriceData'TaxBehavior'EnumUnspecified
+          | GHC.Base.otherwise -> PostProductsRequestBodyDefaultPriceData'TaxBehavior'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/products.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.package_dimensions@ in the specification.

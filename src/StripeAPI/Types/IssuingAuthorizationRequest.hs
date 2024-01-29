@@ -181,18 +181,18 @@ instance Data.Aeson.Types.FromJSON.FromJSON IssuingAuthorizationRequestReason' w
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "account_disabled" -> IssuingAuthorizationRequestReason'EnumAccountDisabled
-            | val GHC.Classes.== "card_active" -> IssuingAuthorizationRequestReason'EnumCardActive
-            | val GHC.Classes.== "card_inactive" -> IssuingAuthorizationRequestReason'EnumCardInactive
-            | val GHC.Classes.== "cardholder_inactive" -> IssuingAuthorizationRequestReason'EnumCardholderInactive
-            | val GHC.Classes.== "cardholder_verification_required" -> IssuingAuthorizationRequestReason'EnumCardholderVerificationRequired
-            | val GHC.Classes.== "insufficient_funds" -> IssuingAuthorizationRequestReason'EnumInsufficientFunds
-            | val GHC.Classes.== "not_allowed" -> IssuingAuthorizationRequestReason'EnumNotAllowed
-            | val GHC.Classes.== "spending_controls" -> IssuingAuthorizationRequestReason'EnumSpendingControls
-            | val GHC.Classes.== "suspected_fraud" -> IssuingAuthorizationRequestReason'EnumSuspectedFraud
-            | val GHC.Classes.== "verification_failed" -> IssuingAuthorizationRequestReason'EnumVerificationFailed
-            | val GHC.Classes.== "webhook_approved" -> IssuingAuthorizationRequestReason'EnumWebhookApproved
-            | val GHC.Classes.== "webhook_declined" -> IssuingAuthorizationRequestReason'EnumWebhookDeclined
-            | val GHC.Classes.== "webhook_timeout" -> IssuingAuthorizationRequestReason'EnumWebhookTimeout
-            | GHC.Base.otherwise -> IssuingAuthorizationRequestReason'Other val
+          | val GHC.Classes.== "account_disabled" -> IssuingAuthorizationRequestReason'EnumAccountDisabled
+          | val GHC.Classes.== "card_active" -> IssuingAuthorizationRequestReason'EnumCardActive
+          | val GHC.Classes.== "card_inactive" -> IssuingAuthorizationRequestReason'EnumCardInactive
+          | val GHC.Classes.== "cardholder_inactive" -> IssuingAuthorizationRequestReason'EnumCardholderInactive
+          | val GHC.Classes.== "cardholder_verification_required" -> IssuingAuthorizationRequestReason'EnumCardholderVerificationRequired
+          | val GHC.Classes.== "insufficient_funds" -> IssuingAuthorizationRequestReason'EnumInsufficientFunds
+          | val GHC.Classes.== "not_allowed" -> IssuingAuthorizationRequestReason'EnumNotAllowed
+          | val GHC.Classes.== "spending_controls" -> IssuingAuthorizationRequestReason'EnumSpendingControls
+          | val GHC.Classes.== "suspected_fraud" -> IssuingAuthorizationRequestReason'EnumSuspectedFraud
+          | val GHC.Classes.== "verification_failed" -> IssuingAuthorizationRequestReason'EnumVerificationFailed
+          | val GHC.Classes.== "webhook_approved" -> IssuingAuthorizationRequestReason'EnumWebhookApproved
+          | val GHC.Classes.== "webhook_declined" -> IssuingAuthorizationRequestReason'EnumWebhookDeclined
+          | val GHC.Classes.== "webhook_timeout" -> IssuingAuthorizationRequestReason'EnumWebhookTimeout
+          | GHC.Base.otherwise -> IssuingAuthorizationRequestReason'Other val
       )

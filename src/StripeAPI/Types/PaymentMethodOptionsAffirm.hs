@@ -84,8 +84,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentMethodOptionsAffirmCaptureMet
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "manual" -> PaymentMethodOptionsAffirmCaptureMethod'EnumManual
-            | GHC.Base.otherwise -> PaymentMethodOptionsAffirmCaptureMethod'Other val
+          | val GHC.Classes.== "manual" -> PaymentMethodOptionsAffirmCaptureMethod'EnumManual
+          | GHC.Base.otherwise -> PaymentMethodOptionsAffirmCaptureMethod'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_method_options_affirm.properties.setup_future_usage@ in the specification.
@@ -113,6 +113,6 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentMethodOptionsAffirmSetupFutur
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> PaymentMethodOptionsAffirmSetupFutureUsage'EnumNone
-            | GHC.Base.otherwise -> PaymentMethodOptionsAffirmSetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> PaymentMethodOptionsAffirmSetupFutureUsage'EnumNone
+          | GHC.Base.otherwise -> PaymentMethodOptionsAffirmSetupFutureUsage'Other val
       )

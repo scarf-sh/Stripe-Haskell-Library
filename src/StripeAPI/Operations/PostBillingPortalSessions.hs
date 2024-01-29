@@ -48,7 +48,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>Creates a session of the customer portal.\<\/p>
 postBillingPortalSessions ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | The request body to send
   PostBillingPortalSessionsRequestBody ->
   -- | Monadic computation which returns the result of the operation
@@ -60,21 +60,21 @@ postBillingPortalSessions body =
           ( Data.Either.either PostBillingPortalSessionsResponseError GHC.Base.id
               GHC.Base.. ( \response body ->
                              if
-                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                               | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                    PostBillingPortalSessionsResponse200
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             BillingPortal'session
                                                       )
-                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                               | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                    PostBillingPortalSessionsResponseDefault
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             Error
                                                       )
-                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                               | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                          )
                 response_0
           )
@@ -291,54 +291,54 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostBillingPortalSessionsRequestBody
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "auto" -> PostBillingPortalSessionsRequestBodyLocale'EnumAuto
-            | val GHC.Classes.== "bg" -> PostBillingPortalSessionsRequestBodyLocale'EnumBg
-            | val GHC.Classes.== "cs" -> PostBillingPortalSessionsRequestBodyLocale'EnumCs
-            | val GHC.Classes.== "da" -> PostBillingPortalSessionsRequestBodyLocale'EnumDa
-            | val GHC.Classes.== "de" -> PostBillingPortalSessionsRequestBodyLocale'EnumDe
-            | val GHC.Classes.== "el" -> PostBillingPortalSessionsRequestBodyLocale'EnumEl
-            | val GHC.Classes.== "en" -> PostBillingPortalSessionsRequestBodyLocale'EnumEn
-            | val GHC.Classes.== "en-AU" -> PostBillingPortalSessionsRequestBodyLocale'EnumEnAU
-            | val GHC.Classes.== "en-CA" -> PostBillingPortalSessionsRequestBodyLocale'EnumEnCA
-            | val GHC.Classes.== "en-GB" -> PostBillingPortalSessionsRequestBodyLocale'EnumEnGB
-            | val GHC.Classes.== "en-IE" -> PostBillingPortalSessionsRequestBodyLocale'EnumEnIE
-            | val GHC.Classes.== "en-IN" -> PostBillingPortalSessionsRequestBodyLocale'EnumEnIN
-            | val GHC.Classes.== "en-NZ" -> PostBillingPortalSessionsRequestBodyLocale'EnumEnNZ
-            | val GHC.Classes.== "en-SG" -> PostBillingPortalSessionsRequestBodyLocale'EnumEnSG
-            | val GHC.Classes.== "es" -> PostBillingPortalSessionsRequestBodyLocale'EnumEs
-            | val GHC.Classes.== "es-419" -> PostBillingPortalSessionsRequestBodyLocale'EnumEs_419
-            | val GHC.Classes.== "et" -> PostBillingPortalSessionsRequestBodyLocale'EnumEt
-            | val GHC.Classes.== "fi" -> PostBillingPortalSessionsRequestBodyLocale'EnumFi
-            | val GHC.Classes.== "fil" -> PostBillingPortalSessionsRequestBodyLocale'EnumFil
-            | val GHC.Classes.== "fr" -> PostBillingPortalSessionsRequestBodyLocale'EnumFr
-            | val GHC.Classes.== "fr-CA" -> PostBillingPortalSessionsRequestBodyLocale'EnumFrCA
-            | val GHC.Classes.== "hr" -> PostBillingPortalSessionsRequestBodyLocale'EnumHr
-            | val GHC.Classes.== "hu" -> PostBillingPortalSessionsRequestBodyLocale'EnumHu
-            | val GHC.Classes.== "id" -> PostBillingPortalSessionsRequestBodyLocale'EnumId
-            | val GHC.Classes.== "it" -> PostBillingPortalSessionsRequestBodyLocale'EnumIt
-            | val GHC.Classes.== "ja" -> PostBillingPortalSessionsRequestBodyLocale'EnumJa
-            | val GHC.Classes.== "ko" -> PostBillingPortalSessionsRequestBodyLocale'EnumKo
-            | val GHC.Classes.== "lt" -> PostBillingPortalSessionsRequestBodyLocale'EnumLt
-            | val GHC.Classes.== "lv" -> PostBillingPortalSessionsRequestBodyLocale'EnumLv
-            | val GHC.Classes.== "ms" -> PostBillingPortalSessionsRequestBodyLocale'EnumMs
-            | val GHC.Classes.== "mt" -> PostBillingPortalSessionsRequestBodyLocale'EnumMt
-            | val GHC.Classes.== "nb" -> PostBillingPortalSessionsRequestBodyLocale'EnumNb
-            | val GHC.Classes.== "nl" -> PostBillingPortalSessionsRequestBodyLocale'EnumNl
-            | val GHC.Classes.== "pl" -> PostBillingPortalSessionsRequestBodyLocale'EnumPl
-            | val GHC.Classes.== "pt" -> PostBillingPortalSessionsRequestBodyLocale'EnumPt
-            | val GHC.Classes.== "pt-BR" -> PostBillingPortalSessionsRequestBodyLocale'EnumPtBR
-            | val GHC.Classes.== "ro" -> PostBillingPortalSessionsRequestBodyLocale'EnumRo
-            | val GHC.Classes.== "ru" -> PostBillingPortalSessionsRequestBodyLocale'EnumRu
-            | val GHC.Classes.== "sk" -> PostBillingPortalSessionsRequestBodyLocale'EnumSk
-            | val GHC.Classes.== "sl" -> PostBillingPortalSessionsRequestBodyLocale'EnumSl
-            | val GHC.Classes.== "sv" -> PostBillingPortalSessionsRequestBodyLocale'EnumSv
-            | val GHC.Classes.== "th" -> PostBillingPortalSessionsRequestBodyLocale'EnumTh
-            | val GHC.Classes.== "tr" -> PostBillingPortalSessionsRequestBodyLocale'EnumTr
-            | val GHC.Classes.== "vi" -> PostBillingPortalSessionsRequestBodyLocale'EnumVi
-            | val GHC.Classes.== "zh" -> PostBillingPortalSessionsRequestBodyLocale'EnumZh
-            | val GHC.Classes.== "zh-HK" -> PostBillingPortalSessionsRequestBodyLocale'EnumZhHK
-            | val GHC.Classes.== "zh-TW" -> PostBillingPortalSessionsRequestBodyLocale'EnumZhTW
-            | GHC.Base.otherwise -> PostBillingPortalSessionsRequestBodyLocale'Other val
+          | val GHC.Classes.== "auto" -> PostBillingPortalSessionsRequestBodyLocale'EnumAuto
+          | val GHC.Classes.== "bg" -> PostBillingPortalSessionsRequestBodyLocale'EnumBg
+          | val GHC.Classes.== "cs" -> PostBillingPortalSessionsRequestBodyLocale'EnumCs
+          | val GHC.Classes.== "da" -> PostBillingPortalSessionsRequestBodyLocale'EnumDa
+          | val GHC.Classes.== "de" -> PostBillingPortalSessionsRequestBodyLocale'EnumDe
+          | val GHC.Classes.== "el" -> PostBillingPortalSessionsRequestBodyLocale'EnumEl
+          | val GHC.Classes.== "en" -> PostBillingPortalSessionsRequestBodyLocale'EnumEn
+          | val GHC.Classes.== "en-AU" -> PostBillingPortalSessionsRequestBodyLocale'EnumEnAU
+          | val GHC.Classes.== "en-CA" -> PostBillingPortalSessionsRequestBodyLocale'EnumEnCA
+          | val GHC.Classes.== "en-GB" -> PostBillingPortalSessionsRequestBodyLocale'EnumEnGB
+          | val GHC.Classes.== "en-IE" -> PostBillingPortalSessionsRequestBodyLocale'EnumEnIE
+          | val GHC.Classes.== "en-IN" -> PostBillingPortalSessionsRequestBodyLocale'EnumEnIN
+          | val GHC.Classes.== "en-NZ" -> PostBillingPortalSessionsRequestBodyLocale'EnumEnNZ
+          | val GHC.Classes.== "en-SG" -> PostBillingPortalSessionsRequestBodyLocale'EnumEnSG
+          | val GHC.Classes.== "es" -> PostBillingPortalSessionsRequestBodyLocale'EnumEs
+          | val GHC.Classes.== "es-419" -> PostBillingPortalSessionsRequestBodyLocale'EnumEs_419
+          | val GHC.Classes.== "et" -> PostBillingPortalSessionsRequestBodyLocale'EnumEt
+          | val GHC.Classes.== "fi" -> PostBillingPortalSessionsRequestBodyLocale'EnumFi
+          | val GHC.Classes.== "fil" -> PostBillingPortalSessionsRequestBodyLocale'EnumFil
+          | val GHC.Classes.== "fr" -> PostBillingPortalSessionsRequestBodyLocale'EnumFr
+          | val GHC.Classes.== "fr-CA" -> PostBillingPortalSessionsRequestBodyLocale'EnumFrCA
+          | val GHC.Classes.== "hr" -> PostBillingPortalSessionsRequestBodyLocale'EnumHr
+          | val GHC.Classes.== "hu" -> PostBillingPortalSessionsRequestBodyLocale'EnumHu
+          | val GHC.Classes.== "id" -> PostBillingPortalSessionsRequestBodyLocale'EnumId
+          | val GHC.Classes.== "it" -> PostBillingPortalSessionsRequestBodyLocale'EnumIt
+          | val GHC.Classes.== "ja" -> PostBillingPortalSessionsRequestBodyLocale'EnumJa
+          | val GHC.Classes.== "ko" -> PostBillingPortalSessionsRequestBodyLocale'EnumKo
+          | val GHC.Classes.== "lt" -> PostBillingPortalSessionsRequestBodyLocale'EnumLt
+          | val GHC.Classes.== "lv" -> PostBillingPortalSessionsRequestBodyLocale'EnumLv
+          | val GHC.Classes.== "ms" -> PostBillingPortalSessionsRequestBodyLocale'EnumMs
+          | val GHC.Classes.== "mt" -> PostBillingPortalSessionsRequestBodyLocale'EnumMt
+          | val GHC.Classes.== "nb" -> PostBillingPortalSessionsRequestBodyLocale'EnumNb
+          | val GHC.Classes.== "nl" -> PostBillingPortalSessionsRequestBodyLocale'EnumNl
+          | val GHC.Classes.== "pl" -> PostBillingPortalSessionsRequestBodyLocale'EnumPl
+          | val GHC.Classes.== "pt" -> PostBillingPortalSessionsRequestBodyLocale'EnumPt
+          | val GHC.Classes.== "pt-BR" -> PostBillingPortalSessionsRequestBodyLocale'EnumPtBR
+          | val GHC.Classes.== "ro" -> PostBillingPortalSessionsRequestBodyLocale'EnumRo
+          | val GHC.Classes.== "ru" -> PostBillingPortalSessionsRequestBodyLocale'EnumRu
+          | val GHC.Classes.== "sk" -> PostBillingPortalSessionsRequestBodyLocale'EnumSk
+          | val GHC.Classes.== "sl" -> PostBillingPortalSessionsRequestBodyLocale'EnumSl
+          | val GHC.Classes.== "sv" -> PostBillingPortalSessionsRequestBodyLocale'EnumSv
+          | val GHC.Classes.== "th" -> PostBillingPortalSessionsRequestBodyLocale'EnumTh
+          | val GHC.Classes.== "tr" -> PostBillingPortalSessionsRequestBodyLocale'EnumTr
+          | val GHC.Classes.== "vi" -> PostBillingPortalSessionsRequestBodyLocale'EnumVi
+          | val GHC.Classes.== "zh" -> PostBillingPortalSessionsRequestBodyLocale'EnumZh
+          | val GHC.Classes.== "zh-HK" -> PostBillingPortalSessionsRequestBodyLocale'EnumZhHK
+          | val GHC.Classes.== "zh-TW" -> PostBillingPortalSessionsRequestBodyLocale'EnumZhTW
+          | GHC.Base.otherwise -> PostBillingPortalSessionsRequestBodyLocale'Other val
       )
 
 -- | Represents a response of the operation 'postBillingPortalSessions'.

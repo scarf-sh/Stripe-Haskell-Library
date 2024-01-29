@@ -294,9 +294,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON RecipientActiveAccount'NonNullableAv
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "instant" -> RecipientActiveAccount'NonNullableAvailablePayoutMethods'NonNullableEnumInstant
-            | val GHC.Classes.== "standard" -> RecipientActiveAccount'NonNullableAvailablePayoutMethods'NonNullableEnumStandard
-            | GHC.Base.otherwise -> RecipientActiveAccount'NonNullableAvailablePayoutMethods'NonNullableOther val
+          | val GHC.Classes.== "instant" -> RecipientActiveAccount'NonNullableAvailablePayoutMethods'NonNullableEnumInstant
+          | val GHC.Classes.== "standard" -> RecipientActiveAccount'NonNullableAvailablePayoutMethods'NonNullableEnumStandard
+          | GHC.Base.otherwise -> RecipientActiveAccount'NonNullableAvailablePayoutMethods'NonNullableOther val
       )
 
 -- | Defines the oneOf schema located at @components.schemas.recipient.properties.active_account.anyOf.properties.customer.anyOf@ in the specification.
@@ -339,8 +339,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON RecipientActiveAccount'NonNullableOb
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "bank_account" -> RecipientActiveAccount'NonNullableObject'EnumBankAccount
-            | GHC.Base.otherwise -> RecipientActiveAccount'NonNullableObject'Other val
+          | val GHC.Classes.== "bank_account" -> RecipientActiveAccount'NonNullableObject'EnumBankAccount
+          | GHC.Base.otherwise -> RecipientActiveAccount'NonNullableObject'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.recipient.properties.cards@ in the specification.

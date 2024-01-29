@@ -144,14 +144,14 @@ instance Data.Aeson.Types.FromJSON.FromJSON TreasuryTransactionsResourceFlowDeta
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "credit_reversal" -> TreasuryTransactionsResourceFlowDetailsType'EnumCreditReversal
-            | val GHC.Classes.== "debit_reversal" -> TreasuryTransactionsResourceFlowDetailsType'EnumDebitReversal
-            | val GHC.Classes.== "inbound_transfer" -> TreasuryTransactionsResourceFlowDetailsType'EnumInboundTransfer
-            | val GHC.Classes.== "issuing_authorization" -> TreasuryTransactionsResourceFlowDetailsType'EnumIssuingAuthorization
-            | val GHC.Classes.== "other" -> TreasuryTransactionsResourceFlowDetailsType'EnumOther
-            | val GHC.Classes.== "outbound_payment" -> TreasuryTransactionsResourceFlowDetailsType'EnumOutboundPayment
-            | val GHC.Classes.== "outbound_transfer" -> TreasuryTransactionsResourceFlowDetailsType'EnumOutboundTransfer
-            | val GHC.Classes.== "received_credit" -> TreasuryTransactionsResourceFlowDetailsType'EnumReceivedCredit
-            | val GHC.Classes.== "received_debit" -> TreasuryTransactionsResourceFlowDetailsType'EnumReceivedDebit
-            | GHC.Base.otherwise -> TreasuryTransactionsResourceFlowDetailsType'Other val
+          | val GHC.Classes.== "credit_reversal" -> TreasuryTransactionsResourceFlowDetailsType'EnumCreditReversal
+          | val GHC.Classes.== "debit_reversal" -> TreasuryTransactionsResourceFlowDetailsType'EnumDebitReversal
+          | val GHC.Classes.== "inbound_transfer" -> TreasuryTransactionsResourceFlowDetailsType'EnumInboundTransfer
+          | val GHC.Classes.== "issuing_authorization" -> TreasuryTransactionsResourceFlowDetailsType'EnumIssuingAuthorization
+          | val GHC.Classes.== "other" -> TreasuryTransactionsResourceFlowDetailsType'EnumOther
+          | val GHC.Classes.== "outbound_payment" -> TreasuryTransactionsResourceFlowDetailsType'EnumOutboundPayment
+          | val GHC.Classes.== "outbound_transfer" -> TreasuryTransactionsResourceFlowDetailsType'EnumOutboundTransfer
+          | val GHC.Classes.== "received_credit" -> TreasuryTransactionsResourceFlowDetailsType'EnumReceivedCredit
+          | val GHC.Classes.== "received_debit" -> TreasuryTransactionsResourceFlowDetailsType'EnumReceivedDebit
+          | GHC.Base.otherwise -> TreasuryTransactionsResourceFlowDetailsType'Other val
       )

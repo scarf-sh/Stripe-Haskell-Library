@@ -234,22 +234,22 @@ instance Data.Aeson.Types.FromJSON.FromJSON Identity'verificationSessionLastErro
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "abandoned" -> Identity'verificationSessionLastError'NonNullableCode'NonNullableEnumAbandoned
-            | val GHC.Classes.== "consent_declined" -> Identity'verificationSessionLastError'NonNullableCode'NonNullableEnumConsentDeclined
-            | val GHC.Classes.== "country_not_supported" -> Identity'verificationSessionLastError'NonNullableCode'NonNullableEnumCountryNotSupported
-            | val GHC.Classes.== "device_not_supported" -> Identity'verificationSessionLastError'NonNullableCode'NonNullableEnumDeviceNotSupported
-            | val GHC.Classes.== "document_expired" -> Identity'verificationSessionLastError'NonNullableCode'NonNullableEnumDocumentExpired
-            | val GHC.Classes.== "document_type_not_supported" -> Identity'verificationSessionLastError'NonNullableCode'NonNullableEnumDocumentTypeNotSupported
-            | val GHC.Classes.== "document_unverified_other" -> Identity'verificationSessionLastError'NonNullableCode'NonNullableEnumDocumentUnverifiedOther
-            | val GHC.Classes.== "id_number_insufficient_document_data" -> Identity'verificationSessionLastError'NonNullableCode'NonNullableEnumIdNumberInsufficientDocumentData
-            | val GHC.Classes.== "id_number_mismatch" -> Identity'verificationSessionLastError'NonNullableCode'NonNullableEnumIdNumberMismatch
-            | val GHC.Classes.== "id_number_unverified_other" -> Identity'verificationSessionLastError'NonNullableCode'NonNullableEnumIdNumberUnverifiedOther
-            | val GHC.Classes.== "selfie_document_missing_photo" -> Identity'verificationSessionLastError'NonNullableCode'NonNullableEnumSelfieDocumentMissingPhoto
-            | val GHC.Classes.== "selfie_face_mismatch" -> Identity'verificationSessionLastError'NonNullableCode'NonNullableEnumSelfieFaceMismatch
-            | val GHC.Classes.== "selfie_manipulated" -> Identity'verificationSessionLastError'NonNullableCode'NonNullableEnumSelfieManipulated
-            | val GHC.Classes.== "selfie_unverified_other" -> Identity'verificationSessionLastError'NonNullableCode'NonNullableEnumSelfieUnverifiedOther
-            | val GHC.Classes.== "under_supported_age" -> Identity'verificationSessionLastError'NonNullableCode'NonNullableEnumUnderSupportedAge
-            | GHC.Base.otherwise -> Identity'verificationSessionLastError'NonNullableCode'NonNullableOther val
+          | val GHC.Classes.== "abandoned" -> Identity'verificationSessionLastError'NonNullableCode'NonNullableEnumAbandoned
+          | val GHC.Classes.== "consent_declined" -> Identity'verificationSessionLastError'NonNullableCode'NonNullableEnumConsentDeclined
+          | val GHC.Classes.== "country_not_supported" -> Identity'verificationSessionLastError'NonNullableCode'NonNullableEnumCountryNotSupported
+          | val GHC.Classes.== "device_not_supported" -> Identity'verificationSessionLastError'NonNullableCode'NonNullableEnumDeviceNotSupported
+          | val GHC.Classes.== "document_expired" -> Identity'verificationSessionLastError'NonNullableCode'NonNullableEnumDocumentExpired
+          | val GHC.Classes.== "document_type_not_supported" -> Identity'verificationSessionLastError'NonNullableCode'NonNullableEnumDocumentTypeNotSupported
+          | val GHC.Classes.== "document_unverified_other" -> Identity'verificationSessionLastError'NonNullableCode'NonNullableEnumDocumentUnverifiedOther
+          | val GHC.Classes.== "id_number_insufficient_document_data" -> Identity'verificationSessionLastError'NonNullableCode'NonNullableEnumIdNumberInsufficientDocumentData
+          | val GHC.Classes.== "id_number_mismatch" -> Identity'verificationSessionLastError'NonNullableCode'NonNullableEnumIdNumberMismatch
+          | val GHC.Classes.== "id_number_unverified_other" -> Identity'verificationSessionLastError'NonNullableCode'NonNullableEnumIdNumberUnverifiedOther
+          | val GHC.Classes.== "selfie_document_missing_photo" -> Identity'verificationSessionLastError'NonNullableCode'NonNullableEnumSelfieDocumentMissingPhoto
+          | val GHC.Classes.== "selfie_face_mismatch" -> Identity'verificationSessionLastError'NonNullableCode'NonNullableEnumSelfieFaceMismatch
+          | val GHC.Classes.== "selfie_manipulated" -> Identity'verificationSessionLastError'NonNullableCode'NonNullableEnumSelfieManipulated
+          | val GHC.Classes.== "selfie_unverified_other" -> Identity'verificationSessionLastError'NonNullableCode'NonNullableEnumSelfieUnverifiedOther
+          | val GHC.Classes.== "under_supported_age" -> Identity'verificationSessionLastError'NonNullableCode'NonNullableEnumUnderSupportedAge
+          | GHC.Base.otherwise -> Identity'verificationSessionLastError'NonNullableCode'NonNullableOther val
       )
 
 -- | Defines the oneOf schema located at @components.schemas.identity.verification_session.properties.last_verification_report.anyOf@ in the specification.
@@ -316,9 +316,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON Identity'verificationSessionRedactio
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "processing" -> Identity'verificationSessionRedaction'NonNullableStatus'EnumProcessing
-            | val GHC.Classes.== "redacted" -> Identity'verificationSessionRedaction'NonNullableStatus'EnumRedacted
-            | GHC.Base.otherwise -> Identity'verificationSessionRedaction'NonNullableStatus'Other val
+          | val GHC.Classes.== "processing" -> Identity'verificationSessionRedaction'NonNullableStatus'EnumProcessing
+          | val GHC.Classes.== "redacted" -> Identity'verificationSessionRedaction'NonNullableStatus'EnumRedacted
+          | GHC.Base.otherwise -> Identity'verificationSessionRedaction'NonNullableStatus'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.identity.verification_session.properties.status@ in the specification.
@@ -351,11 +351,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON Identity'verificationSessionStatus' 
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "canceled" -> Identity'verificationSessionStatus'EnumCanceled
-            | val GHC.Classes.== "processing" -> Identity'verificationSessionStatus'EnumProcessing
-            | val GHC.Classes.== "requires_input" -> Identity'verificationSessionStatus'EnumRequiresInput
-            | val GHC.Classes.== "verified" -> Identity'verificationSessionStatus'EnumVerified
-            | GHC.Base.otherwise -> Identity'verificationSessionStatus'Other val
+          | val GHC.Classes.== "canceled" -> Identity'verificationSessionStatus'EnumCanceled
+          | val GHC.Classes.== "processing" -> Identity'verificationSessionStatus'EnumProcessing
+          | val GHC.Classes.== "requires_input" -> Identity'verificationSessionStatus'EnumRequiresInput
+          | val GHC.Classes.== "verified" -> Identity'verificationSessionStatus'EnumVerified
+          | GHC.Base.otherwise -> Identity'verificationSessionStatus'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.identity.verification_session.properties.type@ in the specification.
@@ -382,9 +382,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON Identity'verificationSessionType' wh
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "document" -> Identity'verificationSessionType'EnumDocument
-            | val GHC.Classes.== "id_number" -> Identity'verificationSessionType'EnumIdNumber
-            | GHC.Base.otherwise -> Identity'verificationSessionType'Other val
+          | val GHC.Classes.== "document" -> Identity'verificationSessionType'EnumDocument
+          | val GHC.Classes.== "id_number" -> Identity'verificationSessionType'EnumIdNumber
+          | GHC.Base.otherwise -> Identity'verificationSessionType'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.identity.verification_session.properties.verified_outputs.anyOf@ in the specification.
@@ -564,8 +564,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON Identity'verificationSessionVerified
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "br_cpf" -> Identity'verificationSessionVerifiedOutputs'NonNullableIdNumberType'NonNullableEnumBrCpf
-            | val GHC.Classes.== "sg_nric" -> Identity'verificationSessionVerifiedOutputs'NonNullableIdNumberType'NonNullableEnumSgNric
-            | val GHC.Classes.== "us_ssn" -> Identity'verificationSessionVerifiedOutputs'NonNullableIdNumberType'NonNullableEnumUsSsn
-            | GHC.Base.otherwise -> Identity'verificationSessionVerifiedOutputs'NonNullableIdNumberType'NonNullableOther val
+          | val GHC.Classes.== "br_cpf" -> Identity'verificationSessionVerifiedOutputs'NonNullableIdNumberType'NonNullableEnumBrCpf
+          | val GHC.Classes.== "sg_nric" -> Identity'verificationSessionVerifiedOutputs'NonNullableIdNumberType'NonNullableEnumSgNric
+          | val GHC.Classes.== "us_ssn" -> Identity'verificationSessionVerifiedOutputs'NonNullableIdNumberType'NonNullableEnumUsSsn
+          | GHC.Base.otherwise -> Identity'verificationSessionVerifiedOutputs'NonNullableIdNumberType'NonNullableOther val
       )

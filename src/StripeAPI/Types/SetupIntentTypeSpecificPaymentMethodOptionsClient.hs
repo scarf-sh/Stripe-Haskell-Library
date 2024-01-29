@@ -80,8 +80,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON SetupIntentTypeSpecificPaymentMethod
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> SetupIntentTypeSpecificPaymentMethodOptionsClientVerificationMethod'EnumAutomatic
-            | val GHC.Classes.== "instant" -> SetupIntentTypeSpecificPaymentMethodOptionsClientVerificationMethod'EnumInstant
-            | val GHC.Classes.== "microdeposits" -> SetupIntentTypeSpecificPaymentMethodOptionsClientVerificationMethod'EnumMicrodeposits
-            | GHC.Base.otherwise -> SetupIntentTypeSpecificPaymentMethodOptionsClientVerificationMethod'Other val
+          | val GHC.Classes.== "automatic" -> SetupIntentTypeSpecificPaymentMethodOptionsClientVerificationMethod'EnumAutomatic
+          | val GHC.Classes.== "instant" -> SetupIntentTypeSpecificPaymentMethodOptionsClientVerificationMethod'EnumInstant
+          | val GHC.Classes.== "microdeposits" -> SetupIntentTypeSpecificPaymentMethodOptionsClientVerificationMethod'EnumMicrodeposits
+          | GHC.Base.otherwise -> SetupIntentTypeSpecificPaymentMethodOptionsClientVerificationMethod'Other val
       )

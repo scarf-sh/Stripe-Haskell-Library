@@ -130,9 +130,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON SetupIntentPaymentMethodOptionsAcssD
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "cad" -> SetupIntentPaymentMethodOptionsAcssDebit'Currency'NonNullableEnumCad
-            | val GHC.Classes.== "usd" -> SetupIntentPaymentMethodOptionsAcssDebit'Currency'NonNullableEnumUsd
-            | GHC.Base.otherwise -> SetupIntentPaymentMethodOptionsAcssDebit'Currency'NonNullableOther val
+          | val GHC.Classes.== "cad" -> SetupIntentPaymentMethodOptionsAcssDebit'Currency'NonNullableEnumCad
+          | val GHC.Classes.== "usd" -> SetupIntentPaymentMethodOptionsAcssDebit'Currency'NonNullableEnumUsd
+          | GHC.Base.otherwise -> SetupIntentPaymentMethodOptionsAcssDebit'Currency'NonNullableOther val
       )
 
 -- | Defines the enum schema located at @components.schemas.setup_intent_payment_method_options.properties.acss_debit.anyOf.properties.verification_method@ in the specification.
@@ -162,10 +162,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON SetupIntentPaymentMethodOptionsAcssD
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> SetupIntentPaymentMethodOptionsAcssDebit'VerificationMethod'EnumAutomatic
-            | val GHC.Classes.== "instant" -> SetupIntentPaymentMethodOptionsAcssDebit'VerificationMethod'EnumInstant
-            | val GHC.Classes.== "microdeposits" -> SetupIntentPaymentMethodOptionsAcssDebit'VerificationMethod'EnumMicrodeposits
-            | GHC.Base.otherwise -> SetupIntentPaymentMethodOptionsAcssDebit'VerificationMethod'Other val
+          | val GHC.Classes.== "automatic" -> SetupIntentPaymentMethodOptionsAcssDebit'VerificationMethod'EnumAutomatic
+          | val GHC.Classes.== "instant" -> SetupIntentPaymentMethodOptionsAcssDebit'VerificationMethod'EnumInstant
+          | val GHC.Classes.== "microdeposits" -> SetupIntentPaymentMethodOptionsAcssDebit'VerificationMethod'EnumMicrodeposits
+          | GHC.Base.otherwise -> SetupIntentPaymentMethodOptionsAcssDebit'VerificationMethod'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.setup_intent_payment_method_options.properties.link.anyOf@ in the specification.
@@ -226,10 +226,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON SetupIntentPaymentMethodOptionsLink'
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> SetupIntentPaymentMethodOptionsLink'VerificationMethod'EnumAutomatic
-            | val GHC.Classes.== "instant" -> SetupIntentPaymentMethodOptionsLink'VerificationMethod'EnumInstant
-            | val GHC.Classes.== "microdeposits" -> SetupIntentPaymentMethodOptionsLink'VerificationMethod'EnumMicrodeposits
-            | GHC.Base.otherwise -> SetupIntentPaymentMethodOptionsLink'VerificationMethod'Other val
+          | val GHC.Classes.== "automatic" -> SetupIntentPaymentMethodOptionsLink'VerificationMethod'EnumAutomatic
+          | val GHC.Classes.== "instant" -> SetupIntentPaymentMethodOptionsLink'VerificationMethod'EnumInstant
+          | val GHC.Classes.== "microdeposits" -> SetupIntentPaymentMethodOptionsLink'VerificationMethod'EnumMicrodeposits
+          | GHC.Base.otherwise -> SetupIntentPaymentMethodOptionsLink'VerificationMethod'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.setup_intent_payment_method_options.properties.sepa_debit.anyOf@ in the specification.
@@ -286,10 +286,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON SetupIntentPaymentMethodOptionsSepaD
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> SetupIntentPaymentMethodOptionsSepaDebit'VerificationMethod'EnumAutomatic
-            | val GHC.Classes.== "instant" -> SetupIntentPaymentMethodOptionsSepaDebit'VerificationMethod'EnumInstant
-            | val GHC.Classes.== "microdeposits" -> SetupIntentPaymentMethodOptionsSepaDebit'VerificationMethod'EnumMicrodeposits
-            | GHC.Base.otherwise -> SetupIntentPaymentMethodOptionsSepaDebit'VerificationMethod'Other val
+          | val GHC.Classes.== "automatic" -> SetupIntentPaymentMethodOptionsSepaDebit'VerificationMethod'EnumAutomatic
+          | val GHC.Classes.== "instant" -> SetupIntentPaymentMethodOptionsSepaDebit'VerificationMethod'EnumInstant
+          | val GHC.Classes.== "microdeposits" -> SetupIntentPaymentMethodOptionsSepaDebit'VerificationMethod'EnumMicrodeposits
+          | GHC.Base.otherwise -> SetupIntentPaymentMethodOptionsSepaDebit'VerificationMethod'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.setup_intent_payment_method_options.properties.us_bank_account.anyOf@ in the specification.
@@ -346,8 +346,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON SetupIntentPaymentMethodOptionsUsBan
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> SetupIntentPaymentMethodOptionsUsBankAccount'VerificationMethod'EnumAutomatic
-            | val GHC.Classes.== "instant" -> SetupIntentPaymentMethodOptionsUsBankAccount'VerificationMethod'EnumInstant
-            | val GHC.Classes.== "microdeposits" -> SetupIntentPaymentMethodOptionsUsBankAccount'VerificationMethod'EnumMicrodeposits
-            | GHC.Base.otherwise -> SetupIntentPaymentMethodOptionsUsBankAccount'VerificationMethod'Other val
+          | val GHC.Classes.== "automatic" -> SetupIntentPaymentMethodOptionsUsBankAccount'VerificationMethod'EnumAutomatic
+          | val GHC.Classes.== "instant" -> SetupIntentPaymentMethodOptionsUsBankAccount'VerificationMethod'EnumInstant
+          | val GHC.Classes.== "microdeposits" -> SetupIntentPaymentMethodOptionsUsBankAccount'VerificationMethod'EnumMicrodeposits
+          | GHC.Base.otherwise -> SetupIntentPaymentMethodOptionsUsBankAccount'VerificationMethod'Other val
       )

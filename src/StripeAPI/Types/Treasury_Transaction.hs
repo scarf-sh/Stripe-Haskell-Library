@@ -295,16 +295,16 @@ instance Data.Aeson.Types.FromJSON.FromJSON Treasury'transactionFlowDetails'NonN
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "credit_reversal" -> Treasury'transactionFlowDetails'NonNullableType'EnumCreditReversal
-            | val GHC.Classes.== "debit_reversal" -> Treasury'transactionFlowDetails'NonNullableType'EnumDebitReversal
-            | val GHC.Classes.== "inbound_transfer" -> Treasury'transactionFlowDetails'NonNullableType'EnumInboundTransfer
-            | val GHC.Classes.== "issuing_authorization" -> Treasury'transactionFlowDetails'NonNullableType'EnumIssuingAuthorization
-            | val GHC.Classes.== "other" -> Treasury'transactionFlowDetails'NonNullableType'EnumOther
-            | val GHC.Classes.== "outbound_payment" -> Treasury'transactionFlowDetails'NonNullableType'EnumOutboundPayment
-            | val GHC.Classes.== "outbound_transfer" -> Treasury'transactionFlowDetails'NonNullableType'EnumOutboundTransfer
-            | val GHC.Classes.== "received_credit" -> Treasury'transactionFlowDetails'NonNullableType'EnumReceivedCredit
-            | val GHC.Classes.== "received_debit" -> Treasury'transactionFlowDetails'NonNullableType'EnumReceivedDebit
-            | GHC.Base.otherwise -> Treasury'transactionFlowDetails'NonNullableType'Other val
+          | val GHC.Classes.== "credit_reversal" -> Treasury'transactionFlowDetails'NonNullableType'EnumCreditReversal
+          | val GHC.Classes.== "debit_reversal" -> Treasury'transactionFlowDetails'NonNullableType'EnumDebitReversal
+          | val GHC.Classes.== "inbound_transfer" -> Treasury'transactionFlowDetails'NonNullableType'EnumInboundTransfer
+          | val GHC.Classes.== "issuing_authorization" -> Treasury'transactionFlowDetails'NonNullableType'EnumIssuingAuthorization
+          | val GHC.Classes.== "other" -> Treasury'transactionFlowDetails'NonNullableType'EnumOther
+          | val GHC.Classes.== "outbound_payment" -> Treasury'transactionFlowDetails'NonNullableType'EnumOutboundPayment
+          | val GHC.Classes.== "outbound_transfer" -> Treasury'transactionFlowDetails'NonNullableType'EnumOutboundTransfer
+          | val GHC.Classes.== "received_credit" -> Treasury'transactionFlowDetails'NonNullableType'EnumReceivedCredit
+          | val GHC.Classes.== "received_debit" -> Treasury'transactionFlowDetails'NonNullableType'EnumReceivedDebit
+          | GHC.Base.otherwise -> Treasury'transactionFlowDetails'NonNullableType'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.treasury.transaction.properties.flow_type@ in the specification.
@@ -352,16 +352,16 @@ instance Data.Aeson.Types.FromJSON.FromJSON Treasury'transactionFlowType' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "credit_reversal" -> Treasury'transactionFlowType'EnumCreditReversal
-            | val GHC.Classes.== "debit_reversal" -> Treasury'transactionFlowType'EnumDebitReversal
-            | val GHC.Classes.== "inbound_transfer" -> Treasury'transactionFlowType'EnumInboundTransfer
-            | val GHC.Classes.== "issuing_authorization" -> Treasury'transactionFlowType'EnumIssuingAuthorization
-            | val GHC.Classes.== "other" -> Treasury'transactionFlowType'EnumOther
-            | val GHC.Classes.== "outbound_payment" -> Treasury'transactionFlowType'EnumOutboundPayment
-            | val GHC.Classes.== "outbound_transfer" -> Treasury'transactionFlowType'EnumOutboundTransfer
-            | val GHC.Classes.== "received_credit" -> Treasury'transactionFlowType'EnumReceivedCredit
-            | val GHC.Classes.== "received_debit" -> Treasury'transactionFlowType'EnumReceivedDebit
-            | GHC.Base.otherwise -> Treasury'transactionFlowType'Other val
+          | val GHC.Classes.== "credit_reversal" -> Treasury'transactionFlowType'EnumCreditReversal
+          | val GHC.Classes.== "debit_reversal" -> Treasury'transactionFlowType'EnumDebitReversal
+          | val GHC.Classes.== "inbound_transfer" -> Treasury'transactionFlowType'EnumInboundTransfer
+          | val GHC.Classes.== "issuing_authorization" -> Treasury'transactionFlowType'EnumIssuingAuthorization
+          | val GHC.Classes.== "other" -> Treasury'transactionFlowType'EnumOther
+          | val GHC.Classes.== "outbound_payment" -> Treasury'transactionFlowType'EnumOutboundPayment
+          | val GHC.Classes.== "outbound_transfer" -> Treasury'transactionFlowType'EnumOutboundTransfer
+          | val GHC.Classes.== "received_credit" -> Treasury'transactionFlowType'EnumReceivedCredit
+          | val GHC.Classes.== "received_debit" -> Treasury'transactionFlowType'EnumReceivedDebit
+          | GHC.Base.otherwise -> Treasury'transactionFlowType'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.treasury.transaction.properties.status@ in the specification.
@@ -391,8 +391,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON Treasury'transactionStatus' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "open" -> Treasury'transactionStatus'EnumOpen
-            | val GHC.Classes.== "posted" -> Treasury'transactionStatus'EnumPosted
-            | val GHC.Classes.== "void" -> Treasury'transactionStatus'EnumVoid
-            | GHC.Base.otherwise -> Treasury'transactionStatus'Other val
+          | val GHC.Classes.== "open" -> Treasury'transactionStatus'EnumOpen
+          | val GHC.Classes.== "posted" -> Treasury'transactionStatus'EnumPosted
+          | val GHC.Classes.== "void" -> Treasury'transactionStatus'EnumVoid
+          | GHC.Base.otherwise -> Treasury'transactionStatus'Other val
       )

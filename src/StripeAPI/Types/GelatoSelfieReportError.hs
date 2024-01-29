@@ -93,9 +93,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON GelatoSelfieReportErrorCode'NonNulla
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "selfie_document_missing_photo" -> GelatoSelfieReportErrorCode'NonNullableEnumSelfieDocumentMissingPhoto
-            | val GHC.Classes.== "selfie_face_mismatch" -> GelatoSelfieReportErrorCode'NonNullableEnumSelfieFaceMismatch
-            | val GHC.Classes.== "selfie_manipulated" -> GelatoSelfieReportErrorCode'NonNullableEnumSelfieManipulated
-            | val GHC.Classes.== "selfie_unverified_other" -> GelatoSelfieReportErrorCode'NonNullableEnumSelfieUnverifiedOther
-            | GHC.Base.otherwise -> GelatoSelfieReportErrorCode'NonNullableOther val
+          | val GHC.Classes.== "selfie_document_missing_photo" -> GelatoSelfieReportErrorCode'NonNullableEnumSelfieDocumentMissingPhoto
+          | val GHC.Classes.== "selfie_face_mismatch" -> GelatoSelfieReportErrorCode'NonNullableEnumSelfieFaceMismatch
+          | val GHC.Classes.== "selfie_manipulated" -> GelatoSelfieReportErrorCode'NonNullableEnumSelfieManipulated
+          | val GHC.Classes.== "selfie_unverified_other" -> GelatoSelfieReportErrorCode'NonNullableEnumSelfieUnverifiedOther
+          | GHC.Base.otherwise -> GelatoSelfieReportErrorCode'NonNullableOther val
       )

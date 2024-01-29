@@ -80,7 +80,7 @@ instance Data.Aeson.Types.FromJSON.FromJSON VerificationSessionRedactionStatus' 
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "processing" -> VerificationSessionRedactionStatus'EnumProcessing
-            | val GHC.Classes.== "redacted" -> VerificationSessionRedactionStatus'EnumRedacted
-            | GHC.Base.otherwise -> VerificationSessionRedactionStatus'Other val
+          | val GHC.Classes.== "processing" -> VerificationSessionRedactionStatus'EnumProcessing
+          | val GHC.Classes.== "redacted" -> VerificationSessionRedactionStatus'EnumRedacted
+          | GHC.Base.otherwise -> VerificationSessionRedactionStatus'Other val
       )

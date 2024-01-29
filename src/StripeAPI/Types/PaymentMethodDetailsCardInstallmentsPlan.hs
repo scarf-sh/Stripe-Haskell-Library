@@ -82,6 +82,6 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentMethodDetailsCardInstallments
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "month" -> PaymentMethodDetailsCardInstallmentsPlanInterval'NonNullableEnumMonth
-            | GHC.Base.otherwise -> PaymentMethodDetailsCardInstallmentsPlanInterval'NonNullableOther val
+          | val GHC.Classes.== "month" -> PaymentMethodDetailsCardInstallmentsPlanInterval'NonNullableEnumMonth
+          | GHC.Base.otherwise -> PaymentMethodDetailsCardInstallmentsPlanInterval'NonNullableOther val
       )

@@ -148,9 +148,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON SetupIntentPaymentMethodOptionsCardM
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "fixed" -> SetupIntentPaymentMethodOptionsCardMandateOptions'NonNullableAmountType'EnumFixed
-            | val GHC.Classes.== "maximum" -> SetupIntentPaymentMethodOptionsCardMandateOptions'NonNullableAmountType'EnumMaximum
-            | GHC.Base.otherwise -> SetupIntentPaymentMethodOptionsCardMandateOptions'NonNullableAmountType'Other val
+          | val GHC.Classes.== "fixed" -> SetupIntentPaymentMethodOptionsCardMandateOptions'NonNullableAmountType'EnumFixed
+          | val GHC.Classes.== "maximum" -> SetupIntentPaymentMethodOptionsCardMandateOptions'NonNullableAmountType'EnumMaximum
+          | GHC.Base.otherwise -> SetupIntentPaymentMethodOptionsCardMandateOptions'NonNullableAmountType'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.setup_intent_payment_method_options_card.properties.mandate_options.anyOf.properties.interval@ in the specification.
@@ -186,12 +186,12 @@ instance Data.Aeson.Types.FromJSON.FromJSON SetupIntentPaymentMethodOptionsCardM
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "day" -> SetupIntentPaymentMethodOptionsCardMandateOptions'NonNullableInterval'EnumDay
-            | val GHC.Classes.== "month" -> SetupIntentPaymentMethodOptionsCardMandateOptions'NonNullableInterval'EnumMonth
-            | val GHC.Classes.== "sporadic" -> SetupIntentPaymentMethodOptionsCardMandateOptions'NonNullableInterval'EnumSporadic
-            | val GHC.Classes.== "week" -> SetupIntentPaymentMethodOptionsCardMandateOptions'NonNullableInterval'EnumWeek
-            | val GHC.Classes.== "year" -> SetupIntentPaymentMethodOptionsCardMandateOptions'NonNullableInterval'EnumYear
-            | GHC.Base.otherwise -> SetupIntentPaymentMethodOptionsCardMandateOptions'NonNullableInterval'Other val
+          | val GHC.Classes.== "day" -> SetupIntentPaymentMethodOptionsCardMandateOptions'NonNullableInterval'EnumDay
+          | val GHC.Classes.== "month" -> SetupIntentPaymentMethodOptionsCardMandateOptions'NonNullableInterval'EnumMonth
+          | val GHC.Classes.== "sporadic" -> SetupIntentPaymentMethodOptionsCardMandateOptions'NonNullableInterval'EnumSporadic
+          | val GHC.Classes.== "week" -> SetupIntentPaymentMethodOptionsCardMandateOptions'NonNullableInterval'EnumWeek
+          | val GHC.Classes.== "year" -> SetupIntentPaymentMethodOptionsCardMandateOptions'NonNullableInterval'EnumYear
+          | GHC.Base.otherwise -> SetupIntentPaymentMethodOptionsCardMandateOptions'NonNullableInterval'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.setup_intent_payment_method_options_card.properties.mandate_options.anyOf.properties.supported_types.items@ in the specification.
@@ -213,8 +213,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON SetupIntentPaymentMethodOptionsCardM
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "india" -> SetupIntentPaymentMethodOptionsCardMandateOptions'NonNullableSupportedTypes'NonNullableEnumIndia
-            | GHC.Base.otherwise -> SetupIntentPaymentMethodOptionsCardMandateOptions'NonNullableSupportedTypes'NonNullableOther val
+          | val GHC.Classes.== "india" -> SetupIntentPaymentMethodOptionsCardMandateOptions'NonNullableSupportedTypes'NonNullableEnumIndia
+          | GHC.Base.otherwise -> SetupIntentPaymentMethodOptionsCardMandateOptions'NonNullableSupportedTypes'NonNullableOther val
       )
 
 -- | Defines the enum schema located at @components.schemas.setup_intent_payment_method_options_card.properties.network@ in the specification.
@@ -265,17 +265,17 @@ instance Data.Aeson.Types.FromJSON.FromJSON SetupIntentPaymentMethodOptionsCardN
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "amex" -> SetupIntentPaymentMethodOptionsCardNetwork'NonNullableEnumAmex
-            | val GHC.Classes.== "cartes_bancaires" -> SetupIntentPaymentMethodOptionsCardNetwork'NonNullableEnumCartesBancaires
-            | val GHC.Classes.== "diners" -> SetupIntentPaymentMethodOptionsCardNetwork'NonNullableEnumDiners
-            | val GHC.Classes.== "discover" -> SetupIntentPaymentMethodOptionsCardNetwork'NonNullableEnumDiscover
-            | val GHC.Classes.== "interac" -> SetupIntentPaymentMethodOptionsCardNetwork'NonNullableEnumInterac
-            | val GHC.Classes.== "jcb" -> SetupIntentPaymentMethodOptionsCardNetwork'NonNullableEnumJcb
-            | val GHC.Classes.== "mastercard" -> SetupIntentPaymentMethodOptionsCardNetwork'NonNullableEnumMastercard
-            | val GHC.Classes.== "unionpay" -> SetupIntentPaymentMethodOptionsCardNetwork'NonNullableEnumUnionpay
-            | val GHC.Classes.== "unknown" -> SetupIntentPaymentMethodOptionsCardNetwork'NonNullableEnumUnknown
-            | val GHC.Classes.== "visa" -> SetupIntentPaymentMethodOptionsCardNetwork'NonNullableEnumVisa
-            | GHC.Base.otherwise -> SetupIntentPaymentMethodOptionsCardNetwork'NonNullableOther val
+          | val GHC.Classes.== "amex" -> SetupIntentPaymentMethodOptionsCardNetwork'NonNullableEnumAmex
+          | val GHC.Classes.== "cartes_bancaires" -> SetupIntentPaymentMethodOptionsCardNetwork'NonNullableEnumCartesBancaires
+          | val GHC.Classes.== "diners" -> SetupIntentPaymentMethodOptionsCardNetwork'NonNullableEnumDiners
+          | val GHC.Classes.== "discover" -> SetupIntentPaymentMethodOptionsCardNetwork'NonNullableEnumDiscover
+          | val GHC.Classes.== "interac" -> SetupIntentPaymentMethodOptionsCardNetwork'NonNullableEnumInterac
+          | val GHC.Classes.== "jcb" -> SetupIntentPaymentMethodOptionsCardNetwork'NonNullableEnumJcb
+          | val GHC.Classes.== "mastercard" -> SetupIntentPaymentMethodOptionsCardNetwork'NonNullableEnumMastercard
+          | val GHC.Classes.== "unionpay" -> SetupIntentPaymentMethodOptionsCardNetwork'NonNullableEnumUnionpay
+          | val GHC.Classes.== "unknown" -> SetupIntentPaymentMethodOptionsCardNetwork'NonNullableEnumUnknown
+          | val GHC.Classes.== "visa" -> SetupIntentPaymentMethodOptionsCardNetwork'NonNullableEnumVisa
+          | GHC.Base.otherwise -> SetupIntentPaymentMethodOptionsCardNetwork'NonNullableOther val
       )
 
 -- | Defines the enum schema located at @components.schemas.setup_intent_payment_method_options_card.properties.request_three_d_secure@ in the specification.
@@ -305,8 +305,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON SetupIntentPaymentMethodOptionsCardR
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "any" -> SetupIntentPaymentMethodOptionsCardRequestThreeDSecure'NonNullableEnumAny
-            | val GHC.Classes.== "automatic" -> SetupIntentPaymentMethodOptionsCardRequestThreeDSecure'NonNullableEnumAutomatic
-            | val GHC.Classes.== "challenge_only" -> SetupIntentPaymentMethodOptionsCardRequestThreeDSecure'NonNullableEnumChallengeOnly
-            | GHC.Base.otherwise -> SetupIntentPaymentMethodOptionsCardRequestThreeDSecure'NonNullableOther val
+          | val GHC.Classes.== "any" -> SetupIntentPaymentMethodOptionsCardRequestThreeDSecure'NonNullableEnumAny
+          | val GHC.Classes.== "automatic" -> SetupIntentPaymentMethodOptionsCardRequestThreeDSecure'NonNullableEnumAutomatic
+          | val GHC.Classes.== "challenge_only" -> SetupIntentPaymentMethodOptionsCardRequestThreeDSecure'NonNullableEnumChallengeOnly
+          | GHC.Base.otherwise -> SetupIntentPaymentMethodOptionsCardRequestThreeDSecure'NonNullableOther val
       )

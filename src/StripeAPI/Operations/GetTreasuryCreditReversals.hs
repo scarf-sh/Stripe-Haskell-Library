@@ -48,7 +48,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>Returns a list of CreditReversals.\<\/p>
 getTreasuryCreditReversals ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | Contains all available parameters of this operation (query and path parameters)
   GetTreasuryCreditReversalsParameters ->
   -- | Monadic computation which returns the result of the operation
@@ -60,21 +60,21 @@ getTreasuryCreditReversals parameters =
           ( Data.Either.either GetTreasuryCreditReversalsResponseError GHC.Base.id
               GHC.Base.. ( \response body ->
                              if
-                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                               | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                    GetTreasuryCreditReversalsResponse200
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             GetTreasuryCreditReversalsResponseBody200
                                                       )
-                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                               | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                    GetTreasuryCreditReversalsResponseDefault
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             Error
                                                       )
-                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                               | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                          )
                 response_0
           )
@@ -193,10 +193,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON GetTreasuryCreditReversalsParameters
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "canceled" -> GetTreasuryCreditReversalsParametersQueryStatus'EnumCanceled
-            | val GHC.Classes.== "posted" -> GetTreasuryCreditReversalsParametersQueryStatus'EnumPosted
-            | val GHC.Classes.== "processing" -> GetTreasuryCreditReversalsParametersQueryStatus'EnumProcessing
-            | GHC.Base.otherwise -> GetTreasuryCreditReversalsParametersQueryStatus'Other val
+          | val GHC.Classes.== "canceled" -> GetTreasuryCreditReversalsParametersQueryStatus'EnumCanceled
+          | val GHC.Classes.== "posted" -> GetTreasuryCreditReversalsParametersQueryStatus'EnumPosted
+          | val GHC.Classes.== "processing" -> GetTreasuryCreditReversalsParametersQueryStatus'EnumProcessing
+          | GHC.Base.otherwise -> GetTreasuryCreditReversalsParametersQueryStatus'Other val
       )
 
 -- | Represents a response of the operation 'getTreasuryCreditReversals'.

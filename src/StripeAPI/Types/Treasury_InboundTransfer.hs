@@ -250,20 +250,20 @@ instance Data.Aeson.Types.FromJSON.FromJSON Treasury'inboundTransferFailureDetai
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "account_closed" -> Treasury'inboundTransferFailureDetails'NonNullableCode'EnumAccountClosed
-            | val GHC.Classes.== "account_frozen" -> Treasury'inboundTransferFailureDetails'NonNullableCode'EnumAccountFrozen
-            | val GHC.Classes.== "bank_account_restricted" -> Treasury'inboundTransferFailureDetails'NonNullableCode'EnumBankAccountRestricted
-            | val GHC.Classes.== "bank_ownership_changed" -> Treasury'inboundTransferFailureDetails'NonNullableCode'EnumBankOwnershipChanged
-            | val GHC.Classes.== "debit_not_authorized" -> Treasury'inboundTransferFailureDetails'NonNullableCode'EnumDebitNotAuthorized
-            | val GHC.Classes.== "incorrect_account_holder_address" -> Treasury'inboundTransferFailureDetails'NonNullableCode'EnumIncorrectAccountHolderAddress
-            | val GHC.Classes.== "incorrect_account_holder_name" -> Treasury'inboundTransferFailureDetails'NonNullableCode'EnumIncorrectAccountHolderName
-            | val GHC.Classes.== "incorrect_account_holder_tax_id" -> Treasury'inboundTransferFailureDetails'NonNullableCode'EnumIncorrectAccountHolderTaxId
-            | val GHC.Classes.== "insufficient_funds" -> Treasury'inboundTransferFailureDetails'NonNullableCode'EnumInsufficientFunds
-            | val GHC.Classes.== "invalid_account_number" -> Treasury'inboundTransferFailureDetails'NonNullableCode'EnumInvalidAccountNumber
-            | val GHC.Classes.== "invalid_currency" -> Treasury'inboundTransferFailureDetails'NonNullableCode'EnumInvalidCurrency
-            | val GHC.Classes.== "no_account" -> Treasury'inboundTransferFailureDetails'NonNullableCode'EnumNoAccount
-            | val GHC.Classes.== "other" -> Treasury'inboundTransferFailureDetails'NonNullableCode'EnumOther
-            | GHC.Base.otherwise -> Treasury'inboundTransferFailureDetails'NonNullableCode'Other val
+          | val GHC.Classes.== "account_closed" -> Treasury'inboundTransferFailureDetails'NonNullableCode'EnumAccountClosed
+          | val GHC.Classes.== "account_frozen" -> Treasury'inboundTransferFailureDetails'NonNullableCode'EnumAccountFrozen
+          | val GHC.Classes.== "bank_account_restricted" -> Treasury'inboundTransferFailureDetails'NonNullableCode'EnumBankAccountRestricted
+          | val GHC.Classes.== "bank_ownership_changed" -> Treasury'inboundTransferFailureDetails'NonNullableCode'EnumBankOwnershipChanged
+          | val GHC.Classes.== "debit_not_authorized" -> Treasury'inboundTransferFailureDetails'NonNullableCode'EnumDebitNotAuthorized
+          | val GHC.Classes.== "incorrect_account_holder_address" -> Treasury'inboundTransferFailureDetails'NonNullableCode'EnumIncorrectAccountHolderAddress
+          | val GHC.Classes.== "incorrect_account_holder_name" -> Treasury'inboundTransferFailureDetails'NonNullableCode'EnumIncorrectAccountHolderName
+          | val GHC.Classes.== "incorrect_account_holder_tax_id" -> Treasury'inboundTransferFailureDetails'NonNullableCode'EnumIncorrectAccountHolderTaxId
+          | val GHC.Classes.== "insufficient_funds" -> Treasury'inboundTransferFailureDetails'NonNullableCode'EnumInsufficientFunds
+          | val GHC.Classes.== "invalid_account_number" -> Treasury'inboundTransferFailureDetails'NonNullableCode'EnumInvalidAccountNumber
+          | val GHC.Classes.== "invalid_currency" -> Treasury'inboundTransferFailureDetails'NonNullableCode'EnumInvalidCurrency
+          | val GHC.Classes.== "no_account" -> Treasury'inboundTransferFailureDetails'NonNullableCode'EnumNoAccount
+          | val GHC.Classes.== "other" -> Treasury'inboundTransferFailureDetails'NonNullableCode'EnumOther
+          | GHC.Base.otherwise -> Treasury'inboundTransferFailureDetails'NonNullableCode'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.treasury.inbound_transfer.properties.origin_payment_method_details.anyOf@ in the specification.
@@ -319,8 +319,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON Treasury'inboundTransferOriginPaymen
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "us_bank_account" -> Treasury'inboundTransferOriginPaymentMethodDetails'NonNullableType'EnumUsBankAccount
-            | GHC.Base.otherwise -> Treasury'inboundTransferOriginPaymentMethodDetails'NonNullableType'Other val
+          | val GHC.Classes.== "us_bank_account" -> Treasury'inboundTransferOriginPaymentMethodDetails'NonNullableType'EnumUsBankAccount
+          | GHC.Base.otherwise -> Treasury'inboundTransferOriginPaymentMethodDetails'NonNullableType'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.treasury.inbound_transfer.properties.status@ in the specification.
@@ -353,11 +353,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON Treasury'inboundTransferStatus' wher
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "canceled" -> Treasury'inboundTransferStatus'EnumCanceled
-            | val GHC.Classes.== "failed" -> Treasury'inboundTransferStatus'EnumFailed
-            | val GHC.Classes.== "processing" -> Treasury'inboundTransferStatus'EnumProcessing
-            | val GHC.Classes.== "succeeded" -> Treasury'inboundTransferStatus'EnumSucceeded
-            | GHC.Base.otherwise -> Treasury'inboundTransferStatus'Other val
+          | val GHC.Classes.== "canceled" -> Treasury'inboundTransferStatus'EnumCanceled
+          | val GHC.Classes.== "failed" -> Treasury'inboundTransferStatus'EnumFailed
+          | val GHC.Classes.== "processing" -> Treasury'inboundTransferStatus'EnumProcessing
+          | val GHC.Classes.== "succeeded" -> Treasury'inboundTransferStatus'EnumSucceeded
+          | GHC.Base.otherwise -> Treasury'inboundTransferStatus'Other val
       )
 
 -- | Defines the oneOf schema located at @components.schemas.treasury.inbound_transfer.properties.transaction.anyOf@ in the specification.

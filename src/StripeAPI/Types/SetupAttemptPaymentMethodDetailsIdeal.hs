@@ -139,20 +139,20 @@ instance Data.Aeson.Types.FromJSON.FromJSON SetupAttemptPaymentMethodDetailsIdea
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "abn_amro" -> SetupAttemptPaymentMethodDetailsIdealBank'NonNullableEnumAbnAmro
-            | val GHC.Classes.== "asn_bank" -> SetupAttemptPaymentMethodDetailsIdealBank'NonNullableEnumAsnBank
-            | val GHC.Classes.== "bunq" -> SetupAttemptPaymentMethodDetailsIdealBank'NonNullableEnumBunq
-            | val GHC.Classes.== "handelsbanken" -> SetupAttemptPaymentMethodDetailsIdealBank'NonNullableEnumHandelsbanken
-            | val GHC.Classes.== "ing" -> SetupAttemptPaymentMethodDetailsIdealBank'NonNullableEnumIng
-            | val GHC.Classes.== "knab" -> SetupAttemptPaymentMethodDetailsIdealBank'NonNullableEnumKnab
-            | val GHC.Classes.== "moneyou" -> SetupAttemptPaymentMethodDetailsIdealBank'NonNullableEnumMoneyou
-            | val GHC.Classes.== "rabobank" -> SetupAttemptPaymentMethodDetailsIdealBank'NonNullableEnumRabobank
-            | val GHC.Classes.== "regiobank" -> SetupAttemptPaymentMethodDetailsIdealBank'NonNullableEnumRegiobank
-            | val GHC.Classes.== "revolut" -> SetupAttemptPaymentMethodDetailsIdealBank'NonNullableEnumRevolut
-            | val GHC.Classes.== "sns_bank" -> SetupAttemptPaymentMethodDetailsIdealBank'NonNullableEnumSnsBank
-            | val GHC.Classes.== "triodos_bank" -> SetupAttemptPaymentMethodDetailsIdealBank'NonNullableEnumTriodosBank
-            | val GHC.Classes.== "van_lanschot" -> SetupAttemptPaymentMethodDetailsIdealBank'NonNullableEnumVanLanschot
-            | GHC.Base.otherwise -> SetupAttemptPaymentMethodDetailsIdealBank'NonNullableOther val
+          | val GHC.Classes.== "abn_amro" -> SetupAttemptPaymentMethodDetailsIdealBank'NonNullableEnumAbnAmro
+          | val GHC.Classes.== "asn_bank" -> SetupAttemptPaymentMethodDetailsIdealBank'NonNullableEnumAsnBank
+          | val GHC.Classes.== "bunq" -> SetupAttemptPaymentMethodDetailsIdealBank'NonNullableEnumBunq
+          | val GHC.Classes.== "handelsbanken" -> SetupAttemptPaymentMethodDetailsIdealBank'NonNullableEnumHandelsbanken
+          | val GHC.Classes.== "ing" -> SetupAttemptPaymentMethodDetailsIdealBank'NonNullableEnumIng
+          | val GHC.Classes.== "knab" -> SetupAttemptPaymentMethodDetailsIdealBank'NonNullableEnumKnab
+          | val GHC.Classes.== "moneyou" -> SetupAttemptPaymentMethodDetailsIdealBank'NonNullableEnumMoneyou
+          | val GHC.Classes.== "rabobank" -> SetupAttemptPaymentMethodDetailsIdealBank'NonNullableEnumRabobank
+          | val GHC.Classes.== "regiobank" -> SetupAttemptPaymentMethodDetailsIdealBank'NonNullableEnumRegiobank
+          | val GHC.Classes.== "revolut" -> SetupAttemptPaymentMethodDetailsIdealBank'NonNullableEnumRevolut
+          | val GHC.Classes.== "sns_bank" -> SetupAttemptPaymentMethodDetailsIdealBank'NonNullableEnumSnsBank
+          | val GHC.Classes.== "triodos_bank" -> SetupAttemptPaymentMethodDetailsIdealBank'NonNullableEnumTriodosBank
+          | val GHC.Classes.== "van_lanschot" -> SetupAttemptPaymentMethodDetailsIdealBank'NonNullableEnumVanLanschot
+          | GHC.Base.otherwise -> SetupAttemptPaymentMethodDetailsIdealBank'NonNullableOther val
       )
 
 -- | Defines the enum schema located at @components.schemas.setup_attempt_payment_method_details_ideal.properties.bic@ in the specification.
@@ -212,20 +212,20 @@ instance Data.Aeson.Types.FromJSON.FromJSON SetupAttemptPaymentMethodDetailsIdea
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "ABNANL2A" -> SetupAttemptPaymentMethodDetailsIdealBic'NonNullableEnumABNANL2A
-            | val GHC.Classes.== "ASNBNL21" -> SetupAttemptPaymentMethodDetailsIdealBic'NonNullableEnumASNBNL21
-            | val GHC.Classes.== "BUNQNL2A" -> SetupAttemptPaymentMethodDetailsIdealBic'NonNullableEnumBUNQNL2A
-            | val GHC.Classes.== "FVLBNL22" -> SetupAttemptPaymentMethodDetailsIdealBic'NonNullableEnumFVLBNL22
-            | val GHC.Classes.== "HANDNL2A" -> SetupAttemptPaymentMethodDetailsIdealBic'NonNullableEnumHANDNL2A
-            | val GHC.Classes.== "INGBNL2A" -> SetupAttemptPaymentMethodDetailsIdealBic'NonNullableEnumINGBNL2A
-            | val GHC.Classes.== "KNABNL2H" -> SetupAttemptPaymentMethodDetailsIdealBic'NonNullableEnumKNABNL2H
-            | val GHC.Classes.== "MOYONL21" -> SetupAttemptPaymentMethodDetailsIdealBic'NonNullableEnumMOYONL21
-            | val GHC.Classes.== "RABONL2U" -> SetupAttemptPaymentMethodDetailsIdealBic'NonNullableEnumRABONL2U
-            | val GHC.Classes.== "RBRBNL21" -> SetupAttemptPaymentMethodDetailsIdealBic'NonNullableEnumRBRBNL21
-            | val GHC.Classes.== "REVOLT21" -> SetupAttemptPaymentMethodDetailsIdealBic'NonNullableEnumREVOLT21
-            | val GHC.Classes.== "SNSBNL2A" -> SetupAttemptPaymentMethodDetailsIdealBic'NonNullableEnumSNSBNL2A
-            | val GHC.Classes.== "TRIONL2U" -> SetupAttemptPaymentMethodDetailsIdealBic'NonNullableEnumTRIONL2U
-            | GHC.Base.otherwise -> SetupAttemptPaymentMethodDetailsIdealBic'NonNullableOther val
+          | val GHC.Classes.== "ABNANL2A" -> SetupAttemptPaymentMethodDetailsIdealBic'NonNullableEnumABNANL2A
+          | val GHC.Classes.== "ASNBNL21" -> SetupAttemptPaymentMethodDetailsIdealBic'NonNullableEnumASNBNL21
+          | val GHC.Classes.== "BUNQNL2A" -> SetupAttemptPaymentMethodDetailsIdealBic'NonNullableEnumBUNQNL2A
+          | val GHC.Classes.== "FVLBNL22" -> SetupAttemptPaymentMethodDetailsIdealBic'NonNullableEnumFVLBNL22
+          | val GHC.Classes.== "HANDNL2A" -> SetupAttemptPaymentMethodDetailsIdealBic'NonNullableEnumHANDNL2A
+          | val GHC.Classes.== "INGBNL2A" -> SetupAttemptPaymentMethodDetailsIdealBic'NonNullableEnumINGBNL2A
+          | val GHC.Classes.== "KNABNL2H" -> SetupAttemptPaymentMethodDetailsIdealBic'NonNullableEnumKNABNL2H
+          | val GHC.Classes.== "MOYONL21" -> SetupAttemptPaymentMethodDetailsIdealBic'NonNullableEnumMOYONL21
+          | val GHC.Classes.== "RABONL2U" -> SetupAttemptPaymentMethodDetailsIdealBic'NonNullableEnumRABONL2U
+          | val GHC.Classes.== "RBRBNL21" -> SetupAttemptPaymentMethodDetailsIdealBic'NonNullableEnumRBRBNL21
+          | val GHC.Classes.== "REVOLT21" -> SetupAttemptPaymentMethodDetailsIdealBic'NonNullableEnumREVOLT21
+          | val GHC.Classes.== "SNSBNL2A" -> SetupAttemptPaymentMethodDetailsIdealBic'NonNullableEnumSNSBNL2A
+          | val GHC.Classes.== "TRIONL2U" -> SetupAttemptPaymentMethodDetailsIdealBic'NonNullableEnumTRIONL2U
+          | GHC.Base.otherwise -> SetupAttemptPaymentMethodDetailsIdealBic'NonNullableOther val
       )
 
 -- | Defines the oneOf schema located at @components.schemas.setup_attempt_payment_method_details_ideal.properties.generated_sepa_debit.anyOf@ in the specification.

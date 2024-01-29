@@ -48,7 +48,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>To charge a credit card or other payment source, you create a \<code>Charge\<\/code> object. If your API key is in test mode, the supplied payment source (e.g., card) won’t actually be charged, although everything else will occur as if in live mode. (Stripe assumes that the charge would have completed successfully).\<\/p>
 postCharges ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | The request body to send
   GHC.Maybe.Maybe PostChargesRequestBody ->
   -- | Monadic computation which returns the result of the operation
@@ -60,21 +60,21 @@ postCharges body =
           ( Data.Either.either PostChargesResponseError GHC.Base.id
               GHC.Base.. ( \response body ->
                              if
-                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                               | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                    PostChargesResponse200
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             Charge
                                                       )
-                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                               | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                    PostChargesResponseDefault
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             Error
                                                       )
-                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                               | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                          )
                 response_0
           )
@@ -313,8 +313,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostChargesRequestBodyCard'OneOf1Obj
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "card" -> PostChargesRequestBodyCard'OneOf1Object'EnumCard
-            | GHC.Base.otherwise -> PostChargesRequestBodyCard'OneOf1Object'Other val
+          | val GHC.Classes.== "card" -> PostChargesRequestBodyCard'OneOf1Object'EnumCard
+          | GHC.Base.otherwise -> PostChargesRequestBodyCard'OneOf1Object'Other val
       )
 
 -- | Defines the oneOf schema located at @paths.\/v1\/charges.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.card.anyOf@ in the specification.
@@ -399,8 +399,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostChargesRequestBodyMetadata'Variants 
 instance Data.Aeson.Types.FromJSON.FromJSON PostChargesRequestBodyMetadata'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostChargesRequestBodyMetadata'EmptyString
-        | GHC.Base.otherwise -> case (PostChargesRequestBodyMetadata'Object Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostChargesRequestBodyMetadata'EmptyString
+      | GHC.Base.otherwise -> case (PostChargesRequestBodyMetadata'Object Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 

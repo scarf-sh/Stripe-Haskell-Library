@@ -101,10 +101,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON IssuingAuthorizationVerificationData
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "match" -> IssuingAuthorizationVerificationDataAddressLine1Check'EnumMatch
-            | val GHC.Classes.== "mismatch" -> IssuingAuthorizationVerificationDataAddressLine1Check'EnumMismatch
-            | val GHC.Classes.== "not_provided" -> IssuingAuthorizationVerificationDataAddressLine1Check'EnumNotProvided
-            | GHC.Base.otherwise -> IssuingAuthorizationVerificationDataAddressLine1Check'Other val
+          | val GHC.Classes.== "match" -> IssuingAuthorizationVerificationDataAddressLine1Check'EnumMatch
+          | val GHC.Classes.== "mismatch" -> IssuingAuthorizationVerificationDataAddressLine1Check'EnumMismatch
+          | val GHC.Classes.== "not_provided" -> IssuingAuthorizationVerificationDataAddressLine1Check'EnumNotProvided
+          | GHC.Base.otherwise -> IssuingAuthorizationVerificationDataAddressLine1Check'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.issuing_authorization_verification_data.properties.address_postal_code_check@ in the specification.
@@ -134,10 +134,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON IssuingAuthorizationVerificationData
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "match" -> IssuingAuthorizationVerificationDataAddressPostalCodeCheck'EnumMatch
-            | val GHC.Classes.== "mismatch" -> IssuingAuthorizationVerificationDataAddressPostalCodeCheck'EnumMismatch
-            | val GHC.Classes.== "not_provided" -> IssuingAuthorizationVerificationDataAddressPostalCodeCheck'EnumNotProvided
-            | GHC.Base.otherwise -> IssuingAuthorizationVerificationDataAddressPostalCodeCheck'Other val
+          | val GHC.Classes.== "match" -> IssuingAuthorizationVerificationDataAddressPostalCodeCheck'EnumMatch
+          | val GHC.Classes.== "mismatch" -> IssuingAuthorizationVerificationDataAddressPostalCodeCheck'EnumMismatch
+          | val GHC.Classes.== "not_provided" -> IssuingAuthorizationVerificationDataAddressPostalCodeCheck'EnumNotProvided
+          | GHC.Base.otherwise -> IssuingAuthorizationVerificationDataAddressPostalCodeCheck'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.issuing_authorization_verification_data.properties.cvc_check@ in the specification.
@@ -167,10 +167,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON IssuingAuthorizationVerificationData
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "match" -> IssuingAuthorizationVerificationDataCvcCheck'EnumMatch
-            | val GHC.Classes.== "mismatch" -> IssuingAuthorizationVerificationDataCvcCheck'EnumMismatch
-            | val GHC.Classes.== "not_provided" -> IssuingAuthorizationVerificationDataCvcCheck'EnumNotProvided
-            | GHC.Base.otherwise -> IssuingAuthorizationVerificationDataCvcCheck'Other val
+          | val GHC.Classes.== "match" -> IssuingAuthorizationVerificationDataCvcCheck'EnumMatch
+          | val GHC.Classes.== "mismatch" -> IssuingAuthorizationVerificationDataCvcCheck'EnumMismatch
+          | val GHC.Classes.== "not_provided" -> IssuingAuthorizationVerificationDataCvcCheck'EnumNotProvided
+          | GHC.Base.otherwise -> IssuingAuthorizationVerificationDataCvcCheck'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.issuing_authorization_verification_data.properties.expiry_check@ in the specification.
@@ -200,8 +200,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON IssuingAuthorizationVerificationData
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "match" -> IssuingAuthorizationVerificationDataExpiryCheck'EnumMatch
-            | val GHC.Classes.== "mismatch" -> IssuingAuthorizationVerificationDataExpiryCheck'EnumMismatch
-            | val GHC.Classes.== "not_provided" -> IssuingAuthorizationVerificationDataExpiryCheck'EnumNotProvided
-            | GHC.Base.otherwise -> IssuingAuthorizationVerificationDataExpiryCheck'Other val
+          | val GHC.Classes.== "match" -> IssuingAuthorizationVerificationDataExpiryCheck'EnumMatch
+          | val GHC.Classes.== "mismatch" -> IssuingAuthorizationVerificationDataExpiryCheck'EnumMismatch
+          | val GHC.Classes.== "not_provided" -> IssuingAuthorizationVerificationDataExpiryCheck'EnumNotProvided
+          | GHC.Base.otherwise -> IssuingAuthorizationVerificationDataExpiryCheck'Other val
       )

@@ -162,15 +162,15 @@ instance Data.Aeson.Types.FromJSON.FromJSON Radar'valueListItemType' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "card_bin" -> Radar'valueListItemType'EnumCardBin
-            | val GHC.Classes.== "card_fingerprint" -> Radar'valueListItemType'EnumCardFingerprint
-            | val GHC.Classes.== "case_sensitive_string" -> Radar'valueListItemType'EnumCaseSensitiveString
-            | val GHC.Classes.== "country" -> Radar'valueListItemType'EnumCountry
-            | val GHC.Classes.== "customer_id" -> Radar'valueListItemType'EnumCustomerId
-            | val GHC.Classes.== "email" -> Radar'valueListItemType'EnumEmail
-            | val GHC.Classes.== "ip_address" -> Radar'valueListItemType'EnumIpAddress
-            | val GHC.Classes.== "string" -> Radar'valueListItemType'EnumString
-            | GHC.Base.otherwise -> Radar'valueListItemType'Other val
+          | val GHC.Classes.== "card_bin" -> Radar'valueListItemType'EnumCardBin
+          | val GHC.Classes.== "card_fingerprint" -> Radar'valueListItemType'EnumCardFingerprint
+          | val GHC.Classes.== "case_sensitive_string" -> Radar'valueListItemType'EnumCaseSensitiveString
+          | val GHC.Classes.== "country" -> Radar'valueListItemType'EnumCountry
+          | val GHC.Classes.== "customer_id" -> Radar'valueListItemType'EnumCustomerId
+          | val GHC.Classes.== "email" -> Radar'valueListItemType'EnumEmail
+          | val GHC.Classes.== "ip_address" -> Radar'valueListItemType'EnumIpAddress
+          | val GHC.Classes.== "string" -> Radar'valueListItemType'EnumString
+          | GHC.Base.otherwise -> Radar'valueListItemType'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.radar.value_list.properties.list_items@ in the specification.

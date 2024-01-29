@@ -225,19 +225,19 @@ instance Data.Aeson.Types.FromJSON.FromJSON FilePurpose' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "account_requirement" -> FilePurpose'EnumAccountRequirement
-            | val GHC.Classes.== "additional_verification" -> FilePurpose'EnumAdditionalVerification
-            | val GHC.Classes.== "business_icon" -> FilePurpose'EnumBusinessIcon
-            | val GHC.Classes.== "business_logo" -> FilePurpose'EnumBusinessLogo
-            | val GHC.Classes.== "customer_signature" -> FilePurpose'EnumCustomerSignature
-            | val GHC.Classes.== "dispute_evidence" -> FilePurpose'EnumDisputeEvidence
-            | val GHC.Classes.== "document_provider_identity_document" -> FilePurpose'EnumDocumentProviderIdentityDocument
-            | val GHC.Classes.== "finance_report_run" -> FilePurpose'EnumFinanceReportRun
-            | val GHC.Classes.== "identity_document" -> FilePurpose'EnumIdentityDocument
-            | val GHC.Classes.== "identity_document_downloadable" -> FilePurpose'EnumIdentityDocumentDownloadable
-            | val GHC.Classes.== "pci_document" -> FilePurpose'EnumPciDocument
-            | val GHC.Classes.== "selfie" -> FilePurpose'EnumSelfie
-            | val GHC.Classes.== "sigma_scheduled_query" -> FilePurpose'EnumSigmaScheduledQuery
-            | val GHC.Classes.== "tax_document_user_upload" -> FilePurpose'EnumTaxDocumentUserUpload
-            | GHC.Base.otherwise -> FilePurpose'Other val
+          | val GHC.Classes.== "account_requirement" -> FilePurpose'EnumAccountRequirement
+          | val GHC.Classes.== "additional_verification" -> FilePurpose'EnumAdditionalVerification
+          | val GHC.Classes.== "business_icon" -> FilePurpose'EnumBusinessIcon
+          | val GHC.Classes.== "business_logo" -> FilePurpose'EnumBusinessLogo
+          | val GHC.Classes.== "customer_signature" -> FilePurpose'EnumCustomerSignature
+          | val GHC.Classes.== "dispute_evidence" -> FilePurpose'EnumDisputeEvidence
+          | val GHC.Classes.== "document_provider_identity_document" -> FilePurpose'EnumDocumentProviderIdentityDocument
+          | val GHC.Classes.== "finance_report_run" -> FilePurpose'EnumFinanceReportRun
+          | val GHC.Classes.== "identity_document" -> FilePurpose'EnumIdentityDocument
+          | val GHC.Classes.== "identity_document_downloadable" -> FilePurpose'EnumIdentityDocumentDownloadable
+          | val GHC.Classes.== "pci_document" -> FilePurpose'EnumPciDocument
+          | val GHC.Classes.== "selfie" -> FilePurpose'EnumSelfie
+          | val GHC.Classes.== "sigma_scheduled_query" -> FilePurpose'EnumSigmaScheduledQuery
+          | val GHC.Classes.== "tax_document_user_upload" -> FilePurpose'EnumTaxDocumentUserUpload
+          | GHC.Base.otherwise -> FilePurpose'Other val
       )

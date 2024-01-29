@@ -154,9 +154,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON Treasury'creditReversalNetwork' wher
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "ach" -> Treasury'creditReversalNetwork'EnumAch
-            | val GHC.Classes.== "stripe" -> Treasury'creditReversalNetwork'EnumStripe
-            | GHC.Base.otherwise -> Treasury'creditReversalNetwork'Other val
+          | val GHC.Classes.== "ach" -> Treasury'creditReversalNetwork'EnumAch
+          | val GHC.Classes.== "stripe" -> Treasury'creditReversalNetwork'EnumStripe
+          | GHC.Base.otherwise -> Treasury'creditReversalNetwork'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.treasury.credit_reversal.properties.status@ in the specification.
@@ -186,10 +186,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON Treasury'creditReversalStatus' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "canceled" -> Treasury'creditReversalStatus'EnumCanceled
-            | val GHC.Classes.== "posted" -> Treasury'creditReversalStatus'EnumPosted
-            | val GHC.Classes.== "processing" -> Treasury'creditReversalStatus'EnumProcessing
-            | GHC.Base.otherwise -> Treasury'creditReversalStatus'Other val
+          | val GHC.Classes.== "canceled" -> Treasury'creditReversalStatus'EnumCanceled
+          | val GHC.Classes.== "posted" -> Treasury'creditReversalStatus'EnumPosted
+          | val GHC.Classes.== "processing" -> Treasury'creditReversalStatus'EnumProcessing
+          | GHC.Base.otherwise -> Treasury'creditReversalStatus'Other val
       )
 
 -- | Defines the oneOf schema located at @components.schemas.treasury.credit_reversal.properties.transaction.anyOf@ in the specification.

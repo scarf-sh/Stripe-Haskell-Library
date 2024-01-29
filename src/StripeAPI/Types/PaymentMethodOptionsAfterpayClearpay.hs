@@ -92,8 +92,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentMethodOptionsAfterpayClearpay
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "manual" -> PaymentMethodOptionsAfterpayClearpayCaptureMethod'EnumManual
-            | GHC.Base.otherwise -> PaymentMethodOptionsAfterpayClearpayCaptureMethod'Other val
+          | val GHC.Classes.== "manual" -> PaymentMethodOptionsAfterpayClearpayCaptureMethod'EnumManual
+          | GHC.Base.otherwise -> PaymentMethodOptionsAfterpayClearpayCaptureMethod'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_method_options_afterpay_clearpay.properties.setup_future_usage@ in the specification.
@@ -121,6 +121,6 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentMethodOptionsAfterpayClearpay
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> PaymentMethodOptionsAfterpayClearpaySetupFutureUsage'EnumNone
-            | GHC.Base.otherwise -> PaymentMethodOptionsAfterpayClearpaySetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> PaymentMethodOptionsAfterpayClearpaySetupFutureUsage'EnumNone
+          | GHC.Base.otherwise -> PaymentMethodOptionsAfterpayClearpaySetupFutureUsage'Other val
       )

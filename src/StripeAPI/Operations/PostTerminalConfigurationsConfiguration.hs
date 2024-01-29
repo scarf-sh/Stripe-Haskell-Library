@@ -48,7 +48,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>Updates a new \<code>Configuration\<\/code> object.\<\/p>
 postTerminalConfigurationsConfiguration ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | configuration | Constraints: Maximum length of 5000
   Data.Text.Internal.Text ->
   -- | The request body to send
@@ -64,21 +64,21 @@ postTerminalConfigurationsConfiguration
             ( Data.Either.either PostTerminalConfigurationsConfigurationResponseError GHC.Base.id
                 GHC.Base.. ( \response body ->
                                if
-                                   | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                      PostTerminalConfigurationsConfigurationResponse200
                                        Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                             Data.Either.Either
                                                               GHC.Base.String
                                                               PostTerminalConfigurationsConfigurationResponseBody200
                                                         )
-                                   | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                      PostTerminalConfigurationsConfigurationResponseDefault
                                        Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                             Data.Either.Either
                                                               GHC.Base.String
                                                               Error
                                                         )
-                                   | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                            )
                   response_0
             )
@@ -154,8 +154,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostTerminalConfigurationsConfigurationR
 instance Data.Aeson.Types.FromJSON.FromJSON PostTerminalConfigurationsConfigurationRequestBodyBbposWiseposE'OneOf1Splashscreen'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostTerminalConfigurationsConfigurationRequestBodyBbposWiseposE'OneOf1Splashscreen'EmptyString
-        | GHC.Base.otherwise -> case (PostTerminalConfigurationsConfigurationRequestBodyBbposWiseposE'OneOf1Splashscreen'Text Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostTerminalConfigurationsConfigurationRequestBodyBbposWiseposE'OneOf1Splashscreen'EmptyString
+      | GHC.Base.otherwise -> case (PostTerminalConfigurationsConfigurationRequestBodyBbposWiseposE'OneOf1Splashscreen'Text Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -175,8 +175,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostTerminalConfigurationsConfigurationR
 instance Data.Aeson.Types.FromJSON.FromJSON PostTerminalConfigurationsConfigurationRequestBodyBbposWiseposE'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostTerminalConfigurationsConfigurationRequestBodyBbposWiseposE'EmptyString
-        | GHC.Base.otherwise -> case (PostTerminalConfigurationsConfigurationRequestBodyBbposWiseposE'PostTerminalConfigurationsConfigurationRequestBodyBbposWiseposE'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostTerminalConfigurationsConfigurationRequestBodyBbposWiseposE'EmptyString
+      | GHC.Base.otherwise -> case (PostTerminalConfigurationsConfigurationRequestBodyBbposWiseposE'PostTerminalConfigurationsConfigurationRequestBodyBbposWiseposE'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -679,8 +679,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostTerminalConfigurationsConfigurationR
 instance Data.Aeson.Types.FromJSON.FromJSON PostTerminalConfigurationsConfigurationRequestBodyTipping'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostTerminalConfigurationsConfigurationRequestBodyTipping'EmptyString
-        | GHC.Base.otherwise -> case (PostTerminalConfigurationsConfigurationRequestBodyTipping'PostTerminalConfigurationsConfigurationRequestBodyTipping'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostTerminalConfigurationsConfigurationRequestBodyTipping'EmptyString
+      | GHC.Base.otherwise -> case (PostTerminalConfigurationsConfigurationRequestBodyTipping'PostTerminalConfigurationsConfigurationRequestBodyTipping'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -719,8 +719,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostTerminalConfigurationsConfigurationR
 instance Data.Aeson.Types.FromJSON.FromJSON PostTerminalConfigurationsConfigurationRequestBodyVerifoneP400'OneOf1Splashscreen'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostTerminalConfigurationsConfigurationRequestBodyVerifoneP400'OneOf1Splashscreen'EmptyString
-        | GHC.Base.otherwise -> case (PostTerminalConfigurationsConfigurationRequestBodyVerifoneP400'OneOf1Splashscreen'Text Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostTerminalConfigurationsConfigurationRequestBodyVerifoneP400'OneOf1Splashscreen'EmptyString
+      | GHC.Base.otherwise -> case (PostTerminalConfigurationsConfigurationRequestBodyVerifoneP400'OneOf1Splashscreen'Text Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -740,8 +740,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostTerminalConfigurationsConfigurationR
 instance Data.Aeson.Types.FromJSON.FromJSON PostTerminalConfigurationsConfigurationRequestBodyVerifoneP400'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostTerminalConfigurationsConfigurationRequestBodyVerifoneP400'EmptyString
-        | GHC.Base.otherwise -> case (PostTerminalConfigurationsConfigurationRequestBodyVerifoneP400'PostTerminalConfigurationsConfigurationRequestBodyVerifoneP400'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostTerminalConfigurationsConfigurationRequestBodyVerifoneP400'EmptyString
+      | GHC.Base.otherwise -> case (PostTerminalConfigurationsConfigurationRequestBodyVerifoneP400'PostTerminalConfigurationsConfigurationRequestBodyVerifoneP400'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -827,8 +827,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostTerminalConfigurationsConfigurat
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== Data.Aeson.Types.Internal.Bool GHC.Types.True -> PostTerminalConfigurationsConfigurationResponseBody200Deleted'EnumTrue
-            | GHC.Base.otherwise -> PostTerminalConfigurationsConfigurationResponseBody200Deleted'Other val
+          | val GHC.Classes.== Data.Aeson.Types.Internal.Bool GHC.Types.True -> PostTerminalConfigurationsConfigurationResponseBody200Deleted'EnumTrue
+          | GHC.Base.otherwise -> PostTerminalConfigurationsConfigurationResponseBody200Deleted'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/terminal\/configurations\/{configuration}.POST.responses.200.content.application\/json.schema.anyOf.properties.object@ in the specification.
@@ -852,6 +852,6 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostTerminalConfigurationsConfigurat
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "terminal.configuration" -> PostTerminalConfigurationsConfigurationResponseBody200Object'EnumTerminal'configuration
-            | GHC.Base.otherwise -> PostTerminalConfigurationsConfigurationResponseBody200Object'Other val
+          | val GHC.Classes.== "terminal.configuration" -> PostTerminalConfigurationsConfigurationResponseBody200Object'EnumTerminal'configuration
+          | GHC.Base.otherwise -> PostTerminalConfigurationsConfigurationResponseBody200Object'Other val
       )

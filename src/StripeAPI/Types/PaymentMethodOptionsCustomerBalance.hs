@@ -88,8 +88,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentMethodOptionsCustomerBalanceF
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "bank_transfer" -> PaymentMethodOptionsCustomerBalanceFundingType'NonNullableEnumBankTransfer
-            | GHC.Base.otherwise -> PaymentMethodOptionsCustomerBalanceFundingType'NonNullableOther val
+          | val GHC.Classes.== "bank_transfer" -> PaymentMethodOptionsCustomerBalanceFundingType'NonNullableEnumBankTransfer
+          | GHC.Base.otherwise -> PaymentMethodOptionsCustomerBalanceFundingType'NonNullableOther val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_method_options_customer_balance.properties.setup_future_usage@ in the specification.
@@ -117,6 +117,6 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentMethodOptionsCustomerBalanceS
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> PaymentMethodOptionsCustomerBalanceSetupFutureUsage'EnumNone
-            | GHC.Base.otherwise -> PaymentMethodOptionsCustomerBalanceSetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> PaymentMethodOptionsCustomerBalanceSetupFutureUsage'EnumNone
+          | GHC.Base.otherwise -> PaymentMethodOptionsCustomerBalanceSetupFutureUsage'Other val
       )

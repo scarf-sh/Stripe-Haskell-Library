@@ -48,7 +48,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>When retrieving a payment link, there is an includable \<strong>line_items\<\/strong> property containing the first handful of those items. There is also a URL where you can retrieve the full (paginated) list of line items.\<\/p>
 getPaymentLinksPaymentLinkLineItems ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | Contains all available parameters of this operation (query and path parameters)
   GetPaymentLinksPaymentLinkLineItemsParameters ->
   -- | Monadic computation which returns the result of the operation
@@ -60,21 +60,21 @@ getPaymentLinksPaymentLinkLineItems parameters =
           ( Data.Either.either GetPaymentLinksPaymentLinkLineItemsResponseError GHC.Base.id
               GHC.Base.. ( \response body ->
                              if
-                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                               | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                    GetPaymentLinksPaymentLinkLineItemsResponse200
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             GetPaymentLinksPaymentLinkLineItemsResponseBody200
                                                       )
-                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                               | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                    GetPaymentLinksPaymentLinkLineItemsResponseDefault
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             Error
                                                       )
-                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                               | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                          )
                 response_0
           )

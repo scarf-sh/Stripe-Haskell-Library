@@ -180,12 +180,12 @@ instance Data.Aeson.Types.FromJSON.FromJSON ReviewClosedReason'NonNullable where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "approved" -> ReviewClosedReason'NonNullableEnumApproved
-            | val GHC.Classes.== "disputed" -> ReviewClosedReason'NonNullableEnumDisputed
-            | val GHC.Classes.== "redacted" -> ReviewClosedReason'NonNullableEnumRedacted
-            | val GHC.Classes.== "refunded" -> ReviewClosedReason'NonNullableEnumRefunded
-            | val GHC.Classes.== "refunded_as_fraud" -> ReviewClosedReason'NonNullableEnumRefundedAsFraud
-            | GHC.Base.otherwise -> ReviewClosedReason'NonNullableOther val
+          | val GHC.Classes.== "approved" -> ReviewClosedReason'NonNullableEnumApproved
+          | val GHC.Classes.== "disputed" -> ReviewClosedReason'NonNullableEnumDisputed
+          | val GHC.Classes.== "redacted" -> ReviewClosedReason'NonNullableEnumRedacted
+          | val GHC.Classes.== "refunded" -> ReviewClosedReason'NonNullableEnumRefunded
+          | val GHC.Classes.== "refunded_as_fraud" -> ReviewClosedReason'NonNullableEnumRefundedAsFraud
+          | GHC.Base.otherwise -> ReviewClosedReason'NonNullableOther val
       )
 
 -- | Defines the object schema located at @components.schemas.review.properties.ip_address_location.anyOf@ in the specification.
@@ -262,9 +262,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON ReviewOpenedReason' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "manual" -> ReviewOpenedReason'EnumManual
-            | val GHC.Classes.== "rule" -> ReviewOpenedReason'EnumRule
-            | GHC.Base.otherwise -> ReviewOpenedReason'Other val
+          | val GHC.Classes.== "manual" -> ReviewOpenedReason'EnumManual
+          | val GHC.Classes.== "rule" -> ReviewOpenedReason'EnumRule
+          | GHC.Base.otherwise -> ReviewOpenedReason'Other val
       )
 
 -- | Defines the oneOf schema located at @components.schemas.review.properties.payment_intent.anyOf@ in the specification.

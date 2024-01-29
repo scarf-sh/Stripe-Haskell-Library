@@ -318,33 +318,33 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentMethodType' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "acss_debit" -> PaymentMethodType'EnumAcssDebit
-            | val GHC.Classes.== "affirm" -> PaymentMethodType'EnumAffirm
-            | val GHC.Classes.== "afterpay_clearpay" -> PaymentMethodType'EnumAfterpayClearpay
-            | val GHC.Classes.== "alipay" -> PaymentMethodType'EnumAlipay
-            | val GHC.Classes.== "au_becs_debit" -> PaymentMethodType'EnumAuBecsDebit
-            | val GHC.Classes.== "bacs_debit" -> PaymentMethodType'EnumBacsDebit
-            | val GHC.Classes.== "bancontact" -> PaymentMethodType'EnumBancontact
-            | val GHC.Classes.== "boleto" -> PaymentMethodType'EnumBoleto
-            | val GHC.Classes.== "card" -> PaymentMethodType'EnumCard
-            | val GHC.Classes.== "card_present" -> PaymentMethodType'EnumCardPresent
-            | val GHC.Classes.== "customer_balance" -> PaymentMethodType'EnumCustomerBalance
-            | val GHC.Classes.== "eps" -> PaymentMethodType'EnumEps
-            | val GHC.Classes.== "fpx" -> PaymentMethodType'EnumFpx
-            | val GHC.Classes.== "giropay" -> PaymentMethodType'EnumGiropay
-            | val GHC.Classes.== "grabpay" -> PaymentMethodType'EnumGrabpay
-            | val GHC.Classes.== "ideal" -> PaymentMethodType'EnumIdeal
-            | val GHC.Classes.== "interac_present" -> PaymentMethodType'EnumInteracPresent
-            | val GHC.Classes.== "klarna" -> PaymentMethodType'EnumKlarna
-            | val GHC.Classes.== "konbini" -> PaymentMethodType'EnumKonbini
-            | val GHC.Classes.== "link" -> PaymentMethodType'EnumLink
-            | val GHC.Classes.== "oxxo" -> PaymentMethodType'EnumOxxo
-            | val GHC.Classes.== "p24" -> PaymentMethodType'EnumP24
-            | val GHC.Classes.== "paynow" -> PaymentMethodType'EnumPaynow
-            | val GHC.Classes.== "promptpay" -> PaymentMethodType'EnumPromptpay
-            | val GHC.Classes.== "sepa_debit" -> PaymentMethodType'EnumSepaDebit
-            | val GHC.Classes.== "sofort" -> PaymentMethodType'EnumSofort
-            | val GHC.Classes.== "us_bank_account" -> PaymentMethodType'EnumUsBankAccount
-            | val GHC.Classes.== "wechat_pay" -> PaymentMethodType'EnumWechatPay
-            | GHC.Base.otherwise -> PaymentMethodType'Other val
+          | val GHC.Classes.== "acss_debit" -> PaymentMethodType'EnumAcssDebit
+          | val GHC.Classes.== "affirm" -> PaymentMethodType'EnumAffirm
+          | val GHC.Classes.== "afterpay_clearpay" -> PaymentMethodType'EnumAfterpayClearpay
+          | val GHC.Classes.== "alipay" -> PaymentMethodType'EnumAlipay
+          | val GHC.Classes.== "au_becs_debit" -> PaymentMethodType'EnumAuBecsDebit
+          | val GHC.Classes.== "bacs_debit" -> PaymentMethodType'EnumBacsDebit
+          | val GHC.Classes.== "bancontact" -> PaymentMethodType'EnumBancontact
+          | val GHC.Classes.== "boleto" -> PaymentMethodType'EnumBoleto
+          | val GHC.Classes.== "card" -> PaymentMethodType'EnumCard
+          | val GHC.Classes.== "card_present" -> PaymentMethodType'EnumCardPresent
+          | val GHC.Classes.== "customer_balance" -> PaymentMethodType'EnumCustomerBalance
+          | val GHC.Classes.== "eps" -> PaymentMethodType'EnumEps
+          | val GHC.Classes.== "fpx" -> PaymentMethodType'EnumFpx
+          | val GHC.Classes.== "giropay" -> PaymentMethodType'EnumGiropay
+          | val GHC.Classes.== "grabpay" -> PaymentMethodType'EnumGrabpay
+          | val GHC.Classes.== "ideal" -> PaymentMethodType'EnumIdeal
+          | val GHC.Classes.== "interac_present" -> PaymentMethodType'EnumInteracPresent
+          | val GHC.Classes.== "klarna" -> PaymentMethodType'EnumKlarna
+          | val GHC.Classes.== "konbini" -> PaymentMethodType'EnumKonbini
+          | val GHC.Classes.== "link" -> PaymentMethodType'EnumLink
+          | val GHC.Classes.== "oxxo" -> PaymentMethodType'EnumOxxo
+          | val GHC.Classes.== "p24" -> PaymentMethodType'EnumP24
+          | val GHC.Classes.== "paynow" -> PaymentMethodType'EnumPaynow
+          | val GHC.Classes.== "promptpay" -> PaymentMethodType'EnumPromptpay
+          | val GHC.Classes.== "sepa_debit" -> PaymentMethodType'EnumSepaDebit
+          | val GHC.Classes.== "sofort" -> PaymentMethodType'EnumSofort
+          | val GHC.Classes.== "us_bank_account" -> PaymentMethodType'EnumUsBankAccount
+          | val GHC.Classes.== "wechat_pay" -> PaymentMethodType'EnumWechatPay
+          | GHC.Base.otherwise -> PaymentMethodType'Other val
       )

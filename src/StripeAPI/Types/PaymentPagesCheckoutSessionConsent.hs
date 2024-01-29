@@ -79,7 +79,7 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentPagesCheckoutSessionConsentPr
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "opt_in" -> PaymentPagesCheckoutSessionConsentPromotions'NonNullableEnumOptIn
-            | val GHC.Classes.== "opt_out" -> PaymentPagesCheckoutSessionConsentPromotions'NonNullableEnumOptOut
-            | GHC.Base.otherwise -> PaymentPagesCheckoutSessionConsentPromotions'NonNullableOther val
+          | val GHC.Classes.== "opt_in" -> PaymentPagesCheckoutSessionConsentPromotions'NonNullableEnumOptIn
+          | val GHC.Classes.== "opt_out" -> PaymentPagesCheckoutSessionConsentPromotions'NonNullableEnumOptOut
+          | GHC.Base.otherwise -> PaymentPagesCheckoutSessionConsentPromotions'NonNullableOther val
       )

@@ -48,7 +48,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>Creates a new SKU associated with a product.\<\/p>
 postSkus ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | The request body to send
   PostSkusRequestBody ->
   -- | Monadic computation which returns the result of the operation
@@ -60,21 +60,21 @@ postSkus body =
           ( Data.Either.either PostSkusResponseError GHC.Base.id
               GHC.Base.. ( \response body ->
                              if
-                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                               | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                    PostSkusResponse200
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             Sku
                                                       )
-                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                               | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                    PostSkusResponseDefault
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             Error
                                                       )
-                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                               | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                          )
                 response_0
           )
@@ -213,10 +213,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostSkusRequestBodyInventory'Type' w
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "bucket" -> PostSkusRequestBodyInventory'Type'EnumBucket
-            | val GHC.Classes.== "finite" -> PostSkusRequestBodyInventory'Type'EnumFinite
-            | val GHC.Classes.== "infinite" -> PostSkusRequestBodyInventory'Type'EnumInfinite
-            | GHC.Base.otherwise -> PostSkusRequestBodyInventory'Type'Other val
+          | val GHC.Classes.== "bucket" -> PostSkusRequestBodyInventory'Type'EnumBucket
+          | val GHC.Classes.== "finite" -> PostSkusRequestBodyInventory'Type'EnumFinite
+          | val GHC.Classes.== "infinite" -> PostSkusRequestBodyInventory'Type'EnumInfinite
+          | GHC.Base.otherwise -> PostSkusRequestBodyInventory'Type'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/skus.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.inventory.properties.value@ in the specification.
@@ -247,11 +247,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostSkusRequestBodyInventory'Value' 
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "" -> PostSkusRequestBodyInventory'Value'EnumEmptyString
-            | val GHC.Classes.== "in_stock" -> PostSkusRequestBodyInventory'Value'EnumInStock
-            | val GHC.Classes.== "limited" -> PostSkusRequestBodyInventory'Value'EnumLimited
-            | val GHC.Classes.== "out_of_stock" -> PostSkusRequestBodyInventory'Value'EnumOutOfStock
-            | GHC.Base.otherwise -> PostSkusRequestBodyInventory'Value'Other val
+          | val GHC.Classes.== "" -> PostSkusRequestBodyInventory'Value'EnumEmptyString
+          | val GHC.Classes.== "in_stock" -> PostSkusRequestBodyInventory'Value'EnumInStock
+          | val GHC.Classes.== "limited" -> PostSkusRequestBodyInventory'Value'EnumLimited
+          | val GHC.Classes.== "out_of_stock" -> PostSkusRequestBodyInventory'Value'EnumOutOfStock
+          | GHC.Base.otherwise -> PostSkusRequestBodyInventory'Value'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/skus.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.package_dimensions@ in the specification.

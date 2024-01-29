@@ -128,9 +128,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON SetupIntentPaymentMethodOptionsCardM
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "fixed" -> SetupIntentPaymentMethodOptionsCardMandateOptionsAmountType'EnumFixed
-            | val GHC.Classes.== "maximum" -> SetupIntentPaymentMethodOptionsCardMandateOptionsAmountType'EnumMaximum
-            | GHC.Base.otherwise -> SetupIntentPaymentMethodOptionsCardMandateOptionsAmountType'Other val
+          | val GHC.Classes.== "fixed" -> SetupIntentPaymentMethodOptionsCardMandateOptionsAmountType'EnumFixed
+          | val GHC.Classes.== "maximum" -> SetupIntentPaymentMethodOptionsCardMandateOptionsAmountType'EnumMaximum
+          | GHC.Base.otherwise -> SetupIntentPaymentMethodOptionsCardMandateOptionsAmountType'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.setup_intent_payment_method_options_card_mandate_options.properties.interval@ in the specification.
@@ -166,12 +166,12 @@ instance Data.Aeson.Types.FromJSON.FromJSON SetupIntentPaymentMethodOptionsCardM
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "day" -> SetupIntentPaymentMethodOptionsCardMandateOptionsInterval'EnumDay
-            | val GHC.Classes.== "month" -> SetupIntentPaymentMethodOptionsCardMandateOptionsInterval'EnumMonth
-            | val GHC.Classes.== "sporadic" -> SetupIntentPaymentMethodOptionsCardMandateOptionsInterval'EnumSporadic
-            | val GHC.Classes.== "week" -> SetupIntentPaymentMethodOptionsCardMandateOptionsInterval'EnumWeek
-            | val GHC.Classes.== "year" -> SetupIntentPaymentMethodOptionsCardMandateOptionsInterval'EnumYear
-            | GHC.Base.otherwise -> SetupIntentPaymentMethodOptionsCardMandateOptionsInterval'Other val
+          | val GHC.Classes.== "day" -> SetupIntentPaymentMethodOptionsCardMandateOptionsInterval'EnumDay
+          | val GHC.Classes.== "month" -> SetupIntentPaymentMethodOptionsCardMandateOptionsInterval'EnumMonth
+          | val GHC.Classes.== "sporadic" -> SetupIntentPaymentMethodOptionsCardMandateOptionsInterval'EnumSporadic
+          | val GHC.Classes.== "week" -> SetupIntentPaymentMethodOptionsCardMandateOptionsInterval'EnumWeek
+          | val GHC.Classes.== "year" -> SetupIntentPaymentMethodOptionsCardMandateOptionsInterval'EnumYear
+          | GHC.Base.otherwise -> SetupIntentPaymentMethodOptionsCardMandateOptionsInterval'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.setup_intent_payment_method_options_card_mandate_options.properties.supported_types.items@ in the specification.
@@ -193,6 +193,6 @@ instance Data.Aeson.Types.FromJSON.FromJSON SetupIntentPaymentMethodOptionsCardM
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "india" -> SetupIntentPaymentMethodOptionsCardMandateOptionsSupportedTypes'NonNullableEnumIndia
-            | GHC.Base.otherwise -> SetupIntentPaymentMethodOptionsCardMandateOptionsSupportedTypes'NonNullableOther val
+          | val GHC.Classes.== "india" -> SetupIntentPaymentMethodOptionsCardMandateOptionsSupportedTypes'NonNullableEnumIndia
+          | GHC.Base.otherwise -> SetupIntentPaymentMethodOptionsCardMandateOptionsSupportedTypes'NonNullableOther val
       )

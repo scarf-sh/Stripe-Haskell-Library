@@ -486,9 +486,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON Issuing'transactionType' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "capture" -> Issuing'transactionType'EnumCapture
-            | val GHC.Classes.== "refund" -> Issuing'transactionType'EnumRefund
-            | GHC.Base.otherwise -> Issuing'transactionType'Other val
+          | val GHC.Classes.== "capture" -> Issuing'transactionType'EnumCapture
+          | val GHC.Classes.== "refund" -> Issuing'transactionType'EnumRefund
+          | GHC.Base.otherwise -> Issuing'transactionType'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.issuing.transaction.properties.wallet@ in the specification.
@@ -518,8 +518,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON Issuing'transactionWallet'NonNullabl
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "apple_pay" -> Issuing'transactionWallet'NonNullableEnumApplePay
-            | val GHC.Classes.== "google_pay" -> Issuing'transactionWallet'NonNullableEnumGooglePay
-            | val GHC.Classes.== "samsung_pay" -> Issuing'transactionWallet'NonNullableEnumSamsungPay
-            | GHC.Base.otherwise -> Issuing'transactionWallet'NonNullableOther val
+          | val GHC.Classes.== "apple_pay" -> Issuing'transactionWallet'NonNullableEnumApplePay
+          | val GHC.Classes.== "google_pay" -> Issuing'transactionWallet'NonNullableEnumGooglePay
+          | val GHC.Classes.== "samsung_pay" -> Issuing'transactionWallet'NonNullableEnumSamsungPay
+          | GHC.Base.otherwise -> Issuing'transactionWallet'NonNullableOther val
       )

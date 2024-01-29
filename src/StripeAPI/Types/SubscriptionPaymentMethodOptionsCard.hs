@@ -84,7 +84,7 @@ instance Data.Aeson.Types.FromJSON.FromJSON SubscriptionPaymentMethodOptionsCard
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "any" -> SubscriptionPaymentMethodOptionsCardRequestThreeDSecure'NonNullableEnumAny
-            | val GHC.Classes.== "automatic" -> SubscriptionPaymentMethodOptionsCardRequestThreeDSecure'NonNullableEnumAutomatic
-            | GHC.Base.otherwise -> SubscriptionPaymentMethodOptionsCardRequestThreeDSecure'NonNullableOther val
+          | val GHC.Classes.== "any" -> SubscriptionPaymentMethodOptionsCardRequestThreeDSecure'NonNullableEnumAny
+          | val GHC.Classes.== "automatic" -> SubscriptionPaymentMethodOptionsCardRequestThreeDSecure'NonNullableEnumAutomatic
+          | GHC.Base.otherwise -> SubscriptionPaymentMethodOptionsCardRequestThreeDSecure'NonNullableOther val
       )

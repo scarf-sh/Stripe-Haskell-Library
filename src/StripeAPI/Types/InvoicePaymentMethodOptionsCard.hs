@@ -77,7 +77,7 @@ instance Data.Aeson.Types.FromJSON.FromJSON InvoicePaymentMethodOptionsCardReque
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "any" -> InvoicePaymentMethodOptionsCardRequestThreeDSecure'NonNullableEnumAny
-            | val GHC.Classes.== "automatic" -> InvoicePaymentMethodOptionsCardRequestThreeDSecure'NonNullableEnumAutomatic
-            | GHC.Base.otherwise -> InvoicePaymentMethodOptionsCardRequestThreeDSecure'NonNullableOther val
+          | val GHC.Classes.== "any" -> InvoicePaymentMethodOptionsCardRequestThreeDSecure'NonNullableEnumAny
+          | val GHC.Classes.== "automatic" -> InvoicePaymentMethodOptionsCardRequestThreeDSecure'NonNullableEnumAutomatic
+          | GHC.Base.otherwise -> InvoicePaymentMethodOptionsCardRequestThreeDSecure'NonNullableOther val
       )

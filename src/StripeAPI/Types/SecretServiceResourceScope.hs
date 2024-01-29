@@ -90,7 +90,7 @@ instance Data.Aeson.Types.FromJSON.FromJSON SecretServiceResourceScopeType' wher
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "account" -> SecretServiceResourceScopeType'EnumAccount
-            | val GHC.Classes.== "user" -> SecretServiceResourceScopeType'EnumUser
-            | GHC.Base.otherwise -> SecretServiceResourceScopeType'Other val
+          | val GHC.Classes.== "account" -> SecretServiceResourceScopeType'EnumAccount
+          | val GHC.Classes.== "user" -> SecretServiceResourceScopeType'EnumUser
+          | GHC.Base.otherwise -> SecretServiceResourceScopeType'Other val
       )

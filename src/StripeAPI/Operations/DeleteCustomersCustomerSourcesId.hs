@@ -48,7 +48,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>Delete a specified source for a given customer.\<\/p>
 deleteCustomersCustomerSourcesId ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | Contains all available parameters of this operation (query and path parameters)
   DeleteCustomersCustomerSourcesIdParameters ->
   -- | The request body to send
@@ -64,21 +64,21 @@ deleteCustomersCustomerSourcesId
             ( Data.Either.either DeleteCustomersCustomerSourcesIdResponseError GHC.Base.id
                 GHC.Base.. ( \response body ->
                                if
-                                   | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                      DeleteCustomersCustomerSourcesIdResponse200
                                        Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                             Data.Either.Either
                                                               GHC.Base.String
                                                               DeleteCustomersCustomerSourcesIdResponseBody200
                                                         )
-                                   | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                      DeleteCustomersCustomerSourcesIdResponseDefault
                                        Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                             Data.Either.Either
                                                               GHC.Base.String
                                                               Error
                                                         )
-                                   | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                            )
                   response_0
             )
@@ -663,9 +663,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON DeleteCustomersCustomerSourcesIdResp
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "instant" -> DeleteCustomersCustomerSourcesIdResponseBody200AvailablePayoutMethods'NonNullableEnumInstant
-            | val GHC.Classes.== "standard" -> DeleteCustomersCustomerSourcesIdResponseBody200AvailablePayoutMethods'NonNullableEnumStandard
-            | GHC.Base.otherwise -> DeleteCustomersCustomerSourcesIdResponseBody200AvailablePayoutMethods'NonNullableOther val
+          | val GHC.Classes.== "instant" -> DeleteCustomersCustomerSourcesIdResponseBody200AvailablePayoutMethods'NonNullableEnumInstant
+          | val GHC.Classes.== "standard" -> DeleteCustomersCustomerSourcesIdResponseBody200AvailablePayoutMethods'NonNullableEnumStandard
+          | GHC.Base.otherwise -> DeleteCustomersCustomerSourcesIdResponseBody200AvailablePayoutMethods'NonNullableOther val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/customers\/{customer}\/sources\/{id}.DELETE.responses.200.content.application\/json.schema.anyOf.anyOf.properties.business_profile.anyOf@ in the specification.
@@ -838,11 +838,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON DeleteCustomersCustomerSourcesIdResp
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "company" -> DeleteCustomersCustomerSourcesIdResponseBody200BusinessType'NonNullableEnumCompany
-            | val GHC.Classes.== "government_entity" -> DeleteCustomersCustomerSourcesIdResponseBody200BusinessType'NonNullableEnumGovernmentEntity
-            | val GHC.Classes.== "individual" -> DeleteCustomersCustomerSourcesIdResponseBody200BusinessType'NonNullableEnumIndividual
-            | val GHC.Classes.== "non_profit" -> DeleteCustomersCustomerSourcesIdResponseBody200BusinessType'NonNullableEnumNonProfit
-            | GHC.Base.otherwise -> DeleteCustomersCustomerSourcesIdResponseBody200BusinessType'NonNullableOther val
+          | val GHC.Classes.== "company" -> DeleteCustomersCustomerSourcesIdResponseBody200BusinessType'NonNullableEnumCompany
+          | val GHC.Classes.== "government_entity" -> DeleteCustomersCustomerSourcesIdResponseBody200BusinessType'NonNullableEnumGovernmentEntity
+          | val GHC.Classes.== "individual" -> DeleteCustomersCustomerSourcesIdResponseBody200BusinessType'NonNullableEnumIndividual
+          | val GHC.Classes.== "non_profit" -> DeleteCustomersCustomerSourcesIdResponseBody200BusinessType'NonNullableEnumNonProfit
+          | GHC.Base.otherwise -> DeleteCustomersCustomerSourcesIdResponseBody200BusinessType'NonNullableOther val
       )
 
 -- | Defines the oneOf schema located at @paths.\/v1\/customers\/{customer}\/sources\/{id}.DELETE.responses.200.content.application\/json.schema.anyOf.anyOf.properties.customer.anyOf@ in the specification.
@@ -1167,9 +1167,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON DeleteCustomersCustomerSourcesIdResp
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "instant" -> DeleteCustomersCustomerSourcesIdResponseBody200ExternalAccounts'Data'AvailablePayoutMethods'NonNullableEnumInstant
-            | val GHC.Classes.== "standard" -> DeleteCustomersCustomerSourcesIdResponseBody200ExternalAccounts'Data'AvailablePayoutMethods'NonNullableEnumStandard
-            | GHC.Base.otherwise -> DeleteCustomersCustomerSourcesIdResponseBody200ExternalAccounts'Data'AvailablePayoutMethods'NonNullableOther val
+          | val GHC.Classes.== "instant" -> DeleteCustomersCustomerSourcesIdResponseBody200ExternalAccounts'Data'AvailablePayoutMethods'NonNullableEnumInstant
+          | val GHC.Classes.== "standard" -> DeleteCustomersCustomerSourcesIdResponseBody200ExternalAccounts'Data'AvailablePayoutMethods'NonNullableEnumStandard
+          | GHC.Base.otherwise -> DeleteCustomersCustomerSourcesIdResponseBody200ExternalAccounts'Data'AvailablePayoutMethods'NonNullableOther val
       )
 
 -- | Defines the oneOf schema located at @paths.\/v1\/customers\/{customer}\/sources\/{id}.DELETE.responses.200.content.application\/json.schema.anyOf.anyOf.properties.external_accounts.properties.data.items.anyOf.properties.customer.anyOf@ in the specification.
@@ -1212,8 +1212,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON DeleteCustomersCustomerSourcesIdResp
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "bank_account" -> DeleteCustomersCustomerSourcesIdResponseBody200ExternalAccounts'Data'Object'EnumBankAccount
-            | GHC.Base.otherwise -> DeleteCustomersCustomerSourcesIdResponseBody200ExternalAccounts'Data'Object'Other val
+          | val GHC.Classes.== "bank_account" -> DeleteCustomersCustomerSourcesIdResponseBody200ExternalAccounts'Data'Object'EnumBankAccount
+          | GHC.Base.otherwise -> DeleteCustomersCustomerSourcesIdResponseBody200ExternalAccounts'Data'Object'Other val
       )
 
 -- | Defines the oneOf schema located at @paths.\/v1\/customers\/{customer}\/sources\/{id}.DELETE.responses.200.content.application\/json.schema.anyOf.anyOf.properties.external_accounts.properties.data.items.anyOf.properties.recipient.anyOf@ in the specification.
@@ -1254,8 +1254,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON DeleteCustomersCustomerSourcesIdResp
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "account" -> DeleteCustomersCustomerSourcesIdResponseBody200Object'EnumAccount
-            | GHC.Base.otherwise -> DeleteCustomersCustomerSourcesIdResponseBody200Object'Other val
+          | val GHC.Classes.== "account" -> DeleteCustomersCustomerSourcesIdResponseBody200Object'EnumAccount
+          | GHC.Base.otherwise -> DeleteCustomersCustomerSourcesIdResponseBody200Object'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/customers\/{customer}\/sources\/{id}.DELETE.responses.200.content.application\/json.schema.anyOf.anyOf.properties.owner.anyOf@ in the specification.
@@ -1596,8 +1596,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON DeleteCustomersCustomerSourcesIdResp
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "custom" -> DeleteCustomersCustomerSourcesIdResponseBody200Type'EnumCustom
-            | val GHC.Classes.== "express" -> DeleteCustomersCustomerSourcesIdResponseBody200Type'EnumExpress
-            | val GHC.Classes.== "standard" -> DeleteCustomersCustomerSourcesIdResponseBody200Type'EnumStandard
-            | GHC.Base.otherwise -> DeleteCustomersCustomerSourcesIdResponseBody200Type'Other val
+          | val GHC.Classes.== "custom" -> DeleteCustomersCustomerSourcesIdResponseBody200Type'EnumCustom
+          | val GHC.Classes.== "express" -> DeleteCustomersCustomerSourcesIdResponseBody200Type'EnumExpress
+          | val GHC.Classes.== "standard" -> DeleteCustomersCustomerSourcesIdResponseBody200Type'EnumStandard
+          | GHC.Base.otherwise -> DeleteCustomersCustomerSourcesIdResponseBody200Type'Other val
       )

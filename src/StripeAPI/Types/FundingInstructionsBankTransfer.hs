@@ -98,7 +98,7 @@ instance Data.Aeson.Types.FromJSON.FromJSON FundingInstructionsBankTransferType'
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "eu_bank_transfer" -> FundingInstructionsBankTransferType'EnumEuBankTransfer
-            | val GHC.Classes.== "jp_bank_transfer" -> FundingInstructionsBankTransferType'EnumJpBankTransfer
-            | GHC.Base.otherwise -> FundingInstructionsBankTransferType'Other val
+          | val GHC.Classes.== "eu_bank_transfer" -> FundingInstructionsBankTransferType'EnumEuBankTransfer
+          | val GHC.Classes.== "jp_bank_transfer" -> FundingInstructionsBankTransferType'EnumJpBankTransfer
+          | GHC.Base.otherwise -> FundingInstructionsBankTransferType'Other val
       )

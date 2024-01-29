@@ -306,9 +306,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON LineItemPrice'NonNullableBillingSche
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "per_unit" -> LineItemPrice'NonNullableBillingScheme'EnumPerUnit
-            | val GHC.Classes.== "tiered" -> LineItemPrice'NonNullableBillingScheme'EnumTiered
-            | GHC.Base.otherwise -> LineItemPrice'NonNullableBillingScheme'Other val
+          | val GHC.Classes.== "per_unit" -> LineItemPrice'NonNullableBillingScheme'EnumPerUnit
+          | val GHC.Classes.== "tiered" -> LineItemPrice'NonNullableBillingScheme'EnumTiered
+          | GHC.Base.otherwise -> LineItemPrice'NonNullableBillingScheme'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.line_item.properties.price.anyOf.properties.custom_unit_amount.anyOf@ in the specification.
@@ -364,8 +364,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON LineItemPrice'NonNullableObject' whe
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "price" -> LineItemPrice'NonNullableObject'EnumPrice
-            | GHC.Base.otherwise -> LineItemPrice'NonNullableObject'Other val
+          | val GHC.Classes.== "price" -> LineItemPrice'NonNullableObject'EnumPrice
+          | GHC.Base.otherwise -> LineItemPrice'NonNullableObject'Other val
       )
 
 -- | Defines the oneOf schema located at @components.schemas.line_item.properties.price.anyOf.properties.product.anyOf@ in the specification.
@@ -452,11 +452,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON LineItemPrice'NonNullableRecurring'N
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "last_during_period" -> LineItemPrice'NonNullableRecurring'NonNullableAggregateUsage'NonNullableEnumLastDuringPeriod
-            | val GHC.Classes.== "last_ever" -> LineItemPrice'NonNullableRecurring'NonNullableAggregateUsage'NonNullableEnumLastEver
-            | val GHC.Classes.== "max" -> LineItemPrice'NonNullableRecurring'NonNullableAggregateUsage'NonNullableEnumMax
-            | val GHC.Classes.== "sum" -> LineItemPrice'NonNullableRecurring'NonNullableAggregateUsage'NonNullableEnumSum
-            | GHC.Base.otherwise -> LineItemPrice'NonNullableRecurring'NonNullableAggregateUsage'NonNullableOther val
+          | val GHC.Classes.== "last_during_period" -> LineItemPrice'NonNullableRecurring'NonNullableAggregateUsage'NonNullableEnumLastDuringPeriod
+          | val GHC.Classes.== "last_ever" -> LineItemPrice'NonNullableRecurring'NonNullableAggregateUsage'NonNullableEnumLastEver
+          | val GHC.Classes.== "max" -> LineItemPrice'NonNullableRecurring'NonNullableAggregateUsage'NonNullableEnumMax
+          | val GHC.Classes.== "sum" -> LineItemPrice'NonNullableRecurring'NonNullableAggregateUsage'NonNullableEnumSum
+          | GHC.Base.otherwise -> LineItemPrice'NonNullableRecurring'NonNullableAggregateUsage'NonNullableOther val
       )
 
 -- | Defines the enum schema located at @components.schemas.line_item.properties.price.anyOf.properties.recurring.anyOf.properties.interval@ in the specification.
@@ -489,11 +489,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON LineItemPrice'NonNullableRecurring'N
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "day" -> LineItemPrice'NonNullableRecurring'NonNullableInterval'EnumDay
-            | val GHC.Classes.== "month" -> LineItemPrice'NonNullableRecurring'NonNullableInterval'EnumMonth
-            | val GHC.Classes.== "week" -> LineItemPrice'NonNullableRecurring'NonNullableInterval'EnumWeek
-            | val GHC.Classes.== "year" -> LineItemPrice'NonNullableRecurring'NonNullableInterval'EnumYear
-            | GHC.Base.otherwise -> LineItemPrice'NonNullableRecurring'NonNullableInterval'Other val
+          | val GHC.Classes.== "day" -> LineItemPrice'NonNullableRecurring'NonNullableInterval'EnumDay
+          | val GHC.Classes.== "month" -> LineItemPrice'NonNullableRecurring'NonNullableInterval'EnumMonth
+          | val GHC.Classes.== "week" -> LineItemPrice'NonNullableRecurring'NonNullableInterval'EnumWeek
+          | val GHC.Classes.== "year" -> LineItemPrice'NonNullableRecurring'NonNullableInterval'EnumYear
+          | GHC.Base.otherwise -> LineItemPrice'NonNullableRecurring'NonNullableInterval'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.line_item.properties.price.anyOf.properties.recurring.anyOf.properties.usage_type@ in the specification.
@@ -520,9 +520,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON LineItemPrice'NonNullableRecurring'N
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "licensed" -> LineItemPrice'NonNullableRecurring'NonNullableUsageType'EnumLicensed
-            | val GHC.Classes.== "metered" -> LineItemPrice'NonNullableRecurring'NonNullableUsageType'EnumMetered
-            | GHC.Base.otherwise -> LineItemPrice'NonNullableRecurring'NonNullableUsageType'Other val
+          | val GHC.Classes.== "licensed" -> LineItemPrice'NonNullableRecurring'NonNullableUsageType'EnumLicensed
+          | val GHC.Classes.== "metered" -> LineItemPrice'NonNullableRecurring'NonNullableUsageType'EnumMetered
+          | GHC.Base.otherwise -> LineItemPrice'NonNullableRecurring'NonNullableUsageType'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.line_item.properties.price.anyOf.properties.tax_behavior@ in the specification.
@@ -552,10 +552,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON LineItemPrice'NonNullableTaxBehavior
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "exclusive" -> LineItemPrice'NonNullableTaxBehavior'NonNullableEnumExclusive
-            | val GHC.Classes.== "inclusive" -> LineItemPrice'NonNullableTaxBehavior'NonNullableEnumInclusive
-            | val GHC.Classes.== "unspecified" -> LineItemPrice'NonNullableTaxBehavior'NonNullableEnumUnspecified
-            | GHC.Base.otherwise -> LineItemPrice'NonNullableTaxBehavior'NonNullableOther val
+          | val GHC.Classes.== "exclusive" -> LineItemPrice'NonNullableTaxBehavior'NonNullableEnumExclusive
+          | val GHC.Classes.== "inclusive" -> LineItemPrice'NonNullableTaxBehavior'NonNullableEnumInclusive
+          | val GHC.Classes.== "unspecified" -> LineItemPrice'NonNullableTaxBehavior'NonNullableEnumUnspecified
+          | GHC.Base.otherwise -> LineItemPrice'NonNullableTaxBehavior'NonNullableOther val
       )
 
 -- | Defines the enum schema located at @components.schemas.line_item.properties.price.anyOf.properties.tiers_mode@ in the specification.
@@ -582,9 +582,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON LineItemPrice'NonNullableTiersMode'N
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "graduated" -> LineItemPrice'NonNullableTiersMode'NonNullableEnumGraduated
-            | val GHC.Classes.== "volume" -> LineItemPrice'NonNullableTiersMode'NonNullableEnumVolume
-            | GHC.Base.otherwise -> LineItemPrice'NonNullableTiersMode'NonNullableOther val
+          | val GHC.Classes.== "graduated" -> LineItemPrice'NonNullableTiersMode'NonNullableEnumGraduated
+          | val GHC.Classes.== "volume" -> LineItemPrice'NonNullableTiersMode'NonNullableEnumVolume
+          | GHC.Base.otherwise -> LineItemPrice'NonNullableTiersMode'NonNullableOther val
       )
 
 -- | Defines the object schema located at @components.schemas.line_item.properties.price.anyOf.properties.transform_quantity.anyOf@ in the specification.
@@ -640,9 +640,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON LineItemPrice'NonNullableTransformQu
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "down" -> LineItemPrice'NonNullableTransformQuantity'NonNullableRound'EnumDown
-            | val GHC.Classes.== "up" -> LineItemPrice'NonNullableTransformQuantity'NonNullableRound'EnumUp
-            | GHC.Base.otherwise -> LineItemPrice'NonNullableTransformQuantity'NonNullableRound'Other val
+          | val GHC.Classes.== "down" -> LineItemPrice'NonNullableTransformQuantity'NonNullableRound'EnumDown
+          | val GHC.Classes.== "up" -> LineItemPrice'NonNullableTransformQuantity'NonNullableRound'EnumUp
+          | GHC.Base.otherwise -> LineItemPrice'NonNullableTransformQuantity'NonNullableRound'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.line_item.properties.price.anyOf.properties.type@ in the specification.
@@ -669,9 +669,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON LineItemPrice'NonNullableType' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "one_time" -> LineItemPrice'NonNullableType'EnumOneTime
-            | val GHC.Classes.== "recurring" -> LineItemPrice'NonNullableType'EnumRecurring
-            | GHC.Base.otherwise -> LineItemPrice'NonNullableType'Other val
+          | val GHC.Classes.== "one_time" -> LineItemPrice'NonNullableType'EnumOneTime
+          | val GHC.Classes.== "recurring" -> LineItemPrice'NonNullableType'EnumRecurring
+          | GHC.Base.otherwise -> LineItemPrice'NonNullableType'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.line_item.properties.proration_details.anyOf@ in the specification.
@@ -754,7 +754,7 @@ instance Data.Aeson.Types.FromJSON.FromJSON LineItemType' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "invoiceitem" -> LineItemType'EnumInvoiceitem
-            | val GHC.Classes.== "subscription" -> LineItemType'EnumSubscription
-            | GHC.Base.otherwise -> LineItemType'Other val
+          | val GHC.Classes.== "invoiceitem" -> LineItemType'EnumInvoiceitem
+          | val GHC.Classes.== "subscription" -> LineItemType'EnumSubscription
+          | GHC.Base.otherwise -> LineItemType'Other val
       )

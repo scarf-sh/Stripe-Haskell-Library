@@ -180,11 +180,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON PlanAggregateUsage'NonNullable where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "last_during_period" -> PlanAggregateUsage'NonNullableEnumLastDuringPeriod
-            | val GHC.Classes.== "last_ever" -> PlanAggregateUsage'NonNullableEnumLastEver
-            | val GHC.Classes.== "max" -> PlanAggregateUsage'NonNullableEnumMax
-            | val GHC.Classes.== "sum" -> PlanAggregateUsage'NonNullableEnumSum
-            | GHC.Base.otherwise -> PlanAggregateUsage'NonNullableOther val
+          | val GHC.Classes.== "last_during_period" -> PlanAggregateUsage'NonNullableEnumLastDuringPeriod
+          | val GHC.Classes.== "last_ever" -> PlanAggregateUsage'NonNullableEnumLastEver
+          | val GHC.Classes.== "max" -> PlanAggregateUsage'NonNullableEnumMax
+          | val GHC.Classes.== "sum" -> PlanAggregateUsage'NonNullableEnumSum
+          | GHC.Base.otherwise -> PlanAggregateUsage'NonNullableOther val
       )
 
 -- | Defines the enum schema located at @components.schemas.plan.properties.billing_scheme@ in the specification.
@@ -211,9 +211,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PlanBillingScheme' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "per_unit" -> PlanBillingScheme'EnumPerUnit
-            | val GHC.Classes.== "tiered" -> PlanBillingScheme'EnumTiered
-            | GHC.Base.otherwise -> PlanBillingScheme'Other val
+          | val GHC.Classes.== "per_unit" -> PlanBillingScheme'EnumPerUnit
+          | val GHC.Classes.== "tiered" -> PlanBillingScheme'EnumTiered
+          | GHC.Base.otherwise -> PlanBillingScheme'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.plan.properties.interval@ in the specification.
@@ -246,11 +246,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON PlanInterval' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "day" -> PlanInterval'EnumDay
-            | val GHC.Classes.== "month" -> PlanInterval'EnumMonth
-            | val GHC.Classes.== "week" -> PlanInterval'EnumWeek
-            | val GHC.Classes.== "year" -> PlanInterval'EnumYear
-            | GHC.Base.otherwise -> PlanInterval'Other val
+          | val GHC.Classes.== "day" -> PlanInterval'EnumDay
+          | val GHC.Classes.== "month" -> PlanInterval'EnumMonth
+          | val GHC.Classes.== "week" -> PlanInterval'EnumWeek
+          | val GHC.Classes.== "year" -> PlanInterval'EnumYear
+          | GHC.Base.otherwise -> PlanInterval'Other val
       )
 
 -- | Defines the oneOf schema located at @components.schemas.plan.properties.product.anyOf@ in the specification.
@@ -296,9 +296,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PlanTiersMode'NonNullable where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "graduated" -> PlanTiersMode'NonNullableEnumGraduated
-            | val GHC.Classes.== "volume" -> PlanTiersMode'NonNullableEnumVolume
-            | GHC.Base.otherwise -> PlanTiersMode'NonNullableOther val
+          | val GHC.Classes.== "graduated" -> PlanTiersMode'NonNullableEnumGraduated
+          | val GHC.Classes.== "volume" -> PlanTiersMode'NonNullableEnumVolume
+          | GHC.Base.otherwise -> PlanTiersMode'NonNullableOther val
       )
 
 -- | Defines the object schema located at @components.schemas.plan.properties.transform_usage.anyOf@ in the specification.
@@ -354,9 +354,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PlanTransformUsage'NonNullableRound'
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "down" -> PlanTransformUsage'NonNullableRound'EnumDown
-            | val GHC.Classes.== "up" -> PlanTransformUsage'NonNullableRound'EnumUp
-            | GHC.Base.otherwise -> PlanTransformUsage'NonNullableRound'Other val
+          | val GHC.Classes.== "down" -> PlanTransformUsage'NonNullableRound'EnumDown
+          | val GHC.Classes.== "up" -> PlanTransformUsage'NonNullableRound'EnumUp
+          | GHC.Base.otherwise -> PlanTransformUsage'NonNullableRound'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.plan.properties.usage_type@ in the specification.
@@ -383,7 +383,7 @@ instance Data.Aeson.Types.FromJSON.FromJSON PlanUsageType' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "licensed" -> PlanUsageType'EnumLicensed
-            | val GHC.Classes.== "metered" -> PlanUsageType'EnumMetered
-            | GHC.Base.otherwise -> PlanUsageType'Other val
+          | val GHC.Classes.== "licensed" -> PlanUsageType'EnumLicensed
+          | val GHC.Classes.== "metered" -> PlanUsageType'EnumMetered
+          | GHC.Base.otherwise -> PlanUsageType'Other val
       )

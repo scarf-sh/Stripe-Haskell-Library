@@ -48,7 +48,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>Updates a payment link.\<\/p>
 postPaymentLinksPaymentLink ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | payment_link | Constraints: Maximum length of 5000
   Data.Text.Internal.Text ->
   -- | The request body to send
@@ -64,21 +64,21 @@ postPaymentLinksPaymentLink
             ( Data.Either.either PostPaymentLinksPaymentLinkResponseError GHC.Base.id
                 GHC.Base.. ( \response body ->
                                if
-                                   | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                      PostPaymentLinksPaymentLinkResponse200
                                        Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                             Data.Either.Either
                                                               GHC.Base.String
                                                               PaymentLink
                                                         )
-                                   | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                      PostPaymentLinksPaymentLinkResponseDefault
                                        Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                             Data.Either.Either
                                                               GHC.Base.String
                                                               Error
                                                         )
-                                   | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                            )
                   response_0
             )
@@ -250,9 +250,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostPaymentLinksPaymentLinkRequestBo
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "hosted_confirmation" -> PostPaymentLinksPaymentLinkRequestBodyAfterCompletion'Type'EnumHostedConfirmation
-            | val GHC.Classes.== "redirect" -> PostPaymentLinksPaymentLinkRequestBodyAfterCompletion'Type'EnumRedirect
-            | GHC.Base.otherwise -> PostPaymentLinksPaymentLinkRequestBodyAfterCompletion'Type'Other val
+          | val GHC.Classes.== "hosted_confirmation" -> PostPaymentLinksPaymentLinkRequestBodyAfterCompletion'Type'EnumHostedConfirmation
+          | val GHC.Classes.== "redirect" -> PostPaymentLinksPaymentLinkRequestBodyAfterCompletion'Type'EnumRedirect
+          | GHC.Base.otherwise -> PostPaymentLinksPaymentLinkRequestBodyAfterCompletion'Type'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/payment_links\/{payment_link}.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.automatic_tax@ in the specification.
@@ -305,9 +305,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostPaymentLinksPaymentLinkRequestBo
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "auto" -> PostPaymentLinksPaymentLinkRequestBodyBillingAddressCollection'EnumAuto
-            | val GHC.Classes.== "required" -> PostPaymentLinksPaymentLinkRequestBodyBillingAddressCollection'EnumRequired
-            | GHC.Base.otherwise -> PostPaymentLinksPaymentLinkRequestBodyBillingAddressCollection'Other val
+          | val GHC.Classes.== "auto" -> PostPaymentLinksPaymentLinkRequestBodyBillingAddressCollection'EnumAuto
+          | val GHC.Classes.== "required" -> PostPaymentLinksPaymentLinkRequestBodyBillingAddressCollection'EnumRequired
+          | GHC.Base.otherwise -> PostPaymentLinksPaymentLinkRequestBodyBillingAddressCollection'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/payment_links\/{payment_link}.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.customer_creation@ in the specification.
@@ -334,9 +334,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostPaymentLinksPaymentLinkRequestBo
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "always" -> PostPaymentLinksPaymentLinkRequestBodyCustomerCreation'EnumAlways
-            | val GHC.Classes.== "if_required" -> PostPaymentLinksPaymentLinkRequestBodyCustomerCreation'EnumIfRequired
-            | GHC.Base.otherwise -> PostPaymentLinksPaymentLinkRequestBodyCustomerCreation'Other val
+          | val GHC.Classes.== "always" -> PostPaymentLinksPaymentLinkRequestBodyCustomerCreation'EnumAlways
+          | val GHC.Classes.== "if_required" -> PostPaymentLinksPaymentLinkRequestBodyCustomerCreation'EnumIfRequired
+          | GHC.Base.otherwise -> PostPaymentLinksPaymentLinkRequestBodyCustomerCreation'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/payment_links\/{payment_link}.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.line_items.items@ in the specification.
@@ -428,8 +428,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostPaymentLinksPaymentLinkRequestBo
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "card" -> PostPaymentLinksPaymentLinkRequestBodyPaymentMethodTypes'OneOf1EnumCard
-            | GHC.Base.otherwise -> PostPaymentLinksPaymentLinkRequestBodyPaymentMethodTypes'OneOf1Other val
+          | val GHC.Classes.== "card" -> PostPaymentLinksPaymentLinkRequestBodyPaymentMethodTypes'OneOf1EnumCard
+          | GHC.Base.otherwise -> PostPaymentLinksPaymentLinkRequestBodyPaymentMethodTypes'OneOf1Other val
       )
 
 -- | Defines the oneOf schema located at @paths.\/v1\/payment_links\/{payment_link}.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment_method_types.anyOf@ in the specification.
@@ -448,8 +448,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostPaymentLinksPaymentLinkRequestBodyPa
 instance Data.Aeson.Types.FromJSON.FromJSON PostPaymentLinksPaymentLinkRequestBodyPaymentMethodTypes'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostPaymentLinksPaymentLinkRequestBodyPaymentMethodTypes'EmptyString
-        | GHC.Base.otherwise -> case (PostPaymentLinksPaymentLinkRequestBodyPaymentMethodTypes'ListTPostPaymentLinksPaymentLinkRequestBodyPaymentMethodTypes'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostPaymentLinksPaymentLinkRequestBodyPaymentMethodTypes'EmptyString
+      | GHC.Base.otherwise -> case (PostPaymentLinksPaymentLinkRequestBodyPaymentMethodTypes'ListTPostPaymentLinksPaymentLinkRequestBodyPaymentMethodTypes'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -1204,244 +1204,244 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostPaymentLinksPaymentLinkRequestBo
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "AC" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumAC
-            | val GHC.Classes.== "AD" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumAD
-            | val GHC.Classes.== "AE" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumAE
-            | val GHC.Classes.== "AF" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumAF
-            | val GHC.Classes.== "AG" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumAG
-            | val GHC.Classes.== "AI" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumAI
-            | val GHC.Classes.== "AL" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumAL
-            | val GHC.Classes.== "AM" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumAM
-            | val GHC.Classes.== "AO" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumAO
-            | val GHC.Classes.== "AQ" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumAQ
-            | val GHC.Classes.== "AR" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumAR
-            | val GHC.Classes.== "AT" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumAT
-            | val GHC.Classes.== "AU" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumAU
-            | val GHC.Classes.== "AW" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumAW
-            | val GHC.Classes.== "AX" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumAX
-            | val GHC.Classes.== "AZ" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumAZ
-            | val GHC.Classes.== "BA" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumBA
-            | val GHC.Classes.== "BB" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumBB
-            | val GHC.Classes.== "BD" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumBD
-            | val GHC.Classes.== "BE" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumBE
-            | val GHC.Classes.== "BF" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumBF
-            | val GHC.Classes.== "BG" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumBG
-            | val GHC.Classes.== "BH" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumBH
-            | val GHC.Classes.== "BI" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumBI
-            | val GHC.Classes.== "BJ" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumBJ
-            | val GHC.Classes.== "BL" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumBL
-            | val GHC.Classes.== "BM" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumBM
-            | val GHC.Classes.== "BN" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumBN
-            | val GHC.Classes.== "BO" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumBO
-            | val GHC.Classes.== "BQ" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumBQ
-            | val GHC.Classes.== "BR" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumBR
-            | val GHC.Classes.== "BS" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumBS
-            | val GHC.Classes.== "BT" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumBT
-            | val GHC.Classes.== "BV" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumBV
-            | val GHC.Classes.== "BW" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumBW
-            | val GHC.Classes.== "BY" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumBY
-            | val GHC.Classes.== "BZ" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumBZ
-            | val GHC.Classes.== "CA" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumCA
-            | val GHC.Classes.== "CD" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumCD
-            | val GHC.Classes.== "CF" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumCF
-            | val GHC.Classes.== "CG" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumCG
-            | val GHC.Classes.== "CH" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumCH
-            | val GHC.Classes.== "CI" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumCI
-            | val GHC.Classes.== "CK" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumCK
-            | val GHC.Classes.== "CL" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumCL
-            | val GHC.Classes.== "CM" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumCM
-            | val GHC.Classes.== "CN" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumCN
-            | val GHC.Classes.== "CO" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumCO
-            | val GHC.Classes.== "CR" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumCR
-            | val GHC.Classes.== "CV" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumCV
-            | val GHC.Classes.== "CW" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumCW
-            | val GHC.Classes.== "CY" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumCY
-            | val GHC.Classes.== "CZ" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumCZ
-            | val GHC.Classes.== "DE" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumDE
-            | val GHC.Classes.== "DJ" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumDJ
-            | val GHC.Classes.== "DK" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumDK
-            | val GHC.Classes.== "DM" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumDM
-            | val GHC.Classes.== "DO" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumDO
-            | val GHC.Classes.== "DZ" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumDZ
-            | val GHC.Classes.== "EC" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumEC
-            | val GHC.Classes.== "EE" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumEE
-            | val GHC.Classes.== "EG" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumEG
-            | val GHC.Classes.== "EH" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumEH
-            | val GHC.Classes.== "ER" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumER
-            | val GHC.Classes.== "ES" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumES
-            | val GHC.Classes.== "ET" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumET
-            | val GHC.Classes.== "FI" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumFI
-            | val GHC.Classes.== "FJ" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumFJ
-            | val GHC.Classes.== "FK" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumFK
-            | val GHC.Classes.== "FO" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumFO
-            | val GHC.Classes.== "FR" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumFR
-            | val GHC.Classes.== "GA" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumGA
-            | val GHC.Classes.== "GB" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumGB
-            | val GHC.Classes.== "GD" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumGD
-            | val GHC.Classes.== "GE" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumGE
-            | val GHC.Classes.== "GF" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumGF
-            | val GHC.Classes.== "GG" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumGG
-            | val GHC.Classes.== "GH" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumGH
-            | val GHC.Classes.== "GI" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumGI
-            | val GHC.Classes.== "GL" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumGL
-            | val GHC.Classes.== "GM" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumGM
-            | val GHC.Classes.== "GN" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumGN
-            | val GHC.Classes.== "GP" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumGP
-            | val GHC.Classes.== "GQ" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumGQ
-            | val GHC.Classes.== "GR" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumGR
-            | val GHC.Classes.== "GS" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumGS
-            | val GHC.Classes.== "GT" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumGT
-            | val GHC.Classes.== "GU" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumGU
-            | val GHC.Classes.== "GW" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumGW
-            | val GHC.Classes.== "GY" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumGY
-            | val GHC.Classes.== "HK" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumHK
-            | val GHC.Classes.== "HN" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumHN
-            | val GHC.Classes.== "HR" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumHR
-            | val GHC.Classes.== "HT" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumHT
-            | val GHC.Classes.== "HU" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumHU
-            | val GHC.Classes.== "ID" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumID
-            | val GHC.Classes.== "IE" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumIE
-            | val GHC.Classes.== "IL" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumIL
-            | val GHC.Classes.== "IM" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumIM
-            | val GHC.Classes.== "IN" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumIN
-            | val GHC.Classes.== "IO" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumIO
-            | val GHC.Classes.== "IQ" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumIQ
-            | val GHC.Classes.== "IS" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumIS
-            | val GHC.Classes.== "IT" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumIT
-            | val GHC.Classes.== "JE" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumJE
-            | val GHC.Classes.== "JM" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumJM
-            | val GHC.Classes.== "JO" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumJO
-            | val GHC.Classes.== "JP" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumJP
-            | val GHC.Classes.== "KE" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumKE
-            | val GHC.Classes.== "KG" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumKG
-            | val GHC.Classes.== "KH" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumKH
-            | val GHC.Classes.== "KI" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumKI
-            | val GHC.Classes.== "KM" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumKM
-            | val GHC.Classes.== "KN" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumKN
-            | val GHC.Classes.== "KR" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumKR
-            | val GHC.Classes.== "KW" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumKW
-            | val GHC.Classes.== "KY" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumKY
-            | val GHC.Classes.== "KZ" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumKZ
-            | val GHC.Classes.== "LA" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumLA
-            | val GHC.Classes.== "LB" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumLB
-            | val GHC.Classes.== "LC" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumLC
-            | val GHC.Classes.== "LI" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumLI
-            | val GHC.Classes.== "LK" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumLK
-            | val GHC.Classes.== "LR" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumLR
-            | val GHC.Classes.== "LS" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumLS
-            | val GHC.Classes.== "LT" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumLT
-            | val GHC.Classes.== "LU" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumLU
-            | val GHC.Classes.== "LV" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumLV
-            | val GHC.Classes.== "LY" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumLY
-            | val GHC.Classes.== "MA" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumMA
-            | val GHC.Classes.== "MC" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumMC
-            | val GHC.Classes.== "MD" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumMD
-            | val GHC.Classes.== "ME" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumME
-            | val GHC.Classes.== "MF" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumMF
-            | val GHC.Classes.== "MG" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumMG
-            | val GHC.Classes.== "MK" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumMK
-            | val GHC.Classes.== "ML" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumML
-            | val GHC.Classes.== "MM" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumMM
-            | val GHC.Classes.== "MN" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumMN
-            | val GHC.Classes.== "MO" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumMO
-            | val GHC.Classes.== "MQ" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumMQ
-            | val GHC.Classes.== "MR" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumMR
-            | val GHC.Classes.== "MS" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumMS
-            | val GHC.Classes.== "MT" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumMT
-            | val GHC.Classes.== "MU" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumMU
-            | val GHC.Classes.== "MV" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumMV
-            | val GHC.Classes.== "MW" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumMW
-            | val GHC.Classes.== "MX" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumMX
-            | val GHC.Classes.== "MY" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumMY
-            | val GHC.Classes.== "MZ" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumMZ
-            | val GHC.Classes.== "NA" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumNA
-            | val GHC.Classes.== "NC" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumNC
-            | val GHC.Classes.== "NE" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumNE
-            | val GHC.Classes.== "NG" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumNG
-            | val GHC.Classes.== "NI" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumNI
-            | val GHC.Classes.== "NL" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumNL
-            | val GHC.Classes.== "NO" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumNO
-            | val GHC.Classes.== "NP" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumNP
-            | val GHC.Classes.== "NR" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumNR
-            | val GHC.Classes.== "NU" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumNU
-            | val GHC.Classes.== "NZ" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumNZ
-            | val GHC.Classes.== "OM" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumOM
-            | val GHC.Classes.== "PA" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumPA
-            | val GHC.Classes.== "PE" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumPE
-            | val GHC.Classes.== "PF" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumPF
-            | val GHC.Classes.== "PG" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumPG
-            | val GHC.Classes.== "PH" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumPH
-            | val GHC.Classes.== "PK" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumPK
-            | val GHC.Classes.== "PL" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumPL
-            | val GHC.Classes.== "PM" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumPM
-            | val GHC.Classes.== "PN" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumPN
-            | val GHC.Classes.== "PR" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumPR
-            | val GHC.Classes.== "PS" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumPS
-            | val GHC.Classes.== "PT" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumPT
-            | val GHC.Classes.== "PY" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumPY
-            | val GHC.Classes.== "QA" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumQA
-            | val GHC.Classes.== "RE" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumRE
-            | val GHC.Classes.== "RO" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumRO
-            | val GHC.Classes.== "RS" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumRS
-            | val GHC.Classes.== "RU" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumRU
-            | val GHC.Classes.== "RW" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumRW
-            | val GHC.Classes.== "SA" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumSA
-            | val GHC.Classes.== "SB" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumSB
-            | val GHC.Classes.== "SC" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumSC
-            | val GHC.Classes.== "SE" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumSE
-            | val GHC.Classes.== "SG" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumSG
-            | val GHC.Classes.== "SH" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumSH
-            | val GHC.Classes.== "SI" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumSI
-            | val GHC.Classes.== "SJ" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumSJ
-            | val GHC.Classes.== "SK" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumSK
-            | val GHC.Classes.== "SL" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumSL
-            | val GHC.Classes.== "SM" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumSM
-            | val GHC.Classes.== "SN" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumSN
-            | val GHC.Classes.== "SO" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumSO
-            | val GHC.Classes.== "SR" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumSR
-            | val GHC.Classes.== "SS" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumSS
-            | val GHC.Classes.== "ST" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumST
-            | val GHC.Classes.== "SV" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumSV
-            | val GHC.Classes.== "SX" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumSX
-            | val GHC.Classes.== "SZ" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumSZ
-            | val GHC.Classes.== "TA" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumTA
-            | val GHC.Classes.== "TC" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumTC
-            | val GHC.Classes.== "TD" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumTD
-            | val GHC.Classes.== "TF" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumTF
-            | val GHC.Classes.== "TG" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumTG
-            | val GHC.Classes.== "TH" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumTH
-            | val GHC.Classes.== "TJ" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumTJ
-            | val GHC.Classes.== "TK" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumTK
-            | val GHC.Classes.== "TL" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumTL
-            | val GHC.Classes.== "TM" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumTM
-            | val GHC.Classes.== "TN" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumTN
-            | val GHC.Classes.== "TO" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumTO
-            | val GHC.Classes.== "TR" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumTR
-            | val GHC.Classes.== "TT" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumTT
-            | val GHC.Classes.== "TV" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumTV
-            | val GHC.Classes.== "TW" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumTW
-            | val GHC.Classes.== "TZ" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumTZ
-            | val GHC.Classes.== "UA" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumUA
-            | val GHC.Classes.== "UG" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumUG
-            | val GHC.Classes.== "US" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumUS
-            | val GHC.Classes.== "UY" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumUY
-            | val GHC.Classes.== "UZ" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumUZ
-            | val GHC.Classes.== "VA" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumVA
-            | val GHC.Classes.== "VC" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumVC
-            | val GHC.Classes.== "VE" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumVE
-            | val GHC.Classes.== "VG" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumVG
-            | val GHC.Classes.== "VN" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumVN
-            | val GHC.Classes.== "VU" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumVU
-            | val GHC.Classes.== "WF" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumWF
-            | val GHC.Classes.== "WS" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumWS
-            | val GHC.Classes.== "XK" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumXK
-            | val GHC.Classes.== "YE" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumYE
-            | val GHC.Classes.== "YT" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumYT
-            | val GHC.Classes.== "ZA" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumZA
-            | val GHC.Classes.== "ZM" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumZM
-            | val GHC.Classes.== "ZW" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumZW
-            | val GHC.Classes.== "ZZ" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumZZ
-            | GHC.Base.otherwise -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'Other val
+          | val GHC.Classes.== "AC" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumAC
+          | val GHC.Classes.== "AD" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumAD
+          | val GHC.Classes.== "AE" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumAE
+          | val GHC.Classes.== "AF" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumAF
+          | val GHC.Classes.== "AG" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumAG
+          | val GHC.Classes.== "AI" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumAI
+          | val GHC.Classes.== "AL" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumAL
+          | val GHC.Classes.== "AM" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumAM
+          | val GHC.Classes.== "AO" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumAO
+          | val GHC.Classes.== "AQ" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumAQ
+          | val GHC.Classes.== "AR" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumAR
+          | val GHC.Classes.== "AT" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumAT
+          | val GHC.Classes.== "AU" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumAU
+          | val GHC.Classes.== "AW" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumAW
+          | val GHC.Classes.== "AX" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumAX
+          | val GHC.Classes.== "AZ" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumAZ
+          | val GHC.Classes.== "BA" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumBA
+          | val GHC.Classes.== "BB" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumBB
+          | val GHC.Classes.== "BD" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumBD
+          | val GHC.Classes.== "BE" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumBE
+          | val GHC.Classes.== "BF" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumBF
+          | val GHC.Classes.== "BG" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumBG
+          | val GHC.Classes.== "BH" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumBH
+          | val GHC.Classes.== "BI" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumBI
+          | val GHC.Classes.== "BJ" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumBJ
+          | val GHC.Classes.== "BL" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumBL
+          | val GHC.Classes.== "BM" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumBM
+          | val GHC.Classes.== "BN" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumBN
+          | val GHC.Classes.== "BO" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumBO
+          | val GHC.Classes.== "BQ" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumBQ
+          | val GHC.Classes.== "BR" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumBR
+          | val GHC.Classes.== "BS" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumBS
+          | val GHC.Classes.== "BT" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumBT
+          | val GHC.Classes.== "BV" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumBV
+          | val GHC.Classes.== "BW" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumBW
+          | val GHC.Classes.== "BY" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumBY
+          | val GHC.Classes.== "BZ" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumBZ
+          | val GHC.Classes.== "CA" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumCA
+          | val GHC.Classes.== "CD" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumCD
+          | val GHC.Classes.== "CF" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumCF
+          | val GHC.Classes.== "CG" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumCG
+          | val GHC.Classes.== "CH" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumCH
+          | val GHC.Classes.== "CI" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumCI
+          | val GHC.Classes.== "CK" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumCK
+          | val GHC.Classes.== "CL" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumCL
+          | val GHC.Classes.== "CM" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumCM
+          | val GHC.Classes.== "CN" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumCN
+          | val GHC.Classes.== "CO" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumCO
+          | val GHC.Classes.== "CR" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumCR
+          | val GHC.Classes.== "CV" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumCV
+          | val GHC.Classes.== "CW" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumCW
+          | val GHC.Classes.== "CY" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumCY
+          | val GHC.Classes.== "CZ" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumCZ
+          | val GHC.Classes.== "DE" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumDE
+          | val GHC.Classes.== "DJ" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumDJ
+          | val GHC.Classes.== "DK" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumDK
+          | val GHC.Classes.== "DM" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumDM
+          | val GHC.Classes.== "DO" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumDO
+          | val GHC.Classes.== "DZ" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumDZ
+          | val GHC.Classes.== "EC" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumEC
+          | val GHC.Classes.== "EE" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumEE
+          | val GHC.Classes.== "EG" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumEG
+          | val GHC.Classes.== "EH" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumEH
+          | val GHC.Classes.== "ER" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumER
+          | val GHC.Classes.== "ES" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumES
+          | val GHC.Classes.== "ET" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumET
+          | val GHC.Classes.== "FI" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumFI
+          | val GHC.Classes.== "FJ" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumFJ
+          | val GHC.Classes.== "FK" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumFK
+          | val GHC.Classes.== "FO" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumFO
+          | val GHC.Classes.== "FR" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumFR
+          | val GHC.Classes.== "GA" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumGA
+          | val GHC.Classes.== "GB" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumGB
+          | val GHC.Classes.== "GD" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumGD
+          | val GHC.Classes.== "GE" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumGE
+          | val GHC.Classes.== "GF" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumGF
+          | val GHC.Classes.== "GG" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumGG
+          | val GHC.Classes.== "GH" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumGH
+          | val GHC.Classes.== "GI" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumGI
+          | val GHC.Classes.== "GL" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumGL
+          | val GHC.Classes.== "GM" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumGM
+          | val GHC.Classes.== "GN" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumGN
+          | val GHC.Classes.== "GP" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumGP
+          | val GHC.Classes.== "GQ" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumGQ
+          | val GHC.Classes.== "GR" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumGR
+          | val GHC.Classes.== "GS" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumGS
+          | val GHC.Classes.== "GT" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumGT
+          | val GHC.Classes.== "GU" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumGU
+          | val GHC.Classes.== "GW" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumGW
+          | val GHC.Classes.== "GY" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumGY
+          | val GHC.Classes.== "HK" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumHK
+          | val GHC.Classes.== "HN" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumHN
+          | val GHC.Classes.== "HR" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumHR
+          | val GHC.Classes.== "HT" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumHT
+          | val GHC.Classes.== "HU" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumHU
+          | val GHC.Classes.== "ID" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumID
+          | val GHC.Classes.== "IE" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumIE
+          | val GHC.Classes.== "IL" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumIL
+          | val GHC.Classes.== "IM" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumIM
+          | val GHC.Classes.== "IN" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumIN
+          | val GHC.Classes.== "IO" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumIO
+          | val GHC.Classes.== "IQ" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumIQ
+          | val GHC.Classes.== "IS" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumIS
+          | val GHC.Classes.== "IT" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumIT
+          | val GHC.Classes.== "JE" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumJE
+          | val GHC.Classes.== "JM" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumJM
+          | val GHC.Classes.== "JO" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumJO
+          | val GHC.Classes.== "JP" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumJP
+          | val GHC.Classes.== "KE" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumKE
+          | val GHC.Classes.== "KG" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumKG
+          | val GHC.Classes.== "KH" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumKH
+          | val GHC.Classes.== "KI" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumKI
+          | val GHC.Classes.== "KM" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumKM
+          | val GHC.Classes.== "KN" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumKN
+          | val GHC.Classes.== "KR" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumKR
+          | val GHC.Classes.== "KW" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumKW
+          | val GHC.Classes.== "KY" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumKY
+          | val GHC.Classes.== "KZ" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumKZ
+          | val GHC.Classes.== "LA" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumLA
+          | val GHC.Classes.== "LB" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumLB
+          | val GHC.Classes.== "LC" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumLC
+          | val GHC.Classes.== "LI" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumLI
+          | val GHC.Classes.== "LK" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumLK
+          | val GHC.Classes.== "LR" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumLR
+          | val GHC.Classes.== "LS" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumLS
+          | val GHC.Classes.== "LT" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumLT
+          | val GHC.Classes.== "LU" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumLU
+          | val GHC.Classes.== "LV" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumLV
+          | val GHC.Classes.== "LY" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumLY
+          | val GHC.Classes.== "MA" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumMA
+          | val GHC.Classes.== "MC" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumMC
+          | val GHC.Classes.== "MD" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumMD
+          | val GHC.Classes.== "ME" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumME
+          | val GHC.Classes.== "MF" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumMF
+          | val GHC.Classes.== "MG" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumMG
+          | val GHC.Classes.== "MK" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumMK
+          | val GHC.Classes.== "ML" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumML
+          | val GHC.Classes.== "MM" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumMM
+          | val GHC.Classes.== "MN" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumMN
+          | val GHC.Classes.== "MO" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumMO
+          | val GHC.Classes.== "MQ" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumMQ
+          | val GHC.Classes.== "MR" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumMR
+          | val GHC.Classes.== "MS" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumMS
+          | val GHC.Classes.== "MT" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumMT
+          | val GHC.Classes.== "MU" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumMU
+          | val GHC.Classes.== "MV" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumMV
+          | val GHC.Classes.== "MW" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumMW
+          | val GHC.Classes.== "MX" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumMX
+          | val GHC.Classes.== "MY" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumMY
+          | val GHC.Classes.== "MZ" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumMZ
+          | val GHC.Classes.== "NA" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumNA
+          | val GHC.Classes.== "NC" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumNC
+          | val GHC.Classes.== "NE" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumNE
+          | val GHC.Classes.== "NG" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumNG
+          | val GHC.Classes.== "NI" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumNI
+          | val GHC.Classes.== "NL" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumNL
+          | val GHC.Classes.== "NO" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumNO
+          | val GHC.Classes.== "NP" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumNP
+          | val GHC.Classes.== "NR" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumNR
+          | val GHC.Classes.== "NU" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumNU
+          | val GHC.Classes.== "NZ" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumNZ
+          | val GHC.Classes.== "OM" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumOM
+          | val GHC.Classes.== "PA" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumPA
+          | val GHC.Classes.== "PE" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumPE
+          | val GHC.Classes.== "PF" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumPF
+          | val GHC.Classes.== "PG" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumPG
+          | val GHC.Classes.== "PH" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumPH
+          | val GHC.Classes.== "PK" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumPK
+          | val GHC.Classes.== "PL" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumPL
+          | val GHC.Classes.== "PM" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumPM
+          | val GHC.Classes.== "PN" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumPN
+          | val GHC.Classes.== "PR" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumPR
+          | val GHC.Classes.== "PS" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumPS
+          | val GHC.Classes.== "PT" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumPT
+          | val GHC.Classes.== "PY" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumPY
+          | val GHC.Classes.== "QA" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumQA
+          | val GHC.Classes.== "RE" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumRE
+          | val GHC.Classes.== "RO" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumRO
+          | val GHC.Classes.== "RS" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumRS
+          | val GHC.Classes.== "RU" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumRU
+          | val GHC.Classes.== "RW" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumRW
+          | val GHC.Classes.== "SA" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumSA
+          | val GHC.Classes.== "SB" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumSB
+          | val GHC.Classes.== "SC" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumSC
+          | val GHC.Classes.== "SE" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumSE
+          | val GHC.Classes.== "SG" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumSG
+          | val GHC.Classes.== "SH" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumSH
+          | val GHC.Classes.== "SI" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumSI
+          | val GHC.Classes.== "SJ" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumSJ
+          | val GHC.Classes.== "SK" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumSK
+          | val GHC.Classes.== "SL" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumSL
+          | val GHC.Classes.== "SM" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumSM
+          | val GHC.Classes.== "SN" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumSN
+          | val GHC.Classes.== "SO" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumSO
+          | val GHC.Classes.== "SR" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumSR
+          | val GHC.Classes.== "SS" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumSS
+          | val GHC.Classes.== "ST" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumST
+          | val GHC.Classes.== "SV" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumSV
+          | val GHC.Classes.== "SX" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumSX
+          | val GHC.Classes.== "SZ" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumSZ
+          | val GHC.Classes.== "TA" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumTA
+          | val GHC.Classes.== "TC" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumTC
+          | val GHC.Classes.== "TD" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumTD
+          | val GHC.Classes.== "TF" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumTF
+          | val GHC.Classes.== "TG" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumTG
+          | val GHC.Classes.== "TH" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumTH
+          | val GHC.Classes.== "TJ" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumTJ
+          | val GHC.Classes.== "TK" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumTK
+          | val GHC.Classes.== "TL" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumTL
+          | val GHC.Classes.== "TM" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumTM
+          | val GHC.Classes.== "TN" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumTN
+          | val GHC.Classes.== "TO" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumTO
+          | val GHC.Classes.== "TR" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumTR
+          | val GHC.Classes.== "TT" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumTT
+          | val GHC.Classes.== "TV" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumTV
+          | val GHC.Classes.== "TW" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumTW
+          | val GHC.Classes.== "TZ" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumTZ
+          | val GHC.Classes.== "UA" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumUA
+          | val GHC.Classes.== "UG" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumUG
+          | val GHC.Classes.== "US" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumUS
+          | val GHC.Classes.== "UY" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumUY
+          | val GHC.Classes.== "UZ" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumUZ
+          | val GHC.Classes.== "VA" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumVA
+          | val GHC.Classes.== "VC" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumVC
+          | val GHC.Classes.== "VE" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumVE
+          | val GHC.Classes.== "VG" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumVG
+          | val GHC.Classes.== "VN" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumVN
+          | val GHC.Classes.== "VU" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumVU
+          | val GHC.Classes.== "WF" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumWF
+          | val GHC.Classes.== "WS" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumWS
+          | val GHC.Classes.== "XK" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumXK
+          | val GHC.Classes.== "YE" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumYE
+          | val GHC.Classes.== "YT" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumYT
+          | val GHC.Classes.== "ZA" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumZA
+          | val GHC.Classes.== "ZM" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumZM
+          | val GHC.Classes.== "ZW" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumZW
+          | val GHC.Classes.== "ZZ" -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'EnumZZ
+          | GHC.Base.otherwise -> PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1AllowedCountries'Other val
       )
 
 -- | Defines the oneOf schema located at @paths.\/v1\/payment_links\/{payment_link}.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.shipping_address_collection.anyOf@ in the specification.
@@ -1460,8 +1460,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostPaymentLinksPaymentLinkRequestBodySh
 instance Data.Aeson.Types.FromJSON.FromJSON PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'EmptyString
-        | GHC.Base.otherwise -> case (PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'EmptyString
+      | GHC.Base.otherwise -> case (PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'PostPaymentLinksPaymentLinkRequestBodyShippingAddressCollection'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 

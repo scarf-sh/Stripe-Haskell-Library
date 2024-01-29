@@ -320,11 +320,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON CreditNoteReason'NonNullable where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "duplicate" -> CreditNoteReason'NonNullableEnumDuplicate
-            | val GHC.Classes.== "fraudulent" -> CreditNoteReason'NonNullableEnumFraudulent
-            | val GHC.Classes.== "order_change" -> CreditNoteReason'NonNullableEnumOrderChange
-            | val GHC.Classes.== "product_unsatisfactory" -> CreditNoteReason'NonNullableEnumProductUnsatisfactory
-            | GHC.Base.otherwise -> CreditNoteReason'NonNullableOther val
+          | val GHC.Classes.== "duplicate" -> CreditNoteReason'NonNullableEnumDuplicate
+          | val GHC.Classes.== "fraudulent" -> CreditNoteReason'NonNullableEnumFraudulent
+          | val GHC.Classes.== "order_change" -> CreditNoteReason'NonNullableEnumOrderChange
+          | val GHC.Classes.== "product_unsatisfactory" -> CreditNoteReason'NonNullableEnumProductUnsatisfactory
+          | GHC.Base.otherwise -> CreditNoteReason'NonNullableOther val
       )
 
 -- | Defines the oneOf schema located at @components.schemas.credit_note.properties.refund.anyOf@ in the specification.
@@ -368,9 +368,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON CreditNoteStatus' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "issued" -> CreditNoteStatus'EnumIssued
-            | val GHC.Classes.== "void" -> CreditNoteStatus'EnumVoid
-            | GHC.Base.otherwise -> CreditNoteStatus'Other val
+          | val GHC.Classes.== "issued" -> CreditNoteStatus'EnumIssued
+          | val GHC.Classes.== "void" -> CreditNoteStatus'EnumVoid
+          | GHC.Base.otherwise -> CreditNoteStatus'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.credit_note.properties.type@ in the specification.
@@ -397,7 +397,7 @@ instance Data.Aeson.Types.FromJSON.FromJSON CreditNoteType' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "post_payment" -> CreditNoteType'EnumPostPayment
-            | val GHC.Classes.== "pre_payment" -> CreditNoteType'EnumPrePayment
-            | GHC.Base.otherwise -> CreditNoteType'Other val
+          | val GHC.Classes.== "post_payment" -> CreditNoteType'EnumPostPayment
+          | val GHC.Classes.== "pre_payment" -> CreditNoteType'EnumPrePayment
+          | GHC.Base.otherwise -> CreditNoteType'Other val
       )

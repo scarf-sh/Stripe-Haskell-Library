@@ -48,7 +48,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>Updates an existing tax rate.\<\/p>
 postTaxRatesTaxRate ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | tax_rate | Constraints: Maximum length of 5000
   Data.Text.Internal.Text ->
   -- | The request body to send
@@ -64,21 +64,21 @@ postTaxRatesTaxRate
             ( Data.Either.either PostTaxRatesTaxRateResponseError GHC.Base.id
                 GHC.Base.. ( \response body ->
                                if
-                                   | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                      PostTaxRatesTaxRateResponse200
                                        Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                             Data.Either.Either
                                                               GHC.Base.String
                                                               TaxRate
                                                         )
-                                   | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                      PostTaxRatesTaxRateResponseDefault
                                        Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                             Data.Either.Either
                                                               GHC.Base.String
                                                               Error
                                                         )
-                                   | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                            )
                   response_0
             )
@@ -170,8 +170,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostTaxRatesTaxRateRequestBodyMetadata'V
 instance Data.Aeson.Types.FromJSON.FromJSON PostTaxRatesTaxRateRequestBodyMetadata'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostTaxRatesTaxRateRequestBodyMetadata'EmptyString
-        | GHC.Base.otherwise -> case (PostTaxRatesTaxRateRequestBodyMetadata'Object Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostTaxRatesTaxRateRequestBodyMetadata'EmptyString
+      | GHC.Base.otherwise -> case (PostTaxRatesTaxRateRequestBodyMetadata'Object Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -217,15 +217,15 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostTaxRatesTaxRateRequestBodyTaxTyp
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "gst" -> PostTaxRatesTaxRateRequestBodyTaxType'EnumGst
-            | val GHC.Classes.== "hst" -> PostTaxRatesTaxRateRequestBodyTaxType'EnumHst
-            | val GHC.Classes.== "jct" -> PostTaxRatesTaxRateRequestBodyTaxType'EnumJct
-            | val GHC.Classes.== "pst" -> PostTaxRatesTaxRateRequestBodyTaxType'EnumPst
-            | val GHC.Classes.== "qst" -> PostTaxRatesTaxRateRequestBodyTaxType'EnumQst
-            | val GHC.Classes.== "rst" -> PostTaxRatesTaxRateRequestBodyTaxType'EnumRst
-            | val GHC.Classes.== "sales_tax" -> PostTaxRatesTaxRateRequestBodyTaxType'EnumSalesTax
-            | val GHC.Classes.== "vat" -> PostTaxRatesTaxRateRequestBodyTaxType'EnumVat
-            | GHC.Base.otherwise -> PostTaxRatesTaxRateRequestBodyTaxType'Other val
+          | val GHC.Classes.== "gst" -> PostTaxRatesTaxRateRequestBodyTaxType'EnumGst
+          | val GHC.Classes.== "hst" -> PostTaxRatesTaxRateRequestBodyTaxType'EnumHst
+          | val GHC.Classes.== "jct" -> PostTaxRatesTaxRateRequestBodyTaxType'EnumJct
+          | val GHC.Classes.== "pst" -> PostTaxRatesTaxRateRequestBodyTaxType'EnumPst
+          | val GHC.Classes.== "qst" -> PostTaxRatesTaxRateRequestBodyTaxType'EnumQst
+          | val GHC.Classes.== "rst" -> PostTaxRatesTaxRateRequestBodyTaxType'EnumRst
+          | val GHC.Classes.== "sales_tax" -> PostTaxRatesTaxRateRequestBodyTaxType'EnumSalesTax
+          | val GHC.Classes.== "vat" -> PostTaxRatesTaxRateRequestBodyTaxType'EnumVat
+          | GHC.Base.otherwise -> PostTaxRatesTaxRateRequestBodyTaxType'Other val
       )
 
 -- | Represents a response of the operation 'postTaxRatesTaxRate'.

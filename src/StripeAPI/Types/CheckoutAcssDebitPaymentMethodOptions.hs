@@ -94,9 +94,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON CheckoutAcssDebitPaymentMethodOption
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "cad" -> CheckoutAcssDebitPaymentMethodOptionsCurrency'EnumCad
-            | val GHC.Classes.== "usd" -> CheckoutAcssDebitPaymentMethodOptionsCurrency'EnumUsd
-            | GHC.Base.otherwise -> CheckoutAcssDebitPaymentMethodOptionsCurrency'Other val
+          | val GHC.Classes.== "cad" -> CheckoutAcssDebitPaymentMethodOptionsCurrency'EnumCad
+          | val GHC.Classes.== "usd" -> CheckoutAcssDebitPaymentMethodOptionsCurrency'EnumUsd
+          | GHC.Base.otherwise -> CheckoutAcssDebitPaymentMethodOptionsCurrency'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.checkout_acss_debit_payment_method_options.properties.setup_future_usage@ in the specification.
@@ -130,10 +130,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON CheckoutAcssDebitPaymentMethodOption
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> CheckoutAcssDebitPaymentMethodOptionsSetupFutureUsage'EnumNone
-            | val GHC.Classes.== "off_session" -> CheckoutAcssDebitPaymentMethodOptionsSetupFutureUsage'EnumOffSession
-            | val GHC.Classes.== "on_session" -> CheckoutAcssDebitPaymentMethodOptionsSetupFutureUsage'EnumOnSession
-            | GHC.Base.otherwise -> CheckoutAcssDebitPaymentMethodOptionsSetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> CheckoutAcssDebitPaymentMethodOptionsSetupFutureUsage'EnumNone
+          | val GHC.Classes.== "off_session" -> CheckoutAcssDebitPaymentMethodOptionsSetupFutureUsage'EnumOffSession
+          | val GHC.Classes.== "on_session" -> CheckoutAcssDebitPaymentMethodOptionsSetupFutureUsage'EnumOnSession
+          | GHC.Base.otherwise -> CheckoutAcssDebitPaymentMethodOptionsSetupFutureUsage'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.checkout_acss_debit_payment_method_options.properties.verification_method@ in the specification.
@@ -163,8 +163,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON CheckoutAcssDebitPaymentMethodOption
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> CheckoutAcssDebitPaymentMethodOptionsVerificationMethod'EnumAutomatic
-            | val GHC.Classes.== "instant" -> CheckoutAcssDebitPaymentMethodOptionsVerificationMethod'EnumInstant
-            | val GHC.Classes.== "microdeposits" -> CheckoutAcssDebitPaymentMethodOptionsVerificationMethod'EnumMicrodeposits
-            | GHC.Base.otherwise -> CheckoutAcssDebitPaymentMethodOptionsVerificationMethod'Other val
+          | val GHC.Classes.== "automatic" -> CheckoutAcssDebitPaymentMethodOptionsVerificationMethod'EnumAutomatic
+          | val GHC.Classes.== "instant" -> CheckoutAcssDebitPaymentMethodOptionsVerificationMethod'EnumInstant
+          | val GHC.Classes.== "microdeposits" -> CheckoutAcssDebitPaymentMethodOptionsVerificationMethod'EnumMicrodeposits
+          | GHC.Base.otherwise -> CheckoutAcssDebitPaymentMethodOptionsVerificationMethod'Other val
       )

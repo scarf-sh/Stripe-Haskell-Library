@@ -77,7 +77,7 @@ instance Data.Aeson.Types.FromJSON.FromJSON InvoicePaymentMethodOptionsAcssDebit
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "business" -> InvoicePaymentMethodOptionsAcssDebitMandateOptionsTransactionType'NonNullableEnumBusiness
-            | val GHC.Classes.== "personal" -> InvoicePaymentMethodOptionsAcssDebitMandateOptionsTransactionType'NonNullableEnumPersonal
-            | GHC.Base.otherwise -> InvoicePaymentMethodOptionsAcssDebitMandateOptionsTransactionType'NonNullableOther val
+          | val GHC.Classes.== "business" -> InvoicePaymentMethodOptionsAcssDebitMandateOptionsTransactionType'NonNullableEnumBusiness
+          | val GHC.Classes.== "personal" -> InvoicePaymentMethodOptionsAcssDebitMandateOptionsTransactionType'NonNullableEnumPersonal
+          | GHC.Base.otherwise -> InvoicePaymentMethodOptionsAcssDebitMandateOptionsTransactionType'NonNullableOther val
       )

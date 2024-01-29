@@ -181,12 +181,12 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentMethodDetailsCardPresentReadM
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "contact_emv" -> PaymentMethodDetailsCardPresentReadMethod'NonNullableEnumContactEmv
-            | val GHC.Classes.== "contactless_emv" -> PaymentMethodDetailsCardPresentReadMethod'NonNullableEnumContactlessEmv
-            | val GHC.Classes.== "contactless_magstripe_mode" -> PaymentMethodDetailsCardPresentReadMethod'NonNullableEnumContactlessMagstripeMode
-            | val GHC.Classes.== "magnetic_stripe_fallback" -> PaymentMethodDetailsCardPresentReadMethod'NonNullableEnumMagneticStripeFallback
-            | val GHC.Classes.== "magnetic_stripe_track2" -> PaymentMethodDetailsCardPresentReadMethod'NonNullableEnumMagneticStripeTrack2
-            | GHC.Base.otherwise -> PaymentMethodDetailsCardPresentReadMethod'NonNullableOther val
+          | val GHC.Classes.== "contact_emv" -> PaymentMethodDetailsCardPresentReadMethod'NonNullableEnumContactEmv
+          | val GHC.Classes.== "contactless_emv" -> PaymentMethodDetailsCardPresentReadMethod'NonNullableEnumContactlessEmv
+          | val GHC.Classes.== "contactless_magstripe_mode" -> PaymentMethodDetailsCardPresentReadMethod'NonNullableEnumContactlessMagstripeMode
+          | val GHC.Classes.== "magnetic_stripe_fallback" -> PaymentMethodDetailsCardPresentReadMethod'NonNullableEnumMagneticStripeFallback
+          | val GHC.Classes.== "magnetic_stripe_track2" -> PaymentMethodDetailsCardPresentReadMethod'NonNullableEnumMagneticStripeTrack2
+          | GHC.Base.otherwise -> PaymentMethodDetailsCardPresentReadMethod'NonNullableOther val
       )
 
 -- | Defines the object schema located at @components.schemas.payment_method_details_card_present.properties.receipt.anyOf@ in the specification.
@@ -301,9 +301,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentMethodDetailsCardPresentRecei
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "checking" -> PaymentMethodDetailsCardPresentReceipt'NonNullableAccountType'EnumChecking
-            | val GHC.Classes.== "credit" -> PaymentMethodDetailsCardPresentReceipt'NonNullableAccountType'EnumCredit
-            | val GHC.Classes.== "prepaid" -> PaymentMethodDetailsCardPresentReceipt'NonNullableAccountType'EnumPrepaid
-            | val GHC.Classes.== "unknown" -> PaymentMethodDetailsCardPresentReceipt'NonNullableAccountType'EnumUnknown
-            | GHC.Base.otherwise -> PaymentMethodDetailsCardPresentReceipt'NonNullableAccountType'Other val
+          | val GHC.Classes.== "checking" -> PaymentMethodDetailsCardPresentReceipt'NonNullableAccountType'EnumChecking
+          | val GHC.Classes.== "credit" -> PaymentMethodDetailsCardPresentReceipt'NonNullableAccountType'EnumCredit
+          | val GHC.Classes.== "prepaid" -> PaymentMethodDetailsCardPresentReceipt'NonNullableAccountType'EnumPrepaid
+          | val GHC.Classes.== "unknown" -> PaymentMethodDetailsCardPresentReceipt'NonNullableAccountType'EnumUnknown
+          | GHC.Base.otherwise -> PaymentMethodDetailsCardPresentReceipt'NonNullableAccountType'Other val
       )

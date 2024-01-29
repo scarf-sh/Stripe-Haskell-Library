@@ -98,9 +98,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON SetupIntentPaymentMethodOptionsManda
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "invoice" -> SetupIntentPaymentMethodOptionsMandateOptionsAcssDebitDefaultFor'EnumInvoice
-            | val GHC.Classes.== "subscription" -> SetupIntentPaymentMethodOptionsMandateOptionsAcssDebitDefaultFor'EnumSubscription
-            | GHC.Base.otherwise -> SetupIntentPaymentMethodOptionsMandateOptionsAcssDebitDefaultFor'Other val
+          | val GHC.Classes.== "invoice" -> SetupIntentPaymentMethodOptionsMandateOptionsAcssDebitDefaultFor'EnumInvoice
+          | val GHC.Classes.== "subscription" -> SetupIntentPaymentMethodOptionsMandateOptionsAcssDebitDefaultFor'EnumSubscription
+          | GHC.Base.otherwise -> SetupIntentPaymentMethodOptionsMandateOptionsAcssDebitDefaultFor'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.setup_intent_payment_method_options_mandate_options_acss_debit.properties.payment_schedule@ in the specification.
@@ -130,10 +130,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON SetupIntentPaymentMethodOptionsManda
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "combined" -> SetupIntentPaymentMethodOptionsMandateOptionsAcssDebitPaymentSchedule'NonNullableEnumCombined
-            | val GHC.Classes.== "interval" -> SetupIntentPaymentMethodOptionsMandateOptionsAcssDebitPaymentSchedule'NonNullableEnumInterval
-            | val GHC.Classes.== "sporadic" -> SetupIntentPaymentMethodOptionsMandateOptionsAcssDebitPaymentSchedule'NonNullableEnumSporadic
-            | GHC.Base.otherwise -> SetupIntentPaymentMethodOptionsMandateOptionsAcssDebitPaymentSchedule'NonNullableOther val
+          | val GHC.Classes.== "combined" -> SetupIntentPaymentMethodOptionsMandateOptionsAcssDebitPaymentSchedule'NonNullableEnumCombined
+          | val GHC.Classes.== "interval" -> SetupIntentPaymentMethodOptionsMandateOptionsAcssDebitPaymentSchedule'NonNullableEnumInterval
+          | val GHC.Classes.== "sporadic" -> SetupIntentPaymentMethodOptionsMandateOptionsAcssDebitPaymentSchedule'NonNullableEnumSporadic
+          | GHC.Base.otherwise -> SetupIntentPaymentMethodOptionsMandateOptionsAcssDebitPaymentSchedule'NonNullableOther val
       )
 
 -- | Defines the enum schema located at @components.schemas.setup_intent_payment_method_options_mandate_options_acss_debit.properties.transaction_type@ in the specification.
@@ -160,7 +160,7 @@ instance Data.Aeson.Types.FromJSON.FromJSON SetupIntentPaymentMethodOptionsManda
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "business" -> SetupIntentPaymentMethodOptionsMandateOptionsAcssDebitTransactionType'NonNullableEnumBusiness
-            | val GHC.Classes.== "personal" -> SetupIntentPaymentMethodOptionsMandateOptionsAcssDebitTransactionType'NonNullableEnumPersonal
-            | GHC.Base.otherwise -> SetupIntentPaymentMethodOptionsMandateOptionsAcssDebitTransactionType'NonNullableOther val
+          | val GHC.Classes.== "business" -> SetupIntentPaymentMethodOptionsMandateOptionsAcssDebitTransactionType'NonNullableEnumBusiness
+          | val GHC.Classes.== "personal" -> SetupIntentPaymentMethodOptionsMandateOptionsAcssDebitTransactionType'NonNullableEnumPersonal
+          | GHC.Base.otherwise -> SetupIntentPaymentMethodOptionsMandateOptionsAcssDebitTransactionType'NonNullableOther val
       )

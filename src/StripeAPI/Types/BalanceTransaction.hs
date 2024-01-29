@@ -317,37 +317,37 @@ instance Data.Aeson.Types.FromJSON.FromJSON BalanceTransactionType' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "adjustment" -> BalanceTransactionType'EnumAdjustment
-            | val GHC.Classes.== "advance" -> BalanceTransactionType'EnumAdvance
-            | val GHC.Classes.== "advance_funding" -> BalanceTransactionType'EnumAdvanceFunding
-            | val GHC.Classes.== "anticipation_repayment" -> BalanceTransactionType'EnumAnticipationRepayment
-            | val GHC.Classes.== "application_fee" -> BalanceTransactionType'EnumApplicationFee
-            | val GHC.Classes.== "application_fee_refund" -> BalanceTransactionType'EnumApplicationFeeRefund
-            | val GHC.Classes.== "charge" -> BalanceTransactionType'EnumCharge
-            | val GHC.Classes.== "connect_collection_transfer" -> BalanceTransactionType'EnumConnectCollectionTransfer
-            | val GHC.Classes.== "contribution" -> BalanceTransactionType'EnumContribution
-            | val GHC.Classes.== "issuing_authorization_hold" -> BalanceTransactionType'EnumIssuingAuthorizationHold
-            | val GHC.Classes.== "issuing_authorization_release" -> BalanceTransactionType'EnumIssuingAuthorizationRelease
-            | val GHC.Classes.== "issuing_dispute" -> BalanceTransactionType'EnumIssuingDispute
-            | val GHC.Classes.== "issuing_transaction" -> BalanceTransactionType'EnumIssuingTransaction
-            | val GHC.Classes.== "payment" -> BalanceTransactionType'EnumPayment
-            | val GHC.Classes.== "payment_failure_refund" -> BalanceTransactionType'EnumPaymentFailureRefund
-            | val GHC.Classes.== "payment_refund" -> BalanceTransactionType'EnumPaymentRefund
-            | val GHC.Classes.== "payout" -> BalanceTransactionType'EnumPayout
-            | val GHC.Classes.== "payout_cancel" -> BalanceTransactionType'EnumPayoutCancel
-            | val GHC.Classes.== "payout_failure" -> BalanceTransactionType'EnumPayoutFailure
-            | val GHC.Classes.== "refund" -> BalanceTransactionType'EnumRefund
-            | val GHC.Classes.== "refund_failure" -> BalanceTransactionType'EnumRefundFailure
-            | val GHC.Classes.== "reserve_transaction" -> BalanceTransactionType'EnumReserveTransaction
-            | val GHC.Classes.== "reserved_funds" -> BalanceTransactionType'EnumReservedFunds
-            | val GHC.Classes.== "stripe_fee" -> BalanceTransactionType'EnumStripeFee
-            | val GHC.Classes.== "stripe_fx_fee" -> BalanceTransactionType'EnumStripeFxFee
-            | val GHC.Classes.== "tax_fee" -> BalanceTransactionType'EnumTaxFee
-            | val GHC.Classes.== "topup" -> BalanceTransactionType'EnumTopup
-            | val GHC.Classes.== "topup_reversal" -> BalanceTransactionType'EnumTopupReversal
-            | val GHC.Classes.== "transfer" -> BalanceTransactionType'EnumTransfer
-            | val GHC.Classes.== "transfer_cancel" -> BalanceTransactionType'EnumTransferCancel
-            | val GHC.Classes.== "transfer_failure" -> BalanceTransactionType'EnumTransferFailure
-            | val GHC.Classes.== "transfer_refund" -> BalanceTransactionType'EnumTransferRefund
-            | GHC.Base.otherwise -> BalanceTransactionType'Other val
+          | val GHC.Classes.== "adjustment" -> BalanceTransactionType'EnumAdjustment
+          | val GHC.Classes.== "advance" -> BalanceTransactionType'EnumAdvance
+          | val GHC.Classes.== "advance_funding" -> BalanceTransactionType'EnumAdvanceFunding
+          | val GHC.Classes.== "anticipation_repayment" -> BalanceTransactionType'EnumAnticipationRepayment
+          | val GHC.Classes.== "application_fee" -> BalanceTransactionType'EnumApplicationFee
+          | val GHC.Classes.== "application_fee_refund" -> BalanceTransactionType'EnumApplicationFeeRefund
+          | val GHC.Classes.== "charge" -> BalanceTransactionType'EnumCharge
+          | val GHC.Classes.== "connect_collection_transfer" -> BalanceTransactionType'EnumConnectCollectionTransfer
+          | val GHC.Classes.== "contribution" -> BalanceTransactionType'EnumContribution
+          | val GHC.Classes.== "issuing_authorization_hold" -> BalanceTransactionType'EnumIssuingAuthorizationHold
+          | val GHC.Classes.== "issuing_authorization_release" -> BalanceTransactionType'EnumIssuingAuthorizationRelease
+          | val GHC.Classes.== "issuing_dispute" -> BalanceTransactionType'EnumIssuingDispute
+          | val GHC.Classes.== "issuing_transaction" -> BalanceTransactionType'EnumIssuingTransaction
+          | val GHC.Classes.== "payment" -> BalanceTransactionType'EnumPayment
+          | val GHC.Classes.== "payment_failure_refund" -> BalanceTransactionType'EnumPaymentFailureRefund
+          | val GHC.Classes.== "payment_refund" -> BalanceTransactionType'EnumPaymentRefund
+          | val GHC.Classes.== "payout" -> BalanceTransactionType'EnumPayout
+          | val GHC.Classes.== "payout_cancel" -> BalanceTransactionType'EnumPayoutCancel
+          | val GHC.Classes.== "payout_failure" -> BalanceTransactionType'EnumPayoutFailure
+          | val GHC.Classes.== "refund" -> BalanceTransactionType'EnumRefund
+          | val GHC.Classes.== "refund_failure" -> BalanceTransactionType'EnumRefundFailure
+          | val GHC.Classes.== "reserve_transaction" -> BalanceTransactionType'EnumReserveTransaction
+          | val GHC.Classes.== "reserved_funds" -> BalanceTransactionType'EnumReservedFunds
+          | val GHC.Classes.== "stripe_fee" -> BalanceTransactionType'EnumStripeFee
+          | val GHC.Classes.== "stripe_fx_fee" -> BalanceTransactionType'EnumStripeFxFee
+          | val GHC.Classes.== "tax_fee" -> BalanceTransactionType'EnumTaxFee
+          | val GHC.Classes.== "topup" -> BalanceTransactionType'EnumTopup
+          | val GHC.Classes.== "topup_reversal" -> BalanceTransactionType'EnumTopupReversal
+          | val GHC.Classes.== "transfer" -> BalanceTransactionType'EnumTransfer
+          | val GHC.Classes.== "transfer_cancel" -> BalanceTransactionType'EnumTransferCancel
+          | val GHC.Classes.== "transfer_failure" -> BalanceTransactionType'EnumTransferFailure
+          | val GHC.Classes.== "transfer_refund" -> BalanceTransactionType'EnumTransferRefund
+          | GHC.Base.otherwise -> BalanceTransactionType'Other val
       )

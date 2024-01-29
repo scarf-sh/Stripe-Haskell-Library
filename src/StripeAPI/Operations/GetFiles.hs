@@ -48,7 +48,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>Returns a list of the files that your account has access to. The files are returned sorted by creation date, with the most recently created files appearing first.\<\/p>
 getFiles ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | Contains all available parameters of this operation (query and path parameters)
   GetFilesParameters ->
   -- | Monadic computation which returns the result of the operation
@@ -60,21 +60,21 @@ getFiles parameters =
           ( Data.Either.either GetFilesResponseError GHC.Base.id
               GHC.Base.. ( \response body ->
                              if
-                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                               | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                    GetFilesResponse200
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             GetFilesResponseBody200
                                                       )
-                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                               | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                    GetFilesResponseDefault
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             Error
                                                       )
-                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                               | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                          )
                 response_0
           )
@@ -265,21 +265,21 @@ instance Data.Aeson.Types.FromJSON.FromJSON GetFilesParametersQueryPurpose' wher
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "account_requirement" -> GetFilesParametersQueryPurpose'EnumAccountRequirement
-            | val GHC.Classes.== "additional_verification" -> GetFilesParametersQueryPurpose'EnumAdditionalVerification
-            | val GHC.Classes.== "business_icon" -> GetFilesParametersQueryPurpose'EnumBusinessIcon
-            | val GHC.Classes.== "business_logo" -> GetFilesParametersQueryPurpose'EnumBusinessLogo
-            | val GHC.Classes.== "customer_signature" -> GetFilesParametersQueryPurpose'EnumCustomerSignature
-            | val GHC.Classes.== "dispute_evidence" -> GetFilesParametersQueryPurpose'EnumDisputeEvidence
-            | val GHC.Classes.== "document_provider_identity_document" -> GetFilesParametersQueryPurpose'EnumDocumentProviderIdentityDocument
-            | val GHC.Classes.== "finance_report_run" -> GetFilesParametersQueryPurpose'EnumFinanceReportRun
-            | val GHC.Classes.== "identity_document" -> GetFilesParametersQueryPurpose'EnumIdentityDocument
-            | val GHC.Classes.== "identity_document_downloadable" -> GetFilesParametersQueryPurpose'EnumIdentityDocumentDownloadable
-            | val GHC.Classes.== "pci_document" -> GetFilesParametersQueryPurpose'EnumPciDocument
-            | val GHC.Classes.== "selfie" -> GetFilesParametersQueryPurpose'EnumSelfie
-            | val GHC.Classes.== "sigma_scheduled_query" -> GetFilesParametersQueryPurpose'EnumSigmaScheduledQuery
-            | val GHC.Classes.== "tax_document_user_upload" -> GetFilesParametersQueryPurpose'EnumTaxDocumentUserUpload
-            | GHC.Base.otherwise -> GetFilesParametersQueryPurpose'Other val
+          | val GHC.Classes.== "account_requirement" -> GetFilesParametersQueryPurpose'EnumAccountRequirement
+          | val GHC.Classes.== "additional_verification" -> GetFilesParametersQueryPurpose'EnumAdditionalVerification
+          | val GHC.Classes.== "business_icon" -> GetFilesParametersQueryPurpose'EnumBusinessIcon
+          | val GHC.Classes.== "business_logo" -> GetFilesParametersQueryPurpose'EnumBusinessLogo
+          | val GHC.Classes.== "customer_signature" -> GetFilesParametersQueryPurpose'EnumCustomerSignature
+          | val GHC.Classes.== "dispute_evidence" -> GetFilesParametersQueryPurpose'EnumDisputeEvidence
+          | val GHC.Classes.== "document_provider_identity_document" -> GetFilesParametersQueryPurpose'EnumDocumentProviderIdentityDocument
+          | val GHC.Classes.== "finance_report_run" -> GetFilesParametersQueryPurpose'EnumFinanceReportRun
+          | val GHC.Classes.== "identity_document" -> GetFilesParametersQueryPurpose'EnumIdentityDocument
+          | val GHC.Classes.== "identity_document_downloadable" -> GetFilesParametersQueryPurpose'EnumIdentityDocumentDownloadable
+          | val GHC.Classes.== "pci_document" -> GetFilesParametersQueryPurpose'EnumPciDocument
+          | val GHC.Classes.== "selfie" -> GetFilesParametersQueryPurpose'EnumSelfie
+          | val GHC.Classes.== "sigma_scheduled_query" -> GetFilesParametersQueryPurpose'EnumSigmaScheduledQuery
+          | val GHC.Classes.== "tax_document_user_upload" -> GetFilesParametersQueryPurpose'EnumTaxDocumentUserUpload
+          | GHC.Base.otherwise -> GetFilesParametersQueryPurpose'Other val
       )
 
 -- | Represents a response of the operation 'getFiles'.

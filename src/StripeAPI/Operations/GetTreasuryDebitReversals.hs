@@ -48,7 +48,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>Returns a list of DebitReversals.\<\/p>
 getTreasuryDebitReversals ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | Contains all available parameters of this operation (query and path parameters)
   GetTreasuryDebitReversalsParameters ->
   -- | Monadic computation which returns the result of the operation
@@ -60,21 +60,21 @@ getTreasuryDebitReversals parameters =
           ( Data.Either.either GetTreasuryDebitReversalsResponseError GHC.Base.id
               GHC.Base.. ( \response body ->
                              if
-                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                               | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                    GetTreasuryDebitReversalsResponse200
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             GetTreasuryDebitReversalsResponseBody200
                                                       )
-                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                               | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                    GetTreasuryDebitReversalsResponseDefault
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             Error
                                                       )
-                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                               | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                          )
                 response_0
           )
@@ -196,9 +196,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON GetTreasuryDebitReversalsParametersQ
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "lost" -> GetTreasuryDebitReversalsParametersQueryResolution'EnumLost
-            | val GHC.Classes.== "won" -> GetTreasuryDebitReversalsParametersQueryResolution'EnumWon
-            | GHC.Base.otherwise -> GetTreasuryDebitReversalsParametersQueryResolution'Other val
+          | val GHC.Classes.== "lost" -> GetTreasuryDebitReversalsParametersQueryResolution'EnumLost
+          | val GHC.Classes.== "won" -> GetTreasuryDebitReversalsParametersQueryResolution'EnumWon
+          | GHC.Base.otherwise -> GetTreasuryDebitReversalsParametersQueryResolution'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/treasury\/debit_reversals.GET.parameters.properties.queryStatus@ in the specification.
@@ -230,10 +230,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON GetTreasuryDebitReversalsParametersQ
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "canceled" -> GetTreasuryDebitReversalsParametersQueryStatus'EnumCanceled
-            | val GHC.Classes.== "completed" -> GetTreasuryDebitReversalsParametersQueryStatus'EnumCompleted
-            | val GHC.Classes.== "processing" -> GetTreasuryDebitReversalsParametersQueryStatus'EnumProcessing
-            | GHC.Base.otherwise -> GetTreasuryDebitReversalsParametersQueryStatus'Other val
+          | val GHC.Classes.== "canceled" -> GetTreasuryDebitReversalsParametersQueryStatus'EnumCanceled
+          | val GHC.Classes.== "completed" -> GetTreasuryDebitReversalsParametersQueryStatus'EnumCompleted
+          | val GHC.Classes.== "processing" -> GetTreasuryDebitReversalsParametersQueryStatus'EnumProcessing
+          | GHC.Base.otherwise -> GetTreasuryDebitReversalsParametersQueryStatus'Other val
       )
 
 -- | Represents a response of the operation 'getTreasuryDebitReversals'.

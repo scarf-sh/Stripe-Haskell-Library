@@ -48,7 +48,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>You can now model subscriptions more flexibly using the \<a href=\"\#prices\">Prices API\<\/a>. It replaces the Plans API and is backwards compatible to simplify your migration.\<\/p>
 postPlans ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | The request body to send
   PostPlansRequestBody ->
   -- | Monadic computation which returns the result of the operation
@@ -60,21 +60,21 @@ postPlans body =
           ( Data.Either.either PostPlansResponseError GHC.Base.id
               GHC.Base.. ( \response body ->
                              if
-                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                               | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                    PostPlansResponse200
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             Plan
                                                       )
-                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                               | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                    PostPlansResponseDefault
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             Error
                                                       )
-                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                               | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                          )
                 response_0
           )
@@ -200,11 +200,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostPlansRequestBodyAggregateUsage' 
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "last_during_period" -> PostPlansRequestBodyAggregateUsage'EnumLastDuringPeriod
-            | val GHC.Classes.== "last_ever" -> PostPlansRequestBodyAggregateUsage'EnumLastEver
-            | val GHC.Classes.== "max" -> PostPlansRequestBodyAggregateUsage'EnumMax
-            | val GHC.Classes.== "sum" -> PostPlansRequestBodyAggregateUsage'EnumSum
-            | GHC.Base.otherwise -> PostPlansRequestBodyAggregateUsage'Other val
+          | val GHC.Classes.== "last_during_period" -> PostPlansRequestBodyAggregateUsage'EnumLastDuringPeriod
+          | val GHC.Classes.== "last_ever" -> PostPlansRequestBodyAggregateUsage'EnumLastEver
+          | val GHC.Classes.== "max" -> PostPlansRequestBodyAggregateUsage'EnumMax
+          | val GHC.Classes.== "sum" -> PostPlansRequestBodyAggregateUsage'EnumSum
+          | GHC.Base.otherwise -> PostPlansRequestBodyAggregateUsage'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/plans.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.billing_scheme@ in the specification.
@@ -231,9 +231,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostPlansRequestBodyBillingScheme' w
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "per_unit" -> PostPlansRequestBodyBillingScheme'EnumPerUnit
-            | val GHC.Classes.== "tiered" -> PostPlansRequestBodyBillingScheme'EnumTiered
-            | GHC.Base.otherwise -> PostPlansRequestBodyBillingScheme'Other val
+          | val GHC.Classes.== "per_unit" -> PostPlansRequestBodyBillingScheme'EnumPerUnit
+          | val GHC.Classes.== "tiered" -> PostPlansRequestBodyBillingScheme'EnumTiered
+          | GHC.Base.otherwise -> PostPlansRequestBodyBillingScheme'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/plans.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.interval@ in the specification.
@@ -266,11 +266,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostPlansRequestBodyInterval' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "day" -> PostPlansRequestBodyInterval'EnumDay
-            | val GHC.Classes.== "month" -> PostPlansRequestBodyInterval'EnumMonth
-            | val GHC.Classes.== "week" -> PostPlansRequestBodyInterval'EnumWeek
-            | val GHC.Classes.== "year" -> PostPlansRequestBodyInterval'EnumYear
-            | GHC.Base.otherwise -> PostPlansRequestBodyInterval'Other val
+          | val GHC.Classes.== "day" -> PostPlansRequestBodyInterval'EnumDay
+          | val GHC.Classes.== "month" -> PostPlansRequestBodyInterval'EnumMonth
+          | val GHC.Classes.== "week" -> PostPlansRequestBodyInterval'EnumWeek
+          | val GHC.Classes.== "year" -> PostPlansRequestBodyInterval'EnumYear
+          | GHC.Base.otherwise -> PostPlansRequestBodyInterval'Other val
       )
 
 -- | Defines the oneOf schema located at @paths.\/v1\/plans.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.metadata.anyOf@ in the specification.
@@ -289,8 +289,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostPlansRequestBodyMetadata'Variants wh
 instance Data.Aeson.Types.FromJSON.FromJSON PostPlansRequestBodyMetadata'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostPlansRequestBodyMetadata'EmptyString
-        | GHC.Base.otherwise -> case (PostPlansRequestBodyMetadata'Object Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostPlansRequestBodyMetadata'EmptyString
+      | GHC.Base.otherwise -> case (PostPlansRequestBodyMetadata'Object Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -429,8 +429,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostPlansRequestBodyTiers'UpTo'Variants 
 instance Data.Aeson.Types.FromJSON.FromJSON PostPlansRequestBodyTiers'UpTo'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "inf" -> GHC.Base.pure PostPlansRequestBodyTiers'UpTo'Inf
-        | GHC.Base.otherwise -> case (PostPlansRequestBodyTiers'UpTo'Int Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "inf" -> GHC.Base.pure PostPlansRequestBodyTiers'UpTo'Inf
+      | GHC.Base.otherwise -> case (PostPlansRequestBodyTiers'UpTo'Int Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -458,9 +458,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostPlansRequestBodyTiersMode' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "graduated" -> PostPlansRequestBodyTiersMode'EnumGraduated
-            | val GHC.Classes.== "volume" -> PostPlansRequestBodyTiersMode'EnumVolume
-            | GHC.Base.otherwise -> PostPlansRequestBodyTiersMode'Other val
+          | val GHC.Classes.== "graduated" -> PostPlansRequestBodyTiersMode'EnumGraduated
+          | val GHC.Classes.== "volume" -> PostPlansRequestBodyTiersMode'EnumVolume
+          | GHC.Base.otherwise -> PostPlansRequestBodyTiersMode'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/plans.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.transform_usage@ in the specification.
@@ -519,9 +519,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostPlansRequestBodyTransformUsage'R
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "down" -> PostPlansRequestBodyTransformUsage'Round'EnumDown
-            | val GHC.Classes.== "up" -> PostPlansRequestBodyTransformUsage'Round'EnumUp
-            | GHC.Base.otherwise -> PostPlansRequestBodyTransformUsage'Round'Other val
+          | val GHC.Classes.== "down" -> PostPlansRequestBodyTransformUsage'Round'EnumDown
+          | val GHC.Classes.== "up" -> PostPlansRequestBodyTransformUsage'Round'EnumUp
+          | GHC.Base.otherwise -> PostPlansRequestBodyTransformUsage'Round'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/plans.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.usage_type@ in the specification.
@@ -548,9 +548,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostPlansRequestBodyUsageType' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "licensed" -> PostPlansRequestBodyUsageType'EnumLicensed
-            | val GHC.Classes.== "metered" -> PostPlansRequestBodyUsageType'EnumMetered
-            | GHC.Base.otherwise -> PostPlansRequestBodyUsageType'Other val
+          | val GHC.Classes.== "licensed" -> PostPlansRequestBodyUsageType'EnumLicensed
+          | val GHC.Classes.== "metered" -> PostPlansRequestBodyUsageType'EnumMetered
+          | GHC.Base.otherwise -> PostPlansRequestBodyUsageType'Other val
       )
 
 -- | Represents a response of the operation 'postPlans'.

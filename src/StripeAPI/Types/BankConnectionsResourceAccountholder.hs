@@ -125,7 +125,7 @@ instance Data.Aeson.Types.FromJSON.FromJSON BankConnectionsResourceAccountholder
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "account" -> BankConnectionsResourceAccountholderType'EnumAccount
-            | val GHC.Classes.== "customer" -> BankConnectionsResourceAccountholderType'EnumCustomer
-            | GHC.Base.otherwise -> BankConnectionsResourceAccountholderType'Other val
+          | val GHC.Classes.== "account" -> BankConnectionsResourceAccountholderType'EnumAccount
+          | val GHC.Classes.== "customer" -> BankConnectionsResourceAccountholderType'EnumCustomer
+          | GHC.Base.otherwise -> BankConnectionsResourceAccountholderType'Other val
       )

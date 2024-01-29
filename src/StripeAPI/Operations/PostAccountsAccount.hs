@@ -50,7 +50,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>To update your own account, use the \<a href=\"https:\/\/dashboard.stripe.com\/account\">Dashboard\<\/a>. Refer to our \<a href=\"\/docs\/connect\/updating-accounts\">Connect\<\/a> documentation to learn more about updating accounts.\<\/p>
 postAccountsAccount ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | account | Constraints: Maximum length of 5000
   Data.Text.Internal.Text ->
   -- | The request body to send
@@ -66,21 +66,21 @@ postAccountsAccount
             ( Data.Either.either PostAccountsAccountResponseError GHC.Base.id
                 GHC.Base.. ( \response body ->
                                if
-                                   | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                      PostAccountsAccountResponse200
                                        Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                             Data.Either.Either
                                                               GHC.Base.String
                                                               Account
                                                         )
-                                   | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                      PostAccountsAccountResponseDefault
                                        Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                             Data.Either.Either
                                                               GHC.Base.String
                                                               Error
                                                         )
-                                   | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                            )
                   response_0
             )
@@ -262,9 +262,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostAccountsAccountRequestBodyBankAc
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "company" -> PostAccountsAccountRequestBodyBankAccount'OneOf1AccountHolderType'EnumCompany
-            | val GHC.Classes.== "individual" -> PostAccountsAccountRequestBodyBankAccount'OneOf1AccountHolderType'EnumIndividual
-            | GHC.Base.otherwise -> PostAccountsAccountRequestBodyBankAccount'OneOf1AccountHolderType'Other val
+          | val GHC.Classes.== "company" -> PostAccountsAccountRequestBodyBankAccount'OneOf1AccountHolderType'EnumCompany
+          | val GHC.Classes.== "individual" -> PostAccountsAccountRequestBodyBankAccount'OneOf1AccountHolderType'EnumIndividual
+          | GHC.Base.otherwise -> PostAccountsAccountRequestBodyBankAccount'OneOf1AccountHolderType'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/accounts\/{account}.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.bank_account.anyOf.properties.account_type@ in the specification.
@@ -295,11 +295,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostAccountsAccountRequestBodyBankAc
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "checking" -> PostAccountsAccountRequestBodyBankAccount'OneOf1AccountType'EnumChecking
-            | val GHC.Classes.== "futsu" -> PostAccountsAccountRequestBodyBankAccount'OneOf1AccountType'EnumFutsu
-            | val GHC.Classes.== "savings" -> PostAccountsAccountRequestBodyBankAccount'OneOf1AccountType'EnumSavings
-            | val GHC.Classes.== "toza" -> PostAccountsAccountRequestBodyBankAccount'OneOf1AccountType'EnumToza
-            | GHC.Base.otherwise -> PostAccountsAccountRequestBodyBankAccount'OneOf1AccountType'Other val
+          | val GHC.Classes.== "checking" -> PostAccountsAccountRequestBodyBankAccount'OneOf1AccountType'EnumChecking
+          | val GHC.Classes.== "futsu" -> PostAccountsAccountRequestBodyBankAccount'OneOf1AccountType'EnumFutsu
+          | val GHC.Classes.== "savings" -> PostAccountsAccountRequestBodyBankAccount'OneOf1AccountType'EnumSavings
+          | val GHC.Classes.== "toza" -> PostAccountsAccountRequestBodyBankAccount'OneOf1AccountType'EnumToza
+          | GHC.Base.otherwise -> PostAccountsAccountRequestBodyBankAccount'OneOf1AccountType'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/accounts\/{account}.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.bank_account.anyOf.properties.object@ in the specification.
@@ -321,8 +321,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostAccountsAccountRequestBodyBankAc
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "bank_account" -> PostAccountsAccountRequestBodyBankAccount'OneOf1Object'EnumBankAccount
-            | GHC.Base.otherwise -> PostAccountsAccountRequestBodyBankAccount'OneOf1Object'Other val
+          | val GHC.Classes.== "bank_account" -> PostAccountsAccountRequestBodyBankAccount'OneOf1Object'EnumBankAccount
+          | GHC.Base.otherwise -> PostAccountsAccountRequestBodyBankAccount'OneOf1Object'Other val
       )
 
 -- | Defines the oneOf schema located at @paths.\/v1\/accounts\/{account}.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.bank_account.anyOf@ in the specification.
@@ -486,8 +486,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostAccountsAccountRequestBodyBusinessPr
 instance Data.Aeson.Types.FromJSON.FromJSON PostAccountsAccountRequestBodyBusinessProfile'SupportUrl'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostAccountsAccountRequestBodyBusinessProfile'SupportUrl'EmptyString
-        | GHC.Base.otherwise -> case (PostAccountsAccountRequestBodyBusinessProfile'SupportUrl'Text Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostAccountsAccountRequestBodyBusinessProfile'SupportUrl'EmptyString
+      | GHC.Base.otherwise -> case (PostAccountsAccountRequestBodyBusinessProfile'SupportUrl'Text Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -521,11 +521,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostAccountsAccountRequestBodyBusine
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "company" -> PostAccountsAccountRequestBodyBusinessType'EnumCompany
-            | val GHC.Classes.== "government_entity" -> PostAccountsAccountRequestBodyBusinessType'EnumGovernmentEntity
-            | val GHC.Classes.== "individual" -> PostAccountsAccountRequestBodyBusinessType'EnumIndividual
-            | val GHC.Classes.== "non_profit" -> PostAccountsAccountRequestBodyBusinessType'EnumNonProfit
-            | GHC.Base.otherwise -> PostAccountsAccountRequestBodyBusinessType'Other val
+          | val GHC.Classes.== "company" -> PostAccountsAccountRequestBodyBusinessType'EnumCompany
+          | val GHC.Classes.== "government_entity" -> PostAccountsAccountRequestBodyBusinessType'EnumGovernmentEntity
+          | val GHC.Classes.== "individual" -> PostAccountsAccountRequestBodyBusinessType'EnumIndividual
+          | val GHC.Classes.== "non_profit" -> PostAccountsAccountRequestBodyBusinessType'EnumNonProfit
+          | GHC.Base.otherwise -> PostAccountsAccountRequestBodyBusinessType'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/accounts\/{account}.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.capabilities@ in the specification.
@@ -1741,28 +1741,28 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostAccountsAccountRequestBodyCompan
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "" -> PostAccountsAccountRequestBodyCompany'Structure'EnumEmptyString
-            | val GHC.Classes.== "free_zone_establishment" -> PostAccountsAccountRequestBodyCompany'Structure'EnumFreeZoneEstablishment
-            | val GHC.Classes.== "free_zone_llc" -> PostAccountsAccountRequestBodyCompany'Structure'EnumFreeZoneLlc
-            | val GHC.Classes.== "government_instrumentality" -> PostAccountsAccountRequestBodyCompany'Structure'EnumGovernmentInstrumentality
-            | val GHC.Classes.== "governmental_unit" -> PostAccountsAccountRequestBodyCompany'Structure'EnumGovernmentalUnit
-            | val GHC.Classes.== "incorporated_non_profit" -> PostAccountsAccountRequestBodyCompany'Structure'EnumIncorporatedNonProfit
-            | val GHC.Classes.== "limited_liability_partnership" -> PostAccountsAccountRequestBodyCompany'Structure'EnumLimitedLiabilityPartnership
-            | val GHC.Classes.== "llc" -> PostAccountsAccountRequestBodyCompany'Structure'EnumLlc
-            | val GHC.Classes.== "multi_member_llc" -> PostAccountsAccountRequestBodyCompany'Structure'EnumMultiMemberLlc
-            | val GHC.Classes.== "private_company" -> PostAccountsAccountRequestBodyCompany'Structure'EnumPrivateCompany
-            | val GHC.Classes.== "private_corporation" -> PostAccountsAccountRequestBodyCompany'Structure'EnumPrivateCorporation
-            | val GHC.Classes.== "private_partnership" -> PostAccountsAccountRequestBodyCompany'Structure'EnumPrivatePartnership
-            | val GHC.Classes.== "public_company" -> PostAccountsAccountRequestBodyCompany'Structure'EnumPublicCompany
-            | val GHC.Classes.== "public_corporation" -> PostAccountsAccountRequestBodyCompany'Structure'EnumPublicCorporation
-            | val GHC.Classes.== "public_partnership" -> PostAccountsAccountRequestBodyCompany'Structure'EnumPublicPartnership
-            | val GHC.Classes.== "single_member_llc" -> PostAccountsAccountRequestBodyCompany'Structure'EnumSingleMemberLlc
-            | val GHC.Classes.== "sole_establishment" -> PostAccountsAccountRequestBodyCompany'Structure'EnumSoleEstablishment
-            | val GHC.Classes.== "sole_proprietorship" -> PostAccountsAccountRequestBodyCompany'Structure'EnumSoleProprietorship
-            | val GHC.Classes.== "tax_exempt_government_instrumentality" -> PostAccountsAccountRequestBodyCompany'Structure'EnumTaxExemptGovernmentInstrumentality
-            | val GHC.Classes.== "unincorporated_association" -> PostAccountsAccountRequestBodyCompany'Structure'EnumUnincorporatedAssociation
-            | val GHC.Classes.== "unincorporated_non_profit" -> PostAccountsAccountRequestBodyCompany'Structure'EnumUnincorporatedNonProfit
-            | GHC.Base.otherwise -> PostAccountsAccountRequestBodyCompany'Structure'Other val
+          | val GHC.Classes.== "" -> PostAccountsAccountRequestBodyCompany'Structure'EnumEmptyString
+          | val GHC.Classes.== "free_zone_establishment" -> PostAccountsAccountRequestBodyCompany'Structure'EnumFreeZoneEstablishment
+          | val GHC.Classes.== "free_zone_llc" -> PostAccountsAccountRequestBodyCompany'Structure'EnumFreeZoneLlc
+          | val GHC.Classes.== "government_instrumentality" -> PostAccountsAccountRequestBodyCompany'Structure'EnumGovernmentInstrumentality
+          | val GHC.Classes.== "governmental_unit" -> PostAccountsAccountRequestBodyCompany'Structure'EnumGovernmentalUnit
+          | val GHC.Classes.== "incorporated_non_profit" -> PostAccountsAccountRequestBodyCompany'Structure'EnumIncorporatedNonProfit
+          | val GHC.Classes.== "limited_liability_partnership" -> PostAccountsAccountRequestBodyCompany'Structure'EnumLimitedLiabilityPartnership
+          | val GHC.Classes.== "llc" -> PostAccountsAccountRequestBodyCompany'Structure'EnumLlc
+          | val GHC.Classes.== "multi_member_llc" -> PostAccountsAccountRequestBodyCompany'Structure'EnumMultiMemberLlc
+          | val GHC.Classes.== "private_company" -> PostAccountsAccountRequestBodyCompany'Structure'EnumPrivateCompany
+          | val GHC.Classes.== "private_corporation" -> PostAccountsAccountRequestBodyCompany'Structure'EnumPrivateCorporation
+          | val GHC.Classes.== "private_partnership" -> PostAccountsAccountRequestBodyCompany'Structure'EnumPrivatePartnership
+          | val GHC.Classes.== "public_company" -> PostAccountsAccountRequestBodyCompany'Structure'EnumPublicCompany
+          | val GHC.Classes.== "public_corporation" -> PostAccountsAccountRequestBodyCompany'Structure'EnumPublicCorporation
+          | val GHC.Classes.== "public_partnership" -> PostAccountsAccountRequestBodyCompany'Structure'EnumPublicPartnership
+          | val GHC.Classes.== "single_member_llc" -> PostAccountsAccountRequestBodyCompany'Structure'EnumSingleMemberLlc
+          | val GHC.Classes.== "sole_establishment" -> PostAccountsAccountRequestBodyCompany'Structure'EnumSoleEstablishment
+          | val GHC.Classes.== "sole_proprietorship" -> PostAccountsAccountRequestBodyCompany'Structure'EnumSoleProprietorship
+          | val GHC.Classes.== "tax_exempt_government_instrumentality" -> PostAccountsAccountRequestBodyCompany'Structure'EnumTaxExemptGovernmentInstrumentality
+          | val GHC.Classes.== "unincorporated_association" -> PostAccountsAccountRequestBodyCompany'Structure'EnumUnincorporatedAssociation
+          | val GHC.Classes.== "unincorporated_non_profit" -> PostAccountsAccountRequestBodyCompany'Structure'EnumUnincorporatedNonProfit
+          | GHC.Base.otherwise -> PostAccountsAccountRequestBodyCompany'Structure'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/accounts\/{account}.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.company.properties.verification@ in the specification.
@@ -2395,8 +2395,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostAccountsAccountRequestBodyIndividual
 instance Data.Aeson.Types.FromJSON.FromJSON PostAccountsAccountRequestBodyIndividual'Dob'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostAccountsAccountRequestBodyIndividual'Dob'EmptyString
-        | GHC.Base.otherwise -> case (PostAccountsAccountRequestBodyIndividual'Dob'PostAccountsAccountRequestBodyIndividual'Dob'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostAccountsAccountRequestBodyIndividual'Dob'EmptyString
+      | GHC.Base.otherwise -> case (PostAccountsAccountRequestBodyIndividual'Dob'PostAccountsAccountRequestBodyIndividual'Dob'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -2414,8 +2414,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostAccountsAccountRequestBodyIndividual
 instance Data.Aeson.Types.FromJSON.FromJSON PostAccountsAccountRequestBodyIndividual'FullNameAliases'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostAccountsAccountRequestBodyIndividual'FullNameAliases'EmptyString
-        | GHC.Base.otherwise -> case (PostAccountsAccountRequestBodyIndividual'FullNameAliases'ListTText Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostAccountsAccountRequestBodyIndividual'FullNameAliases'EmptyString
+      | GHC.Base.otherwise -> case (PostAccountsAccountRequestBodyIndividual'FullNameAliases'ListTText Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -2433,8 +2433,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostAccountsAccountRequestBodyIndividual
 instance Data.Aeson.Types.FromJSON.FromJSON PostAccountsAccountRequestBodyIndividual'Metadata'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostAccountsAccountRequestBodyIndividual'Metadata'EmptyString
-        | GHC.Base.otherwise -> case (PostAccountsAccountRequestBodyIndividual'Metadata'Object Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostAccountsAccountRequestBodyIndividual'Metadata'EmptyString
+      | GHC.Base.otherwise -> case (PostAccountsAccountRequestBodyIndividual'Metadata'Object Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -2460,9 +2460,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostAccountsAccountRequestBodyIndivi
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "existing" -> PostAccountsAccountRequestBodyIndividual'PoliticalExposure'EnumExisting
-            | val GHC.Classes.== "none" -> PostAccountsAccountRequestBodyIndividual'PoliticalExposure'EnumNone
-            | GHC.Base.otherwise -> PostAccountsAccountRequestBodyIndividual'PoliticalExposure'Other val
+          | val GHC.Classes.== "existing" -> PostAccountsAccountRequestBodyIndividual'PoliticalExposure'EnumExisting
+          | val GHC.Classes.== "none" -> PostAccountsAccountRequestBodyIndividual'PoliticalExposure'EnumNone
+          | GHC.Base.otherwise -> PostAccountsAccountRequestBodyIndividual'PoliticalExposure'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/accounts\/{account}.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.individual.properties.registered_address@ in the specification.
@@ -2641,8 +2641,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostAccountsAccountRequestBodyMetadata'V
 instance Data.Aeson.Types.FromJSON.FromJSON PostAccountsAccountRequestBodyMetadata'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostAccountsAccountRequestBodyMetadata'EmptyString
-        | GHC.Base.otherwise -> case (PostAccountsAccountRequestBodyMetadata'Object Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostAccountsAccountRequestBodyMetadata'EmptyString
+      | GHC.Base.otherwise -> case (PostAccountsAccountRequestBodyMetadata'Object Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -2869,8 +2869,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostAccountsAccountRequestBodySettings'C
 instance Data.Aeson.Types.FromJSON.FromJSON PostAccountsAccountRequestBodySettings'CardPayments'StatementDescriptorPrefixKana'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostAccountsAccountRequestBodySettings'CardPayments'StatementDescriptorPrefixKana'EmptyString
-        | GHC.Base.otherwise -> case (PostAccountsAccountRequestBodySettings'CardPayments'StatementDescriptorPrefixKana'Text Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostAccountsAccountRequestBodySettings'CardPayments'StatementDescriptorPrefixKana'EmptyString
+      | GHC.Base.otherwise -> case (PostAccountsAccountRequestBodySettings'CardPayments'StatementDescriptorPrefixKana'Text Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -2888,8 +2888,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostAccountsAccountRequestBodySettings'C
 instance Data.Aeson.Types.FromJSON.FromJSON PostAccountsAccountRequestBodySettings'CardPayments'StatementDescriptorPrefixKanji'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostAccountsAccountRequestBodySettings'CardPayments'StatementDescriptorPrefixKanji'EmptyString
-        | GHC.Base.otherwise -> case (PostAccountsAccountRequestBodySettings'CardPayments'StatementDescriptorPrefixKanji'Text Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostAccountsAccountRequestBodySettings'CardPayments'StatementDescriptorPrefixKanji'EmptyString
+      | GHC.Base.otherwise -> case (PostAccountsAccountRequestBodySettings'CardPayments'StatementDescriptorPrefixKanji'Text Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -3024,8 +3024,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostAccountsAccountRequestBodySettings'P
 instance Data.Aeson.Types.FromJSON.FromJSON PostAccountsAccountRequestBodySettings'Payouts'Schedule'DelayDays'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "minimum" -> GHC.Base.pure PostAccountsAccountRequestBodySettings'Payouts'Schedule'DelayDays'Minimum
-        | GHC.Base.otherwise -> case (PostAccountsAccountRequestBodySettings'Payouts'Schedule'DelayDays'Int Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "minimum" -> GHC.Base.pure PostAccountsAccountRequestBodySettings'Payouts'Schedule'DelayDays'Minimum
+      | GHC.Base.otherwise -> case (PostAccountsAccountRequestBodySettings'Payouts'Schedule'DelayDays'Int Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -3057,11 +3057,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostAccountsAccountRequestBodySettin
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "daily" -> PostAccountsAccountRequestBodySettings'Payouts'Schedule'Interval'EnumDaily
-            | val GHC.Classes.== "manual" -> PostAccountsAccountRequestBodySettings'Payouts'Schedule'Interval'EnumManual
-            | val GHC.Classes.== "monthly" -> PostAccountsAccountRequestBodySettings'Payouts'Schedule'Interval'EnumMonthly
-            | val GHC.Classes.== "weekly" -> PostAccountsAccountRequestBodySettings'Payouts'Schedule'Interval'EnumWeekly
-            | GHC.Base.otherwise -> PostAccountsAccountRequestBodySettings'Payouts'Schedule'Interval'Other val
+          | val GHC.Classes.== "daily" -> PostAccountsAccountRequestBodySettings'Payouts'Schedule'Interval'EnumDaily
+          | val GHC.Classes.== "manual" -> PostAccountsAccountRequestBodySettings'Payouts'Schedule'Interval'EnumManual
+          | val GHC.Classes.== "monthly" -> PostAccountsAccountRequestBodySettings'Payouts'Schedule'Interval'EnumMonthly
+          | val GHC.Classes.== "weekly" -> PostAccountsAccountRequestBodySettings'Payouts'Schedule'Interval'EnumWeekly
+          | GHC.Base.otherwise -> PostAccountsAccountRequestBodySettings'Payouts'Schedule'Interval'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/accounts\/{account}.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.settings.properties.payouts.properties.schedule.properties.weekly_anchor@ in the specification.
@@ -3101,14 +3101,14 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostAccountsAccountRequestBodySettin
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "friday" -> PostAccountsAccountRequestBodySettings'Payouts'Schedule'WeeklyAnchor'EnumFriday
-            | val GHC.Classes.== "monday" -> PostAccountsAccountRequestBodySettings'Payouts'Schedule'WeeklyAnchor'EnumMonday
-            | val GHC.Classes.== "saturday" -> PostAccountsAccountRequestBodySettings'Payouts'Schedule'WeeklyAnchor'EnumSaturday
-            | val GHC.Classes.== "sunday" -> PostAccountsAccountRequestBodySettings'Payouts'Schedule'WeeklyAnchor'EnumSunday
-            | val GHC.Classes.== "thursday" -> PostAccountsAccountRequestBodySettings'Payouts'Schedule'WeeklyAnchor'EnumThursday
-            | val GHC.Classes.== "tuesday" -> PostAccountsAccountRequestBodySettings'Payouts'Schedule'WeeklyAnchor'EnumTuesday
-            | val GHC.Classes.== "wednesday" -> PostAccountsAccountRequestBodySettings'Payouts'Schedule'WeeklyAnchor'EnumWednesday
-            | GHC.Base.otherwise -> PostAccountsAccountRequestBodySettings'Payouts'Schedule'WeeklyAnchor'Other val
+          | val GHC.Classes.== "friday" -> PostAccountsAccountRequestBodySettings'Payouts'Schedule'WeeklyAnchor'EnumFriday
+          | val GHC.Classes.== "monday" -> PostAccountsAccountRequestBodySettings'Payouts'Schedule'WeeklyAnchor'EnumMonday
+          | val GHC.Classes.== "saturday" -> PostAccountsAccountRequestBodySettings'Payouts'Schedule'WeeklyAnchor'EnumSaturday
+          | val GHC.Classes.== "sunday" -> PostAccountsAccountRequestBodySettings'Payouts'Schedule'WeeklyAnchor'EnumSunday
+          | val GHC.Classes.== "thursday" -> PostAccountsAccountRequestBodySettings'Payouts'Schedule'WeeklyAnchor'EnumThursday
+          | val GHC.Classes.== "tuesday" -> PostAccountsAccountRequestBodySettings'Payouts'Schedule'WeeklyAnchor'EnumTuesday
+          | val GHC.Classes.== "wednesday" -> PostAccountsAccountRequestBodySettings'Payouts'Schedule'WeeklyAnchor'EnumWednesday
+          | GHC.Base.otherwise -> PostAccountsAccountRequestBodySettings'Payouts'Schedule'WeeklyAnchor'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/accounts\/{account}.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.settings.properties.treasury@ in the specification.

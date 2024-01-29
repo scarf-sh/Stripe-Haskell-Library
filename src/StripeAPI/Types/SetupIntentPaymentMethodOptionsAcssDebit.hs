@@ -87,9 +87,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON SetupIntentPaymentMethodOptionsAcssD
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "cad" -> SetupIntentPaymentMethodOptionsAcssDebitCurrency'NonNullableEnumCad
-            | val GHC.Classes.== "usd" -> SetupIntentPaymentMethodOptionsAcssDebitCurrency'NonNullableEnumUsd
-            | GHC.Base.otherwise -> SetupIntentPaymentMethodOptionsAcssDebitCurrency'NonNullableOther val
+          | val GHC.Classes.== "cad" -> SetupIntentPaymentMethodOptionsAcssDebitCurrency'NonNullableEnumCad
+          | val GHC.Classes.== "usd" -> SetupIntentPaymentMethodOptionsAcssDebitCurrency'NonNullableEnumUsd
+          | GHC.Base.otherwise -> SetupIntentPaymentMethodOptionsAcssDebitCurrency'NonNullableOther val
       )
 
 -- | Defines the enum schema located at @components.schemas.setup_intent_payment_method_options_acss_debit.properties.verification_method@ in the specification.
@@ -119,8 +119,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON SetupIntentPaymentMethodOptionsAcssD
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> SetupIntentPaymentMethodOptionsAcssDebitVerificationMethod'EnumAutomatic
-            | val GHC.Classes.== "instant" -> SetupIntentPaymentMethodOptionsAcssDebitVerificationMethod'EnumInstant
-            | val GHC.Classes.== "microdeposits" -> SetupIntentPaymentMethodOptionsAcssDebitVerificationMethod'EnumMicrodeposits
-            | GHC.Base.otherwise -> SetupIntentPaymentMethodOptionsAcssDebitVerificationMethod'Other val
+          | val GHC.Classes.== "automatic" -> SetupIntentPaymentMethodOptionsAcssDebitVerificationMethod'EnumAutomatic
+          | val GHC.Classes.== "instant" -> SetupIntentPaymentMethodOptionsAcssDebitVerificationMethod'EnumInstant
+          | val GHC.Classes.== "microdeposits" -> SetupIntentPaymentMethodOptionsAcssDebitVerificationMethod'EnumMicrodeposits
+          | GHC.Base.otherwise -> SetupIntentPaymentMethodOptionsAcssDebitVerificationMethod'Other val
       )

@@ -204,9 +204,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentLinkBillingAddressCollection'
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "auto" -> PaymentLinkBillingAddressCollection'EnumAuto
-            | val GHC.Classes.== "required" -> PaymentLinkBillingAddressCollection'EnumRequired
-            | GHC.Base.otherwise -> PaymentLinkBillingAddressCollection'Other val
+          | val GHC.Classes.== "auto" -> PaymentLinkBillingAddressCollection'EnumAuto
+          | val GHC.Classes.== "required" -> PaymentLinkBillingAddressCollection'EnumRequired
+          | GHC.Base.otherwise -> PaymentLinkBillingAddressCollection'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.payment_link.properties.consent_collection.anyOf@ in the specification.
@@ -253,8 +253,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentLinkConsentCollection'NonNull
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "auto" -> PaymentLinkConsentCollection'NonNullablePromotions'NonNullableEnumAuto
-            | GHC.Base.otherwise -> PaymentLinkConsentCollection'NonNullablePromotions'NonNullableOther val
+          | val GHC.Classes.== "auto" -> PaymentLinkConsentCollection'NonNullablePromotions'NonNullableEnumAuto
+          | GHC.Base.otherwise -> PaymentLinkConsentCollection'NonNullablePromotions'NonNullableOther val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_link.properties.customer_creation@ in the specification.
@@ -281,9 +281,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentLinkCustomerCreation' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "always" -> PaymentLinkCustomerCreation'EnumAlways
-            | val GHC.Classes.== "if_required" -> PaymentLinkCustomerCreation'EnumIfRequired
-            | GHC.Base.otherwise -> PaymentLinkCustomerCreation'Other val
+          | val GHC.Classes.== "always" -> PaymentLinkCustomerCreation'EnumAlways
+          | val GHC.Classes.== "if_required" -> PaymentLinkCustomerCreation'EnumIfRequired
+          | GHC.Base.otherwise -> PaymentLinkCustomerCreation'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.payment_link.properties.line_items@ in the specification.
@@ -399,9 +399,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentLinkPaymentIntentData'NonNull
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> PaymentLinkPaymentIntentData'NonNullableCaptureMethod'NonNullableEnumAutomatic
-            | val GHC.Classes.== "manual" -> PaymentLinkPaymentIntentData'NonNullableCaptureMethod'NonNullableEnumManual
-            | GHC.Base.otherwise -> PaymentLinkPaymentIntentData'NonNullableCaptureMethod'NonNullableOther val
+          | val GHC.Classes.== "automatic" -> PaymentLinkPaymentIntentData'NonNullableCaptureMethod'NonNullableEnumAutomatic
+          | val GHC.Classes.== "manual" -> PaymentLinkPaymentIntentData'NonNullableCaptureMethod'NonNullableEnumManual
+          | GHC.Base.otherwise -> PaymentLinkPaymentIntentData'NonNullableCaptureMethod'NonNullableOther val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_link.properties.payment_intent_data.anyOf.properties.setup_future_usage@ in the specification.
@@ -428,9 +428,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentLinkPaymentIntentData'NonNull
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "off_session" -> PaymentLinkPaymentIntentData'NonNullableSetupFutureUsage'NonNullableEnumOffSession
-            | val GHC.Classes.== "on_session" -> PaymentLinkPaymentIntentData'NonNullableSetupFutureUsage'NonNullableEnumOnSession
-            | GHC.Base.otherwise -> PaymentLinkPaymentIntentData'NonNullableSetupFutureUsage'NonNullableOther val
+          | val GHC.Classes.== "off_session" -> PaymentLinkPaymentIntentData'NonNullableSetupFutureUsage'NonNullableEnumOffSession
+          | val GHC.Classes.== "on_session" -> PaymentLinkPaymentIntentData'NonNullableSetupFutureUsage'NonNullableEnumOnSession
+          | GHC.Base.otherwise -> PaymentLinkPaymentIntentData'NonNullableSetupFutureUsage'NonNullableOther val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_link.properties.payment_method_types.items@ in the specification.
@@ -452,8 +452,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentLinkPaymentMethodTypes'NonNul
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "card" -> PaymentLinkPaymentMethodTypes'NonNullableEnumCard
-            | GHC.Base.otherwise -> PaymentLinkPaymentMethodTypes'NonNullableOther val
+          | val GHC.Classes.== "card" -> PaymentLinkPaymentMethodTypes'NonNullableEnumCard
+          | GHC.Base.otherwise -> PaymentLinkPaymentMethodTypes'NonNullableOther val
       )
 
 -- | Defines the object schema located at @components.schemas.payment_link.properties.shipping_address_collection.anyOf@ in the specification.
@@ -1206,244 +1206,244 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentLinkShippingAddressCollection
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "AC" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumAC
-            | val GHC.Classes.== "AD" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumAD
-            | val GHC.Classes.== "AE" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumAE
-            | val GHC.Classes.== "AF" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumAF
-            | val GHC.Classes.== "AG" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumAG
-            | val GHC.Classes.== "AI" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumAI
-            | val GHC.Classes.== "AL" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumAL
-            | val GHC.Classes.== "AM" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumAM
-            | val GHC.Classes.== "AO" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumAO
-            | val GHC.Classes.== "AQ" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumAQ
-            | val GHC.Classes.== "AR" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumAR
-            | val GHC.Classes.== "AT" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumAT
-            | val GHC.Classes.== "AU" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumAU
-            | val GHC.Classes.== "AW" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumAW
-            | val GHC.Classes.== "AX" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumAX
-            | val GHC.Classes.== "AZ" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumAZ
-            | val GHC.Classes.== "BA" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumBA
-            | val GHC.Classes.== "BB" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumBB
-            | val GHC.Classes.== "BD" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumBD
-            | val GHC.Classes.== "BE" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumBE
-            | val GHC.Classes.== "BF" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumBF
-            | val GHC.Classes.== "BG" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumBG
-            | val GHC.Classes.== "BH" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumBH
-            | val GHC.Classes.== "BI" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumBI
-            | val GHC.Classes.== "BJ" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumBJ
-            | val GHC.Classes.== "BL" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumBL
-            | val GHC.Classes.== "BM" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumBM
-            | val GHC.Classes.== "BN" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumBN
-            | val GHC.Classes.== "BO" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumBO
-            | val GHC.Classes.== "BQ" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumBQ
-            | val GHC.Classes.== "BR" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumBR
-            | val GHC.Classes.== "BS" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumBS
-            | val GHC.Classes.== "BT" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumBT
-            | val GHC.Classes.== "BV" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumBV
-            | val GHC.Classes.== "BW" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumBW
-            | val GHC.Classes.== "BY" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumBY
-            | val GHC.Classes.== "BZ" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumBZ
-            | val GHC.Classes.== "CA" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumCA
-            | val GHC.Classes.== "CD" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumCD
-            | val GHC.Classes.== "CF" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumCF
-            | val GHC.Classes.== "CG" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumCG
-            | val GHC.Classes.== "CH" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumCH
-            | val GHC.Classes.== "CI" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumCI
-            | val GHC.Classes.== "CK" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumCK
-            | val GHC.Classes.== "CL" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumCL
-            | val GHC.Classes.== "CM" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumCM
-            | val GHC.Classes.== "CN" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumCN
-            | val GHC.Classes.== "CO" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumCO
-            | val GHC.Classes.== "CR" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumCR
-            | val GHC.Classes.== "CV" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumCV
-            | val GHC.Classes.== "CW" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumCW
-            | val GHC.Classes.== "CY" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumCY
-            | val GHC.Classes.== "CZ" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumCZ
-            | val GHC.Classes.== "DE" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumDE
-            | val GHC.Classes.== "DJ" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumDJ
-            | val GHC.Classes.== "DK" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumDK
-            | val GHC.Classes.== "DM" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumDM
-            | val GHC.Classes.== "DO" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumDO
-            | val GHC.Classes.== "DZ" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumDZ
-            | val GHC.Classes.== "EC" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumEC
-            | val GHC.Classes.== "EE" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumEE
-            | val GHC.Classes.== "EG" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumEG
-            | val GHC.Classes.== "EH" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumEH
-            | val GHC.Classes.== "ER" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumER
-            | val GHC.Classes.== "ES" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumES
-            | val GHC.Classes.== "ET" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumET
-            | val GHC.Classes.== "FI" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumFI
-            | val GHC.Classes.== "FJ" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumFJ
-            | val GHC.Classes.== "FK" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumFK
-            | val GHC.Classes.== "FO" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumFO
-            | val GHC.Classes.== "FR" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumFR
-            | val GHC.Classes.== "GA" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumGA
-            | val GHC.Classes.== "GB" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumGB
-            | val GHC.Classes.== "GD" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumGD
-            | val GHC.Classes.== "GE" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumGE
-            | val GHC.Classes.== "GF" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumGF
-            | val GHC.Classes.== "GG" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumGG
-            | val GHC.Classes.== "GH" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumGH
-            | val GHC.Classes.== "GI" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumGI
-            | val GHC.Classes.== "GL" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumGL
-            | val GHC.Classes.== "GM" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumGM
-            | val GHC.Classes.== "GN" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumGN
-            | val GHC.Classes.== "GP" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumGP
-            | val GHC.Classes.== "GQ" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumGQ
-            | val GHC.Classes.== "GR" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumGR
-            | val GHC.Classes.== "GS" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumGS
-            | val GHC.Classes.== "GT" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumGT
-            | val GHC.Classes.== "GU" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumGU
-            | val GHC.Classes.== "GW" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumGW
-            | val GHC.Classes.== "GY" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumGY
-            | val GHC.Classes.== "HK" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumHK
-            | val GHC.Classes.== "HN" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumHN
-            | val GHC.Classes.== "HR" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumHR
-            | val GHC.Classes.== "HT" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumHT
-            | val GHC.Classes.== "HU" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumHU
-            | val GHC.Classes.== "ID" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumID
-            | val GHC.Classes.== "IE" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumIE
-            | val GHC.Classes.== "IL" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumIL
-            | val GHC.Classes.== "IM" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumIM
-            | val GHC.Classes.== "IN" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumIN
-            | val GHC.Classes.== "IO" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumIO
-            | val GHC.Classes.== "IQ" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumIQ
-            | val GHC.Classes.== "IS" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumIS
-            | val GHC.Classes.== "IT" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumIT
-            | val GHC.Classes.== "JE" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumJE
-            | val GHC.Classes.== "JM" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumJM
-            | val GHC.Classes.== "JO" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumJO
-            | val GHC.Classes.== "JP" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumJP
-            | val GHC.Classes.== "KE" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumKE
-            | val GHC.Classes.== "KG" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumKG
-            | val GHC.Classes.== "KH" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumKH
-            | val GHC.Classes.== "KI" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumKI
-            | val GHC.Classes.== "KM" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumKM
-            | val GHC.Classes.== "KN" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumKN
-            | val GHC.Classes.== "KR" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumKR
-            | val GHC.Classes.== "KW" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumKW
-            | val GHC.Classes.== "KY" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumKY
-            | val GHC.Classes.== "KZ" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumKZ
-            | val GHC.Classes.== "LA" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumLA
-            | val GHC.Classes.== "LB" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumLB
-            | val GHC.Classes.== "LC" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumLC
-            | val GHC.Classes.== "LI" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumLI
-            | val GHC.Classes.== "LK" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumLK
-            | val GHC.Classes.== "LR" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumLR
-            | val GHC.Classes.== "LS" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumLS
-            | val GHC.Classes.== "LT" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumLT
-            | val GHC.Classes.== "LU" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumLU
-            | val GHC.Classes.== "LV" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumLV
-            | val GHC.Classes.== "LY" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumLY
-            | val GHC.Classes.== "MA" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumMA
-            | val GHC.Classes.== "MC" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumMC
-            | val GHC.Classes.== "MD" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumMD
-            | val GHC.Classes.== "ME" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumME
-            | val GHC.Classes.== "MF" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumMF
-            | val GHC.Classes.== "MG" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumMG
-            | val GHC.Classes.== "MK" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumMK
-            | val GHC.Classes.== "ML" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumML
-            | val GHC.Classes.== "MM" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumMM
-            | val GHC.Classes.== "MN" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumMN
-            | val GHC.Classes.== "MO" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumMO
-            | val GHC.Classes.== "MQ" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumMQ
-            | val GHC.Classes.== "MR" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumMR
-            | val GHC.Classes.== "MS" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumMS
-            | val GHC.Classes.== "MT" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumMT
-            | val GHC.Classes.== "MU" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumMU
-            | val GHC.Classes.== "MV" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumMV
-            | val GHC.Classes.== "MW" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumMW
-            | val GHC.Classes.== "MX" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumMX
-            | val GHC.Classes.== "MY" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumMY
-            | val GHC.Classes.== "MZ" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumMZ
-            | val GHC.Classes.== "NA" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumNA
-            | val GHC.Classes.== "NC" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumNC
-            | val GHC.Classes.== "NE" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumNE
-            | val GHC.Classes.== "NG" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumNG
-            | val GHC.Classes.== "NI" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumNI
-            | val GHC.Classes.== "NL" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumNL
-            | val GHC.Classes.== "NO" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumNO
-            | val GHC.Classes.== "NP" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumNP
-            | val GHC.Classes.== "NR" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumNR
-            | val GHC.Classes.== "NU" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumNU
-            | val GHC.Classes.== "NZ" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumNZ
-            | val GHC.Classes.== "OM" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumOM
-            | val GHC.Classes.== "PA" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumPA
-            | val GHC.Classes.== "PE" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumPE
-            | val GHC.Classes.== "PF" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumPF
-            | val GHC.Classes.== "PG" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumPG
-            | val GHC.Classes.== "PH" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumPH
-            | val GHC.Classes.== "PK" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumPK
-            | val GHC.Classes.== "PL" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumPL
-            | val GHC.Classes.== "PM" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumPM
-            | val GHC.Classes.== "PN" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumPN
-            | val GHC.Classes.== "PR" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumPR
-            | val GHC.Classes.== "PS" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumPS
-            | val GHC.Classes.== "PT" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumPT
-            | val GHC.Classes.== "PY" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumPY
-            | val GHC.Classes.== "QA" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumQA
-            | val GHC.Classes.== "RE" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumRE
-            | val GHC.Classes.== "RO" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumRO
-            | val GHC.Classes.== "RS" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumRS
-            | val GHC.Classes.== "RU" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumRU
-            | val GHC.Classes.== "RW" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumRW
-            | val GHC.Classes.== "SA" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumSA
-            | val GHC.Classes.== "SB" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumSB
-            | val GHC.Classes.== "SC" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumSC
-            | val GHC.Classes.== "SE" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumSE
-            | val GHC.Classes.== "SG" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumSG
-            | val GHC.Classes.== "SH" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumSH
-            | val GHC.Classes.== "SI" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumSI
-            | val GHC.Classes.== "SJ" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumSJ
-            | val GHC.Classes.== "SK" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumSK
-            | val GHC.Classes.== "SL" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumSL
-            | val GHC.Classes.== "SM" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumSM
-            | val GHC.Classes.== "SN" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumSN
-            | val GHC.Classes.== "SO" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumSO
-            | val GHC.Classes.== "SR" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumSR
-            | val GHC.Classes.== "SS" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumSS
-            | val GHC.Classes.== "ST" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumST
-            | val GHC.Classes.== "SV" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumSV
-            | val GHC.Classes.== "SX" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumSX
-            | val GHC.Classes.== "SZ" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumSZ
-            | val GHC.Classes.== "TA" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumTA
-            | val GHC.Classes.== "TC" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumTC
-            | val GHC.Classes.== "TD" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumTD
-            | val GHC.Classes.== "TF" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumTF
-            | val GHC.Classes.== "TG" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumTG
-            | val GHC.Classes.== "TH" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumTH
-            | val GHC.Classes.== "TJ" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumTJ
-            | val GHC.Classes.== "TK" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumTK
-            | val GHC.Classes.== "TL" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumTL
-            | val GHC.Classes.== "TM" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumTM
-            | val GHC.Classes.== "TN" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumTN
-            | val GHC.Classes.== "TO" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumTO
-            | val GHC.Classes.== "TR" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumTR
-            | val GHC.Classes.== "TT" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumTT
-            | val GHC.Classes.== "TV" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumTV
-            | val GHC.Classes.== "TW" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumTW
-            | val GHC.Classes.== "TZ" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumTZ
-            | val GHC.Classes.== "UA" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumUA
-            | val GHC.Classes.== "UG" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumUG
-            | val GHC.Classes.== "US" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumUS
-            | val GHC.Classes.== "UY" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumUY
-            | val GHC.Classes.== "UZ" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumUZ
-            | val GHC.Classes.== "VA" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumVA
-            | val GHC.Classes.== "VC" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumVC
-            | val GHC.Classes.== "VE" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumVE
-            | val GHC.Classes.== "VG" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumVG
-            | val GHC.Classes.== "VN" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumVN
-            | val GHC.Classes.== "VU" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumVU
-            | val GHC.Classes.== "WF" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumWF
-            | val GHC.Classes.== "WS" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumWS
-            | val GHC.Classes.== "XK" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumXK
-            | val GHC.Classes.== "YE" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumYE
-            | val GHC.Classes.== "YT" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumYT
-            | val GHC.Classes.== "ZA" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumZA
-            | val GHC.Classes.== "ZM" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumZM
-            | val GHC.Classes.== "ZW" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumZW
-            | val GHC.Classes.== "ZZ" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumZZ
-            | GHC.Base.otherwise -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'Other val
+          | val GHC.Classes.== "AC" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumAC
+          | val GHC.Classes.== "AD" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumAD
+          | val GHC.Classes.== "AE" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumAE
+          | val GHC.Classes.== "AF" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumAF
+          | val GHC.Classes.== "AG" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumAG
+          | val GHC.Classes.== "AI" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumAI
+          | val GHC.Classes.== "AL" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumAL
+          | val GHC.Classes.== "AM" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumAM
+          | val GHC.Classes.== "AO" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumAO
+          | val GHC.Classes.== "AQ" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumAQ
+          | val GHC.Classes.== "AR" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumAR
+          | val GHC.Classes.== "AT" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumAT
+          | val GHC.Classes.== "AU" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumAU
+          | val GHC.Classes.== "AW" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumAW
+          | val GHC.Classes.== "AX" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumAX
+          | val GHC.Classes.== "AZ" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumAZ
+          | val GHC.Classes.== "BA" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumBA
+          | val GHC.Classes.== "BB" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumBB
+          | val GHC.Classes.== "BD" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumBD
+          | val GHC.Classes.== "BE" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumBE
+          | val GHC.Classes.== "BF" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumBF
+          | val GHC.Classes.== "BG" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumBG
+          | val GHC.Classes.== "BH" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumBH
+          | val GHC.Classes.== "BI" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumBI
+          | val GHC.Classes.== "BJ" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumBJ
+          | val GHC.Classes.== "BL" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumBL
+          | val GHC.Classes.== "BM" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumBM
+          | val GHC.Classes.== "BN" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumBN
+          | val GHC.Classes.== "BO" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumBO
+          | val GHC.Classes.== "BQ" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumBQ
+          | val GHC.Classes.== "BR" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumBR
+          | val GHC.Classes.== "BS" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumBS
+          | val GHC.Classes.== "BT" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumBT
+          | val GHC.Classes.== "BV" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumBV
+          | val GHC.Classes.== "BW" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumBW
+          | val GHC.Classes.== "BY" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumBY
+          | val GHC.Classes.== "BZ" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumBZ
+          | val GHC.Classes.== "CA" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumCA
+          | val GHC.Classes.== "CD" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumCD
+          | val GHC.Classes.== "CF" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumCF
+          | val GHC.Classes.== "CG" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumCG
+          | val GHC.Classes.== "CH" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumCH
+          | val GHC.Classes.== "CI" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumCI
+          | val GHC.Classes.== "CK" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumCK
+          | val GHC.Classes.== "CL" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumCL
+          | val GHC.Classes.== "CM" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumCM
+          | val GHC.Classes.== "CN" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumCN
+          | val GHC.Classes.== "CO" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumCO
+          | val GHC.Classes.== "CR" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumCR
+          | val GHC.Classes.== "CV" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumCV
+          | val GHC.Classes.== "CW" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumCW
+          | val GHC.Classes.== "CY" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumCY
+          | val GHC.Classes.== "CZ" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumCZ
+          | val GHC.Classes.== "DE" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumDE
+          | val GHC.Classes.== "DJ" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumDJ
+          | val GHC.Classes.== "DK" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumDK
+          | val GHC.Classes.== "DM" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumDM
+          | val GHC.Classes.== "DO" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumDO
+          | val GHC.Classes.== "DZ" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumDZ
+          | val GHC.Classes.== "EC" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumEC
+          | val GHC.Classes.== "EE" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumEE
+          | val GHC.Classes.== "EG" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumEG
+          | val GHC.Classes.== "EH" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumEH
+          | val GHC.Classes.== "ER" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumER
+          | val GHC.Classes.== "ES" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumES
+          | val GHC.Classes.== "ET" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumET
+          | val GHC.Classes.== "FI" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumFI
+          | val GHC.Classes.== "FJ" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumFJ
+          | val GHC.Classes.== "FK" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumFK
+          | val GHC.Classes.== "FO" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumFO
+          | val GHC.Classes.== "FR" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumFR
+          | val GHC.Classes.== "GA" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumGA
+          | val GHC.Classes.== "GB" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumGB
+          | val GHC.Classes.== "GD" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumGD
+          | val GHC.Classes.== "GE" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumGE
+          | val GHC.Classes.== "GF" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumGF
+          | val GHC.Classes.== "GG" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumGG
+          | val GHC.Classes.== "GH" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumGH
+          | val GHC.Classes.== "GI" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumGI
+          | val GHC.Classes.== "GL" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumGL
+          | val GHC.Classes.== "GM" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumGM
+          | val GHC.Classes.== "GN" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumGN
+          | val GHC.Classes.== "GP" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumGP
+          | val GHC.Classes.== "GQ" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumGQ
+          | val GHC.Classes.== "GR" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumGR
+          | val GHC.Classes.== "GS" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumGS
+          | val GHC.Classes.== "GT" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumGT
+          | val GHC.Classes.== "GU" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumGU
+          | val GHC.Classes.== "GW" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumGW
+          | val GHC.Classes.== "GY" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumGY
+          | val GHC.Classes.== "HK" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumHK
+          | val GHC.Classes.== "HN" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumHN
+          | val GHC.Classes.== "HR" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumHR
+          | val GHC.Classes.== "HT" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumHT
+          | val GHC.Classes.== "HU" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumHU
+          | val GHC.Classes.== "ID" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumID
+          | val GHC.Classes.== "IE" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumIE
+          | val GHC.Classes.== "IL" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumIL
+          | val GHC.Classes.== "IM" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumIM
+          | val GHC.Classes.== "IN" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumIN
+          | val GHC.Classes.== "IO" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumIO
+          | val GHC.Classes.== "IQ" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumIQ
+          | val GHC.Classes.== "IS" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumIS
+          | val GHC.Classes.== "IT" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumIT
+          | val GHC.Classes.== "JE" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumJE
+          | val GHC.Classes.== "JM" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumJM
+          | val GHC.Classes.== "JO" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumJO
+          | val GHC.Classes.== "JP" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumJP
+          | val GHC.Classes.== "KE" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumKE
+          | val GHC.Classes.== "KG" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumKG
+          | val GHC.Classes.== "KH" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumKH
+          | val GHC.Classes.== "KI" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumKI
+          | val GHC.Classes.== "KM" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumKM
+          | val GHC.Classes.== "KN" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumKN
+          | val GHC.Classes.== "KR" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumKR
+          | val GHC.Classes.== "KW" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumKW
+          | val GHC.Classes.== "KY" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumKY
+          | val GHC.Classes.== "KZ" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumKZ
+          | val GHC.Classes.== "LA" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumLA
+          | val GHC.Classes.== "LB" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumLB
+          | val GHC.Classes.== "LC" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumLC
+          | val GHC.Classes.== "LI" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumLI
+          | val GHC.Classes.== "LK" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumLK
+          | val GHC.Classes.== "LR" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumLR
+          | val GHC.Classes.== "LS" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumLS
+          | val GHC.Classes.== "LT" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumLT
+          | val GHC.Classes.== "LU" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumLU
+          | val GHC.Classes.== "LV" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumLV
+          | val GHC.Classes.== "LY" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumLY
+          | val GHC.Classes.== "MA" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumMA
+          | val GHC.Classes.== "MC" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumMC
+          | val GHC.Classes.== "MD" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumMD
+          | val GHC.Classes.== "ME" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumME
+          | val GHC.Classes.== "MF" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumMF
+          | val GHC.Classes.== "MG" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumMG
+          | val GHC.Classes.== "MK" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumMK
+          | val GHC.Classes.== "ML" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumML
+          | val GHC.Classes.== "MM" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumMM
+          | val GHC.Classes.== "MN" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumMN
+          | val GHC.Classes.== "MO" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumMO
+          | val GHC.Classes.== "MQ" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumMQ
+          | val GHC.Classes.== "MR" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumMR
+          | val GHC.Classes.== "MS" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumMS
+          | val GHC.Classes.== "MT" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumMT
+          | val GHC.Classes.== "MU" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumMU
+          | val GHC.Classes.== "MV" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumMV
+          | val GHC.Classes.== "MW" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumMW
+          | val GHC.Classes.== "MX" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumMX
+          | val GHC.Classes.== "MY" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumMY
+          | val GHC.Classes.== "MZ" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumMZ
+          | val GHC.Classes.== "NA" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumNA
+          | val GHC.Classes.== "NC" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumNC
+          | val GHC.Classes.== "NE" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumNE
+          | val GHC.Classes.== "NG" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumNG
+          | val GHC.Classes.== "NI" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumNI
+          | val GHC.Classes.== "NL" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumNL
+          | val GHC.Classes.== "NO" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumNO
+          | val GHC.Classes.== "NP" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumNP
+          | val GHC.Classes.== "NR" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumNR
+          | val GHC.Classes.== "NU" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumNU
+          | val GHC.Classes.== "NZ" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumNZ
+          | val GHC.Classes.== "OM" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumOM
+          | val GHC.Classes.== "PA" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumPA
+          | val GHC.Classes.== "PE" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumPE
+          | val GHC.Classes.== "PF" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumPF
+          | val GHC.Classes.== "PG" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumPG
+          | val GHC.Classes.== "PH" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumPH
+          | val GHC.Classes.== "PK" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumPK
+          | val GHC.Classes.== "PL" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumPL
+          | val GHC.Classes.== "PM" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumPM
+          | val GHC.Classes.== "PN" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumPN
+          | val GHC.Classes.== "PR" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumPR
+          | val GHC.Classes.== "PS" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumPS
+          | val GHC.Classes.== "PT" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumPT
+          | val GHC.Classes.== "PY" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumPY
+          | val GHC.Classes.== "QA" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumQA
+          | val GHC.Classes.== "RE" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumRE
+          | val GHC.Classes.== "RO" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumRO
+          | val GHC.Classes.== "RS" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumRS
+          | val GHC.Classes.== "RU" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumRU
+          | val GHC.Classes.== "RW" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumRW
+          | val GHC.Classes.== "SA" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumSA
+          | val GHC.Classes.== "SB" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumSB
+          | val GHC.Classes.== "SC" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumSC
+          | val GHC.Classes.== "SE" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumSE
+          | val GHC.Classes.== "SG" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumSG
+          | val GHC.Classes.== "SH" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumSH
+          | val GHC.Classes.== "SI" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumSI
+          | val GHC.Classes.== "SJ" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumSJ
+          | val GHC.Classes.== "SK" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumSK
+          | val GHC.Classes.== "SL" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumSL
+          | val GHC.Classes.== "SM" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumSM
+          | val GHC.Classes.== "SN" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumSN
+          | val GHC.Classes.== "SO" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumSO
+          | val GHC.Classes.== "SR" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumSR
+          | val GHC.Classes.== "SS" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumSS
+          | val GHC.Classes.== "ST" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumST
+          | val GHC.Classes.== "SV" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumSV
+          | val GHC.Classes.== "SX" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumSX
+          | val GHC.Classes.== "SZ" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumSZ
+          | val GHC.Classes.== "TA" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumTA
+          | val GHC.Classes.== "TC" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumTC
+          | val GHC.Classes.== "TD" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumTD
+          | val GHC.Classes.== "TF" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumTF
+          | val GHC.Classes.== "TG" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumTG
+          | val GHC.Classes.== "TH" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumTH
+          | val GHC.Classes.== "TJ" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumTJ
+          | val GHC.Classes.== "TK" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumTK
+          | val GHC.Classes.== "TL" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumTL
+          | val GHC.Classes.== "TM" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumTM
+          | val GHC.Classes.== "TN" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumTN
+          | val GHC.Classes.== "TO" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumTO
+          | val GHC.Classes.== "TR" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumTR
+          | val GHC.Classes.== "TT" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumTT
+          | val GHC.Classes.== "TV" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumTV
+          | val GHC.Classes.== "TW" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumTW
+          | val GHC.Classes.== "TZ" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumTZ
+          | val GHC.Classes.== "UA" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumUA
+          | val GHC.Classes.== "UG" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumUG
+          | val GHC.Classes.== "US" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumUS
+          | val GHC.Classes.== "UY" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumUY
+          | val GHC.Classes.== "UZ" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumUZ
+          | val GHC.Classes.== "VA" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumVA
+          | val GHC.Classes.== "VC" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumVC
+          | val GHC.Classes.== "VE" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumVE
+          | val GHC.Classes.== "VG" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumVG
+          | val GHC.Classes.== "VN" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumVN
+          | val GHC.Classes.== "VU" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumVU
+          | val GHC.Classes.== "WF" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumWF
+          | val GHC.Classes.== "WS" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumWS
+          | val GHC.Classes.== "XK" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumXK
+          | val GHC.Classes.== "YE" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumYE
+          | val GHC.Classes.== "YT" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumYT
+          | val GHC.Classes.== "ZA" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumZA
+          | val GHC.Classes.== "ZM" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumZM
+          | val GHC.Classes.== "ZW" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumZW
+          | val GHC.Classes.== "ZZ" -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'EnumZZ
+          | GHC.Base.otherwise -> PaymentLinkShippingAddressCollection'NonNullableAllowedCountries'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_link.properties.submit_type@ in the specification.
@@ -1476,11 +1476,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentLinkSubmitType' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "auto" -> PaymentLinkSubmitType'EnumAuto
-            | val GHC.Classes.== "book" -> PaymentLinkSubmitType'EnumBook
-            | val GHC.Classes.== "donate" -> PaymentLinkSubmitType'EnumDonate
-            | val GHC.Classes.== "pay" -> PaymentLinkSubmitType'EnumPay
-            | GHC.Base.otherwise -> PaymentLinkSubmitType'Other val
+          | val GHC.Classes.== "auto" -> PaymentLinkSubmitType'EnumAuto
+          | val GHC.Classes.== "book" -> PaymentLinkSubmitType'EnumBook
+          | val GHC.Classes.== "donate" -> PaymentLinkSubmitType'EnumDonate
+          | val GHC.Classes.== "pay" -> PaymentLinkSubmitType'EnumPay
+          | GHC.Base.otherwise -> PaymentLinkSubmitType'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.payment_link.properties.subscription_data.anyOf@ in the specification.

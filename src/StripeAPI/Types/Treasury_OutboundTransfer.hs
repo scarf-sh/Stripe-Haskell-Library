@@ -247,17 +247,17 @@ instance Data.Aeson.Types.FromJSON.FromJSON Treasury'outboundTransferReturnedDet
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "account_closed" -> Treasury'outboundTransferReturnedDetails'NonNullableCode'EnumAccountClosed
-            | val GHC.Classes.== "account_frozen" -> Treasury'outboundTransferReturnedDetails'NonNullableCode'EnumAccountFrozen
-            | val GHC.Classes.== "bank_account_restricted" -> Treasury'outboundTransferReturnedDetails'NonNullableCode'EnumBankAccountRestricted
-            | val GHC.Classes.== "bank_ownership_changed" -> Treasury'outboundTransferReturnedDetails'NonNullableCode'EnumBankOwnershipChanged
-            | val GHC.Classes.== "declined" -> Treasury'outboundTransferReturnedDetails'NonNullableCode'EnumDeclined
-            | val GHC.Classes.== "incorrect_account_holder_name" -> Treasury'outboundTransferReturnedDetails'NonNullableCode'EnumIncorrectAccountHolderName
-            | val GHC.Classes.== "invalid_account_number" -> Treasury'outboundTransferReturnedDetails'NonNullableCode'EnumInvalidAccountNumber
-            | val GHC.Classes.== "invalid_currency" -> Treasury'outboundTransferReturnedDetails'NonNullableCode'EnumInvalidCurrency
-            | val GHC.Classes.== "no_account" -> Treasury'outboundTransferReturnedDetails'NonNullableCode'EnumNoAccount
-            | val GHC.Classes.== "other" -> Treasury'outboundTransferReturnedDetails'NonNullableCode'EnumOther
-            | GHC.Base.otherwise -> Treasury'outboundTransferReturnedDetails'NonNullableCode'Other val
+          | val GHC.Classes.== "account_closed" -> Treasury'outboundTransferReturnedDetails'NonNullableCode'EnumAccountClosed
+          | val GHC.Classes.== "account_frozen" -> Treasury'outboundTransferReturnedDetails'NonNullableCode'EnumAccountFrozen
+          | val GHC.Classes.== "bank_account_restricted" -> Treasury'outboundTransferReturnedDetails'NonNullableCode'EnumBankAccountRestricted
+          | val GHC.Classes.== "bank_ownership_changed" -> Treasury'outboundTransferReturnedDetails'NonNullableCode'EnumBankOwnershipChanged
+          | val GHC.Classes.== "declined" -> Treasury'outboundTransferReturnedDetails'NonNullableCode'EnumDeclined
+          | val GHC.Classes.== "incorrect_account_holder_name" -> Treasury'outboundTransferReturnedDetails'NonNullableCode'EnumIncorrectAccountHolderName
+          | val GHC.Classes.== "invalid_account_number" -> Treasury'outboundTransferReturnedDetails'NonNullableCode'EnumInvalidAccountNumber
+          | val GHC.Classes.== "invalid_currency" -> Treasury'outboundTransferReturnedDetails'NonNullableCode'EnumInvalidCurrency
+          | val GHC.Classes.== "no_account" -> Treasury'outboundTransferReturnedDetails'NonNullableCode'EnumNoAccount
+          | val GHC.Classes.== "other" -> Treasury'outboundTransferReturnedDetails'NonNullableCode'EnumOther
+          | GHC.Base.otherwise -> Treasury'outboundTransferReturnedDetails'NonNullableCode'Other val
       )
 
 -- | Defines the oneOf schema located at @components.schemas.treasury.outbound_transfer.properties.returned_details.anyOf.properties.transaction.anyOf@ in the specification.
@@ -310,12 +310,12 @@ instance Data.Aeson.Types.FromJSON.FromJSON Treasury'outboundTransferStatus' whe
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "canceled" -> Treasury'outboundTransferStatus'EnumCanceled
-            | val GHC.Classes.== "failed" -> Treasury'outboundTransferStatus'EnumFailed
-            | val GHC.Classes.== "posted" -> Treasury'outboundTransferStatus'EnumPosted
-            | val GHC.Classes.== "processing" -> Treasury'outboundTransferStatus'EnumProcessing
-            | val GHC.Classes.== "returned" -> Treasury'outboundTransferStatus'EnumReturned
-            | GHC.Base.otherwise -> Treasury'outboundTransferStatus'Other val
+          | val GHC.Classes.== "canceled" -> Treasury'outboundTransferStatus'EnumCanceled
+          | val GHC.Classes.== "failed" -> Treasury'outboundTransferStatus'EnumFailed
+          | val GHC.Classes.== "posted" -> Treasury'outboundTransferStatus'EnumPosted
+          | val GHC.Classes.== "processing" -> Treasury'outboundTransferStatus'EnumProcessing
+          | val GHC.Classes.== "returned" -> Treasury'outboundTransferStatus'EnumReturned
+          | GHC.Base.otherwise -> Treasury'outboundTransferStatus'Other val
       )
 
 -- | Defines the oneOf schema located at @components.schemas.treasury.outbound_transfer.properties.transaction.anyOf@ in the specification.

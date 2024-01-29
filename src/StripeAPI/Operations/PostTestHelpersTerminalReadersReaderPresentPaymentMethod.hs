@@ -48,7 +48,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>Presents a payment method on a simulated reader. Can be used to simulate accepting a payment, saving a card or refunding a transaction.\<\/p>
 postTestHelpersTerminalReadersReaderPresentPaymentMethod ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | reader | Constraints: Maximum length of 5000
   Data.Text.Internal.Text ->
   -- | The request body to send
@@ -64,21 +64,21 @@ postTestHelpersTerminalReadersReaderPresentPaymentMethod
             ( Data.Either.either PostTestHelpersTerminalReadersReaderPresentPaymentMethodResponseError GHC.Base.id
                 GHC.Base.. ( \response body ->
                                if
-                                   | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                      PostTestHelpersTerminalReadersReaderPresentPaymentMethodResponse200
                                        Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                             Data.Either.Either
                                                               GHC.Base.String
                                                               Terminal'reader
                                                         )
-                                   | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                      PostTestHelpersTerminalReadersReaderPresentPaymentMethodResponseDefault
                                        Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                             Data.Either.Either
                                                               GHC.Base.String
                                                               Error
                                                         )
-                                   | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                            )
                   response_0
             )
@@ -164,8 +164,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostTestHelpersTerminalReadersReader
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "card_present" -> PostTestHelpersTerminalReadersReaderPresentPaymentMethodRequestBodyType'EnumCardPresent
-            | GHC.Base.otherwise -> PostTestHelpersTerminalReadersReaderPresentPaymentMethodRequestBodyType'Other val
+          | val GHC.Classes.== "card_present" -> PostTestHelpersTerminalReadersReaderPresentPaymentMethodRequestBodyType'EnumCardPresent
+          | GHC.Base.otherwise -> PostTestHelpersTerminalReadersReaderPresentPaymentMethodRequestBodyType'Other val
       )
 
 -- | Represents a response of the operation 'postTestHelpersTerminalReadersReaderPresentPaymentMethod'.

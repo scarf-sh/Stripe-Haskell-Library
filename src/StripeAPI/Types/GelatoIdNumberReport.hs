@@ -185,10 +185,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON GelatoIdNumberReportError'NonNullabl
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "id_number_insufficient_document_data" -> GelatoIdNumberReportError'NonNullableCode'NonNullableEnumIdNumberInsufficientDocumentData
-            | val GHC.Classes.== "id_number_mismatch" -> GelatoIdNumberReportError'NonNullableCode'NonNullableEnumIdNumberMismatch
-            | val GHC.Classes.== "id_number_unverified_other" -> GelatoIdNumberReportError'NonNullableCode'NonNullableEnumIdNumberUnverifiedOther
-            | GHC.Base.otherwise -> GelatoIdNumberReportError'NonNullableCode'NonNullableOther val
+          | val GHC.Classes.== "id_number_insufficient_document_data" -> GelatoIdNumberReportError'NonNullableCode'NonNullableEnumIdNumberInsufficientDocumentData
+          | val GHC.Classes.== "id_number_mismatch" -> GelatoIdNumberReportError'NonNullableCode'NonNullableEnumIdNumberMismatch
+          | val GHC.Classes.== "id_number_unverified_other" -> GelatoIdNumberReportError'NonNullableCode'NonNullableEnumIdNumberUnverifiedOther
+          | GHC.Base.otherwise -> GelatoIdNumberReportError'NonNullableCode'NonNullableOther val
       )
 
 -- | Defines the enum schema located at @components.schemas.gelato_id_number_report.properties.id_number_type@ in the specification.
@@ -218,10 +218,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON GelatoIdNumberReportIdNumberType'Non
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "br_cpf" -> GelatoIdNumberReportIdNumberType'NonNullableEnumBrCpf
-            | val GHC.Classes.== "sg_nric" -> GelatoIdNumberReportIdNumberType'NonNullableEnumSgNric
-            | val GHC.Classes.== "us_ssn" -> GelatoIdNumberReportIdNumberType'NonNullableEnumUsSsn
-            | GHC.Base.otherwise -> GelatoIdNumberReportIdNumberType'NonNullableOther val
+          | val GHC.Classes.== "br_cpf" -> GelatoIdNumberReportIdNumberType'NonNullableEnumBrCpf
+          | val GHC.Classes.== "sg_nric" -> GelatoIdNumberReportIdNumberType'NonNullableEnumSgNric
+          | val GHC.Classes.== "us_ssn" -> GelatoIdNumberReportIdNumberType'NonNullableEnumUsSsn
+          | GHC.Base.otherwise -> GelatoIdNumberReportIdNumberType'NonNullableOther val
       )
 
 -- | Defines the enum schema located at @components.schemas.gelato_id_number_report.properties.status@ in the specification.
@@ -248,7 +248,7 @@ instance Data.Aeson.Types.FromJSON.FromJSON GelatoIdNumberReportStatus' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "unverified" -> GelatoIdNumberReportStatus'EnumUnverified
-            | val GHC.Classes.== "verified" -> GelatoIdNumberReportStatus'EnumVerified
-            | GHC.Base.otherwise -> GelatoIdNumberReportStatus'Other val
+          | val GHC.Classes.== "unverified" -> GelatoIdNumberReportStatus'EnumUnverified
+          | val GHC.Classes.== "verified" -> GelatoIdNumberReportStatus'EnumVerified
+          | GHC.Base.otherwise -> GelatoIdNumberReportStatus'Other val
       )

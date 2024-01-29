@@ -48,7 +48,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>Creates a new person.\<\/p>
 postAccountPersons ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | The request body to send
   GHC.Maybe.Maybe PostAccountPersonsRequestBody ->
   -- | Monadic computation which returns the result of the operation
@@ -60,21 +60,21 @@ postAccountPersons body =
           ( Data.Either.either PostAccountPersonsResponseError GHC.Base.id
               GHC.Base.. ( \response body ->
                              if
-                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                               | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                    PostAccountPersonsResponse200
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             Person
                                                       )
-                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                               | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                    PostAccountPersonsResponseDefault
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             Error
                                                       )
-                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                               | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                          )
                 response_0
           )
@@ -501,8 +501,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostAccountPersonsRequestBodyDob'Variant
 instance Data.Aeson.Types.FromJSON.FromJSON PostAccountPersonsRequestBodyDob'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostAccountPersonsRequestBodyDob'EmptyString
-        | GHC.Base.otherwise -> case (PostAccountPersonsRequestBodyDob'PostAccountPersonsRequestBodyDob'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostAccountPersonsRequestBodyDob'EmptyString
+      | GHC.Base.otherwise -> case (PostAccountPersonsRequestBodyDob'PostAccountPersonsRequestBodyDob'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -617,8 +617,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostAccountPersonsRequestBodyFullNameAli
 instance Data.Aeson.Types.FromJSON.FromJSON PostAccountPersonsRequestBodyFullNameAliases'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostAccountPersonsRequestBodyFullNameAliases'EmptyString
-        | GHC.Base.otherwise -> case (PostAccountPersonsRequestBodyFullNameAliases'ListTText Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostAccountPersonsRequestBodyFullNameAliases'EmptyString
+      | GHC.Base.otherwise -> case (PostAccountPersonsRequestBodyFullNameAliases'ListTText Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -638,8 +638,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostAccountPersonsRequestBodyMetadata'Va
 instance Data.Aeson.Types.FromJSON.FromJSON PostAccountPersonsRequestBodyMetadata'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostAccountPersonsRequestBodyMetadata'EmptyString
-        | GHC.Base.otherwise -> case (PostAccountPersonsRequestBodyMetadata'Object Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostAccountPersonsRequestBodyMetadata'EmptyString
+      | GHC.Base.otherwise -> case (PostAccountPersonsRequestBodyMetadata'Object Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -767,8 +767,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostAccountPersonsRequestBodyRelationshi
 instance Data.Aeson.Types.FromJSON.FromJSON PostAccountPersonsRequestBodyRelationship'PercentOwnership'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostAccountPersonsRequestBodyRelationship'PercentOwnership'EmptyString
-        | GHC.Base.otherwise -> case (PostAccountPersonsRequestBodyRelationship'PercentOwnership'Double Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostAccountPersonsRequestBodyRelationship'PercentOwnership'EmptyString
+      | GHC.Base.otherwise -> case (PostAccountPersonsRequestBodyRelationship'PercentOwnership'Double Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 

@@ -83,9 +83,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentLinksResourcePaymentIntentDat
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> PaymentLinksResourcePaymentIntentDataCaptureMethod'NonNullableEnumAutomatic
-            | val GHC.Classes.== "manual" -> PaymentLinksResourcePaymentIntentDataCaptureMethod'NonNullableEnumManual
-            | GHC.Base.otherwise -> PaymentLinksResourcePaymentIntentDataCaptureMethod'NonNullableOther val
+          | val GHC.Classes.== "automatic" -> PaymentLinksResourcePaymentIntentDataCaptureMethod'NonNullableEnumAutomatic
+          | val GHC.Classes.== "manual" -> PaymentLinksResourcePaymentIntentDataCaptureMethod'NonNullableEnumManual
+          | GHC.Base.otherwise -> PaymentLinksResourcePaymentIntentDataCaptureMethod'NonNullableOther val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_links_resource_payment_intent_data.properties.setup_future_usage@ in the specification.
@@ -112,7 +112,7 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentLinksResourcePaymentIntentDat
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "off_session" -> PaymentLinksResourcePaymentIntentDataSetupFutureUsage'NonNullableEnumOffSession
-            | val GHC.Classes.== "on_session" -> PaymentLinksResourcePaymentIntentDataSetupFutureUsage'NonNullableEnumOnSession
-            | GHC.Base.otherwise -> PaymentLinksResourcePaymentIntentDataSetupFutureUsage'NonNullableOther val
+          | val GHC.Classes.== "off_session" -> PaymentLinksResourcePaymentIntentDataSetupFutureUsage'NonNullableEnumOffSession
+          | val GHC.Classes.== "on_session" -> PaymentLinksResourcePaymentIntentDataSetupFutureUsage'NonNullableEnumOnSession
+          | GHC.Base.otherwise -> PaymentLinksResourcePaymentIntentDataSetupFutureUsage'NonNullableOther val
       )

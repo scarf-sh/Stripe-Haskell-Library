@@ -278,28 +278,28 @@ instance Data.Aeson.Types.FromJSON.FromJSON OrdersV2ResourcePaymentSettingsPayme
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "acss_debit" -> OrdersV2ResourcePaymentSettingsPaymentMethodTypes'NonNullableEnumAcssDebit
-            | val GHC.Classes.== "afterpay_clearpay" -> OrdersV2ResourcePaymentSettingsPaymentMethodTypes'NonNullableEnumAfterpayClearpay
-            | val GHC.Classes.== "alipay" -> OrdersV2ResourcePaymentSettingsPaymentMethodTypes'NonNullableEnumAlipay
-            | val GHC.Classes.== "au_becs_debit" -> OrdersV2ResourcePaymentSettingsPaymentMethodTypes'NonNullableEnumAuBecsDebit
-            | val GHC.Classes.== "bacs_debit" -> OrdersV2ResourcePaymentSettingsPaymentMethodTypes'NonNullableEnumBacsDebit
-            | val GHC.Classes.== "bancontact" -> OrdersV2ResourcePaymentSettingsPaymentMethodTypes'NonNullableEnumBancontact
-            | val GHC.Classes.== "card" -> OrdersV2ResourcePaymentSettingsPaymentMethodTypes'NonNullableEnumCard
-            | val GHC.Classes.== "customer_balance" -> OrdersV2ResourcePaymentSettingsPaymentMethodTypes'NonNullableEnumCustomerBalance
-            | val GHC.Classes.== "eps" -> OrdersV2ResourcePaymentSettingsPaymentMethodTypes'NonNullableEnumEps
-            | val GHC.Classes.== "fpx" -> OrdersV2ResourcePaymentSettingsPaymentMethodTypes'NonNullableEnumFpx
-            | val GHC.Classes.== "giropay" -> OrdersV2ResourcePaymentSettingsPaymentMethodTypes'NonNullableEnumGiropay
-            | val GHC.Classes.== "grabpay" -> OrdersV2ResourcePaymentSettingsPaymentMethodTypes'NonNullableEnumGrabpay
-            | val GHC.Classes.== "ideal" -> OrdersV2ResourcePaymentSettingsPaymentMethodTypes'NonNullableEnumIdeal
-            | val GHC.Classes.== "klarna" -> OrdersV2ResourcePaymentSettingsPaymentMethodTypes'NonNullableEnumKlarna
-            | val GHC.Classes.== "link" -> OrdersV2ResourcePaymentSettingsPaymentMethodTypes'NonNullableEnumLink
-            | val GHC.Classes.== "oxxo" -> OrdersV2ResourcePaymentSettingsPaymentMethodTypes'NonNullableEnumOxxo
-            | val GHC.Classes.== "p24" -> OrdersV2ResourcePaymentSettingsPaymentMethodTypes'NonNullableEnumP24
-            | val GHC.Classes.== "paypal" -> OrdersV2ResourcePaymentSettingsPaymentMethodTypes'NonNullableEnumPaypal
-            | val GHC.Classes.== "sepa_debit" -> OrdersV2ResourcePaymentSettingsPaymentMethodTypes'NonNullableEnumSepaDebit
-            | val GHC.Classes.== "sofort" -> OrdersV2ResourcePaymentSettingsPaymentMethodTypes'NonNullableEnumSofort
-            | val GHC.Classes.== "wechat_pay" -> OrdersV2ResourcePaymentSettingsPaymentMethodTypes'NonNullableEnumWechatPay
-            | GHC.Base.otherwise -> OrdersV2ResourcePaymentSettingsPaymentMethodTypes'NonNullableOther val
+          | val GHC.Classes.== "acss_debit" -> OrdersV2ResourcePaymentSettingsPaymentMethodTypes'NonNullableEnumAcssDebit
+          | val GHC.Classes.== "afterpay_clearpay" -> OrdersV2ResourcePaymentSettingsPaymentMethodTypes'NonNullableEnumAfterpayClearpay
+          | val GHC.Classes.== "alipay" -> OrdersV2ResourcePaymentSettingsPaymentMethodTypes'NonNullableEnumAlipay
+          | val GHC.Classes.== "au_becs_debit" -> OrdersV2ResourcePaymentSettingsPaymentMethodTypes'NonNullableEnumAuBecsDebit
+          | val GHC.Classes.== "bacs_debit" -> OrdersV2ResourcePaymentSettingsPaymentMethodTypes'NonNullableEnumBacsDebit
+          | val GHC.Classes.== "bancontact" -> OrdersV2ResourcePaymentSettingsPaymentMethodTypes'NonNullableEnumBancontact
+          | val GHC.Classes.== "card" -> OrdersV2ResourcePaymentSettingsPaymentMethodTypes'NonNullableEnumCard
+          | val GHC.Classes.== "customer_balance" -> OrdersV2ResourcePaymentSettingsPaymentMethodTypes'NonNullableEnumCustomerBalance
+          | val GHC.Classes.== "eps" -> OrdersV2ResourcePaymentSettingsPaymentMethodTypes'NonNullableEnumEps
+          | val GHC.Classes.== "fpx" -> OrdersV2ResourcePaymentSettingsPaymentMethodTypes'NonNullableEnumFpx
+          | val GHC.Classes.== "giropay" -> OrdersV2ResourcePaymentSettingsPaymentMethodTypes'NonNullableEnumGiropay
+          | val GHC.Classes.== "grabpay" -> OrdersV2ResourcePaymentSettingsPaymentMethodTypes'NonNullableEnumGrabpay
+          | val GHC.Classes.== "ideal" -> OrdersV2ResourcePaymentSettingsPaymentMethodTypes'NonNullableEnumIdeal
+          | val GHC.Classes.== "klarna" -> OrdersV2ResourcePaymentSettingsPaymentMethodTypes'NonNullableEnumKlarna
+          | val GHC.Classes.== "link" -> OrdersV2ResourcePaymentSettingsPaymentMethodTypes'NonNullableEnumLink
+          | val GHC.Classes.== "oxxo" -> OrdersV2ResourcePaymentSettingsPaymentMethodTypes'NonNullableEnumOxxo
+          | val GHC.Classes.== "p24" -> OrdersV2ResourcePaymentSettingsPaymentMethodTypes'NonNullableEnumP24
+          | val GHC.Classes.== "paypal" -> OrdersV2ResourcePaymentSettingsPaymentMethodTypes'NonNullableEnumPaypal
+          | val GHC.Classes.== "sepa_debit" -> OrdersV2ResourcePaymentSettingsPaymentMethodTypes'NonNullableEnumSepaDebit
+          | val GHC.Classes.== "sofort" -> OrdersV2ResourcePaymentSettingsPaymentMethodTypes'NonNullableEnumSofort
+          | val GHC.Classes.== "wechat_pay" -> OrdersV2ResourcePaymentSettingsPaymentMethodTypes'NonNullableEnumWechatPay
+          | GHC.Base.otherwise -> OrdersV2ResourcePaymentSettingsPaymentMethodTypes'NonNullableOther val
       )
 
 -- | Defines the object schema located at @components.schemas.orders_v2_resource_payment_settings.properties.transfer_data.anyOf@ in the specification.

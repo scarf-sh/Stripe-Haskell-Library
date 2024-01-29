@@ -86,9 +86,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON InvoicePaymentMethodOptionsBancontac
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "de" -> InvoicePaymentMethodOptionsBancontactPreferredLanguage'EnumDe
-            | val GHC.Classes.== "en" -> InvoicePaymentMethodOptionsBancontactPreferredLanguage'EnumEn
-            | val GHC.Classes.== "fr" -> InvoicePaymentMethodOptionsBancontactPreferredLanguage'EnumFr
-            | val GHC.Classes.== "nl" -> InvoicePaymentMethodOptionsBancontactPreferredLanguage'EnumNl
-            | GHC.Base.otherwise -> InvoicePaymentMethodOptionsBancontactPreferredLanguage'Other val
+          | val GHC.Classes.== "de" -> InvoicePaymentMethodOptionsBancontactPreferredLanguage'EnumDe
+          | val GHC.Classes.== "en" -> InvoicePaymentMethodOptionsBancontactPreferredLanguage'EnumEn
+          | val GHC.Classes.== "fr" -> InvoicePaymentMethodOptionsBancontactPreferredLanguage'EnumFr
+          | val GHC.Classes.== "nl" -> InvoicePaymentMethodOptionsBancontactPreferredLanguage'EnumNl
+          | GHC.Base.otherwise -> InvoicePaymentMethodOptionsBancontactPreferredLanguage'Other val
       )

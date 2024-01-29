@@ -165,30 +165,30 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentMethodDetailsP24Bank'NonNulla
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "alior_bank" -> PaymentMethodDetailsP24Bank'NonNullableEnumAliorBank
-            | val GHC.Classes.== "bank_millennium" -> PaymentMethodDetailsP24Bank'NonNullableEnumBankMillennium
-            | val GHC.Classes.== "bank_nowy_bfg_sa" -> PaymentMethodDetailsP24Bank'NonNullableEnumBankNowyBfgSa
-            | val GHC.Classes.== "bank_pekao_sa" -> PaymentMethodDetailsP24Bank'NonNullableEnumBankPekaoSa
-            | val GHC.Classes.== "banki_spbdzielcze" -> PaymentMethodDetailsP24Bank'NonNullableEnumBankiSpbdzielcze
-            | val GHC.Classes.== "blik" -> PaymentMethodDetailsP24Bank'NonNullableEnumBlik
-            | val GHC.Classes.== "bnp_paribas" -> PaymentMethodDetailsP24Bank'NonNullableEnumBnpParibas
-            | val GHC.Classes.== "boz" -> PaymentMethodDetailsP24Bank'NonNullableEnumBoz
-            | val GHC.Classes.== "citi_handlowy" -> PaymentMethodDetailsP24Bank'NonNullableEnumCitiHandlowy
-            | val GHC.Classes.== "credit_agricole" -> PaymentMethodDetailsP24Bank'NonNullableEnumCreditAgricole
-            | val GHC.Classes.== "envelobank" -> PaymentMethodDetailsP24Bank'NonNullableEnumEnvelobank
-            | val GHC.Classes.== "etransfer_pocztowy24" -> PaymentMethodDetailsP24Bank'NonNullableEnumEtransferPocztowy24
-            | val GHC.Classes.== "getin_bank" -> PaymentMethodDetailsP24Bank'NonNullableEnumGetinBank
-            | val GHC.Classes.== "ideabank" -> PaymentMethodDetailsP24Bank'NonNullableEnumIdeabank
-            | val GHC.Classes.== "ing" -> PaymentMethodDetailsP24Bank'NonNullableEnumIng
-            | val GHC.Classes.== "inteligo" -> PaymentMethodDetailsP24Bank'NonNullableEnumInteligo
-            | val GHC.Classes.== "mbank_mtransfer" -> PaymentMethodDetailsP24Bank'NonNullableEnumMbankMtransfer
-            | val GHC.Classes.== "nest_przelew" -> PaymentMethodDetailsP24Bank'NonNullableEnumNestPrzelew
-            | val GHC.Classes.== "noble_pay" -> PaymentMethodDetailsP24Bank'NonNullableEnumNoblePay
-            | val GHC.Classes.== "pbac_z_ipko" -> PaymentMethodDetailsP24Bank'NonNullableEnumPbacZIpko
-            | val GHC.Classes.== "plus_bank" -> PaymentMethodDetailsP24Bank'NonNullableEnumPlusBank
-            | val GHC.Classes.== "santander_przelew24" -> PaymentMethodDetailsP24Bank'NonNullableEnumSantanderPrzelew24
-            | val GHC.Classes.== "tmobile_usbugi_bankowe" -> PaymentMethodDetailsP24Bank'NonNullableEnumTmobileUsbugiBankowe
-            | val GHC.Classes.== "toyota_bank" -> PaymentMethodDetailsP24Bank'NonNullableEnumToyotaBank
-            | val GHC.Classes.== "volkswagen_bank" -> PaymentMethodDetailsP24Bank'NonNullableEnumVolkswagenBank
-            | GHC.Base.otherwise -> PaymentMethodDetailsP24Bank'NonNullableOther val
+          | val GHC.Classes.== "alior_bank" -> PaymentMethodDetailsP24Bank'NonNullableEnumAliorBank
+          | val GHC.Classes.== "bank_millennium" -> PaymentMethodDetailsP24Bank'NonNullableEnumBankMillennium
+          | val GHC.Classes.== "bank_nowy_bfg_sa" -> PaymentMethodDetailsP24Bank'NonNullableEnumBankNowyBfgSa
+          | val GHC.Classes.== "bank_pekao_sa" -> PaymentMethodDetailsP24Bank'NonNullableEnumBankPekaoSa
+          | val GHC.Classes.== "banki_spbdzielcze" -> PaymentMethodDetailsP24Bank'NonNullableEnumBankiSpbdzielcze
+          | val GHC.Classes.== "blik" -> PaymentMethodDetailsP24Bank'NonNullableEnumBlik
+          | val GHC.Classes.== "bnp_paribas" -> PaymentMethodDetailsP24Bank'NonNullableEnumBnpParibas
+          | val GHC.Classes.== "boz" -> PaymentMethodDetailsP24Bank'NonNullableEnumBoz
+          | val GHC.Classes.== "citi_handlowy" -> PaymentMethodDetailsP24Bank'NonNullableEnumCitiHandlowy
+          | val GHC.Classes.== "credit_agricole" -> PaymentMethodDetailsP24Bank'NonNullableEnumCreditAgricole
+          | val GHC.Classes.== "envelobank" -> PaymentMethodDetailsP24Bank'NonNullableEnumEnvelobank
+          | val GHC.Classes.== "etransfer_pocztowy24" -> PaymentMethodDetailsP24Bank'NonNullableEnumEtransferPocztowy24
+          | val GHC.Classes.== "getin_bank" -> PaymentMethodDetailsP24Bank'NonNullableEnumGetinBank
+          | val GHC.Classes.== "ideabank" -> PaymentMethodDetailsP24Bank'NonNullableEnumIdeabank
+          | val GHC.Classes.== "ing" -> PaymentMethodDetailsP24Bank'NonNullableEnumIng
+          | val GHC.Classes.== "inteligo" -> PaymentMethodDetailsP24Bank'NonNullableEnumInteligo
+          | val GHC.Classes.== "mbank_mtransfer" -> PaymentMethodDetailsP24Bank'NonNullableEnumMbankMtransfer
+          | val GHC.Classes.== "nest_przelew" -> PaymentMethodDetailsP24Bank'NonNullableEnumNestPrzelew
+          | val GHC.Classes.== "noble_pay" -> PaymentMethodDetailsP24Bank'NonNullableEnumNoblePay
+          | val GHC.Classes.== "pbac_z_ipko" -> PaymentMethodDetailsP24Bank'NonNullableEnumPbacZIpko
+          | val GHC.Classes.== "plus_bank" -> PaymentMethodDetailsP24Bank'NonNullableEnumPlusBank
+          | val GHC.Classes.== "santander_przelew24" -> PaymentMethodDetailsP24Bank'NonNullableEnumSantanderPrzelew24
+          | val GHC.Classes.== "tmobile_usbugi_bankowe" -> PaymentMethodDetailsP24Bank'NonNullableEnumTmobileUsbugiBankowe
+          | val GHC.Classes.== "toyota_bank" -> PaymentMethodDetailsP24Bank'NonNullableEnumToyotaBank
+          | val GHC.Classes.== "volkswagen_bank" -> PaymentMethodDetailsP24Bank'NonNullableEnumVolkswagenBank
+          | GHC.Base.otherwise -> PaymentMethodDetailsP24Bank'NonNullableOther val
       )

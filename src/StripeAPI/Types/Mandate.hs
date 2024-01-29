@@ -149,10 +149,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON MandateStatus' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "active" -> MandateStatus'EnumActive
-            | val GHC.Classes.== "inactive" -> MandateStatus'EnumInactive
-            | val GHC.Classes.== "pending" -> MandateStatus'EnumPending
-            | GHC.Base.otherwise -> MandateStatus'Other val
+          | val GHC.Classes.== "active" -> MandateStatus'EnumActive
+          | val GHC.Classes.== "inactive" -> MandateStatus'EnumInactive
+          | val GHC.Classes.== "pending" -> MandateStatus'EnumPending
+          | GHC.Base.otherwise -> MandateStatus'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.mandate.properties.type@ in the specification.
@@ -179,7 +179,7 @@ instance Data.Aeson.Types.FromJSON.FromJSON MandateType' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "multi_use" -> MandateType'EnumMultiUse
-            | val GHC.Classes.== "single_use" -> MandateType'EnumSingleUse
-            | GHC.Base.otherwise -> MandateType'Other val
+          | val GHC.Classes.== "multi_use" -> MandateType'EnumMultiUse
+          | val GHC.Classes.== "single_use" -> MandateType'EnumSingleUse
+          | GHC.Base.otherwise -> MandateType'Other val
       )

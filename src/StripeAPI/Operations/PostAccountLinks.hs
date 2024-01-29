@@ -48,7 +48,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>Creates an AccountLink object that includes a single-use Stripe URL that the platform can redirect their user to in order to take them through the Connect Onboarding flow.\<\/p>
 postAccountLinks ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | The request body to send
   PostAccountLinksRequestBody ->
   -- | Monadic computation which returns the result of the operation
@@ -60,21 +60,21 @@ postAccountLinks body =
           ( Data.Either.either PostAccountLinksResponseError GHC.Base.id
               GHC.Base.. ( \response body ->
                              if
-                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                               | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                    PostAccountLinksResponse200
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             AccountLink
                                                       )
-                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                               | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                    PostAccountLinksResponseDefault
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             Error
                                                       )
-                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                               | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                          )
                 response_0
           )
@@ -154,9 +154,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostAccountLinksRequestBodyCollect' 
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "currently_due" -> PostAccountLinksRequestBodyCollect'EnumCurrentlyDue
-            | val GHC.Classes.== "eventually_due" -> PostAccountLinksRequestBodyCollect'EnumEventuallyDue
-            | GHC.Base.otherwise -> PostAccountLinksRequestBodyCollect'Other val
+          | val GHC.Classes.== "currently_due" -> PostAccountLinksRequestBodyCollect'EnumCurrentlyDue
+          | val GHC.Classes.== "eventually_due" -> PostAccountLinksRequestBodyCollect'EnumEventuallyDue
+          | GHC.Base.otherwise -> PostAccountLinksRequestBodyCollect'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/account_links.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.type@ in the specification.
@@ -183,9 +183,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostAccountLinksRequestBodyType' whe
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "account_onboarding" -> PostAccountLinksRequestBodyType'EnumAccountOnboarding
-            | val GHC.Classes.== "account_update" -> PostAccountLinksRequestBodyType'EnumAccountUpdate
-            | GHC.Base.otherwise -> PostAccountLinksRequestBodyType'Other val
+          | val GHC.Classes.== "account_onboarding" -> PostAccountLinksRequestBodyType'EnumAccountOnboarding
+          | val GHC.Classes.== "account_update" -> PostAccountLinksRequestBodyType'EnumAccountUpdate
+          | GHC.Base.otherwise -> PostAccountLinksRequestBodyType'Other val
       )
 
 -- | Represents a response of the operation 'postAccountLinks'.

@@ -560,9 +560,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON ApiErrorsSource'AvailablePayoutMetho
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "instant" -> ApiErrorsSource'AvailablePayoutMethods'NonNullableEnumInstant
-            | val GHC.Classes.== "standard" -> ApiErrorsSource'AvailablePayoutMethods'NonNullableEnumStandard
-            | GHC.Base.otherwise -> ApiErrorsSource'AvailablePayoutMethods'NonNullableOther val
+          | val GHC.Classes.== "instant" -> ApiErrorsSource'AvailablePayoutMethods'NonNullableEnumInstant
+          | val GHC.Classes.== "standard" -> ApiErrorsSource'AvailablePayoutMethods'NonNullableEnumStandard
+          | GHC.Base.otherwise -> ApiErrorsSource'AvailablePayoutMethods'NonNullableOther val
       )
 
 -- | Defines the oneOf schema located at @components.schemas.api_errors.properties.source.anyOf.properties.customer.anyOf@ in the specification.
@@ -605,8 +605,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON ApiErrorsSource'Object' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "bank_account" -> ApiErrorsSource'Object'EnumBankAccount
-            | GHC.Base.otherwise -> ApiErrorsSource'Object'Other val
+          | val GHC.Classes.== "bank_account" -> ApiErrorsSource'Object'EnumBankAccount
+          | GHC.Base.otherwise -> ApiErrorsSource'Object'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.api_errors.properties.source.anyOf.properties.owner.anyOf@ in the specification.
@@ -899,25 +899,25 @@ instance Data.Aeson.Types.FromJSON.FromJSON ApiErrorsSource'Type' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "ach_credit_transfer" -> ApiErrorsSource'Type'EnumAchCreditTransfer
-            | val GHC.Classes.== "ach_debit" -> ApiErrorsSource'Type'EnumAchDebit
-            | val GHC.Classes.== "acss_debit" -> ApiErrorsSource'Type'EnumAcssDebit
-            | val GHC.Classes.== "alipay" -> ApiErrorsSource'Type'EnumAlipay
-            | val GHC.Classes.== "au_becs_debit" -> ApiErrorsSource'Type'EnumAuBecsDebit
-            | val GHC.Classes.== "bancontact" -> ApiErrorsSource'Type'EnumBancontact
-            | val GHC.Classes.== "card" -> ApiErrorsSource'Type'EnumCard
-            | val GHC.Classes.== "card_present" -> ApiErrorsSource'Type'EnumCardPresent
-            | val GHC.Classes.== "eps" -> ApiErrorsSource'Type'EnumEps
-            | val GHC.Classes.== "giropay" -> ApiErrorsSource'Type'EnumGiropay
-            | val GHC.Classes.== "ideal" -> ApiErrorsSource'Type'EnumIdeal
-            | val GHC.Classes.== "klarna" -> ApiErrorsSource'Type'EnumKlarna
-            | val GHC.Classes.== "multibanco" -> ApiErrorsSource'Type'EnumMultibanco
-            | val GHC.Classes.== "p24" -> ApiErrorsSource'Type'EnumP24
-            | val GHC.Classes.== "sepa_debit" -> ApiErrorsSource'Type'EnumSepaDebit
-            | val GHC.Classes.== "sofort" -> ApiErrorsSource'Type'EnumSofort
-            | val GHC.Classes.== "three_d_secure" -> ApiErrorsSource'Type'EnumThreeDSecure
-            | val GHC.Classes.== "wechat" -> ApiErrorsSource'Type'EnumWechat
-            | GHC.Base.otherwise -> ApiErrorsSource'Type'Other val
+          | val GHC.Classes.== "ach_credit_transfer" -> ApiErrorsSource'Type'EnumAchCreditTransfer
+          | val GHC.Classes.== "ach_debit" -> ApiErrorsSource'Type'EnumAchDebit
+          | val GHC.Classes.== "acss_debit" -> ApiErrorsSource'Type'EnumAcssDebit
+          | val GHC.Classes.== "alipay" -> ApiErrorsSource'Type'EnumAlipay
+          | val GHC.Classes.== "au_becs_debit" -> ApiErrorsSource'Type'EnumAuBecsDebit
+          | val GHC.Classes.== "bancontact" -> ApiErrorsSource'Type'EnumBancontact
+          | val GHC.Classes.== "card" -> ApiErrorsSource'Type'EnumCard
+          | val GHC.Classes.== "card_present" -> ApiErrorsSource'Type'EnumCardPresent
+          | val GHC.Classes.== "eps" -> ApiErrorsSource'Type'EnumEps
+          | val GHC.Classes.== "giropay" -> ApiErrorsSource'Type'EnumGiropay
+          | val GHC.Classes.== "ideal" -> ApiErrorsSource'Type'EnumIdeal
+          | val GHC.Classes.== "klarna" -> ApiErrorsSource'Type'EnumKlarna
+          | val GHC.Classes.== "multibanco" -> ApiErrorsSource'Type'EnumMultibanco
+          | val GHC.Classes.== "p24" -> ApiErrorsSource'Type'EnumP24
+          | val GHC.Classes.== "sepa_debit" -> ApiErrorsSource'Type'EnumSepaDebit
+          | val GHC.Classes.== "sofort" -> ApiErrorsSource'Type'EnumSofort
+          | val GHC.Classes.== "three_d_secure" -> ApiErrorsSource'Type'EnumThreeDSecure
+          | val GHC.Classes.== "wechat" -> ApiErrorsSource'Type'EnumWechat
+          | GHC.Base.otherwise -> ApiErrorsSource'Type'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.api_errors.properties.type@ in the specification.
@@ -950,9 +950,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON ApiErrorsType' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "api_error" -> ApiErrorsType'EnumApiError
-            | val GHC.Classes.== "card_error" -> ApiErrorsType'EnumCardError
-            | val GHC.Classes.== "idempotency_error" -> ApiErrorsType'EnumIdempotencyError
-            | val GHC.Classes.== "invalid_request_error" -> ApiErrorsType'EnumInvalidRequestError
-            | GHC.Base.otherwise -> ApiErrorsType'Other val
+          | val GHC.Classes.== "api_error" -> ApiErrorsType'EnumApiError
+          | val GHC.Classes.== "card_error" -> ApiErrorsType'EnumCardError
+          | val GHC.Classes.== "idempotency_error" -> ApiErrorsType'EnumIdempotencyError
+          | val GHC.Classes.== "invalid_request_error" -> ApiErrorsType'EnumInvalidRequestError
+          | GHC.Base.otherwise -> ApiErrorsType'Other val
       )

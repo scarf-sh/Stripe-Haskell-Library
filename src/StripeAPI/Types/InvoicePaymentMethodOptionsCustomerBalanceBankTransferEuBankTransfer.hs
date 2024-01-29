@@ -89,10 +89,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON InvoicePaymentMethodOptionsCustomerB
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "DE" -> InvoicePaymentMethodOptionsCustomerBalanceBankTransferEuBankTransferCountry'EnumDE
-            | val GHC.Classes.== "ES" -> InvoicePaymentMethodOptionsCustomerBalanceBankTransferEuBankTransferCountry'EnumES
-            | val GHC.Classes.== "FR" -> InvoicePaymentMethodOptionsCustomerBalanceBankTransferEuBankTransferCountry'EnumFR
-            | val GHC.Classes.== "IE" -> InvoicePaymentMethodOptionsCustomerBalanceBankTransferEuBankTransferCountry'EnumIE
-            | val GHC.Classes.== "NL" -> InvoicePaymentMethodOptionsCustomerBalanceBankTransferEuBankTransferCountry'EnumNL
-            | GHC.Base.otherwise -> InvoicePaymentMethodOptionsCustomerBalanceBankTransferEuBankTransferCountry'Other val
+          | val GHC.Classes.== "DE" -> InvoicePaymentMethodOptionsCustomerBalanceBankTransferEuBankTransferCountry'EnumDE
+          | val GHC.Classes.== "ES" -> InvoicePaymentMethodOptionsCustomerBalanceBankTransferEuBankTransferCountry'EnumES
+          | val GHC.Classes.== "FR" -> InvoicePaymentMethodOptionsCustomerBalanceBankTransferEuBankTransferCountry'EnumFR
+          | val GHC.Classes.== "IE" -> InvoicePaymentMethodOptionsCustomerBalanceBankTransferEuBankTransferCountry'EnumIE
+          | val GHC.Classes.== "NL" -> InvoicePaymentMethodOptionsCustomerBalanceBankTransferEuBankTransferCountry'EnumNL
+          | GHC.Base.otherwise -> InvoicePaymentMethodOptionsCustomerBalanceBankTransferEuBankTransferCountry'Other val
       )

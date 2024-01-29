@@ -48,7 +48,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>Updates the specified charge by setting the values of the parameters passed. Any parameters not provided will be left unchanged.\<\/p>
 postChargesCharge ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | charge | Constraints: Maximum length of 5000
   Data.Text.Internal.Text ->
   -- | The request body to send
@@ -64,21 +64,21 @@ postChargesCharge
             ( Data.Either.either PostChargesChargeResponseError GHC.Base.id
                 GHC.Base.. ( \response body ->
                                if
-                                   | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                      PostChargesChargeResponse200
                                        Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                             Data.Either.Either
                                                               GHC.Base.String
                                                               Charge
                                                         )
-                                   | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                      PostChargesChargeResponseDefault
                                        Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                             Data.Either.Either
                                                               GHC.Base.String
                                                               Error
                                                         )
-                                   | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                            )
                   response_0
             )
@@ -198,10 +198,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostChargesChargeRequestBodyFraudDet
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "" -> PostChargesChargeRequestBodyFraudDetails'UserReport'EnumEmptyString
-            | val GHC.Classes.== "fraudulent" -> PostChargesChargeRequestBodyFraudDetails'UserReport'EnumFraudulent
-            | val GHC.Classes.== "safe" -> PostChargesChargeRequestBodyFraudDetails'UserReport'EnumSafe
-            | GHC.Base.otherwise -> PostChargesChargeRequestBodyFraudDetails'UserReport'Other val
+          | val GHC.Classes.== "" -> PostChargesChargeRequestBodyFraudDetails'UserReport'EnumEmptyString
+          | val GHC.Classes.== "fraudulent" -> PostChargesChargeRequestBodyFraudDetails'UserReport'EnumFraudulent
+          | val GHC.Classes.== "safe" -> PostChargesChargeRequestBodyFraudDetails'UserReport'EnumSafe
+          | GHC.Base.otherwise -> PostChargesChargeRequestBodyFraudDetails'UserReport'Other val
       )
 
 -- | Defines the oneOf schema located at @paths.\/v1\/charges\/{charge}.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.metadata.anyOf@ in the specification.
@@ -220,8 +220,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostChargesChargeRequestBodyMetadata'Var
 instance Data.Aeson.Types.FromJSON.FromJSON PostChargesChargeRequestBodyMetadata'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostChargesChargeRequestBodyMetadata'EmptyString
-        | GHC.Base.otherwise -> case (PostChargesChargeRequestBodyMetadata'Object Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostChargesChargeRequestBodyMetadata'EmptyString
+      | GHC.Base.otherwise -> case (PostChargesChargeRequestBodyMetadata'Object Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 

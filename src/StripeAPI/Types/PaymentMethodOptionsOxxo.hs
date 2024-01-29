@@ -91,6 +91,6 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentMethodOptionsOxxoSetupFutureU
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> PaymentMethodOptionsOxxoSetupFutureUsage'EnumNone
-            | GHC.Base.otherwise -> PaymentMethodOptionsOxxoSetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> PaymentMethodOptionsOxxoSetupFutureUsage'EnumNone
+          | GHC.Base.otherwise -> PaymentMethodOptionsOxxoSetupFutureUsage'Other val
       )

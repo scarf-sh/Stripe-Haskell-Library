@@ -48,7 +48,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>This endpoint creates a draft invoice for a given customer. The draft invoice created pulls in all pending invoice items on that customer, including prorations. The invoice remains a draft until you \<a href=\"\#finalize_invoice\">finalize\<\/a> the invoice, which allows you to \<a href=\"\#pay_invoice\">pay\<\/a> or \<a href=\"\#send_invoice\">send\<\/a> the invoice to your customers.\<\/p>
 postInvoices ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | The request body to send
   GHC.Maybe.Maybe PostInvoicesRequestBody ->
   -- | Monadic computation which returns the result of the operation
@@ -60,21 +60,21 @@ postInvoices body =
           ( Data.Either.either PostInvoicesResponseError GHC.Base.id
               GHC.Base.. ( \response body ->
                              if
-                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                               | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                    PostInvoicesResponse200
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             Invoice
                                                       )
-                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                               | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                    PostInvoicesResponseDefault
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             Error
                                                       )
-                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                               | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                          )
                 response_0
           )
@@ -219,8 +219,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostInvoicesRequestBodyAccountTaxIds'Var
 instance Data.Aeson.Types.FromJSON.FromJSON PostInvoicesRequestBodyAccountTaxIds'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostInvoicesRequestBodyAccountTaxIds'EmptyString
-        | GHC.Base.otherwise -> case (PostInvoicesRequestBodyAccountTaxIds'ListTText Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostInvoicesRequestBodyAccountTaxIds'EmptyString
+      | GHC.Base.otherwise -> case (PostInvoicesRequestBodyAccountTaxIds'ListTText Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -274,9 +274,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostInvoicesRequestBodyCollectionMet
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "charge_automatically" -> PostInvoicesRequestBodyCollectionMethod'EnumChargeAutomatically
-            | val GHC.Classes.== "send_invoice" -> PostInvoicesRequestBodyCollectionMethod'EnumSendInvoice
-            | GHC.Base.otherwise -> PostInvoicesRequestBodyCollectionMethod'Other val
+          | val GHC.Classes.== "charge_automatically" -> PostInvoicesRequestBodyCollectionMethod'EnumChargeAutomatically
+          | val GHC.Classes.== "send_invoice" -> PostInvoicesRequestBodyCollectionMethod'EnumSendInvoice
+          | GHC.Base.otherwise -> PostInvoicesRequestBodyCollectionMethod'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/invoices.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.custom_fields.anyOf.items@ in the specification.
@@ -335,8 +335,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostInvoicesRequestBodyCustomFields'Vari
 instance Data.Aeson.Types.FromJSON.FromJSON PostInvoicesRequestBodyCustomFields'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostInvoicesRequestBodyCustomFields'EmptyString
-        | GHC.Base.otherwise -> case (PostInvoicesRequestBodyCustomFields'ListTPostInvoicesRequestBodyCustomFields'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostInvoicesRequestBodyCustomFields'EmptyString
+      | GHC.Base.otherwise -> case (PostInvoicesRequestBodyCustomFields'ListTPostInvoicesRequestBodyCustomFields'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -391,8 +391,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostInvoicesRequestBodyDiscounts'Variant
 instance Data.Aeson.Types.FromJSON.FromJSON PostInvoicesRequestBodyDiscounts'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostInvoicesRequestBodyDiscounts'EmptyString
-        | GHC.Base.otherwise -> case (PostInvoicesRequestBodyDiscounts'ListTPostInvoicesRequestBodyDiscounts'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostInvoicesRequestBodyDiscounts'EmptyString
+      | GHC.Base.otherwise -> case (PostInvoicesRequestBodyDiscounts'ListTPostInvoicesRequestBodyDiscounts'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -412,8 +412,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostInvoicesRequestBodyMetadata'Variants
 instance Data.Aeson.Types.FromJSON.FromJSON PostInvoicesRequestBodyMetadata'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostInvoicesRequestBodyMetadata'EmptyString
-        | GHC.Base.otherwise -> case (PostInvoicesRequestBodyMetadata'Object Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostInvoicesRequestBodyMetadata'EmptyString
+      | GHC.Base.otherwise -> case (PostInvoicesRequestBodyMetadata'Object Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -555,9 +555,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostInvoicesRequestBodyPaymentSettin
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "business" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'AcssDebit'OneOf1MandateOptions'TransactionType'EnumBusiness
-            | val GHC.Classes.== "personal" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'AcssDebit'OneOf1MandateOptions'TransactionType'EnumPersonal
-            | GHC.Base.otherwise -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'AcssDebit'OneOf1MandateOptions'TransactionType'Other val
+          | val GHC.Classes.== "business" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'AcssDebit'OneOf1MandateOptions'TransactionType'EnumBusiness
+          | val GHC.Classes.== "personal" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'AcssDebit'OneOf1MandateOptions'TransactionType'EnumPersonal
+          | GHC.Base.otherwise -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'AcssDebit'OneOf1MandateOptions'TransactionType'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/invoices.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment_settings.properties.payment_method_options.properties.acss_debit.anyOf.properties.verification_method@ in the specification.
@@ -585,10 +585,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostInvoicesRequestBodyPaymentSettin
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'AcssDebit'OneOf1VerificationMethod'EnumAutomatic
-            | val GHC.Classes.== "instant" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'AcssDebit'OneOf1VerificationMethod'EnumInstant
-            | val GHC.Classes.== "microdeposits" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'AcssDebit'OneOf1VerificationMethod'EnumMicrodeposits
-            | GHC.Base.otherwise -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'AcssDebit'OneOf1VerificationMethod'Other val
+          | val GHC.Classes.== "automatic" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'AcssDebit'OneOf1VerificationMethod'EnumAutomatic
+          | val GHC.Classes.== "instant" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'AcssDebit'OneOf1VerificationMethod'EnumInstant
+          | val GHC.Classes.== "microdeposits" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'AcssDebit'OneOf1VerificationMethod'EnumMicrodeposits
+          | GHC.Base.otherwise -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'AcssDebit'OneOf1VerificationMethod'Other val
       )
 
 -- | Defines the oneOf schema located at @paths.\/v1\/invoices.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment_settings.properties.payment_method_options.properties.acss_debit.anyOf@ in the specification.
@@ -605,8 +605,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostInvoicesRequestBodyPaymentSettings'P
 instance Data.Aeson.Types.FromJSON.FromJSON PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'AcssDebit'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'AcssDebit'EmptyString
-        | GHC.Base.otherwise -> case (PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'AcssDebit'PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'AcssDebit'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'AcssDebit'EmptyString
+      | GHC.Base.otherwise -> case (PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'AcssDebit'PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'AcssDebit'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -659,11 +659,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostInvoicesRequestBodyPaymentSettin
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "de" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'Bancontact'OneOf1PreferredLanguage'EnumDe
-            | val GHC.Classes.== "en" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'Bancontact'OneOf1PreferredLanguage'EnumEn
-            | val GHC.Classes.== "fr" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'Bancontact'OneOf1PreferredLanguage'EnumFr
-            | val GHC.Classes.== "nl" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'Bancontact'OneOf1PreferredLanguage'EnumNl
-            | GHC.Base.otherwise -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'Bancontact'OneOf1PreferredLanguage'Other val
+          | val GHC.Classes.== "de" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'Bancontact'OneOf1PreferredLanguage'EnumDe
+          | val GHC.Classes.== "en" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'Bancontact'OneOf1PreferredLanguage'EnumEn
+          | val GHC.Classes.== "fr" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'Bancontact'OneOf1PreferredLanguage'EnumFr
+          | val GHC.Classes.== "nl" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'Bancontact'OneOf1PreferredLanguage'EnumNl
+          | GHC.Base.otherwise -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'Bancontact'OneOf1PreferredLanguage'Other val
       )
 
 -- | Defines the oneOf schema located at @paths.\/v1\/invoices.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment_settings.properties.payment_method_options.properties.bancontact.anyOf@ in the specification.
@@ -680,8 +680,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostInvoicesRequestBodyPaymentSettings'P
 instance Data.Aeson.Types.FromJSON.FromJSON PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'Bancontact'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'Bancontact'EmptyString
-        | GHC.Base.otherwise -> case (PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'Bancontact'PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'Bancontact'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'Bancontact'EmptyString
+      | GHC.Base.otherwise -> case (PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'Bancontact'PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'Bancontact'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -728,9 +728,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostInvoicesRequestBodyPaymentSettin
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "any" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'Card'OneOf1RequestThreeDSecure'EnumAny
-            | val GHC.Classes.== "automatic" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'Card'OneOf1RequestThreeDSecure'EnumAutomatic
-            | GHC.Base.otherwise -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'Card'OneOf1RequestThreeDSecure'Other val
+          | val GHC.Classes.== "any" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'Card'OneOf1RequestThreeDSecure'EnumAny
+          | val GHC.Classes.== "automatic" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'Card'OneOf1RequestThreeDSecure'EnumAutomatic
+          | GHC.Base.otherwise -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'Card'OneOf1RequestThreeDSecure'Other val
       )
 
 -- | Defines the oneOf schema located at @paths.\/v1\/invoices.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment_settings.properties.payment_method_options.properties.card.anyOf@ in the specification.
@@ -747,8 +747,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostInvoicesRequestBodyPaymentSettings'P
 instance Data.Aeson.Types.FromJSON.FromJSON PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'Card'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'Card'EmptyString
-        | GHC.Base.otherwise -> case (PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'Card'PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'Card'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'Card'EmptyString
+      | GHC.Base.otherwise -> case (PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'Card'PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'Card'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -848,8 +848,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostInvoicesRequestBodyPaymentSettings'P
 instance Data.Aeson.Types.FromJSON.FromJSON PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'CustomerBalance'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'CustomerBalance'EmptyString
-        | GHC.Base.otherwise -> case (PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'CustomerBalance'PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'CustomerBalance'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'CustomerBalance'EmptyString
+      | GHC.Base.otherwise -> case (PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'CustomerBalance'PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'CustomerBalance'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -867,8 +867,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostInvoicesRequestBodyPaymentSettings'P
 instance Data.Aeson.Types.FromJSON.FromJSON PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'Konbini'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'Konbini'EmptyString
-        | GHC.Base.otherwise -> case (PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'Konbini'Object Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'Konbini'EmptyString
+      | GHC.Base.otherwise -> case (PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'Konbini'Object Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -948,11 +948,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostInvoicesRequestBodyPaymentSettin
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "balances" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'UsBankAccount'OneOf1FinancialConnections'Permissions'EnumBalances
-            | val GHC.Classes.== "ownership" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'UsBankAccount'OneOf1FinancialConnections'Permissions'EnumOwnership
-            | val GHC.Classes.== "payment_method" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'UsBankAccount'OneOf1FinancialConnections'Permissions'EnumPaymentMethod
-            | val GHC.Classes.== "transactions" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'UsBankAccount'OneOf1FinancialConnections'Permissions'EnumTransactions
-            | GHC.Base.otherwise -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'UsBankAccount'OneOf1FinancialConnections'Permissions'Other val
+          | val GHC.Classes.== "balances" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'UsBankAccount'OneOf1FinancialConnections'Permissions'EnumBalances
+          | val GHC.Classes.== "ownership" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'UsBankAccount'OneOf1FinancialConnections'Permissions'EnumOwnership
+          | val GHC.Classes.== "payment_method" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'UsBankAccount'OneOf1FinancialConnections'Permissions'EnumPaymentMethod
+          | val GHC.Classes.== "transactions" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'UsBankAccount'OneOf1FinancialConnections'Permissions'EnumTransactions
+          | GHC.Base.otherwise -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'UsBankAccount'OneOf1FinancialConnections'Permissions'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/invoices.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment_settings.properties.payment_method_options.properties.us_bank_account.anyOf.properties.verification_method@ in the specification.
@@ -980,10 +980,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostInvoicesRequestBodyPaymentSettin
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'UsBankAccount'OneOf1VerificationMethod'EnumAutomatic
-            | val GHC.Classes.== "instant" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'UsBankAccount'OneOf1VerificationMethod'EnumInstant
-            | val GHC.Classes.== "microdeposits" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'UsBankAccount'OneOf1VerificationMethod'EnumMicrodeposits
-            | GHC.Base.otherwise -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'UsBankAccount'OneOf1VerificationMethod'Other val
+          | val GHC.Classes.== "automatic" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'UsBankAccount'OneOf1VerificationMethod'EnumAutomatic
+          | val GHC.Classes.== "instant" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'UsBankAccount'OneOf1VerificationMethod'EnumInstant
+          | val GHC.Classes.== "microdeposits" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'UsBankAccount'OneOf1VerificationMethod'EnumMicrodeposits
+          | GHC.Base.otherwise -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'UsBankAccount'OneOf1VerificationMethod'Other val
       )
 
 -- | Defines the oneOf schema located at @paths.\/v1\/invoices.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment_settings.properties.payment_method_options.properties.us_bank_account.anyOf@ in the specification.
@@ -1000,8 +1000,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostInvoicesRequestBodyPaymentSettings'P
 instance Data.Aeson.Types.FromJSON.FromJSON PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'UsBankAccount'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'UsBankAccount'EmptyString
-        | GHC.Base.otherwise -> case (PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'UsBankAccount'PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'UsBankAccount'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'UsBankAccount'EmptyString
+      | GHC.Base.otherwise -> case (PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'UsBankAccount'PostInvoicesRequestBodyPaymentSettings'PaymentMethodOptions'UsBankAccount'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -1084,28 +1084,28 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostInvoicesRequestBodyPaymentSettin
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "ach_credit_transfer" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumAchCreditTransfer
-            | val GHC.Classes.== "ach_debit" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumAchDebit
-            | val GHC.Classes.== "acss_debit" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumAcssDebit
-            | val GHC.Classes.== "au_becs_debit" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumAuBecsDebit
-            | val GHC.Classes.== "bacs_debit" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumBacsDebit
-            | val GHC.Classes.== "bancontact" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumBancontact
-            | val GHC.Classes.== "boleto" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumBoleto
-            | val GHC.Classes.== "card" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumCard
-            | val GHC.Classes.== "customer_balance" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumCustomerBalance
-            | val GHC.Classes.== "fpx" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumFpx
-            | val GHC.Classes.== "giropay" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumGiropay
-            | val GHC.Classes.== "grabpay" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumGrabpay
-            | val GHC.Classes.== "ideal" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumIdeal
-            | val GHC.Classes.== "konbini" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumKonbini
-            | val GHC.Classes.== "link" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumLink
-            | val GHC.Classes.== "paynow" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumPaynow
-            | val GHC.Classes.== "promptpay" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumPromptpay
-            | val GHC.Classes.== "sepa_debit" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumSepaDebit
-            | val GHC.Classes.== "sofort" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumSofort
-            | val GHC.Classes.== "us_bank_account" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumUsBankAccount
-            | val GHC.Classes.== "wechat_pay" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumWechatPay
-            | GHC.Base.otherwise -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1Other val
+          | val GHC.Classes.== "ach_credit_transfer" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumAchCreditTransfer
+          | val GHC.Classes.== "ach_debit" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumAchDebit
+          | val GHC.Classes.== "acss_debit" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumAcssDebit
+          | val GHC.Classes.== "au_becs_debit" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumAuBecsDebit
+          | val GHC.Classes.== "bacs_debit" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumBacsDebit
+          | val GHC.Classes.== "bancontact" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumBancontact
+          | val GHC.Classes.== "boleto" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumBoleto
+          | val GHC.Classes.== "card" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumCard
+          | val GHC.Classes.== "customer_balance" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumCustomerBalance
+          | val GHC.Classes.== "fpx" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumFpx
+          | val GHC.Classes.== "giropay" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumGiropay
+          | val GHC.Classes.== "grabpay" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumGrabpay
+          | val GHC.Classes.== "ideal" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumIdeal
+          | val GHC.Classes.== "konbini" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumKonbini
+          | val GHC.Classes.== "link" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumLink
+          | val GHC.Classes.== "paynow" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumPaynow
+          | val GHC.Classes.== "promptpay" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumPromptpay
+          | val GHC.Classes.== "sepa_debit" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumSepaDebit
+          | val GHC.Classes.== "sofort" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumSofort
+          | val GHC.Classes.== "us_bank_account" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumUsBankAccount
+          | val GHC.Classes.== "wechat_pay" -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1EnumWechatPay
+          | GHC.Base.otherwise -> PostInvoicesRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1Other val
       )
 
 -- | Defines the oneOf schema located at @paths.\/v1\/invoices.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.payment_settings.properties.payment_method_types.anyOf@ in the specification.
@@ -1122,8 +1122,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostInvoicesRequestBodyPaymentSettings'P
 instance Data.Aeson.Types.FromJSON.FromJSON PostInvoicesRequestBodyPaymentSettings'PaymentMethodTypes'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostInvoicesRequestBodyPaymentSettings'PaymentMethodTypes'EmptyString
-        | GHC.Base.otherwise -> case (PostInvoicesRequestBodyPaymentSettings'PaymentMethodTypes'ListTPostInvoicesRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostInvoicesRequestBodyPaymentSettings'PaymentMethodTypes'EmptyString
+      | GHC.Base.otherwise -> case (PostInvoicesRequestBodyPaymentSettings'PaymentMethodTypes'ListTPostInvoicesRequestBodyPaymentSettings'PaymentMethodTypes'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -1154,10 +1154,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostInvoicesRequestBodyPendingInvoic
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "exclude" -> PostInvoicesRequestBodyPendingInvoiceItemsBehavior'EnumExclude
-            | val GHC.Classes.== "include" -> PostInvoicesRequestBodyPendingInvoiceItemsBehavior'EnumInclude
-            | val GHC.Classes.== "include_and_require" -> PostInvoicesRequestBodyPendingInvoiceItemsBehavior'EnumIncludeAndRequire
-            | GHC.Base.otherwise -> PostInvoicesRequestBodyPendingInvoiceItemsBehavior'Other val
+          | val GHC.Classes.== "exclude" -> PostInvoicesRequestBodyPendingInvoiceItemsBehavior'EnumExclude
+          | val GHC.Classes.== "include" -> PostInvoicesRequestBodyPendingInvoiceItemsBehavior'EnumInclude
+          | val GHC.Classes.== "include_and_require" -> PostInvoicesRequestBodyPendingInvoiceItemsBehavior'EnumIncludeAndRequire
+          | GHC.Base.otherwise -> PostInvoicesRequestBodyPendingInvoiceItemsBehavior'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/invoices.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.rendering_options.anyOf@ in the specification.
@@ -1206,10 +1206,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostInvoicesRequestBodyRenderingOpti
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "" -> PostInvoicesRequestBodyRenderingOptions'OneOf1AmountTaxDisplay'EnumEmptyString
-            | val GHC.Classes.== "exclude_tax" -> PostInvoicesRequestBodyRenderingOptions'OneOf1AmountTaxDisplay'EnumExcludeTax
-            | val GHC.Classes.== "include_inclusive_tax" -> PostInvoicesRequestBodyRenderingOptions'OneOf1AmountTaxDisplay'EnumIncludeInclusiveTax
-            | GHC.Base.otherwise -> PostInvoicesRequestBodyRenderingOptions'OneOf1AmountTaxDisplay'Other val
+          | val GHC.Classes.== "" -> PostInvoicesRequestBodyRenderingOptions'OneOf1AmountTaxDisplay'EnumEmptyString
+          | val GHC.Classes.== "exclude_tax" -> PostInvoicesRequestBodyRenderingOptions'OneOf1AmountTaxDisplay'EnumExcludeTax
+          | val GHC.Classes.== "include_inclusive_tax" -> PostInvoicesRequestBodyRenderingOptions'OneOf1AmountTaxDisplay'EnumIncludeInclusiveTax
+          | GHC.Base.otherwise -> PostInvoicesRequestBodyRenderingOptions'OneOf1AmountTaxDisplay'Other val
       )
 
 -- | Defines the oneOf schema located at @paths.\/v1\/invoices.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.rendering_options.anyOf@ in the specification.
@@ -1228,8 +1228,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostInvoicesRequestBodyRenderingOptions'
 instance Data.Aeson.Types.FromJSON.FromJSON PostInvoicesRequestBodyRenderingOptions'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostInvoicesRequestBodyRenderingOptions'EmptyString
-        | GHC.Base.otherwise -> case (PostInvoicesRequestBodyRenderingOptions'PostInvoicesRequestBodyRenderingOptions'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostInvoicesRequestBodyRenderingOptions'EmptyString
+      | GHC.Base.otherwise -> case (PostInvoicesRequestBodyRenderingOptions'PostInvoicesRequestBodyRenderingOptions'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 

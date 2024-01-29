@@ -100,11 +100,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON CustomerTaxAutomaticTax' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "failed" -> CustomerTaxAutomaticTax'EnumFailed
-            | val GHC.Classes.== "not_collecting" -> CustomerTaxAutomaticTax'EnumNotCollecting
-            | val GHC.Classes.== "supported" -> CustomerTaxAutomaticTax'EnumSupported
-            | val GHC.Classes.== "unrecognized_location" -> CustomerTaxAutomaticTax'EnumUnrecognizedLocation
-            | GHC.Base.otherwise -> CustomerTaxAutomaticTax'Other val
+          | val GHC.Classes.== "failed" -> CustomerTaxAutomaticTax'EnumFailed
+          | val GHC.Classes.== "not_collecting" -> CustomerTaxAutomaticTax'EnumNotCollecting
+          | val GHC.Classes.== "supported" -> CustomerTaxAutomaticTax'EnumSupported
+          | val GHC.Classes.== "unrecognized_location" -> CustomerTaxAutomaticTax'EnumUnrecognizedLocation
+          | GHC.Base.otherwise -> CustomerTaxAutomaticTax'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.customer_tax.properties.location.anyOf@ in the specification.
@@ -177,9 +177,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON CustomerTaxLocation'NonNullableSourc
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "billing_address" -> CustomerTaxLocation'NonNullableSource'EnumBillingAddress
-            | val GHC.Classes.== "ip_address" -> CustomerTaxLocation'NonNullableSource'EnumIpAddress
-            | val GHC.Classes.== "payment_method" -> CustomerTaxLocation'NonNullableSource'EnumPaymentMethod
-            | val GHC.Classes.== "shipping_destination" -> CustomerTaxLocation'NonNullableSource'EnumShippingDestination
-            | GHC.Base.otherwise -> CustomerTaxLocation'NonNullableSource'Other val
+          | val GHC.Classes.== "billing_address" -> CustomerTaxLocation'NonNullableSource'EnumBillingAddress
+          | val GHC.Classes.== "ip_address" -> CustomerTaxLocation'NonNullableSource'EnumIpAddress
+          | val GHC.Classes.== "payment_method" -> CustomerTaxLocation'NonNullableSource'EnumPaymentMethod
+          | val GHC.Classes.== "shipping_destination" -> CustomerTaxLocation'NonNullableSource'EnumShippingDestination
+          | GHC.Base.otherwise -> CustomerTaxLocation'NonNullableSource'Other val
       )

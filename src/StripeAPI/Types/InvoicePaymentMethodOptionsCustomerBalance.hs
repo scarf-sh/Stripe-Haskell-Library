@@ -81,6 +81,6 @@ instance Data.Aeson.Types.FromJSON.FromJSON InvoicePaymentMethodOptionsCustomerB
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "bank_transfer" -> InvoicePaymentMethodOptionsCustomerBalanceFundingType'NonNullableEnumBankTransfer
-            | GHC.Base.otherwise -> InvoicePaymentMethodOptionsCustomerBalanceFundingType'NonNullableOther val
+          | val GHC.Classes.== "bank_transfer" -> InvoicePaymentMethodOptionsCustomerBalanceFundingType'NonNullableEnumBankTransfer
+          | GHC.Base.otherwise -> InvoicePaymentMethodOptionsCustomerBalanceFundingType'NonNullableOther val
       )

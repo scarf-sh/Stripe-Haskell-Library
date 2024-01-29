@@ -205,9 +205,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON Issuing'cardCancellationReason'NonNu
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "lost" -> Issuing'cardCancellationReason'NonNullableEnumLost
-            | val GHC.Classes.== "stolen" -> Issuing'cardCancellationReason'NonNullableEnumStolen
-            | GHC.Base.otherwise -> Issuing'cardCancellationReason'NonNullableOther val
+          | val GHC.Classes.== "lost" -> Issuing'cardCancellationReason'NonNullableEnumLost
+          | val GHC.Classes.== "stolen" -> Issuing'cardCancellationReason'NonNullableEnumStolen
+          | GHC.Base.otherwise -> Issuing'cardCancellationReason'NonNullableOther val
       )
 
 -- | Defines the oneOf schema located at @components.schemas.issuing.card.properties.replaced_by.anyOf@ in the specification.
@@ -274,11 +274,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON Issuing'cardReplacementReason'NonNul
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "damaged" -> Issuing'cardReplacementReason'NonNullableEnumDamaged
-            | val GHC.Classes.== "expired" -> Issuing'cardReplacementReason'NonNullableEnumExpired
-            | val GHC.Classes.== "lost" -> Issuing'cardReplacementReason'NonNullableEnumLost
-            | val GHC.Classes.== "stolen" -> Issuing'cardReplacementReason'NonNullableEnumStolen
-            | GHC.Base.otherwise -> Issuing'cardReplacementReason'NonNullableOther val
+          | val GHC.Classes.== "damaged" -> Issuing'cardReplacementReason'NonNullableEnumDamaged
+          | val GHC.Classes.== "expired" -> Issuing'cardReplacementReason'NonNullableEnumExpired
+          | val GHC.Classes.== "lost" -> Issuing'cardReplacementReason'NonNullableEnumLost
+          | val GHC.Classes.== "stolen" -> Issuing'cardReplacementReason'NonNullableEnumStolen
+          | GHC.Base.otherwise -> Issuing'cardReplacementReason'NonNullableOther val
       )
 
 -- | Defines the object schema located at @components.schemas.issuing.card.properties.shipping.anyOf@ in the specification.
@@ -373,11 +373,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON Issuing'cardShipping'NonNullableCarr
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "dhl" -> Issuing'cardShipping'NonNullableCarrier'NonNullableEnumDhl
-            | val GHC.Classes.== "fedex" -> Issuing'cardShipping'NonNullableCarrier'NonNullableEnumFedex
-            | val GHC.Classes.== "royal_mail" -> Issuing'cardShipping'NonNullableCarrier'NonNullableEnumRoyalMail
-            | val GHC.Classes.== "usps" -> Issuing'cardShipping'NonNullableCarrier'NonNullableEnumUsps
-            | GHC.Base.otherwise -> Issuing'cardShipping'NonNullableCarrier'NonNullableOther val
+          | val GHC.Classes.== "dhl" -> Issuing'cardShipping'NonNullableCarrier'NonNullableEnumDhl
+          | val GHC.Classes.== "fedex" -> Issuing'cardShipping'NonNullableCarrier'NonNullableEnumFedex
+          | val GHC.Classes.== "royal_mail" -> Issuing'cardShipping'NonNullableCarrier'NonNullableEnumRoyalMail
+          | val GHC.Classes.== "usps" -> Issuing'cardShipping'NonNullableCarrier'NonNullableEnumUsps
+          | GHC.Base.otherwise -> Issuing'cardShipping'NonNullableCarrier'NonNullableOther val
       )
 
 -- | Defines the enum schema located at @components.schemas.issuing.card.properties.shipping.anyOf.properties.service@ in the specification.
@@ -407,10 +407,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON Issuing'cardShipping'NonNullableServ
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "express" -> Issuing'cardShipping'NonNullableService'EnumExpress
-            | val GHC.Classes.== "priority" -> Issuing'cardShipping'NonNullableService'EnumPriority
-            | val GHC.Classes.== "standard" -> Issuing'cardShipping'NonNullableService'EnumStandard
-            | GHC.Base.otherwise -> Issuing'cardShipping'NonNullableService'Other val
+          | val GHC.Classes.== "express" -> Issuing'cardShipping'NonNullableService'EnumExpress
+          | val GHC.Classes.== "priority" -> Issuing'cardShipping'NonNullableService'EnumPriority
+          | val GHC.Classes.== "standard" -> Issuing'cardShipping'NonNullableService'EnumStandard
+          | GHC.Base.otherwise -> Issuing'cardShipping'NonNullableService'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.issuing.card.properties.shipping.anyOf.properties.status@ in the specification.
@@ -449,13 +449,13 @@ instance Data.Aeson.Types.FromJSON.FromJSON Issuing'cardShipping'NonNullableStat
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "canceled" -> Issuing'cardShipping'NonNullableStatus'NonNullableEnumCanceled
-            | val GHC.Classes.== "delivered" -> Issuing'cardShipping'NonNullableStatus'NonNullableEnumDelivered
-            | val GHC.Classes.== "failure" -> Issuing'cardShipping'NonNullableStatus'NonNullableEnumFailure
-            | val GHC.Classes.== "pending" -> Issuing'cardShipping'NonNullableStatus'NonNullableEnumPending
-            | val GHC.Classes.== "returned" -> Issuing'cardShipping'NonNullableStatus'NonNullableEnumReturned
-            | val GHC.Classes.== "shipped" -> Issuing'cardShipping'NonNullableStatus'NonNullableEnumShipped
-            | GHC.Base.otherwise -> Issuing'cardShipping'NonNullableStatus'NonNullableOther val
+          | val GHC.Classes.== "canceled" -> Issuing'cardShipping'NonNullableStatus'NonNullableEnumCanceled
+          | val GHC.Classes.== "delivered" -> Issuing'cardShipping'NonNullableStatus'NonNullableEnumDelivered
+          | val GHC.Classes.== "failure" -> Issuing'cardShipping'NonNullableStatus'NonNullableEnumFailure
+          | val GHC.Classes.== "pending" -> Issuing'cardShipping'NonNullableStatus'NonNullableEnumPending
+          | val GHC.Classes.== "returned" -> Issuing'cardShipping'NonNullableStatus'NonNullableEnumReturned
+          | val GHC.Classes.== "shipped" -> Issuing'cardShipping'NonNullableStatus'NonNullableEnumShipped
+          | GHC.Base.otherwise -> Issuing'cardShipping'NonNullableStatus'NonNullableOther val
       )
 
 -- | Defines the enum schema located at @components.schemas.issuing.card.properties.shipping.anyOf.properties.type@ in the specification.
@@ -482,9 +482,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON Issuing'cardShipping'NonNullableType
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "bulk" -> Issuing'cardShipping'NonNullableType'EnumBulk
-            | val GHC.Classes.== "individual" -> Issuing'cardShipping'NonNullableType'EnumIndividual
-            | GHC.Base.otherwise -> Issuing'cardShipping'NonNullableType'Other val
+          | val GHC.Classes.== "bulk" -> Issuing'cardShipping'NonNullableType'EnumBulk
+          | val GHC.Classes.== "individual" -> Issuing'cardShipping'NonNullableType'EnumIndividual
+          | GHC.Base.otherwise -> Issuing'cardShipping'NonNullableType'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.issuing.card.properties.status@ in the specification.
@@ -514,10 +514,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON Issuing'cardStatus' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "active" -> Issuing'cardStatus'EnumActive
-            | val GHC.Classes.== "canceled" -> Issuing'cardStatus'EnumCanceled
-            | val GHC.Classes.== "inactive" -> Issuing'cardStatus'EnumInactive
-            | GHC.Base.otherwise -> Issuing'cardStatus'Other val
+          | val GHC.Classes.== "active" -> Issuing'cardStatus'EnumActive
+          | val GHC.Classes.== "canceled" -> Issuing'cardStatus'EnumCanceled
+          | val GHC.Classes.== "inactive" -> Issuing'cardStatus'EnumInactive
+          | GHC.Base.otherwise -> Issuing'cardStatus'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.issuing.card.properties.type@ in the specification.
@@ -544,9 +544,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON Issuing'cardType' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "physical" -> Issuing'cardType'EnumPhysical
-            | val GHC.Classes.== "virtual" -> Issuing'cardType'EnumVirtual
-            | GHC.Base.otherwise -> Issuing'cardType'Other val
+          | val GHC.Classes.== "physical" -> Issuing'cardType'EnumPhysical
+          | val GHC.Classes.== "virtual" -> Issuing'cardType'EnumVirtual
+          | GHC.Base.otherwise -> Issuing'cardType'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.issuing.card.properties.wallets.anyOf@ in the specification.

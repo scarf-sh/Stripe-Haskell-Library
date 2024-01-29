@@ -48,7 +48,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>To send funds from your Stripe account to a connected account, you create a new transfer object. Your \<a href=\"\#balance\">Stripe balance\<\/a> must be able to cover the transfer amount, or you’ll receive an “Insufficient Funds” error.\<\/p>
 postTransfers ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | The request body to send
   PostTransfersRequestBody ->
   -- | Monadic computation which returns the result of the operation
@@ -60,21 +60,21 @@ postTransfers body =
           ( Data.Either.either PostTransfersResponseError GHC.Base.id
               GHC.Base.. ( \response body ->
                              if
-                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                               | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                    PostTransfersResponse200
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             Transfer
                                                       )
-                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                               | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                    PostTransfersResponseDefault
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             Error
                                                       )
-                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                               | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                          )
                 response_0
           )
@@ -170,10 +170,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostTransfersRequestBodySourceType' 
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "bank_account" -> PostTransfersRequestBodySourceType'EnumBankAccount
-            | val GHC.Classes.== "card" -> PostTransfersRequestBodySourceType'EnumCard
-            | val GHC.Classes.== "fpx" -> PostTransfersRequestBodySourceType'EnumFpx
-            | GHC.Base.otherwise -> PostTransfersRequestBodySourceType'Other val
+          | val GHC.Classes.== "bank_account" -> PostTransfersRequestBodySourceType'EnumBankAccount
+          | val GHC.Classes.== "card" -> PostTransfersRequestBodySourceType'EnumCard
+          | val GHC.Classes.== "fpx" -> PostTransfersRequestBodySourceType'EnumFpx
+          | GHC.Base.otherwise -> PostTransfersRequestBodySourceType'Other val
       )
 
 -- | Represents a response of the operation 'postTransfers'.

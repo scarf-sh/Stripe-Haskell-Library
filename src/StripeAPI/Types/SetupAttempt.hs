@@ -228,9 +228,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON SetupAttemptFlowDirections'NonNullab
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "inbound" -> SetupAttemptFlowDirections'NonNullableEnumInbound
-            | val GHC.Classes.== "outbound" -> SetupAttemptFlowDirections'NonNullableEnumOutbound
-            | GHC.Base.otherwise -> SetupAttemptFlowDirections'NonNullableOther val
+          | val GHC.Classes.== "inbound" -> SetupAttemptFlowDirections'NonNullableEnumInbound
+          | val GHC.Classes.== "outbound" -> SetupAttemptFlowDirections'NonNullableEnumOutbound
+          | GHC.Base.otherwise -> SetupAttemptFlowDirections'NonNullableOther val
       )
 
 -- | Defines the oneOf schema located at @components.schemas.setup_attempt.properties.on_behalf_of.anyOf@ in the specification.
@@ -760,9 +760,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON SetupAttemptSetupError'NonNullableSo
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "instant" -> SetupAttemptSetupError'NonNullableSource'AvailablePayoutMethods'NonNullableEnumInstant
-            | val GHC.Classes.== "standard" -> SetupAttemptSetupError'NonNullableSource'AvailablePayoutMethods'NonNullableEnumStandard
-            | GHC.Base.otherwise -> SetupAttemptSetupError'NonNullableSource'AvailablePayoutMethods'NonNullableOther val
+          | val GHC.Classes.== "instant" -> SetupAttemptSetupError'NonNullableSource'AvailablePayoutMethods'NonNullableEnumInstant
+          | val GHC.Classes.== "standard" -> SetupAttemptSetupError'NonNullableSource'AvailablePayoutMethods'NonNullableEnumStandard
+          | GHC.Base.otherwise -> SetupAttemptSetupError'NonNullableSource'AvailablePayoutMethods'NonNullableOther val
       )
 
 -- | Defines the oneOf schema located at @components.schemas.setup_attempt.properties.setup_error.anyOf.properties.source.anyOf.properties.customer.anyOf@ in the specification.
@@ -805,8 +805,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON SetupAttemptSetupError'NonNullableSo
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "bank_account" -> SetupAttemptSetupError'NonNullableSource'Object'EnumBankAccount
-            | GHC.Base.otherwise -> SetupAttemptSetupError'NonNullableSource'Object'Other val
+          | val GHC.Classes.== "bank_account" -> SetupAttemptSetupError'NonNullableSource'Object'EnumBankAccount
+          | GHC.Base.otherwise -> SetupAttemptSetupError'NonNullableSource'Object'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.setup_attempt.properties.setup_error.anyOf.properties.source.anyOf.properties.owner.anyOf@ in the specification.
@@ -1099,25 +1099,25 @@ instance Data.Aeson.Types.FromJSON.FromJSON SetupAttemptSetupError'NonNullableSo
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "ach_credit_transfer" -> SetupAttemptSetupError'NonNullableSource'Type'EnumAchCreditTransfer
-            | val GHC.Classes.== "ach_debit" -> SetupAttemptSetupError'NonNullableSource'Type'EnumAchDebit
-            | val GHC.Classes.== "acss_debit" -> SetupAttemptSetupError'NonNullableSource'Type'EnumAcssDebit
-            | val GHC.Classes.== "alipay" -> SetupAttemptSetupError'NonNullableSource'Type'EnumAlipay
-            | val GHC.Classes.== "au_becs_debit" -> SetupAttemptSetupError'NonNullableSource'Type'EnumAuBecsDebit
-            | val GHC.Classes.== "bancontact" -> SetupAttemptSetupError'NonNullableSource'Type'EnumBancontact
-            | val GHC.Classes.== "card" -> SetupAttemptSetupError'NonNullableSource'Type'EnumCard
-            | val GHC.Classes.== "card_present" -> SetupAttemptSetupError'NonNullableSource'Type'EnumCardPresent
-            | val GHC.Classes.== "eps" -> SetupAttemptSetupError'NonNullableSource'Type'EnumEps
-            | val GHC.Classes.== "giropay" -> SetupAttemptSetupError'NonNullableSource'Type'EnumGiropay
-            | val GHC.Classes.== "ideal" -> SetupAttemptSetupError'NonNullableSource'Type'EnumIdeal
-            | val GHC.Classes.== "klarna" -> SetupAttemptSetupError'NonNullableSource'Type'EnumKlarna
-            | val GHC.Classes.== "multibanco" -> SetupAttemptSetupError'NonNullableSource'Type'EnumMultibanco
-            | val GHC.Classes.== "p24" -> SetupAttemptSetupError'NonNullableSource'Type'EnumP24
-            | val GHC.Classes.== "sepa_debit" -> SetupAttemptSetupError'NonNullableSource'Type'EnumSepaDebit
-            | val GHC.Classes.== "sofort" -> SetupAttemptSetupError'NonNullableSource'Type'EnumSofort
-            | val GHC.Classes.== "three_d_secure" -> SetupAttemptSetupError'NonNullableSource'Type'EnumThreeDSecure
-            | val GHC.Classes.== "wechat" -> SetupAttemptSetupError'NonNullableSource'Type'EnumWechat
-            | GHC.Base.otherwise -> SetupAttemptSetupError'NonNullableSource'Type'Other val
+          | val GHC.Classes.== "ach_credit_transfer" -> SetupAttemptSetupError'NonNullableSource'Type'EnumAchCreditTransfer
+          | val GHC.Classes.== "ach_debit" -> SetupAttemptSetupError'NonNullableSource'Type'EnumAchDebit
+          | val GHC.Classes.== "acss_debit" -> SetupAttemptSetupError'NonNullableSource'Type'EnumAcssDebit
+          | val GHC.Classes.== "alipay" -> SetupAttemptSetupError'NonNullableSource'Type'EnumAlipay
+          | val GHC.Classes.== "au_becs_debit" -> SetupAttemptSetupError'NonNullableSource'Type'EnumAuBecsDebit
+          | val GHC.Classes.== "bancontact" -> SetupAttemptSetupError'NonNullableSource'Type'EnumBancontact
+          | val GHC.Classes.== "card" -> SetupAttemptSetupError'NonNullableSource'Type'EnumCard
+          | val GHC.Classes.== "card_present" -> SetupAttemptSetupError'NonNullableSource'Type'EnumCardPresent
+          | val GHC.Classes.== "eps" -> SetupAttemptSetupError'NonNullableSource'Type'EnumEps
+          | val GHC.Classes.== "giropay" -> SetupAttemptSetupError'NonNullableSource'Type'EnumGiropay
+          | val GHC.Classes.== "ideal" -> SetupAttemptSetupError'NonNullableSource'Type'EnumIdeal
+          | val GHC.Classes.== "klarna" -> SetupAttemptSetupError'NonNullableSource'Type'EnumKlarna
+          | val GHC.Classes.== "multibanco" -> SetupAttemptSetupError'NonNullableSource'Type'EnumMultibanco
+          | val GHC.Classes.== "p24" -> SetupAttemptSetupError'NonNullableSource'Type'EnumP24
+          | val GHC.Classes.== "sepa_debit" -> SetupAttemptSetupError'NonNullableSource'Type'EnumSepaDebit
+          | val GHC.Classes.== "sofort" -> SetupAttemptSetupError'NonNullableSource'Type'EnumSofort
+          | val GHC.Classes.== "three_d_secure" -> SetupAttemptSetupError'NonNullableSource'Type'EnumThreeDSecure
+          | val GHC.Classes.== "wechat" -> SetupAttemptSetupError'NonNullableSource'Type'EnumWechat
+          | GHC.Base.otherwise -> SetupAttemptSetupError'NonNullableSource'Type'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.setup_attempt.properties.setup_error.anyOf.properties.type@ in the specification.
@@ -1150,11 +1150,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON SetupAttemptSetupError'NonNullableTy
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "api_error" -> SetupAttemptSetupError'NonNullableType'EnumApiError
-            | val GHC.Classes.== "card_error" -> SetupAttemptSetupError'NonNullableType'EnumCardError
-            | val GHC.Classes.== "idempotency_error" -> SetupAttemptSetupError'NonNullableType'EnumIdempotencyError
-            | val GHC.Classes.== "invalid_request_error" -> SetupAttemptSetupError'NonNullableType'EnumInvalidRequestError
-            | GHC.Base.otherwise -> SetupAttemptSetupError'NonNullableType'Other val
+          | val GHC.Classes.== "api_error" -> SetupAttemptSetupError'NonNullableType'EnumApiError
+          | val GHC.Classes.== "card_error" -> SetupAttemptSetupError'NonNullableType'EnumCardError
+          | val GHC.Classes.== "idempotency_error" -> SetupAttemptSetupError'NonNullableType'EnumIdempotencyError
+          | val GHC.Classes.== "invalid_request_error" -> SetupAttemptSetupError'NonNullableType'EnumInvalidRequestError
+          | GHC.Base.otherwise -> SetupAttemptSetupError'NonNullableType'Other val
       )
 
 -- | Defines the oneOf schema located at @components.schemas.setup_attempt.properties.setup_intent.anyOf@ in the specification.

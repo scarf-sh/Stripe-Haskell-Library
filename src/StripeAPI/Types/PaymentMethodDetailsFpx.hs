@@ -147,26 +147,26 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentMethodDetailsFpxBank' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "affin_bank" -> PaymentMethodDetailsFpxBank'EnumAffinBank
-            | val GHC.Classes.== "agrobank" -> PaymentMethodDetailsFpxBank'EnumAgrobank
-            | val GHC.Classes.== "alliance_bank" -> PaymentMethodDetailsFpxBank'EnumAllianceBank
-            | val GHC.Classes.== "ambank" -> PaymentMethodDetailsFpxBank'EnumAmbank
-            | val GHC.Classes.== "bank_islam" -> PaymentMethodDetailsFpxBank'EnumBankIslam
-            | val GHC.Classes.== "bank_muamalat" -> PaymentMethodDetailsFpxBank'EnumBankMuamalat
-            | val GHC.Classes.== "bank_rakyat" -> PaymentMethodDetailsFpxBank'EnumBankRakyat
-            | val GHC.Classes.== "bsn" -> PaymentMethodDetailsFpxBank'EnumBsn
-            | val GHC.Classes.== "cimb" -> PaymentMethodDetailsFpxBank'EnumCimb
-            | val GHC.Classes.== "deutsche_bank" -> PaymentMethodDetailsFpxBank'EnumDeutscheBank
-            | val GHC.Classes.== "hong_leong_bank" -> PaymentMethodDetailsFpxBank'EnumHongLeongBank
-            | val GHC.Classes.== "hsbc" -> PaymentMethodDetailsFpxBank'EnumHsbc
-            | val GHC.Classes.== "kfh" -> PaymentMethodDetailsFpxBank'EnumKfh
-            | val GHC.Classes.== "maybank2e" -> PaymentMethodDetailsFpxBank'EnumMaybank2e
-            | val GHC.Classes.== "maybank2u" -> PaymentMethodDetailsFpxBank'EnumMaybank2u
-            | val GHC.Classes.== "ocbc" -> PaymentMethodDetailsFpxBank'EnumOcbc
-            | val GHC.Classes.== "pb_enterprise" -> PaymentMethodDetailsFpxBank'EnumPbEnterprise
-            | val GHC.Classes.== "public_bank" -> PaymentMethodDetailsFpxBank'EnumPublicBank
-            | val GHC.Classes.== "rhb" -> PaymentMethodDetailsFpxBank'EnumRhb
-            | val GHC.Classes.== "standard_chartered" -> PaymentMethodDetailsFpxBank'EnumStandardChartered
-            | val GHC.Classes.== "uob" -> PaymentMethodDetailsFpxBank'EnumUob
-            | GHC.Base.otherwise -> PaymentMethodDetailsFpxBank'Other val
+          | val GHC.Classes.== "affin_bank" -> PaymentMethodDetailsFpxBank'EnumAffinBank
+          | val GHC.Classes.== "agrobank" -> PaymentMethodDetailsFpxBank'EnumAgrobank
+          | val GHC.Classes.== "alliance_bank" -> PaymentMethodDetailsFpxBank'EnumAllianceBank
+          | val GHC.Classes.== "ambank" -> PaymentMethodDetailsFpxBank'EnumAmbank
+          | val GHC.Classes.== "bank_islam" -> PaymentMethodDetailsFpxBank'EnumBankIslam
+          | val GHC.Classes.== "bank_muamalat" -> PaymentMethodDetailsFpxBank'EnumBankMuamalat
+          | val GHC.Classes.== "bank_rakyat" -> PaymentMethodDetailsFpxBank'EnumBankRakyat
+          | val GHC.Classes.== "bsn" -> PaymentMethodDetailsFpxBank'EnumBsn
+          | val GHC.Classes.== "cimb" -> PaymentMethodDetailsFpxBank'EnumCimb
+          | val GHC.Classes.== "deutsche_bank" -> PaymentMethodDetailsFpxBank'EnumDeutscheBank
+          | val GHC.Classes.== "hong_leong_bank" -> PaymentMethodDetailsFpxBank'EnumHongLeongBank
+          | val GHC.Classes.== "hsbc" -> PaymentMethodDetailsFpxBank'EnumHsbc
+          | val GHC.Classes.== "kfh" -> PaymentMethodDetailsFpxBank'EnumKfh
+          | val GHC.Classes.== "maybank2e" -> PaymentMethodDetailsFpxBank'EnumMaybank2e
+          | val GHC.Classes.== "maybank2u" -> PaymentMethodDetailsFpxBank'EnumMaybank2u
+          | val GHC.Classes.== "ocbc" -> PaymentMethodDetailsFpxBank'EnumOcbc
+          | val GHC.Classes.== "pb_enterprise" -> PaymentMethodDetailsFpxBank'EnumPbEnterprise
+          | val GHC.Classes.== "public_bank" -> PaymentMethodDetailsFpxBank'EnumPublicBank
+          | val GHC.Classes.== "rhb" -> PaymentMethodDetailsFpxBank'EnumRhb
+          | val GHC.Classes.== "standard_chartered" -> PaymentMethodDetailsFpxBank'EnumStandardChartered
+          | val GHC.Classes.== "uob" -> PaymentMethodDetailsFpxBank'EnumUob
+          | GHC.Base.otherwise -> PaymentMethodDetailsFpxBank'Other val
       )

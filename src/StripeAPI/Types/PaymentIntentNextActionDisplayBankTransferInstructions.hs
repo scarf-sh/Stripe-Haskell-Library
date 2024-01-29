@@ -113,9 +113,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentNextActionDisplayBankTr
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "eu_bank_transfer" -> PaymentIntentNextActionDisplayBankTransferInstructionsType'EnumEuBankTransfer
-            | val GHC.Classes.== "gb_bank_transfer" -> PaymentIntentNextActionDisplayBankTransferInstructionsType'EnumGbBankTransfer
-            | val GHC.Classes.== "jp_bank_transfer" -> PaymentIntentNextActionDisplayBankTransferInstructionsType'EnumJpBankTransfer
-            | val GHC.Classes.== "mx_bank_transfer" -> PaymentIntentNextActionDisplayBankTransferInstructionsType'EnumMxBankTransfer
-            | GHC.Base.otherwise -> PaymentIntentNextActionDisplayBankTransferInstructionsType'Other val
+          | val GHC.Classes.== "eu_bank_transfer" -> PaymentIntentNextActionDisplayBankTransferInstructionsType'EnumEuBankTransfer
+          | val GHC.Classes.== "gb_bank_transfer" -> PaymentIntentNextActionDisplayBankTransferInstructionsType'EnumGbBankTransfer
+          | val GHC.Classes.== "jp_bank_transfer" -> PaymentIntentNextActionDisplayBankTransferInstructionsType'EnumJpBankTransfer
+          | val GHC.Classes.== "mx_bank_transfer" -> PaymentIntentNextActionDisplayBankTransferInstructionsType'EnumMxBankTransfer
+          | GHC.Base.otherwise -> PaymentIntentNextActionDisplayBankTransferInstructionsType'Other val
       )

@@ -48,7 +48,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>Create a refund.\<\/p>
 postRefunds ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | The request body to send
   GHC.Maybe.Maybe PostRefundsRequestBody ->
   -- | Monadic computation which returns the result of the operation
@@ -60,21 +60,21 @@ postRefunds body =
           ( Data.Either.either PostRefundsResponseError GHC.Base.id
               GHC.Base.. ( \response body ->
                              if
-                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                               | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                    PostRefundsResponse200
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             Refund
                                                       )
-                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                               | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                    PostRefundsResponseDefault
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             Error
                                                       )
-                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                               | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                          )
                 response_0
           )
@@ -158,8 +158,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostRefundsRequestBodyMetadata'Variants 
 instance Data.Aeson.Types.FromJSON.FromJSON PostRefundsRequestBodyMetadata'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostRefundsRequestBodyMetadata'EmptyString
-        | GHC.Base.otherwise -> case (PostRefundsRequestBodyMetadata'Object Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostRefundsRequestBodyMetadata'EmptyString
+      | GHC.Base.otherwise -> case (PostRefundsRequestBodyMetadata'Object Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -188,10 +188,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostRefundsRequestBodyReason' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "duplicate" -> PostRefundsRequestBodyReason'EnumDuplicate
-            | val GHC.Classes.== "fraudulent" -> PostRefundsRequestBodyReason'EnumFraudulent
-            | val GHC.Classes.== "requested_by_customer" -> PostRefundsRequestBodyReason'EnumRequestedByCustomer
-            | GHC.Base.otherwise -> PostRefundsRequestBodyReason'Other val
+          | val GHC.Classes.== "duplicate" -> PostRefundsRequestBodyReason'EnumDuplicate
+          | val GHC.Classes.== "fraudulent" -> PostRefundsRequestBodyReason'EnumFraudulent
+          | val GHC.Classes.== "requested_by_customer" -> PostRefundsRequestBodyReason'EnumRequestedByCustomer
+          | GHC.Base.otherwise -> PostRefundsRequestBodyReason'Other val
       )
 
 -- | Represents a response of the operation 'postRefunds'.

@@ -300,7 +300,7 @@ instance Data.Aeson.Types.FromJSON.FromJSON PayoutType' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "bank_account" -> PayoutType'EnumBankAccount
-            | val GHC.Classes.== "card" -> PayoutType'EnumCard
-            | GHC.Base.otherwise -> PayoutType'Other val
+          | val GHC.Classes.== "bank_account" -> PayoutType'EnumBankAccount
+          | val GHC.Classes.== "card" -> PayoutType'EnumCard
+          | GHC.Base.otherwise -> PayoutType'Other val
       )

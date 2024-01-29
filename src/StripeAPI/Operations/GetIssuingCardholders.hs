@@ -48,7 +48,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>Returns a list of Issuing \<code>Cardholder\<\/code> objects. The objects are sorted in descending order by creation date, with the most recently created object appearing first.\<\/p>
 getIssuingCardholders ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | Contains all available parameters of this operation (query and path parameters)
   GetIssuingCardholdersParameters ->
   -- | Monadic computation which returns the result of the operation
@@ -60,21 +60,21 @@ getIssuingCardholders parameters =
           ( Data.Either.either GetIssuingCardholdersResponseError GHC.Base.id
               GHC.Base.. ( \response body ->
                              if
-                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                               | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                    GetIssuingCardholdersResponse200
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             GetIssuingCardholdersResponseBody200
                                                       )
-                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                               | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                    GetIssuingCardholdersResponseDefault
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             Error
                                                       )
-                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                               | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                          )
                 response_0
           )
@@ -250,10 +250,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON GetIssuingCardholdersParametersQuery
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "active" -> GetIssuingCardholdersParametersQueryStatus'EnumActive
-            | val GHC.Classes.== "blocked" -> GetIssuingCardholdersParametersQueryStatus'EnumBlocked
-            | val GHC.Classes.== "inactive" -> GetIssuingCardholdersParametersQueryStatus'EnumInactive
-            | GHC.Base.otherwise -> GetIssuingCardholdersParametersQueryStatus'Other val
+          | val GHC.Classes.== "active" -> GetIssuingCardholdersParametersQueryStatus'EnumActive
+          | val GHC.Classes.== "blocked" -> GetIssuingCardholdersParametersQueryStatus'EnumBlocked
+          | val GHC.Classes.== "inactive" -> GetIssuingCardholdersParametersQueryStatus'EnumInactive
+          | GHC.Base.otherwise -> GetIssuingCardholdersParametersQueryStatus'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/issuing\/cardholders.GET.parameters.properties.queryType@ in the specification.
@@ -282,9 +282,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON GetIssuingCardholdersParametersQuery
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "company" -> GetIssuingCardholdersParametersQueryType'EnumCompany
-            | val GHC.Classes.== "individual" -> GetIssuingCardholdersParametersQueryType'EnumIndividual
-            | GHC.Base.otherwise -> GetIssuingCardholdersParametersQueryType'Other val
+          | val GHC.Classes.== "company" -> GetIssuingCardholdersParametersQueryType'EnumCompany
+          | val GHC.Classes.== "individual" -> GetIssuingCardholdersParametersQueryType'EnumIndividual
+          | GHC.Base.otherwise -> GetIssuingCardholdersParametersQueryType'Other val
       )
 
 -- | Represents a response of the operation 'getIssuingCardholders'.

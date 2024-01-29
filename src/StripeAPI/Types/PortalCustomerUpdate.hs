@@ -95,10 +95,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PortalCustomerUpdateAllowedUpdates' 
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "address" -> PortalCustomerUpdateAllowedUpdates'EnumAddress
-            | val GHC.Classes.== "email" -> PortalCustomerUpdateAllowedUpdates'EnumEmail
-            | val GHC.Classes.== "phone" -> PortalCustomerUpdateAllowedUpdates'EnumPhone
-            | val GHC.Classes.== "shipping" -> PortalCustomerUpdateAllowedUpdates'EnumShipping
-            | val GHC.Classes.== "tax_id" -> PortalCustomerUpdateAllowedUpdates'EnumTaxId
-            | GHC.Base.otherwise -> PortalCustomerUpdateAllowedUpdates'Other val
+          | val GHC.Classes.== "address" -> PortalCustomerUpdateAllowedUpdates'EnumAddress
+          | val GHC.Classes.== "email" -> PortalCustomerUpdateAllowedUpdates'EnumEmail
+          | val GHC.Classes.== "phone" -> PortalCustomerUpdateAllowedUpdates'EnumPhone
+          | val GHC.Classes.== "shipping" -> PortalCustomerUpdateAllowedUpdates'EnumShipping
+          | val GHC.Classes.== "tax_id" -> PortalCustomerUpdateAllowedUpdates'EnumTaxId
+          | GHC.Base.otherwise -> PortalCustomerUpdateAllowedUpdates'Other val
       )

@@ -89,8 +89,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON QuotesResourceAutomaticTaxStatus'Non
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "complete" -> QuotesResourceAutomaticTaxStatus'NonNullableEnumComplete
-            | val GHC.Classes.== "failed" -> QuotesResourceAutomaticTaxStatus'NonNullableEnumFailed
-            | val GHC.Classes.== "requires_location_inputs" -> QuotesResourceAutomaticTaxStatus'NonNullableEnumRequiresLocationInputs
-            | GHC.Base.otherwise -> QuotesResourceAutomaticTaxStatus'NonNullableOther val
+          | val GHC.Classes.== "complete" -> QuotesResourceAutomaticTaxStatus'NonNullableEnumComplete
+          | val GHC.Classes.== "failed" -> QuotesResourceAutomaticTaxStatus'NonNullableEnumFailed
+          | val GHC.Classes.== "requires_location_inputs" -> QuotesResourceAutomaticTaxStatus'NonNullableEnumRequiresLocationInputs
+          | GHC.Base.otherwise -> QuotesResourceAutomaticTaxStatus'NonNullableOther val
       )

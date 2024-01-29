@@ -154,7 +154,7 @@ instance Data.Aeson.Types.FromJSON.FromJSON CreditNoteLineItemType' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "custom_line_item" -> CreditNoteLineItemType'EnumCustomLineItem
-            | val GHC.Classes.== "invoice_line_item" -> CreditNoteLineItemType'EnumInvoiceLineItem
-            | GHC.Base.otherwise -> CreditNoteLineItemType'Other val
+          | val GHC.Classes.== "custom_line_item" -> CreditNoteLineItemType'EnumCustomLineItem
+          | val GHC.Classes.== "invoice_line_item" -> CreditNoteLineItemType'EnumInvoiceLineItem
+          | GHC.Base.otherwise -> CreditNoteLineItemType'Other val
       )

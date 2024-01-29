@@ -48,7 +48,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>Creates a new \<code>ValueList\<\/code> object, which can then be referenced in rules.\<\/p>
 postRadarValueLists ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | The request body to send
   PostRadarValueListsRequestBody ->
   -- | Monadic computation which returns the result of the operation
@@ -60,21 +60,21 @@ postRadarValueLists body =
           ( Data.Either.either PostRadarValueListsResponseError GHC.Base.id
               GHC.Base.. ( \response body ->
                              if
-                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                               | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                    PostRadarValueListsResponse200
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             Radar'valueList
                                                       )
-                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                               | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                    PostRadarValueListsResponseDefault
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             Error
                                                       )
-                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                               | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                          )
                 response_0
           )
@@ -177,15 +177,15 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostRadarValueListsRequestBodyItemTy
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "card_bin" -> PostRadarValueListsRequestBodyItemType'EnumCardBin
-            | val GHC.Classes.== "card_fingerprint" -> PostRadarValueListsRequestBodyItemType'EnumCardFingerprint
-            | val GHC.Classes.== "case_sensitive_string" -> PostRadarValueListsRequestBodyItemType'EnumCaseSensitiveString
-            | val GHC.Classes.== "country" -> PostRadarValueListsRequestBodyItemType'EnumCountry
-            | val GHC.Classes.== "customer_id" -> PostRadarValueListsRequestBodyItemType'EnumCustomerId
-            | val GHC.Classes.== "email" -> PostRadarValueListsRequestBodyItemType'EnumEmail
-            | val GHC.Classes.== "ip_address" -> PostRadarValueListsRequestBodyItemType'EnumIpAddress
-            | val GHC.Classes.== "string" -> PostRadarValueListsRequestBodyItemType'EnumString
-            | GHC.Base.otherwise -> PostRadarValueListsRequestBodyItemType'Other val
+          | val GHC.Classes.== "card_bin" -> PostRadarValueListsRequestBodyItemType'EnumCardBin
+          | val GHC.Classes.== "card_fingerprint" -> PostRadarValueListsRequestBodyItemType'EnumCardFingerprint
+          | val GHC.Classes.== "case_sensitive_string" -> PostRadarValueListsRequestBodyItemType'EnumCaseSensitiveString
+          | val GHC.Classes.== "country" -> PostRadarValueListsRequestBodyItemType'EnumCountry
+          | val GHC.Classes.== "customer_id" -> PostRadarValueListsRequestBodyItemType'EnumCustomerId
+          | val GHC.Classes.== "email" -> PostRadarValueListsRequestBodyItemType'EnumEmail
+          | val GHC.Classes.== "ip_address" -> PostRadarValueListsRequestBodyItemType'EnumIpAddress
+          | val GHC.Classes.== "string" -> PostRadarValueListsRequestBodyItemType'EnumString
+          | GHC.Base.otherwise -> PostRadarValueListsRequestBodyItemType'Other val
       )
 
 -- | Represents a response of the operation 'postRadarValueLists'.

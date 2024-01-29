@@ -97,8 +97,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON CheckoutBoletoPaymentMethodOptionsSe
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> CheckoutBoletoPaymentMethodOptionsSetupFutureUsage'EnumNone
-            | val GHC.Classes.== "off_session" -> CheckoutBoletoPaymentMethodOptionsSetupFutureUsage'EnumOffSession
-            | val GHC.Classes.== "on_session" -> CheckoutBoletoPaymentMethodOptionsSetupFutureUsage'EnumOnSession
-            | GHC.Base.otherwise -> CheckoutBoletoPaymentMethodOptionsSetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> CheckoutBoletoPaymentMethodOptionsSetupFutureUsage'EnumNone
+          | val GHC.Classes.== "off_session" -> CheckoutBoletoPaymentMethodOptionsSetupFutureUsage'EnumOffSession
+          | val GHC.Classes.== "on_session" -> CheckoutBoletoPaymentMethodOptionsSetupFutureUsage'EnumOnSession
+          | GHC.Base.otherwise -> CheckoutBoletoPaymentMethodOptionsSetupFutureUsage'Other val
       )

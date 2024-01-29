@@ -578,10 +578,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON OrderStatus' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "canceled" -> OrderStatus'EnumCanceled
-            | val GHC.Classes.== "complete" -> OrderStatus'EnumComplete
-            | val GHC.Classes.== "open" -> OrderStatus'EnumOpen
-            | val GHC.Classes.== "processing" -> OrderStatus'EnumProcessing
-            | val GHC.Classes.== "submitted" -> OrderStatus'EnumSubmitted
-            | GHC.Base.otherwise -> OrderStatus'Other val
+          | val GHC.Classes.== "canceled" -> OrderStatus'EnumCanceled
+          | val GHC.Classes.== "complete" -> OrderStatus'EnumComplete
+          | val GHC.Classes.== "open" -> OrderStatus'EnumOpen
+          | val GHC.Classes.== "processing" -> OrderStatus'EnumProcessing
+          | val GHC.Classes.== "submitted" -> OrderStatus'EnumSubmitted
+          | GHC.Base.otherwise -> OrderStatus'Other val
       )

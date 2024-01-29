@@ -48,7 +48,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>Updates the details of a FinancialAccount.\<\/p>
 postTreasuryFinancialAccountsFinancialAccount ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | financial_account | Constraints: Maximum length of 5000
   Data.Text.Internal.Text ->
   -- | The request body to send
@@ -64,21 +64,21 @@ postTreasuryFinancialAccountsFinancialAccount
             ( Data.Either.either PostTreasuryFinancialAccountsFinancialAccountResponseError GHC.Base.id
                 GHC.Base.. ( \response body ->
                                if
-                                   | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                      PostTreasuryFinancialAccountsFinancialAccountResponse200
                                        Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                             Data.Either.Either
                                                               GHC.Base.String
                                                               Treasury'financialAccount
                                                         )
-                                   | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                      PostTreasuryFinancialAccountsFinancialAccountResponseDefault
                                        Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                             Data.Either.Either
                                                               GHC.Base.String
                                                               Error
                                                         )
-                                   | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                            )
                   response_0
             )
@@ -526,9 +526,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostTreasuryFinancialAccountsFinanci
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "restricted" -> PostTreasuryFinancialAccountsFinancialAccountRequestBodyPlatformRestrictions'InboundFlows'EnumRestricted
-            | val GHC.Classes.== "unrestricted" -> PostTreasuryFinancialAccountsFinancialAccountRequestBodyPlatformRestrictions'InboundFlows'EnumUnrestricted
-            | GHC.Base.otherwise -> PostTreasuryFinancialAccountsFinancialAccountRequestBodyPlatformRestrictions'InboundFlows'Other val
+          | val GHC.Classes.== "restricted" -> PostTreasuryFinancialAccountsFinancialAccountRequestBodyPlatformRestrictions'InboundFlows'EnumRestricted
+          | val GHC.Classes.== "unrestricted" -> PostTreasuryFinancialAccountsFinancialAccountRequestBodyPlatformRestrictions'InboundFlows'EnumUnrestricted
+          | GHC.Base.otherwise -> PostTreasuryFinancialAccountsFinancialAccountRequestBodyPlatformRestrictions'InboundFlows'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/treasury\/financial_accounts\/{financial_account}.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.platform_restrictions.properties.outbound_flows@ in the specification.
@@ -553,9 +553,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostTreasuryFinancialAccountsFinanci
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "restricted" -> PostTreasuryFinancialAccountsFinancialAccountRequestBodyPlatformRestrictions'OutboundFlows'EnumRestricted
-            | val GHC.Classes.== "unrestricted" -> PostTreasuryFinancialAccountsFinancialAccountRequestBodyPlatformRestrictions'OutboundFlows'EnumUnrestricted
-            | GHC.Base.otherwise -> PostTreasuryFinancialAccountsFinancialAccountRequestBodyPlatformRestrictions'OutboundFlows'Other val
+          | val GHC.Classes.== "restricted" -> PostTreasuryFinancialAccountsFinancialAccountRequestBodyPlatformRestrictions'OutboundFlows'EnumRestricted
+          | val GHC.Classes.== "unrestricted" -> PostTreasuryFinancialAccountsFinancialAccountRequestBodyPlatformRestrictions'OutboundFlows'EnumUnrestricted
+          | GHC.Base.otherwise -> PostTreasuryFinancialAccountsFinancialAccountRequestBodyPlatformRestrictions'OutboundFlows'Other val
       )
 
 -- | Represents a response of the operation 'postTreasuryFinancialAccountsFinancialAccount'.

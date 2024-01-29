@@ -126,8 +126,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON TestHelpers'testClockStatus' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "advancing" -> TestHelpers'testClockStatus'EnumAdvancing
-            | val GHC.Classes.== "internal_failure" -> TestHelpers'testClockStatus'EnumInternalFailure
-            | val GHC.Classes.== "ready" -> TestHelpers'testClockStatus'EnumReady
-            | GHC.Base.otherwise -> TestHelpers'testClockStatus'Other val
+          | val GHC.Classes.== "advancing" -> TestHelpers'testClockStatus'EnumAdvancing
+          | val GHC.Classes.== "internal_failure" -> TestHelpers'testClockStatus'EnumInternalFailure
+          | val GHC.Classes.== "ready" -> TestHelpers'testClockStatus'EnumReady
+          | GHC.Base.otherwise -> TestHelpers'testClockStatus'Other val
       )

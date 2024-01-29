@@ -54,7 +54,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>The default pricing model for metered billing is \<a href=\"\/docs\/api\/plans\/object\#plan_object-billing_scheme\">per-unit pricing\<\/a>. For finer granularity, you can configure metered billing to have a \<a href=\"https:\/\/stripe.com\/docs\/billing\/subscriptions\/tiers\">tiered pricing\<\/a> model.\<\/p>
 postSubscriptionItemsSubscriptionItemUsageRecords ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | subscription_item
   Data.Text.Internal.Text ->
   -- | The request body to send
@@ -70,21 +70,21 @@ postSubscriptionItemsSubscriptionItemUsageRecords
             ( Data.Either.either PostSubscriptionItemsSubscriptionItemUsageRecordsResponseError GHC.Base.id
                 GHC.Base.. ( \response body ->
                                if
-                                   | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                      PostSubscriptionItemsSubscriptionItemUsageRecordsResponse200
                                        Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                             Data.Either.Either
                                                               GHC.Base.String
                                                               UsageRecord
                                                         )
-                                   | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                      PostSubscriptionItemsSubscriptionItemUsageRecordsResponseDefault
                                        Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                             Data.Either.Either
                                                               GHC.Base.String
                                                               Error
                                                         )
-                                   | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                            )
                   response_0
             )
@@ -152,9 +152,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostSubscriptionItemsSubscriptionIte
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "increment" -> PostSubscriptionItemsSubscriptionItemUsageRecordsRequestBodyAction'EnumIncrement
-            | val GHC.Classes.== "set" -> PostSubscriptionItemsSubscriptionItemUsageRecordsRequestBodyAction'EnumSet
-            | GHC.Base.otherwise -> PostSubscriptionItemsSubscriptionItemUsageRecordsRequestBodyAction'Other val
+          | val GHC.Classes.== "increment" -> PostSubscriptionItemsSubscriptionItemUsageRecordsRequestBodyAction'EnumIncrement
+          | val GHC.Classes.== "set" -> PostSubscriptionItemsSubscriptionItemUsageRecordsRequestBodyAction'EnumSet
+          | GHC.Base.otherwise -> PostSubscriptionItemsSubscriptionItemUsageRecordsRequestBodyAction'Other val
       )
 
 -- | Defines the oneOf schema located at @paths.\/v1\/subscription_items\/{subscription_item}\/usage_records.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.timestamp.anyOf@ in the specification.
@@ -173,8 +173,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostSubscriptionItemsSubscriptionItemUsa
 instance Data.Aeson.Types.FromJSON.FromJSON PostSubscriptionItemsSubscriptionItemUsageRecordsRequestBodyTimestamp'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "now" -> GHC.Base.pure PostSubscriptionItemsSubscriptionItemUsageRecordsRequestBodyTimestamp'Now
-        | GHC.Base.otherwise -> case (PostSubscriptionItemsSubscriptionItemUsageRecordsRequestBodyTimestamp'Int Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "now" -> GHC.Base.pure PostSubscriptionItemsSubscriptionItemUsageRecordsRequestBodyTimestamp'Now
+      | GHC.Base.otherwise -> case (PostSubscriptionItemsSubscriptionItemUsageRecordsRequestBodyTimestamp'Int Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 

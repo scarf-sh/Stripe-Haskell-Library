@@ -277,9 +277,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON QuoteCollectionMethod' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "charge_automatically" -> QuoteCollectionMethod'EnumChargeAutomatically
-            | val GHC.Classes.== "send_invoice" -> QuoteCollectionMethod'EnumSendInvoice
-            | GHC.Base.otherwise -> QuoteCollectionMethod'Other val
+          | val GHC.Classes.== "charge_automatically" -> QuoteCollectionMethod'EnumChargeAutomatically
+          | val GHC.Classes.== "send_invoice" -> QuoteCollectionMethod'EnumSendInvoice
+          | GHC.Base.otherwise -> QuoteCollectionMethod'Other val
       )
 
 -- | Defines the oneOf schema located at @components.schemas.quote.properties.customer.anyOf@ in the specification.
@@ -509,11 +509,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON QuoteStatus' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "accepted" -> QuoteStatus'EnumAccepted
-            | val GHC.Classes.== "canceled" -> QuoteStatus'EnumCanceled
-            | val GHC.Classes.== "draft" -> QuoteStatus'EnumDraft
-            | val GHC.Classes.== "open" -> QuoteStatus'EnumOpen
-            | GHC.Base.otherwise -> QuoteStatus'Other val
+          | val GHC.Classes.== "accepted" -> QuoteStatus'EnumAccepted
+          | val GHC.Classes.== "canceled" -> QuoteStatus'EnumCanceled
+          | val GHC.Classes.== "draft" -> QuoteStatus'EnumDraft
+          | val GHC.Classes.== "open" -> QuoteStatus'EnumOpen
+          | GHC.Base.otherwise -> QuoteStatus'Other val
       )
 
 -- | Defines the oneOf schema located at @components.schemas.quote.properties.subscription.anyOf@ in the specification.

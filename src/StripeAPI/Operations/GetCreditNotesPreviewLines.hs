@@ -48,7 +48,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>When retrieving a credit note preview, you’ll get a \<strong>lines\<\/strong> property containing the first handful of those items. This URL you can retrieve the full (paginated) list of line items.\<\/p>
 getCreditNotesPreviewLines ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | Contains all available parameters of this operation (query and path parameters)
   GetCreditNotesPreviewLinesParameters ->
   -- | Monadic computation which returns the result of the operation
@@ -60,21 +60,21 @@ getCreditNotesPreviewLines parameters =
           ( Data.Either.either GetCreditNotesPreviewLinesResponseError GHC.Base.id
               GHC.Base.. ( \response body ->
                              if
-                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                               | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                    GetCreditNotesPreviewLinesResponse200
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             GetCreditNotesPreviewLinesResponseBody200
                                                       )
-                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                               | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                    GetCreditNotesPreviewLinesResponseDefault
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             Error
                                                       )
-                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                               | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                          )
                 response_0
           )
@@ -280,8 +280,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON GetCreditNotesPreviewLinesParametersQuer
 instance Data.Aeson.Types.FromJSON.FromJSON GetCreditNotesPreviewLinesParametersQueryLines'TaxRates'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure GetCreditNotesPreviewLinesParametersQueryLines'TaxRates'EmptyString
-        | GHC.Base.otherwise -> case (GetCreditNotesPreviewLinesParametersQueryLines'TaxRates'ListTText Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure GetCreditNotesPreviewLinesParametersQueryLines'TaxRates'EmptyString
+      | GHC.Base.otherwise -> case (GetCreditNotesPreviewLinesParametersQueryLines'TaxRates'ListTText Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -307,9 +307,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON GetCreditNotesPreviewLinesParameters
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "custom_line_item" -> GetCreditNotesPreviewLinesParametersQueryLines'Type'EnumCustomLineItem
-            | val GHC.Classes.== "invoice_line_item" -> GetCreditNotesPreviewLinesParametersQueryLines'Type'EnumInvoiceLineItem
-            | GHC.Base.otherwise -> GetCreditNotesPreviewLinesParametersQueryLines'Type'Other val
+          | val GHC.Classes.== "custom_line_item" -> GetCreditNotesPreviewLinesParametersQueryLines'Type'EnumCustomLineItem
+          | val GHC.Classes.== "invoice_line_item" -> GetCreditNotesPreviewLinesParametersQueryLines'Type'EnumInvoiceLineItem
+          | GHC.Base.otherwise -> GetCreditNotesPreviewLinesParametersQueryLines'Type'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/credit_notes\/preview\/lines.GET.parameters.properties.queryReason@ in the specification.
@@ -344,11 +344,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON GetCreditNotesPreviewLinesParameters
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "duplicate" -> GetCreditNotesPreviewLinesParametersQueryReason'EnumDuplicate
-            | val GHC.Classes.== "fraudulent" -> GetCreditNotesPreviewLinesParametersQueryReason'EnumFraudulent
-            | val GHC.Classes.== "order_change" -> GetCreditNotesPreviewLinesParametersQueryReason'EnumOrderChange
-            | val GHC.Classes.== "product_unsatisfactory" -> GetCreditNotesPreviewLinesParametersQueryReason'EnumProductUnsatisfactory
-            | GHC.Base.otherwise -> GetCreditNotesPreviewLinesParametersQueryReason'Other val
+          | val GHC.Classes.== "duplicate" -> GetCreditNotesPreviewLinesParametersQueryReason'EnumDuplicate
+          | val GHC.Classes.== "fraudulent" -> GetCreditNotesPreviewLinesParametersQueryReason'EnumFraudulent
+          | val GHC.Classes.== "order_change" -> GetCreditNotesPreviewLinesParametersQueryReason'EnumOrderChange
+          | val GHC.Classes.== "product_unsatisfactory" -> GetCreditNotesPreviewLinesParametersQueryReason'EnumProductUnsatisfactory
+          | GHC.Base.otherwise -> GetCreditNotesPreviewLinesParametersQueryReason'Other val
       )
 
 -- | Represents a response of the operation 'getCreditNotesPreviewLines'.

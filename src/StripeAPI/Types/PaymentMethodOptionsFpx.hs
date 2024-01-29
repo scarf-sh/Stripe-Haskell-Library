@@ -82,6 +82,6 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentMethodOptionsFpxSetupFutureUs
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> PaymentMethodOptionsFpxSetupFutureUsage'EnumNone
-            | GHC.Base.otherwise -> PaymentMethodOptionsFpxSetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> PaymentMethodOptionsFpxSetupFutureUsage'EnumNone
+          | GHC.Base.otherwise -> PaymentMethodOptionsFpxSetupFutureUsage'Other val
       )

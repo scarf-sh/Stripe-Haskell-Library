@@ -105,9 +105,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON CustomerTaxLocationSource' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "billing_address" -> CustomerTaxLocationSource'EnumBillingAddress
-            | val GHC.Classes.== "ip_address" -> CustomerTaxLocationSource'EnumIpAddress
-            | val GHC.Classes.== "payment_method" -> CustomerTaxLocationSource'EnumPaymentMethod
-            | val GHC.Classes.== "shipping_destination" -> CustomerTaxLocationSource'EnumShippingDestination
-            | GHC.Base.otherwise -> CustomerTaxLocationSource'Other val
+          | val GHC.Classes.== "billing_address" -> CustomerTaxLocationSource'EnumBillingAddress
+          | val GHC.Classes.== "ip_address" -> CustomerTaxLocationSource'EnumIpAddress
+          | val GHC.Classes.== "payment_method" -> CustomerTaxLocationSource'EnumPaymentMethod
+          | val GHC.Classes.== "shipping_destination" -> CustomerTaxLocationSource'EnumShippingDestination
+          | GHC.Base.otherwise -> CustomerTaxLocationSource'Other val
       )

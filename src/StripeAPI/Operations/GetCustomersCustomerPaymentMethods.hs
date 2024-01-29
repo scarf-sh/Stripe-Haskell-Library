@@ -48,7 +48,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>Returns a list of PaymentMethods for a given Customer\<\/p>
 getCustomersCustomerPaymentMethods ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | Contains all available parameters of this operation (query and path parameters)
   GetCustomersCustomerPaymentMethodsParameters ->
   -- | Monadic computation which returns the result of the operation
@@ -60,21 +60,21 @@ getCustomersCustomerPaymentMethods parameters =
           ( Data.Either.either GetCustomersCustomerPaymentMethodsResponseError GHC.Base.id
               GHC.Base.. ( \response body ->
                              if
-                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                               | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                    GetCustomersCustomerPaymentMethodsResponse200
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             GetCustomersCustomerPaymentMethodsResponseBody200
                                                       )
-                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                               | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                    GetCustomersCustomerPaymentMethodsResponseDefault
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             Error
                                                       )
-                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                               | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                          )
                 response_0
           )
@@ -247,33 +247,33 @@ instance Data.Aeson.Types.FromJSON.FromJSON GetCustomersCustomerPaymentMethodsPa
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "acss_debit" -> GetCustomersCustomerPaymentMethodsParametersQueryType'EnumAcssDebit
-            | val GHC.Classes.== "affirm" -> GetCustomersCustomerPaymentMethodsParametersQueryType'EnumAffirm
-            | val GHC.Classes.== "afterpay_clearpay" -> GetCustomersCustomerPaymentMethodsParametersQueryType'EnumAfterpayClearpay
-            | val GHC.Classes.== "alipay" -> GetCustomersCustomerPaymentMethodsParametersQueryType'EnumAlipay
-            | val GHC.Classes.== "au_becs_debit" -> GetCustomersCustomerPaymentMethodsParametersQueryType'EnumAuBecsDebit
-            | val GHC.Classes.== "bacs_debit" -> GetCustomersCustomerPaymentMethodsParametersQueryType'EnumBacsDebit
-            | val GHC.Classes.== "bancontact" -> GetCustomersCustomerPaymentMethodsParametersQueryType'EnumBancontact
-            | val GHC.Classes.== "boleto" -> GetCustomersCustomerPaymentMethodsParametersQueryType'EnumBoleto
-            | val GHC.Classes.== "card" -> GetCustomersCustomerPaymentMethodsParametersQueryType'EnumCard
-            | val GHC.Classes.== "customer_balance" -> GetCustomersCustomerPaymentMethodsParametersQueryType'EnumCustomerBalance
-            | val GHC.Classes.== "eps" -> GetCustomersCustomerPaymentMethodsParametersQueryType'EnumEps
-            | val GHC.Classes.== "fpx" -> GetCustomersCustomerPaymentMethodsParametersQueryType'EnumFpx
-            | val GHC.Classes.== "giropay" -> GetCustomersCustomerPaymentMethodsParametersQueryType'EnumGiropay
-            | val GHC.Classes.== "grabpay" -> GetCustomersCustomerPaymentMethodsParametersQueryType'EnumGrabpay
-            | val GHC.Classes.== "ideal" -> GetCustomersCustomerPaymentMethodsParametersQueryType'EnumIdeal
-            | val GHC.Classes.== "klarna" -> GetCustomersCustomerPaymentMethodsParametersQueryType'EnumKlarna
-            | val GHC.Classes.== "konbini" -> GetCustomersCustomerPaymentMethodsParametersQueryType'EnumKonbini
-            | val GHC.Classes.== "link" -> GetCustomersCustomerPaymentMethodsParametersQueryType'EnumLink
-            | val GHC.Classes.== "oxxo" -> GetCustomersCustomerPaymentMethodsParametersQueryType'EnumOxxo
-            | val GHC.Classes.== "p24" -> GetCustomersCustomerPaymentMethodsParametersQueryType'EnumP24
-            | val GHC.Classes.== "paynow" -> GetCustomersCustomerPaymentMethodsParametersQueryType'EnumPaynow
-            | val GHC.Classes.== "promptpay" -> GetCustomersCustomerPaymentMethodsParametersQueryType'EnumPromptpay
-            | val GHC.Classes.== "sepa_debit" -> GetCustomersCustomerPaymentMethodsParametersQueryType'EnumSepaDebit
-            | val GHC.Classes.== "sofort" -> GetCustomersCustomerPaymentMethodsParametersQueryType'EnumSofort
-            | val GHC.Classes.== "us_bank_account" -> GetCustomersCustomerPaymentMethodsParametersQueryType'EnumUsBankAccount
-            | val GHC.Classes.== "wechat_pay" -> GetCustomersCustomerPaymentMethodsParametersQueryType'EnumWechatPay
-            | GHC.Base.otherwise -> GetCustomersCustomerPaymentMethodsParametersQueryType'Other val
+          | val GHC.Classes.== "acss_debit" -> GetCustomersCustomerPaymentMethodsParametersQueryType'EnumAcssDebit
+          | val GHC.Classes.== "affirm" -> GetCustomersCustomerPaymentMethodsParametersQueryType'EnumAffirm
+          | val GHC.Classes.== "afterpay_clearpay" -> GetCustomersCustomerPaymentMethodsParametersQueryType'EnumAfterpayClearpay
+          | val GHC.Classes.== "alipay" -> GetCustomersCustomerPaymentMethodsParametersQueryType'EnumAlipay
+          | val GHC.Classes.== "au_becs_debit" -> GetCustomersCustomerPaymentMethodsParametersQueryType'EnumAuBecsDebit
+          | val GHC.Classes.== "bacs_debit" -> GetCustomersCustomerPaymentMethodsParametersQueryType'EnumBacsDebit
+          | val GHC.Classes.== "bancontact" -> GetCustomersCustomerPaymentMethodsParametersQueryType'EnumBancontact
+          | val GHC.Classes.== "boleto" -> GetCustomersCustomerPaymentMethodsParametersQueryType'EnumBoleto
+          | val GHC.Classes.== "card" -> GetCustomersCustomerPaymentMethodsParametersQueryType'EnumCard
+          | val GHC.Classes.== "customer_balance" -> GetCustomersCustomerPaymentMethodsParametersQueryType'EnumCustomerBalance
+          | val GHC.Classes.== "eps" -> GetCustomersCustomerPaymentMethodsParametersQueryType'EnumEps
+          | val GHC.Classes.== "fpx" -> GetCustomersCustomerPaymentMethodsParametersQueryType'EnumFpx
+          | val GHC.Classes.== "giropay" -> GetCustomersCustomerPaymentMethodsParametersQueryType'EnumGiropay
+          | val GHC.Classes.== "grabpay" -> GetCustomersCustomerPaymentMethodsParametersQueryType'EnumGrabpay
+          | val GHC.Classes.== "ideal" -> GetCustomersCustomerPaymentMethodsParametersQueryType'EnumIdeal
+          | val GHC.Classes.== "klarna" -> GetCustomersCustomerPaymentMethodsParametersQueryType'EnumKlarna
+          | val GHC.Classes.== "konbini" -> GetCustomersCustomerPaymentMethodsParametersQueryType'EnumKonbini
+          | val GHC.Classes.== "link" -> GetCustomersCustomerPaymentMethodsParametersQueryType'EnumLink
+          | val GHC.Classes.== "oxxo" -> GetCustomersCustomerPaymentMethodsParametersQueryType'EnumOxxo
+          | val GHC.Classes.== "p24" -> GetCustomersCustomerPaymentMethodsParametersQueryType'EnumP24
+          | val GHC.Classes.== "paynow" -> GetCustomersCustomerPaymentMethodsParametersQueryType'EnumPaynow
+          | val GHC.Classes.== "promptpay" -> GetCustomersCustomerPaymentMethodsParametersQueryType'EnumPromptpay
+          | val GHC.Classes.== "sepa_debit" -> GetCustomersCustomerPaymentMethodsParametersQueryType'EnumSepaDebit
+          | val GHC.Classes.== "sofort" -> GetCustomersCustomerPaymentMethodsParametersQueryType'EnumSofort
+          | val GHC.Classes.== "us_bank_account" -> GetCustomersCustomerPaymentMethodsParametersQueryType'EnumUsBankAccount
+          | val GHC.Classes.== "wechat_pay" -> GetCustomersCustomerPaymentMethodsParametersQueryType'EnumWechatPay
+          | GHC.Base.otherwise -> GetCustomersCustomerPaymentMethodsParametersQueryType'Other val
       )
 
 -- | Represents a response of the operation 'getCustomersCustomerPaymentMethods'.

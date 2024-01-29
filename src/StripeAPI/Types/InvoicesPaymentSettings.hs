@@ -165,10 +165,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON InvoicesPaymentSettingsPaymentMethod
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> InvoicesPaymentSettingsPaymentMethodOptions'NonNullableAcssDebit'NonNullableVerificationMethod'EnumAutomatic
-            | val GHC.Classes.== "instant" -> InvoicesPaymentSettingsPaymentMethodOptions'NonNullableAcssDebit'NonNullableVerificationMethod'EnumInstant
-            | val GHC.Classes.== "microdeposits" -> InvoicesPaymentSettingsPaymentMethodOptions'NonNullableAcssDebit'NonNullableVerificationMethod'EnumMicrodeposits
-            | GHC.Base.otherwise -> InvoicesPaymentSettingsPaymentMethodOptions'NonNullableAcssDebit'NonNullableVerificationMethod'Other val
+          | val GHC.Classes.== "automatic" -> InvoicesPaymentSettingsPaymentMethodOptions'NonNullableAcssDebit'NonNullableVerificationMethod'EnumAutomatic
+          | val GHC.Classes.== "instant" -> InvoicesPaymentSettingsPaymentMethodOptions'NonNullableAcssDebit'NonNullableVerificationMethod'EnumInstant
+          | val GHC.Classes.== "microdeposits" -> InvoicesPaymentSettingsPaymentMethodOptions'NonNullableAcssDebit'NonNullableVerificationMethod'EnumMicrodeposits
+          | GHC.Base.otherwise -> InvoicesPaymentSettingsPaymentMethodOptions'NonNullableAcssDebit'NonNullableVerificationMethod'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.invoices_payment_settings.properties.payment_method_options.anyOf.properties.bancontact.anyOf@ in the specification.
@@ -224,11 +224,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON InvoicesPaymentSettingsPaymentMethod
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "de" -> InvoicesPaymentSettingsPaymentMethodOptions'NonNullableBancontact'NonNullablePreferredLanguage'EnumDe
-            | val GHC.Classes.== "en" -> InvoicesPaymentSettingsPaymentMethodOptions'NonNullableBancontact'NonNullablePreferredLanguage'EnumEn
-            | val GHC.Classes.== "fr" -> InvoicesPaymentSettingsPaymentMethodOptions'NonNullableBancontact'NonNullablePreferredLanguage'EnumFr
-            | val GHC.Classes.== "nl" -> InvoicesPaymentSettingsPaymentMethodOptions'NonNullableBancontact'NonNullablePreferredLanguage'EnumNl
-            | GHC.Base.otherwise -> InvoicesPaymentSettingsPaymentMethodOptions'NonNullableBancontact'NonNullablePreferredLanguage'Other val
+          | val GHC.Classes.== "de" -> InvoicesPaymentSettingsPaymentMethodOptions'NonNullableBancontact'NonNullablePreferredLanguage'EnumDe
+          | val GHC.Classes.== "en" -> InvoicesPaymentSettingsPaymentMethodOptions'NonNullableBancontact'NonNullablePreferredLanguage'EnumEn
+          | val GHC.Classes.== "fr" -> InvoicesPaymentSettingsPaymentMethodOptions'NonNullableBancontact'NonNullablePreferredLanguage'EnumFr
+          | val GHC.Classes.== "nl" -> InvoicesPaymentSettingsPaymentMethodOptions'NonNullableBancontact'NonNullablePreferredLanguage'EnumNl
+          | GHC.Base.otherwise -> InvoicesPaymentSettingsPaymentMethodOptions'NonNullableBancontact'NonNullablePreferredLanguage'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.invoices_payment_settings.properties.payment_method_options.anyOf.properties.card.anyOf@ in the specification.
@@ -278,9 +278,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON InvoicesPaymentSettingsPaymentMethod
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "any" -> InvoicesPaymentSettingsPaymentMethodOptions'NonNullableCard'NonNullableRequestThreeDSecure'NonNullableEnumAny
-            | val GHC.Classes.== "automatic" -> InvoicesPaymentSettingsPaymentMethodOptions'NonNullableCard'NonNullableRequestThreeDSecure'NonNullableEnumAutomatic
-            | GHC.Base.otherwise -> InvoicesPaymentSettingsPaymentMethodOptions'NonNullableCard'NonNullableRequestThreeDSecure'NonNullableOther val
+          | val GHC.Classes.== "any" -> InvoicesPaymentSettingsPaymentMethodOptions'NonNullableCard'NonNullableRequestThreeDSecure'NonNullableEnumAny
+          | val GHC.Classes.== "automatic" -> InvoicesPaymentSettingsPaymentMethodOptions'NonNullableCard'NonNullableRequestThreeDSecure'NonNullableEnumAutomatic
+          | GHC.Base.otherwise -> InvoicesPaymentSettingsPaymentMethodOptions'NonNullableCard'NonNullableRequestThreeDSecure'NonNullableOther val
       )
 
 -- | Defines the object schema located at @components.schemas.invoices_payment_settings.properties.payment_method_options.anyOf.properties.customer_balance.anyOf@ in the specification.
@@ -333,8 +333,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON InvoicesPaymentSettingsPaymentMethod
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "bank_transfer" -> InvoicesPaymentSettingsPaymentMethodOptions'NonNullableCustomerBalance'NonNullableFundingType'NonNullableEnumBankTransfer
-            | GHC.Base.otherwise -> InvoicesPaymentSettingsPaymentMethodOptions'NonNullableCustomerBalance'NonNullableFundingType'NonNullableOther val
+          | val GHC.Classes.== "bank_transfer" -> InvoicesPaymentSettingsPaymentMethodOptions'NonNullableCustomerBalance'NonNullableFundingType'NonNullableEnumBankTransfer
+          | GHC.Base.otherwise -> InvoicesPaymentSettingsPaymentMethodOptions'NonNullableCustomerBalance'NonNullableFundingType'NonNullableOther val
       )
 
 -- | Defines the object schema located at @components.schemas.invoices_payment_settings.properties.payment_method_options.anyOf.properties.us_bank_account.anyOf@ in the specification.
@@ -393,10 +393,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON InvoicesPaymentSettingsPaymentMethod
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> InvoicesPaymentSettingsPaymentMethodOptions'NonNullableUsBankAccount'NonNullableVerificationMethod'EnumAutomatic
-            | val GHC.Classes.== "instant" -> InvoicesPaymentSettingsPaymentMethodOptions'NonNullableUsBankAccount'NonNullableVerificationMethod'EnumInstant
-            | val GHC.Classes.== "microdeposits" -> InvoicesPaymentSettingsPaymentMethodOptions'NonNullableUsBankAccount'NonNullableVerificationMethod'EnumMicrodeposits
-            | GHC.Base.otherwise -> InvoicesPaymentSettingsPaymentMethodOptions'NonNullableUsBankAccount'NonNullableVerificationMethod'Other val
+          | val GHC.Classes.== "automatic" -> InvoicesPaymentSettingsPaymentMethodOptions'NonNullableUsBankAccount'NonNullableVerificationMethod'EnumAutomatic
+          | val GHC.Classes.== "instant" -> InvoicesPaymentSettingsPaymentMethodOptions'NonNullableUsBankAccount'NonNullableVerificationMethod'EnumInstant
+          | val GHC.Classes.== "microdeposits" -> InvoicesPaymentSettingsPaymentMethodOptions'NonNullableUsBankAccount'NonNullableVerificationMethod'EnumMicrodeposits
+          | GHC.Base.otherwise -> InvoicesPaymentSettingsPaymentMethodOptions'NonNullableUsBankAccount'NonNullableVerificationMethod'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.invoices_payment_settings.properties.payment_method_types.items@ in the specification.
@@ -478,26 +478,26 @@ instance Data.Aeson.Types.FromJSON.FromJSON InvoicesPaymentSettingsPaymentMethod
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "ach_credit_transfer" -> InvoicesPaymentSettingsPaymentMethodTypes'NonNullableEnumAchCreditTransfer
-            | val GHC.Classes.== "ach_debit" -> InvoicesPaymentSettingsPaymentMethodTypes'NonNullableEnumAchDebit
-            | val GHC.Classes.== "acss_debit" -> InvoicesPaymentSettingsPaymentMethodTypes'NonNullableEnumAcssDebit
-            | val GHC.Classes.== "au_becs_debit" -> InvoicesPaymentSettingsPaymentMethodTypes'NonNullableEnumAuBecsDebit
-            | val GHC.Classes.== "bacs_debit" -> InvoicesPaymentSettingsPaymentMethodTypes'NonNullableEnumBacsDebit
-            | val GHC.Classes.== "bancontact" -> InvoicesPaymentSettingsPaymentMethodTypes'NonNullableEnumBancontact
-            | val GHC.Classes.== "boleto" -> InvoicesPaymentSettingsPaymentMethodTypes'NonNullableEnumBoleto
-            | val GHC.Classes.== "card" -> InvoicesPaymentSettingsPaymentMethodTypes'NonNullableEnumCard
-            | val GHC.Classes.== "customer_balance" -> InvoicesPaymentSettingsPaymentMethodTypes'NonNullableEnumCustomerBalance
-            | val GHC.Classes.== "fpx" -> InvoicesPaymentSettingsPaymentMethodTypes'NonNullableEnumFpx
-            | val GHC.Classes.== "giropay" -> InvoicesPaymentSettingsPaymentMethodTypes'NonNullableEnumGiropay
-            | val GHC.Classes.== "grabpay" -> InvoicesPaymentSettingsPaymentMethodTypes'NonNullableEnumGrabpay
-            | val GHC.Classes.== "ideal" -> InvoicesPaymentSettingsPaymentMethodTypes'NonNullableEnumIdeal
-            | val GHC.Classes.== "konbini" -> InvoicesPaymentSettingsPaymentMethodTypes'NonNullableEnumKonbini
-            | val GHC.Classes.== "link" -> InvoicesPaymentSettingsPaymentMethodTypes'NonNullableEnumLink
-            | val GHC.Classes.== "paynow" -> InvoicesPaymentSettingsPaymentMethodTypes'NonNullableEnumPaynow
-            | val GHC.Classes.== "promptpay" -> InvoicesPaymentSettingsPaymentMethodTypes'NonNullableEnumPromptpay
-            | val GHC.Classes.== "sepa_debit" -> InvoicesPaymentSettingsPaymentMethodTypes'NonNullableEnumSepaDebit
-            | val GHC.Classes.== "sofort" -> InvoicesPaymentSettingsPaymentMethodTypes'NonNullableEnumSofort
-            | val GHC.Classes.== "us_bank_account" -> InvoicesPaymentSettingsPaymentMethodTypes'NonNullableEnumUsBankAccount
-            | val GHC.Classes.== "wechat_pay" -> InvoicesPaymentSettingsPaymentMethodTypes'NonNullableEnumWechatPay
-            | GHC.Base.otherwise -> InvoicesPaymentSettingsPaymentMethodTypes'NonNullableOther val
+          | val GHC.Classes.== "ach_credit_transfer" -> InvoicesPaymentSettingsPaymentMethodTypes'NonNullableEnumAchCreditTransfer
+          | val GHC.Classes.== "ach_debit" -> InvoicesPaymentSettingsPaymentMethodTypes'NonNullableEnumAchDebit
+          | val GHC.Classes.== "acss_debit" -> InvoicesPaymentSettingsPaymentMethodTypes'NonNullableEnumAcssDebit
+          | val GHC.Classes.== "au_becs_debit" -> InvoicesPaymentSettingsPaymentMethodTypes'NonNullableEnumAuBecsDebit
+          | val GHC.Classes.== "bacs_debit" -> InvoicesPaymentSettingsPaymentMethodTypes'NonNullableEnumBacsDebit
+          | val GHC.Classes.== "bancontact" -> InvoicesPaymentSettingsPaymentMethodTypes'NonNullableEnumBancontact
+          | val GHC.Classes.== "boleto" -> InvoicesPaymentSettingsPaymentMethodTypes'NonNullableEnumBoleto
+          | val GHC.Classes.== "card" -> InvoicesPaymentSettingsPaymentMethodTypes'NonNullableEnumCard
+          | val GHC.Classes.== "customer_balance" -> InvoicesPaymentSettingsPaymentMethodTypes'NonNullableEnumCustomerBalance
+          | val GHC.Classes.== "fpx" -> InvoicesPaymentSettingsPaymentMethodTypes'NonNullableEnumFpx
+          | val GHC.Classes.== "giropay" -> InvoicesPaymentSettingsPaymentMethodTypes'NonNullableEnumGiropay
+          | val GHC.Classes.== "grabpay" -> InvoicesPaymentSettingsPaymentMethodTypes'NonNullableEnumGrabpay
+          | val GHC.Classes.== "ideal" -> InvoicesPaymentSettingsPaymentMethodTypes'NonNullableEnumIdeal
+          | val GHC.Classes.== "konbini" -> InvoicesPaymentSettingsPaymentMethodTypes'NonNullableEnumKonbini
+          | val GHC.Classes.== "link" -> InvoicesPaymentSettingsPaymentMethodTypes'NonNullableEnumLink
+          | val GHC.Classes.== "paynow" -> InvoicesPaymentSettingsPaymentMethodTypes'NonNullableEnumPaynow
+          | val GHC.Classes.== "promptpay" -> InvoicesPaymentSettingsPaymentMethodTypes'NonNullableEnumPromptpay
+          | val GHC.Classes.== "sepa_debit" -> InvoicesPaymentSettingsPaymentMethodTypes'NonNullableEnumSepaDebit
+          | val GHC.Classes.== "sofort" -> InvoicesPaymentSettingsPaymentMethodTypes'NonNullableEnumSofort
+          | val GHC.Classes.== "us_bank_account" -> InvoicesPaymentSettingsPaymentMethodTypes'NonNullableEnumUsBankAccount
+          | val GHC.Classes.== "wechat_pay" -> InvoicesPaymentSettingsPaymentMethodTypes'NonNullableEnumWechatPay
+          | GHC.Base.otherwise -> InvoicesPaymentSettingsPaymentMethodTypes'NonNullableOther val
       )

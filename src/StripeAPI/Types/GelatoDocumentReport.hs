@@ -272,10 +272,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON GelatoDocumentReportError'NonNullabl
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "document_expired" -> GelatoDocumentReportError'NonNullableCode'NonNullableEnumDocumentExpired
-            | val GHC.Classes.== "document_type_not_supported" -> GelatoDocumentReportError'NonNullableCode'NonNullableEnumDocumentTypeNotSupported
-            | val GHC.Classes.== "document_unverified_other" -> GelatoDocumentReportError'NonNullableCode'NonNullableEnumDocumentUnverifiedOther
-            | GHC.Base.otherwise -> GelatoDocumentReportError'NonNullableCode'NonNullableOther val
+          | val GHC.Classes.== "document_expired" -> GelatoDocumentReportError'NonNullableCode'NonNullableEnumDocumentExpired
+          | val GHC.Classes.== "document_type_not_supported" -> GelatoDocumentReportError'NonNullableCode'NonNullableEnumDocumentTypeNotSupported
+          | val GHC.Classes.== "document_unverified_other" -> GelatoDocumentReportError'NonNullableCode'NonNullableEnumDocumentUnverifiedOther
+          | GHC.Base.otherwise -> GelatoDocumentReportError'NonNullableCode'NonNullableOther val
       )
 
 -- | Defines the object schema located at @components.schemas.gelato_document_report.properties.expiration_date.anyOf@ in the specification.
@@ -366,9 +366,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON GelatoDocumentReportStatus' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "unverified" -> GelatoDocumentReportStatus'EnumUnverified
-            | val GHC.Classes.== "verified" -> GelatoDocumentReportStatus'EnumVerified
-            | GHC.Base.otherwise -> GelatoDocumentReportStatus'Other val
+          | val GHC.Classes.== "unverified" -> GelatoDocumentReportStatus'EnumUnverified
+          | val GHC.Classes.== "verified" -> GelatoDocumentReportStatus'EnumVerified
+          | GHC.Base.otherwise -> GelatoDocumentReportStatus'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.gelato_document_report.properties.type@ in the specification.
@@ -398,8 +398,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON GelatoDocumentReportType'NonNullable
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "driving_license" -> GelatoDocumentReportType'NonNullableEnumDrivingLicense
-            | val GHC.Classes.== "id_card" -> GelatoDocumentReportType'NonNullableEnumIdCard
-            | val GHC.Classes.== "passport" -> GelatoDocumentReportType'NonNullableEnumPassport
-            | GHC.Base.otherwise -> GelatoDocumentReportType'NonNullableOther val
+          | val GHC.Classes.== "driving_license" -> GelatoDocumentReportType'NonNullableEnumDrivingLicense
+          | val GHC.Classes.== "id_card" -> GelatoDocumentReportType'NonNullableEnumIdCard
+          | val GHC.Classes.== "passport" -> GelatoDocumentReportType'NonNullableEnumPassport
+          | GHC.Base.otherwise -> GelatoDocumentReportType'NonNullableOther val
       )

@@ -86,10 +86,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON IssuingCardholderRequirementsDisable
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "listed" -> IssuingCardholderRequirementsDisabledReason'NonNullableEnumListed
-            | val GHC.Classes.== "rejected.listed" -> IssuingCardholderRequirementsDisabledReason'NonNullableEnumRejected'listed
-            | val GHC.Classes.== "under_review" -> IssuingCardholderRequirementsDisabledReason'NonNullableEnumUnderReview
-            | GHC.Base.otherwise -> IssuingCardholderRequirementsDisabledReason'NonNullableOther val
+          | val GHC.Classes.== "listed" -> IssuingCardholderRequirementsDisabledReason'NonNullableEnumListed
+          | val GHC.Classes.== "rejected.listed" -> IssuingCardholderRequirementsDisabledReason'NonNullableEnumRejected'listed
+          | val GHC.Classes.== "under_review" -> IssuingCardholderRequirementsDisabledReason'NonNullableEnumUnderReview
+          | GHC.Base.otherwise -> IssuingCardholderRequirementsDisabledReason'NonNullableOther val
       )
 
 -- | Defines the enum schema located at @components.schemas.issuing_cardholder_requirements.properties.past_due.items@ in the specification.
@@ -129,12 +129,12 @@ instance Data.Aeson.Types.FromJSON.FromJSON IssuingCardholderRequirementsPastDue
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "company.tax_id" -> IssuingCardholderRequirementsPastDue'NonNullableEnumCompany'taxId
-            | val GHC.Classes.== "individual.dob.day" -> IssuingCardholderRequirementsPastDue'NonNullableEnumIndividual'dob'day
-            | val GHC.Classes.== "individual.dob.month" -> IssuingCardholderRequirementsPastDue'NonNullableEnumIndividual'dob'month
-            | val GHC.Classes.== "individual.dob.year" -> IssuingCardholderRequirementsPastDue'NonNullableEnumIndividual'dob'year
-            | val GHC.Classes.== "individual.first_name" -> IssuingCardholderRequirementsPastDue'NonNullableEnumIndividual'firstName
-            | val GHC.Classes.== "individual.last_name" -> IssuingCardholderRequirementsPastDue'NonNullableEnumIndividual'lastName
-            | val GHC.Classes.== "individual.verification.document" -> IssuingCardholderRequirementsPastDue'NonNullableEnumIndividual'verification'document
-            | GHC.Base.otherwise -> IssuingCardholderRequirementsPastDue'NonNullableOther val
+          | val GHC.Classes.== "company.tax_id" -> IssuingCardholderRequirementsPastDue'NonNullableEnumCompany'taxId
+          | val GHC.Classes.== "individual.dob.day" -> IssuingCardholderRequirementsPastDue'NonNullableEnumIndividual'dob'day
+          | val GHC.Classes.== "individual.dob.month" -> IssuingCardholderRequirementsPastDue'NonNullableEnumIndividual'dob'month
+          | val GHC.Classes.== "individual.dob.year" -> IssuingCardholderRequirementsPastDue'NonNullableEnumIndividual'dob'year
+          | val GHC.Classes.== "individual.first_name" -> IssuingCardholderRequirementsPastDue'NonNullableEnumIndividual'firstName
+          | val GHC.Classes.== "individual.last_name" -> IssuingCardholderRequirementsPastDue'NonNullableEnumIndividual'lastName
+          | val GHC.Classes.== "individual.verification.document" -> IssuingCardholderRequirementsPastDue'NonNullableEnumIndividual'verification'document
+          | GHC.Base.otherwise -> IssuingCardholderRequirementsPastDue'NonNullableOther val
       )

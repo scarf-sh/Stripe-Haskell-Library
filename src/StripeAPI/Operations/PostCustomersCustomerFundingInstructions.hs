@@ -50,7 +50,7 @@ import qualified Prelude as GHC.Maybe
 -- funding instructions will be retrieved. In other words, we will return the same funding instructions each time.\<\/p>
 postCustomersCustomerFundingInstructions ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | customer | Constraints: Maximum length of 5000
   Data.Text.Internal.Text ->
   -- | The request body to send
@@ -66,21 +66,21 @@ postCustomersCustomerFundingInstructions
             ( Data.Either.either PostCustomersCustomerFundingInstructionsResponseError GHC.Base.id
                 GHC.Base.. ( \response body ->
                                if
-                                   | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                      PostCustomersCustomerFundingInstructionsResponse200
                                        Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                             Data.Either.Either
                                                               GHC.Base.String
                                                               FundingInstructions
                                                         )
-                                   | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                      PostCustomersCustomerFundingInstructionsResponseDefault
                                        Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                             Data.Either.Either
                                                               GHC.Base.String
                                                               Error
                                                         )
-                                   | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                            )
                   response_0
             )
@@ -214,11 +214,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostCustomersCustomerFundingInstruct
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "iban" -> PostCustomersCustomerFundingInstructionsRequestBodyBankTransfer'RequestedAddressTypes'EnumIban
-            | val GHC.Classes.== "sort_code" -> PostCustomersCustomerFundingInstructionsRequestBodyBankTransfer'RequestedAddressTypes'EnumSortCode
-            | val GHC.Classes.== "spei" -> PostCustomersCustomerFundingInstructionsRequestBodyBankTransfer'RequestedAddressTypes'EnumSpei
-            | val GHC.Classes.== "zengin" -> PostCustomersCustomerFundingInstructionsRequestBodyBankTransfer'RequestedAddressTypes'EnumZengin
-            | GHC.Base.otherwise -> PostCustomersCustomerFundingInstructionsRequestBodyBankTransfer'RequestedAddressTypes'Other val
+          | val GHC.Classes.== "iban" -> PostCustomersCustomerFundingInstructionsRequestBodyBankTransfer'RequestedAddressTypes'EnumIban
+          | val GHC.Classes.== "sort_code" -> PostCustomersCustomerFundingInstructionsRequestBodyBankTransfer'RequestedAddressTypes'EnumSortCode
+          | val GHC.Classes.== "spei" -> PostCustomersCustomerFundingInstructionsRequestBodyBankTransfer'RequestedAddressTypes'EnumSpei
+          | val GHC.Classes.== "zengin" -> PostCustomersCustomerFundingInstructionsRequestBodyBankTransfer'RequestedAddressTypes'EnumZengin
+          | GHC.Base.otherwise -> PostCustomersCustomerFundingInstructionsRequestBodyBankTransfer'RequestedAddressTypes'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/customers\/{customer}\/funding_instructions.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.bank_transfer.properties.type@ in the specification.
@@ -249,11 +249,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostCustomersCustomerFundingInstruct
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "eu_bank_transfer" -> PostCustomersCustomerFundingInstructionsRequestBodyBankTransfer'Type'EnumEuBankTransfer
-            | val GHC.Classes.== "gb_bank_transfer" -> PostCustomersCustomerFundingInstructionsRequestBodyBankTransfer'Type'EnumGbBankTransfer
-            | val GHC.Classes.== "jp_bank_transfer" -> PostCustomersCustomerFundingInstructionsRequestBodyBankTransfer'Type'EnumJpBankTransfer
-            | val GHC.Classes.== "mx_bank_transfer" -> PostCustomersCustomerFundingInstructionsRequestBodyBankTransfer'Type'EnumMxBankTransfer
-            | GHC.Base.otherwise -> PostCustomersCustomerFundingInstructionsRequestBodyBankTransfer'Type'Other val
+          | val GHC.Classes.== "eu_bank_transfer" -> PostCustomersCustomerFundingInstructionsRequestBodyBankTransfer'Type'EnumEuBankTransfer
+          | val GHC.Classes.== "gb_bank_transfer" -> PostCustomersCustomerFundingInstructionsRequestBodyBankTransfer'Type'EnumGbBankTransfer
+          | val GHC.Classes.== "jp_bank_transfer" -> PostCustomersCustomerFundingInstructionsRequestBodyBankTransfer'Type'EnumJpBankTransfer
+          | val GHC.Classes.== "mx_bank_transfer" -> PostCustomersCustomerFundingInstructionsRequestBodyBankTransfer'Type'EnumMxBankTransfer
+          | GHC.Base.otherwise -> PostCustomersCustomerFundingInstructionsRequestBodyBankTransfer'Type'Other val
       )
 
 -- | Represents a response of the operation 'postCustomersCustomerFundingInstructions'.

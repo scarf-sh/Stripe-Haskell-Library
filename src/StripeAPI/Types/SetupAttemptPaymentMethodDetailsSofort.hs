@@ -166,9 +166,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON SetupAttemptPaymentMethodDetailsSofo
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "de" -> SetupAttemptPaymentMethodDetailsSofortPreferredLanguage'NonNullableEnumDe
-            | val GHC.Classes.== "en" -> SetupAttemptPaymentMethodDetailsSofortPreferredLanguage'NonNullableEnumEn
-            | val GHC.Classes.== "fr" -> SetupAttemptPaymentMethodDetailsSofortPreferredLanguage'NonNullableEnumFr
-            | val GHC.Classes.== "nl" -> SetupAttemptPaymentMethodDetailsSofortPreferredLanguage'NonNullableEnumNl
-            | GHC.Base.otherwise -> SetupAttemptPaymentMethodDetailsSofortPreferredLanguage'NonNullableOther val
+          | val GHC.Classes.== "de" -> SetupAttemptPaymentMethodDetailsSofortPreferredLanguage'NonNullableEnumDe
+          | val GHC.Classes.== "en" -> SetupAttemptPaymentMethodDetailsSofortPreferredLanguage'NonNullableEnumEn
+          | val GHC.Classes.== "fr" -> SetupAttemptPaymentMethodDetailsSofortPreferredLanguage'NonNullableEnumFr
+          | val GHC.Classes.== "nl" -> SetupAttemptPaymentMethodDetailsSofortPreferredLanguage'NonNullableEnumNl
+          | GHC.Base.otherwise -> SetupAttemptPaymentMethodDetailsSofortPreferredLanguage'NonNullableOther val
       )

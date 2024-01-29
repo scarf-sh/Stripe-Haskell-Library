@@ -88,7 +88,7 @@ instance Data.Aeson.Types.FromJSON.FromJSON TransformUsageRound' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "down" -> TransformUsageRound'EnumDown
-            | val GHC.Classes.== "up" -> TransformUsageRound'EnumUp
-            | GHC.Base.otherwise -> TransformUsageRound'Other val
+          | val GHC.Classes.== "down" -> TransformUsageRound'EnumDown
+          | val GHC.Classes.== "up" -> TransformUsageRound'EnumUp
+          | GHC.Base.otherwise -> TransformUsageRound'Other val
       )

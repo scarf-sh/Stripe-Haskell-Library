@@ -103,9 +103,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON TaxIdVerificationStatus' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "pending" -> TaxIdVerificationStatus'EnumPending
-            | val GHC.Classes.== "unavailable" -> TaxIdVerificationStatus'EnumUnavailable
-            | val GHC.Classes.== "unverified" -> TaxIdVerificationStatus'EnumUnverified
-            | val GHC.Classes.== "verified" -> TaxIdVerificationStatus'EnumVerified
-            | GHC.Base.otherwise -> TaxIdVerificationStatus'Other val
+          | val GHC.Classes.== "pending" -> TaxIdVerificationStatus'EnumPending
+          | val GHC.Classes.== "unavailable" -> TaxIdVerificationStatus'EnumUnavailable
+          | val GHC.Classes.== "unverified" -> TaxIdVerificationStatus'EnumUnverified
+          | val GHC.Classes.== "verified" -> TaxIdVerificationStatus'EnumVerified
+          | GHC.Base.otherwise -> TaxIdVerificationStatus'Other val
       )

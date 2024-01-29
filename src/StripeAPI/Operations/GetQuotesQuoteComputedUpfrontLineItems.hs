@@ -48,7 +48,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>When retrieving a quote, there is an includable \<a href=\"https:\/\/stripe.com\/docs\/api\/quotes\/object\#quote_object-computed-upfront-line_items\">\<strong>computed.upfront.line_items\<\/strong>\<\/a> property containing the first handful of those items. There is also a URL where you can retrieve the full (paginated) list of upfront line items.\<\/p>
 getQuotesQuoteComputedUpfrontLineItems ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | Contains all available parameters of this operation (query and path parameters)
   GetQuotesQuoteComputedUpfrontLineItemsParameters ->
   -- | Monadic computation which returns the result of the operation
@@ -60,21 +60,21 @@ getQuotesQuoteComputedUpfrontLineItems parameters =
           ( Data.Either.either GetQuotesQuoteComputedUpfrontLineItemsResponseError GHC.Base.id
               GHC.Base.. ( \response body ->
                              if
-                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                               | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                    GetQuotesQuoteComputedUpfrontLineItemsResponse200
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             GetQuotesQuoteComputedUpfrontLineItemsResponseBody200
                                                       )
-                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                               | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                    GetQuotesQuoteComputedUpfrontLineItemsResponseDefault
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             Error
                                                       )
-                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                               | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                          )
                 response_0
           )

@@ -96,9 +96,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON MandateAcssDebitDefaultFor' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "invoice" -> MandateAcssDebitDefaultFor'EnumInvoice
-            | val GHC.Classes.== "subscription" -> MandateAcssDebitDefaultFor'EnumSubscription
-            | GHC.Base.otherwise -> MandateAcssDebitDefaultFor'Other val
+          | val GHC.Classes.== "invoice" -> MandateAcssDebitDefaultFor'EnumInvoice
+          | val GHC.Classes.== "subscription" -> MandateAcssDebitDefaultFor'EnumSubscription
+          | GHC.Base.otherwise -> MandateAcssDebitDefaultFor'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.mandate_acss_debit.properties.payment_schedule@ in the specification.
@@ -128,10 +128,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON MandateAcssDebitPaymentSchedule' whe
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "combined" -> MandateAcssDebitPaymentSchedule'EnumCombined
-            | val GHC.Classes.== "interval" -> MandateAcssDebitPaymentSchedule'EnumInterval
-            | val GHC.Classes.== "sporadic" -> MandateAcssDebitPaymentSchedule'EnumSporadic
-            | GHC.Base.otherwise -> MandateAcssDebitPaymentSchedule'Other val
+          | val GHC.Classes.== "combined" -> MandateAcssDebitPaymentSchedule'EnumCombined
+          | val GHC.Classes.== "interval" -> MandateAcssDebitPaymentSchedule'EnumInterval
+          | val GHC.Classes.== "sporadic" -> MandateAcssDebitPaymentSchedule'EnumSporadic
+          | GHC.Base.otherwise -> MandateAcssDebitPaymentSchedule'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.mandate_acss_debit.properties.transaction_type@ in the specification.
@@ -158,7 +158,7 @@ instance Data.Aeson.Types.FromJSON.FromJSON MandateAcssDebitTransactionType' whe
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "business" -> MandateAcssDebitTransactionType'EnumBusiness
-            | val GHC.Classes.== "personal" -> MandateAcssDebitTransactionType'EnumPersonal
-            | GHC.Base.otherwise -> MandateAcssDebitTransactionType'Other val
+          | val GHC.Classes.== "business" -> MandateAcssDebitTransactionType'EnumBusiness
+          | val GHC.Classes.== "personal" -> MandateAcssDebitTransactionType'EnumPersonal
+          | GHC.Base.otherwise -> MandateAcssDebitTransactionType'Other val
       )

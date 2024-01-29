@@ -52,7 +52,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>You can preview the effects of updating a subscription, including a preview of what proration will take place. To ensure that the actual proration is calculated exactly the same as the previewed proration, you should pass a \<code>proration_date\<\/code> parameter when doing the actual subscription update. The value passed in should be the same as the \<code>subscription_proration_date\<\/code> returned on the upcoming invoice resource. The recommended way to get only the prorations being previewed is to consider only proration line items where \<code>period[start]\<\/code> is equal to the \<code>subscription_proration_date\<\/code> on the upcoming invoice resource.\<\/p>
 getInvoicesUpcoming ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | Contains all available parameters of this operation (query and path parameters)
   GetInvoicesUpcomingParameters ->
   -- | Monadic computation which returns the result of the operation
@@ -64,21 +64,21 @@ getInvoicesUpcoming parameters =
           ( Data.Either.either GetInvoicesUpcomingResponseError GHC.Base.id
               GHC.Base.. ( \response body ->
                              if
-                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                               | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                    GetInvoicesUpcomingResponse200
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             Invoice
                                                       )
-                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                               | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                    GetInvoicesUpcomingResponseDefault
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             Error
                                                       )
-                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                               | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                          )
                 response_0
           )
@@ -392,8 +392,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON GetInvoicesUpcomingParametersQueryCustom
 instance Data.Aeson.Types.FromJSON.FromJSON GetInvoicesUpcomingParametersQueryCustomerDetails'Address'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure GetInvoicesUpcomingParametersQueryCustomerDetails'Address'EmptyString
-        | GHC.Base.otherwise -> case (GetInvoicesUpcomingParametersQueryCustomerDetails'Address'GetInvoicesUpcomingParametersQueryCustomerDetails'Address'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure GetInvoicesUpcomingParametersQueryCustomerDetails'Address'EmptyString
+      | GHC.Base.otherwise -> case (GetInvoicesUpcomingParametersQueryCustomerDetails'Address'GetInvoicesUpcomingParametersQueryCustomerDetails'Address'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -517,8 +517,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON GetInvoicesUpcomingParametersQueryCustom
 instance Data.Aeson.Types.FromJSON.FromJSON GetInvoicesUpcomingParametersQueryCustomerDetails'Shipping'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure GetInvoicesUpcomingParametersQueryCustomerDetails'Shipping'EmptyString
-        | GHC.Base.otherwise -> case (GetInvoicesUpcomingParametersQueryCustomerDetails'Shipping'GetInvoicesUpcomingParametersQueryCustomerDetails'Shipping'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure GetInvoicesUpcomingParametersQueryCustomerDetails'Shipping'EmptyString
+      | GHC.Base.otherwise -> case (GetInvoicesUpcomingParametersQueryCustomerDetails'Shipping'GetInvoicesUpcomingParametersQueryCustomerDetails'Shipping'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -557,8 +557,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON GetInvoicesUpcomingParametersQueryCustom
 instance Data.Aeson.Types.FromJSON.FromJSON GetInvoicesUpcomingParametersQueryCustomerDetails'Tax'IpAddress'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure GetInvoicesUpcomingParametersQueryCustomerDetails'Tax'IpAddress'EmptyString
-        | GHC.Base.otherwise -> case (GetInvoicesUpcomingParametersQueryCustomerDetails'Tax'IpAddress'Text Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure GetInvoicesUpcomingParametersQueryCustomerDetails'Tax'IpAddress'EmptyString
+      | GHC.Base.otherwise -> case (GetInvoicesUpcomingParametersQueryCustomerDetails'Tax'IpAddress'Text Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -590,11 +590,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON GetInvoicesUpcomingParametersQueryCu
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxExempt'EnumEmptyString
-            | val GHC.Classes.== "exempt" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxExempt'EnumExempt
-            | val GHC.Classes.== "none" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxExempt'EnumNone
-            | val GHC.Classes.== "reverse" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxExempt'EnumReverse
-            | GHC.Base.otherwise -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxExempt'Other val
+          | val GHC.Classes.== "" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxExempt'EnumEmptyString
+          | val GHC.Classes.== "exempt" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxExempt'EnumExempt
+          | val GHC.Classes.== "none" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxExempt'EnumNone
+          | val GHC.Classes.== "reverse" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxExempt'EnumReverse
+          | GHC.Base.otherwise -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxExempt'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/invoices\/upcoming.GET.parameters.properties.queryCustomer_details.properties.tax_ids.items@ in the specification.
@@ -787,53 +787,53 @@ instance Data.Aeson.Types.FromJSON.FromJSON GetInvoicesUpcomingParametersQueryCu
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "ae_trn" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumAeTrn
-            | val GHC.Classes.== "au_abn" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumAuAbn
-            | val GHC.Classes.== "au_arn" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumAuArn
-            | val GHC.Classes.== "bg_uic" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumBgUic
-            | val GHC.Classes.== "br_cnpj" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumBrCnpj
-            | val GHC.Classes.== "br_cpf" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumBrCpf
-            | val GHC.Classes.== "ca_bn" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumCaBn
-            | val GHC.Classes.== "ca_gst_hst" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumCaGstHst
-            | val GHC.Classes.== "ca_pst_bc" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumCaPstBc
-            | val GHC.Classes.== "ca_pst_mb" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumCaPstMb
-            | val GHC.Classes.== "ca_pst_sk" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumCaPstSk
-            | val GHC.Classes.== "ca_qst" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumCaQst
-            | val GHC.Classes.== "ch_vat" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumChVat
-            | val GHC.Classes.== "cl_tin" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumClTin
-            | val GHC.Classes.== "es_cif" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumEsCif
-            | val GHC.Classes.== "eu_oss_vat" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumEuOssVat
-            | val GHC.Classes.== "eu_vat" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumEuVat
-            | val GHC.Classes.== "gb_vat" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumGbVat
-            | val GHC.Classes.== "ge_vat" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumGeVat
-            | val GHC.Classes.== "hk_br" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumHkBr
-            | val GHC.Classes.== "hu_tin" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumHuTin
-            | val GHC.Classes.== "id_npwp" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumIdNpwp
-            | val GHC.Classes.== "il_vat" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumIlVat
-            | val GHC.Classes.== "in_gst" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumInGst
-            | val GHC.Classes.== "is_vat" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumIsVat
-            | val GHC.Classes.== "jp_cn" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumJpCn
-            | val GHC.Classes.== "jp_rn" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumJpRn
-            | val GHC.Classes.== "kr_brn" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumKrBrn
-            | val GHC.Classes.== "li_uid" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumLiUid
-            | val GHC.Classes.== "mx_rfc" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumMxRfc
-            | val GHC.Classes.== "my_frp" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumMyFrp
-            | val GHC.Classes.== "my_itn" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumMyItn
-            | val GHC.Classes.== "my_sst" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumMySst
-            | val GHC.Classes.== "no_vat" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumNoVat
-            | val GHC.Classes.== "nz_gst" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumNzGst
-            | val GHC.Classes.== "ru_inn" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumRuInn
-            | val GHC.Classes.== "ru_kpp" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumRuKpp
-            | val GHC.Classes.== "sa_vat" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumSaVat
-            | val GHC.Classes.== "sg_gst" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumSgGst
-            | val GHC.Classes.== "sg_uen" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumSgUen
-            | val GHC.Classes.== "si_tin" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumSiTin
-            | val GHC.Classes.== "th_vat" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumThVat
-            | val GHC.Classes.== "tw_vat" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumTwVat
-            | val GHC.Classes.== "ua_vat" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumUaVat
-            | val GHC.Classes.== "us_ein" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumUsEin
-            | val GHC.Classes.== "za_vat" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumZaVat
-            | GHC.Base.otherwise -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'Other val
+          | val GHC.Classes.== "ae_trn" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumAeTrn
+          | val GHC.Classes.== "au_abn" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumAuAbn
+          | val GHC.Classes.== "au_arn" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumAuArn
+          | val GHC.Classes.== "bg_uic" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumBgUic
+          | val GHC.Classes.== "br_cnpj" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumBrCnpj
+          | val GHC.Classes.== "br_cpf" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumBrCpf
+          | val GHC.Classes.== "ca_bn" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumCaBn
+          | val GHC.Classes.== "ca_gst_hst" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumCaGstHst
+          | val GHC.Classes.== "ca_pst_bc" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumCaPstBc
+          | val GHC.Classes.== "ca_pst_mb" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumCaPstMb
+          | val GHC.Classes.== "ca_pst_sk" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumCaPstSk
+          | val GHC.Classes.== "ca_qst" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumCaQst
+          | val GHC.Classes.== "ch_vat" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumChVat
+          | val GHC.Classes.== "cl_tin" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumClTin
+          | val GHC.Classes.== "es_cif" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumEsCif
+          | val GHC.Classes.== "eu_oss_vat" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumEuOssVat
+          | val GHC.Classes.== "eu_vat" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumEuVat
+          | val GHC.Classes.== "gb_vat" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumGbVat
+          | val GHC.Classes.== "ge_vat" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumGeVat
+          | val GHC.Classes.== "hk_br" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumHkBr
+          | val GHC.Classes.== "hu_tin" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumHuTin
+          | val GHC.Classes.== "id_npwp" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumIdNpwp
+          | val GHC.Classes.== "il_vat" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumIlVat
+          | val GHC.Classes.== "in_gst" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumInGst
+          | val GHC.Classes.== "is_vat" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumIsVat
+          | val GHC.Classes.== "jp_cn" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumJpCn
+          | val GHC.Classes.== "jp_rn" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumJpRn
+          | val GHC.Classes.== "kr_brn" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumKrBrn
+          | val GHC.Classes.== "li_uid" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumLiUid
+          | val GHC.Classes.== "mx_rfc" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumMxRfc
+          | val GHC.Classes.== "my_frp" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumMyFrp
+          | val GHC.Classes.== "my_itn" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumMyItn
+          | val GHC.Classes.== "my_sst" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumMySst
+          | val GHC.Classes.== "no_vat" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumNoVat
+          | val GHC.Classes.== "nz_gst" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumNzGst
+          | val GHC.Classes.== "ru_inn" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumRuInn
+          | val GHC.Classes.== "ru_kpp" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumRuKpp
+          | val GHC.Classes.== "sa_vat" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumSaVat
+          | val GHC.Classes.== "sg_gst" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumSgGst
+          | val GHC.Classes.== "sg_uen" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumSgUen
+          | val GHC.Classes.== "si_tin" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumSiTin
+          | val GHC.Classes.== "th_vat" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumThVat
+          | val GHC.Classes.== "tw_vat" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumTwVat
+          | val GHC.Classes.== "ua_vat" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumUaVat
+          | val GHC.Classes.== "us_ein" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumUsEin
+          | val GHC.Classes.== "za_vat" -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'EnumZaVat
+          | GHC.Base.otherwise -> GetInvoicesUpcomingParametersQueryCustomerDetails'TaxIds'Type'Other val
       )
 
 -- | Defines the object schema located at @paths.\/v1\/invoices\/upcoming.GET.parameters.properties.queryDiscounts.anyOf.items@ in the specification.
@@ -889,8 +889,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON GetInvoicesUpcomingParametersQueryDiscou
 instance Data.Aeson.Types.FromJSON.FromJSON GetInvoicesUpcomingParametersQueryDiscounts'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure GetInvoicesUpcomingParametersQueryDiscounts'EmptyString
-        | GHC.Base.otherwise -> case (GetInvoicesUpcomingParametersQueryDiscounts'ListTGetInvoicesUpcomingParametersQueryDiscounts'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure GetInvoicesUpcomingParametersQueryDiscounts'EmptyString
+      | GHC.Base.otherwise -> case (GetInvoicesUpcomingParametersQueryDiscounts'ListTGetInvoicesUpcomingParametersQueryDiscounts'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -1018,8 +1018,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON GetInvoicesUpcomingParametersQueryInvoic
 instance Data.Aeson.Types.FromJSON.FromJSON GetInvoicesUpcomingParametersQueryInvoiceItems'Discounts'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure GetInvoicesUpcomingParametersQueryInvoiceItems'Discounts'EmptyString
-        | GHC.Base.otherwise -> case (GetInvoicesUpcomingParametersQueryInvoiceItems'Discounts'ListTGetInvoicesUpcomingParametersQueryInvoiceItems'Discounts'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure GetInvoicesUpcomingParametersQueryInvoiceItems'Discounts'EmptyString
+      | GHC.Base.otherwise -> case (GetInvoicesUpcomingParametersQueryInvoiceItems'Discounts'ListTGetInvoicesUpcomingParametersQueryInvoiceItems'Discounts'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -1037,8 +1037,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON GetInvoicesUpcomingParametersQueryInvoic
 instance Data.Aeson.Types.FromJSON.FromJSON GetInvoicesUpcomingParametersQueryInvoiceItems'Metadata'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure GetInvoicesUpcomingParametersQueryInvoiceItems'Metadata'EmptyString
-        | GHC.Base.otherwise -> case (GetInvoicesUpcomingParametersQueryInvoiceItems'Metadata'Object Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure GetInvoicesUpcomingParametersQueryInvoiceItems'Metadata'EmptyString
+      | GHC.Base.otherwise -> case (GetInvoicesUpcomingParametersQueryInvoiceItems'Metadata'Object Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -1144,10 +1144,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON GetInvoicesUpcomingParametersQueryIn
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "exclusive" -> GetInvoicesUpcomingParametersQueryInvoiceItems'PriceData'TaxBehavior'EnumExclusive
-            | val GHC.Classes.== "inclusive" -> GetInvoicesUpcomingParametersQueryInvoiceItems'PriceData'TaxBehavior'EnumInclusive
-            | val GHC.Classes.== "unspecified" -> GetInvoicesUpcomingParametersQueryInvoiceItems'PriceData'TaxBehavior'EnumUnspecified
-            | GHC.Base.otherwise -> GetInvoicesUpcomingParametersQueryInvoiceItems'PriceData'TaxBehavior'Other val
+          | val GHC.Classes.== "exclusive" -> GetInvoicesUpcomingParametersQueryInvoiceItems'PriceData'TaxBehavior'EnumExclusive
+          | val GHC.Classes.== "inclusive" -> GetInvoicesUpcomingParametersQueryInvoiceItems'PriceData'TaxBehavior'EnumInclusive
+          | val GHC.Classes.== "unspecified" -> GetInvoicesUpcomingParametersQueryInvoiceItems'PriceData'TaxBehavior'EnumUnspecified
+          | GHC.Base.otherwise -> GetInvoicesUpcomingParametersQueryInvoiceItems'PriceData'TaxBehavior'Other val
       )
 
 -- | Defines the oneOf schema located at @paths.\/v1\/invoices\/upcoming.GET.parameters.properties.queryInvoice_items.items.properties.tax_rates.anyOf@ in the specification.
@@ -1164,8 +1164,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON GetInvoicesUpcomingParametersQueryInvoic
 instance Data.Aeson.Types.FromJSON.FromJSON GetInvoicesUpcomingParametersQueryInvoiceItems'TaxRates'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure GetInvoicesUpcomingParametersQueryInvoiceItems'TaxRates'EmptyString
-        | GHC.Base.otherwise -> case (GetInvoicesUpcomingParametersQueryInvoiceItems'TaxRates'ListTText Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure GetInvoicesUpcomingParametersQueryInvoiceItems'TaxRates'EmptyString
+      | GHC.Base.otherwise -> case (GetInvoicesUpcomingParametersQueryInvoiceItems'TaxRates'ListTText Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -1191,9 +1191,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON GetInvoicesUpcomingParametersQuerySu
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "now" -> GetInvoicesUpcomingParametersQuerySubscriptionBillingCycleAnchor'OneOf1EnumNow
-            | val GHC.Classes.== "unchanged" -> GetInvoicesUpcomingParametersQuerySubscriptionBillingCycleAnchor'OneOf1EnumUnchanged
-            | GHC.Base.otherwise -> GetInvoicesUpcomingParametersQuerySubscriptionBillingCycleAnchor'OneOf1Other val
+          | val GHC.Classes.== "now" -> GetInvoicesUpcomingParametersQuerySubscriptionBillingCycleAnchor'OneOf1EnumNow
+          | val GHC.Classes.== "unchanged" -> GetInvoicesUpcomingParametersQuerySubscriptionBillingCycleAnchor'OneOf1EnumUnchanged
+          | GHC.Base.otherwise -> GetInvoicesUpcomingParametersQuerySubscriptionBillingCycleAnchor'OneOf1Other val
       )
 
 -- | Defines the oneOf schema located at @paths.\/v1\/invoices\/upcoming.GET.parameters.properties.querySubscription_billing_cycle_anchor.anyOf@ in the specification.
@@ -1233,8 +1233,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON GetInvoicesUpcomingParametersQuerySubscr
 instance Data.Aeson.Types.FromJSON.FromJSON GetInvoicesUpcomingParametersQuerySubscriptionCancelAt'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure GetInvoicesUpcomingParametersQuerySubscriptionCancelAt'EmptyString
-        | GHC.Base.otherwise -> case (GetInvoicesUpcomingParametersQuerySubscriptionCancelAt'Int Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure GetInvoicesUpcomingParametersQuerySubscriptionCancelAt'EmptyString
+      | GHC.Base.otherwise -> case (GetInvoicesUpcomingParametersQuerySubscriptionCancelAt'Int Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -1256,8 +1256,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON GetInvoicesUpcomingParametersQuerySubscr
 instance Data.Aeson.Types.FromJSON.FromJSON GetInvoicesUpcomingParametersQuerySubscriptionDefaultTaxRates'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure GetInvoicesUpcomingParametersQuerySubscriptionDefaultTaxRates'EmptyString
-        | GHC.Base.otherwise -> case (GetInvoicesUpcomingParametersQuerySubscriptionDefaultTaxRates'ListTText Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure GetInvoicesUpcomingParametersQuerySubscriptionDefaultTaxRates'EmptyString
+      | GHC.Base.otherwise -> case (GetInvoicesUpcomingParametersQuerySubscriptionDefaultTaxRates'ListTText Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -1355,8 +1355,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON GetInvoicesUpcomingParametersQuerySubscr
 instance Data.Aeson.Types.FromJSON.FromJSON GetInvoicesUpcomingParametersQuerySubscriptionItems'BillingThresholds'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure GetInvoicesUpcomingParametersQuerySubscriptionItems'BillingThresholds'EmptyString
-        | GHC.Base.otherwise -> case (GetInvoicesUpcomingParametersQuerySubscriptionItems'BillingThresholds'GetInvoicesUpcomingParametersQuerySubscriptionItems'BillingThresholds'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure GetInvoicesUpcomingParametersQuerySubscriptionItems'BillingThresholds'EmptyString
+      | GHC.Base.otherwise -> case (GetInvoicesUpcomingParametersQuerySubscriptionItems'BillingThresholds'GetInvoicesUpcomingParametersQuerySubscriptionItems'BillingThresholds'OneOf1 Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -1374,8 +1374,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON GetInvoicesUpcomingParametersQuerySubscr
 instance Data.Aeson.Types.FromJSON.FromJSON GetInvoicesUpcomingParametersQuerySubscriptionItems'Metadata'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure GetInvoicesUpcomingParametersQuerySubscriptionItems'Metadata'EmptyString
-        | GHC.Base.otherwise -> case (GetInvoicesUpcomingParametersQuerySubscriptionItems'Metadata'Object Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure GetInvoicesUpcomingParametersQuerySubscriptionItems'Metadata'EmptyString
+      | GHC.Base.otherwise -> case (GetInvoicesUpcomingParametersQuerySubscriptionItems'Metadata'Object Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -1487,11 +1487,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON GetInvoicesUpcomingParametersQuerySu
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "day" -> GetInvoicesUpcomingParametersQuerySubscriptionItems'PriceData'Recurring'Interval'EnumDay
-            | val GHC.Classes.== "month" -> GetInvoicesUpcomingParametersQuerySubscriptionItems'PriceData'Recurring'Interval'EnumMonth
-            | val GHC.Classes.== "week" -> GetInvoicesUpcomingParametersQuerySubscriptionItems'PriceData'Recurring'Interval'EnumWeek
-            | val GHC.Classes.== "year" -> GetInvoicesUpcomingParametersQuerySubscriptionItems'PriceData'Recurring'Interval'EnumYear
-            | GHC.Base.otherwise -> GetInvoicesUpcomingParametersQuerySubscriptionItems'PriceData'Recurring'Interval'Other val
+          | val GHC.Classes.== "day" -> GetInvoicesUpcomingParametersQuerySubscriptionItems'PriceData'Recurring'Interval'EnumDay
+          | val GHC.Classes.== "month" -> GetInvoicesUpcomingParametersQuerySubscriptionItems'PriceData'Recurring'Interval'EnumMonth
+          | val GHC.Classes.== "week" -> GetInvoicesUpcomingParametersQuerySubscriptionItems'PriceData'Recurring'Interval'EnumWeek
+          | val GHC.Classes.== "year" -> GetInvoicesUpcomingParametersQuerySubscriptionItems'PriceData'Recurring'Interval'EnumYear
+          | GHC.Base.otherwise -> GetInvoicesUpcomingParametersQuerySubscriptionItems'PriceData'Recurring'Interval'Other val
       )
 
 -- | Defines the enum schema located at @paths.\/v1\/invoices\/upcoming.GET.parameters.properties.querySubscription_items.items.properties.price_data.properties.tax_behavior@ in the specification.
@@ -1519,10 +1519,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON GetInvoicesUpcomingParametersQuerySu
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "exclusive" -> GetInvoicesUpcomingParametersQuerySubscriptionItems'PriceData'TaxBehavior'EnumExclusive
-            | val GHC.Classes.== "inclusive" -> GetInvoicesUpcomingParametersQuerySubscriptionItems'PriceData'TaxBehavior'EnumInclusive
-            | val GHC.Classes.== "unspecified" -> GetInvoicesUpcomingParametersQuerySubscriptionItems'PriceData'TaxBehavior'EnumUnspecified
-            | GHC.Base.otherwise -> GetInvoicesUpcomingParametersQuerySubscriptionItems'PriceData'TaxBehavior'Other val
+          | val GHC.Classes.== "exclusive" -> GetInvoicesUpcomingParametersQuerySubscriptionItems'PriceData'TaxBehavior'EnumExclusive
+          | val GHC.Classes.== "inclusive" -> GetInvoicesUpcomingParametersQuerySubscriptionItems'PriceData'TaxBehavior'EnumInclusive
+          | val GHC.Classes.== "unspecified" -> GetInvoicesUpcomingParametersQuerySubscriptionItems'PriceData'TaxBehavior'EnumUnspecified
+          | GHC.Base.otherwise -> GetInvoicesUpcomingParametersQuerySubscriptionItems'PriceData'TaxBehavior'Other val
       )
 
 -- | Defines the oneOf schema located at @paths.\/v1\/invoices\/upcoming.GET.parameters.properties.querySubscription_items.items.properties.tax_rates.anyOf@ in the specification.
@@ -1539,8 +1539,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON GetInvoicesUpcomingParametersQuerySubscr
 instance Data.Aeson.Types.FromJSON.FromJSON GetInvoicesUpcomingParametersQuerySubscriptionItems'TaxRates'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure GetInvoicesUpcomingParametersQuerySubscriptionItems'TaxRates'EmptyString
-        | GHC.Base.otherwise -> case (GetInvoicesUpcomingParametersQuerySubscriptionItems'TaxRates'ListTText Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure GetInvoicesUpcomingParametersQuerySubscriptionItems'TaxRates'EmptyString
+      | GHC.Base.otherwise -> case (GetInvoicesUpcomingParametersQuerySubscriptionItems'TaxRates'ListTText Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 
@@ -1573,10 +1573,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON GetInvoicesUpcomingParametersQuerySu
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "always_invoice" -> GetInvoicesUpcomingParametersQuerySubscriptionProrationBehavior'EnumAlwaysInvoice
-            | val GHC.Classes.== "create_prorations" -> GetInvoicesUpcomingParametersQuerySubscriptionProrationBehavior'EnumCreateProrations
-            | val GHC.Classes.== "none" -> GetInvoicesUpcomingParametersQuerySubscriptionProrationBehavior'EnumNone
-            | GHC.Base.otherwise -> GetInvoicesUpcomingParametersQuerySubscriptionProrationBehavior'Other val
+          | val GHC.Classes.== "always_invoice" -> GetInvoicesUpcomingParametersQuerySubscriptionProrationBehavior'EnumAlwaysInvoice
+          | val GHC.Classes.== "create_prorations" -> GetInvoicesUpcomingParametersQuerySubscriptionProrationBehavior'EnumCreateProrations
+          | val GHC.Classes.== "none" -> GetInvoicesUpcomingParametersQuerySubscriptionProrationBehavior'EnumNone
+          | GHC.Base.otherwise -> GetInvoicesUpcomingParametersQuerySubscriptionProrationBehavior'Other val
       )
 
 -- | Defines the oneOf schema located at @paths.\/v1\/invoices\/upcoming.GET.parameters.properties.querySubscription_trial_end.anyOf@ in the specification.
@@ -1597,8 +1597,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON GetInvoicesUpcomingParametersQuerySubscr
 instance Data.Aeson.Types.FromJSON.FromJSON GetInvoicesUpcomingParametersQuerySubscriptionTrialEnd'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "now" -> GHC.Base.pure GetInvoicesUpcomingParametersQuerySubscriptionTrialEnd'Now
-        | GHC.Base.otherwise -> case (GetInvoicesUpcomingParametersQuerySubscriptionTrialEnd'Int Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "now" -> GHC.Base.pure GetInvoicesUpcomingParametersQuerySubscriptionTrialEnd'Now
+      | GHC.Base.otherwise -> case (GetInvoicesUpcomingParametersQuerySubscriptionTrialEnd'Int Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 

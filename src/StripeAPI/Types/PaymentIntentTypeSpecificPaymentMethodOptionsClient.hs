@@ -87,8 +87,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentTypeSpecificPaymentMeth
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "manual" -> PaymentIntentTypeSpecificPaymentMethodOptionsClientCaptureMethod'EnumManual
-            | GHC.Base.otherwise -> PaymentIntentTypeSpecificPaymentMethodOptionsClientCaptureMethod'Other val
+          | val GHC.Classes.== "manual" -> PaymentIntentTypeSpecificPaymentMethodOptionsClientCaptureMethod'EnumManual
+          | GHC.Base.otherwise -> PaymentIntentTypeSpecificPaymentMethodOptionsClientCaptureMethod'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_intent_type_specific_payment_method_options_client.properties.setup_future_usage@ in the specification.
@@ -122,10 +122,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentTypeSpecificPaymentMeth
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> PaymentIntentTypeSpecificPaymentMethodOptionsClientSetupFutureUsage'EnumNone
-            | val GHC.Classes.== "off_session" -> PaymentIntentTypeSpecificPaymentMethodOptionsClientSetupFutureUsage'EnumOffSession
-            | val GHC.Classes.== "on_session" -> PaymentIntentTypeSpecificPaymentMethodOptionsClientSetupFutureUsage'EnumOnSession
-            | GHC.Base.otherwise -> PaymentIntentTypeSpecificPaymentMethodOptionsClientSetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> PaymentIntentTypeSpecificPaymentMethodOptionsClientSetupFutureUsage'EnumNone
+          | val GHC.Classes.== "off_session" -> PaymentIntentTypeSpecificPaymentMethodOptionsClientSetupFutureUsage'EnumOffSession
+          | val GHC.Classes.== "on_session" -> PaymentIntentTypeSpecificPaymentMethodOptionsClientSetupFutureUsage'EnumOnSession
+          | GHC.Base.otherwise -> PaymentIntentTypeSpecificPaymentMethodOptionsClientSetupFutureUsage'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_intent_type_specific_payment_method_options_client.properties.verification_method@ in the specification.
@@ -155,8 +155,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentTypeSpecificPaymentMeth
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> PaymentIntentTypeSpecificPaymentMethodOptionsClientVerificationMethod'EnumAutomatic
-            | val GHC.Classes.== "instant" -> PaymentIntentTypeSpecificPaymentMethodOptionsClientVerificationMethod'EnumInstant
-            | val GHC.Classes.== "microdeposits" -> PaymentIntentTypeSpecificPaymentMethodOptionsClientVerificationMethod'EnumMicrodeposits
-            | GHC.Base.otherwise -> PaymentIntentTypeSpecificPaymentMethodOptionsClientVerificationMethod'Other val
+          | val GHC.Classes.== "automatic" -> PaymentIntentTypeSpecificPaymentMethodOptionsClientVerificationMethod'EnumAutomatic
+          | val GHC.Classes.== "instant" -> PaymentIntentTypeSpecificPaymentMethodOptionsClientVerificationMethod'EnumInstant
+          | val GHC.Classes.== "microdeposits" -> PaymentIntentTypeSpecificPaymentMethodOptionsClientVerificationMethod'EnumMicrodeposits
+          | GHC.Base.otherwise -> PaymentIntentTypeSpecificPaymentMethodOptionsClientVerificationMethod'Other val
       )

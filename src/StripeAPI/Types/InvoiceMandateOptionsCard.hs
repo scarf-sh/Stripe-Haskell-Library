@@ -90,7 +90,7 @@ instance Data.Aeson.Types.FromJSON.FromJSON InvoiceMandateOptionsCardAmountType'
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "fixed" -> InvoiceMandateOptionsCardAmountType'NonNullableEnumFixed
-            | val GHC.Classes.== "maximum" -> InvoiceMandateOptionsCardAmountType'NonNullableEnumMaximum
-            | GHC.Base.otherwise -> InvoiceMandateOptionsCardAmountType'NonNullableOther val
+          | val GHC.Classes.== "fixed" -> InvoiceMandateOptionsCardAmountType'NonNullableEnumFixed
+          | val GHC.Classes.== "maximum" -> InvoiceMandateOptionsCardAmountType'NonNullableEnumMaximum
+          | GHC.Base.otherwise -> InvoiceMandateOptionsCardAmountType'NonNullableOther val
       )

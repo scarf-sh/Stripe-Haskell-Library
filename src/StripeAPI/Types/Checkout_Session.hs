@@ -391,9 +391,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON Checkout'sessionBillingAddressCollec
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "auto" -> Checkout'sessionBillingAddressCollection'NonNullableEnumAuto
-            | val GHC.Classes.== "required" -> Checkout'sessionBillingAddressCollection'NonNullableEnumRequired
-            | GHC.Base.otherwise -> Checkout'sessionBillingAddressCollection'NonNullableOther val
+          | val GHC.Classes.== "auto" -> Checkout'sessionBillingAddressCollection'NonNullableEnumAuto
+          | val GHC.Classes.== "required" -> Checkout'sessionBillingAddressCollection'NonNullableEnumRequired
+          | GHC.Base.otherwise -> Checkout'sessionBillingAddressCollection'NonNullableOther val
       )
 
 -- | Defines the object schema located at @components.schemas.checkout.session.properties.consent.anyOf@ in the specification.
@@ -445,9 +445,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON Checkout'sessionConsent'NonNullableP
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "opt_in" -> Checkout'sessionConsent'NonNullablePromotions'NonNullableEnumOptIn
-            | val GHC.Classes.== "opt_out" -> Checkout'sessionConsent'NonNullablePromotions'NonNullableEnumOptOut
-            | GHC.Base.otherwise -> Checkout'sessionConsent'NonNullablePromotions'NonNullableOther val
+          | val GHC.Classes.== "opt_in" -> Checkout'sessionConsent'NonNullablePromotions'NonNullableEnumOptIn
+          | val GHC.Classes.== "opt_out" -> Checkout'sessionConsent'NonNullablePromotions'NonNullableEnumOptOut
+          | GHC.Base.otherwise -> Checkout'sessionConsent'NonNullablePromotions'NonNullableOther val
       )
 
 -- | Defines the object schema located at @components.schemas.checkout.session.properties.consent_collection.anyOf@ in the specification.
@@ -498,8 +498,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON Checkout'sessionConsentCollection'No
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "auto" -> Checkout'sessionConsentCollection'NonNullablePromotions'NonNullableEnumAuto
-            | GHC.Base.otherwise -> Checkout'sessionConsentCollection'NonNullablePromotions'NonNullableOther val
+          | val GHC.Classes.== "auto" -> Checkout'sessionConsentCollection'NonNullablePromotions'NonNullableEnumAuto
+          | GHC.Base.otherwise -> Checkout'sessionConsentCollection'NonNullablePromotions'NonNullableOther val
       )
 
 -- | Defines the oneOf schema located at @components.schemas.checkout.session.properties.customer.anyOf@ in the specification.
@@ -549,9 +549,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON Checkout'sessionCustomerCreation'Non
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "always" -> Checkout'sessionCustomerCreation'NonNullableEnumAlways
-            | val GHC.Classes.== "if_required" -> Checkout'sessionCustomerCreation'NonNullableEnumIfRequired
-            | GHC.Base.otherwise -> Checkout'sessionCustomerCreation'NonNullableOther val
+          | val GHC.Classes.== "always" -> Checkout'sessionCustomerCreation'NonNullableEnumAlways
+          | val GHC.Classes.== "if_required" -> Checkout'sessionCustomerCreation'NonNullableEnumIfRequired
+          | GHC.Base.otherwise -> Checkout'sessionCustomerCreation'NonNullableOther val
       )
 
 -- | Defines the object schema located at @components.schemas.checkout.session.properties.customer_details.anyOf@ in the specification.
@@ -700,10 +700,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON Checkout'sessionCustomerDetails'NonN
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "exempt" -> Checkout'sessionCustomerDetails'NonNullableTaxExempt'NonNullableEnumExempt
-            | val GHC.Classes.== "none" -> Checkout'sessionCustomerDetails'NonNullableTaxExempt'NonNullableEnumNone
-            | val GHC.Classes.== "reverse" -> Checkout'sessionCustomerDetails'NonNullableTaxExempt'NonNullableEnumReverse
-            | GHC.Base.otherwise -> Checkout'sessionCustomerDetails'NonNullableTaxExempt'NonNullableOther val
+          | val GHC.Classes.== "exempt" -> Checkout'sessionCustomerDetails'NonNullableTaxExempt'NonNullableEnumExempt
+          | val GHC.Classes.== "none" -> Checkout'sessionCustomerDetails'NonNullableTaxExempt'NonNullableEnumNone
+          | val GHC.Classes.== "reverse" -> Checkout'sessionCustomerDetails'NonNullableTaxExempt'NonNullableEnumReverse
+          | GHC.Base.otherwise -> Checkout'sessionCustomerDetails'NonNullableTaxExempt'NonNullableOther val
       )
 
 -- | Defines the object schema located at @components.schemas.checkout.session.properties.line_items@ in the specification.
@@ -890,48 +890,48 @@ instance Data.Aeson.Types.FromJSON.FromJSON Checkout'sessionLocale'NonNullable w
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "auto" -> Checkout'sessionLocale'NonNullableEnumAuto
-            | val GHC.Classes.== "bg" -> Checkout'sessionLocale'NonNullableEnumBg
-            | val GHC.Classes.== "cs" -> Checkout'sessionLocale'NonNullableEnumCs
-            | val GHC.Classes.== "da" -> Checkout'sessionLocale'NonNullableEnumDa
-            | val GHC.Classes.== "de" -> Checkout'sessionLocale'NonNullableEnumDe
-            | val GHC.Classes.== "el" -> Checkout'sessionLocale'NonNullableEnumEl
-            | val GHC.Classes.== "en" -> Checkout'sessionLocale'NonNullableEnumEn
-            | val GHC.Classes.== "en-GB" -> Checkout'sessionLocale'NonNullableEnumEnGB
-            | val GHC.Classes.== "es" -> Checkout'sessionLocale'NonNullableEnumEs
-            | val GHC.Classes.== "es-419" -> Checkout'sessionLocale'NonNullableEnumEs_419
-            | val GHC.Classes.== "et" -> Checkout'sessionLocale'NonNullableEnumEt
-            | val GHC.Classes.== "fi" -> Checkout'sessionLocale'NonNullableEnumFi
-            | val GHC.Classes.== "fil" -> Checkout'sessionLocale'NonNullableEnumFil
-            | val GHC.Classes.== "fr" -> Checkout'sessionLocale'NonNullableEnumFr
-            | val GHC.Classes.== "fr-CA" -> Checkout'sessionLocale'NonNullableEnumFrCA
-            | val GHC.Classes.== "hr" -> Checkout'sessionLocale'NonNullableEnumHr
-            | val GHC.Classes.== "hu" -> Checkout'sessionLocale'NonNullableEnumHu
-            | val GHC.Classes.== "id" -> Checkout'sessionLocale'NonNullableEnumId
-            | val GHC.Classes.== "it" -> Checkout'sessionLocale'NonNullableEnumIt
-            | val GHC.Classes.== "ja" -> Checkout'sessionLocale'NonNullableEnumJa
-            | val GHC.Classes.== "ko" -> Checkout'sessionLocale'NonNullableEnumKo
-            | val GHC.Classes.== "lt" -> Checkout'sessionLocale'NonNullableEnumLt
-            | val GHC.Classes.== "lv" -> Checkout'sessionLocale'NonNullableEnumLv
-            | val GHC.Classes.== "ms" -> Checkout'sessionLocale'NonNullableEnumMs
-            | val GHC.Classes.== "mt" -> Checkout'sessionLocale'NonNullableEnumMt
-            | val GHC.Classes.== "nb" -> Checkout'sessionLocale'NonNullableEnumNb
-            | val GHC.Classes.== "nl" -> Checkout'sessionLocale'NonNullableEnumNl
-            | val GHC.Classes.== "pl" -> Checkout'sessionLocale'NonNullableEnumPl
-            | val GHC.Classes.== "pt" -> Checkout'sessionLocale'NonNullableEnumPt
-            | val GHC.Classes.== "pt-BR" -> Checkout'sessionLocale'NonNullableEnumPtBR
-            | val GHC.Classes.== "ro" -> Checkout'sessionLocale'NonNullableEnumRo
-            | val GHC.Classes.== "ru" -> Checkout'sessionLocale'NonNullableEnumRu
-            | val GHC.Classes.== "sk" -> Checkout'sessionLocale'NonNullableEnumSk
-            | val GHC.Classes.== "sl" -> Checkout'sessionLocale'NonNullableEnumSl
-            | val GHC.Classes.== "sv" -> Checkout'sessionLocale'NonNullableEnumSv
-            | val GHC.Classes.== "th" -> Checkout'sessionLocale'NonNullableEnumTh
-            | val GHC.Classes.== "tr" -> Checkout'sessionLocale'NonNullableEnumTr
-            | val GHC.Classes.== "vi" -> Checkout'sessionLocale'NonNullableEnumVi
-            | val GHC.Classes.== "zh" -> Checkout'sessionLocale'NonNullableEnumZh
-            | val GHC.Classes.== "zh-HK" -> Checkout'sessionLocale'NonNullableEnumZhHK
-            | val GHC.Classes.== "zh-TW" -> Checkout'sessionLocale'NonNullableEnumZhTW
-            | GHC.Base.otherwise -> Checkout'sessionLocale'NonNullableOther val
+          | val GHC.Classes.== "auto" -> Checkout'sessionLocale'NonNullableEnumAuto
+          | val GHC.Classes.== "bg" -> Checkout'sessionLocale'NonNullableEnumBg
+          | val GHC.Classes.== "cs" -> Checkout'sessionLocale'NonNullableEnumCs
+          | val GHC.Classes.== "da" -> Checkout'sessionLocale'NonNullableEnumDa
+          | val GHC.Classes.== "de" -> Checkout'sessionLocale'NonNullableEnumDe
+          | val GHC.Classes.== "el" -> Checkout'sessionLocale'NonNullableEnumEl
+          | val GHC.Classes.== "en" -> Checkout'sessionLocale'NonNullableEnumEn
+          | val GHC.Classes.== "en-GB" -> Checkout'sessionLocale'NonNullableEnumEnGB
+          | val GHC.Classes.== "es" -> Checkout'sessionLocale'NonNullableEnumEs
+          | val GHC.Classes.== "es-419" -> Checkout'sessionLocale'NonNullableEnumEs_419
+          | val GHC.Classes.== "et" -> Checkout'sessionLocale'NonNullableEnumEt
+          | val GHC.Classes.== "fi" -> Checkout'sessionLocale'NonNullableEnumFi
+          | val GHC.Classes.== "fil" -> Checkout'sessionLocale'NonNullableEnumFil
+          | val GHC.Classes.== "fr" -> Checkout'sessionLocale'NonNullableEnumFr
+          | val GHC.Classes.== "fr-CA" -> Checkout'sessionLocale'NonNullableEnumFrCA
+          | val GHC.Classes.== "hr" -> Checkout'sessionLocale'NonNullableEnumHr
+          | val GHC.Classes.== "hu" -> Checkout'sessionLocale'NonNullableEnumHu
+          | val GHC.Classes.== "id" -> Checkout'sessionLocale'NonNullableEnumId
+          | val GHC.Classes.== "it" -> Checkout'sessionLocale'NonNullableEnumIt
+          | val GHC.Classes.== "ja" -> Checkout'sessionLocale'NonNullableEnumJa
+          | val GHC.Classes.== "ko" -> Checkout'sessionLocale'NonNullableEnumKo
+          | val GHC.Classes.== "lt" -> Checkout'sessionLocale'NonNullableEnumLt
+          | val GHC.Classes.== "lv" -> Checkout'sessionLocale'NonNullableEnumLv
+          | val GHC.Classes.== "ms" -> Checkout'sessionLocale'NonNullableEnumMs
+          | val GHC.Classes.== "mt" -> Checkout'sessionLocale'NonNullableEnumMt
+          | val GHC.Classes.== "nb" -> Checkout'sessionLocale'NonNullableEnumNb
+          | val GHC.Classes.== "nl" -> Checkout'sessionLocale'NonNullableEnumNl
+          | val GHC.Classes.== "pl" -> Checkout'sessionLocale'NonNullableEnumPl
+          | val GHC.Classes.== "pt" -> Checkout'sessionLocale'NonNullableEnumPt
+          | val GHC.Classes.== "pt-BR" -> Checkout'sessionLocale'NonNullableEnumPtBR
+          | val GHC.Classes.== "ro" -> Checkout'sessionLocale'NonNullableEnumRo
+          | val GHC.Classes.== "ru" -> Checkout'sessionLocale'NonNullableEnumRu
+          | val GHC.Classes.== "sk" -> Checkout'sessionLocale'NonNullableEnumSk
+          | val GHC.Classes.== "sl" -> Checkout'sessionLocale'NonNullableEnumSl
+          | val GHC.Classes.== "sv" -> Checkout'sessionLocale'NonNullableEnumSv
+          | val GHC.Classes.== "th" -> Checkout'sessionLocale'NonNullableEnumTh
+          | val GHC.Classes.== "tr" -> Checkout'sessionLocale'NonNullableEnumTr
+          | val GHC.Classes.== "vi" -> Checkout'sessionLocale'NonNullableEnumVi
+          | val GHC.Classes.== "zh" -> Checkout'sessionLocale'NonNullableEnumZh
+          | val GHC.Classes.== "zh-HK" -> Checkout'sessionLocale'NonNullableEnumZhHK
+          | val GHC.Classes.== "zh-TW" -> Checkout'sessionLocale'NonNullableEnumZhTW
+          | GHC.Base.otherwise -> Checkout'sessionLocale'NonNullableOther val
       )
 
 -- | Defines the enum schema located at @components.schemas.checkout.session.properties.mode@ in the specification.
@@ -961,10 +961,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON Checkout'sessionMode' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "payment" -> Checkout'sessionMode'EnumPayment
-            | val GHC.Classes.== "setup" -> Checkout'sessionMode'EnumSetup
-            | val GHC.Classes.== "subscription" -> Checkout'sessionMode'EnumSubscription
-            | GHC.Base.otherwise -> Checkout'sessionMode'Other val
+          | val GHC.Classes.== "payment" -> Checkout'sessionMode'EnumPayment
+          | val GHC.Classes.== "setup" -> Checkout'sessionMode'EnumSetup
+          | val GHC.Classes.== "subscription" -> Checkout'sessionMode'EnumSubscription
+          | GHC.Base.otherwise -> Checkout'sessionMode'Other val
       )
 
 -- | Defines the oneOf schema located at @components.schemas.checkout.session.properties.payment_intent.anyOf@ in the specification.
@@ -1118,10 +1118,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON Checkout'sessionPaymentStatus' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "no_payment_required" -> Checkout'sessionPaymentStatus'EnumNoPaymentRequired
-            | val GHC.Classes.== "paid" -> Checkout'sessionPaymentStatus'EnumPaid
-            | val GHC.Classes.== "unpaid" -> Checkout'sessionPaymentStatus'EnumUnpaid
-            | GHC.Base.otherwise -> Checkout'sessionPaymentStatus'Other val
+          | val GHC.Classes.== "no_payment_required" -> Checkout'sessionPaymentStatus'EnumNoPaymentRequired
+          | val GHC.Classes.== "paid" -> Checkout'sessionPaymentStatus'EnumPaid
+          | val GHC.Classes.== "unpaid" -> Checkout'sessionPaymentStatus'EnumUnpaid
+          | GHC.Base.otherwise -> Checkout'sessionPaymentStatus'Other val
       )
 
 -- | Defines the oneOf schema located at @components.schemas.checkout.session.properties.setup_intent.anyOf@ in the specification.
@@ -1946,244 +1946,244 @@ instance Data.Aeson.Types.FromJSON.FromJSON Checkout'sessionShippingAddressColle
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "AC" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumAC
-            | val GHC.Classes.== "AD" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumAD
-            | val GHC.Classes.== "AE" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumAE
-            | val GHC.Classes.== "AF" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumAF
-            | val GHC.Classes.== "AG" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumAG
-            | val GHC.Classes.== "AI" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumAI
-            | val GHC.Classes.== "AL" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumAL
-            | val GHC.Classes.== "AM" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumAM
-            | val GHC.Classes.== "AO" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumAO
-            | val GHC.Classes.== "AQ" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumAQ
-            | val GHC.Classes.== "AR" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumAR
-            | val GHC.Classes.== "AT" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumAT
-            | val GHC.Classes.== "AU" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumAU
-            | val GHC.Classes.== "AW" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumAW
-            | val GHC.Classes.== "AX" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumAX
-            | val GHC.Classes.== "AZ" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumAZ
-            | val GHC.Classes.== "BA" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumBA
-            | val GHC.Classes.== "BB" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumBB
-            | val GHC.Classes.== "BD" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumBD
-            | val GHC.Classes.== "BE" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumBE
-            | val GHC.Classes.== "BF" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumBF
-            | val GHC.Classes.== "BG" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumBG
-            | val GHC.Classes.== "BH" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumBH
-            | val GHC.Classes.== "BI" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumBI
-            | val GHC.Classes.== "BJ" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumBJ
-            | val GHC.Classes.== "BL" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumBL
-            | val GHC.Classes.== "BM" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumBM
-            | val GHC.Classes.== "BN" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumBN
-            | val GHC.Classes.== "BO" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumBO
-            | val GHC.Classes.== "BQ" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumBQ
-            | val GHC.Classes.== "BR" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumBR
-            | val GHC.Classes.== "BS" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumBS
-            | val GHC.Classes.== "BT" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumBT
-            | val GHC.Classes.== "BV" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumBV
-            | val GHC.Classes.== "BW" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumBW
-            | val GHC.Classes.== "BY" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumBY
-            | val GHC.Classes.== "BZ" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumBZ
-            | val GHC.Classes.== "CA" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumCA
-            | val GHC.Classes.== "CD" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumCD
-            | val GHC.Classes.== "CF" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumCF
-            | val GHC.Classes.== "CG" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumCG
-            | val GHC.Classes.== "CH" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumCH
-            | val GHC.Classes.== "CI" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumCI
-            | val GHC.Classes.== "CK" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumCK
-            | val GHC.Classes.== "CL" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumCL
-            | val GHC.Classes.== "CM" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumCM
-            | val GHC.Classes.== "CN" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumCN
-            | val GHC.Classes.== "CO" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumCO
-            | val GHC.Classes.== "CR" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumCR
-            | val GHC.Classes.== "CV" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumCV
-            | val GHC.Classes.== "CW" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumCW
-            | val GHC.Classes.== "CY" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumCY
-            | val GHC.Classes.== "CZ" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumCZ
-            | val GHC.Classes.== "DE" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumDE
-            | val GHC.Classes.== "DJ" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumDJ
-            | val GHC.Classes.== "DK" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumDK
-            | val GHC.Classes.== "DM" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumDM
-            | val GHC.Classes.== "DO" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumDO
-            | val GHC.Classes.== "DZ" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumDZ
-            | val GHC.Classes.== "EC" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumEC
-            | val GHC.Classes.== "EE" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumEE
-            | val GHC.Classes.== "EG" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumEG
-            | val GHC.Classes.== "EH" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumEH
-            | val GHC.Classes.== "ER" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumER
-            | val GHC.Classes.== "ES" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumES
-            | val GHC.Classes.== "ET" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumET
-            | val GHC.Classes.== "FI" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumFI
-            | val GHC.Classes.== "FJ" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumFJ
-            | val GHC.Classes.== "FK" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumFK
-            | val GHC.Classes.== "FO" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumFO
-            | val GHC.Classes.== "FR" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumFR
-            | val GHC.Classes.== "GA" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumGA
-            | val GHC.Classes.== "GB" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumGB
-            | val GHC.Classes.== "GD" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumGD
-            | val GHC.Classes.== "GE" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumGE
-            | val GHC.Classes.== "GF" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumGF
-            | val GHC.Classes.== "GG" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumGG
-            | val GHC.Classes.== "GH" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumGH
-            | val GHC.Classes.== "GI" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumGI
-            | val GHC.Classes.== "GL" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumGL
-            | val GHC.Classes.== "GM" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumGM
-            | val GHC.Classes.== "GN" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumGN
-            | val GHC.Classes.== "GP" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumGP
-            | val GHC.Classes.== "GQ" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumGQ
-            | val GHC.Classes.== "GR" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumGR
-            | val GHC.Classes.== "GS" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumGS
-            | val GHC.Classes.== "GT" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumGT
-            | val GHC.Classes.== "GU" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumGU
-            | val GHC.Classes.== "GW" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumGW
-            | val GHC.Classes.== "GY" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumGY
-            | val GHC.Classes.== "HK" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumHK
-            | val GHC.Classes.== "HN" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumHN
-            | val GHC.Classes.== "HR" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumHR
-            | val GHC.Classes.== "HT" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumHT
-            | val GHC.Classes.== "HU" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumHU
-            | val GHC.Classes.== "ID" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumID
-            | val GHC.Classes.== "IE" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumIE
-            | val GHC.Classes.== "IL" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumIL
-            | val GHC.Classes.== "IM" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumIM
-            | val GHC.Classes.== "IN" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumIN
-            | val GHC.Classes.== "IO" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumIO
-            | val GHC.Classes.== "IQ" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumIQ
-            | val GHC.Classes.== "IS" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumIS
-            | val GHC.Classes.== "IT" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumIT
-            | val GHC.Classes.== "JE" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumJE
-            | val GHC.Classes.== "JM" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumJM
-            | val GHC.Classes.== "JO" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumJO
-            | val GHC.Classes.== "JP" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumJP
-            | val GHC.Classes.== "KE" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumKE
-            | val GHC.Classes.== "KG" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumKG
-            | val GHC.Classes.== "KH" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumKH
-            | val GHC.Classes.== "KI" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumKI
-            | val GHC.Classes.== "KM" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumKM
-            | val GHC.Classes.== "KN" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumKN
-            | val GHC.Classes.== "KR" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumKR
-            | val GHC.Classes.== "KW" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumKW
-            | val GHC.Classes.== "KY" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumKY
-            | val GHC.Classes.== "KZ" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumKZ
-            | val GHC.Classes.== "LA" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumLA
-            | val GHC.Classes.== "LB" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumLB
-            | val GHC.Classes.== "LC" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumLC
-            | val GHC.Classes.== "LI" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumLI
-            | val GHC.Classes.== "LK" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumLK
-            | val GHC.Classes.== "LR" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumLR
-            | val GHC.Classes.== "LS" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumLS
-            | val GHC.Classes.== "LT" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumLT
-            | val GHC.Classes.== "LU" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumLU
-            | val GHC.Classes.== "LV" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumLV
-            | val GHC.Classes.== "LY" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumLY
-            | val GHC.Classes.== "MA" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumMA
-            | val GHC.Classes.== "MC" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumMC
-            | val GHC.Classes.== "MD" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumMD
-            | val GHC.Classes.== "ME" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumME
-            | val GHC.Classes.== "MF" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumMF
-            | val GHC.Classes.== "MG" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumMG
-            | val GHC.Classes.== "MK" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumMK
-            | val GHC.Classes.== "ML" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumML
-            | val GHC.Classes.== "MM" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumMM
-            | val GHC.Classes.== "MN" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumMN
-            | val GHC.Classes.== "MO" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumMO
-            | val GHC.Classes.== "MQ" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumMQ
-            | val GHC.Classes.== "MR" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumMR
-            | val GHC.Classes.== "MS" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumMS
-            | val GHC.Classes.== "MT" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumMT
-            | val GHC.Classes.== "MU" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumMU
-            | val GHC.Classes.== "MV" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumMV
-            | val GHC.Classes.== "MW" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumMW
-            | val GHC.Classes.== "MX" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumMX
-            | val GHC.Classes.== "MY" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumMY
-            | val GHC.Classes.== "MZ" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumMZ
-            | val GHC.Classes.== "NA" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumNA
-            | val GHC.Classes.== "NC" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumNC
-            | val GHC.Classes.== "NE" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumNE
-            | val GHC.Classes.== "NG" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumNG
-            | val GHC.Classes.== "NI" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumNI
-            | val GHC.Classes.== "NL" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumNL
-            | val GHC.Classes.== "NO" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumNO
-            | val GHC.Classes.== "NP" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumNP
-            | val GHC.Classes.== "NR" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumNR
-            | val GHC.Classes.== "NU" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumNU
-            | val GHC.Classes.== "NZ" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumNZ
-            | val GHC.Classes.== "OM" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumOM
-            | val GHC.Classes.== "PA" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumPA
-            | val GHC.Classes.== "PE" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumPE
-            | val GHC.Classes.== "PF" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumPF
-            | val GHC.Classes.== "PG" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumPG
-            | val GHC.Classes.== "PH" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumPH
-            | val GHC.Classes.== "PK" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumPK
-            | val GHC.Classes.== "PL" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumPL
-            | val GHC.Classes.== "PM" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumPM
-            | val GHC.Classes.== "PN" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumPN
-            | val GHC.Classes.== "PR" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumPR
-            | val GHC.Classes.== "PS" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumPS
-            | val GHC.Classes.== "PT" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumPT
-            | val GHC.Classes.== "PY" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumPY
-            | val GHC.Classes.== "QA" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumQA
-            | val GHC.Classes.== "RE" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumRE
-            | val GHC.Classes.== "RO" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumRO
-            | val GHC.Classes.== "RS" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumRS
-            | val GHC.Classes.== "RU" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumRU
-            | val GHC.Classes.== "RW" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumRW
-            | val GHC.Classes.== "SA" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumSA
-            | val GHC.Classes.== "SB" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumSB
-            | val GHC.Classes.== "SC" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumSC
-            | val GHC.Classes.== "SE" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumSE
-            | val GHC.Classes.== "SG" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumSG
-            | val GHC.Classes.== "SH" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumSH
-            | val GHC.Classes.== "SI" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumSI
-            | val GHC.Classes.== "SJ" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumSJ
-            | val GHC.Classes.== "SK" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumSK
-            | val GHC.Classes.== "SL" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumSL
-            | val GHC.Classes.== "SM" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumSM
-            | val GHC.Classes.== "SN" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumSN
-            | val GHC.Classes.== "SO" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumSO
-            | val GHC.Classes.== "SR" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumSR
-            | val GHC.Classes.== "SS" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumSS
-            | val GHC.Classes.== "ST" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumST
-            | val GHC.Classes.== "SV" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumSV
-            | val GHC.Classes.== "SX" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumSX
-            | val GHC.Classes.== "SZ" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumSZ
-            | val GHC.Classes.== "TA" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumTA
-            | val GHC.Classes.== "TC" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumTC
-            | val GHC.Classes.== "TD" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumTD
-            | val GHC.Classes.== "TF" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumTF
-            | val GHC.Classes.== "TG" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumTG
-            | val GHC.Classes.== "TH" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumTH
-            | val GHC.Classes.== "TJ" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumTJ
-            | val GHC.Classes.== "TK" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumTK
-            | val GHC.Classes.== "TL" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumTL
-            | val GHC.Classes.== "TM" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumTM
-            | val GHC.Classes.== "TN" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumTN
-            | val GHC.Classes.== "TO" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumTO
-            | val GHC.Classes.== "TR" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumTR
-            | val GHC.Classes.== "TT" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumTT
-            | val GHC.Classes.== "TV" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumTV
-            | val GHC.Classes.== "TW" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumTW
-            | val GHC.Classes.== "TZ" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumTZ
-            | val GHC.Classes.== "UA" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumUA
-            | val GHC.Classes.== "UG" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumUG
-            | val GHC.Classes.== "US" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumUS
-            | val GHC.Classes.== "UY" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumUY
-            | val GHC.Classes.== "UZ" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumUZ
-            | val GHC.Classes.== "VA" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumVA
-            | val GHC.Classes.== "VC" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumVC
-            | val GHC.Classes.== "VE" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumVE
-            | val GHC.Classes.== "VG" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumVG
-            | val GHC.Classes.== "VN" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumVN
-            | val GHC.Classes.== "VU" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumVU
-            | val GHC.Classes.== "WF" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumWF
-            | val GHC.Classes.== "WS" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumWS
-            | val GHC.Classes.== "XK" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumXK
-            | val GHC.Classes.== "YE" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumYE
-            | val GHC.Classes.== "YT" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumYT
-            | val GHC.Classes.== "ZA" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumZA
-            | val GHC.Classes.== "ZM" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumZM
-            | val GHC.Classes.== "ZW" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumZW
-            | val GHC.Classes.== "ZZ" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumZZ
-            | GHC.Base.otherwise -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'Other val
+          | val GHC.Classes.== "AC" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumAC
+          | val GHC.Classes.== "AD" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumAD
+          | val GHC.Classes.== "AE" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumAE
+          | val GHC.Classes.== "AF" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumAF
+          | val GHC.Classes.== "AG" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumAG
+          | val GHC.Classes.== "AI" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumAI
+          | val GHC.Classes.== "AL" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumAL
+          | val GHC.Classes.== "AM" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumAM
+          | val GHC.Classes.== "AO" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumAO
+          | val GHC.Classes.== "AQ" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumAQ
+          | val GHC.Classes.== "AR" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumAR
+          | val GHC.Classes.== "AT" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumAT
+          | val GHC.Classes.== "AU" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumAU
+          | val GHC.Classes.== "AW" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumAW
+          | val GHC.Classes.== "AX" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumAX
+          | val GHC.Classes.== "AZ" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumAZ
+          | val GHC.Classes.== "BA" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumBA
+          | val GHC.Classes.== "BB" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumBB
+          | val GHC.Classes.== "BD" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumBD
+          | val GHC.Classes.== "BE" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumBE
+          | val GHC.Classes.== "BF" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumBF
+          | val GHC.Classes.== "BG" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumBG
+          | val GHC.Classes.== "BH" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumBH
+          | val GHC.Classes.== "BI" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumBI
+          | val GHC.Classes.== "BJ" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumBJ
+          | val GHC.Classes.== "BL" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumBL
+          | val GHC.Classes.== "BM" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumBM
+          | val GHC.Classes.== "BN" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumBN
+          | val GHC.Classes.== "BO" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumBO
+          | val GHC.Classes.== "BQ" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumBQ
+          | val GHC.Classes.== "BR" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumBR
+          | val GHC.Classes.== "BS" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumBS
+          | val GHC.Classes.== "BT" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumBT
+          | val GHC.Classes.== "BV" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumBV
+          | val GHC.Classes.== "BW" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumBW
+          | val GHC.Classes.== "BY" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumBY
+          | val GHC.Classes.== "BZ" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumBZ
+          | val GHC.Classes.== "CA" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumCA
+          | val GHC.Classes.== "CD" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumCD
+          | val GHC.Classes.== "CF" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumCF
+          | val GHC.Classes.== "CG" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumCG
+          | val GHC.Classes.== "CH" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumCH
+          | val GHC.Classes.== "CI" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumCI
+          | val GHC.Classes.== "CK" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumCK
+          | val GHC.Classes.== "CL" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumCL
+          | val GHC.Classes.== "CM" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumCM
+          | val GHC.Classes.== "CN" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumCN
+          | val GHC.Classes.== "CO" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumCO
+          | val GHC.Classes.== "CR" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumCR
+          | val GHC.Classes.== "CV" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumCV
+          | val GHC.Classes.== "CW" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumCW
+          | val GHC.Classes.== "CY" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumCY
+          | val GHC.Classes.== "CZ" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumCZ
+          | val GHC.Classes.== "DE" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumDE
+          | val GHC.Classes.== "DJ" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumDJ
+          | val GHC.Classes.== "DK" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumDK
+          | val GHC.Classes.== "DM" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumDM
+          | val GHC.Classes.== "DO" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumDO
+          | val GHC.Classes.== "DZ" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumDZ
+          | val GHC.Classes.== "EC" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumEC
+          | val GHC.Classes.== "EE" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumEE
+          | val GHC.Classes.== "EG" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumEG
+          | val GHC.Classes.== "EH" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumEH
+          | val GHC.Classes.== "ER" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumER
+          | val GHC.Classes.== "ES" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumES
+          | val GHC.Classes.== "ET" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumET
+          | val GHC.Classes.== "FI" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumFI
+          | val GHC.Classes.== "FJ" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumFJ
+          | val GHC.Classes.== "FK" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumFK
+          | val GHC.Classes.== "FO" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumFO
+          | val GHC.Classes.== "FR" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumFR
+          | val GHC.Classes.== "GA" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumGA
+          | val GHC.Classes.== "GB" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumGB
+          | val GHC.Classes.== "GD" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumGD
+          | val GHC.Classes.== "GE" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumGE
+          | val GHC.Classes.== "GF" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumGF
+          | val GHC.Classes.== "GG" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumGG
+          | val GHC.Classes.== "GH" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumGH
+          | val GHC.Classes.== "GI" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumGI
+          | val GHC.Classes.== "GL" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumGL
+          | val GHC.Classes.== "GM" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumGM
+          | val GHC.Classes.== "GN" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumGN
+          | val GHC.Classes.== "GP" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumGP
+          | val GHC.Classes.== "GQ" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumGQ
+          | val GHC.Classes.== "GR" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumGR
+          | val GHC.Classes.== "GS" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumGS
+          | val GHC.Classes.== "GT" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumGT
+          | val GHC.Classes.== "GU" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumGU
+          | val GHC.Classes.== "GW" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumGW
+          | val GHC.Classes.== "GY" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumGY
+          | val GHC.Classes.== "HK" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumHK
+          | val GHC.Classes.== "HN" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumHN
+          | val GHC.Classes.== "HR" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumHR
+          | val GHC.Classes.== "HT" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumHT
+          | val GHC.Classes.== "HU" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumHU
+          | val GHC.Classes.== "ID" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumID
+          | val GHC.Classes.== "IE" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumIE
+          | val GHC.Classes.== "IL" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumIL
+          | val GHC.Classes.== "IM" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumIM
+          | val GHC.Classes.== "IN" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumIN
+          | val GHC.Classes.== "IO" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumIO
+          | val GHC.Classes.== "IQ" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumIQ
+          | val GHC.Classes.== "IS" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumIS
+          | val GHC.Classes.== "IT" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumIT
+          | val GHC.Classes.== "JE" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumJE
+          | val GHC.Classes.== "JM" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumJM
+          | val GHC.Classes.== "JO" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumJO
+          | val GHC.Classes.== "JP" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumJP
+          | val GHC.Classes.== "KE" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumKE
+          | val GHC.Classes.== "KG" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumKG
+          | val GHC.Classes.== "KH" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumKH
+          | val GHC.Classes.== "KI" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumKI
+          | val GHC.Classes.== "KM" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumKM
+          | val GHC.Classes.== "KN" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumKN
+          | val GHC.Classes.== "KR" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumKR
+          | val GHC.Classes.== "KW" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumKW
+          | val GHC.Classes.== "KY" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumKY
+          | val GHC.Classes.== "KZ" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumKZ
+          | val GHC.Classes.== "LA" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumLA
+          | val GHC.Classes.== "LB" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumLB
+          | val GHC.Classes.== "LC" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumLC
+          | val GHC.Classes.== "LI" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumLI
+          | val GHC.Classes.== "LK" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumLK
+          | val GHC.Classes.== "LR" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumLR
+          | val GHC.Classes.== "LS" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumLS
+          | val GHC.Classes.== "LT" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumLT
+          | val GHC.Classes.== "LU" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumLU
+          | val GHC.Classes.== "LV" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumLV
+          | val GHC.Classes.== "LY" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumLY
+          | val GHC.Classes.== "MA" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumMA
+          | val GHC.Classes.== "MC" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumMC
+          | val GHC.Classes.== "MD" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumMD
+          | val GHC.Classes.== "ME" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumME
+          | val GHC.Classes.== "MF" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumMF
+          | val GHC.Classes.== "MG" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumMG
+          | val GHC.Classes.== "MK" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumMK
+          | val GHC.Classes.== "ML" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumML
+          | val GHC.Classes.== "MM" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumMM
+          | val GHC.Classes.== "MN" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumMN
+          | val GHC.Classes.== "MO" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumMO
+          | val GHC.Classes.== "MQ" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumMQ
+          | val GHC.Classes.== "MR" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumMR
+          | val GHC.Classes.== "MS" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumMS
+          | val GHC.Classes.== "MT" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumMT
+          | val GHC.Classes.== "MU" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumMU
+          | val GHC.Classes.== "MV" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumMV
+          | val GHC.Classes.== "MW" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumMW
+          | val GHC.Classes.== "MX" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumMX
+          | val GHC.Classes.== "MY" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumMY
+          | val GHC.Classes.== "MZ" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumMZ
+          | val GHC.Classes.== "NA" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumNA
+          | val GHC.Classes.== "NC" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumNC
+          | val GHC.Classes.== "NE" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumNE
+          | val GHC.Classes.== "NG" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumNG
+          | val GHC.Classes.== "NI" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumNI
+          | val GHC.Classes.== "NL" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumNL
+          | val GHC.Classes.== "NO" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumNO
+          | val GHC.Classes.== "NP" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumNP
+          | val GHC.Classes.== "NR" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumNR
+          | val GHC.Classes.== "NU" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumNU
+          | val GHC.Classes.== "NZ" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumNZ
+          | val GHC.Classes.== "OM" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumOM
+          | val GHC.Classes.== "PA" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumPA
+          | val GHC.Classes.== "PE" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumPE
+          | val GHC.Classes.== "PF" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumPF
+          | val GHC.Classes.== "PG" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumPG
+          | val GHC.Classes.== "PH" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumPH
+          | val GHC.Classes.== "PK" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumPK
+          | val GHC.Classes.== "PL" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumPL
+          | val GHC.Classes.== "PM" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumPM
+          | val GHC.Classes.== "PN" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumPN
+          | val GHC.Classes.== "PR" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumPR
+          | val GHC.Classes.== "PS" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumPS
+          | val GHC.Classes.== "PT" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumPT
+          | val GHC.Classes.== "PY" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumPY
+          | val GHC.Classes.== "QA" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumQA
+          | val GHC.Classes.== "RE" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumRE
+          | val GHC.Classes.== "RO" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumRO
+          | val GHC.Classes.== "RS" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumRS
+          | val GHC.Classes.== "RU" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumRU
+          | val GHC.Classes.== "RW" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumRW
+          | val GHC.Classes.== "SA" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumSA
+          | val GHC.Classes.== "SB" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumSB
+          | val GHC.Classes.== "SC" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumSC
+          | val GHC.Classes.== "SE" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumSE
+          | val GHC.Classes.== "SG" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumSG
+          | val GHC.Classes.== "SH" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumSH
+          | val GHC.Classes.== "SI" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumSI
+          | val GHC.Classes.== "SJ" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumSJ
+          | val GHC.Classes.== "SK" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumSK
+          | val GHC.Classes.== "SL" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumSL
+          | val GHC.Classes.== "SM" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumSM
+          | val GHC.Classes.== "SN" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumSN
+          | val GHC.Classes.== "SO" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumSO
+          | val GHC.Classes.== "SR" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumSR
+          | val GHC.Classes.== "SS" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumSS
+          | val GHC.Classes.== "ST" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumST
+          | val GHC.Classes.== "SV" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumSV
+          | val GHC.Classes.== "SX" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumSX
+          | val GHC.Classes.== "SZ" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumSZ
+          | val GHC.Classes.== "TA" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumTA
+          | val GHC.Classes.== "TC" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumTC
+          | val GHC.Classes.== "TD" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumTD
+          | val GHC.Classes.== "TF" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumTF
+          | val GHC.Classes.== "TG" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumTG
+          | val GHC.Classes.== "TH" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumTH
+          | val GHC.Classes.== "TJ" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumTJ
+          | val GHC.Classes.== "TK" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumTK
+          | val GHC.Classes.== "TL" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumTL
+          | val GHC.Classes.== "TM" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumTM
+          | val GHC.Classes.== "TN" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumTN
+          | val GHC.Classes.== "TO" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumTO
+          | val GHC.Classes.== "TR" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumTR
+          | val GHC.Classes.== "TT" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumTT
+          | val GHC.Classes.== "TV" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumTV
+          | val GHC.Classes.== "TW" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumTW
+          | val GHC.Classes.== "TZ" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumTZ
+          | val GHC.Classes.== "UA" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumUA
+          | val GHC.Classes.== "UG" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumUG
+          | val GHC.Classes.== "US" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumUS
+          | val GHC.Classes.== "UY" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumUY
+          | val GHC.Classes.== "UZ" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumUZ
+          | val GHC.Classes.== "VA" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumVA
+          | val GHC.Classes.== "VC" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumVC
+          | val GHC.Classes.== "VE" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumVE
+          | val GHC.Classes.== "VG" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumVG
+          | val GHC.Classes.== "VN" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumVN
+          | val GHC.Classes.== "VU" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumVU
+          | val GHC.Classes.== "WF" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumWF
+          | val GHC.Classes.== "WS" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumWS
+          | val GHC.Classes.== "XK" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumXK
+          | val GHC.Classes.== "YE" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumYE
+          | val GHC.Classes.== "YT" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumYT
+          | val GHC.Classes.== "ZA" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumZA
+          | val GHC.Classes.== "ZM" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumZM
+          | val GHC.Classes.== "ZW" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumZW
+          | val GHC.Classes.== "ZZ" -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'EnumZZ
+          | GHC.Base.otherwise -> Checkout'sessionShippingAddressCollection'NonNullableAllowedCountries'Other val
       )
 
 -- | Defines the oneOf schema located at @components.schemas.checkout.session.properties.shipping_rate.anyOf@ in the specification.
@@ -2230,10 +2230,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON Checkout'sessionStatus'NonNullable w
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "complete" -> Checkout'sessionStatus'NonNullableEnumComplete
-            | val GHC.Classes.== "expired" -> Checkout'sessionStatus'NonNullableEnumExpired
-            | val GHC.Classes.== "open" -> Checkout'sessionStatus'NonNullableEnumOpen
-            | GHC.Base.otherwise -> Checkout'sessionStatus'NonNullableOther val
+          | val GHC.Classes.== "complete" -> Checkout'sessionStatus'NonNullableEnumComplete
+          | val GHC.Classes.== "expired" -> Checkout'sessionStatus'NonNullableEnumExpired
+          | val GHC.Classes.== "open" -> Checkout'sessionStatus'NonNullableEnumOpen
+          | GHC.Base.otherwise -> Checkout'sessionStatus'NonNullableOther val
       )
 
 -- | Defines the enum schema located at @components.schemas.checkout.session.properties.submit_type@ in the specification.
@@ -2269,11 +2269,11 @@ instance Data.Aeson.Types.FromJSON.FromJSON Checkout'sessionSubmitType'NonNullab
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "auto" -> Checkout'sessionSubmitType'NonNullableEnumAuto
-            | val GHC.Classes.== "book" -> Checkout'sessionSubmitType'NonNullableEnumBook
-            | val GHC.Classes.== "donate" -> Checkout'sessionSubmitType'NonNullableEnumDonate
-            | val GHC.Classes.== "pay" -> Checkout'sessionSubmitType'NonNullableEnumPay
-            | GHC.Base.otherwise -> Checkout'sessionSubmitType'NonNullableOther val
+          | val GHC.Classes.== "auto" -> Checkout'sessionSubmitType'NonNullableEnumAuto
+          | val GHC.Classes.== "book" -> Checkout'sessionSubmitType'NonNullableEnumBook
+          | val GHC.Classes.== "donate" -> Checkout'sessionSubmitType'NonNullableEnumDonate
+          | val GHC.Classes.== "pay" -> Checkout'sessionSubmitType'NonNullableEnumPay
+          | GHC.Base.otherwise -> Checkout'sessionSubmitType'NonNullableOther val
       )
 
 -- | Defines the oneOf schema located at @components.schemas.checkout.session.properties.subscription.anyOf@ in the specification.

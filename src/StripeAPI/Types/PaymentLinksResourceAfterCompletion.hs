@@ -91,7 +91,7 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentLinksResourceAfterCompletionT
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "hosted_confirmation" -> PaymentLinksResourceAfterCompletionType'EnumHostedConfirmation
-            | val GHC.Classes.== "redirect" -> PaymentLinksResourceAfterCompletionType'EnumRedirect
-            | GHC.Base.otherwise -> PaymentLinksResourceAfterCompletionType'Other val
+          | val GHC.Classes.== "hosted_confirmation" -> PaymentLinksResourceAfterCompletionType'EnumHostedConfirmation
+          | val GHC.Classes.== "redirect" -> PaymentLinksResourceAfterCompletionType'EnumRedirect
+          | GHC.Base.otherwise -> PaymentLinksResourceAfterCompletionType'Other val
       )

@@ -238,16 +238,16 @@ instance Data.Aeson.Types.FromJSON.FromJSON Treasury'transactionEntryFlowDetails
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "credit_reversal" -> Treasury'transactionEntryFlowDetails'NonNullableType'EnumCreditReversal
-            | val GHC.Classes.== "debit_reversal" -> Treasury'transactionEntryFlowDetails'NonNullableType'EnumDebitReversal
-            | val GHC.Classes.== "inbound_transfer" -> Treasury'transactionEntryFlowDetails'NonNullableType'EnumInboundTransfer
-            | val GHC.Classes.== "issuing_authorization" -> Treasury'transactionEntryFlowDetails'NonNullableType'EnumIssuingAuthorization
-            | val GHC.Classes.== "other" -> Treasury'transactionEntryFlowDetails'NonNullableType'EnumOther
-            | val GHC.Classes.== "outbound_payment" -> Treasury'transactionEntryFlowDetails'NonNullableType'EnumOutboundPayment
-            | val GHC.Classes.== "outbound_transfer" -> Treasury'transactionEntryFlowDetails'NonNullableType'EnumOutboundTransfer
-            | val GHC.Classes.== "received_credit" -> Treasury'transactionEntryFlowDetails'NonNullableType'EnumReceivedCredit
-            | val GHC.Classes.== "received_debit" -> Treasury'transactionEntryFlowDetails'NonNullableType'EnumReceivedDebit
-            | GHC.Base.otherwise -> Treasury'transactionEntryFlowDetails'NonNullableType'Other val
+          | val GHC.Classes.== "credit_reversal" -> Treasury'transactionEntryFlowDetails'NonNullableType'EnumCreditReversal
+          | val GHC.Classes.== "debit_reversal" -> Treasury'transactionEntryFlowDetails'NonNullableType'EnumDebitReversal
+          | val GHC.Classes.== "inbound_transfer" -> Treasury'transactionEntryFlowDetails'NonNullableType'EnumInboundTransfer
+          | val GHC.Classes.== "issuing_authorization" -> Treasury'transactionEntryFlowDetails'NonNullableType'EnumIssuingAuthorization
+          | val GHC.Classes.== "other" -> Treasury'transactionEntryFlowDetails'NonNullableType'EnumOther
+          | val GHC.Classes.== "outbound_payment" -> Treasury'transactionEntryFlowDetails'NonNullableType'EnumOutboundPayment
+          | val GHC.Classes.== "outbound_transfer" -> Treasury'transactionEntryFlowDetails'NonNullableType'EnumOutboundTransfer
+          | val GHC.Classes.== "received_credit" -> Treasury'transactionEntryFlowDetails'NonNullableType'EnumReceivedCredit
+          | val GHC.Classes.== "received_debit" -> Treasury'transactionEntryFlowDetails'NonNullableType'EnumReceivedDebit
+          | GHC.Base.otherwise -> Treasury'transactionEntryFlowDetails'NonNullableType'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.treasury.transaction_entry.properties.flow_type@ in the specification.
@@ -295,16 +295,16 @@ instance Data.Aeson.Types.FromJSON.FromJSON Treasury'transactionEntryFlowType' w
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "credit_reversal" -> Treasury'transactionEntryFlowType'EnumCreditReversal
-            | val GHC.Classes.== "debit_reversal" -> Treasury'transactionEntryFlowType'EnumDebitReversal
-            | val GHC.Classes.== "inbound_transfer" -> Treasury'transactionEntryFlowType'EnumInboundTransfer
-            | val GHC.Classes.== "issuing_authorization" -> Treasury'transactionEntryFlowType'EnumIssuingAuthorization
-            | val GHC.Classes.== "other" -> Treasury'transactionEntryFlowType'EnumOther
-            | val GHC.Classes.== "outbound_payment" -> Treasury'transactionEntryFlowType'EnumOutboundPayment
-            | val GHC.Classes.== "outbound_transfer" -> Treasury'transactionEntryFlowType'EnumOutboundTransfer
-            | val GHC.Classes.== "received_credit" -> Treasury'transactionEntryFlowType'EnumReceivedCredit
-            | val GHC.Classes.== "received_debit" -> Treasury'transactionEntryFlowType'EnumReceivedDebit
-            | GHC.Base.otherwise -> Treasury'transactionEntryFlowType'Other val
+          | val GHC.Classes.== "credit_reversal" -> Treasury'transactionEntryFlowType'EnumCreditReversal
+          | val GHC.Classes.== "debit_reversal" -> Treasury'transactionEntryFlowType'EnumDebitReversal
+          | val GHC.Classes.== "inbound_transfer" -> Treasury'transactionEntryFlowType'EnumInboundTransfer
+          | val GHC.Classes.== "issuing_authorization" -> Treasury'transactionEntryFlowType'EnumIssuingAuthorization
+          | val GHC.Classes.== "other" -> Treasury'transactionEntryFlowType'EnumOther
+          | val GHC.Classes.== "outbound_payment" -> Treasury'transactionEntryFlowType'EnumOutboundPayment
+          | val GHC.Classes.== "outbound_transfer" -> Treasury'transactionEntryFlowType'EnumOutboundTransfer
+          | val GHC.Classes.== "received_credit" -> Treasury'transactionEntryFlowType'EnumReceivedCredit
+          | val GHC.Classes.== "received_debit" -> Treasury'transactionEntryFlowType'EnumReceivedDebit
+          | GHC.Base.otherwise -> Treasury'transactionEntryFlowType'Other val
       )
 
 -- | Defines the oneOf schema located at @components.schemas.treasury.transaction_entry.properties.transaction.anyOf@ in the specification.
@@ -402,25 +402,25 @@ instance Data.Aeson.Types.FromJSON.FromJSON Treasury'transactionEntryType' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "credit_reversal" -> Treasury'transactionEntryType'EnumCreditReversal
-            | val GHC.Classes.== "credit_reversal_posting" -> Treasury'transactionEntryType'EnumCreditReversalPosting
-            | val GHC.Classes.== "debit_reversal" -> Treasury'transactionEntryType'EnumDebitReversal
-            | val GHC.Classes.== "inbound_transfer" -> Treasury'transactionEntryType'EnumInboundTransfer
-            | val GHC.Classes.== "inbound_transfer_return" -> Treasury'transactionEntryType'EnumInboundTransferReturn
-            | val GHC.Classes.== "issuing_authorization_hold" -> Treasury'transactionEntryType'EnumIssuingAuthorizationHold
-            | val GHC.Classes.== "issuing_authorization_release" -> Treasury'transactionEntryType'EnumIssuingAuthorizationRelease
-            | val GHC.Classes.== "other" -> Treasury'transactionEntryType'EnumOther
-            | val GHC.Classes.== "outbound_payment" -> Treasury'transactionEntryType'EnumOutboundPayment
-            | val GHC.Classes.== "outbound_payment_cancellation" -> Treasury'transactionEntryType'EnumOutboundPaymentCancellation
-            | val GHC.Classes.== "outbound_payment_failure" -> Treasury'transactionEntryType'EnumOutboundPaymentFailure
-            | val GHC.Classes.== "outbound_payment_posting" -> Treasury'transactionEntryType'EnumOutboundPaymentPosting
-            | val GHC.Classes.== "outbound_payment_return" -> Treasury'transactionEntryType'EnumOutboundPaymentReturn
-            | val GHC.Classes.== "outbound_transfer" -> Treasury'transactionEntryType'EnumOutboundTransfer
-            | val GHC.Classes.== "outbound_transfer_cancellation" -> Treasury'transactionEntryType'EnumOutboundTransferCancellation
-            | val GHC.Classes.== "outbound_transfer_failure" -> Treasury'transactionEntryType'EnumOutboundTransferFailure
-            | val GHC.Classes.== "outbound_transfer_posting" -> Treasury'transactionEntryType'EnumOutboundTransferPosting
-            | val GHC.Classes.== "outbound_transfer_return" -> Treasury'transactionEntryType'EnumOutboundTransferReturn
-            | val GHC.Classes.== "received_credit" -> Treasury'transactionEntryType'EnumReceivedCredit
-            | val GHC.Classes.== "received_debit" -> Treasury'transactionEntryType'EnumReceivedDebit
-            | GHC.Base.otherwise -> Treasury'transactionEntryType'Other val
+          | val GHC.Classes.== "credit_reversal" -> Treasury'transactionEntryType'EnumCreditReversal
+          | val GHC.Classes.== "credit_reversal_posting" -> Treasury'transactionEntryType'EnumCreditReversalPosting
+          | val GHC.Classes.== "debit_reversal" -> Treasury'transactionEntryType'EnumDebitReversal
+          | val GHC.Classes.== "inbound_transfer" -> Treasury'transactionEntryType'EnumInboundTransfer
+          | val GHC.Classes.== "inbound_transfer_return" -> Treasury'transactionEntryType'EnumInboundTransferReturn
+          | val GHC.Classes.== "issuing_authorization_hold" -> Treasury'transactionEntryType'EnumIssuingAuthorizationHold
+          | val GHC.Classes.== "issuing_authorization_release" -> Treasury'transactionEntryType'EnumIssuingAuthorizationRelease
+          | val GHC.Classes.== "other" -> Treasury'transactionEntryType'EnumOther
+          | val GHC.Classes.== "outbound_payment" -> Treasury'transactionEntryType'EnumOutboundPayment
+          | val GHC.Classes.== "outbound_payment_cancellation" -> Treasury'transactionEntryType'EnumOutboundPaymentCancellation
+          | val GHC.Classes.== "outbound_payment_failure" -> Treasury'transactionEntryType'EnumOutboundPaymentFailure
+          | val GHC.Classes.== "outbound_payment_posting" -> Treasury'transactionEntryType'EnumOutboundPaymentPosting
+          | val GHC.Classes.== "outbound_payment_return" -> Treasury'transactionEntryType'EnumOutboundPaymentReturn
+          | val GHC.Classes.== "outbound_transfer" -> Treasury'transactionEntryType'EnumOutboundTransfer
+          | val GHC.Classes.== "outbound_transfer_cancellation" -> Treasury'transactionEntryType'EnumOutboundTransferCancellation
+          | val GHC.Classes.== "outbound_transfer_failure" -> Treasury'transactionEntryType'EnumOutboundTransferFailure
+          | val GHC.Classes.== "outbound_transfer_posting" -> Treasury'transactionEntryType'EnumOutboundTransferPosting
+          | val GHC.Classes.== "outbound_transfer_return" -> Treasury'transactionEntryType'EnumOutboundTransferReturn
+          | val GHC.Classes.== "received_credit" -> Treasury'transactionEntryType'EnumReceivedCredit
+          | val GHC.Classes.== "received_debit" -> Treasury'transactionEntryType'EnumReceivedDebit
+          | GHC.Base.otherwise -> Treasury'transactionEntryType'Other val
       )

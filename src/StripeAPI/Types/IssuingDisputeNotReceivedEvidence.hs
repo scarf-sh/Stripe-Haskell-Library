@@ -118,7 +118,7 @@ instance Data.Aeson.Types.FromJSON.FromJSON IssuingDisputeNotReceivedEvidencePro
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "merchandise" -> IssuingDisputeNotReceivedEvidenceProductType'NonNullableEnumMerchandise
-            | val GHC.Classes.== "service" -> IssuingDisputeNotReceivedEvidenceProductType'NonNullableEnumService
-            | GHC.Base.otherwise -> IssuingDisputeNotReceivedEvidenceProductType'NonNullableOther val
+          | val GHC.Classes.== "merchandise" -> IssuingDisputeNotReceivedEvidenceProductType'NonNullableEnumMerchandise
+          | val GHC.Classes.== "service" -> IssuingDisputeNotReceivedEvidenceProductType'NonNullableEnumService
+          | GHC.Base.otherwise -> IssuingDisputeNotReceivedEvidenceProductType'NonNullableOther val
       )

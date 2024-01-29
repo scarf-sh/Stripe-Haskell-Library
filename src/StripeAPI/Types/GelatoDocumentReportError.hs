@@ -90,8 +90,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON GelatoDocumentReportErrorCode'NonNul
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "document_expired" -> GelatoDocumentReportErrorCode'NonNullableEnumDocumentExpired
-            | val GHC.Classes.== "document_type_not_supported" -> GelatoDocumentReportErrorCode'NonNullableEnumDocumentTypeNotSupported
-            | val GHC.Classes.== "document_unverified_other" -> GelatoDocumentReportErrorCode'NonNullableEnumDocumentUnverifiedOther
-            | GHC.Base.otherwise -> GelatoDocumentReportErrorCode'NonNullableOther val
+          | val GHC.Classes.== "document_expired" -> GelatoDocumentReportErrorCode'NonNullableEnumDocumentExpired
+          | val GHC.Classes.== "document_type_not_supported" -> GelatoDocumentReportErrorCode'NonNullableEnumDocumentTypeNotSupported
+          | val GHC.Classes.== "document_unverified_other" -> GelatoDocumentReportErrorCode'NonNullableEnumDocumentUnverifiedOther
+          | GHC.Base.otherwise -> GelatoDocumentReportErrorCode'NonNullableOther val
       )

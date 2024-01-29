@@ -98,10 +98,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptionsAcs
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> PaymentIntentPaymentMethodOptionsAcssDebitSetupFutureUsage'EnumNone
-            | val GHC.Classes.== "off_session" -> PaymentIntentPaymentMethodOptionsAcssDebitSetupFutureUsage'EnumOffSession
-            | val GHC.Classes.== "on_session" -> PaymentIntentPaymentMethodOptionsAcssDebitSetupFutureUsage'EnumOnSession
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptionsAcssDebitSetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> PaymentIntentPaymentMethodOptionsAcssDebitSetupFutureUsage'EnumNone
+          | val GHC.Classes.== "off_session" -> PaymentIntentPaymentMethodOptionsAcssDebitSetupFutureUsage'EnumOffSession
+          | val GHC.Classes.== "on_session" -> PaymentIntentPaymentMethodOptionsAcssDebitSetupFutureUsage'EnumOnSession
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptionsAcssDebitSetupFutureUsage'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_intent_payment_method_options_acss_debit.properties.verification_method@ in the specification.
@@ -131,8 +131,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptionsAcs
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> PaymentIntentPaymentMethodOptionsAcssDebitVerificationMethod'EnumAutomatic
-            | val GHC.Classes.== "instant" -> PaymentIntentPaymentMethodOptionsAcssDebitVerificationMethod'EnumInstant
-            | val GHC.Classes.== "microdeposits" -> PaymentIntentPaymentMethodOptionsAcssDebitVerificationMethod'EnumMicrodeposits
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptionsAcssDebitVerificationMethod'Other val
+          | val GHC.Classes.== "automatic" -> PaymentIntentPaymentMethodOptionsAcssDebitVerificationMethod'EnumAutomatic
+          | val GHC.Classes.== "instant" -> PaymentIntentPaymentMethodOptionsAcssDebitVerificationMethod'EnumInstant
+          | val GHC.Classes.== "microdeposits" -> PaymentIntentPaymentMethodOptionsAcssDebitVerificationMethod'EnumMicrodeposits
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptionsAcssDebitVerificationMethod'Other val
       )

@@ -122,9 +122,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentMethodUsBankAccountAccountHol
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "company" -> PaymentMethodUsBankAccountAccountHolderType'NonNullableEnumCompany
-            | val GHC.Classes.== "individual" -> PaymentMethodUsBankAccountAccountHolderType'NonNullableEnumIndividual
-            | GHC.Base.otherwise -> PaymentMethodUsBankAccountAccountHolderType'NonNullableOther val
+          | val GHC.Classes.== "company" -> PaymentMethodUsBankAccountAccountHolderType'NonNullableEnumCompany
+          | val GHC.Classes.== "individual" -> PaymentMethodUsBankAccountAccountHolderType'NonNullableEnumIndividual
+          | GHC.Base.otherwise -> PaymentMethodUsBankAccountAccountHolderType'NonNullableOther val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_method_us_bank_account.properties.account_type@ in the specification.
@@ -151,9 +151,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentMethodUsBankAccountAccountTyp
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "checking" -> PaymentMethodUsBankAccountAccountType'NonNullableEnumChecking
-            | val GHC.Classes.== "savings" -> PaymentMethodUsBankAccountAccountType'NonNullableEnumSavings
-            | GHC.Base.otherwise -> PaymentMethodUsBankAccountAccountType'NonNullableOther val
+          | val GHC.Classes.== "checking" -> PaymentMethodUsBankAccountAccountType'NonNullableEnumChecking
+          | val GHC.Classes.== "savings" -> PaymentMethodUsBankAccountAccountType'NonNullableEnumSavings
+          | GHC.Base.otherwise -> PaymentMethodUsBankAccountAccountType'NonNullableOther val
       )
 
 -- | Defines the object schema located at @components.schemas.payment_method_us_bank_account.properties.networks.anyOf@ in the specification.
@@ -211,7 +211,7 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentMethodUsBankAccountNetworks'N
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "ach" -> PaymentMethodUsBankAccountNetworks'NonNullableSupported'EnumAch
-            | val GHC.Classes.== "us_domestic_wire" -> PaymentMethodUsBankAccountNetworks'NonNullableSupported'EnumUsDomesticWire
-            | GHC.Base.otherwise -> PaymentMethodUsBankAccountNetworks'NonNullableSupported'Other val
+          | val GHC.Classes.== "ach" -> PaymentMethodUsBankAccountNetworks'NonNullableSupported'EnumAch
+          | val GHC.Classes.== "us_domestic_wire" -> PaymentMethodUsBankAccountNetworks'NonNullableSupported'EnumUsDomesticWire
+          | GHC.Base.otherwise -> PaymentMethodUsBankAccountNetworks'NonNullableSupported'Other val
       )

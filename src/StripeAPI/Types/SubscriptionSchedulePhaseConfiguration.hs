@@ -152,9 +152,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON SubscriptionSchedulePhaseConfigurati
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> SubscriptionSchedulePhaseConfigurationBillingCycleAnchor'NonNullableEnumAutomatic
-            | val GHC.Classes.== "phase_start" -> SubscriptionSchedulePhaseConfigurationBillingCycleAnchor'NonNullableEnumPhaseStart
-            | GHC.Base.otherwise -> SubscriptionSchedulePhaseConfigurationBillingCycleAnchor'NonNullableOther val
+          | val GHC.Classes.== "automatic" -> SubscriptionSchedulePhaseConfigurationBillingCycleAnchor'NonNullableEnumAutomatic
+          | val GHC.Classes.== "phase_start" -> SubscriptionSchedulePhaseConfigurationBillingCycleAnchor'NonNullableEnumPhaseStart
+          | GHC.Base.otherwise -> SubscriptionSchedulePhaseConfigurationBillingCycleAnchor'NonNullableOther val
       )
 
 -- | Defines the object schema located at @components.schemas.subscription_schedule_phase_configuration.properties.billing_thresholds.anyOf@ in the specification.
@@ -210,9 +210,9 @@ instance Data.Aeson.Types.FromJSON.FromJSON SubscriptionSchedulePhaseConfigurati
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "charge_automatically" -> SubscriptionSchedulePhaseConfigurationCollectionMethod'NonNullableEnumChargeAutomatically
-            | val GHC.Classes.== "send_invoice" -> SubscriptionSchedulePhaseConfigurationCollectionMethod'NonNullableEnumSendInvoice
-            | GHC.Base.otherwise -> SubscriptionSchedulePhaseConfigurationCollectionMethod'NonNullableOther val
+          | val GHC.Classes.== "charge_automatically" -> SubscriptionSchedulePhaseConfigurationCollectionMethod'NonNullableEnumChargeAutomatically
+          | val GHC.Classes.== "send_invoice" -> SubscriptionSchedulePhaseConfigurationCollectionMethod'NonNullableEnumSendInvoice
+          | GHC.Base.otherwise -> SubscriptionSchedulePhaseConfigurationCollectionMethod'NonNullableOther val
       )
 
 -- | Defines the oneOf schema located at @components.schemas.subscription_schedule_phase_configuration.properties.coupon.anyOf@ in the specification.
@@ -301,10 +301,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON SubscriptionSchedulePhaseConfigurati
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "always_invoice" -> SubscriptionSchedulePhaseConfigurationProrationBehavior'EnumAlwaysInvoice
-            | val GHC.Classes.== "create_prorations" -> SubscriptionSchedulePhaseConfigurationProrationBehavior'EnumCreateProrations
-            | val GHC.Classes.== "none" -> SubscriptionSchedulePhaseConfigurationProrationBehavior'EnumNone
-            | GHC.Base.otherwise -> SubscriptionSchedulePhaseConfigurationProrationBehavior'Other val
+          | val GHC.Classes.== "always_invoice" -> SubscriptionSchedulePhaseConfigurationProrationBehavior'EnumAlwaysInvoice
+          | val GHC.Classes.== "create_prorations" -> SubscriptionSchedulePhaseConfigurationProrationBehavior'EnumCreateProrations
+          | val GHC.Classes.== "none" -> SubscriptionSchedulePhaseConfigurationProrationBehavior'EnumNone
+          | GHC.Base.otherwise -> SubscriptionSchedulePhaseConfigurationProrationBehavior'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.subscription_schedule_phase_configuration.properties.transfer_data.anyOf@ in the specification.

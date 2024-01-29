@@ -234,12 +234,12 @@ instance Data.Aeson.Types.FromJSON.FromJSON Issuing'authorizationAuthorizationMe
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "chip" -> Issuing'authorizationAuthorizationMethod'EnumChip
-            | val GHC.Classes.== "contactless" -> Issuing'authorizationAuthorizationMethod'EnumContactless
-            | val GHC.Classes.== "keyed_in" -> Issuing'authorizationAuthorizationMethod'EnumKeyedIn
-            | val GHC.Classes.== "online" -> Issuing'authorizationAuthorizationMethod'EnumOnline
-            | val GHC.Classes.== "swipe" -> Issuing'authorizationAuthorizationMethod'EnumSwipe
-            | GHC.Base.otherwise -> Issuing'authorizationAuthorizationMethod'Other val
+          | val GHC.Classes.== "chip" -> Issuing'authorizationAuthorizationMethod'EnumChip
+          | val GHC.Classes.== "contactless" -> Issuing'authorizationAuthorizationMethod'EnumContactless
+          | val GHC.Classes.== "keyed_in" -> Issuing'authorizationAuthorizationMethod'EnumKeyedIn
+          | val GHC.Classes.== "online" -> Issuing'authorizationAuthorizationMethod'EnumOnline
+          | val GHC.Classes.== "swipe" -> Issuing'authorizationAuthorizationMethod'EnumSwipe
+          | GHC.Base.otherwise -> Issuing'authorizationAuthorizationMethod'Other val
       )
 
 -- | Defines the oneOf schema located at @components.schemas.issuing.authorization.properties.cardholder.anyOf@ in the specification.
@@ -350,10 +350,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON Issuing'authorizationStatus' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "closed" -> Issuing'authorizationStatus'EnumClosed
-            | val GHC.Classes.== "pending" -> Issuing'authorizationStatus'EnumPending
-            | val GHC.Classes.== "reversed" -> Issuing'authorizationStatus'EnumReversed
-            | GHC.Base.otherwise -> Issuing'authorizationStatus'Other val
+          | val GHC.Classes.== "closed" -> Issuing'authorizationStatus'EnumClosed
+          | val GHC.Classes.== "pending" -> Issuing'authorizationStatus'EnumPending
+          | val GHC.Classes.== "reversed" -> Issuing'authorizationStatus'EnumReversed
+          | GHC.Base.otherwise -> Issuing'authorizationStatus'Other val
       )
 
 -- | Defines the object schema located at @components.schemas.issuing.authorization.properties.treasury.anyOf@ in the specification.

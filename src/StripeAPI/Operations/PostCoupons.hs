@@ -50,7 +50,7 @@ import qualified Prelude as GHC.Maybe
 -- \<p>A coupon has either a \<code>percent_off\<\/code> or an \<code>amount_off\<\/code> and \<code>currency\<\/code>. If you set an \<code>amount_off\<\/code>, that amount will be subtracted from any invoice’s subtotal. For example, an invoice with a subtotal of \<currency>100\<\/currency> will have a final total of \<currency>0\<\/currency> if a coupon with an \<code>amount_off\<\/code> of \<amount>200\<\/amount> is applied to it and an invoice with a subtotal of \<currency>300\<\/currency> will have a final total of \<currency>100\<\/currency> if a coupon with an \<code>amount_off\<\/code> of \<amount>200\<\/amount> is applied to it.\<\/p>
 postCoupons ::
   forall m.
-  StripeAPI.Common.MonadHTTP m =>
+  (StripeAPI.Common.MonadHTTP m) =>
   -- | The request body to send
   GHC.Maybe.Maybe PostCouponsRequestBody ->
   -- | Monadic computation which returns the result of the operation
@@ -62,21 +62,21 @@ postCoupons body =
           ( Data.Either.either PostCouponsResponseError GHC.Base.id
               GHC.Base.. ( \response body ->
                              if
-                                 | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
+                               | (\status_1 -> Network.HTTP.Types.Status.statusCode status_1 GHC.Classes.== 200) (Network.HTTP.Client.Types.responseStatus response) ->
                                    PostCouponsResponse200
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             Coupon
                                                       )
-                                 | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
+                               | GHC.Base.const GHC.Types.True (Network.HTTP.Client.Types.responseStatus response) ->
                                    PostCouponsResponseDefault
                                      Data.Functor.<$> ( Data.Aeson.eitherDecodeStrict body ::
                                                           Data.Either.Either
                                                             GHC.Base.String
                                                             Error
                                                       )
-                                 | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
+                               | GHC.Base.otherwise -> Data.Either.Left "Missing default response type"
                          )
                 response_0
           )
@@ -199,10 +199,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PostCouponsRequestBodyDuration' wher
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "forever" -> PostCouponsRequestBodyDuration'EnumForever
-            | val GHC.Classes.== "once" -> PostCouponsRequestBodyDuration'EnumOnce
-            | val GHC.Classes.== "repeating" -> PostCouponsRequestBodyDuration'EnumRepeating
-            | GHC.Base.otherwise -> PostCouponsRequestBodyDuration'Other val
+          | val GHC.Classes.== "forever" -> PostCouponsRequestBodyDuration'EnumForever
+          | val GHC.Classes.== "once" -> PostCouponsRequestBodyDuration'EnumOnce
+          | val GHC.Classes.== "repeating" -> PostCouponsRequestBodyDuration'EnumRepeating
+          | GHC.Base.otherwise -> PostCouponsRequestBodyDuration'Other val
       )
 
 -- | Defines the oneOf schema located at @paths.\/v1\/coupons.POST.requestBody.content.application\/x-www-form-urlencoded.schema.properties.metadata.anyOf@ in the specification.
@@ -221,8 +221,8 @@ instance Data.Aeson.Types.ToJSON.ToJSON PostCouponsRequestBodyMetadata'Variants 
 instance Data.Aeson.Types.FromJSON.FromJSON PostCouponsRequestBodyMetadata'Variants where
   parseJSON val =
     if
-        | val GHC.Classes.== "" -> GHC.Base.pure PostCouponsRequestBodyMetadata'EmptyString
-        | GHC.Base.otherwise -> case (PostCouponsRequestBodyMetadata'Object Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
+      | val GHC.Classes.== "" -> GHC.Base.pure PostCouponsRequestBodyMetadata'EmptyString
+      | GHC.Base.otherwise -> case (PostCouponsRequestBodyMetadata'Object Data.Functor.<$> Data.Aeson.Types.FromJSON.fromJSON val) GHC.Base.<|> Data.Aeson.Types.Internal.Error "No variant matched" of
           Data.Aeson.Types.Internal.Success a -> GHC.Base.pure a
           Data.Aeson.Types.Internal.Error a -> Control.Monad.Fail.fail a
 

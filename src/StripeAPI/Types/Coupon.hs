@@ -151,8 +151,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON CouponDuration' where
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "forever" -> CouponDuration'EnumForever
-            | val GHC.Classes.== "once" -> CouponDuration'EnumOnce
-            | val GHC.Classes.== "repeating" -> CouponDuration'EnumRepeating
-            | GHC.Base.otherwise -> CouponDuration'Other val
+          | val GHC.Classes.== "forever" -> CouponDuration'EnumForever
+          | val GHC.Classes.== "once" -> CouponDuration'EnumOnce
+          | val GHC.Classes.== "repeating" -> CouponDuration'EnumRepeating
+          | GHC.Base.otherwise -> CouponDuration'Other val
       )

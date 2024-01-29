@@ -98,10 +98,10 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptionsUsB
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "none" -> PaymentIntentPaymentMethodOptionsUsBankAccountSetupFutureUsage'EnumNone
-            | val GHC.Classes.== "off_session" -> PaymentIntentPaymentMethodOptionsUsBankAccountSetupFutureUsage'EnumOffSession
-            | val GHC.Classes.== "on_session" -> PaymentIntentPaymentMethodOptionsUsBankAccountSetupFutureUsage'EnumOnSession
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptionsUsBankAccountSetupFutureUsage'Other val
+          | val GHC.Classes.== "none" -> PaymentIntentPaymentMethodOptionsUsBankAccountSetupFutureUsage'EnumNone
+          | val GHC.Classes.== "off_session" -> PaymentIntentPaymentMethodOptionsUsBankAccountSetupFutureUsage'EnumOffSession
+          | val GHC.Classes.== "on_session" -> PaymentIntentPaymentMethodOptionsUsBankAccountSetupFutureUsage'EnumOnSession
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptionsUsBankAccountSetupFutureUsage'Other val
       )
 
 -- | Defines the enum schema located at @components.schemas.payment_intent_payment_method_options_us_bank_account.properties.verification_method@ in the specification.
@@ -131,8 +131,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON PaymentIntentPaymentMethodOptionsUsB
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "automatic" -> PaymentIntentPaymentMethodOptionsUsBankAccountVerificationMethod'EnumAutomatic
-            | val GHC.Classes.== "instant" -> PaymentIntentPaymentMethodOptionsUsBankAccountVerificationMethod'EnumInstant
-            | val GHC.Classes.== "microdeposits" -> PaymentIntentPaymentMethodOptionsUsBankAccountVerificationMethod'EnumMicrodeposits
-            | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptionsUsBankAccountVerificationMethod'Other val
+          | val GHC.Classes.== "automatic" -> PaymentIntentPaymentMethodOptionsUsBankAccountVerificationMethod'EnumAutomatic
+          | val GHC.Classes.== "instant" -> PaymentIntentPaymentMethodOptionsUsBankAccountVerificationMethod'EnumInstant
+          | val GHC.Classes.== "microdeposits" -> PaymentIntentPaymentMethodOptionsUsBankAccountVerificationMethod'EnumMicrodeposits
+          | GHC.Base.otherwise -> PaymentIntentPaymentMethodOptionsUsBankAccountVerificationMethod'Other val
       )

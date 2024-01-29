@@ -89,8 +89,8 @@ instance Data.Aeson.Types.FromJSON.FromJSON IssuingCardGooglePayIneligibleReason
   parseJSON val =
     GHC.Base.pure
       ( if
-            | val GHC.Classes.== "missing_agreement" -> IssuingCardGooglePayIneligibleReason'NonNullableEnumMissingAgreement
-            | val GHC.Classes.== "missing_cardholder_contact" -> IssuingCardGooglePayIneligibleReason'NonNullableEnumMissingCardholderContact
-            | val GHC.Classes.== "unsupported_region" -> IssuingCardGooglePayIneligibleReason'NonNullableEnumUnsupportedRegion
-            | GHC.Base.otherwise -> IssuingCardGooglePayIneligibleReason'NonNullableOther val
+          | val GHC.Classes.== "missing_agreement" -> IssuingCardGooglePayIneligibleReason'NonNullableEnumMissingAgreement
+          | val GHC.Classes.== "missing_cardholder_contact" -> IssuingCardGooglePayIneligibleReason'NonNullableEnumMissingCardholderContact
+          | val GHC.Classes.== "unsupported_region" -> IssuingCardGooglePayIneligibleReason'NonNullableEnumUnsupportedRegion
+          | GHC.Base.otherwise -> IssuingCardGooglePayIneligibleReason'NonNullableOther val
       )
