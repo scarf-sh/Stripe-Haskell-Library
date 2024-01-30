@@ -1,0 +1,9 @@
+module StripeAPI.Types.SubscriptionsResourceBillingCycleAnchorConfig where
+import Data.Aeson
+import qualified Data.Aeson as Data.Aeson.Types.Internal
+import qualified StripeAPI.Common
+data SubscriptionsResourceBillingCycleAnchorConfig
+instance Show SubscriptionsResourceBillingCycleAnchorConfig
+instance Eq SubscriptionsResourceBillingCycleAnchorConfig
+instance FromJSON SubscriptionsResourceBillingCycleAnchorConfig
+instance ToJSON SubscriptionsResourceBillingCycleAnchorConfig

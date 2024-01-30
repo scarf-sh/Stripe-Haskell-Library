@@ -1,0 +1,19 @@
+module StripeAPI.Types.ConnectAccountReference where
+import Data.Aeson
+import qualified Data.Aeson as Data.Aeson.Types.Internal
+import qualified StripeAPI.Common
+data ConnectAccountReference
+instance Show ConnectAccountReference
+instance Eq ConnectAccountReference
+instance FromJSON ConnectAccountReference
+instance ToJSON ConnectAccountReference
+data ConnectAccountReferenceAccount'Variants
+instance Show ConnectAccountReferenceAccount'Variants
+instance Eq ConnectAccountReferenceAccount'Variants
+instance FromJSON ConnectAccountReferenceAccount'Variants
+instance ToJSON ConnectAccountReferenceAccount'Variants
+data ConnectAccountReferenceType'
+instance Show ConnectAccountReferenceType'
+instance Eq ConnectAccountReferenceType'
+instance FromJSON ConnectAccountReferenceType'
+instance ToJSON ConnectAccountReferenceType'
