@@ -7,6 +7,21 @@ instance Show AutomaticTax
 instance Eq AutomaticTax
 instance FromJSON AutomaticTax
 instance ToJSON AutomaticTax
+data AutomaticTaxLiability'NonNullable
+instance Show AutomaticTaxLiability'NonNullable
+instance Eq AutomaticTaxLiability'NonNullable
+instance FromJSON AutomaticTaxLiability'NonNullable
+instance ToJSON AutomaticTaxLiability'NonNullable
+data AutomaticTaxLiability'NonNullableAccount'Variants
+instance Show AutomaticTaxLiability'NonNullableAccount'Variants
+instance Eq AutomaticTaxLiability'NonNullableAccount'Variants
+instance FromJSON AutomaticTaxLiability'NonNullableAccount'Variants
+instance ToJSON AutomaticTaxLiability'NonNullableAccount'Variants
+data AutomaticTaxLiability'NonNullableType'
+instance Show AutomaticTaxLiability'NonNullableType'
+instance Eq AutomaticTaxLiability'NonNullableType'
+instance FromJSON AutomaticTaxLiability'NonNullableType'
+instance ToJSON AutomaticTaxLiability'NonNullableType'
 data AutomaticTaxStatus'NonNullable
 instance Show AutomaticTaxStatus'NonNullable
 instance Eq AutomaticTaxStatus'NonNullable

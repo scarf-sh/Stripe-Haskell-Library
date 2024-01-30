@@ -12,3 +12,8 @@ instance Show MandateBacsDebitNetworkStatus'
 instance Eq MandateBacsDebitNetworkStatus'
 instance FromJSON MandateBacsDebitNetworkStatus'
 instance ToJSON MandateBacsDebitNetworkStatus'
+data MandateBacsDebitRevocationReason'NonNullable
+instance Show MandateBacsDebitRevocationReason'NonNullable
+instance Eq MandateBacsDebitRevocationReason'NonNullable
+instance FromJSON MandateBacsDebitRevocationReason'NonNullable
+instance ToJSON MandateBacsDebitRevocationReason'NonNullable

@@ -1,0 +1,9 @@
+module StripeAPI.Types.CustomerSessionResourceComponentsResourcePricingTable where
+import Data.Aeson
+import qualified Data.Aeson as Data.Aeson.Types.Internal
+import qualified StripeAPI.Common
+data CustomerSessionResourceComponentsResourcePricingTable
+instance Show CustomerSessionResourceComponentsResourcePricingTable
+instance Eq CustomerSessionResourceComponentsResourcePricingTable
+instance FromJSON CustomerSessionResourceComponentsResourcePricingTable
+instance ToJSON CustomerSessionResourceComponentsResourcePricingTable

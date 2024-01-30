@@ -1,0 +1,9 @@
+module StripeAPI.Types.PaymentLinksResourceSubscriptionDataInvoiceSettings where
+import Data.Aeson
+import qualified Data.Aeson as Data.Aeson.Types.Internal
+import qualified StripeAPI.Common
+data PaymentLinksResourceSubscriptionDataInvoiceSettings
+instance Show PaymentLinksResourceSubscriptionDataInvoiceSettings
+instance Eq PaymentLinksResourceSubscriptionDataInvoiceSettings
+instance FromJSON PaymentLinksResourceSubscriptionDataInvoiceSettings
+instance ToJSON PaymentLinksResourceSubscriptionDataInvoiceSettings
